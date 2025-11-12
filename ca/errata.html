@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Guide to Cultivating Complex Analysis: Errata</title>
+<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
+<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script>
+MathJax = {
+  output: {
+    font: 'mathjax-pagella'
+  }
+};
+</script>
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js"> 
+</script> 
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+<a href="https://www.jirka.org/ca/">[Back to the Guide to Cultivating Complex Analysis home page]</a>
+
+<p>
+
+<h1>Guide to Cultivating Complex Analysis: Errata</h1>
+
+<p>
+Every book (no matter how much you paid for it) has errors and typos,
+especially text that is new in a given edition.  I try to be as transparent as
+possible about any errors found, and I try to fix them as quickly as possible.
+Please do let me know if you find any errors or typos, so that they may be
+fixed.  A free book relies on readers sending in corrections.
+
+<p>
+This page lists major problems in the various editions.  Simple typos,
+misspellings, and such are not listed here.  Also not listed are things that
+were correct but simply deserved improvement.  Of course, older editions may
+suffer from recently discovered errata as well.
+
+<p>
+<b>November 5th 2025 edition (version 1.8):</b>
+<p>
+
+No known errata.
+
+<p>
+<b>May 20th 2025 edition (version 1.7):</b>
+<p>
+
+<ol>
+<li>Page 64, towards the bottom: When showing that \(z_k \not= z_0\) the
+  bound should be \(|g(z_k)| \geq \frac{c}{\ell 2^k} \gt 0 . \)
+  The \(\ell\) is wrongly in the numerator.
+<li>Page 68, Exercise 3.2.20: It should say
+\(d\bar{z} = dx - i \, dy \) and not
+\(d\bar{z} = dx + i \, dy . \)
+<li>Page 86, Exercise 3.4.10, the definition of exponential order is off, it should say
+\( |f(t)| \leq M e^{ct} \) (there was a minus sign in front of the \(c,\) so what it defined
+was exponential decay; the exercise is possible, though unnatural, with decay,
+but it is trivial and the domain given is confusing).
+<li>Page 110, Lemma 4.5.3: It should say
+\(i \dfrac{\log |\gamma(b)-p| - \log |\gamma(a)-p|}{2\pi} ,\)
+both in the lemma statement and in the proof.  That is, the "\(-p\)" was
+missing.
+<li>Page 111, in the proof of Lemma 4.5.5, the definition of
+\(\widetilde{\theta}\) is not correct, a tilde is missing on the path.  That is, it should
+say \(\widetilde{\theta}(t) = \operatorname{Im} L_j\bigl(\widetilde{\gamma}(t)\bigr)\)
+and
+\(\widetilde{\theta}_0 = \operatorname{Im} L_1\bigl(\widetilde{\gamma}(a)\bigr).\)
+<li>Page 114, beginning of section 4.6.1:
+It should also say \(d\bar{z} = dx - i \, dy .\)
+<li>Page 149, Exercise 6.1.2, the sequence should be of <i>bounded</i>
+functions, otherwise only a tail of the sequence is necessarily uniformly
+bounded.
+<li>Page 155, Exercise 6.2.8, this problem is simply not true as stated,
+try \(z^n.\)
+I am not sure what the original intent was, so instead of trying to fix it,
+it will be replaced in the next version.
+<li>Page 158, Exercise 6.3.2, part c: It should say
+\(U = \{ z : |z| &lt; 1 \text{ and } \operatorname{Im} z &gt; 0 \}\)
+for the upper half disc.
+<li>Page 172, proof of Proposition 7.2.2: when it says "\(\cos \theta\) is
+  strictly increasing" it should obviously say "strictly decreasing".  It is
+  the negative of the cosine that is strictly increasing.
+<li>Page 175, Exercise 7.2.4, the \(z_0\) should be in the boundary
+  of \(\mathbb{D}\) not in \(\mathbb{D}\) itself.
+<li>Page 177, in the proof of Theorem 7.2.5:
+"let \(\varphi\) achieve a maximum at \(p \in \Delta_s(p)\)"
+should be
+"let \(\varphi\) achieve a maximum at \(p \in \Delta_s(q)\)".
+<li>Page 185, the inequality proving that \(-c_1 \geq 0\) has a typo
+  it should have \(\psi\) not \(-\psi .\)
+  However, it is perhaps slightly easier to see just from noting that
+  if \(\psi\) has a removable singularity then \(-c_1 \log |z|\) is bounded
+  near zero.
+<li>Page 190, in the long estimate, the signs on the \(h\) in the integrals
+  should be flipped since \(f=\varphi+h\) not \(\varphi-h .\)
+<li>Page 196, the ratio at the top has an off-by-one error, it should be
+\(\dfrac{\prod_{n=1}^{k} (1+a_n)}{\prod_{n=1}^{k-1} (1+a_n)}=1+a_k. \)
+<li>Page 197, the proof of the Cauchyness of the sum of the logarithms has a
+  typo and only proves one direction of the required estimate (it is missing
+  the absolute values around the \(\log |1+a_n|\)).  But there is a far
+  easier way to go about this by just noting that \(\operatorname{Log} z\)
+  has derivative 1 at 1 and \(a_n\) goes to 0, so 
+  \(\frac{ |\operatorname{Log} (1+a_n)|}{ |a_n| }\) goes to 1, and
+  so 
+  \(\sum |\operatorname{Log} (1+a_n)|\)
+  converges if and only if
+  \(\sum |a_n| \) converges.
+<li>Page 197-198, in the result on reordering, the text
+  a couple of times refers to "power series" or "series" instead of
+  "infinite product" or "product".
+<li>Page 205, top of page:  A sentence motivating the general version by
+mistake says the exact opposite of what it should.  That is, "What changes is
+that the zeros can no longer congregate on any point of the boundary as well as
+at infinity" should say "What changes is that the zeros can now congregate on
+any point of the boundary as well as at infinity".
+<li>Page 211, Exercise 9.2.1, the set of functions \(\mathcal{F}\) should be
+  assumed to be an algebra.
+<li>Page 216, Exercise 9.3.3, the set \(W\) should be assumed to be nonempty.
+<li>Page 220, statement of Schwarz reflection principle: The extended function
+\(F\) is, of course, valued in the complex numbers, that is, it should say "\(F
+\colon U \to \mathbb{C}\)".
+<li>Page 228, \(f^{-1}(D)\) should be \(f^{-1}(\Delta).\)
+<li>Page 230, the example universal cover of
+  \(\mathbb{C} \setminus \{ p \}\) is not quite right, it should be \(e^z+p .\)
+<li>Page 259, in the proof of Proposition A.5.5 part (ii), the \(q\) should be
+chosen so that \(\inf_{p \in S} d(y,p) \geq d(y,q) - \epsilon\) (note the
+minus).  The rest of the proof is correct.
+<li>Page 270, in the definition of lower Darboux integral, it should be a sup,
+not an inf.
+<li>On page 283, proof of Theorem B.3.7 (Chain rule):
+The proof forgets to talk about the case where \(k=0,\) but in this case 
+the estimate can end early since then
+\(\frac{\| g(q+k)-g(q) - Bk \|}{\|h\|}=0\) and so we are done.
+<li>On page 283, when discussing the one-to-many dimensional map \(\varphi\)
+when it says "\(h\) is the dot product", it should really say that this is the
+scalar product with \(h.\)
+</ol>
+
+<p>
+<b>May 9th 2024 edition (version 1.6):</b>
+<p>
+
+<ol>
+<li>On page 9, the addition in \({\mathbb{R}}^2\) is incorrect, it should be
+\((a+c,b+d).\)  Thanks to Sunday Oluwafemi Gbodogbe.
+<li>On page 195, when writing the limit of partial products, the limit as
+\(k \to \infty\) is
+missing on the right hand side.
+</ol>
+
+<p>
+<b>July 19th 2023 edition (version 1.5):</b>
+<p>
+
+<ol>
+<li>On page 18, it says "at least one of the values of \(\arg z\) is between
+\(a\) and \(b\)", it should say \(\arg w\) instead.
+<li>On page 23, when it says "where the second inequality follows" it should say "equality" (Thanks to Jonathan Hunt).
+<li>On page 57, in Proposition 3.1.7, we need to still assume that \(g'\) is continuous
+as we have not yet proved that.
+<li>In Exercise 4.3.9, there is a missing hypothesis: \((0,\infty) \cap U\) must be not just nonempty but
+also connected.
+<li>In Theorem 4.6.1, Corollary 4.6.2, and Theorem 4.6.3, the 
+"for all \(z \in \mathbb{C}\)" should be replaced by
+"for all \(z \notin \Gamma\)".
+Obviously the winding number is not defined for \(z \in \Gamma.\)
+<li>In Exercise 5.3.3, the second winding number to compute is \(n(\Gamma_r;-i)=0 ,\)
+as it says in the text of the example.
+<li>In Exercise 5.3.4, it should mention that \(t \geq 0\) for those that are not familiar with
+the Laplace transform.
+<li>In Exercise 5.4.7, the existence of that \(\Gamma\) with winding number 1 is tricky, and really
+was not meant to be part of that exercise.  So the exercise is subtle and really too hard at this point.
+A good way to reword it is to suppose that a path \(\gamma\) with winding number 1 around \(p\) exists.
+<li>In the proof of Theorem 5.4.2 (Rouché), when we mention where \(\operatorname{Log}\) is defined,
+it says \(\mathbb{C} \setminus (\infty,0]\) when it should say
+\(\mathbb{C} \setminus (-\infty,0].\)
+<li>In the statement of Theorem 5.4.2 (Rouché) and 5.4.6 (Hurwitz) the definition of \(V\) starts with \(z \in U .\)  To be absolutely nitpicky it should say \(z \in U \setminus \Gamma ,\)
+as the winding number is obviously not defined on \(\Gamma .\)  Similar issue is in the statement of Theorem 4.6.1 (Green's), Corollary 4.6.2, and Theorem 4.6.3 (Cauchy-Pompeiu).
+(One could argue this is not an erratum as if \(n(\Gamma;z)\) is not defined, it clearly can't be equal to 1.)
+<li>In Exercise 5.4.17, there is a missing hypothesis: the limit should be nonconstant.
+<li>At the end of the proof of Proposition 7.2.2, the numerator in the penultimate expression on the displayed equation is
+\(e^{i\delta}-e^{i\delta}\) but it should be
+\(e^{i\delta}-e^{-i\delta}\) (it is correct in the next expression).
+<li>In the proof of Theorem 7.2.3, it says that \(M\) is the supremum of \(f\) and that should obviously be
+\(|f| .\)
+<li>In the proof of Theorem 7.2.7, it should say that \(S\) is such that \(r &lt; S .\)
+<li>In Exercise 7.2.17, it is not strictly an erratum, but the exercise was supposed to be
+stated as an "if and only if" to parallel the theorem.  The direction that was left out is the simple one, but doing it is good warmup for the hard part.
+<li>On page 181, in the proof of Corollary 7.2.8 (the general Harnack inequality), the last inequality in the chain says 
+\(f(\zeta) \leq 3 f(z_n)\) but it should say
+\(f(z_n) \leq 3 f(\xi).\)
+<li>On page 181, in the proof of Corollary 7.2.8 (the general Harnack inequality),
+the \(C\) we found was 9 times larger than necessary.  It should be \(3^{2N}\) rather than \(3^{2N+2},\)
+as the estimate for \(z_j\) to \(z_{j+1}\) only needs to be applied \(n-1\) times.
+(Strictly speaking, that's not really an erratum as it was technically correct.)
+It may change the answer one gives to exercise 7.2.21 if strictly following the \(C\) given in the proof.
+</ol>
+
+<p>
+<b>May 16th 2023 edition (version 1.4):</b>
+<p>
+
+<ol>
+<li>Page 156, in the statement of Riemann mapping theorem (6.3.1) the "is unique" should be deleted at the end,
+we already say that the map is unique, and the sentence does not make grammatical sense as is.
+<li>Page 202, when it says \(\pi \cdot 1 + 0 = 1 , \) that right hand side should be, obviously, \(\pi .\)
+</ol>
+
+<p>
+<b>July 9th 2022 edition (version 1.3):</b>
+<p>
+
+<ol>
+<li>On page 15, the offhand remark that the exponential is the unique continuous function that does \(e^{z+w}=e^ze^w\)
+is not correct, and would need another condition such as the (complex) derivative being 1 at the origin.  Best to just ignore
+it at this point.  I'll remove it in the next version.  Thanks to Kevin Fernández for noticing.
+<li>After the argument principle the application to compute the single zero \(z_0\) it says "at most 
+one simple zero", strike the "at most".
+<li>After Hurwitz theorem in the paragraph on top of page 143 it says \(\Gamma\) is a small disc;
+it should say "the boundary of a small disc".
+<li>In the proof of Corollary 5.4.9 (limit of univalents is univalent or constant), we should really have that the
+closures of the discs are in \(U\) to make the application of Hurwitz obvious.
+<li>In Lemma 5.6.1, the hypothesis that \(f\) is holomorphic is missing.
+</ol>
+
+<p>
+<b>May 10th 2022 edition (version 1.2):</b>
+<p>
+
+<ol>
+<li>On page 37, in Exercise 2.2.18, the biholomorphism should be
+onto the punctured unit disc \({\mathbb{D}} \setminus \{ 0 \}. \)
+<li>On page 37, in Exercise 2.2.20, it should say \(f \colon {\mathbb{C}} \setminus \{ 0 \} \to {\mathbb{C}}\) not
+\(f \colon {\mathbb{C}} \setminus \{ 0 \} = {\mathbb{C}} .\)
+<li>On page 57, Proposition 3.1.7, clearly \(g \circ \gamma\) is a
+path in \(U,\) not a path in \(V.\)
+<li>On page 87, Exercise 3.5.3, the \(U\) must be a domain, that is, being
+connected is a necessary technicality.
+<li>On page 89, Exercise 3.5.7, technically the exercise is correct but kind of
+misleading.  The condition on the numbers should be \(ad-bc &gt; 0,\)
+otherwise the map might flip upper and lower half plane.
+<li>On page 108, Exercise 4.4.9, half the problem is stated as if \(p=0.\)
+The two radii should be \(|z_1-p|\) and \(|z_2-p|.\)
+<li>On page 124, Exercise 5.1.7, the \(a\) should be \(p\) in the latter
+part of the problem.
+<li>On page 129, Exercise 5.2.20, the image should be \(f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)\)
+and not \(f\bigl(\Delta_r(p)\bigr)\) (\(f\) has a singularity at \(p\)).
+<li>On page 138, Exercise 5.4.2, the \(U'\) should still be large enough so
+that \(\Gamma\) is in \(U'\) and homologous to zero there.
+<li>On page 139, Exercise 5.4.7, the hint is a bit misleading.  One is supposed to apply the formula from
+the argument principle, not the theorem itself.
+<li>On page 143, Exercise 5.4.15, the functions \(f_n\) must clearly be holomorphic.
+<li>On page 149, Exercise 6.1.3, the sequence cannot converge pointwise, what is meant that
+the sequence converges to 1 on a dense set and 0 on another dense set, it does not (it cannot)
+need to converge at every point.
+<li>On page 164, Exercise 6.3.13, the limit \(f\) had better be nonconstant.
+<li>On page 191, Exercise 7.4.9, the minimum needs to be the global minimum, otherwise one only gets
+locally constant for superharmonic functions.  The theorem (maximum principle) for subharmonic functions
+is correctly stated.
+<li>On page 205, in the definition of \(p_n\) the
+\(d(z,{\mathbb{C}}\setminus U)\) should be
+\(d(a^1_n,{\mathbb{C}}\setminus U) .\)
+<li>On page 219, Exercise 9.4.3, the \(K\) should be compact.
+</ol>
+
+<p>
+<b>December 18th 2020 edition (version 1.1):</b>
+<p>
+
+<ol>
+<li>Towards the top of page 15, when computing \(|e^z|\) it says \(|e^{x-iy}|\) while it should
+say \(|e^{x+iy}|\) (although in some sense it is not "wrong").
+<li>In Exercise 1.3.6, the limit should go to \(z_0\) not \(\infty.\)
+<li>When discussing the extended arithmetic (we don't really use it, it's just a remark)
+we say that no addition makes sense, which is not true, what was meant that neither \(\infty+\infty\)
+nor \(\infty-\infty\) makes sense.  Finite number plus \(\infty\) is still valid.
+<li>On page 23 when computing \(\Psi \circ f\) for \(z=\frac{-d}{c},\) we say \(f(0)=\infty\) when we should say \(f(z)=\infty .\)
+<li>In the first version of the proof of Proposition 2.2.2,
+the case \(k=0\) should be explicitly mentioned.  That can happen
+if \(f'(z)=0.\)
+<li>In second version of the proof of Proposition 2.2.2 it says
+that \(f\) and \(g\) are holomorphic when it should just say they
+are complex differentiable (at the relevant points).
+<li>Exercise 2.2.2 should only ask for the power rule not for (ii).
+Items (ii) and (iii) are asked for in Exercise 2.2.3.
+<li>In Exercise 2.2.9, assume \(U\) is a domain (open and connected),
+otherwise \(f\) is only locally constant.  Thanks to Rajan Adhikari.
+<li>On page 40 in caption to Figure 2.3, the
+\(\pm\frac{\pi}{2}\) should be
+\(\pm\frac{\pi}{4}.\)
+<li>The sentence before Cauchy-Hadamard seems to imply we proved divergence
+for the series of absolute values, but we did it for the original series
+because the terms are all bigger than one in absolute value.
+<li>In Remark 2.3.5 we say we don't need addition and multiplication
+of power series and we could wait for doing it for holomorphic functions,
+however, we do need addition (which is rather easy)
+in just the next section.  It is the multiplication that I
+really had in mind that could be postponed.
+<li>On bottom of page 54, in the note about the definition of line integral
+from calculus in the second line of the displayed equation, the \(z\) was not
+replaced by \(\gamma(t)\) as it should be.
+<li>In Proposition 3.1.7, it is possible that \(g \circ \gamma\) does not quite
+satisfy the requirement we made for piecewise \(C^1\) paths in that the
+derivative could vanish if the derivative of \(g\) vanishes,
+but the formula still holds.  We could reparametrize, though that is
+beyond the scope of this proposition, but add a footnote to this effect.
+<li>In the discussion after Corollary 3.2.6, when we say we define
+a function via a line integral, we say "such a function has a primitive"
+when it should say "such a function is a primitive".
+<li>The example after proof of Theorem 3.3.8 should use \((z-p)^n\)
+not \(z^n.\)
+<li>In Exercise 3.3.15, assume that \(U\) is a domain, not just open.
+<li>In Exercise 3.5.8, the \(\phi_a\) should be \(\varphi_a\) and it
+should say that the function can be defined at \(a\) to be holomorphic,
+as a priori it is not defined there.
+<li>At the end of the proof of Proposition 4.1.2 it assumes that \(p=0.\)
+It should read: "As \(L_n\) and \(L_1\) are both branches of \(\log(z-p),\)
+their difference is \(2\pi k i\) for some \(k \in \mathbb{Z},\) as each is
+\(\log\lvert z_0-p \rvert + i \arg (z_0-p)\) for some value of \(\arg.\)"
+<li>On page 97 and again on page 98, in the displayed formulas computing
+\(h(z),\) where it says "\(n(\Gamma;z)\)," it should say "\((2\pi i)n(\Gamma;z)\)."
+<li>On page 105 in the proof of the existence of Laurent series when
+proving that \(\Gamma\) is homologous to zero we say
+\(n(\partial \Delta s_j(p);q)=-1,\) when that is clearly equal to 0.
+<li>On page 105 we refer to Cauchy's theorem when we mean
+Cauchy's integral formula.
+<li>On page 106 near the bottom, when it talks about compact subsets of
+\(\mathbb{C} \setminus \Delta_{s_1}(p)\) it should be 
+\(\mathbb{C} \setminus \overline{\Delta_{s_1}(p)}\) (the description in
+parentheses is correct).
+<li>In Lemma 4.5.5, the \(\theta\) should be real-valued, not complex-valued.
+<li>In Exercise 5.2.12, the function \(f\) should be "not identically zero".
+<li>In theorems 5.4.2 (Rouché) and 5.4.6 (Hurwitz), \(n(\Gamma;z)\) should be
+0 or 1 for all \(z \notin \Gamma\) although it says \(z \in U .\)
+<li>On page 141, Exercise 5.4.8, the annulus should be
+\(\operatorname{ann}(0;1,2)\) not \(\operatorname{ann}(p;1,2).\)
+Thanks to Thanks to Rajan Adhikari.
+<li>In the proof of Rouché (5.4.2), the inequality is one where \(g\) was
+replaced by \(-g,\) which gets the same conclusion of course, but we forgot
+to mention it.
+<li>On page 158, in the proof of Riemann mapping theorem, it says
+\(\{|f_n'(p)|\}\) is an increasing sequence.  Not true as is, though
+WLOG we could assume it is.  But really all we need is that
+\(|f_n'(p)|\leq|f'(p)| .\)
+<li>On page 163, towards the top of the page it says \(\psi^{-1}(\xi) \not= p\)
+when it should say \(\psi^{-1}(\xi) \not= \frac{1}{p} .\)
+<li>On page 221 (below the figure),
+the definition of \(T_\epsilon\) should start with \(z \in \mathbb{C}\) not
+\(z \in T.\)
+<li>On page 222, in the proof of Corollary 10.1.3, towards the end:  We say
+\(W\) is the set \(\psi(V)\) when that should be \(\varphi(V).\)
+<li>On page 223, in Exercise 10.1.3, a hypothesis is missing, the interval \((a,b)\) needs to locally be the boundary of \(U.\)  I will simplify this condition to say
+\(\Delta \cap \partial U = \Delta \cap \mathbb{R} = (a,b) .\)
+You could also assume that \(\Delta\) is centered on the real line.
+<li>On page 224, in the statement of Proposition 10.2.3, it says
+\([t_{j-1},t_j] \subset \Delta_j\) when clearly this should be
+\(\gamma([t_{j-1},t_j]) \subset \Delta_j .\)  Thanks to Preston Kelley for
+noticing.  (The same statement has another typo, it says "Prove that" instead
+of "Then" because it used to be stated as an exercise.)
+<li>In Exercise 10.2.15, assume that \(\mathbb{C} \setminus K\) is connected (it is a domain).
+<li>In Exercise A.2.12, it should be "\(U \cap V = \emptyset\), and \(U \cup V =
+  \mathbb{Q}\)". Thanks to Amanullah Nabavi.
+<li>Exercise A.3.11 is stated as if it was asking to prove both directions of
+  Proposition A.3.12. Next revision will only ask for the direction that
+  wasn't yet proved, since it starts with "Finish the proof of Proposition
+  A.3.12".
+<li>In Theorem A.5.7, we should assume that the metric space is nonempty to
+  avoid a technicality.
+</ol>
+
+<p>
+<b>September 10th 2020 edition (version 1.0):</b>
+<p>
+
+No mathematical errata found, but accents on Rouché and Poincaré were wrong.
+Oops!
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+</body>
+</html>
