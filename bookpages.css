@@ -1,0 +1,47 @@
+@import url('https://fonts.cdnfonts.com/css/tex-gyre-pagella');
+
+span.urls {display:none;}
+@media print {
+ span.urls {display:inline;}
+ div.noprint {display:none;}
+ div.thebody {margin-left: 2%;}
+ h2 {margin-left:-2%;}
+ h1 {margin-left:-2%;}
+ p.left {margin-left:-2%;}
+}
+@media screen {
+ div.thebody {margin-top:20px; margin-left: 5%; margin-right:5%; max-width:800px;}
+ h2 {margin-left:-2%;}
+ h1 {margin-left:-2%;}
+ p.left {margin-left:-2%;}
+}
+img.floatright {
+ float:right;
+ clear:right;
+ margin-left:1em;
+}
+img.floatleft {
+ float:left;
+ clear:left;
+ margin-right:1em;
+}
+table.floatright {
+ float:right;
+ clear:right;
+ margin-left:1em;
+}
+table.floatleft {
+ float:left;
+ clear:left;
+ margin-right:1em;
+}
+h1 {font-size:180%; font-weight:bold;}
+h2 {font-size:120%; font-weight:bold;}
+ul {margin-left:0px; padding-left:1em; list-style:square;}
+
+body { 
+	/*font-family: Palatino,; */
+	font-family: TeXGyrePagella, Tex Gyre Pagella, Palatino, URW Palladio L, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+	font-size: 130%;
+	line-height: 1.05;
+}
