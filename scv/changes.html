@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tasty Bits of Several Complex Variables: Changes</title>
+<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
+<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script>
+MathJax = {
+  output: {
+    font: 'mathjax-pagella'
+  }
+};
+</script>
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js"> 
+</script> 
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href=".">Go to the Tasty Bits of Several Complex Variables home page</a>]
+
+<p>
+
+<h1>Tasty Bits of Several Complex Variables: Changes</h1>
+
+<p>
+<b>May 20th 2025 edition (version 4.2):</b>
+<p>
+
+This is a minor version to fix errata and a couple of minor changes (one new exercise).
+
+<ol>
+<li>Add footnote to Exercise 2.2.1 that it works for smooth functions too by
+using Taylor's theorem so that the reader doesn't think it is only for
+polynomials.
+<li>Add Exercise 2.5.16.
+<li>In 4.4, when defining \((p,q)\)-forms,
+note that the coefficients are smooth functions on some open set \(U .\)
+<li>In 4.5, in the first sentence defining complex affine subspace, avoid trying to
+be cute and short and just give the standard, though slightly longer
+definition.  The original had the issue that we really should have said that
+\(c\) is in the image of \(M.\)
+<li><b>Exercise 4.5.3 changed</b> due to an erratum, some extra hypothesis
+on the functions is necessary, such as their first derivatives vanishing
+at the origin.
+<li>In 4.6, when describing the relationship of Cousin II to Weierstrass,
+add a footnote mentioning that the reason we assume nonvanishing of the
+derivative is only for simplicity (we don't know anything about varieties
+in chapter 4 yet).
+<li>Before Exercise 5.2.1, cite Wiegerinck for the results stated
+without proof.
+<li>In Example 6.8.3, mention at the beginning that we made \(M\) to
+contain the hypersurface \(w=0 .\)
+<li>Add "principal part" definition and the Mittag-Leffler theorem to
+appendix B, since we do refer to it in the Cousin problems section.
+<li>Mention that the cohomology groups from differential forms are
+the de Rham cohomology and add that to the index.  Also put the initial
+trivial map \(d\) into the complex for completeness.
+<li>Add footnote to the sentence introducing Stokes (Theorem C.6) about the
+naming.
+<li>A few other minor clarifications and minor improvements.
+<li>A few style and language fixes.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>June 3rd 2024 edition (version 4.1):</b>
+<p>
+
+This is a minor new version incorporating some errata fixes, and several minor
+changes due to some feedback from Richard Lärkäng who taught with the book in
+the past semester, and a couple of other minor changes (some that I was
+planning to make for version 4.0 but somehow they slipped through the cracks).
+
+<ol>
+<li>Instead of the functional notation for plugging vectors into
+differential forms, use the angle bracket pairing notation that is more
+standard and since we don't really use this much at all, there is no reason to
+have a less standard notation.  This affects one place in chapter 1,
+exercise 4.4.3, and one place in appendix C.
+<li>The notation
+\({\mathbb{C}} \otimes T_p M\) is changed to the more
+common \({\mathbb{C}} T_p M\) which also avoids a slight abuse of notation.
+Thanks to Richard Lärkäng for the suggestion.
+<li>Lemma 2.3.9, the statement about the Levi form doesn't really make sense
+if \(M\) is not a boundary, so change the statement to explicitly say that
+the inside is "above" the \(M\) in the new coordinates.
+Also explicitly mention this at the end of the proof.
+Thanks to Richard Lärkäng for the suggestion.
+<li>At the beginning of section 2.4, give a reference to the one-variable
+book as not every student may have had a treatment of harmonic and
+subharmonic functions in a one-variable course.
+<li>Add hints to Exercise 2.4.8.
+<li>Change Proposition 2.4.5, to be about the sub-mean-value property 
+for all small enough discs (which is really the best way to prove
+the original statement in the first place),
+leaving the original statement as an "In particular".
+That also
+<b>changes Exercise 2.4.11</b> by really making it a bit easier as it
+gives a way to do it (and change the hint to that exercise too).
+Thanks to Richard Lärkäng for the suggestion.
+<li>In Example 2.5.4, put a square on the norm of \(z\) as that makes the
+computation easier.
+Thanks to Richard Lärkäng for the suggestion.
+<li>In Theorem 2.5.6, add part (iv) which is just the conclusion of the
+second version of the Kontinuitatssatz as that just follows from the proof
+directly with no extra work.
+Thanks to Richard Lärkäng for the suggestion.
+<li>In Theorem 2.5.6, make part (ii) less wordy: "U is Hartogs
+pseudoconvex".  I mean the definition is just above the theorem!
+<li>Mark Exercise 2.6.1 as Oka's lemma to make the connection to the "proof"
+above clear.
+<li><b>Change Exercise 4.4.1</b> to ask also to prove the Leibniz rule
+(which easily follows from the first part and the real Leibniz rule), but
+this is good to understand for the computations later in the section.
+Thanks to Richard Lärkäng for the suggestion.
+<li>Add Leibniz rule to Appendix C.
+<li>Simplify the wording of some of the theorems in Appendix E.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+
+<p>
+<b>December 9th 2023 edition (version 4.0):</b>
+<p>
+
+This is a major new edition with some new material and
+many smaller changes throughout.
+<b>Important: Exercise numberes may have changed!</b>.
+
+<p>
+Larger changes in general:
+
+<ul>
+<li>New section 4.4 on the solvability of the \(\bar{\partial}\)-problem in the polydisc.
+<li>New section 4.5 on the extension from an affine subspace and its relation
+to being a domain of holomorphy as an application of the \(\bar{\partial}\)-problem.
+<li>New section 4.6 on Cousin problems.
+<li>New short appendix on some analysis bits including some
+useful measure theory results.
+<li>Many minor changes (see below), mostly in chapters 1, 2, 4, and 6,
+includes new exercises (66 new exercises), new figures.
+<li>A couple of new results in existing sections, another version of
+the Kontinuitätssatz in section 2.1, prove the existence of
+regular points (and hence density) of a subvariety in 6.5,
+and prove that the singular
+set of a hypervariety is a subvariety in section 6.6.
+<li>New font, more readable (shorter lines).
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+<p>
+Detailed list of the smaller changes.
+
+<ul>
+<li> Move the definition of \((p,q)\)-form and its derivative to section 4.4
+  as that's where it's needed first.
+<li> Add a note about \(\log \lvert f \rvert\) being harmonic after Theorem 0.1.3
+<li> Add equivalent definition of "locally bounded" to the footnote.
+<li> In proof of Proposition 1.1.3, emphasize that (1.1) means \(f\) is
+  continuous on \(U,\) not just \(\Delta,\) to avoid worrying about
+  measurability.  Improve the proof to only use the standard Leibniz rule
+  for Riemann integrals.
+<li> Add Exercise 1.1.8 on boundedness and extension through a point,
+and add relevant note to the corollary of Hartogs figure.
+<li> Add a note after Theorem 1.2.1 to note that continuity up to the
+  boundary is not really necessary.
+<li> Improve the wording of the definition of Reinhardt domain.
+<li> Add Exercises 1.2.3 and 1.2.4.  This renumbers the exercises
+in 1.2.
+<li> Make Exercise 1.2.9 (domain of convergence is a complete Reinhardt
+domain) into a proposition (keeping the exercise, but just stating it as a
+proposition), that flows better.  It renumbers the following
+Theorems/Propositions/Lemmas in 1.2.
+<li> After the identity theorem, note the difference with the one variable
+  identity theorem, and give a quick example of why it is not so simple.
+<li> Exercise 1.2.12 changed to use the unit ball instead of the polydisc.
+<li> When introducing the Jacobian put "holomorphic" in parentheses and
+  mention that we will not say so explicitly if the mapping is holomorphic.
+<li> Add Exercise 1.3.7 (vector-valued maximum principle)
+<li>In the proof of Lemma 1.4.7, emphasize where bounded is being used.
+<li> In the proof of Theorem 1.5.1, make the plugging into \(f_k\) a bit more
+  specific with displayed equations.  Also introduce "higher order terms"
+  earlier, and use it in the end instead of making up new names for them.
+<li> Note that all Reinhardt domains are circular after
+Corollary 1.5.2.
+<li> New Exercise 1.5.10.
+<li> New Exercises 1.6.1, 1.6.2, 1.6.3, and 1.6.6. 
+  Renumbers rest of the exercises in 1.6.
+<li> At the end of Example 1.6.3, make the zero set be the same as that for
+the first two functions in the example.
+<li> Rename 2.1 to "Domains of holomorphic &amp; holomorphic extension"
+<li> New Exercises 2.1.4 and 2.1.5, renumbers rest of the exercises in 2.1
+<li> New Exercise 2.1.15
+<li> New Theorem 2.1.7, the extension version of the continuity principle,
+the Kontinuitatssatz.
+  Name the two version "first version" and "second version."
+<li> Adds Exercises 2.1.16, 2.1.17, and 2.1.18
+<li> Remove Exercise 2.2.1 as it's now covered by 2.1.4, and add a
+different Exercise 2.2.1 after definition 2.2.2.
+<li> After Exercise 2.2.2, after the computation showing that \(X_p f\)
+depends only on values on \(M,\) explicitly note what a smooth function
+on a nonopen set is. 
+<li> Add Proposition 2.2.6 about where tangent spaces are taken.  Renumbers
+following propositions, definitions, and examples in 2.2.
+<li> Change Lemma 2.2.9 to Proposition to be consistent with 2.3 where the
+analogous result is a Proposition.
+<li> Add the explicit form of \(T_0 M\) into the statement of Proposition 2.2.9.
+<li> Add blurb about translations and matrices preserving
+convexity and add Exercise 2.2.8 to prove it, renumbers the rest
+of the exercises in 2.2.
+<li> Add Exercise 2.2.11
+<li> Pull out the definition of the complexified real derivative to the
+before the statement of Proposition 2.3.1.
+<li> Rename 2.3 to "Holomorphic vectors, Levi form, pseudoconvexity"
+<li> Add Exercises 2.3.2 and 2.3.3, renumbers the rest in 2.3.
+<li> Make Proposition 2.3.2 be more general, not just for biholomorphisms.
+<li> Add a quick remark after Proposition 2.3.3 to notice how the z and w
+variables are handled in \(\varphi .\)
+<li> In Exercise 2.3.4 ask to show that the new full Hessian matrix is also
+  Hermitian.
+<li> New Exercises 2.3.5-2.3.7
+<li> In 2.3 add a bit more on the relationship of the positivity/eigenvalues of
+  of the real and complex Hessians.  (mainly the exercises)
+<li> The real Hessian in terms of the \(z\)s and \(\bar{z}\)s has now the block rows
+  flipped, that is really the correct way to look at it so that it is
+  hermitian.
+<li> When saying how does a complex linear change of variables acts on the Hessian,
+mention that we mean by the derivative \(D_{\mathbb{C}} A .\)
+<li> In the discussion before Theorem 2.3.8, use L instead of H for the
+complex Hessian for consistency.
+<li> In Exercise 2.3.13, require that the dimension is at least
+two, otherwise it is too trivial.
+<li> Improve the discussion after Narasimhan's lemma (2.3.10)
+<li> Change Exercise 2.3.14 to address an erratum: First show that the \(a\)
+and \(b\) matrices can be made symmetric.
+<li> In the proof of Theorem 2.3.11, when writing out the analytic discs,
+mention that \(\xi\) is in the disc.
+<li> After the proof also mention that the proof could be done with those
+discs using the first version of the continuity principle (new in this
+edition).
+<li> Rename 2.4 to "From harmonic to plurisubharmonic functions"
+<li> Make Exercise 2.4.11 into a proposition as we
+use it without mentioning it much often.  Leave the proof still as an
+exercise.  Renumbers rest of the propositions in 2.4.
+<li> Move Exercise 2.4.27 up and make it Exercise 2.4.22 as it makes a lot
+more sense at that point.  Renumbers the following exercises.
+<li> Make the composition of holomorphic and
+psh function being psh an explicit corollary as
+it is important in the exposition.  Still leave the proof as an exercise.
+<li> Clarify the proof of Radó's theorem.
+<li> Start 2.5 with a better introduction to why we consider hulls.
+<li> In 2.5, add a footnote about why we won't define convex functions
+  on arbitrary domains.
+<li> In Exercise 2.5.15, it is much easier to use exercise 2.5.9
+  than the "hint" in text, so replace that hint.
+<li> In Exercise 2.5.13, require that the disc only goes out of \(U\) at
+  the origin, which is really the only reasonable way to do this.
+<li>In the proof of Theorem 2.5.8, label the estimates and reword the
+proof little bit to make it clearer.
+<li> Move Exercise 2.6.13 (Behnke-Stein) past Cartan-Thullen.  It is much
+  easier then.
+<li> In the proof of Cartan-Thullen, don't use strict inequalities
+which aren't needed
+<li>In 3.1, when looking at convergence of real power series, use open
+product of intervals to start with for consistency.
+<li>Example 3.1.8, remove the square, it's not necessary
+<li> Be more precise in exercise 4.1.3 to mention that the wanted function
+is continuous up to the boundary (so that it has boundary values).
+<li>Rename 4.2 to be a bit more descriptive.
+<li> Ask a little bit more in 4.2.2, that only the second form allows the differentiation
+under the integral.
+<li> New part b) to Exercise 5.2.3.
+<li> After definition 6.1.3, use A and B for the sets not X and Y, and also
+mention set complement for germs.  So ask about complement in Exercise
+6.1.7.
+<li> Define "unit" in 6.2
+<li> Add Figure 6.1 to proof of the Weierstrass preparation theorem.
+<li> Reword the proof of Weierstrass preparation theorem somewhat to be
+clearer, and add power sum to the index.
+<li> Add Figure 6.3 to Exercise 6.2.4 (the square root example).
+<li> Mention that the formulas relating the symmetric functions and power
+sums are called the Newton identities or Girard-Newton formulas.
+<li> After the Weierstrass preparation theorem when we remark it is a generalization of
+the implicit function theorem, say it is a k-valued solution rather than
+k solutions, as that could be misinterpreted.
+<li> Before the Weierstrass division theorem, give the one-variable version
+of it.
+<li> Add a remark about how the preparation and division theorems are
+really theorems about formal power series.
+<li> At the beginning of section 6.3, when talking about geometrically
+distinct zeros, use \(\zeta\) for the (single) variable instead of \(z_n .\)
+<li> In the proof of Proposition 6.3.1, mention that WLOG we are assuming
+that \(\alpha(0)=0 .\)
+<li> Clarify the proof of Theorem 6.3.3, explicitly write out the argument
+principle, use \(\gamma_j\) instead of
+\(\gamma'\) as that could be misinterpreted,
+and make the figure in the proof
+more correct as the curves are picked at \(p'\) not any \(z'.\)
+<li> Make the definition of ideal in 6.4 clearer.
+<li> Add a quick definition of irreducible just above Theorem 6.4.2
+for completeness.  Also state Theorem 6.4.2 for nonunits only as to avoid
+having to think of what does it mean for a unit.
+<li> Put the definition of radical into the main text rather than as a
+footnote for more consistency (and add it to the index).
+<li> Use \(V_p(I)\) instead of \(V(I)\) as we are doing the germ notion
+and that's more consistent.
+<li>Add two basic exercises about varieties to 6.5, so exercises are
+renumbered.
+<li> Simplify the statement in 6.5.4.
+<li> Define the dimension of a subvariety and the concept of pure dimension
+using only regular points, which seems a little ontologically simpler.
+Also simplifies the last exercise in 6.5.
+<li> Add the intersection of two complex manifolds to example 6.5.6,
+and add the relevant figure.
+Also rename X and Y to U and M so that the naming in the example makes more sense.
+<li> Move the statement of the theorem about \(Z_f\) to section 6.5 from
+6.6 (now Theorem 6.5.9), and add the generalization of this result (that
+regular points exist and are thus dense) to arbitrary varieties,
+Lemma 6.5.10.
+<li>Add the statement about dimension of singularity being less than the
+dimension of the variety to Theorem 6.5.11 (which is left without proof).
+<li> In 6.6, what is now Theorem 6.6.2 had a gap (must use that
+that regular points are dense, so fix this gap).
+<li> Reorganize section 6.6, and add a theorem (Theorem 6.6.5) proving that
+the singular
+set of a hypervariety is a subvariety, makes things more complete at least
+for hypervarieties.  Add a figure to go with Theorem 6.6.5 and a couple of
+exercises to finish the proof.  Also a figure to the parabola example.
+Also one exercise was removed due to an
+erratum.  That all renumbers the exercises in the section.
+<li> Reword the Local parametrization theorem a little bit and explicitly say
+that E is the discriminant set.
+<li> Exercise 6.7.9 was missing a conclusion to prove.  Make it into proving
+  an if and only if for irreducibility, which is really what was meant.
+<li>Add a short note mentioning the resolution of singularities being a more general
+version of Puiseux.
+<li>Add a figure to Example 6.8.2.
+<li>In section 6.8, add a figure for the definition of the Segre variety.
+<li> In Appendix B, introduce and use winding numbers and describe how things
+  are connected to our statements.  That makes things more compatible with
+  most one-variable books.
+<li> Improve Figure C.1 a little.
+<li> In Appendix C add a short note on how to evaluate \(k\)-forms.
+<li> In Appendix D define integral domain and properly assume it for the
+definitions of PID and UFD.
+<li> Add reference to my one variable book in the reading.
+<li> When computing the Hessian use the vertical bar to evaluate,
+  it may be clearer
+<li> Figures now have numbers, captions, float, and have explicit references
+  in text.
+<li> Replace many j's with k's or similar for aesthetic reasons.  Some other
+  letters are changed to be more consistent too.
+<li> Use Hermitian form or Hermitian quadratic form where appropriate rather
+than sesquilinear which should only be called that if both arguments can vary independently.
+<li> Some figures have been mildly cleaned up.
+<li> Shorten a couple of section titles slightly.
+<li> Tighten the language and improve clarity in many places.
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+<p>
+<b>December 23rd 2020 edition (version 3.4):</b>
+<p>
+
+<ul>
+<li>Definition of piecewise-\(C^1\) boundary is now precise.
+<li>In Cauchy-Pompeiu use the derivative in \(\bar{\zeta}\) rather than
+\(\bar{z}.\)  It means the same thing, and it matches the proof.
+<li>Better definition of the set of poles.
+<li>Minor other wording improvements and clarifications throughout.
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+<p>
+<b>May 28th 2020 edition (version 3.3):</b>
+<p>
+
+<ul>
+<li>An extra example of the density of regular points after 1.6.2
+<li>In 2.2, add sentence about possibly leaving out "real" before
+  hypersurface, but try to use "real" everywhere if needed.
+<li>State Exercise 2.3.13 in a simpler way asking for the function to just 
+  be holomorphic in \(W.\)  It is asking for something slightly stronger, but
+  that is the way to really solve it anyway, and it should be easier this way
+<li>In Exercise 2.3.17, there is no need to assume f is not identically zero
+  and \(U\) is a domain.
+<li>Add hint to Exercise 2.4.7, it was probably a tiny bit too hard if we do
+  not have all the harmonic function machinery.
+<li>Improve wording of Exercise 6.8.3 to be more precise.
+<li>Rewrite bits of the basic notations appendix.
+<li>In the definition of \(C^1\) path assume that derivative is nonzero.
+<li>More reasonable wording of the argument principle.
+<li>Several minor clarifications.
+<li>A bunch of other minor improvements in language and grammar.
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+
+<p>
+<b>October 1st 2019 edition (version 3.2):</b>
+<p>
+
+<ul>
+<li>Move Exercise 2.2.5 just past Example 2.2.7 since that makes a bit more sense
+  (no numbers were changed, but it appears one page later).
+<li>In Exercise 5.2.6, let \(U\) be either the unit ball or the unit polydisc.  The
+  original was way too hard and didn't immediately apply to help with 5.2.8
+<li>Add the statement of completeness of the Bergman space into Lemma 5.2.1
+  as that makes more sense, and essentially it just moves where the QED symbol
+  appears.
+<li>Use "zero" consistently instead of mixing "zero" and "root" in chapter 6.
+<li>Minor improvements in wording, style, and grammar.
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+<p>
+<b>May 21st 2019 edition (version 3.1):</b>
+<p>
+
+<ul>
+<li>Minor clarifications, style and grammar fixes throughout.
+<li>In analytic continuation definition explicitly state that the path begins
+at p, although it seems implied.
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+<p>
+<b>May 6th 2019 edition (version 3.0):</b>
+<p>
+
+The main goals of this revision are:
+
+<ul>
+<li>Fill in some more of the details to make the course more
+accessible.
+<li>Add more figures where appropriate.
+<li>Add more examples throughout.
+<li>Reorganize some of the more confusing sections, to make the flow more logical.
+<li>Reword some of the results.
+<li>Add many exercises.
+<li>Make some results that were just mentioned
+in text or exercises into proper propositions/theorems.
+<li>Fix any issues found along the way, and simplify a few proofs.
+<li>Add one or two concepts (Levi-flat and solution of the Levi
+problem for Reinhardt domains), but really, there's not much new material in
+this edition, mostly just more motivation for what we are doing, and hopefully
+clearer (and cleaner) exposition.
+<li>Add appendices on basic theorems in one complex variable, on Stokes
+theorem and differential forms (without proofs), and algebra.
+</ul>
+
+The primary changes are listed below.  These are only the somewhat larger
+changes.  Lots of small minor improvements have been made throughout.
+
+<ul>
+<li>New slightly different font
+<li><b>Theorems, exercises, and even some sections have been renumbered due to
+some of the reordering, the new material, and the new exercises.</b>  This was
+unavoidable.
+<li>A bunch of places used "domain" where "open set" is just as good.  So try to use domain
+only when connectedness is needed.
+<li>Slightly more general Cauchy-Pompeiu
+<li>Add Re/Im notation in 0.1
+<li>Make difference quotient in 0.1 look like the one in 1.1 for consistency.
+<li>Add definition \(C^k\) and \(C^\infty\) and smooth in 0.1 since its needed all over.
+<li>Include "minimum principle" in the max principle for harmonic functions in 0.1
+<li>Add a bit more algebra detail and make sure to point out the rings are
+  commutative.
+<li>Move all the \(O(\ell)\) explanation into one place, and explain the difference
+between the more standard big-oh notation vs our shorthand
+<li>Add picture of unit ball in two dimensions
+<li>Fill in some more details in 1.1.
+<li>Add exercises in 1.1.
+<li>Add more on the multiindex notation as it is used to hopefully make the
+  computations less mysterious.
+<li>Use the "reduce to one variable proof" as the main one for converse of the
+  power series theorem, and add one more alternative proof with an exercise
+<li>Make the Cauchy estimates and computation of coefficients into a
+   proposition in 1.2
+<li>Add exercises in 1.2
+<li>Say "local maximum" for the maximum principle ... why not.
+<li>Makes more sense to define complete Reinhardt domains with closed
+  polydiscs, so do that
+<li>In 1.3, move the implicit function theorem to the end of the section
+   (past chain rule for mappings and the proposition on the determinant of the
+   Jacobian), it is much more natural to prove it then.
+<li>Add exercises in 1.3
+<li>Add figure to proof of Rothstein's theorem in 1.4
+<li>Add exercises in 1.4
+<li>Add a little bit of explanation of the computation for \(f^\ell\) in 1.5
+<li>Add an exercise to 1.5
+<li>Add examples for analytic sets in 1.6.
+<li>Avoid unnecessary use of Sard's theorem in the theorem "one-to-one implies
+  biholomorphic" (was 1.6.3)
+<li>Add a short blurb about convexity right at the beginning of 2.1
+<li>Improve figure for Hartogs figure.
+<li>Add exercises to 2.1
+<li>Add part b) to exercise 2.2.2 for any function vanishing on \(M\) 
+<li>Add a blurb about tangent space being derivatives along \(M\) and give a
+  short example
+<li>Split up the numbered definitions in 2.2 a bit more.
+<li>Add proposition for the "inertia of Levi form" does not depend on the
+  defining function and relevant exercise now just says to prove this
+  proposition.
+<li>Similarly, add the "inertia is preserved" to the change of variables
+  theorem (was 2.3.7) instead of just making it a remark after
+  the theorem
+<li>Add discussion in 2.3 of the Levi form in terms of graph coordinates
+  before the Lewy hypersurface example
+<li>Add figure of the Lewy hypersurface
+<li>Simplify the lemma normalizing the Levi form.  There is really no reason
+  for the derivatives.
+<li>Add exercises to 2.3.
+<li>Add definition of Levi-flat to end of 2.3 and add related exercises
+<li>Computation of the complex Hessian under change of coordinates is done
+  with different variable names on source and target for more clarity
+<li>Add graph of Poisson kernel for a few \(r\)
+<li>Add a figure for \(n=1\) for definition of subharmonic function where it is
+  just the convex function 
+<li>Make the exercise about the (weakly/strongly) pseudoconvex
+  points more logical, and include 3 different domains
+<li>Move the solution of Dirichlet problem up in 2.4 so that it can be used.
+<li>Add a remark about how pluriharmonic and plurisubharmonic functions are
+  in some sense the correct several complex variable generalizations of
+  affine linear and convex functions.
+<li>Rework and add exercises in 2.4
+<li>Clarify/simplify the proof of Rado's theorem and add a figure.
+<li>Add a note about convexity and example of the hull in section 2.5.
+<li>Add exercises in 2.5
+<li>Rework and add exercises in 2.6
+<li>State the solution of the Levi problem as a theorem in 2.6 even though we
+  do not prove it.
+<li>Add definition of logarithmically convex complete Reinhardt domain and
+  a series of exercises that prove the Levi problem for complete Reinhardt
+  domains after Cartan-Thullen
+<li>Rename chapter 3 to "CR functions" from "CR geometry" since we really did
+  quite a bit of "CR geometry" in chapter 2 already, in chapter 3 it is
+  CR functions specifically that we are interested in.
+<li>Add exercises in 3.1 
+<li>Add a bit more explanation of the complexification and the abuse of notation
+  for treating \(\bar{z}\) as an independent variable in the context of
+  real-analytic functions.
+<li>In 3.2, explain taking derivatives of functions only defined on a
+  hypersurface, and add a relevant exercise.
+<li>In the proposition that a restriction of a holomorphic function is a
+  smooth CR function, use the directly definition, it is easier.
+<li>In 3.2 add the "reality condition" the complexified graph proposition, and
+  with it fix the gap showing that the vector fields given give the CR
+  vector fields
+<li>In the complexified graph proposition, define complexification of \(M\)
+  and also state that functions vanishing on \(M\) vanish on the
+  complexification, which is left as an exercise.
+<li>Add a short example of the complexified graph result.
+<li>Add a short one dimensional example of extending a function from a circle.
+<li>Make Severi's theorem a "Theorem" rather than just "Proposition"
+<li>In 3.2, prove the proposition "zero on the boundary means zero inside"
+  including in one dimension (using Radó), and add a figure.
+<li>Add a couple of exercises in 3.2, renumbering others
+<li>Add note at end of 3.2 about the "PDE problem" we are about to solve
+<li>Split off the \(d(f \wedge dz) = 0\) claim as a lemma before Baouendi-Treves
+<li>Add two figures in the proof of Baouendi-Trèves
+<li>Simplify proof of Lewy a tiny bit, and improve notation a bit.
+<li>Add exercises in 3.4
+<li>Add remark with a reference to Lewy's example to end of 3.4.
+<li>Explicitly say that the exterior derivative in \(z\) and \(\bar{z}\)
+  is the same as in \(x\) and \(y\) before the proof of Pompeiu.
+<li>Add figure to proof of Cauchy-Pompeiu
+<li>Remove an exercise in 4.3 that was just wrong.
+<li>Add new exercises to 4.3
+<li>Reorganize 6.1, including renaming it to "The ring of germs",
+  adding exercises, and reordering some of the other exercises to be more
+  logical.
+<li>Add figure for Weierstrass preparation theorem, and add some
+  detail to the proof.
+<li>Explicitly state that roots of P are inside D for the Weierstrass
+  preparation
+<li>Add more complete explanation of what symmetric functions are
+<li>Add explanation of why simply connectedness is important for global
+  definition of roots after Proposition 6.2.6
+<li>Add some exercises in 6.2
+<li>Split 6.2 into two sections
+<li>Add some examples in 6.2
+<li>Add a note on the division theorem from algebra
+<li>Add exercises in what is now 6.3
+<li>Describe better what geometrically distinct is and define geometrically
+  unique explicitly
+<li>Make the D in the dependence on roots propositions and the discriminant
+  theorem be a domain (bounded in the case of the discriminant theorem
+<li>Improve (strenghten) the statement of the theorem on the existence of 
+  discriminant, add a figure to the proof and give a more detailed proof
+  of the slightly stronger theorem.
+<li>Rename what was 6.3 (now 6.4) to the "Properties of the ring of germs"
+<li>Move the ideal definitions and exercises to what is now 6.4.
+<li>Add a couple of simple examples in what was 6.4 (now 6.5).
+<li>Add note (and exercise) on well-definedness of dimension, and some
+  rewording in what was 6.4 (now 6.5).
+<li>Add exercises in what was 6.4 (now 6.5)
+<li>What was 6.4.1 is now a separate section (that was really an oversight,
+   that should have been a separate section to begin with)
+<li>Add examples in what is now 6.5, and move the cusp figure up to where
+   the example first appears now
+<li>Simplify definition of regular point to jive with what was used
+  previously in 1.6 (just relabeling coordinates)
+<li>Add exercises in what is now 6.5
+<li>Split out the hypervariety results to a separate section in chapter 6
+<li>Use \(\zeta\) instead of \(w\) in the Segre variety section to avoid confusion
+<li>Add example and exercise in Segre variety section
+<li>Add a very short Appendix A on basic notation, which may not be totally standard
+<li>Add Appendix B on one complex variable stuff
+<li>Add Appendix C on differential forms and Stokes' theorem
+<li>Add Appendix D on basic algebra notation and results
+<li>Add list of notations
+<li>Add Zariski-Samuel to the list of further reading
+<li>And many other minor (and some not so minor) clarifications and
+improvements that were either too small to note down, or that I forgot to note.
+</ul>
+
+<p>
+<b>October 11th 2018 edition (version 2.4):</b>
+<p>
+
+<ol>
+<li>Change definition of holomorphic to be the more standard
+one (\(f\) locally bounded and complex differentiable in each
+variable, giving the Cauchy-Riemann definition only for
+continuously differentiable functions as an alternative)
+this doesn't require a deeper one-variable result (that would not
+appear in a basic one-variable book).
+Exercise 1.1.4 now makes more sense with this definition.
+<li>Be a bit more formal with the definition of one-variable
+holomorphic function, and define it with the complex derivative
+to make the one variable section aligned with the new definition
+in the first chapter.
+<li>Be more explicit and careful with "uniformly absolute" convergence
+of series and when meaning "uniformly absolute convergence" always state it
+that way (even though we say that the only type of convergence in several
+variables is absolute, so it can't mean anything else).
+<li>Add definition of \(O(\ell)\) when first used.
+<li>All links are https now.
+<li>Minor clarifications and style fixes throughout.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>June 27th 2018 edition (version 2.3):</b>
+<p>
+
+<ol>
+<li>Fix Exercise 1.2.11, and add part c).
+<li>Fix Exercise 1.4.1, and add part c).
+<li>As people have different opinions about what "strongly (pseudo)convex" means for 
+    unbounded domains, only define the term for bounded.
+<li>Improve exposition very slightly throughout.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>November 29th 2017 edition (version 2.2):</b>
+<p>
+
+<ol>
+<li>Reword the hypotheses of proposition 6.2.5, 6.2.6 and theorem 6.2.7
+<li><b>Move exercise 4.3.4 to section 4.2 so renumbered to 4.2.4</b>.  It makes a lot more sense right after 4.2.3. (Thanks to John Treuer for the suggestion)
+<li>Improvements and fixes in language and style in a number of places.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>March 21st 2017 edition (version 2.1):</b>
+<p>
+
+<ol>
+<li>Add exercise 6.4.21
+<li>Fix wording of exercise 6.4.16, \(\ell_j\) are not needed
+<li>Fix definition of meromorphic functions to be the standard one,
+noting the deep result of Oka that shows what localy a quotient means
+globally a quotient on domains in \({\mathbb C}^n.\)
+<li>Very minor improvements in style and exposition in a few places
+<li>License changed to dual CC-BY-SA and CC-BY-NC-SA
+<li>Fix <a href="errata.html">errata</a>.
+<li>Fix few minor typos
+</ol>
+
+<p>
+<b>May 5th 2016 edition (version 2.0):</b>
+<p>
+
+<ul>
+<li>Add chapters 5 (integral kernels) and 6 (varieties).
+<li>Split the harmonic (plurisubharmonic) section (2.4) from Hartogs
+pseudoconvexity (new 2.5).  That of course moves 2.5 to 2.6.
+<li>Add Rado's theorem to the section on harmonic functions section 2.5.
+<li>Add a few corollaries to Hartogs phenomenon.
+<li>Make implicit function theorem a theorem rather than just an exercise.
+<li>Add exercises throughout, and reorder some exercises to fix
+dependencies between them.
+<li>Do some minor reordering in the early chapters.
+<li>Add more detail about orientation in \({\mathbb C}^n.\)
+<li>Add diagram for proof of the Riemann extension theorem.
+<li>Add diagram for proof of the tomato can principle.
+<li>Add diagram for proof of the local nature of Hartogs pseudoconvexity (Lemma 2.5.7)
+<li>Add diagram for proof of Lewy extension theorem.
+<li>Add more historical context in several places.
+<li>Lots of small minor improvements in style and exposition, some minor
+reordering and reworking of proofs and a few extra clarification in many places.
+<li>Add more terms to the index.
+<li>Fix <a href="errata.html">errata</a>.
+</ul>
+
+<!--
+<li>Remove the stars from section names they are in fact used in the new
+chapter 6.
+<li>Define modulus in 0.1, and point the interested reader at the proof of the
+generalized Cauchy formula at the end of the book.
+<li>Add more detail to the swapping of sum and integral in the proof of the existence of the power series, both in one and several variables.
+<li>Add remark about orientation and the actual isomorphism
+to identify \({\mathbb C}^n\) and
+\({\mathbb R}^{2n}\) used.
+<li>Moved definition 1.3.6, exercise 1.3.1 and 1.3.2 to section 1.2.
+The numbering of propositions 1.3.7 and 1.3.8 therefore changed.
+Exerices 1.3.1 and 1.3.2 were replaced with new exercises.
+<li>Make implicit function into a theorem rather than just stating it in an
+exercise, which is another reason why props 1.3.7 and 1.3.8 have different
+numbers now.
+<li>Exercises in section 1.6 have been reordered.
+<li>Regular point is now defined separately, not in the theorem and we mention that it is a regular point of dimension \(n-1.\)
+<li>Remove the isolated zeros claim from Corollary 2.1.5 and just place it in text afterwards.  It didn't read well as is.
+<li>Add example 2.1.6 about two real-linear (orthonormal) image of a domain of holomorphy need not be a domain of holomorphy.
+<li>Add diagram to the Tomato can principle proof.
+<li>Add Corollaries 4.3.2 and 4.3.3.
+<li>In exercise 2.4.3, just remove the thing about continuous functions.
+<li>In exercise 2.4.10, add an extra part showing that a power of
+the modulus of a holomorphic function is plurisubharmonic.
+<li>Swap exercises 2.4.14 and 2.4.13, they really belong in that order
+as one is naturally used in the other.
+<li>Add exercise 2.4.26, which moves the further exercises in 2.4 up by one.
+<li>Add exercises 2.5.6, 2.5.7, which moves the further exercises in 2.5
+up by two.
+<li>Move exercise 3.2.3 to the end of the section as it is easier and
+more natural there, and replace 3.2.3 with another fun exercise.
+<li>Lots of small minor improvements in style and exposition, some minor
+reordering and reworking of proofs and a few extra clarification in many places.
+<li>Add more terms to the index.
+-->
+
+
+<p>
+<b>November 24th 2015 edition:</b>
+<p>
+
+<ul>
+<li>Add exercises 1.6.5, 1.6.6, 1.6.7 about Jacobian conjecture.
+<li>Fix <a href="errata.html">errata</a> and several typos.
+</ul>
+
+<p>
+<b>August 21st 2015 edition:</b>
+<p>
+
+<ul>
+<li>Improvements in exposition, a few better pagebreaks.
+<li>Replace "vanishes to order k" with "is O(k)" as the former seems to be not
+uniformly agreed upon if it is O(k) or O(k+1), wheras the latter is
+unambiguous.
+<li>Add definition of "automorphism" and "automorphism group"
+<li>Fix <a href="errata.html">errata</a> and several typos.
+</ul>
+
+<p>
+<b>November 19th 2014 edition:</b>
+<p>
+
+Improvements in exposition in a bunch of places and also fix <a href="errata.html">errata</a>.
+
+<p>
+<b>September 2nd 2014 edition:</b>
+<p>
+
+<ul>
+<li>Minor improvements in exposition.
+<li>Add exercises 1.2.9 and 2.4.25 (which moves 2.4.25 to number 2.4.26).
+</ul>
+
+<p>
+<b>May 1st 2014 edition:</b>
+<p>
+
+First version
+
+<p>
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+</body>
+</html>
