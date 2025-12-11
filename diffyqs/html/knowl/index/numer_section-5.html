@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">The simplest method for approximating a solution is <em class="emphasis">Euler’s method<details class="ptx-footnote" aria-live="polite" id="numer_section-5-1-2"><summary class="ptx-footnote__number" title="Footnote 1.7.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="numer_section-5-1-2">Named after the Swiss mathematician <a class="external" href="https://en.wikipedia.org/wiki/Euler" target="_blank">Leonhard Paul Euler</a> (1707–1783).  The correct pronunciation of the name sounds more like “oiler.”</div></details></em>.  It works as follows: Take <span class="process-math">\(x_0\)</span> and <span class="process-math">\(y_0\)</span> and compute the slope <span class="process-math">\(k = f(x_0,y_0)\text{.}\)</span>  The slope is the change in <span class="process-math">\(y\)</span> per unit change in <span class="process-math">\(x\text{.}\)</span>  Follow the line for an interval of length <span class="process-math">\(h\)</span> on the <span class="process-math">\(x\)</span>-axis. We call <span class="process-math">\(h\)</span> the <em class="emphasis">step size</em>. Hence if <span class="process-math">\(y = y_0\)</span> at <span class="process-math">\(x_0\text{,}\)</span> then we say that <span class="process-math">\(y_1\text{,}\)</span> the approximate value of <span class="process-math">\(y\)</span> at <span class="process-math">\(x_1 = x_0 + h\text{,}\)</span> is <span class="process-math">\(y_1 = y_0 + h k\text{.}\)</span> Rinse, repeat!  Let <span class="process-math">\(k = f(x_1,y_1)\text{,}\)</span> and then compute <span class="process-math">\(x_2 = x_1 + h\)</span> and <span class="process-math">\(y_2 = y_1 + h k\text{.}\)</span> Now compute <span class="process-math">\(x_3\)</span> and <span class="process-math">\(y_3\)</span> using <span class="process-math">\(x_2\)</span> and <span class="process-math">\(y_2\text{,}\)</span> etc. Consider the equation <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{,}\)</span> and <span class="process-math">\(h=1\text{.}\)</span> Then <span class="process-math">\(x_0=0\)</span> and <span class="process-math">\(y_0 = 1\text{.}\)</span>  We compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/euler-step12_fig.html">
+\begin{equation}
+\begin{aligned}
+&amp; x_1 = x_0 + h = 0 + 1 = 1, &amp; &amp; y_1 = y_0 + h \, f(x_0,y_0) = 1 + 1 \cdot
+\nicefrac{1}{3} = \nicefrac{4}{3} \approx 1.333,\\
+&amp; x_2 = x_1 + h = 1 + 1 = 2, &amp; &amp; y_2 = y_1 + h \, f(x_1,y_1) =
+\nicefrac{4}{3} + 1 \cdot \frac{{(\nicefrac{4}{3})}^2}{3} =
+\nicefrac{52}{27} \approx 1.926.
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">We draw an approximate graph of the solution by connecting the points <span class="process-math">\((x_0,y_0)\text{,}\)</span> <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2,y_2)\text{,....}\)</span> See <a href="numer_section.html#euler-step12_fig" class="internal" title="Figure 1.16">Figure 1.16</a> for the first two steps of the method.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="numer_section.html#numer_section-5">in-context</a></span>
+</body>
+</html>

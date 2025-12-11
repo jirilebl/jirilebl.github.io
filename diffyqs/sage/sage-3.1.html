@@ -1,0 +1,162 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 3.2</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 3.1</h1>
+
+<p>
+Press the <em>Evaluate</em> button below to launch the Sage demonstration.
+
+<h2>Solving systems of ODE</h2>
+
+<p>
+Similarly to how you can ask Sage to solve one ODE, you can ask it to solve
+a system.  Here we solve the system \(x' =x-y, y'=x+y+t.\)
+Note that the solver only succeeds in cases when Sage can find an analytic
+solution, otherwise you get an error.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y t")
+x = function('x')(t)
+y = function('y')(t)
+
+# Solve the system
+sol = desolve_system([ diff(x,t)==x-y, diff(y,t)==x+y+t], [x,y])
+
+# Show the solution nicely
+sol[0].show()
+sol[1].show()
+</script>
+</div>
+
+<p>
+We could also put in some initial equations.  Here, the vector
+given as "ics" represents the initial t, initial x, and initial y.
+So for example, to solve for the initial conditions \(x(0)=1,y(0)=2\)
+you use "[0,1,2]".
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y t")
+x = function('x')(t)
+y = function('y')(t)
+
+# Solve the system
+sol = desolve_system([ diff(x,t)==x-y, diff(y,t)==x+y+t],
+                     [x,y],
+                     ics=[0,1,2])
+
+# Show the solution nicely
+sol[0].show()
+sol[1].show()
+</script>
+</div>
+
+<h2>Plotting vector fields for autonomous system of ODE</h2>
+
+<p>
+If we have an autonomous system of two ODE we can plot the vector field
+in the following way.  Here we plot \(x' = x\sin(\pi y), y'=x-y.\)
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+plot_vector_field((x*sin(pi*y), x-y),
+                  (x, -2, 2),
+                  (y, -2, 2),
+                  color='purple',
+                  headwidth=7,
+                  headlength=7,
+                  plot_points=21,
+                  aspect_ratio=1)
+</script>
+</div>
+
+<p>
+We may also want to plot a trajectory.  Here we numerically solve the ODE
+system for initial condition \(x=1.0\) and \(y=-1.5\) for \(t\) in the range
+from 0 to 10.  You can also get more of an idea of how fast the solution is
+moving by setting plotjoined to False below, which will simply plot a point
+at each step of the numerical solution (we are using Runge-Kutta).
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y t")
+
+#define vector field and initial point
+vector_field = (x*sin(pi*y), x-y)
+x0 = 1.0
+y0 = -1.5
+tend = 10
+
+#draw vector field
+vfplot = plot_vector_field(vector_field,
+                           (x, -2, 2),
+                           (y, -2, 2),
+                           color='purple',
+                           headwidth=7,
+                           headlength=7,
+                           plot_points=21,
+                           aspect_ratio=1)
+
+#solve and plot a trajectory
+sol = desolve_system_rk4(vector_field,
+                         [x,y],
+                         ics=[0,x0,y0],
+                         ivar=t,
+                         end_points=tend,
+                         step=0.05)
+trajplot = list_plot([[p[1], p[2]] for p in sol], plotjoined=True)
+
+# draw the initial point
+pt = point((x0,y0))
+
+#show the vectorfield, initial point, and trajectory together
+show(vfplot + pt + trajplot)
+</script>
+</div>
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

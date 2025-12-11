@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The simplest method used in practice is the <em class="emphasis">Runge–Kutta method</em>. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span>  Everything is the same as in Euler’s method, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span> That is, in each step we compute slopes <span class="process-math">\(k_1\text{,}\)</span> <span class="process-math">\(k_2\text{,}\)</span> <span class="process-math">\(k_3\text{,}\)</span> and <span class="process-math">\(k_4\text{,}\)</span> and then we compute the next <span class="process-math">\(x_{i+1}\)</span> and <span class="process-math">\(y_{i+1}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+&amp; k_1 = f(x_i,y_i) , &amp; &amp; \\
+&amp; k_2 = f\bigl(x_i + \nicefrac{h}{2},y_i + k_1 (\nicefrac{h}{2})\bigr) ,
+&amp; &amp; 
+x_{i+1} = x_i + h , \\
+&amp; k_3 = f\bigl(x_i + \nicefrac{h}{2},y_i + k_2 (\nicefrac{h}{2})\bigr) ,
+&amp; &amp;
+y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
+&amp; k_4 = f(x_i + h,y_i + k_3 h) .
+\end{aligned}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="numer_section.html#numer_section-32-5">in-context</a></span>
+</body>
+</html>

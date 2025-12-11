@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">This machinery can also be generalized to higher multiplicities and higher defects. We will not go over this method in detail, but we sketch the idea. Suppose that <span class="process-math">\(A\)</span> has an eigenvalue <span class="process-math">\(\lambda\)</span> of multiplicity <span class="process-math">\(m\text{.}\)</span> We find vectors such that</div>
+<div class="displaymath process-math">
+\begin{equation}
+{(A - \lambda I)}^k \vec{v} = \vec{0},
+\qquad \text{but} \qquad
+{(A - \lambda I)}^{k-1} \vec{v} \not= \vec{0}.
+\end{equation}
+</div>
+<div class="para">Such vectors are called <em class="emphasis">generalized eigenvectors</em> (then <span class="process-math">\(\vec{v}_1 = {(A - \lambda I)}^{k-1} \vec{v}\)</span> is an eigenvector). For the eigenvector <span class="process-math">\(\vec{v}_1\)</span> there is a chain of generalized eigenvectors <span class="process-math">\(\vec{v}_2\)</span> through <span class="process-math">\(\vec{v}_k\)</span> such that:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+(A - \lambda I) \vec{v}_1 &amp; = \vec{0} , \\
+(A - \lambda I) \vec{v}_2 &amp; = \vec{v}_1 , \\
+&amp; ~~\vdots \\
+(A - \lambda I) \vec{v}_k &amp; = \vec{v}_{k-1} .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">Really once you find the <span class="process-math">\(\vec{v}_k\)</span> such that <span class="process-math">\({(A - \lambda I)}^k \vec{v}_k = \vec{0}\)</span> but <span class="process-math">\({(A - \lambda I)}^{k-1} \vec{v}_k \not= \vec{0}\text{,}\)</span> you find the entire chain since you can compute the rest, <span class="process-math">\(\vec{v}_{k-1} = (A - \lambda I) \vec{v}_k\text{,}\)</span> <span class="process-math">\(\vec{v}_{k-2} = (A - \lambda I) \vec{v}_{k-1}\text{,}\)</span> etc. We form the linearly independent solutions</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+\vec{x}_1 &amp; = \vec{v}_1 e^{\lambda t} , \\
+\vec{x}_2 &amp; = ( \vec{v}_2 + \vec{v}_1 t ) \, e^{\lambda t} , \\
+&amp; ~~\vdots \\
+\vec{x}_k &amp; = \left( \vec{v}_k + \vec{v}_{k-1} t +
+\vec{v}_{k-2} \frac{t^2}{2} +
+\cdots + \vec{v}_2 \frac{t^{k-2}}{(k-2)!} + \vec{v}_1 \frac{t^{k-1}}{(k-1)!}
+\right) \, e^{\lambda t} .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">Recall that <span class="process-math">\(k! = 1 \cdot 2 \cdot 3 \cdots (k-1) \cdot k\)</span> is the factorial. If you have an eigenvalue of geometric multiplicity <span class="process-math">\(\ell\text{,}\)</span> you will have to find <span class="process-math">\(\ell\)</span> such chains (some of them might be short: just the single eigenvector equation). We go until we form <span class="process-math">\(m\)</span> linearly independent solutions where <span class="process-math">\(m\)</span> is the algebraic multiplicity. We do not quite know which specific eigenvectors go with which chain, so start by finding <span class="process-math">\(\vec{v}_k\)</span> first for the longest possible chain and go from there.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_multeigen-4-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="sec_multeigen.html#sec_multeigen-4-9">in-context</a></span>
+</body>
+</html>

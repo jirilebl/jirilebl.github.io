@@ -1,0 +1,139 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 1.2</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 1.2</h1>
+
+<p>
+Press the <em>Evaluate</em> button below to launch the Sage demonstration.
+You may have to wait a little before the graph
+appears.  Be patient. To change the function, you should edit the code and press
+the <em>Evaluate</em> button again.  Note that Sage ignores any line starting with
+a pound sign #, so those lines are simply comments for a human.
+
+<h2>Slope field</h2>
+
+<p>
+Here we plot the slope field of \(y' = f(x,y)\) where you can
+change the \(f(x,y)\) in the code, several possibilities are given.
+The default range is -2 to 2 in both x and y and you can change this as
+well by modifying the given variables.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+
+# We will plot the slope field of y' = f(x,y)
+f(x,y) = 0.5*cos(x-y)-sin(x^2+y)
+# Some more examples
+#f(x,y) = sin(y^2)-0.5*x
+#f(x,y) = cos(x*y^2)
+#f(x,y) = 0.5*x
+#f(x,y) = 0.5*y
+#f(x,y) = 0.5*y^2
+
+# The plot window
+xmin = -2
+xmax = 2
+ymin = -2
+ymax = 2
+
+# Plot the slope field
+sf = plot_slope_field(f(x,y), (x, xmin, xmax), (y, ymin, ymax), aspect_ratio=1, plot_points=21)
+sf.show()
+</script>
+</div>
+
+<p>
+If you do not need a fixed aspect ratio (x and y units are the same),
+remove the "aspect_ratio=1," from the above.
+If you want to plot more little lines, you can change the
+"plot_points=21" parameter.
+
+<h2>Slope field and solution</h2>
+
+<p>
+In this demonstration we plot the slope field and have the compute draw
+a solution with a certain initial condition \(y(x_0)=y_0.\)  The initial
+point is drawn as a red dot.  Again you can change both the function
+and initial condition by editing the code and evaluating.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+
+# We will plot the slope field of y' = f(x,y)
+f(x,y) = 0.5*cos(x-y)-sin(x^2+y)
+# Some more examples
+#f(x,y) = sin(y^2)-0.5*x
+#f(x,y) = cos(x*y^2)
+#f(x,y) = 0.5*x
+#f(x,y) = 0.5*y
+#f(x,y) = 0.5*y^2
+
+# The initial condition y(x0) = y0
+x0 = 0.0
+y0 = 0.5
+
+# The plot window
+xmin = -2
+xmax = 2
+ymin = -2
+ymax = 2
+
+# Plot the slope field
+sf = plot_slope_field(f(x,y), (x, xmin, xmax), (y, ymin, ymax), aspect_ratio=1, plot_points=21)
+
+# Plot the solution
+sol = desolve_rk4(f(x, y), y, ivar=x, ics=[x0, y0],
+                   end_points=[xmin,xmax], step=0.1, output='plot')
+
+# The point of the initial condition
+pt = point([x0,y0], size=20, color='red')
+
+# Show both plots
+(sf+sol+pt).show()
+</script>
+</div>
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

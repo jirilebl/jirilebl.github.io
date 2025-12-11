@@ -1,0 +1,1377 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Notes on Diffy Qs: Differential Equations for Engineers: Changes</title>
+<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
+<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script>
+MathJax = {
+  output: {
+    font: 'mathjax-pagella'
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml-nofont.js">
+</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href=".">Go to the Notes on Diffy Qs home page</a>]
+
+<p>
+
+<h1>Notes on Diffy Qs: Differential Equations for Engineers: Changes</h1>
+
+<p>
+<b>August 6th 2025 edition, Version 6.9 (edition 6, 9th update):</b>
+<p>
+
+The main focus of this edition is to fix some long standing minor
+issues and slightly improve sections not often used in classes.
+Moreover, this version fixes many errata found with the help of AI
+(AI was only used to identify the errors, no content was created by AI.
+Also I should mention that the AI has misidentified some errors too).
+
+<ol>
+<li>To improve readability, hyphenate first-order, second-order,
+constant-coefficient, etc. when used as a compound adjective.
+<li>Be consistent in using plurals for ODE and PDE as ODEs and PDEs.
+<li>Apparently the formula for the Gateway Arch in St. Louis is not
+inscribed anywhere inside the arch (that is a myth apparently).  So just
+say "per the National Park Service" as it is in NPS literature
+and the website.
+<li>Explicitly mention "variable-coefficient" at the end of 0.3.
+<li>In Example 1.1.2, use \(t\) for the dummy variable to be
+consistent with the discussion above.
+<li>Be somewhat more precise in Example 1.1.6.
+<li>Say a little bit more on why Example 1.2.1 is nontrivial.
+<li>In Example 3.1.1, write out the equations for the
+arbitrary constants.  This is the first example, it should be
+as explicit as possible.
+<li>Reword parts of Examples 3.1.2 and 3.1.3 to be more specific.
+<li>In Example 3.1.4, add a short paragraph
+to explain why \(x=u_1\) really is the solution to the original
+equation.
+<li>In subsection 3.1.4, reword the note about similarity to 1.6 and give
+an explicit link to 1.6.
+<li>Define what we mean by "square" matrix in 3.2.1.
+<li>In subsection 3.2.4, mark "elementary row operations"
+as a defined term and add it to the index.  Add
+"row operations" to the index also for the appendix.
+<li>At the end of 3.5 mention that repeated eigenvalues
+have the same behavior roughly (that is, the table still applies).
+<li>In Exercises 3.5.2 and 3.5.3, explicitly say that the student
+should draw the vector field (it was hopefully implied in the previous
+wording, but be explicit here).
+<li>In 3.7.2, when first solving for the generalized eigenvalue in the
+example, explicitly say that \(\vec{w}\) should solve
+\({(A-3I)}^2 \vec{w} = \vec{0},\) to make the argument be clear.
+<li>In the section notes for 3.8, refer to 7.1
+<li>The paragraph above Theorem 3.8.2 was a little confusing about
+where the commutativity comes in, so rewrite it a little.
+<li>At the end of Example 3.9.3, give the general solution explicitly.
+<li>In the explanation of Theorem 4.1.1 (the "proof"), include the "(t)"
+in the computation of the integrals, seems clearer that way.
+<li>In Example 4.2.1, give the definition of \(f(t)\) for a few of the
+intervals.
+<li>In subsection 4.2.3, write out the first few terms of the Fourier
+series in the boxed equation for clarity, and also explicitly
+say that we say "nth harmonic" for the nth term of the series.
+<li>In examples 4.2.3 and 4.2.4, motivate the functions tiny bit more
+than saying they appear in applications.
+<li>A bit more detail in Example 4.3.1, such as explicitly noting the L.
+<li>In Example 4.3.1 say that we extend (4.8) periodically and be clearer
+about what we mean about just saying piecewise smooth without mentioning an
+interval.
+<li>In Example 4.3.6, give more detail about the second
+derivative not existing by explicitly showing the first
+derivative on \([-1,1]\) and plotting it in 
+the figure 4.11.
+<li>Just before the Example 4.5.2, the paragraph is not quite right.
+There is still just one resonance frequency, we're just hitting it with
+the overtones.
+<li>In all of 4.6, 4.7, 4.8 more consistently label the ranges
+for the \(x\) and \(t\) variables for the equation and the side conditions, in particular
+give the \(t &gt; 0\) for the boundary conditions, and give the
+ranges whenever introducing all the side conditions.  Also explicitly
+mention the range when introducing the type of problem we are solving in
+each section.
+<li>Add diagram of the \((x,t)\) space for the region that we
+are solving the heat equation in subsection 4.6.1.
+<li>In the first paragraph of 4.6.2, also mention that the heat
+equation is homogeneous as that is also needed for superposition.
+<li>In the paragraph introducing superposition in 4.7, mention homogeneity
+of the equation and also of the side conditions.
+<li>In the hint to Exercise 4.8.5,
+just get rid of \(L\) and \(\pi\) as they
+just cancel anyway.
+<li>In 4.9 and 4.10 in the diagrams for the region, make the region gray
+and make the boundary thicker.
+<li>In the exercises in 4.9, we mentioned the region by name, but in the
+text we no longer use this (for decades now:) so rephrase
+to remove the name.
+<li><b>Change Exercise 5.2.102 to fix erratum</b>.
+Change the initial shape
+of the beam to be \(\sin^2(\pi x)\) to be
+consistent with fixed ends.
+<li>Make a clearer explanation of why resonance does not occur for
+even \(n\) in the problem being solved in subsection 5.3.1.
+<li>In problem 5.3.101, name the function
+"triangle wave" as it's not
+usually called a sawtooth.
+<li>Just after 6.3.1, give both directions in formulas
+for clarity.
+<li>In Example 6.3.3, reverse the order of the factors
+as that's the way we write the convolution integral.
+<li>Give a bit more detail in 6.5.3 on a real-life application,
+introduce boundedness coming from the
+real-life application and use it to show \(A=0\) to fix an erratum.
+<li>In Exercise 6.5.6, assume that \(y\) is bounded, although
+the exercise asks for "a" solution, so this assumption is only
+given to avoid reader confusion when trying to simply apply Example 6.5.3.
+<li>In Exercise 6.5.7 assume that \(y\) is bounded as in the example
+to fix the erratum.  Also change the hint accordingly.
+<li><b>Change Exercise 6.5.104</b> to make the solution bounded and allow the
+technique of the section to solve it to fix an erratum.
+<li>Add Exercise 6.5.105 for the other boundary condition
+for a second order equation.
+<li>Add a short remark about convergence at the endpoints and that we won't
+really worry about it here.
+<li>Add Exercise 7.1.106 on reindexing series.
+<li>After Theorem 8.4.2, mention that the expression
+in the Theorem is the divergence, mention its meaning,
+why its meaning makes the theorem intuitive,
+and add it to the index.
+<li>Mention that if a chaotic system is the weather, studying
+things like attractors is like studying climate.
+<li>In section A.4, make sure to use "a basis" rather than "the basis"
+where appropriate.
+<li>Make Example A.4.1 into an enumerate to make it easier to parse.
+<li>Expand Example A.4.2 with a couple of new examples and make it into
+an enumerate to make it easier to parse.
+<li>In Exercise A.5.5, part a) mention that it is a basis of
+\({\mathbb{R}}^3.\)
+<li>Add a few more useful Laplace transforms to the table in Appendix B.
+<li>In Appendix B, the transform for \(t^p\) is valid for \(p &gt; -1 .\)
+<li>Many other small clarifications and improvements.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+
+<p>
+<b>December 19th 2024 edition, Version 6.8 (edition 6, 8th update):</b>
+<p>
+
+The focus of this new minor revision are fixing errors,
+minor clarifications and improvements to exposition,
+and improvements/fixes to style and grammar.
+No numbers have changed.
+
+<ol>
+<li>In Example 1.4.2, explicitly say how the volume is computed.
+<li>In first example in 1.9 (1.9.1), mention explicitly that \(\alpha\) is a
+constant.
+<li>In section 1.9, terms in some equations were ordered with \(u_x\) first
+and \(u_t\) second and some vice-versa.  Order them all the same for
+consistency's sake, that is, \(u_x\) first.
+This includes the exercises 1.9.1, 1.9.2, 1.9.3, 1.9.6, and 1.9.101.
+(There is no change in content, it's just how its presented)
+<li>In section 2.2, just before Theorem 2.2.1, mention that we are for the moment
+supposing that the roots are real.
+<li>In exercises 2.3.9, 2.3.10, 2.3.104, 2.3.105 change "find a linear combination that works."
+to "find a linear combination that gives 0." as "works" may be a little confusing or unclear.
+<li>Add a few words about the quadrant in the explanation of how to get the phase shift.
+It is not too important, so we don't want to dwell on it, but it turns out many students here
+have not seen polar coordinates yet (or just don't remember them).  Also add the
+equations for A and B in terms of C and \(\gamma\) as that makes it easier to see.
+<li>In the mass-spring diagram in 2.4 and 2.6, mark the direction of the position \(x.\)
+<li>At the end of 2.5, add more detail to computation with variation of
+parameters.
+<li>At the end of 2.5, add a paragraph recapping of how that procedure (variation of parameters)
+would work in general.  Then also remark that if there is a coefficient in front of the \(y'' ,\)
+it is necessary to first divide by it.
+<li>Make the caption to Figure 4.17 slightly more descriptive, which as
+side condition gets rid of a horrible page break.
+<li>In Table 6.1, emphasize that for \(u(t-a)\) we must have \(a \geq 0 .\)
+<li>Similarly, some of these restrictions on \(a\) were missing in the list
+in Appendix B.
+<li>After Theorem 6.1.1 (linearity of the Laplace transform), demonstrate
+its use together with the table with a quick computation, rather than just
+saying it.
+<li>Right after the second shifting property, do a quick example
+where the function is not just a constant.
+<li>At the end of Example 6.2.3, emphasize that the same transfer function
+can be used for any input.
+<li>In Theorem 6.3.1, mention that the convolution is of exponential order.
+<li>In first example in 6.5 (6.5.1), mention explicitly that \(\alpha\) is a
+constant.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>May 15th 2024 edition, Version 6.7 (edition 6, 7th update):</b>
+<p>
+
+The point of this revision is to fix errata, and also to improve wording,
+clarity, and consistency in many places.  It may seem to have lots of changes but they are all
+minor general polish kind of things I found while teaching.
+There is essentially no new
+material, except for a few short paragraphs in the Laplace transform
+(periodic functions, and expanded explanation for transfer functions),
+and a couple of places throughout where explanations were
+expanded or added.  Most changes are in chapters 1, 2, 6, and 7, because
+those were the ones I used in class.
+Several exercises needed to be changed to fix errata.
+
+<ol>
+<li>After Example 0.2.1, add a short note about how the analytic solution
+helped us find the parameters and how this is useful in real problems.
+<li>On page 23, emphasize a bit more that if we applied the inverse function
+theorem, we are integrating with respect to y.
+<li>On page 33 in Example 1.3.1, explicitly separate variables before
+integrating.
+<li>In the Example in subsection 1.3.2, use \(D\) consistently
+for the arbitrary constant.
+<li>Be more precise to say that "singular solution" is the solution
+that comes about because of the division by zero.
+<li>In Example 1.4.2 at the very end,
+explicitly say in
+English that there are 11.86 kg of salt in the tank when full.
+Also in the remark about concentration afterwards, write 0.1667 to approximate 1/6 to use the same
+number of decimal places as the concentration.
+<li>On page 58, add a displayed equations showing what the error is for
+clarity.
+<li>In 1.9, mention again the meaning \(u_x\) and \(u_t\) notation for
+partial derivatives.
+<li>Add "characteristic curve" to the index for 1.9
+<li>On page 82 in the computation on top of the page add underbraces to make
+it clearer what's happening.
+<li>Resonance is a terrible example for a doubled root on page 86, replace
+it with a reference to a critically damped mass-spring system.  Add a
+remark about why two very close roots are bad (numerical instability).
+<li>At the end of subsection 2.3.1, the reason why we want linear
+independence was not explicitly stated so add Theorem 2.3.3 to have a
+parallel with the three theorems from section 2.1.  It is mentioned in passing
+in the next subsection, but this makes more sense.
+<li>On page 96, explicitly say that \(t\) is in seconds and \(x\) is in
+meters since we give the units of all the other variables, also we forgot to
+say that current is measured in amperes.
+<li>On page 105, add an explicit remark about trying a generic polynomial
+even if some of the powers do not really appear on the right hand side.
+<li>On pages 106 and 107, some of the particular solutions were just \(y,\)
+but that's not totally consistent with the rest of the section.
+<li>On page 109, the computation of the example for variation parameters,
+rewrite the \(u_1'\) in a different way to make calculus easier
+and use a different, somewhat simpler, antiderivative of the secant
+(the one it seems the calculus books I have use).
+Also be more consistent with not using parentheses after trig functions
+if there is only one letter, it does seem a bit more readable this way.
+<li><b>Exercise 3.8.15 part b) was changed to fix erratum</b>, the matrix given
+was a typo that made the problem unnecessarily difficult and the solution in
+the back was what was intended.
+<li><b>Exercise 4.3.106 part f) was changed to fix erratum</b>,
+we really wanted to ask about F(-9), so that we also ask for some point not in
+the original range that's not the discontinuity.  The answer in the back was
+in fact giving F(-9) as intended.
+<li>On page 286, do not use \(F(t)\) for the forcing function as capital
+\(F\) is used later in the d'Alembert solution so avoid confusion.  Also
+explicitly use the words "forcing function" when we first talk about it
+to make the exercises easier to figure out.
+<li><b>Exercises 5.3.6 and 5.3.101 were changed to fix errata</b>:
+As given, 1) the forcing functions would cause resonance and we didn't
+really cover that and 2) they were given in x rather than t by mistake.
+Both were changed to be on the interval \([-\pi,\pi]\) which avoids the
+resonance and makes computations easier anyhow.
+<li>In Theorem 6.1.2, mention the interval \([0,\infty)\) just in case
+someone wonders what happened to the \(\frac{1}{t}\) counterexample.
+<li>In Example 6.1.7, add an intermediate step in computing the unshifted
+inverse transform.
+<li>In 6.2.1, we offhand make a remark about piecewise smooth functions,
+but if the functions have discontinuities, then one would have to
+write a little bit more (the same procedure works, but does not get the same
+formula as we'd be missing the delta functions in the derivative).
+So just say "continuous" here and then the same formula will work.
+<li>Replace Example 6.2.5 by a more intelligent one that is also very simple,
+somewhat easier to understand, and not as trivially solved without Laplace
+(still easily though).
+<li>Add short note about how one can compute \(H(s)\) without knowing the
+equations, just knowing \(X(s)\) for a given \(F(s) .\)
+<li>Add an extremely short subsection 6.2.6 on Laplace transform of
+periodic functions, which seem to pop up in these courses,
+and it makes sense in the same section as where we are looking at
+piecewise functions.
+<li>Add Exercises 6.2.13 and 6.2.104 on transfer functions from input and
+output (this is similar to the exercise on the WeBWorK).
+<li>Add Exercise 6.2.14 for a periodic function.
+<li>Clean up wording for exerecises 6.2.12 and 6.2.103.
+<li>On page 309 add distributive law to the list of properties of
+convolution.
+<li>In Example 6.3.4 mention that \(\frac{1}{s^2+\omega_0^2}\) is
+the transfer function (and flip the order to be consistent
+with the text before).  Then after the example mention how to get the
+general formula from the transfer function, thus relating transfer functions
+and convolution.
+<li>Use "rectangular pulse" consistently on 6.4 and put it in the index.
+<li>Add a short note at the end of 6.4.1 to note that the Laplace of the
+given pulse function goes to 1.
+<li>On page 314, when writing the convolution with delta, be more consistent.
+<li>On page 316, after Example 6.4.2, write convolutions all in the same order for consistency,
+use \(h\) for the impulse response for consistency and to
+not jump back and forth with \(x\) and \(y ,\)
+in general make the wording clearer about how the computation works in
+general, and finally mention
+that the impulse response is just the
+inverse Laplace transform of the transfer function.
+<li>On page 330, when writing out the Taylor series, mention that it
+is a power series to drive that point home and also
+expand a few terms as it is sometimes not totally clear what the \(k=0\) term
+means here.
+<li>Expand the first few terms of the differentiated series on page 331
+to make it clearer what it looks like.
+<li>In sections 7.1, 7.2, 7.3, add 0.5 lecture to the estimates in the
+note for instructors, they were too optimistic.
+I just did them each in 2 lectures and I felt it was about the same pace as
+chapters 1 and 2 where I was hitting my estimates spot on.
+<li>In sections 7.2 and 7.3, name the coefficients
+\(P(x),\) \(Q(x),\) \(R(x)\) since lower case letters are used for
+other things, most confusingly little \(r.\)
+<li>In 7.3, say a little bit more explicitly in the beginning that we're
+just trying to find a solution on one side of the singular point.  Also
+mention the thing about what the singular point does to the initial value
+in the first example.
+<li>In 7.3 when describing the method, mention very quickly what to do
+if \(x_0\) is not zero.
+<li><b>Exercise 8.4.101 part c was changed to fix erratum</b>:
+The system is changed to \(x'=xy^2,y'=x+x^2 ,\) and then the solution
+in the back (changing \(y\) to \(y^2\) of course) works.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+
+<p>
+<b>October 26th 2023 edition, Version 6.6 (edition 6, 6th update):</b>
+<p>
+
+<ol>
+<li><b>Change Exercise 3.1.106</b> to fix an erratum.  Rate of flow from tank 2 back into tank 1 should
+be \(r-s ,\) otherwise volumes do not stay constant and the problem doesn't quite all make sense.
+<li>Add a couple of minor clarifications to the end of Example 1.9.3.
+<li>Slightly tighter spacing in 3.1 leads to a slight change (for the better I
+think) in pagination in the section.
+<li>In the HTML version, add light horizontal rules to visually
+separate out figures and tables.
+<li>A few minor clarifications and improvements in English and style.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>July 18th 2023 edition, Version 6.5 (edition 6, 5th update):</b>
+<p>
+
+<ol>
+<li>In 0.3, add the nonlinear pendulum equation as an example nonlinear equation.
+<li>Also in 0.3, say a bit about difficulty of nonlinear equations, to give some
+  motivation for why we study linear equations
+<li>Also in 0.3, give the general form for an autonomous first order ode to
+  drive the point home.
+<li>Move Example 1.1.1 up by a paragraph as it makes more sense that way.
+<li>In Example 1.4.2, explain where the \(2t\) comes up for figuring out when
+  the tank is full, and emphasize that the concentration is when we divide
+  by the volume, by the 100.
+<li>In Example 1.5.2, note what \(F(v)\) is for clarity.
+<li>Also in Example 1.5.2, note just before that since we have to avoid \(x=0\)
+  we might as well assume \(x &gt; 0\) or \(x &lt; 0 . \)  Use \(x &gt; 0\) in the
+  example for simplicity and therefore get rid of most of the absolute
+  value signs.
+<li>In 1.6, add a short note about plotting \(y=f(x)\) to figure out the
+  signs.
+<li>In 1.7, tighten the language when describing first vs. second order
+  method, leading to slightly nicer page breaks as a side benefit.
+<li>In Example 1.8.7, in the final solution for \(F(x,y)\) we better put
+  absolute values around \(y .\)  In a sense it is not wrong
+  but we would require the complex logarithm otherwise. 
+<li>When talking about "linear operator" after Theorem 2.1.1,
+  mention that it seems almost as if we are multiplying by it.
+<li>In Exercise 2.1.6, explicitly mention the name of the equation and
+  say "see above" as the explanatory note is on the previous page.
+<li>A few minor clarifications.
+<li>Several improvements in wording and fixes for grammar and style.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+
+<p>
+<b>November 20th 2022 edition, Version 6.4 (edition 6, 4th update):</b>
+<p>
+
+
+<ol>
+<li>Reformulate end of Example 1.8.5 so that it's clear that at the end we
+are talking about the corresponding \(M \, dx + N \, dy = 0\) equation.
+Also note that \(x=-1\) itself is a solution to that.
+<li><b>Change Exercise 6.4.5 to fix erratum</b>, in particular,
+the impulse response given is changed to \(t e^{-t} . \)
+<li><b>Change Exercise 6.4.103 to fix erratum</b>, in particular,
+the impulse response given is changed to \(e^t \sin(t) \) and the
+equation whose solution is sought is changed to \(Lx = e^t .\)
+<li>Add Remark 6.4.2 after Example 6.4.2, which explains what's going on
+with the \(x'(0)=0\) by noting that \(x'\) has a jump at \(t=0\) to produce
+the delta function.
+<li>Add footnote when defining the integral of the delta function that we
+are always taking the endpoints.
+<li>Make discussion of the radius of convergence based on the ratio test a bit more
+readable.
+<li>In 8.5 when talking about the Lorentz system attractor, be clearer by
+explicitly saying that the solution tends to the attractor.
+<li>Due to changes in LaTeX (namely the newpx fonts), pagination has changed
+very slightly.  In the new version the theoremfont option seems to be buggy
+so go back to regular punctuation in theorems and exercises, one can't even
+tell.
+<li>In the HTML version, tables are now numbered properly.
+<li>Other minor improvements in wording and style.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>May 6th 2022 edition, Version 6.3 (edition 6, 3rd update):</b>
+<p>
+
+<ol>
+<li><b>Change initial condition in Exercise 1.1.103 to fix an erratum.</b>
+The previous initial condition meant looking at a point where the
+differential equation is undefined.  While one can solve the problem
+continuously, and the formal process just works, it's best to avoid it.
+The initial condition is changed to \(x(0)=\frac{\pi}{4}\) where the equation
+is well behaved.
+<li>In the process of fixing an erratum from Martin Irungu (a sign error in the
+"proof" of Theorem 6.1.2; the final answer is off by a sign),  implement
+Martin's suggestion to write the whole thing in terms of the positive \(s-c\)
+rather than the negative \(c-s,\) which clearly leads to more typos.
+<li>For some reason a new version of LaTeX is now making some spacing slightly
+different (being a little bit more generous with space under figures for
+example), so the pagination is slightly different in places.  I went through
+and tried to get rid of bad page breaks by tightening up the language where
+needed (a good thing to do anyhow), so it is only in a couple of places where
+page breaks changed.
+<li>Some minor wording improvements.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+
+<p>
+<b>June 9th 2021 edition, Version 6.2 (edition 6, 2nd update):</b>
+<p>
+
+<ol>
+<li>Add exercises 2.5.11, 2.5.106.
+<li>Emphasize the main idea of subsection 6.4.3 to make it easier to pick out.
+<li>Minor wording improvements throughout.
+<li>Add a couple of sentences on how the arrows in vector fields are scaled
+in 3.1.4.
+<li>Add a few explicit cross references instead of vague "in a previous
+example" and similar.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>July 21st 2020 edition, Version 6.1 (edition 6, 1st update):</b>
+<p>
+
+Very minor update.
+
+<ol>
+<li>Some minor improvements in language and style, and minor typo fixes.
+<li>A few very minor clarifications.
+<li>Mainly, fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>November 7th 2019 edition, Version 6.0 (edition 6, 0th update):</b>
+<p>
+
+This is a major update.  The main addition is a new appendix on linear
+algebra, so that a combined diffyqs/linear algebra course can be run with the
+book.  There is also a new optional section on linear first order PDEs, and
+another on solving PDEs with Laplace transforms.  A bunch of new exercises were
+added, some figures, and exposition was improved throughout.
+
+<p>
+Numbering is as
+consistent as possible.  <b>Exercises, chapters, sections were <i>not</i> renumbered</b> (as
+always).  Figures, numbered examples, some subsections, and equations might have changed numbers due to the edits
+(see below).
+The name of first and fifth chapter was updated (but not the number). So
+the book is therefore a drop in replacement, and existing courses should not need to be updated
+(unless giving page ranges, or referring to Figures or numbered examples).
+
+<p>
+Here is a complete list of changes:
+
+
+<ol>
+<li>Add appendix A on linear algebra.
+<li>Add section 1.9 on first order linear PDE and characteristics.
+<li>Add section 6.5 on solving PDE with Laplace transform.
+<li>Add appendix B with a more complete list of Laplace transforms.
+
+<li>Renumberings:
+  <ul>
+  <li>Figures in chapters 1, 3, 4, and 8
+  <li>Examples in 2.2, 3.1, 4.6, 7.1 (past the root test), 8.4
+  <li>Subsections in 2.2
+  <li>Equations in chapter 4
+  </ul>
+
+<li>Change name of first chapter to "First order equations" since we are
+  adding a PDE section.
+<li>Change name of fifth chapter to "More on eigenvalue problems" as really
+  eigenvalue problems have already been started in chapter 4.
+
+<li>Use newpx (Palatino) fonts in the PDF version.  The line length has gotten slightly
+  shorter to improve readability.
+<li>The pages are on the other hand sligtly longer to save paper.
+<li>Exercises with parts use the tasks package so they are not too cramped
+  anymore.
+<li>Make bottom margin smaller to save paper.
+<li>All floating figures/tables now have a gray border to better distinguish
+  them from surrounding text, and all insets are on the right.
+<li>Make the box for boxed equations a bit rounder.
+
+<li>Improve wording and make minor clarifications throughout.
+
+<li>0.2: Make the four fundamental equations a separate subsection, to
+  emphasize and to make it possible to refer to it.
+<li>0.2: Add a very short example (0.2.2) on two constants and initial conditions.
+<li>0.3: Use a general form for the Newton's law of cooling, and
+  name the old version exponential growth equation, which is more correct.
+
+<li>1.1: Add plot of \(\frac{1}{1-x}\) to show the singularity.
+<li>1.3: Add plot of an implicit solution.
+<li>1.3: Add figure with a graph for the coffee example.
+<li>1.6: A little bit more detail on drawing phase diagrams.
+<li>1.7: Compute the first two steps in the example with \(h=1\) explicitly.
+
+<li>2.1: Actually work out the reduction of order method and give an example.
+<li>2.1: Add another short example of linear independence of two functions.
+<li>2.2: Make the first couple a pages its own subsection for consistency.
+<li>2.2: Add a short footnote on the word "ansatz" and add it to index.
+<li>2.2: Make the \(y''+k^2 y= 0\) an explicit example, so that we can refer to
+  it, and give the version of the solution with sinh and cosh.
+<li>2.2: Reword the paragraph on why doubled roots rarely happen, so that
+  the reader doesn't think it can just be dismissed.
+<li>2.2: Add example of complex arithmetic.
+<li>2.2: In Exercise 2.2.3 label the parts abc... rather than just bullet points.
+<li>2.4: Improve the illustration of the pendulum including the forces.
+<li>2.6: Remove blurb about not memorizing the formula.
+<li>2.6: Add short note about what happens when the forcing frequency \(\omega\)
+  goes to infinity.
+
+<li>3.1: Add linked tanks example.
+<li>3.1: Add example for changing a second order system to first order system.
+<li>3.1: Number all the examples.
+<li>3.1: Define more of the terminology for systems.
+<li>3.1: Split into subsections.
+<li>3.1: Add the Picard theorem.
+<li>3.2: Fix/standardize reduced row echelon form definition what we had allowed
+  swapped rows.
+<li>3.2: Mention \(\det(A)\det(B) = \det(AB)\) since it makes sense when talking
+  about invertible matrices, and is generally a useful thing anyway.
+<li>3.4: Rephrase Exercise 3.4.2 to be more specific.
+<li>3.4: For the complex eigenvalue/eigenvector equation mention that
+  the bar of zero is still zero.
+<li>3.4: After the complex eigenvalue theorem, write down explicitly the
+  general solution for a 2-by-2 system.
+<li>3.6: In Example 3.6.1, also solve for some initial conditions and
+  add a figure of the result.
+<li>3.7: Add a quick example of a \(3 \times 3\) matrix with defective a eigenvalue.
+<li>3.7: Add some extra explanation of what to do with algebraic multiplicity
+  3 defective eigenvalues, and improve exposition on the higher multiplicity.
+
+<li>4.1: Expand slightly more on the linear algebra connection for
+  eigenvalues/eigenvectors.
+<li>4.1: Add footnote with the definition of sinh, cosh, as some students
+  might be coming to this sections not having seen these (or not having
+  seen them recently), and may have seen the solution in terms of
+  exponentials.
+<li>4.1: Add another picture of whirling string for a higher eigenvalue.
+<li>4.2: Add footnote with reference to the examples where \(x''+\lambda x=0\)
+  is solved.
+<li>4.6: Add small example where no series is computed.
+<li>4.7: Add a little bit of intuition for the wave equation.
+<li>4.7: Update figure of the plucked string.
+<li>4.7: Add some discussion on what the solution says about the sound 
+  of a guitar.  Also add some plots for fixed time of the shape of a
+  plucked string.
+<li>4.8: make the verification computation easier by using the second form.
+<li>4.8: Add more comments on D'Alembert, why do corners persist,
+  what about corners if we have to take second derivatives, and
+  what D'Alembert says about influence of initial conditions.
+<li>4.8: Add hint to exercise 4.8.5.
+<li>4.10: A few clarifications.
+
+<li>5.1: Add explicit expansion of x to the example at the end.
+<li>5.2: Rename the section to "Higher order eigenvalue problems".
+<li>5.2: Add a footnote on the constant, and more detail to the derivation.
+
+<li>7.1: Add root test and an example for it.
+
+<li>8.1: Add a short paragraph on what happens near noncritical points to
+  really justify why we are looking at the critical ones
+<li>8.4: Add another example and a figure for a limit cycle.
+<li>8.4: Add example for not simply connected domain with a closed trajectory
+
+<li>Add exercises (other than in new secions/the appendix)
+  0.2.13, 0.2.14, 0.2.106, 0.3.103, 1.2.12, 1.2.106, 3.1.6, 3.1.7, 3.1.106,
+  3.5.5, 3.8.12, 3.8.105, 4.3.11, 4.3.106, 4.6.11, 4.6.105, 4.7.8.
+</ol>
+
+
+<p>
+<b>March 4th 2019 edition, Version 5.5 (edition 5, 5th update):</b>
+<p>
+<i>Pagination and numbering has not changed at all.  The following changes were made:</i>
+<ol>
+<li><b>Exercise 1.8.102 part c) changed to fix erratum.</b>
+<li>Add short discussion of fixed/free ends to 5.2 to fix erratum.
+<li>Mention IODE as it is now supported again.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>October 11th 2018 edition, Version 5.4 (edition 5, 4th update):</b>
+<p>
+<i>Pagination and numbering has not changed at all.  The following changes were made:</i>
+<ol>
+<li>A couple of minor clarifications in section 3.1
+<li>All links change to https:
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>February 22nd 2018 edition, Version 5.3 (edition 5, 3rd update):</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li>Reorder the Notes on the Notes section to be more logical.
+<li>A new web version based on <a href="https://mathbook.pugetsound.edu/">PreTeXt</a> which is much easier to
+browse, although it is a bit more network-demanding perhaps.  This has been online since early January.
+<li>A few fixes in readability and style, and a few typo fixes.
+<li>The sources have been reorganized, moved to github, and split into chapters, hopefully making
+modification easier.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>November 1st 2017 edition, Version 5.2 (edition 5, 2nd update):</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+
+<ol>
+<li>Add a very short explicit example of turning an equation into a system
+in 3.1.
+<li>In 3.3, explicitly say that the fundamental matrix is if you have \(n\)
+linearly independent solutions.
+<li>In section 3.6, add a sentence about when force is given, then needing
+to divide by the mass matrix.  Similarly in the example, do that explicitly
+in the equation (it comes out to be the same vector in this example).
+<li>In section 3.7, make the computation for the \(2 \times 2\) system a little bit
+more streamlined and make it clearer as to what should be solved as
+\((A-\lambda I)^2 \vec{v}_2 = \vec{0}\) is always automatically satisfied if
+\((A-\lambda I) \vec{v}_2 = \vec{v}_1.\)  So only mention solving 
+\((A-\lambda I)^2 \vec{v}_2 = \vec{0}\) as a remark afterwards.
+<li>In the whirling string example in 4.1 mention units explicitly, and also
+mention the example of increasing tension on a spinning jumprope.
+<li>At the end of 4.2, mention the terms "fundamental frequency", "spectrum", and "overtones".
+<li><b>Exercise 8.4.103 changed slightly</b> to fix an erratum.
+<li>A few fixes in readability and style, and a few typo fixes.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>March 21st 2017 edition, Version 5.1 (edition 5, 1st update):</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+
+<ol>
+<li>In Example 2.4.1, I committed the cardinal sin of taking arctangent of 1
+on a calculator, so now it says \(\pi/4.\)
+Thanks to Erik Boczko for pointing this out.
+<li>Exercise 2.5.7 has a typo leading to a different problem than intended.
+I removed the "What is going on?" seemed to imply that solutions were
+different, and was confusing to students.  Instead of changing the exercise
+though, I added problem 2.5.10, \(y''-y=e^x\) where you get different
+solutions using undetermined coefficients and variation of parameters.
+Thanks to Asif Shakeel for pointing this out.
+<li>A couple of very minor style improvements, and grammar fixes.
+<li><b>Exercise 5.1.102 changed slightly.</b>  There was a typo where the \(-2x\)
+should be \(+2x.\)  The solution in the back is for this correct version of
+the problem.  So I changed the \(-2x\) to \(+2x.\)  I added a footnote that for
+a challenge the student can try the "wrong" version.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>December 27th 2016 edition, Version 5.0 (edition 5, 0th update):</b>
+<p>
+
+<i>Pagination changed due to the added sections, but numbering of existing
+material has not changed (except for a couple of figures),
+so the new version is completely compatible with
+the old version.</i>
+<ol>
+<li><b>New sections:</b> A short section 0.3 on more detailed classification of differential equations, and section 1.8 on exact equations,
+an often requested topic.
+<li>Expanded the discussion of slope fields in section 1.2 and added a
+new figure.  Thus all figures in chapter 1 are thus renumbered.
+<li>Added a new figure for the salt brine example in 1.6
+<li>New exercises in existing sections:
+1.1.11, 1.1.12, 1.1.106, 1.2.9, 1.2.10, 1.2.11, 1.2.105, 1.3.107, 1.4.105,
+1.6.7, 1.6.104, 2.1.105, 2.2.15, 2.2.16, 2.2.106, 2.2.107, 2.3.11, 2.3.106,
+2.4.104, 3.1.105, 3.3.6, 3.5.4, 4.10.9
+<li>Made the figure captions be italic and smaller, to differentiate from
+surrounding text.
+<li>Remove references to IODE.  Unfortunately it is no longer kept up to date
+and does not work with newest Matlab.
+<li>Thanks to Sonmez Sahutoglu and his students for some of the suggestions above.
+<li>Improve style and exposition in many places.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>October 20th 2014 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li><b>New chapter</b>, chapter 8 on nonlinear systems.  The numbering
+or pagination of existing chapters has not changed.
+<li>Improve wording in d'Alembert section and mention the term "characteristic coordinates".
+<li>Many fixes in style, grammar, and exposition.
+</ol>
+
+<p>
+<b>December 18th 2013 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li>Add a note on the existence of Laplace transform for exponential order
+functions.  Also add one for using this property to compute the derivative.
+Thanks to Dusty Grundmeier for the suggestion.
+<li>Many fixes in style and grammar.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>April 29th 2013 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li>Add some exercises that require a little more thought: 0.2.12, 1.2.7, 1.2.8, 4.9.11.
+<li>The coffee cooling example had unrealistic temperatures.  Plus Bob would
+burn his tongue at 70 degrees.  So change to more realistic temperatures by
+actually measuring a cup.  Add exercise 1.3.106 to deal with what kind of errors we get when the measurement is imprecise.
+<li>Mention partial fractions after example for getting Taylor series for rational functions.
+<li>More correct note on visualization of the Dirichlet problem at end of 4.9.
+<li>Box the formula for Laplacian in polar coordinates.
+<li>Minor grammar and style fixes.
+<li>Fix the <a href="errata.html">errata</a>.
+</ol>
+
+<p>
+<b>December 17th 2012 edition:</b>
+<p>
+<i>The added sections change page numbers beyond the new section 4.10 of course.
+No other numbering changes occurred.</i>
+<ol>
+<li><b>New section 6.4 on the Dirac delta function</b>.  This was a frequently
+requested addition.  This adds 13 exercises, 5 of which have solutions in the
+back.
+<li><b>New section 7.3 on the Frobenius method</b>.  This adds 12 new exercises, 4 of which have solutions in the back.
+<li><b>New section 4.10 on the Dirichlet problem in the circle and the Poisson kernel</b>.  This adds 12 new exercises, 4 of which have solutions in the back.
+<li>Refer to Robin condition by name in chapter 5 and add it to index.
+<li>In section 7.2 several equations were numbered (by mistake),
+but never referred to, so stop numbering them.
+<li>Fix references to Edwards-Penney in chapter 7.
+<li>Footnote counter is reset per page as is usual,
+so that we don't go into weird footnote symbols.  In the web version use
+numbers for footnotes since symbols are worse in that case.
+<li>A few minor style improvements.
+</ol>
+
+<p>
+<b>October 1st 2012 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li><b>Exercise 4.3.103 changed</b> slightly.  Added a factor of n (actually
+n+1) to the denominator to avoid questions of convergence and differentiability.
+<li>Improve the paragraph about decay rates of the coefficients.  It implied
+something that was not correct (marked as errata).  Of course what we said only holds for the
+types of functions we've been defining.  Also note what decay rates guarantee
+continuity and derivatives.
+<li>Improve slightly the exposition on integrating factor.
+<li>Lots of minor improvements in style and fixes in grammar, for example there were a lot of missing question marks
+in exercises.
+<li>Add exercises 1.1.105, 1.3.105
+</ol>
+
+<p>
+<b>July 2nd 2012 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li>Fix all the <a href="errata.html">errata</a>.
+<li>Add exercises 1.2.6, 1.2.104, 2.5.9, 2.5.105, 7.1.11, 7.1.105
+<li>Replace duplicate exercise 6.3.104 with a different exercise (it was the same as 6.3.103).
+<li>Add a tiny bit more detail in several places.
+<li>Minor style and grammar fixes and improvements throughout.
+<li>lulu.com have raised their prices a tiny bit so the paperback version is now 15 cents more expensive.
+</ol>
+
+<p>
+<b>April 8th 2012 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li>Fix all the <a href="errata.html">errata</a>.
+<li>Add exercises 4.3.10 and 4.3.105
+<li>Minor style, grammar, and spelling fixes.
+</ol>
+
+<p>
+<b>December 25th 2011 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+Thanks to Sonmez Sahutoglu for the following suggestions
+<ol>
+<li>Mention the interval where everything is defined in theorems 2.1.2 and
+2.3.2.
+<li>In Theorem 2.1.3, no need to mention f.
+<li>Rewrite Theorem 2.5.1 a little to use "complementary solution"
+for \(y_c\) and only say it is the general solution to the homogeneous
+equation in parenthesis.
+<li>In section 3.5 mention that we only consider diagonalizable matrices.
+</ol>
+
+<p>
+<b>October 24th 2011 edition:</b>
+<p>
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+<ol>
+<li>Fix all the <a href="errata.html">errata</a>.
+<li>Add exercise 2.2.105.
+<li>Minor style and grammar fixes.
+</ol>
+
+<p>
+<b>June 17th 2011 edition:</b>
+<p>
+
+<i>Pagination has changed somewhat in this version.  Numbering of chapters,
+sections, and exercises did not change.  Only one subsection in Laplace
+transforms chapter was added.  The following changes were made:</i>
+
+<ol>
+<li><b>Add 146 exercises with solutions in the back</b>
+(and 1 without) bringing the total 
+to 485 exercises.
+<li>Add subsection on transfer functions to section 6.2.
+<li>Fix all the <a href="errata.html">errata</a>.
+<li>Improve definition of linear independence for vector valued functions and
+add an example.  Thanks to Paul Pearson for pointing this out.
+<li>In section 1.5, improve the table for rules of thumb for the substitution
+by adding "v=".  Thanks to Jared Teague for the suggestion.
+<li>Lots of minor cosmetic and grammatical fixes.
+</ol>
+
+<p>
+<b>December 9th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering was kept as constant as
+possible.  The following changes were made:</i>
+
+<ol>
+<li>Change the matrix in example of 2x2 defective matrix on page 125,
+so that it is not the same as the matrix from exercise 3.7.2 (to prevent 
+"solution by looking ahead in the book")
+<li>Fix all the errata in example 6.2.2, and make the step function
+go from 1 to 5 (which actually matches the graph on page 240).
+<li>Add Exercises 1.7.7 (Runge-Kutta), 3.8.10, 3.8.11, 6.1.13, 6.1.14, 6.1.15,
+6.2.10, 6.2.11, 6.3.8, 6.3.9
+<li>Fix many grammar mistakes and typos (thanks to Gladys Cruz, Jonathan Gomez, Janelle Louie, Navid Froutan, Grace Victorine)
+<li>On bottom of page 233, when expanding in partial fractions,
+the \(A(s^2-1)+s(Bs+C)\) should be
+\(A(s^2+1)+s(Bs+C).\)  The result is correct.
+<li>On page 256, the explicit expression for \(a_5\) was wrong,
+it should be \(a_5 = \frac{a_1}{(5)(4)(3)(2)}\) (thanks Gladys Cruz)
+<li>On page 260, the \(a_2\) expression on the top was missing a
+negative sign (thanks Jonathan Gomez)
+</ol>
+
+<p>
+<b>November 15th 2010 edition:</b>
+<p>
+
+<i>Except for a new chapter, pagination and numbering is kept as constant as
+possible.  The following changes were made:</i>
+
+
+<ol>
+<li><b>New chapter</b>, chapter 7 on Power series methods.  The numbering
+or pagination of existing chapters has not changed.  This is a short chapter
+for 2-3 lectures.
+<li>In Figure 3.3, remove the lines spanned by the eigenvectors to make the
+eigenvectors themselves clear.  The lines are there in Figure 3.4.
+<li>After theorem 3.4.1, and in example 3.4.4, give the corresponding
+fundamental matrix solution.
+<li>Page 100, fix computing the determinant of the matrix, it is
+\((2-\lambda)((2-\lambda)^2-1).\)  There was an extra power of 2.
+<li>In Example 3.4.4, the general solution was missing the arbitrary
+constants \(c_1,\) \(c_2,\) and \(c_3.\)  Furthermore,
+the general solution had the wrong eigenvector for \(\lambda=2.\)
+<li>On top of page 108 when showing the spiral sink, we meant to take real and
+imaginary parts of \(\vec{v}e^{(-1-2i)t}.\)  The displayed equations were
+correct though.
+<li>On bottom of page 121, when the method was being generalized, the equations
+had 3 in them where there should be \(\lambda.\)
+<li>Links to Wikipedia (at least when viewing online) from the short bio footnotes.
+<li>Lots of minor clarifications, grammar fixes, and improvements.
+</ol>
+
+<p>
+<b>November 1st 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Add exercises 3.2.11, 3.4.11.
+<li>Add theorem 3.4.2 summarizing the complex eigenvalues situation.
+<li>Add references to Boyce-DiPrima in the section notes as this
+is a commonly used textbook.
+<li>Add examples for when matrices do not commute and
+when AB=0 does not imply that A=0 or B=0 for matrices.
+<li>Add vertical bar to augmented matrices.
+<li>Page 58, bottom, fix end of Example 2.3.1. (Thanks to Joanne L. Shin)
+<li>Fix labeling of the masses in figure on on page 84.
+<li>On page 85, fix the wording in Example 3.1.2.
+<li>Lots of minor fixes and clarifications.
+</ol>
+
+<p>
+<b>October 13th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Fix example on page 38 when \(h=1.6.\)
+<li>In exercise 1.4.9 part a) we simply ask for the concentration as a function
+of time (not requiring conversion of time to seconds)
+<li>On top of page 97, \(\vec{x}_p\) was missing the arrow indicating a vector.
+<li>Theorem 3.7.1 had a typo where instead of "then" there was an "and".
+<li>On top of page 120, it said the "number of eigenvalues" was equal to the
+number of free variables in \(A\vec{v} = \lambda \vec{v},\) when of course it is
+the "number of eigenvectors".
+<li>When discussing variation of parameters, we say that the equations given
+work for any second order \(Ly=f(x).\) Of course, here we must have L of
+the form \(y''+p(x)y'+q(x)y.\)
+<li>Define "linear combination" more explicitly.
+<li>Mention Boyce-DiPrima in the introduction and in further reading.
+<li>Improve the cart figure in beginning of chapter 3.
+<li>Lots of minor fixes and clarifications.
+</ol>
+
+<p>
+<b>October 3rd 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Add small drawing of the water tank to example 1.4.2
+<li>Add remark about solutions to linear equations (remark 1.4.1)
+<li>Fix example 1.1.5 (missing factor of in the solution 2).
+Thanks to Wing Yip Ho.
+<li>Clarified the stuff about numerical instability (rewrote that paragraph)
+in 1.7 and mention the word "stiff"
+<li>Add Exercise 1.7.6
+<li>Many minor clarifications and cosmetic/grammar fixes.
+</ol>
+
+<p>
+<b>July 16th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Use the microtype latex package for generally nicer line breaks.
+<li>Make all tables prettier.
+<li>Remove some useless significant digits from the tables in the
+Euler's method section.
+<li>Improve linking.
+<li>Remove "Dirichlet problems" from the Steady state temperature
+section title as it didn't fit properly.
+<li>Many minor clarifications and cosmetic/grammar fixes.
+</ol>
+
+<p>
+<b>July 1st 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Using new texlive, which outputs PDF 1.5, which is significantly smaller.
+<li>Underline links, the underlines should not appear in printed output.
+<li>Some minor clarifications and cosmetic/grammar fixes.
+</ol>
+
+<p>
+<b>May 18th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Exercise 4.6.5 was ridiculous in light of exercise 4.6.4.  I replaced
+the exercise with a somewhat more difficult one.
+<li>On page 113, when writing the solution in terms of amplitudes and phase shifts, \(\alpha_1\) and \(\alpha_2\) were swapped.
+<li>Exercise 118 on page 118 wrongly asked for
+\(m_1\) instead of \(m_2\) which is the unknown.
+<li>On page 198 fix typo in the derivation of d'Alembert formula.
+Thanks to Shawn White.
+<li>Add exercise 6.2.9
+<li>Many minor grammar/English fixes and small clarifications.
+</ol>
+
+<p>
+<b>April 28th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>On page 193 fix the
+derivation of the solution for w and z.
+<li>On page 173 the formula near the bottom should have a -4.  That is, \(f(t)\) is
+\(\frac{1}{2} + \sum_{{n=1\\n~\text{odd}}}^\infty
+\frac{-4}{\pi^2 n^2} \, \cos (n \pi t).\)  Thanks to Sean Robinson.
+<li>On page 206 
+the formula for \(u_n(x,0)\) should read
+\(u_n(x,0) = X_n(x)Y_n(0) = \sin \left( \frac{n \pi}{w} x \right)\) (note the denominator).
+Thanks to Sean Robinson.
+<li>Added note to heat equation section about the "smoothing out" effect of
+the solutions.  For whatever reason, this note wasn't in there even though it
+is referred to in the wave equation section.
+<li>Add exercises 4.4.11, 4.6.10
+<li>Fix the pagination in chapter 4 to 1) make it similar to what it always has been, and 2) to avoid bad page breaks
+<li>Add more acknowledgments.
+<li>Several small clarifications, and other minor fixes.
+</ol>
+
+<p>
+<b>April 13th 2010 edition:</b>
+<p>
+
+<i>Pagination (pagination changed in chapter 4 and is somewhat odd, that will be fixed in next version) and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Many clarifications as to arguments of sin/cos/sinh/cosh, that is, use more parentheses.  In fact,
+any argument that is not a single symbol is now parenthesized, and some even if they are single symbol.
+It is not as pretty, but it's a lot more readable.
+<li>On bottom of page 173, there was the constant term of 1/4 missing in the
+Fourier series for the solution x.
+<li>On page 237, Heaviside function definition was off it should be 1 for all t &ge; 0.
+<li>On page 239 near middle of page, there was an
+\(e^{-2s}\)
+that should be
+\(e^{-3s}\)
+though the inverse transform was then done correctly.  Thanks to Sean Raleigh and Jessica Robinson for
+spotting this one.
+<li>On page 240, when applying the Laplace transform to solve an integral equation, there
+was a missing equals sign and x(t) was mistakenly called f(t)
+<li>On page 241, exercises 6.2.3, 6.2.4, and 6.2.5 were trivial as given (x=0
+is the solution).  What I means was to make the initial conditions arbitrary,
+i.e. \(x(0)=a\) and \(x'(0)=b.\)  Thanks to Sean Raleigh and Jessica Robinson for
+spotting this one.
+<li>On page 242, exercise 6.3.2, change all \(\omega_0\) to \(\omega.\)
+Thanks to Sean Raleigh and Jessica Robinson for
+spotting this one.
+<li>Add exercise 6.2.8.
+<li>Mark example 6.2.4 as an example.
+<li>Minor other clarifications and cosmetic improvements in places.
+<li>Fixed many minor typos and mistakes.
+</ol>
+
+<p>
+<b>April 6th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Exercise 4.1.4 on page 145 had forgotten applications of chain rule in computations.  The final result is not changed.  Thanks to Michael Angelini for pointing this out.
+<li>The eigenfunctions are cos kt (not sin kt) on top of page 146.
+<li>Clarify and add more information to exercise 2.6.5.
+<li>Page 153 was a little confusing, consistently use 1 as the constant
+eigenfunction and frame the formula for \(a_0\) at the bottom of the
+page.
+<li>Also on page 153, define the inner product without scaling by 
+\(\frac{1}{\pi}\) for consistency.
+<li>Clarify the definition at endpoints for periodic functions.
+<li>On page 157-158 stay with the square wave example to talk about the
+values at discontinuities to avoid jumping around.
+<li>On page 163 top, the condition about existence of one sided limits at
+all the endpoints is now correct.
+<li>Be less cavalier with equality in the Fourier series section.  Remove
+a couple of unnecessary "f(t)=" before a series, before we have talked
+about convergence.
+<li>Clarify exercises 4.3.6 and 4.3.7
+<li>Add exercises 4.3.8, 4.3.9, and 6.1.12
+<li>On page 168 of course it is the cosine terms disappear for an odd
+extension, not the sine terms.
+<li>On page 170 on the top, there was a plus sign missing in the series
+after
+\(\frac{a_0}{2}.\)
+<li>On page 212 we mistakenly said that eigenvalues are lambdas with no nontrivial solutions (thanks to Sean Raleigh).
+<li>On page 217, the integral that is the inner product of the sine with itself should not have f(t) in it, the one that equals
+\(\frac{\pi}{4}\)
+(thanks again to Sean Raleigh).
+<li>On page 222, Newton's second came out all jumbled up.  Of course it is "force equals mass times acceleration"
+(and again: Sean Raleigh).
+<li>Add hint to exercise 5.1.1 as there is a subtle issue.
+<li>Minor other clarifications and cosmetic improvements in places.
+<li>Fixed many minor typos and mistakes.
+</ol>
+
+<p>
+<b>March 7th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li>Exercise 2.4.5 was not possible.  Replace 0.8 with 1.1 and 0.39 with 0.8.
+Also add a note that you always get two possibilities for the mass
+in the formulas.
+<li>Fix the formula for the complex roots on page 54, that is the discriminant should be negated under the square root sign if we take out an <i>i</i>.
+<li>Fix theorem 4.1.2.   There was an unneeded hypothesis about p and q which do not appear in the theorem.
+<li>On page 60, fix the solution corresponding to complex roots.
+<li>On page 60, fix the factorization of the characteristic equation in
+example 2.3.5.
+<li>Also on page 60, relabel the arbitrary constants to be more consistent
+and make them all upper case.
+<li>IODE Project III has changed (there was always some confusion about what was Project III)
+and now fits more after section 2.3, rather than before 2.6.
+<li>On page 75 on top, there was a typo in the expression for \(u_1',\) the x should be an argument to the cosine.
+<li>In example 2.6.1, when stating the parameters, it should say m=0.5
+(the example was computed correctly, so no other changes).
+<li>Add exercise 2.4.6.
+<li>Add hint to exercise 2.4.1.
+<li>Theorem 2.5.1 holds for any order, so simply drop the words "second order"
+<li>In exercise 2.5.1, also explicitly state that the initial conditions must
+be satisfied.
+<li>Remove unneeded reference to [EP] on page 73.
+<li>Put a box around the formula for the practical resonance frequency on page
+81.
+<li>Minor clarifications in places.
+<li>Add a few more words to the index.
+<li>Fixed other minor typos and mistakes.
+</ol>
+
+<p>
+<b>February 17th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+
+<ol>
+<li>Fix solution to example 1.3.4. The solution should end up being
+\(\frac{6}{x^2+2C}.\)
+Thanks to Leonardo Gomes for noticing.
+<li>Fix the computation of the constants in Example 2.4.1.  Also fix the
+discussion right after the example, and fix Figure 2.2.
+<li>Fix examples on page 72 and 73.
+<li>Fix example 6.1.7 (page 234), the inverse transform was off by an extra 1/2.
+<li>Fix example 6.3.3 (page 243), the convolution was not computed correctly.
+<li>Figure on page 37 (bottom of page) should have x=5 and x=0.  Thanks to Jeff Winegar for pointing it out.
+<li>Add Theorem 2.1.3 to highlight the fact that the superposition of two linearly independent solutions is the general solution to the homogeneous equation.
+<li>Add Theorem 2.5.1, to give the solution to highlight how nonhomogeneous
+equations are solved.
+<li>Add k to the examples on top of page 49 to make them less trivial.
+<li>Exercise 2.3.4 was hard to read correctly, reformulate.
+<li>Due to minor changes in the text, Figure 4.12 moved up a page resulting in
+a much more logical pagination.
+<li>Many small clarifications.
+<li>Many minor typo and grammar fixes.
+</ol>
+
+<p>
+<b>February 8th 2010 edition:</b>
+<p>
+
+<i>Pagination and numbering is kept as constant as possible.  The following
+changes were made:</i>
+
+<ol>
+<li> Fix error in example on page 34.  The integrating factor is off by
+a constant.  Instead rework the example to be done by substituting into
+formula (1.4).  Thanks to Sean Raleigh for noticing.
+<li> Integrate in a different way in Example 1.1.3 to get rid of an extra k.
+Also fix up the constant in front.  Finally rename C' to D and add assumption
+that k &gt; 0.
+<li> Fix the derivation in example 1.3.3, there was a negative sign mistake in
+the middle, though it made no difference in the solution.  Also consistently
+keep time in minutes for the example.
+<li> Fix example 1.4.1, there was a missing minus sign in the solution.  Thanks
+to Ian Simon for pointing it out.
+<li> Fix example on page 103.  The expression for \(x_1\) in the middle of
+the page should have \(e^t\cos(t) -i e^t\sin(t).\)  The rest of
+the example also needed to have the signs fixed.  Thanks to Sean Raleigh
+for noticing.
+<li> Exercise 1.1.7 had a typo making the solution very hard (without a computer
+algebra system).  The right hand side should be a
+\(\frac{1}{y+1}\)
+not
+\(\frac{1}{y^2+1}.\)
+<li> Exercise 1.3.7 was impossible (typo in the equation) replace with a
+different exercise.
+<li> Add forgotten initial condition to Exercise 0.2.9 (\(x'(0)=0\)).
+<li> Exercise 1.5.6 was way too difficult.  Replace with an easier exercise.
+<li> Add "then find x(10)" to exercise 1.1.1.
+<li> Fix caption on Figure 1.
+<li> Fix captions on Figure 1.7-1.10 (replace -0.1 by 0.1), replace Figures
+1.6-1.10 with new versions which have the correct vertical scale.
+<li> In example 1.2.2, use
+\(\operatorname{sgn}(x)x^2\)
+for an example solution.
+<li> Add exercises 0.2.11, 1.1.9-10, 1.2.5, 1.3.8-12, 1.4.11-12, 1.7.5
+<li> Exercise 1.5.1 was already worked out as an example.  Replace.
+<li> Regenerate some of the figures for better looking output using better
+parameters and newer version of genius.
+<li> Clarify exposition somewhat in many places, and clarify some exercises.
+<li> Fix some other minor grammar mistakes or simply awkward English in places.
+</ol>
+
+<p>
+<b>January 10th 2010 edition:</b>
+<p>
+
+<i>Pagination, numbering, everything is the same except for very minor
+edits as follows.</i>
+
+<ol>
+<li> Fixed examples on the first page of section 2.1.  The <i>k</i>
+in the equations should be <i>k</i><sup>2</sup>.  Thanks to Thomas Wicklund
+for noticing.
+<li> Got rid of the version with the EP sections in the titles.  So there is now
+only one PDF version of the notes.  If you like you can make any version you
+want from the latex source.
+<li> Restructured the initial "notes about these notes" section a little.
+<li> Fix some other minor grammar mistakes or simply awkward English in places.
+</ol>
+
+<p>
+<b>November 25th 2009 edition:</b>
+<p>
+
+<i>Pagination, numbering, everything is the same except for very minor
+edits as follows.</i>
+
+<ol>
+<li> Exercise 2.1.8 was missing a minus sign (thanks to Eliot Brenner for spotting this).  It should look like:
+<br>
+<b>Exercise 2.1.8:</b> Suppose
+\(y_1\) is a solution to \(y''+p(x)y'+q(x)y=0.\)
+Show that
+<br>
+\(y_2(x)=y_1(x)\int \frac{e^{-\int p(x)dx}}{(y_1(x))^2} dx\)
+<br>
+is also a solution.
+<li> Minor English, grammar, spelling, and punctuation fixes all over.
+<li> Minor clarifications, and some cosmetic changes.
+</ol>
+
+<p>
+<b>October 23rd 2009 edition:</b>
+<p>
+
+<i>Pagination, numbering, everything is the same except for very minor
+edits as follows.</i>
+
+<ol>
+<li>Exercise 4.6.4 on page 188 is fixed.
+While theoretically the exercise is possible, it
+is not what was intended.  The last side condition should be
+u(x,0) = 3 cos x + cos 3x.
+<li>Minor English, grammar, spelling, and punctuation fixes all over.
+<li>The license in the book now explicitly specifies that printing course packs
+is permitted.  Plus other minor updates in the introductory section.
+</ol>
+
+<p>
+<b>September 29th 2009 edition:</b>
+<p>
+
+<i>Pagination, numbering, everything is the same except for very minor
+edits as follows.</i>
+
+<ol>
+<li>Example 1.4.2 is fixed.  There was an error with integration and there
+is a factor of 2 missing in the 5th line of the computation on page 30.
+Thanks to Thomas Wicklund for spotting this error.
+<li>Minor English, grammar, and punctuation fixes all over chapter 1.
+<li>Website added to notes (chapter 0).
+</ol>
+
+<p>
+<b>May 12th 2009 edition:</b>
+<p>
+
+First version.
+
+<p>
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 1.9</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 1.9</h1>
+
+<p>
+Press the <em>Evaluate</em> button below to launch the Sage demonstration.
+You may have to wait a little before the graph
+appears.  Be patient. To change the function, you should edit the code and press
+the <em>Evaluate</em> button again.
+
+<h2>Plotting Example 1.9.1: Transport equation</h2>
+
+<p>
+Let us work through the solution to \( u_x + u_t = 0,\) the
+transport equation, for
+\(-\infty &lt; x &lt; \infty , \) \(t \geq 0, \)
+with the initial condition \(u(x,0) = e^{-x^2} .\)
+That is, Example 1.9.2 in the book with \(\alpha=1\)
+and \(f(x) = e^{-x^2} .\)
+
+<p>
+The characteristic curves are the sets where \(\xi = \text{constant},\)
+so we need to write \(\xi\) as a function of \(x\) and \(t\)
+and plot the level sets of this function.  We found the
+characteristic coordinates \((\xi,s)\) to be given by
+\(\xi=x-t,\) \(s=t .\)
+So we find the level sets of \(x-t .\)
+The \(x\) axis is the horizontal one and \(t\) the vertical one.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x t")
+contour_plot(x-t, (x,-3,3), (t,0,5),
+             fill=False, cmap='brg', labels=True,
+             contours=10)
+</script>
+</div>
+
+<p>
+In the book, we solved the equation to find
+<p>
+\(\displaystyle
+u(x,t) = e^{-(x-t)^2} .
+\)
+<p>
+Before graphing \(u\) in three dimensions,
+we draw the values of \(u\) as colors and overlay the characteristics.
+Note how the function is constant (same color) along the characteristic
+since the ODE along the characteristics is \(\frac{du}{ds} = 0 . \)
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x t")
+u(x,t) = exp(-(x-t)^2)
+c1=contour_plot(u(x,t), (x,-3,3), (t,0,5), cmap='Spectral', contours=30,
+                colorbar=True)
+c2=contour_plot(x-t, (x,-3,3), (t,0,5),
+             fill=False, cmap=['black'],
+             contours=10)
+(c1+c2).show()
+</script>
+</div>
+
+<p>
+Next, we plot the graph of \(u(x,t)\) in 3 dimensions.  Note
+that Sage currently (unless this has been fixed already)
+labels the axes a little confusingly, so
+the \(t\) axis is labeled as \(y .\)  You should be able to rotate the graph
+by clicking and dragging.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x t")
+u(x,t) = exp(-(x-t)^2)
+plot3d(u(x,t), (x,-3,3), (t,0,5), mesh=True)
+</script>
+</div>
+
+<h2>Plotting Example 1.9.3</h2>
+
+<p>
+Let us work through \( xu_x + u_t + 2u = 0,\)
+\(-\infty &lt; x &lt; \infty , \) \(t \geq 0, \)
+with the initial condition \(u(x,0) = \cos(x) .\)
+
+<p>
+First, we plot the
+characteristic curves \(\xi = \text{constant}.\)
+In this example, the 
+characteristic coordinates \((\xi,s)\) were given by
+\(x=\xi e^s,\) \(t=s .\)
+Solving for \(\xi\) in terms of \(x\) and \(t\)
+we find
+\(\xi=xe^{-t}.\)  We will only plot \(x\)
+in the range \(-5\) to \(5\) and the \(t\)
+in the range \(0\) to \(1.\)  So to avoid
+a narrow graph we set the aspect ratio to 8
+to stretch the \(t\) axis by 8 times.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x t")
+contour_plot(x*exp(-t), (x,-5,5), (t,0,1),
+             fill=False, cmap='brg', labels=True,
+             contours=20, aspect_ratio=8)
+</script>
+</div>
+
+<p>
+In the book, we solved the equation to find
+<p>
+\(\displaystyle
+u(x,t) = e^{-2t} \cos(xe^{-t}) .
+\)
+<p>
+We again make a contour plot of \(u\) with the
+characteristics overlaid.  In this case, the
+ODE along the characteristic is
+\(\frac{du}{ds}+2u=0 ,\) which has
+the general solution \(u = Ce^{-2s} .\)
+So the solution decays towards zero exponentially as we move along the characteristic.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x t")
+u(x,t) = exp(-2*t)*cos(x*exp(-t))
+c1=contour_plot(u(x,t), (x,-5,5), (t,0,1), cmap='Spectral', contours=30,
+                colorbar=True)
+c2=contour_plot(x*exp(-t), (x,-5,5), (t,0,1),
+             fill=False, cmap=['black'],
+             contours=20)
+(c1+c2).show(aspect_ratio=8)
+</script>
+</div>
+
+<p>
+And finally, the graph of \(u(x,t)\) in 3 dimensions.  Here we also stretch the
+vertical axis 3 times.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x t")
+u(x,t) = exp(-2*t)*cos(x*exp(-t))
+plot3d(u(x,t), (x,-5,5), (t,0,1), mesh=True, aspect_ratio=[1,8,3])
+</script>
+</div>
+
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

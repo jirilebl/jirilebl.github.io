@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 2.3</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 2.3</h1>
+
+<p>
+Press the <em>Evaluate</em> button below to launch the Sage demonstration.
+
+<h2>Solving polynomials</h2>
+
+<p>
+When solving higher order constant coefficient ODEs, we run into
+needing to solve polynomial equations of higher order.  We can use Sage.
+With the "solve" command you will get exact solutions,
+but the command will only work up to degree 4
+and in special cases for higher degrees.
+You can try, but it won't always work;
+there are no general formulas for roots of polynomials
+of degree 5 and higher.
+See below for numerically solving for roots.
+We use the "show" command to make Sage give a nice presentation of the roots.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("r")
+show(solve(r^4-2*r^3-r+2==0,r))
+</script>
+</div>
+
+<p>
+The "roots" method applied to a polynomial will return roots in the given ring
+(in this case "CC" stands for complex numbers).  In this case, it will return
+numerical solutions for the roots.  It will return a list of pairs,
+the first number is the root, the second is the multiplicity.  In the following
+example, the root \(2\) has multiplicity \(2,\) that is, it appears twice
+in the list of roots.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("r")
+(r^5 - 4*r^4 + 5*r^3 - 3*r^2 + 4).roots(ring=CC)
+</script>
+</div>
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

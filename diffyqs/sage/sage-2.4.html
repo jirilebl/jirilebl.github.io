@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 2.4</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 2.4</h1>
+
+<p>
+On this page the animations are prerendered.  There is no reason to run the Sage code unless you changed it.
+<b>These animations take Sage <em>long</em> time to draw.</b>
+If you wish to experiment look for the "srange" in the code to make it into
+fewer frames, the syntax is "srange(start,end,step)".  In the code given, <em>the steps are on purpose
+bigger than what was used to produce the animations</em>, if you want to replicate the animations exactly
+you have to reduce the step size.
+Note that in the book the spring is oriented sideways with the positive \(x\) going to the right, and below
+as we are drawing graphs, positive \(x\) is going up, so the spring is below the mass in the picture
+to match the book (you could look at the graph sideways).
+
+<h2>Undamped motion</h2>
+
+<p>
+The graph below is the solution to \(x'' + 4x = 0\) with initial conditions \(x(0) = 0.5\) and \(x'(0) = 1.\)
+This represents the undamped motion of a mass on a spring.  An animation is drawn of the mass on the spring.
+The solution is \(x(t) = 0.5 \cos(2t) + 0.5 \sin(2t).\)  To plot something different modify the solution below.
+
+<p>
+<img alt="Animation for an undamped mass on a spring" src="2.4-undamped.gif" width=787 height=176>
+
+<p>
+Here is the Sage code to produce this animation:
+
+<div class="sageedit">
+<script type="text/x-sage">
+var('t')
+
+# Here is the solution
+f(t) = .5*cos(2*t) + .5*sin(2*t)
+
+a = animate([line([(k,f(k)),(17.5,f(k)+.01)], thickness = 1, color = 'darkgreen')
+              + plot(f,(t,0,k+0.01), plot_points=k*10, color='blue', thickness=2)
+              + polygon2d([[17.5,f(k)-.5],[17.5,f(k)+.5],[18.5,f(k)+.5],[18.5,f(k)-.5]])
+              + line([(18,f(k)-.5),(18,f(k)-.6)]+[(18+0.5*(-1)^i,f(k)-.6-(2*i+1)*(1.3+f(k))/8) for i in range(4)]+[(18,-1.9),(18,-2)],color = 'red')
+              for k in srange(0,15,0.5)],
+            xmin = -0, xmax = 20, ymin = -2, ymax = 2, figsize = 8)
+a.show()
+</script>
+</div>
+
+<h2>Overdamped motion</h2>
+
+<p>
+The graph below is the solution to \(2x'' + 7x' + 3x = 0\) with initial conditions \(x(0) = 2\) and \(x'(0) = -11.\)
+This represents overdamped motion of a mass on a spring.  The solution is \(x(t) = 4e^{-3t} - 2e^{-0.5t}.\)
+
+<p>
+<img alt="Animation for an overdamped mass on a spring" src="2.4-overdamped.gif" width=787 height=471>
+
+<p>
+Here is the Sage code to produce this animation:
+
+<div class="sageedit">
+<script type="text/x-sage">
+var('t')
+
+# Here is the solution
+f(t) = 4*e^(-3*t) - 2*e^(-.5*t)
+
+a = animate([line([(k,f(k)),(8.5,f(k)+.01)], thickness = 1, color = 'darkgreen')
+              + plot(f,(t,0,k+0.01), plot_points=k*10, color='blue', thickness=2)
+              + polygon2d([[8.5,f(k)-.5],[8.5,f(k)+.5],[9.5,f(k)+.5],[9.5,f(k)-.5]])
+              + line([(9,f(k)-.5),(9,f(k)-.6)]+[(9+0.5*(-1)^i,f(k)-.6-(2*i+1)*(2.3+f(k))/8) for i in range(4)]+[(9,-2.9),(9,-3)],color = 'red')
+              for k in srange(0,8,.25)],
+            xmin = -0, xmax = 10, ymin = -3, ymax = 3, figsize = 8)
+a.show()
+</script>
+</div>
+
+<h2>Underdamped motion</h2>
+
+<p>
+The graph below is the solution to \(16x'' + 8x' + 63x = 0\) with initial conditions \(x(0) = 1\) and \(x'(0) = 1.75.\)
+This represents underdamped motion of a mass on a spring.  We also plot the envelope curves in gray.
+
+<p>
+<img alt="Animation for an underdamped mass on a spring" src="2.4-underdamped.gif" width=787 height=176>
+
+<p>
+Here is the Sage code to produce this animation:
+
+<div class="sageedit">
+<script type="text/x-sage">
+var('t')
+
+# Here is the solution
+f(t) = e^(-.25*t)*(cos(2*t) + sin(2*t))
+
+a = animate([line([(k,f(k)),(17.5,f(k)+.01)], thickness = 1, color = 'darkgreen')
+              + plot(f,(t,0,k+0.01), plot_points=k*10, color='blue', thickness=2)
+              + plot(2^(1/2)*e^(-.25*t),(t,0,15), color='gray')
+              + plot(-(2^(1/2))*e^(-.25*t),(t,0,15), color='gray')
+              + polygon2d([[17.5,f(k)-.5],[17.5,f(k)+.5],[18.5,f(k)+.5],[18.5,f(k)-.5]])
+              + line([(18,f(k)-.5),(18,f(k)-.6)]+[(18+0.5*(-1)^i,f(k)-.6-(2*i+1)*(1.3+f(k))/8) for i in range(4)]+[(18,-1.9),(18,-2)],color = 'red')
+              for k in srange(0,15,0.5)],
+            xmin = -0, xmax = 20, ymin = -2, ymax = 2, figsize = 8)
+a.show()
+</script>
+</div>
+
+<hr>
+<p>
+The original code is mainly due to Ryan Burkhart.
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

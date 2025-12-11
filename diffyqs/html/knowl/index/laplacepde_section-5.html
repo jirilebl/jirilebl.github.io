@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Consider the first-order PDE</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fopde_section.html ./knowl/xref/lt_half-infinite-goo-river.html">
+\begin{equation}
+y_t = - \alpha y_x, \qquad \text{for } x &gt; 0, \enspace t &gt; 0,
+\end{equation}
+</div>
+<div class="para">with side conditions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fopde_section.html ./knowl/xref/lt_half-infinite-goo-river.html">
+\begin{equation}
+y(0,t) = C, \qquad y(x,0) = 0 .
+\end{equation}
+</div>
+<div class="para">We will assume <span class="process-math">\(\alpha &gt; 0\)</span> is a constant. This equation is called the <em class="emphasis">convection equation</em> or sometimes the <em class="emphasis">transport equation</em>, and it already made an appearance in <a href="fopde_section.html" class="internal" title="Section 1.9: First-order linear PDEs">Section 1.9</a>, with different conditions. See <a href="laplacepde_section.html#lt_half-infinite-goo-river" class="internal" title="Figure 6.5">Figure 6.5</a> for a diagram of the setup.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#laplacepde_section-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like"><img class="diffyimg" style="width:184pt; height:116pt; display:block;" src="figures/half-infinite-goo-river-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Transport equation on a half line.<div class="autopermalink" data-description="Figure 6.5"><a href="#lt_half-infinite-goo-river" title="Copy heading and permalink for Figure 6.5" aria-label="Copy heading and permalink for Figure 6.5">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para">A physical setup of this equation is a river of viscous goo, as we do not want anything to diffuse.  The function <span class="process-math">\(y\)</span> is the concentration of some toxic substance<details class="ptx-footnote" aria-live="polite" id="laplacepde_section-5-1-5-2"><summary class="ptx-footnote__number" title="Footnote 6.5.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="laplacepde_section-5-1-5-2">It’s a river of goo already, we’re not hurting the environment much more.</div></details>. The variable <span class="process-math">\(x\)</span> denotes position where <span class="process-math">\(x=0\)</span> is the location of a factory spewing the toxic substance into the river.  The toxic substance flows into the river so that at <span class="process-math">\(x=0\)</span> the concentration is always <span class="process-math">\(C\text{.}\)</span>  We wish to see what happens past the factory, that is, at <span class="process-math">\(x &gt; 0\text{.}\)</span>  Let <span class="process-math">\(t\)</span> be the time, and assume the factory started operations at <span class="process-math">\(t=0\text{,}\)</span> so that at <span class="process-math">\(t=0\)</span> the river is just pure goo.<div class="autopermalink" data-description="Paragraph"><a href="#laplacepde_section-5-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">Consider a function of two variables <span class="process-math">\(y(x,t)\text{.}\)</span> Let us fix <span class="process-math">\(x\)</span> and transform the <span class="process-math">\(t\)</span> variable. For convenience, we treat the transformed <span class="process-math">\(s\)</span> variable as a parameter, since there are no derivatives in <span class="process-math">\(s\text{.}\)</span> That is, we write <span class="process-math">\(Y(x)\)</span> for the transformed function, and treat it as a function of <span class="process-math">\(x\text{,}\)</span> leaving <span class="process-math">\(s\)</span> as a parameter.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/transformsofders_section.html">
+\begin{equation}
+Y(x)
+= {\mathcal L} \bigl\{ y(x,t) \bigr\}
+= \int_0^\infty y(x,t) e^{-st} \,dt .
+\end{equation}
+</div>
+<div class="para">The transform of a derivative with respect to <span class="process-math">\(x\)</span> is just differentiating the transformed function:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/transformsofders_section.html">
+\begin{equation}
+{\mathcal L} \bigl\{ y_x(x,t) \bigr\} =
+\int_0^\infty y_x(x,t) e^{-st} \,dt
+=
+\frac{d}{dx} \left[\int_0^\infty y(x,t) e^{-st} \,dt \right]
+=
+Y'(x) .
+\end{equation}
+</div>
+<div class="para">To transform the derivative in <span class="process-math">\(t\)</span> (the variable being transformed), we use the rules from <a href="transformsofders_section.html" class="internal" title="Section 6.2: Transforms of derivatives and ODEs">Section 6.2</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/transformsofders_section.html">
+\begin{equation}
+{\mathcal L} \bigl\{ y_t(x,t) \bigr\} 
+=
+sY(x) - y(x,0) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#laplacepde_section-5-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">In our specific case, <span class="process-math">\(y(x,0)=0\text{,}\)</span> and so <span class="process-math">\({\mathcal L} \bigl\{ y_t(x,t) \bigr\} = sY(x)\text{.}\)</span>  We transform the equation to find</div>
+<div class="displaymath process-math">
+\begin{equation}
+sY(x) = -\alpha Y'(x) .
+\end{equation}
+</div>
+<div class="para">This ODE needs an initial condition.  The initial condition is the other side condition of the PDE, the one that depends on <span class="process-math">\(x\text{.}\)</span>  Everything is transformed, so we must also transform this condition</div>
+<div class="displaymath process-math">
+\begin{equation}
+Y(0) = 
+{\mathcal L} \bigl\{ y(0,t) \bigr\} 
+=
+{\mathcal L} \bigl\{ C \bigr\} 
+=
+\frac{C}{s} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#laplacepde_section-5-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">We solve the ODE problem <span class="process-math">\(sY(x) = -\alpha Y'(x)\text{,}\)</span> <span class="process-math">\(Y(0) = \frac{C}{s}\text{,}\)</span> to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lt_half-infinite-goo-river-wavefront.html">
+\begin{equation}
+Y(x) = \frac{C}{s} e^{-\frac{s}{\alpha} x} .
+\end{equation}
+</div>
+<div class="para">We are not done, we have <span class="process-math">\(Y(x)\text{,}\)</span> but we really want <span class="process-math">\(y(x,t)\text{.}\)</span>  We transform the <span class="process-math">\(s\)</span> variable back to <span class="process-math">\(t\text{.}\)</span> Let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lt_half-infinite-goo-river-wavefront.html">
+\begin{equation}
+u(t) = \begin{cases} 0 &amp; \text{if $t &lt; 0$}, \\ 1 &amp; \text{otherwise}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">be the Heaviside function. As</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lt_half-infinite-goo-river-wavefront.html">
+\begin{equation}
+{\mathcal L} \bigl\{ u(t-a) \bigr\} =
+\int_0^\infty u(t-a) \, e^{-st} \,dt
+=
+\int_a^\infty e^{-st} \,dt
+=
+\frac{e^{-as}}{s} ,
+\end{equation}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lt_half-infinite-goo-river-wavefront.html">
+\begin{equation}
+y(x,t) = {\mathcal L}^{-1} \left\{
+\frac{C}{s} e^{-\frac{s}{\alpha} x}
+\right\}
+=
+C u\bigl(t-\nicefrac{x}{\alpha}\bigr) .
+\end{equation}
+</div>
+<div class="para">In other words,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lt_half-infinite-goo-river-wavefront.html">
+\begin{equation}
+y(x,t) =
+\begin{cases}
+0 &amp; \text{if $t &lt; \nicefrac{x}{\alpha}$}, \\
+C &amp; \text{otherwise.}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">See <a href="laplacepde_section.html#lt_half-infinite-goo-river-wavefront" class="internal" title="Figure 6.6">Figure 6.6</a> for a diagram of this solution.  The line of slope <span class="process-math">\(\nicefrac{1}{\alpha}\)</span> indicates the wavefront of the toxic substance in the picture as it is leaving the factory. What the equation does is simply move the initial condition to the right at speed <span class="process-math">\(\alpha\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#laplacepde_section-5-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like"><img class="diffyimg" style="width:252pt; height:116pt; display:block;" src="figures/half-infinite-goo-river-wavefront-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Wavefront of toxic substance is a line of slope <span class="process-math">\(\nicefrac{1}{\alpha}\text{.}\)</span><div class="autopermalink" data-description="Figure 6.6"><a href="#lt_half-infinite-goo-river-wavefront" title="Copy heading and permalink for Figure 6.6" aria-label="Copy heading and permalink for Figure 6.6">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para logical">
+<div class="para">Shhh... <span class="process-math">\(y\)</span> is not differentiable, it is not even continuous (nobody ever seems to notice).  How could we plug something that’s not differentiable into the equation? Well, just think of a differentiable function very very close to <span class="process-math">\(y\text{.}\)</span> Or, if you recognize the derivative of the Heaviside function as the delta function, then all is well too:</div>
+<div class="displaymath process-math">
+\begin{equation}
+y_t (x,t) = \frac{\partial}{\partial t} \left[
+C  u\bigl(t-\nicefrac{x}{\alpha}\bigr)
+\right]
+=
+C  u'\bigl(t-\nicefrac{x}{\alpha}\bigr)
+=
+C \delta\bigl(t-\nicefrac{x}{\alpha}\bigr)
+\end{equation}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation}
+y_x (x,t) = \frac{\partial}{\partial x} \left[
+C  u\bigl(t-\nicefrac{x}{\alpha}\bigr)
+\right]
+=
+- \frac{C}{\alpha}  u'\bigl(t-\nicefrac{x}{\alpha}\bigr)
+=
+- \frac{C}{\alpha} \delta\bigl(t-\nicefrac{x}{\alpha}\bigr) .
+\end{equation}
+</div>
+<div class="para">So <span class="process-math">\(y_t = - \alpha y_x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#laplacepde_section-5-1-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.5.1"><a href="#laplacepde_section-5" title="Copy heading and permalink for Example 6.5.1" aria-label="Copy heading and permalink for Example 6.5.1">🔗</a></div></article><span class="incontext"><a class="internal" href="laplacepde_section.html#laplacepde_section-5">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 1.8</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 1.8</h1>
+
+<p>
+Press the <em>Evaluate</em> button below to launch the Sage demonstration.
+You may have to wait a little before the graph
+appears.  Be patient. To change the function, you should edit the code and press
+the <em>Evaluate</em> button again.
+
+<h2>Plotting level sets of a function / implicit solutions to exact equations</h2>
+
+<p>
+Here we show how to plot several sets of the form \(F(x,y)=C\) for various
+constants \(C.\)  That is, if you get a potential function after solving
+an exact equation, its level sets are the different implicit solutions.
+In this first example we plot the level sets of \(F(x,y)=x^2+xy-y .\)
+Feel free to change the function.  You can also change other parameters you can
+change like the ranges of \(x\) and \(y,\) the number of contours to plot
+with the "contours" parameter, it is 20 by default.
+
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+contour_plot(x^2+x*y-y, (x,-5,5), (y,-5,5),
+             fill=False, cmap='brg', labels=True,
+             contours=20, colorbar=True)
+</script>
+</div>
+
+<p>
+You can also set explicit contours to plot with the "contours" parameter.
+Here we set to plot contours for the four values \(C=-5,0,5,10.\)
+<p>
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+contour_plot(x^2+x*y-y, (x,-5,5), (y,-5,5),
+             fill=False, cmap='brg', labels=True,
+             contours=[-5,0,5,10], colorbar=True)
+</script>
+</div>
+
+<p>
+For the "cmap" parameter, you can try different colormaps.  To see all possibilities,
+you can add "print(sorted(colormaps))" on a separate line.
+Good choices to me seem 'brg', 'terrain', 'hsv', 'gnuplot2', 'jet', 'winter', or 'Spectral'.
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+</div>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

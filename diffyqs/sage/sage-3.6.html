@@ -1,0 +1,183 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 3.6</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 3.6</h1>
+
+<p>
+Press the <em>Activate</em> button below to launch the Sage demonstration.
+After the demonstration launches you should be able to interact with it
+to change numbers with sliders.  You may have to wait a little before the graph
+appears.  Be patient.
+
+<h2>Two carts on springs</h2>
+
+<p>
+Let the setup be as in the picture:
+<p>
+<img alt="Carts setup" src="3.6-carts.svg">
+
+<p>
+You can change the spring constants and masses, and give initial conditions.  The position of each
+cart is relative to its rest position.
+
+<div class="sage">
+<script type="text/x-sage">
+var(['t','E','u','v','a1','a2','b','c'])
+x = function('x')(t)
+y = function('y')(t)
+
+# Making Graphic and Setup
+
+# We don't need to redo this all the time, it takes Sage a long time to draw
+#m1 = polygon2d([(1,.2),(2,.2),(2,.8),(1,.8)],color = 'red', legend_color = 'blue', legend_label = "m1")
+#m2 = polygon2d([(3,.2),(4,.2),(4,.8),(3,.8)],color = 'purple', legend_color = 'green', legend_label = "m2")
+#b1 = line2d([(0,0),(.01,1)], thickness = 3, color = 'black')
+#k1 = line2d([(0,.5),(.05,.501),(.1,.3),(.2,.7),(.3,.3),(.4,.7),(.5,.3),(.6,.7),(.7,.3),(.8,.7),(.9,.3),(.95,.501),(1,.5)], legend_color = 'red',legend_label = "k1")
+#k2 = line2d([(2,.5),(2.05,.501),(2.1,.3),(2.2,.7),(2.3,.3),(2.4,.7),(2.5,.3),(2.6,.7),(2.7,.3),(2.8,.7),(2.9,.3),(2.95,.501),(3,.5)], color = 'green', legend_color = 'purple', legend_label = "k2")
+#w1 = circle((1.2,.2),.1, color = 'black', fill = True)
+#w2 = circle((1.8,.2),.1, color = 'black', fill = True)
+#w3 = circle((3.2,.2),.1, color = 'black', fill = True)
+#w4 = circle((3.8,.2),.1, color = 'black', fill = True)
+#show(m1+m2+b1+k1+k2+w1+w2+w3+w4,xmin = 0,xmax = 5, ymin = 0, ymax = 1)
+print ("The Setup: m1 and m2 are masses attached to springs")
+print ("with spring constants k1 and k2 as shown above.")
+sys.stdout.flush()
+
+# Finding and graphing the solution
+
+@interact
+def interactive_function(k1 = slider(0,5,.0625, default = 2.5),
+                         k2 = slider(.5,5,.0625, default = 2.5),
+                         m1 = slider(.5,5,.0625, default = 2.5),
+                         m2 = slider(.5,5,.0625, default = 2.5),
+                         x0 = slider(-2.5,2.5,.0625, default = 0),
+                         y0 = slider(-2.5,2.5,.0625,default = 0),
+                         dx0 = slider(-2.5,2.5,.0625,default = 0),
+                         dy0 = slider(-2.5,2.5,.0625, default = 1)) :
+    print ("Solutions to [x,y]'' = A[x,y] where A = ")
+    A = matrix([[-(k1+k2)/m1, k2/m1],[k2/m2,-k2/m2]])
+    print (N(A,digits=6))
+    print ("Initial conditions: x(0) = x0, y(0) = y0, x'(0) = dx0, and y'(0) = dy0")
+    Ei = solve((-(k1+k2)/m1-E)*(-k2/m2-E)-(k2^2)/(m1*m2), E) # Finds eigenvalues of A
+    E1 = Ei[0].rhs() #Seperates Eigenvalues
+    E2 = Ei[1].rhs() 
+    if E2 > E1 :
+        tmp = E2
+        E2 = E1
+        E1 = tmp
+    if abs(E1) < 0.0000001 : #Ensures that E1 is not just nearly 0
+        E1 = 0
+    print ("Eiegenvalues: " + repr(N(E1,digits=6)) + " and " + repr(N(E2,digits=6)))
+    # compute eigenvectors
+    A1 = float(-(-k2/m2-E1)/(k2/m2))
+    A2 = 1.0
+    B1 = float(-(-k2/m2-E2)/(k2/m2))
+    B2 = 1.0
+    print ("Eiegenvectors: " + repr(N(vector([A1,A2]),digits=6)) + " and " + repr(N(vector([B1,B2]),digits=6)))
+    omega1 = sqrt(float(-E1))
+    omega2 = sqrt(float(-E2))
+    if not E1 == 0 :
+        print ("Natural frequencies (angular): " + repr(N(omega1,digits=6)) + " and " + repr(N(omega2,digits=6)))
+    else :
+        print ("A zero eigenvalue and a mode with a natural frequency: " + repr(N(omega2,digits=6)))
+    S1 = solve([A1*a1+B1*a2 == x0, A2*a1 + B2*a2 == y0], a1, a2) # Uses initial conditions to solve for the constants. 
+    if not E1 == 0 : S2 = solve([A1*(b*omega1) + B1*(c*omega2) == dx0, A2*(b*omega1) + B2*(c*omega2) == dy0], b,c)
+    else : S2 = solve([A1*b + B1*(c*sqrt(-E2)) == dx0, A2*b + B2*(c*sqrt(-E2)) == dy0], b, c)
+    ax = float(S1[0][0].rhs())
+    ay = float(S1[0][1].rhs())
+    bx = float(S2[0][0].rhs())
+    by = float(S2[0][1].rhs())
+
+    sys.stdout.flush()
+
+    #Graphs a different function depending on if there is a 0 Eigenvalue
+    if not (abs(x0) < 0.0000001 and
+            abs(y0) < 0.0000001 and
+            abs(dx0) < 0.0000001 and
+            abs(dy0) < 0.0000001) :
+        if not E1 == 0 :
+            x1 = plot(A1*(ax*cos(omega1*t)+bx*sin(omega1*t))+B1*(ay*cos(omega2*t)+by*sin(omega2*t)),(t,0,20), color = 'red',
+                      legend_color='red', legend_label='cart 1') 
+            x2 = plot(A2*(ax*cos(omega1*t)+bx*sin(omega1*t))+B2*(ay*cos(omega2*t)+by*sin(omega2*t)),(t,0,20), color = 'purple',
+                      legend_color='purple', legend_label='cart 2') 
+        else :
+            x1 = plot(A1*(ax+bx*t)+B1*(ay*cos(omega2*t)+by*sin(omega2*t)),(t,0,20), color = 'red',
+                      legend_color='red', legend_label='cart 1') 
+            x2 = plot(A2*(ax+bx*t) + B2*(ay*cos(omega2*t)+by*sin(omega2*t)),(t,0,20), color = 'purple',
+                      legend_color='purple', legend_label='cart 2') 
+        show(x1+x2)
+    else : 
+        print ("")
+        print ("")
+        print ("If all initial conditions are 0, then")
+        print ("the masses simply stay at their rest position.")
+        print ("")
+        print ("")
+
+    print ("")
+    print ("")
+    print ("The mode corresponding to eigenvalue " + repr(N(E1,digits=6)) + " (frequency " + repr(N(omega1,digits=6)) + ")")
+    print ("(initial position zero)")
+    sys.stdout.flush()
+    if not E1 == 0 :
+        x1 = plot(A1*(sin(omega1*t)),(t,0,20), color = 'red', legend_color='red', legend_label='cart 1') 
+        x2 = plot(A2*(sin(omega1*t)),(t,0,20), color = 'purple', legend_color='purple', legend_label='cart 2') 
+    else :
+        x1 = plot(A1*t,(t,0,20), color = 'red', legend_color='red', legend_label='cart 1') 
+        x2 = plot(A2*t,(t,0,20), color = 'purple', legend_color='purple', legend_label='cart 2') 
+    show(x1+x2)
+
+    print ("")
+    print ("")
+    print ("The mode corresponding to eigenvalue " + repr(N(E2,digits=6)) + " (frequency " + repr(N(omega2,digits=6)) + ")")
+    print ("(initial position zero)")
+    sys.stdout.flush()
+    x1 = plot(B1*(sin(omega2*t)),(t,0,20), color = 'red', legend_color='red', legend_label='cart 1') 
+    x2 = plot(B2*(sin(omega2*t)),(t,0,20), color = 'purple', legend_color='purple', legend_label='cart 2') 
+    show(x1+x2)
+</script>
+</div>
+
+<hr>
+<p>
+The original code is mainly due to Ryan Burkhart.
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

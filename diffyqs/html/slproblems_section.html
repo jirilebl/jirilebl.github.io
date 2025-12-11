@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>DIFFYQS Sturm–Liouville problems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Notes on Diffy Qs">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="diffyqs.html"><span class="title">Notes on Diffy Qs</span> <span class="subtitle">Differential Equations for Engineers</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="SL_chapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="SL_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_appeig.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\mybxbg}[1]{\boxed{#1}}
+\newcommand{\mybxsm}[1]{\boxed{#1}}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="diffyqs-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro_chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde_section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-3" class="internal"><span class="codenumber">0.2.1</span> <span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-4" class="internal"><span class="codenumber">0.2.2</span> <span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-5" class="internal"><span class="codenumber">0.2.3</span> <span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#subsection_fourfundamental" class="internal"><span class="codenumber">0.2.4</span> <span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde_section.html#introde_section-7" class="internal"><span class="codenumber">0.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification_section.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification_section.html#classification_section-14" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First-order equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols_section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols_section.html#integralsols_section-16" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields_section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable_section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">More examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable_section.html#separable_section-6" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor_section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor_section.html#intfactor_section-3" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution_section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-3" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-4" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-6" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq_section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq_section.html#auteq_section-33" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer_section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer_section.html#numer_section-32" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact_section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-3" class="internal"><span class="codenumber">1.8.1</span> <span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-4" class="internal"><span class="codenumber">1.8.2</span> <span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact_section.html#exact_section-5" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="fopde_section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">First-order linear PDEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="fopde_section.html#fopde_section-19" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear_section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear_section.html#solinear_section-25" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ccsol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Constant-coefficient second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Solving constant-coefficient equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Complex numbers and Euler’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_hol.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Constant-coefficient higher-order ODEs</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Some examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_mv.html#sec_mv-5" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-3" class="internal"><span class="codenumber">2.4.3.1</span> <span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-4" class="internal"><span class="codenumber">2.4.3.2</span> <span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-5" class="internal"><span class="codenumber">2.4.3.3</span> <span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo_section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_introtosys.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Changing to first-order systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-8" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matrix.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-7" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-8" class="internal"><span class="codenumber">3.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems_section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems_section.html#linsystems_section-18" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod_section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Complex eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_twodimaut.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_twodimaut.html#sec_twodimaut-38" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol_section.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Second-order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol_section.html#sol_section-6" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_multeigen.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-3" class="internal"><span class="codenumber">3.7.1</span> <span class="title">Geometric multiplicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-4" class="internal"><span class="codenumber">3.7.2</span> <span class="title">Defective eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-5" class="internal"><span class="codenumber">3.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matexp.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-3" class="internal"><span class="codenumber">3.8.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-4" class="internal"><span class="codenumber">3.8.2</span> <span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-5" class="internal"><span class="codenumber">3.8.3</span> <span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-6" class="internal"><span class="codenumber">3.8.4</span> <span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-7" class="internal"><span class="codenumber">3.8.5</span> <span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-8" class="internal"><span class="codenumber">3.8.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys_section.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3" class="internal"><span class="codenumber">3.9.1</span> <span class="title">First-order constant-coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-2" class="internal"><span class="codenumber">3.9.1.1</span> <span class="title">Integrating factor</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-3" class="internal"><span class="codenumber">3.9.1.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-4" class="internal"><span class="codenumber">3.9.1.3</span> <span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4" class="internal"><span class="codenumber">3.9.2</span> <span class="title">First-order variable-coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4-2" class="internal"><span class="codenumber">3.9.2.1</span> <span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Second-order constant-coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-2" class="internal"><span class="codenumber">3.9.3.1</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-3" class="internal"><span class="codenumber">3.9.3.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-6" class="internal"><span class="codenumber">3.9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="FS_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Fourier series and PDEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bvp_section.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Boundary value problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvalue problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Orthogonality of eigenfunctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-6" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-7" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-8" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ts_section.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The trigonometric series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Periodic functions and motivation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Inner product and eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">The trigonometric series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ts_section.html#ts_section-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="moreonfourier_section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">More on the Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title"><span class="process-math">\(2L\)</span>-periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Differentiation and integration of Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-6" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Rates of convergence and smoothness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-7" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_scs.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Sine and cosine series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Odd and even periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Sine and cosine series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-5" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-6" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="appoffourier_section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Applications of Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-3" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Periodically forced oscillation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-4" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-5" class="internal"><span class="codenumber">4.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="heateq_section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">PDEs, separation of variables, and the heat equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-3" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Heat on an insulated wire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-4" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Separation of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-5" class="internal"><span class="codenumber">4.6.3</span> <span class="title">Insulated ends</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-6" class="internal"><span class="codenumber">4.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="we_section.html" class="internal"><span class="codenumber">4.7</span> <span class="title">One-dimensional wave equation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="we_section.html#we_section-24" class="internal"><span class="codenumber">4.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dalemb_section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">D’Alembert solution of the wave equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-3" class="internal"><span class="codenumber">4.8.1</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-4" class="internal"><span class="codenumber">4.8.2</span> <span class="title">D’Alembert’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-5" class="internal"><span class="codenumber">4.8.3</span> <span class="title">Another way to solve for the side conditions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-6" class="internal"><span class="codenumber">4.8.4</span> <span class="title">Some remarks</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-7" class="internal"><span class="codenumber">4.8.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirich_section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Steady state temperature and the Laplacian</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirich_section.html#dirich_section-19" class="internal"><span class="codenumber">4.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirichdisc_section.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Dirichlet problem in the circle and the Poisson kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-3" class="internal"><span class="codenumber">4.10.1</span> <span class="title">Laplace in polar coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-4" class="internal"><span class="codenumber">4.10.2</span> <span class="title">Series solution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-5" class="internal"><span class="codenumber">4.10.3</span> <span class="title">Poisson kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-6" class="internal"><span class="codenumber">4.10.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="SL_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">More on eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="slproblems_section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sturm–Liouville problems</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Eigenfunction series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-7" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_appeig.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Higher-order eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_appeig.html#sec_appeig-19" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sps_section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Steady periodic solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Forced vibrating string</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Underground temperature oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sps_section.html#sps_section-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LT_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplace_section.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">The inverse transform</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="transformsofders_section.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Transforms of derivatives and ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Transforms of derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Solving ODEs with the Laplace transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Using the Heaviside function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Transfer functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Transforms of integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-8" class="internal"><span class="codenumber">6.2.6</span> <span class="title">Periodic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-9" class="internal"><span class="codenumber">6.2.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="convolution_section.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Convolution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">The convolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Solving ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Volterra integral equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="diracdelta_section.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dirac delta and impulse response</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-3" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Rectangular pulse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-4" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The delta function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-5" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Impulse response</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-6" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Three-point beam bending</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-7" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplacepde_section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Solving PDEs with the Laplace transform</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplacepde_section.html#laplacepde_section-16" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ps_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power-series methods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="powerseries_section.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Power series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-3" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-4" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Radius of convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-5" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-6" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Manipulating power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-7" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Power series for rational functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-8" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="seriessols_section.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series solutions of linear second-order ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="seriessols_section.html#seriessols_section-11" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="frobenius_section.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Singular points and the method of Frobenius</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The method of Frobenius</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#bessel_subsection" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Bessel functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization_section.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Linearization, critical points, and equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinstability_section.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-7" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps_section.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles_section.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles_section.html#limitcycles_section-21" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_chaos.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-5" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="diffyqs-13.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="linalg_appendix.html" class="internal"><span class="codenumber">A</span> <span class="title">Linear algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps_section.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-3" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Vectors and operations on vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-4" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-5" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg_section.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-3" class="internal"><span class="codenumber">A.2.1</span> <span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-4" class="internal"><span class="codenumber">A.2.2</span> <span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-5" class="internal"><span class="codenumber">A.2.3</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-6" class="internal"><span class="codenumber">A.2.4</span> <span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-7" class="internal"><span class="codenumber">A.2.5</span> <span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-8" class="internal"><span class="codenumber">A.2.6</span> <span class="title">Diagonal matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-9" class="internal"><span class="codenumber">A.2.7</span> <span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-10" class="internal"><span class="codenumber">A.2.8</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim_section.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-3" class="internal"><span class="codenumber">A.3.1</span> <span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-4" class="internal"><span class="codenumber">A.3.2</span> <span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-5" class="internal"><span class="codenumber">A.3.3</span> <span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-6" class="internal"><span class="codenumber">A.3.4</span> <span class="title">Linear independence and rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-7" class="internal"><span class="codenumber">A.3.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim_section.html#elim_section-8" class="internal"><span class="codenumber">A.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subspaces_section.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Subspaces, dimension, and the kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-3" class="internal"><span class="codenumber">A.4.1</span> <span class="title">Subspaces, basis, and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-4" class="internal"><span class="codenumber">A.4.2</span> <span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-5" class="internal"><span class="codenumber">A.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="innerproduct_section.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Inner product and projections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-3" class="internal"><span class="codenumber">A.5.1</span> <span class="title">Inner product and orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-4" class="internal"><span class="codenumber">A.5.2</span> <span class="title">Orthogonal projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-5" class="internal"><span class="codenumber">A.5.3</span> <span class="title">Orthogonal basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-6" class="internal"><span class="codenumber">A.5.4</span> <span class="title">The Gram–Schmidt process</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-7" class="internal"><span class="codenumber">A.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det_section.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det_section.html#det_section-24" class="internal"><span class="codenumber">A.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="laplacelist_appendix.html" class="internal"><span class="codenumber">B</span> <span class="title">Table of Laplace Transforms</span></a></div></li>
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="diffyqs-13-4.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="slproblems_section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sturm–Liouville problems</span>
+</h2>
+<section class="introduction" id="slproblems_section-2"><div class="para" id="slproblems_section-2-1">
+<em class="emphasis">Note: 2 lectures, §10.1 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, §11.2 in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="slproblems_section-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Boundary value problems</span>
+</h3>
+<div class="para logical" id="slproblems_section-3-2">
+<div class="para">In <a href="FS_chapter.html" class="internal" title="Chapter 4: Fourier series and PDEs">Chapter 4</a>, we encountered several different eigenvalue problems such as:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/FS_chapter.html ./knowl/xref/heateq_section.html" id="slproblems_section-3-2-2">
+\begin{equation}
+X''(x) + \lambda X(x) = 0 ,
+\end{equation}
+</div>
+<div class="para">with different boundary conditions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/FS_chapter.html ./knowl/xref/heateq_section.html" id="slproblems_section-3-2-6">
+\begin{equation}
+\begin{array}{rrl}
+X(0) = 0 &amp; ~~X(L) = 0 &amp; ~~\text{(Dirichlet), or} \\
+X'(0) = 0 &amp; ~~X'(L) = 0 &amp; ~~\text{(Neumann), or} \\
+X'(0) = 0 &amp; ~~X(L) = 0 &amp; ~~\text{(Mixed), or} \\
+X(0) = 0 &amp; ~~X'(L) = 0 &amp; ~~\text{(Mixed)}, \ldots
+\end{array}
+\end{equation}
+</div>
+<div class="para">These boundary problems came up in the study of the heat equation <span class="process-math">\(u_t =
+k u_{xx}\)</span> when we were trying to solve the equation by the method of separation of variables in <a href="heateq_section.html" class="internal" title="Section 4.6: PDEs, separation of variables, and the heat equation">Section 4.6</a>. Dirichlet conditions correspond to applying a zero temperature at the ends, Neumann means insulating the ends, etc. Other types of endpoint conditions also arise naturally, such as the <em class="emphasis">Robin boundary conditions</em>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/FS_chapter.html ./knowl/xref/heateq_section.html" id="slproblems_section-3-2-10">
+\begin{equation}
+hX(0) - X'(0) = 0, \qquad hX(L) + X'(L) = 0 ,
+\end{equation}
+</div>
+<div class="para">for some constant <span class="process-math">\(h\text{.}\)</span>  These conditions come up when the ends are immersed in some medium.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="slproblems_section-3-3">
+<div class="para">In the separation of variables computation we encountered an eigenvalue problem and found the eigenfunctions <span class="process-math">\(X_n(x)\text{.}\)</span>  We then found the <em class="emphasis">eigenfunction decomposition</em> of the initial temperature <span class="process-math">\(f(x) = u(x,0)\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="slproblems_section-3-3-4">
+\begin{equation}
+f(x) = \sum_{n=1}^\infty c_n X_n(x) .
+\end{equation}
+</div>
+<div class="para">Once we had this decomposition and found suitable <span class="process-math">\(T_n(t)\)</span> such that <span class="process-math">\(T_n(0) = 1\)</span> and such that <span class="process-math">\(T_n(t)X_n(x)\)</span> were solutions to the heat equation, we wrote the solution to the original problem, including the initial condition, as</div>
+<div class="displaymath process-math" id="slproblems_section-3-3-8">
+\begin{equation}
+u(x,t) = \sum_{n=1}^\infty c_n T_n(t) X_n(x) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="slproblems_section-3-4">
+<div class="para">To study more general problems with this method, we must study more general eigenvalue problems. First, we study second-order linear equations of the form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/SL_eq.html" id="SL_eq">
+\begin{equation}
+\frac{d}{dx} \left( p(x) \frac{dy}{dx} \right)
+- q(x) y + \lambda r(x) y = 0 .\tag{5.1}
+\end{equation}
+</div>
+<div class="para">Essentially any second-order linear equation of the form <span class="process-math">\(a(x) y'' + b(x) y' + c(x) y + \lambda d(x) y = 0\)</span> can be written as <a href="slproblems_section.html#SL_eq" class="xref" data-knowl="./knowl/xref/SL_eq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> after multiplying by a proper factor.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="slproblems_section-3-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="slproblems_section-3-5-1-1">
+<div class="para">[Bessel] Put the following equation into the form <a href="slproblems_section.html#SL_eq" class="xref" data-knowl="./knowl/xref/SL_eq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/SL_eq.html ./knowl/xref/bessel_subsection.html" id="slproblems_section-3-5-1-1-2">
+\begin{equation}
+x^2 y'' + xy' + \left(\lambda x^2 - n^2\right)y = 0 .
+\end{equation}
+</div>
+<div class="para">Multiply both sides by <span class="process-math">\(\frac{1}{x}\)</span> to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/SL_eq.html ./knowl/xref/bessel_subsection.html" id="slproblems_section-3-5-1-1-4">
+\begin{equation}
+\begin{split}
+\frac{1}{x} \left( x^2 y'' + xy' + \left(\lambda x^2 - n^2\right)y \right)
+&amp; =
+x y'' + y' + \left(\lambda x - \frac{n^2}{x}\right)y 
+\\
+&amp; =
+\frac{d}{dx} \left( x \frac{dy}{dx} \right)
+- \frac{n^2}{x} y + \lambda x y  = 0.
+\end{split}
+\end{equation}
+</div>
+<div class="para">The Bessel equation turns up for example in the solution of the two-dimensional wave equation. If you want to see how one solves the equation, you can look at <a href="frobenius_section.html#bessel_subsection" class="internal" title="Subsection 7.3.3: Bessel functions">Subsection 7.3.3</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.1.1"><a href="#slproblems_section-3-5" title="Copy heading and permalink for Example 5.1.1" aria-label="Copy heading and permalink for Example 5.1.1">🔗</a></div></article><div class="para logical" id="slproblems_section-3-6">
+<div class="para">The so-called <em class="emphasis">Sturm–Liouville problem</em><details class="ptx-footnote" aria-live="polite" id="slproblems_section-3-6-2"><summary class="ptx-footnote__number" title="Footnote 5.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="slproblems_section-3-6-2">Named after the French mathematicians <a class="external" href="https://en.wikipedia.org/wiki/Jacques_Charles_Fran\%C3\%A7ois_Sturm" target="_blank">Jacques Charles François Sturm</a> (1803–1855) and <a class="external" href="https://en.wikipedia.org/wiki/Liouville" target="_blank">Joseph Liouville</a> (1809–1882).</div></details> is to seek nontrivial solutions to</div>
+<div class="displaymath process-math" id="sl_slprob">
+\begin{equation}
+\mybxbg{~~
+\begin{aligned}
+&amp;\frac{d}{dx} \left( p(x) \frac{dy}{dx} \right)
+- q(x) y + \lambda r(x) y = 0, \qquad a &lt; x &lt; b, \\
+&amp;\alpha_1 y(a) - \alpha_2 y'(a) = 0, \\
+&amp;\beta_1 y(b) + \beta_2 y'(b) = 0.
+\end{aligned}
+~~}\tag{5.2}
+\end{equation}
+</div>
+<div class="para">By nontrivial, we again mean a <span class="process-math">\(y\)</span> that is not simply the constant zero (which is always a solution). In particular, we ask which <span class="process-math">\(\lambda\)</span>s allow such nontrivial solutions. The <span class="process-math">\(\lambda\)</span>s that admit nontrivial solutions are called the <em class="emphasis">eigenvalues</em> and the corresponding nontrivial solutions are called <em class="emphasis">eigenfunctions</em>. The constants <span class="process-math">\(\alpha_1\)</span> and <span class="process-math">\(\alpha_2\)</span> should not both be zero; the same applies to <span class="process-math">\(\beta_1\)</span> and <span class="process-math">\(\beta_2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="sl_slregthm"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sl_slregthm-1-1">
+<div class="para">Suppose <span class="process-math">\(p(x)\text{,}\)</span> <span class="process-math">\(p'(x)\text{,}\)</span> <span class="process-math">\(q(x)\)</span> and <span class="process-math">\(r(x)\)</span> are continuous on <span class="process-math">\([a,b]\)</span> and suppose <span class="process-math">\(p(x) &gt; 0\)</span> and <span class="process-math">\(r(x) &gt; 0\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Then the Sturm–Liouville problem <a href="slproblems_section.html#sl_slprob" class="xref" data-knowl="./knowl/xref/sl_slprob.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2">(5.2)</a> has an increasing sequence of eigenvalues</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_slprob.html" id="sl_slregthm-1-1-11">
+\begin{equation}
+\lambda_1 &lt; \lambda_2 &lt; \lambda_3 &lt; \cdots 
+\end{equation}
+</div>
+<div class="para">such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_slprob.html" id="sl_slregthm-1-1-12">
+\begin{equation}
+\lim_{n \to \infty} \lambda_n = +\infty
+\end{equation}
+</div>
+<div class="para">and such that to each <span class="process-math">\(\lambda_n\)</span> there is (up to a constant multiple) a single eigenfunction <span class="process-math">\(y_n(x)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sl_slregthm-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sl_slregthm-1-2">Moreover, if <span class="process-math">\(q(x) \geq 0\)</span> and <span class="process-math">\(\alpha_1, \alpha_2, \beta_1, \beta_2 \geq 0\text{,}\)</span> then <span class="process-math">\(\lambda_n \geq 0\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sl_slregthm-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.1.1"><a href="#sl_slregthm" title="Copy heading and permalink for Theorem 5.1.1" aria-label="Copy heading and permalink for Theorem 5.1.1">🔗</a></div></article><div class="para" id="slproblems_section-3-8">Problems satisfying the hypothesis of the theorem (including the “Moreover”) are called <em class="emphasis">regular Sturm–Liouville problems</em>, and we will only consider such problems here. That is, a regular problem is one where <span class="process-math">\(p(x)\text{,}\)</span> <span class="process-math">\(p'(x)\text{,}\)</span> <span class="process-math">\(q(x)\)</span> and <span class="process-math">\(r(x)\)</span> are continuous, <span class="process-math">\(p(x) &gt; 0\text{,}\)</span> <span class="process-math">\(r(x) &gt; 0\text{,}\)</span> <span class="process-math">\(q(x) \geq 0\text{,}\)</span> and <span class="process-math">\(\alpha_1, \alpha_2, \beta_1, \beta_2 \geq 0\text{,}\)</span> where neither <span class="process-math">\(\alpha_1=\alpha_2=0\)</span> nor <span class="process-math">\(\beta_1=\beta_2=0\text{.}\)</span> Note: Be careful about the signs.  Also be careful about the inequalities for <span class="process-math">\(r\)</span> and <span class="process-math">\(p\text{,}\)</span> they must be strict for all <span class="process-math">\(x\)</span> in the interval <span class="process-math">\([a,b]\text{,}\)</span> including the endpoints!<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="slproblems_section-3-9">When zero is an eigenvalue, we usually start labeling the eigenvalues from 0 rather than from 1 for convenience. That is, we label the eigenvalues <span class="process-math">\(\lambda_0 &lt; \lambda_1 &lt; \lambda_2 &lt; \cdots\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="slproblems_section-3-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="slproblems_section-3-10-1-1">The problem <span class="process-math">\(y''+\lambda y=0\text{,}\)</span> <span class="process-math">\(0 &lt; x &lt; L\text{,}\)</span> <span class="process-math">\(y(0) = 0\text{,}\)</span> and <span class="process-math">\(y(L) = 0\)</span> is a regular Sturm–Liouville problem:  <span class="process-math">\(p(x) = 1\text{,}\)</span> <span class="process-math">\(q(x) = 0\text{,}\)</span> <span class="process-math">\(r(x) = 1\text{,}\)</span> and we have <span class="process-math">\(p(x) = 1 &gt; 0\)</span> and <span class="process-math">\(r(x) = 1 &gt; 0\text{.}\)</span>  We also have <span class="process-math">\(a=0\text{,}\)</span> <span class="process-math">\(b=L\text{,}\)</span> <span class="process-math">\(\alpha_1 = \beta_1 = 1\text{,}\)</span> <span class="process-math">\(\alpha_2 = \beta_2 = 0\text{.}\)</span> The eigenvalues are <span class="process-math">\(\lambda_n = \frac{n^2 \pi^2}{L^2}\)</span> and eigenfunctions are <span class="process-math">\(y_n(x) = \sin\bigl(\frac{n\pi}{L} x\bigr)\text{.}\)</span>  All eigenvalues are nonnegative as predicted by the theorem.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.1.2"><a href="#slproblems_section-3-10" title="Copy heading and permalink for Example 5.1.2" aria-label="Copy heading and permalink for Example 5.1.2">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-3-11"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="slproblems_section-3-11-1-1">
+<div class="para">Find eigenvalues and eigenfunctions for</div>
+<div class="displaymath process-math" id="slproblems_section-3-11-1-1-1">
+\begin{equation}
+y'' + \lambda y = 0, \quad y'(0) = 0, \quad y'(1) = 0.
+\end{equation}
+</div>
+<div class="para">Identify the <span class="process-math">\(p, q, r, \alpha_j, \beta_j\text{.}\)</span> Can you use the theorem above to make the search for eigenvalues easier? Hint: Consider the condition <span class="process-math">\(-y'(0)=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.1.1"><a href="#slproblems_section-3-11" title="Copy heading and permalink for Exercise 5.1.1" aria-label="Copy heading and permalink for Exercise 5.1.1">🔗</a></div></article><article class="example example-like" id="slproblems_section-3-12"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="slproblems_section-3-12-1-1">
+<div class="para">Find eigenvalues and eigenfunctions of the problem</div>
+<div class="displaymath process-math" id="slproblems_section-3-12-1-1-1">
+\begin{equation}
+\begin{aligned}
+&amp; y''+\lambda y = 0, \quad 0 &lt; x &lt; 1 , \\
+&amp; hy(0)- y'(0) = 0, \quad y'(1)  = 0, \quad h &gt; 0.
+\end{aligned}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="slproblems_section-3-12-1-2">These equations give a regular Sturm–Liouville problem.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-12-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <article class="exercise exercise-like" id="slproblems_section-3-12-1-3">
+
+
+
+<div class="autopermalink" data-description="Exercise 5.1.2"><a href="#slproblems_section-3-12-1-3" title="Copy heading and permalink for Exercise 5.1.2" aria-label="Copy heading and permalink for Exercise 5.1.2">🔗</a></div></article> <div class="para logical" id="slproblems_section-3-12-1-4">
+<div class="para">By <a href="slproblems_section.html#sl_slregthm" class="xref" data-knowl="./knowl/xref/sl_slregthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>, <span class="process-math">\(\lambda \geq 0\text{.}\)</span> So the general solution (without boundary conditions) is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_slregthm.html" id="slproblems_section-3-12-1-4-3">
+\begin{equation}
+\begin{aligned}
+&amp; y(x) = A \cos \bigl( \sqrt{\lambda}\, x\bigr)
++ B \sin \bigl( \sqrt{\lambda}\, x\bigr) &amp; &amp; \qquad \text{if } \; \lambda &gt; 0 , \\
+&amp; y(x) = A x + B &amp; &amp; \qquad \text{if } \; \lambda = 0 .
+\end{aligned}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-12-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="slproblems_section-3-12-1-5">Let us see if <span class="process-math">\(\lambda = 0\)</span> is an eigenvalue: We must satisfy <span class="process-math">\(0 = hB - A\)</span> and <span class="process-math">\(A = 0\text{,}\)</span> hence <span class="process-math">\(B=0\)</span> (as <span class="process-math">\(h &gt; 0\)</span>). Therefore, 0 is not an eigenvalue (no nonzero solution, so no eigenfunction).<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-12-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="slproblems_section-3-12-1-6">
+<div class="para">Now we try <span class="process-math">\(\lambda &gt; 0\text{.}\)</span>  We plug in the boundary conditions:</div>
+<div class="displaymath process-math" id="slproblems_section-3-12-1-6-2">
+\begin{equation}
+\begin{aligned}
+&amp; 0 = h A - \sqrt{\lambda}\, B , \\
+&amp; 0 = -A \sqrt{\lambda}\, \sin \bigl(\sqrt{\lambda}\bigr)
++ B \sqrt{\lambda}\, \cos \bigl(\sqrt{\lambda}\bigr) .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">If <span class="process-math">\(A=0\text{,}\)</span> then <span class="process-math">\(B=0\)</span> and vice versa; therefore, both are nonzero. So <span class="process-math">\(B = \frac{hA}{\sqrt{\lambda}}\text{,}\)</span> and <span class="process-math">\(0 = -A \sqrt{\lambda}\, \sin \bigl( \sqrt{\lambda}\bigr) + \frac{hA}{\sqrt{\lambda}}
+\sqrt{\lambda}\, \cos \bigl( \sqrt{\lambda}\bigr)\text{.}\)</span>  As <span class="process-math">\(A \not= 0\)</span> we get</div>
+<div class="displaymath process-math" id="slproblems_section-3-12-1-6-8">
+\begin{equation}
+0 = 
+- \sqrt{\lambda}\, \sin \bigl( \sqrt{\lambda}\bigr)
++ h \cos \bigl( \sqrt{\lambda}\bigr) ,
+\end{equation}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" id="slproblems_section-3-12-1-6-9">
+\begin{equation}
+\frac{h}{\sqrt{\lambda}} = \tan \sqrt{\lambda} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-12-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="slproblems_section-3-12-1-7">
+<div class="para">We use a computer to find <span class="process-math">\(\lambda_n\text{.}\)</span>  There are tables available, though using a computer or a graphing calculator is far more convenient nowadays. The easiest method is to plot the functions <span class="process-math">\(\nicefrac{h}{x}\)</span> and <span class="process-math">\(\tan x\)</span> and see for which <span class="process-math">\(x\)</span> they intersect. There is an infinite number of intersections.  Denote the first intersection by <span class="process-math">\(\sqrt{\lambda_1}\text{,}\)</span> the second intersection by <span class="process-math">\(\sqrt{\lambda_2}\text{,}\)</span> etc. For example, when <span class="process-math">\(h=1\text{,}\)</span> we get <span class="process-math">\(\sqrt{\lambda_1} \approx 0.86\text{,}\)</span> <span class="process-math">\(\sqrt{\lambda_2} \approx 3.43\text{,}\)</span> .... That is <span class="process-math">\(\lambda_1 \approx 0.74\text{,}\)</span> <span class="process-math">\(\lambda_2 \approx 11.73\text{,}\)</span> .... A plot for <span class="process-math">\(h=1\)</span> is given in <a href="slproblems_section.html#sl_tanx1overxfig" class="internal" title="Figure 5.1">Figure 5.1</a>. The appropriate eigenfunction (let <span class="process-math">\(A = 1\)</span> for convenience, then <span class="process-math">\(B=\nicefrac{h}{\sqrt{\lambda}}\)</span>) is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_tanx1overxfig.html" id="slproblems_section-3-12-1-7-16">
+\begin{equation}
+y_n(x) = \cos \bigl( \sqrt{\lambda_n}\, x \bigr) + \frac{h}{\sqrt{\lambda_n}}
+\sin \bigl(\sqrt{\lambda_n} \, x \bigr) .
+\end{equation}
+</div>
+<div class="para">When <span class="process-math">\(h=1\)</span> we get (approximately)</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_tanx1overxfig.html" id="slproblems_section-3-12-1-7-18">
+\begin{equation}
+y_1(x) \approx \cos (0.86\, x ) + \frac{1}{0.86}
+\sin (0.86 \, x ) , \qquad
+y_2(x) \approx \cos (3.43\, x ) + \frac{1}{3.43}
+\sin (3.43 \, x ) , \qquad \ldots .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-3-12-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like" id="sl_tanx1overxfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/sl-tanx1overx-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(\frac{1}{x}\)</span> and <span class="process-math">\(\tan x\text{.}\)</span><div class="autopermalink" data-description="Figure 5.1"><a href="#sl_tanx1overxfig" title="Copy heading and permalink for Figure 5.1" aria-label="Copy heading and permalink for Figure 5.1">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 5.1.3"><a href="#slproblems_section-3-12" title="Copy heading and permalink for Example 5.1.3" aria-label="Copy heading and permalink for Example 5.1.3">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.1.1: Boundary value problems"><a href="#slproblems_section-3" title="Copy heading and permalink for Subsection 5.1.1: Boundary value problems" aria-label="Copy heading and permalink for Subsection 5.1.1: Boundary value problems">🔗</a></div></section><section class="subsection" id="slproblems_section-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Orthogonality</span>
+</h3>
+<div class="para logical" id="slproblems_section-4-2">
+<div class="para">We have seen the notion of orthogonality before.  For example, we have shown that <span class="process-math">\(\sin (nx)\)</span> are orthogonal for distinct <span class="process-math">\(n\)</span> on <span class="process-math">\([0,\pi]\text{.}\)</span> For general Sturm–Liouville problems we need a more general setup. Let <span class="process-math">\(r(x)\)</span> be a <em class="emphasis">weight function</em> (any function, though generally we assume it is positive) on <span class="process-math">\([a,b]\text{.}\)</span>  Two functions <span class="process-math">\(f(x)\text{,}\)</span> <span class="process-math">\(g(x)\)</span> are said to be <em class="emphasis">orthogonal</em> with respect to the weight function <span class="process-math">\(r(x)\)</span> when</div>
+<div class="displaymath process-math" id="slproblems_section-4-2-11">
+\begin{equation}
+\int_a^b f(x) \, g(x) \, r(x) \,dx = 0 .
+\end{equation}
+</div>
+<div class="para">In this setting, we define the <em class="emphasis">inner product</em> as</div>
+<div class="displaymath process-math" id="slproblems_section-4-2-13">
+\begin{equation}
+\langle f , g \rangle \overset{\text{def}}{=} \int_a^b f(x) \, g(x) \, r(x)
+\,dx ,
+\end{equation}
+</div>
+<div class="para">and then say <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are orthogonal whenever <span class="process-math">\(\langle f , g \rangle = 0\text{.}\)</span> The results and concepts are again analogous to finite-dimensional linear algebra.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="slproblems_section-4-3">The idea of the given inner product is that those <span class="process-math">\(x\)</span> where <span class="process-math">\(r(x)\)</span> is greater have more weight. Nontrivial (nonconstant) <span class="process-math">\(r(x)\)</span> arise naturally, for example from a change of variables. Hence, you could think of a change of variables such that <span class="process-math">\(d\xi = r(x)\, dx\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="slproblems_section-4-4">Eigenfunctions of a regular Sturm–Liouville problem satisfy an orthogonality property, just like the eigenfunctions in <a href="bvp_section.html" class="internal" title="Section 4.1: Boundary value problems">Section 4.1</a>. Its proof is very similar to the analogous <a href="bvp_section.html#bvp_orthogonaleigen" class="xref" data-knowl="./knowl/xref/bvp_orthogonaleigen.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.1">Theorem 4.1.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="slproblems_section-4-5"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="slproblems_section-4-5-1-1">
+<div class="para">Suppose we have a regular Sturm–Liouville problem</div>
+<div class="displaymath process-math" id="slproblems_section-4-5-1-1-1">
+\begin{equation}
+\begin{aligned}
+&amp;\frac{d}{dx} \left( p(x) \frac{dy}{dx} \right)
+- q(x) y + \lambda r(x) y = 0 , \\
+&amp;\alpha_1 y(a) - \alpha_2 y'(a) = 0 , \\
+&amp;\beta_1 y(b) + \beta_2 y'(b) = 0 .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">Let <span class="process-math">\(y_j\)</span> and <span class="process-math">\(y_k\)</span> be two distinct eigenfunctions for two distinct eigenvalues <span class="process-math">\(\lambda_j\)</span> and <span class="process-math">\(\lambda_k\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" id="slproblems_section-4-5-1-1-6">
+\begin{equation}
+\int_a^b y_j(x) \, y_k(x) \, r(x) \,dx = 0,
+\end{equation}
+</div>
+<div class="para">that is, <span class="process-math">\(y_j\)</span> and <span class="process-math">\(y_k\)</span> are orthogonal with respect to the weight function <span class="process-math">\(r\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.1.2"><a href="#slproblems_section-4-5" title="Copy heading and permalink for Theorem 5.1.2" aria-label="Copy heading and permalink for Theorem 5.1.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.1.2: Orthogonality"><a href="#slproblems_section-4" title="Copy heading and permalink for Subsection 5.1.2: Orthogonality" aria-label="Copy heading and permalink for Subsection 5.1.2: Orthogonality">🔗</a></div></section><section class="subsection" id="slproblems_section-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fredholm alternative</span>
+</h3>
+<div class="para" id="slproblems_section-5-2">The <em class="emphasis">Fredholm alternative</em> theorem we talked about before (<a href="bvp_section.html#thm_fredholmsimple" class="xref" data-knowl="./knowl/xref/thm_fredholmsimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.2: Fredholm alternative">Theorem 4.1.2</a>) holds for all regular Sturm–Liouville problems. We state it here for completeness.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="slproblems_section-5-3"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fredholm alternative.</span>
+</h4>
+<div class="para logical" id="slproblems_section-5-3-3-1">
+<div class="para">Suppose that we have a regular Sturm–Liouville problem. Then either</div>
+<div class="displaymath process-math" id="slproblems_section-5-3-3-1-1">
+\begin{equation}
+\begin{aligned}
+&amp;\frac{d}{dx} \left( p(x) \frac{dy}{dx} \right)
+- q(x) y + \lambda r(x) y = 0 , \\
+&amp;\alpha_1 y(a) - \alpha_2 y'(a) = 0 , \\
+&amp;\beta_1 y(b) + \beta_2 y'(b) = 0 ,
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">has a nonzero solution (<span class="process-math">\(\lambda\)</span> is an eigenvalue), or</div>
+<div class="displaymath process-math" id="slproblems_section-5-3-3-1-3">
+\begin{equation}
+\begin{aligned}
+&amp;\frac{d}{dx} \left( p(x) \frac{dy}{dx} \right)
+- q(x) y + \lambda r(x) y = f(x) , \\
+&amp;\alpha_1 y(a) - \alpha_2 y'(a) = 0 , \\
+&amp;\beta_1 y(b) + \beta_2 y'(b) = 0 ,
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">has a unique solution for any <span class="process-math">\(f(x)\)</span> continuous on <span class="process-math">\([a,b]\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-5-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.1.3: Fredholm alternative"><a href="#slproblems_section-5-3" title="Copy heading and permalink for Theorem 5.1.3: Fredholm alternative" aria-label="Copy heading and permalink for Theorem 5.1.3: Fredholm alternative">🔗</a></div></article><div class="para" id="slproblems_section-5-4">This theorem is used in much the same way as we did before in <a href="sec_scs.html" class="internal" title="Section 4.4: Sine and cosine series">Section 4.4</a>.  It is used when solving more general nonhomogeneous boundary value problems.  The theorem does not help us solve the problem. It tells us when a unique solution exists, so that we know when to spend time looking for it.  To solve the problem, we decompose <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(y(x)\)</span> in terms of eigenfunctions of the homogeneous problem, and then solve for the coefficients of the series for <span class="process-math">\(y(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 5.1.3: Fredholm alternative"><a href="#slproblems_section-5" title="Copy heading and permalink for Subsection 5.1.3: Fredholm alternative" aria-label="Copy heading and permalink for Subsection 5.1.3: Fredholm alternative">🔗</a></div></section><section class="subsection" id="slproblems_section-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eigenfunction series</span>
+</h3>
+<div class="para logical" id="slproblems_section-6-2">
+<div class="para">What we want to do with the eigenfunctions once we have them is to compute the <em class="emphasis">eigenfunction decomposition</em> of an arbitrary function <span class="process-math">\(f(x)\text{.}\)</span>  That is, we wish to write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_fdecomp.html" id="sl_fdecomp">
+\begin{equation}
+f(x) = \sum_{n=1}^\infty c_n y_n(x) ,\tag{5.3}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(y_n(x)\)</span> are eigenfunctions. We wish to find out if we can represent any function <span class="process-math">\(f(x)\)</span> in this way, and if so, we wish to calculate the <span class="process-math">\(c_n\)</span> (and of course we would want to know if the sum converges).  OK, so imagine we could write <span class="process-math">\(f(x)\)</span> as <a href="slproblems_section.html#sl_fdecomp" class="xref" data-knowl="./knowl/xref/sl_fdecomp.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.3">(5.3)</a>.  We will assume convergence and the ability to integrate the series term by term. Because of orthogonality we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_fdecomp.html" id="slproblems_section-6-2-9">
+\begin{equation}
+\begin{split}
+\langle f , y_m \rangle
+= \int_a^b f(x) \, y_m (x) \, r(x) \, dx
+&amp; = \int_a^b \left( \sum_{n=1}^\infty c_n y_n(x) \right) \, y_m (x) \, r(x)
+\, dx\\
+&amp;= \sum_{n=1}^\infty c_n \int_a^b y_n(x) \, y_m (x) \, r(x) \, dx\\
+&amp;= c_m \int_a^b y_m(x) \, y_m (x) \, r(x) \, dx = c_m \langle y_m , y_m \rangle
+.
+\end{split}
+\end{equation}
+</div>
+<div class="para">Hence,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_fdecomp.html" id="sl_cm">
+\begin{equation}
+\mybxbg{~~
+c_m = \frac{\langle f , y_m \rangle}{\langle y_m , y_m \rangle}
+=
+\frac{\int_a^b f(x) \, y_m (x)\, r(x) \, dx}{\int_a^b {\bigl(y_m(x)\bigr)}^2 \, r(x) \,dx} .
+~~}\tag{5.4}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="slproblems_section-6-3">Note that <span class="process-math">\(y_m\)</span> are known up to a constant multiple, so we could have picked a scalar multiple of an eigenfunction such that <span class="process-math">\(\langle y_m , y_m \rangle = 1\)</span> (if we had an arbitrary eigenfunction <span class="process-math">\(\tilde{y}_m\text{,}\)</span> divide it by <span class="process-math">\(\sqrt{\langle \tilde{y}_m , \tilde{y}_m \rangle}\)</span>). When <span class="process-math">\(\langle y_m , y_m \rangle = 1\text{,}\)</span> we have the simpler form <span class="process-math">\(c_m = \langle f, y_m \rangle\text{.}\)</span> The following theorem holds more generally, but the statement given is enough for our purposes.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="slproblems_section-6-4"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="slproblems_section-6-4-1-1">Suppose <span class="process-math">\(f\)</span> is a piecewise smooth continuous function on <span class="process-math">\([a,b]\text{.}\)</span>  If <span class="process-math">\(y_1,
+y_2, \ldots\)</span> are eigenfunctions of a regular Sturm–Liouville problem, one for each eigenvalue, then there exist real constants <span class="process-math">\(c_1, c_2, \ldots\)</span> given by <a href="slproblems_section.html#sl_cm" class="xref" data-knowl="./knowl/xref/sl_cm.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.4">(5.4)</a> such that <a href="slproblems_section.html#sl_fdecomp" class="xref" data-knowl="./knowl/xref/sl_fdecomp.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.3">(5.3)</a> converges and holds for <span class="process-math">\(a &lt; x &lt; b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.1.4"><a href="#slproblems_section-6-4" title="Copy heading and permalink for Theorem 5.1.4" aria-label="Copy heading and permalink for Theorem 5.1.4">🔗</a></div></article><article class="example example-like" id="slproblems_section-6-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="slproblems_section-6-5-1-1">
+<div class="para">Consider</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_slregthm.html" id="slproblems_section-6-5-1-1-1">
+\begin{equation}
+\begin{aligned}
+&amp; y'' + \lambda y = 0, \quad 0 &lt; x &lt; \nicefrac{\pi}{2} , \\
+&amp; y(0) =0, \quad y'(\nicefrac{\pi}{2}) = 0 .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">The above is a regular Sturm–Liouville problem, and <a href="slproblems_section.html#sl_slregthm" class="xref" data-knowl="./knowl/xref/sl_slregthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> says that if <span class="process-math">\(\lambda\)</span> is an eigenvalue then <span class="process-math">\(\lambda \geq 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="slproblems_section-6-5-1-2">Suppose <span class="process-math">\(\lambda = 0\text{.}\)</span>  The general solution is <span class="process-math">\(y(x) = Ax + B\text{.}\)</span> We plug in the initial conditions to get <span class="process-math">\(0=y(0) = B\text{,}\)</span> and <span class="process-math">\(0 = y'(\nicefrac{\pi}{2}) = A\text{.}\)</span> Hence <span class="process-math">\(\lambda = 0\)</span> is not an eigenvalue.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="slproblems_section-6-5-1-3">
+<div class="para">So let us consider <span class="process-math">\(\lambda &gt; 0\text{,}\)</span> where the general solution is</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-3-2">
+\begin{equation}
+y(x) = A \cos \bigl( \sqrt{\lambda} \, x \bigr)
++ B \sin \bigl( \sqrt{\lambda} \, x \bigr) .
+\end{equation}
+</div>
+<div class="para">Plugging in the boundary conditions we get <span class="process-math">\(0 = y(0) = A\)</span> and <span class="process-math">\(0 = y'(\nicefrac{\pi}{2})
+= \sqrt{\lambda} \, B \cos \bigl(\sqrt{\lambda} \, \frac{\pi}{2}\bigr)\text{.}\)</span> Since <span class="process-math">\(A\)</span> is zero, <span class="process-math">\(B\)</span> cannot be zero.  Hence <span class="process-math">\(\cos \bigl( \sqrt{\lambda} \,
+\frac{\pi}{2}\bigr) = 0\text{.}\)</span> This means that <span class="process-math">\(\sqrt{\lambda} \,\frac{\pi}{2}\)</span> is an odd integral multiple of <span class="process-math">\(\nicefrac{\pi}{2}\text{,}\)</span> i.e. <span class="process-math">\((2n-1)\frac{\pi}{2} = \sqrt{\lambda_n} \,\frac{\pi}{2}\text{.}\)</span> Solving for <span class="process-math">\(\lambda_n\)</span> we get</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-3-12">
+\begin{equation}
+\lambda_n = {(2n-1)}^2 .
+\end{equation}
+</div>
+<div class="para">We can take <span class="process-math">\(B = 1\text{.}\)</span>  Our eigenfunctions are</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-3-14">
+\begin{equation}
+y_n(x) = \sin \bigl( (2n-1)x \bigr) .
+\end{equation}
+</div>
+<div class="para">A little bit of calculus shows</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-3-15">
+\begin{equation}
+\int_0^{\frac{\pi}{2}} {\Bigl( \sin \bigl( (2n-1)x \bigr) \Bigr)}^2 \, dx
+= \frac{\pi}{4} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-5-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="slproblems_section-6-5-1-4">
+<div class="para">So any piecewise smooth function <span class="process-math">\(f(x)\)</span> on <span class="process-math">\([0,\nicefrac{\pi}{2}]\)</span> can be written as</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-4-3">
+\begin{equation}
+f(x) = \sum_{n=1}^\infty c_n \sin \bigl( (2n-1)x \bigr) ,
+\end{equation}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-4-4">
+\begin{equation}
+c_n = \frac{\langle f , y_n \rangle}{\langle y_n , y_n \rangle}
+= \frac{\int_0^{\frac{\pi}{2}} f(x) \, \sin \bigl( (2n-1)x \bigr) \, dx
+}{\int_0^{\frac{\pi}{2}} {\Bigl(\sin \bigl((2n-1)x\bigr)\Bigr)}^2 \, dx}
+= \frac{4}{\pi} \int_0^{\frac{\pi}{2}} f(x) \,\sin \bigl( (2n-1)x \bigr) \, dx .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-5-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="slproblems_section-6-5-1-5">Note that the series converges to an odd <span class="process-math">\(2\pi\)</span>-periodic extension of <span class="process-math">\(f(x)\text{.}\)</span>  With the regular sine series, we would expect a function with period <span class="process-math">\(2 \, \frac{\pi}{2} = \pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-5-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <article class="exercise exercise-like" id="slproblems_section-6-5-1-6">
+
+
+
+<div class="autopermalink" data-description="Exercise 5.1.3"><a href="#slproblems_section-6-5-1-6" title="Copy heading and permalink for Exercise 5.1.3" aria-label="Copy heading and permalink for Exercise 5.1.3">🔗</a></div></article> <div class="para logical" id="slproblems_section-6-5-1-7">
+<div class="para">Let us compute an example. Consider <span class="process-math">\(f(x) = x\)</span> for <span class="process-math">\(0 &lt; x &lt;  \nicefrac{\pi}{2}\text{.}\)</span>  Some calculus later we find</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-7-3">
+\begin{equation}
+c_n = 
+\frac{4}{\pi} \int_0^{\frac{\pi}{2}} f(x) \,\sin \bigl( (2n-1)x \bigr) \, dx 
+=
+\frac{4{(-1)}^{n+1}}{\pi {(2n-1)}^2} ,
+\end{equation}
+</div>
+<div class="para">and so for <span class="process-math">\(x\)</span> in <span class="process-math">\([0,\nicefrac{\pi}{2}]\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-7-6">
+\begin{equation}
+f(x) = \sum_{n=1}^\infty \frac{4{(-1)}^{n+1}}{\pi {(2n-1)}^2}
+\sin \bigl( (2n-1)x \bigr) .
+\end{equation}
+</div>
+<div class="para">This is different from the <span class="process-math">\(\pi\)</span>-periodic regular sine series which can be computed to be</div>
+<div class="displaymath process-math" id="slproblems_section-6-5-1-7-8">
+\begin{equation}
+f(x) = \sum_{n=1}^\infty \frac{{(-1)}^{n+1}}{n}  \sin ( 2nx ) .
+\end{equation}
+</div>
+<div class="para">Both series converge to <span class="process-math">\(f(x)\)</span> for <span class="process-math">\(0 &lt; x &lt; \nicefrac{\pi}{2}\text{,}\)</span> but the eigenfunctions involved come from different eigenvalue problems.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-5-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.1.4"><a href="#slproblems_section-6-5" title="Copy heading and permalink for Example 5.1.4" aria-label="Copy heading and permalink for Example 5.1.4">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.1.4: Eigenfunction series"><a href="#slproblems_section-6" title="Copy heading and permalink for Subsection 5.1.4: Eigenfunction series" aria-label="Copy heading and permalink for Subsection 5.1.4: Eigenfunction series">🔗</a></div></section><section class="exercises" id="slproblems_section-7"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="slproblems_section-7-1"><h4 class="heading"><span class="codenumber">5.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="slproblems_section-7-1-1-1">
+<div class="para">Find eigenvalues and eigenfunctions of</div>
+<div class="displaymath process-math" id="slproblems_section-7-1-1-1-1">
+\begin{equation}
+y''+\lambda y = 0, \quad y(0)- y'(0) = 0, \quad y(1) = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.1.4"><a href="#slproblems_section-7-1" title="Copy heading and permalink for Exercise 5.1.4" aria-label="Copy heading and permalink for Exercise 5.1.4">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-7-2"><h4 class="heading"><span class="codenumber">5.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="slproblems_section-7-2-1-1">
+<div class="para">Expand the function <span class="process-math">\(f(x) = x\)</span> on <span class="process-math">\(0 \leq x \leq 1\)</span> using eigenfunctions of the system</div>
+<div class="displaymath process-math" id="slproblems_section-7-2-1-1-3">
+\begin{equation}
+y'' + \lambda y = 0, \quad y'(0) = 0, \quad y(1) = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.1.5"><a href="#slproblems_section-7-2" title="Copy heading and permalink for Exercise 5.1.5" aria-label="Copy heading and permalink for Exercise 5.1.5">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-7-3"><h4 class="heading"><span class="codenumber">5.1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="slproblems_section-7-3-1-1">Suppose that you had a Sturm–Liouville problem on the interval <span class="process-math">\([0,1]\)</span> and came up with <span class="process-math">\(y_n(x) = \sin (\gamma n x)\text{,}\)</span> where <span class="process-math">\(\gamma &gt; 0\)</span> is some constant. Decompose <span class="process-math">\(f(x) = x\text{,}\)</span> <span class="process-math">\(0 &lt; x &lt; 1\)</span> in terms of these eigenfunctions.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.1.6"><a href="#slproblems_section-7-3" title="Copy heading and permalink for Exercise 5.1.6" aria-label="Copy heading and permalink for Exercise 5.1.6">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-7-4"><h4 class="heading"><span class="codenumber">5.1.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="slproblems_section-7-4-1-1">
+<div class="para">Find eigenvalues and eigenfunctions of</div>
+<div class="displaymath process-math" id="slproblems_section-7-4-1-1-1">
+\begin{equation}
+y^{(4)}+\lambda y = 0, \quad y(0) = 0, \quad y'(0) = 0, \quad y(1) = 0, \quad
+y'(1) = 0 .
+\end{equation}
+</div>
+<div class="para">This problem is not a Sturm–Liouville problem, but the idea is the same.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.1.7"><a href="#slproblems_section-7-4" title="Copy heading and permalink for Exercise 5.1.7" aria-label="Copy heading and permalink for Exercise 5.1.7">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-7-5"><h4 class="heading"><span class="codenumber">5.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="slproblems_section-7-5-1-1">
+<div class="para">
+<em class="emphasis">(more challenging)</em>   Find eigenvalues and eigenfunctions for</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_slregthm.html" id="slproblems_section-7-5-1-1-4">
+\begin{equation}
+\frac{d}{dx} (e^x y') + \lambda e^x y = 0, \quad y(0) = 0, \quad y(1) = 0 .
+\end{equation}
+</div>
+<div class="para">Hint: First write the system as a constant-coefficient system to find general solutions.  Do note that <a href="slproblems_section.html#sl_slregthm" class="xref" data-knowl="./knowl/xref/sl_slregthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> guarantees <span class="process-math">\(\lambda \geq 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.1.8"><a href="#slproblems_section-7-5" title="Copy heading and permalink for Exercise 5.1.8" aria-label="Copy heading and permalink for Exercise 5.1.8">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-7-6"><h4 class="heading"><span class="codenumber">5.1.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="slproblems_section-7-6-1-1">
+<div class="para">Find eigenvalues and eigenfunctions of</div>
+<div class="displaymath process-math" id="slproblems_section-7-6-1-1-1">
+\begin{equation}
+y'' + \lambda y = 0, \quad y(-1) = 0, \quad y(1) = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="slproblems_section-7-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="slproblems_section-7-6-2-1">
+<span class="process-math">\(\lambda_n = \frac{n^2\pi^2}{4}\text{,}\)</span> <span class="process-math">\(n=1,2,3,\ldots\text{.}\)</span> For odd <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(y_n = \cos\left(\frac{n\pi}{2} x \right)\text{,}\)</span> for even <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(y_n = \sin\left(\frac{n\pi}{2} x \right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1.101.1"><a href="#slproblems_section-7-6-2" title="Copy heading and permalink for Answer 5.1.101.1" aria-label="Copy heading and permalink for Answer 5.1.101.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.1.101"><a href="#slproblems_section-7-6" title="Copy heading and permalink for Exercise 5.1.101" aria-label="Copy heading and permalink for Exercise 5.1.101">🔗</a></div></article><article class="exercise exercise-like" id="slproblems_section-7-7"><h4 class="heading"><span class="codenumber">5.1.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="slproblems_section-7-7-1-1">Put the following problems into the standard form for Sturm–Liouville problems, that is, find <span class="process-math">\(p(x)\text{,}\)</span> <span class="process-math">\(q(x)\text{,}\)</span> <span class="process-math">\(r(x)\text{,}\)</span> <span class="process-math">\(\alpha_1\text{,}\)</span> <span class="process-math">\(\alpha_2\text{,}\)</span> <span class="process-math">\(\beta_1\text{,}\)</span> and <span class="process-math">\(\beta_2\text{,}\)</span> and decide if the problems are regular or not.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="slproblems_section-7-7-1-2">
+<li id="slproblems_section-7-7-1-2-1">
+<div class="para" id="slproblems_section-7-7-1-2-1-1">
+<span class="process-math">\(x y'' + \lambda y = 0\)</span>    for <span class="process-math">\(0 &lt; x &lt; 1\text{,}\)</span>    <span class="process-math">\(y(0) = 0\text{,}\)</span>    <span class="process-math">\(y(1) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.1.102.a"><a href="#slproblems_section-7-7-1-2-1" title="Copy heading and permalink for Item 5.1.102.a" aria-label="Copy heading and permalink for Item 5.1.102.a">🔗</a></div>
+</li>
+<li id="slproblems_section-7-7-1-2-2">
+<div class="para" id="slproblems_section-7-7-1-2-2-1">
+<span class="process-math">\((1+x^2) y'' + 2xy' + (\lambda-x^2) y = 0\)</span>    for <span class="process-math">\(-1 &lt; x &lt; 1\text{,}\)</span>    <span class="process-math">\(y(-1) = 0\text{,}\)</span>    <span class="process-math">\(y(1)+y'(1) = 0\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="slproblems_section-7-7-1-2-2-1-11"><summary class="ptx-footnote__number" title="Footnote 5.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="slproblems_section-7-7-1-2-2-1-11">In an earlier version of this book, a typo rendered the equation as <span class="process-math">\((1+x^2) y'' - 2xy' + (\lambda-x^2) y = 0\)</span> ending up with something harder than intended.  Try this equation for a further challenge.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.1.102.b"><a href="#slproblems_section-7-7-1-2-2" title="Copy heading and permalink for Item 5.1.102.b" aria-label="Copy heading and permalink for Item 5.1.102.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="slproblems_section-7-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="slproblems_section-7-7-2-1">a) <span class="process-math">\(p(x) = 1\text{,}\)</span> <span class="process-math">\(q(x) = 0\text{,}\)</span> <span class="process-math">\(r(x) = \frac{1}{x}\text{,}\)</span> <span class="process-math">\(\alpha_1 = 1\text{,}\)</span> <span class="process-math">\(\alpha_2 =
+0\text{,}\)</span> <span class="process-math">\(\beta_1 = 1\text{,}\)</span> <span class="process-math">\(\beta_2 = 0\text{.}\)</span>  The problem is not regular. b) <span class="process-math">\(p(x) = 1+x^2\text{,}\)</span> <span class="process-math">\(q(x) = x^2\text{,}\)</span> <span class="process-math">\(r(x) = 1\text{,}\)</span> <span class="process-math">\(\alpha_1 = 1\text{,}\)</span> <span class="process-math">\(\alpha_2 =
+0\text{,}\)</span> <span class="process-math">\(\beta_1 = 1\text{,}\)</span> <span class="process-math">\(\beta_2 = 1\text{.}\)</span>  The problem is regular.<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-7-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1.102.1"><a href="#slproblems_section-7-7-2" title="Copy heading and permalink for Answer 5.1.102.1" aria-label="Copy heading and permalink for Answer 5.1.102.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 5.1.102"><a href="#slproblems_section-7-7" title="Copy heading and permalink for Exercise 5.1.102" aria-label="Copy heading and permalink for Exercise 5.1.102">🔗</a></div></article><div class="autopermalink" data-description="Exercises 5.1.5"><a href="#slproblems_section-7" title="Copy heading and permalink for Exercises 5.1.5" aria-label="Copy heading and permalink for Exercises 5.1.5">🔗</a></div></section><div class="autopermalink" data-description="Section 5.1: Sturm–Liouville problems"><a href="#slproblems_section" title="Copy heading and permalink for Section 5.1: Sturm–Liouville problems" aria-label="Copy heading and permalink for Section 5.1: Sturm–Liouville problems">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="SL_chapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_appeig.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF version: <tt>https://www.jirka.org/diffyqs/diffyqs.pdf</tt> or <tt>https://jirilebl.github.io/diffyqs/diffyqs.pdf</tt></em>
+</span>
+</body>
+</html>

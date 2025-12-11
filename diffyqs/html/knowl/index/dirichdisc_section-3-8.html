@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The first issue we face is that we do not know the Laplacian in polar coordinates. Normally, we would find <span class="process-math">\(u_{xx}\)</span> and <span class="process-math">\(u_{yy}\)</span> in terms of the derivatives in <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\text{.}\)</span>  We would need to solve for <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span>  In this case, it is more convenient to work in reverse.  We compute derivatives in <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> in terms of derivatives in <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> and then we solve.  The computations are easier this way.  First,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+&amp; x_r = \cos \theta, &amp; &amp;
+x_\theta = - r \sin \theta, \\
+&amp; y_r = \sin \theta, &amp; &amp;
+y_\theta = r \cos \theta.
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">By chain rule, we obtain</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+u_r &amp; = u_x x_r + u_y y_r = \cos(\theta) u_x + \sin(\theta) u_y ,
+\\
+u_{rr} &amp; =
+\cos(\theta) ( u_{xx} x_r +u_{xy} y_r )
++ \sin(\theta) ( u_{yx} x_r +u_{yy} y_r )
+\\
+&amp;
+=
+\cos^2(\theta) u_{xx} +
+2 \cos(\theta)\sin(\theta) u_{xy} +
+\sin^2(\theta) u_{yy} .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">Similarly for the <span class="process-math">\(\theta\)</span> derivative.  Note that we have to use the product rule for the second derivative.</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+u_\theta &amp; = u_x x_\theta + u_y y_\theta =
+-r\sin(\theta) u_x + r\cos(\theta) u_y ,
+\\
+u_{\theta\theta} &amp; =
+-r\cos(\theta) u_x
+-r\sin(\theta) (u_{xx} x_\theta + u_{xy} y_\theta)
+-r\sin(\theta) u_y
++
+r\cos(\theta) (u_{yx} x_\theta + u_{yy} y_\theta)
+\\
+&amp; = 
+-r\cos(\theta) u_x
+-r\sin(\theta) u_y
++r^2 \sin^2(\theta) u_{xx}
+-r^2 2\sin(\theta)\cos(\theta) u_{xy}
++r^2 \cos^2(\theta) u_{yy} .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">Let us now try to find <span class="process-math">\(u_{xx} + u_{yy}\text{.}\)</span>  We start with <span class="process-math">\(\frac{1}{r^2} u_{\theta\theta}\)</span> to get rid of those pesky <span class="process-math">\(r^2\text{.}\)</span> If we add <span class="process-math">\(u_{rr}\)</span> and use the fact that <span class="process-math">\(\cos^2(\theta) +\sin^2(\theta) = 1\text{,}\)</span> we get</div>
+<div class="displaymath process-math">
+\begin{equation}
+\frac{1}{r^2} u_{\theta\theta}
++
+u_{rr}
+=
+u_{xx} + u_{yy} - \frac{1}{r} \cos(\theta) u_x - \frac{1}{r} \sin(\theta)
+u_y .
+\end{equation}
+</div>
+<div class="para">We are not quite there yet, but all we are lacking is <span class="process-math">\(\frac{1}{r} u_r\text{.}\)</span>  We add it to obtain the <em class="emphasis">Laplacian in polar coordinates</em>:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mybxbg{~~
+\Delta u 
+=
+u_{xx} + u_{yy} =
+\frac{1}{r^2} u_{\theta\theta}
++
+\frac{1}{r} u_{r}
++
+u_{rr} .
+~~}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#dirichdisc_section-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="dirichdisc_section.html#dirichdisc_section-3-8">in-context</a></span>
+</body>
+</html>

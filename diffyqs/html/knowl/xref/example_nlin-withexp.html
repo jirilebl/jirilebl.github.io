@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let us look at <span class="process-math">\(x'=y+y^2e^x\text{,}\)</span> <span class="process-math">\(y'=x\text{.}\)</span>  First let us find the critical points.  These are the points where <span class="process-math">\(y+y^2e^x = 0\)</span> and <span class="process-math">\(x=0\text{.}\)</span>  Simplifying we get <span class="process-math">\(0=y+y^2 = y(y+1)\text{.}\)</span>  So the critical points are <span class="process-math">\((0,0)\)</span> and <span class="process-math">\((0,-1)\text{,}\)</span> and hence are isolated.  Let us compute the Jacobian matrix:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+y^2e^x &amp; 1+2ye^x \\
+1 &amp; 0
+\end{bmatrix}.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example_nlin-withexp-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">At the point <span class="process-math">\((0,0)\)</span> we get the matrix <span class="process-math">\(\left[ \begin{smallmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{smallmatrix} \right]\)</span> and so the two eigenvalues are <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{.}\)</span>  As the matrix is invertible, the system is almost linear at <span class="process-math">\((0,0)\text{.}\)</span>  And, as the eigenvalues are real and of opposite signs, we get a saddle point, which is an unstable equilibrium point.<div class="autopermalink" data-description="Paragraph"><a href="#example_nlin-withexp-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">At the point <span class="process-math">\((0,-1)\)</span> we get the matrix <span class="process-math">\(\left[ \begin{smallmatrix} 1 &amp; -1 \\ 1 &amp; 0 \end{smallmatrix} \right]\)</span> whose eigenvalues are <span class="process-math">\(\frac{1}{2} \pm i \frac{\sqrt{3}}{2}\text{.}\)</span> The matrix is invertible, and so the system is almost linear at <span class="process-math">\((0,-1)\text{.}\)</span> As we have complex eigenvalues with positive real part, the critical point is a spiral source, and therefore an unstable equilibrium point.<div class="autopermalink" data-description="Paragraph"><a href="#example_nlin-withexp-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/nlin-ex813-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The phase portrait with few sample trajectories of <span class="process-math">\(x'=y+y^2e^x\text{,}\)</span> <span class="process-math">\(y'=x\text{.}\)</span><div class="autopermalink" data-description="Figure 8.4"><a href="#fig_nlin-ex813" title="Copy heading and permalink for Figure 8.4" aria-label="Copy heading and permalink for Figure 8.4">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para">See <a href="nlinstability_section.html#fig_nlin-ex813" class="internal" title="Figure 8.4">Figure 8.4</a> for the phase diagram.  Notice the two critical points, and the behavior of the arrows in the vector field around these points.<div class="autopermalink" data-description="Paragraph"><a href="#example_nlin-withexp-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 8.2.2"><a href="#example_nlin-withexp" title="Copy heading and permalink for Example 8.2.2" aria-label="Copy heading and permalink for Example 8.2.2">🔗</a></div></article><span class="incontext"><a class="internal" href="nlinstability_section.html#example_nlin-withexp">in-context</a></span>
+</body>
+</html>

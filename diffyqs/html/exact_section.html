@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>DIFFYQS Exact equations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Notes on Diffy Qs">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="diffyqs.html"><span class="title">Notes on Diffy Qs</span> <span class="subtitle">Differential Equations for Engineers</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="numer_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="fo_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="fopde_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\mybxbg}[1]{\boxed{#1}}
+\newcommand{\mybxsm}[1]{\boxed{#1}}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="diffyqs-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro_chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde_section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-3" class="internal"><span class="codenumber">0.2.1</span> <span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-4" class="internal"><span class="codenumber">0.2.2</span> <span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-5" class="internal"><span class="codenumber">0.2.3</span> <span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#subsection_fourfundamental" class="internal"><span class="codenumber">0.2.4</span> <span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde_section.html#introde_section-7" class="internal"><span class="codenumber">0.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification_section.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification_section.html#classification_section-14" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="fo_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First-order equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols_section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols_section.html#integralsols_section-16" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields_section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable_section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">More examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable_section.html#separable_section-6" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor_section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor_section.html#intfactor_section-3" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution_section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-3" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-4" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-6" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq_section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq_section.html#auteq_section-33" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer_section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer_section.html#numer_section-32" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="exact_section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-3" class="internal"><span class="codenumber">1.8.1</span> <span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-4" class="internal"><span class="codenumber">1.8.2</span> <span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact_section.html#exact_section-5" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="fopde_section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">First-order linear PDEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="fopde_section.html#fopde_section-19" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear_section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear_section.html#solinear_section-25" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ccsol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Constant-coefficient second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Solving constant-coefficient equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Complex numbers and Euler’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_hol.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Constant-coefficient higher-order ODEs</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Some examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_mv.html#sec_mv-5" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-3" class="internal"><span class="codenumber">2.4.3.1</span> <span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-4" class="internal"><span class="codenumber">2.4.3.2</span> <span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-5" class="internal"><span class="codenumber">2.4.3.3</span> <span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo_section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_introtosys.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Changing to first-order systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-8" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matrix.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-7" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-8" class="internal"><span class="codenumber">3.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems_section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems_section.html#linsystems_section-18" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod_section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Complex eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_twodimaut.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_twodimaut.html#sec_twodimaut-38" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol_section.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Second-order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol_section.html#sol_section-6" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_multeigen.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-3" class="internal"><span class="codenumber">3.7.1</span> <span class="title">Geometric multiplicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-4" class="internal"><span class="codenumber">3.7.2</span> <span class="title">Defective eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-5" class="internal"><span class="codenumber">3.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matexp.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-3" class="internal"><span class="codenumber">3.8.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-4" class="internal"><span class="codenumber">3.8.2</span> <span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-5" class="internal"><span class="codenumber">3.8.3</span> <span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-6" class="internal"><span class="codenumber">3.8.4</span> <span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-7" class="internal"><span class="codenumber">3.8.5</span> <span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-8" class="internal"><span class="codenumber">3.8.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys_section.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3" class="internal"><span class="codenumber">3.9.1</span> <span class="title">First-order constant-coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-2" class="internal"><span class="codenumber">3.9.1.1</span> <span class="title">Integrating factor</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-3" class="internal"><span class="codenumber">3.9.1.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-4" class="internal"><span class="codenumber">3.9.1.3</span> <span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4" class="internal"><span class="codenumber">3.9.2</span> <span class="title">First-order variable-coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4-2" class="internal"><span class="codenumber">3.9.2.1</span> <span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Second-order constant-coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-2" class="internal"><span class="codenumber">3.9.3.1</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-3" class="internal"><span class="codenumber">3.9.3.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-6" class="internal"><span class="codenumber">3.9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="FS_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Fourier series and PDEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bvp_section.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Boundary value problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvalue problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Orthogonality of eigenfunctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-6" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-7" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-8" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ts_section.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The trigonometric series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Periodic functions and motivation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Inner product and eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">The trigonometric series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ts_section.html#ts_section-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="moreonfourier_section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">More on the Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title"><span class="process-math">\(2L\)</span>-periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Differentiation and integration of Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-6" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Rates of convergence and smoothness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-7" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_scs.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Sine and cosine series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Odd and even periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Sine and cosine series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-5" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-6" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="appoffourier_section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Applications of Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-3" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Periodically forced oscillation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-4" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-5" class="internal"><span class="codenumber">4.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="heateq_section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">PDEs, separation of variables, and the heat equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-3" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Heat on an insulated wire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-4" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Separation of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-5" class="internal"><span class="codenumber">4.6.3</span> <span class="title">Insulated ends</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-6" class="internal"><span class="codenumber">4.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="we_section.html" class="internal"><span class="codenumber">4.7</span> <span class="title">One-dimensional wave equation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="we_section.html#we_section-24" class="internal"><span class="codenumber">4.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dalemb_section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">D’Alembert solution of the wave equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-3" class="internal"><span class="codenumber">4.8.1</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-4" class="internal"><span class="codenumber">4.8.2</span> <span class="title">D’Alembert’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-5" class="internal"><span class="codenumber">4.8.3</span> <span class="title">Another way to solve for the side conditions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-6" class="internal"><span class="codenumber">4.8.4</span> <span class="title">Some remarks</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-7" class="internal"><span class="codenumber">4.8.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirich_section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Steady state temperature and the Laplacian</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirich_section.html#dirich_section-19" class="internal"><span class="codenumber">4.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirichdisc_section.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Dirichlet problem in the circle and the Poisson kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-3" class="internal"><span class="codenumber">4.10.1</span> <span class="title">Laplace in polar coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-4" class="internal"><span class="codenumber">4.10.2</span> <span class="title">Series solution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-5" class="internal"><span class="codenumber">4.10.3</span> <span class="title">Poisson kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-6" class="internal"><span class="codenumber">4.10.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="SL_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">More on eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slproblems_section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sturm–Liouville problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Eigenfunction series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-7" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_appeig.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Higher-order eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_appeig.html#sec_appeig-19" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sps_section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Steady periodic solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Forced vibrating string</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Underground temperature oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sps_section.html#sps_section-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LT_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplace_section.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">The inverse transform</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="transformsofders_section.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Transforms of derivatives and ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Transforms of derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Solving ODEs with the Laplace transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Using the Heaviside function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Transfer functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Transforms of integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-8" class="internal"><span class="codenumber">6.2.6</span> <span class="title">Periodic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-9" class="internal"><span class="codenumber">6.2.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="convolution_section.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Convolution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">The convolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Solving ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Volterra integral equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="diracdelta_section.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dirac delta and impulse response</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-3" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Rectangular pulse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-4" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The delta function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-5" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Impulse response</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-6" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Three-point beam bending</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-7" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplacepde_section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Solving PDEs with the Laplace transform</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplacepde_section.html#laplacepde_section-16" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ps_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power-series methods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="powerseries_section.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Power series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-3" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-4" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Radius of convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-5" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-6" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Manipulating power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-7" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Power series for rational functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-8" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="seriessols_section.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series solutions of linear second-order ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="seriessols_section.html#seriessols_section-11" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="frobenius_section.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Singular points and the method of Frobenius</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The method of Frobenius</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#bessel_subsection" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Bessel functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization_section.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Linearization, critical points, and equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinstability_section.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-7" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps_section.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles_section.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles_section.html#limitcycles_section-21" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_chaos.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-5" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="diffyqs-13.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="linalg_appendix.html" class="internal"><span class="codenumber">A</span> <span class="title">Linear algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps_section.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-3" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Vectors and operations on vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-4" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-5" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg_section.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-3" class="internal"><span class="codenumber">A.2.1</span> <span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-4" class="internal"><span class="codenumber">A.2.2</span> <span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-5" class="internal"><span class="codenumber">A.2.3</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-6" class="internal"><span class="codenumber">A.2.4</span> <span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-7" class="internal"><span class="codenumber">A.2.5</span> <span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-8" class="internal"><span class="codenumber">A.2.6</span> <span class="title">Diagonal matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-9" class="internal"><span class="codenumber">A.2.7</span> <span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-10" class="internal"><span class="codenumber">A.2.8</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim_section.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-3" class="internal"><span class="codenumber">A.3.1</span> <span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-4" class="internal"><span class="codenumber">A.3.2</span> <span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-5" class="internal"><span class="codenumber">A.3.3</span> <span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-6" class="internal"><span class="codenumber">A.3.4</span> <span class="title">Linear independence and rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-7" class="internal"><span class="codenumber">A.3.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim_section.html#elim_section-8" class="internal"><span class="codenumber">A.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subspaces_section.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Subspaces, dimension, and the kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-3" class="internal"><span class="codenumber">A.4.1</span> <span class="title">Subspaces, basis, and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-4" class="internal"><span class="codenumber">A.4.2</span> <span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-5" class="internal"><span class="codenumber">A.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="innerproduct_section.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Inner product and projections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-3" class="internal"><span class="codenumber">A.5.1</span> <span class="title">Inner product and orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-4" class="internal"><span class="codenumber">A.5.2</span> <span class="title">Orthogonal projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-5" class="internal"><span class="codenumber">A.5.3</span> <span class="title">Orthogonal basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-6" class="internal"><span class="codenumber">A.5.4</span> <span class="title">The Gram–Schmidt process</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-7" class="internal"><span class="codenumber">A.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det_section.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det_section.html#det_section-24" class="internal"><span class="codenumber">A.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="laplacelist_appendix.html" class="internal"><span class="codenumber">B</span> <span class="title">Table of Laplace Transforms</span></a></div></li>
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="diffyqs-13-4.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="exact_section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exact equations</span>
+</h2>
+<section class="introduction" id="exact_section-2"><div class="para" id="exact_section-2-1">
+<em class="emphasis">Note: 1–2 lectures, can safely be skipped, §1.6 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, §2.6 in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-2-2">
+<div class="para">A type of equation that comes up quite often in physics and engineering is an <em class="emphasis">exact equation</em>. Suppose <span class="process-math">\(F(x,y)\)</span> is a function of two variables, which we call the <em class="emphasis">potential function</em>.  The naming should suggest potential energy, or electric potential.  Exact equations and potential functions appear when there is a conservation law at play, such as conservation of energy. Let us make up a simple example.  Consider</div>
+<div class="displaymath process-math" id="exact_section-2-2-4">
+\begin{equation}
+F(x,y) = x^2+y^2 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<hr class="diffyqshr">
+<figure class="figure figure-like" id="exact_circlesfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/circlesfig-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Solutions to <span class="process-math">\(F(x,y) = x^2+y^2 = C\)</span> for various <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Figure 1.18"><a href="#exact_circlesfig" title="Copy heading and permalink for Figure 1.18" aria-label="Copy heading and permalink for Figure 1.18">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="para" id="exact_section-2-6">We are interested in the lines of constant potential<details class="ptx-footnote" aria-live="polite" id="exact_section-2-6-1"><summary class="ptx-footnote__number" title="Footnote 1.8.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="exact_section-2-6-1">Accordingly, these curves are sometimes called <em class="emphasis">equipotential curves</em>.</div></details>; curves given by <span class="process-math">\(F(x,y) = C\text{,}\)</span> for some constant <span class="process-math">\(C\text{.}\)</span>  In our example, the curves <span class="process-math">\(x^2+y^2=C\)</span> are circles.  See <a href="exact_section.html#exact_circlesfig" class="internal" title="Figure 1.18">Figure 1.18</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-2-7">
+<div class="para">We take the <em class="emphasis">total derivative</em> of <span class="process-math">\(F\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exact_section-2-7-3">
+\begin{equation}
+dF = \frac{\partial F}{\partial x} dx + \frac{\partial F}{\partial y} dy .
+\end{equation}
+</div>
+<div class="para">For convenience, we will use the notation <span class="process-math">\(F_x = \frac{\partial F}{\partial x}\)</span> and <span class="process-math">\(F_y = \frac{\partial F}{\partial y}\text{.}\)</span> In our example,</div>
+<div class="displaymath process-math" id="exact_section-2-7-6">
+\begin{equation}
+dF = 2x \, dx + 2y \, dy .
+\end{equation}
+</div>
+<div class="para">If we apply the total derivative to the equation <span class="process-math">\(F(x,y) = C\text{,}\)</span> we find the differential equation <span class="process-math">\(dF = 0\text{.}\)</span>  This differential equation has the form</div>
+<div class="displaymath process-math" id="exact_section-2-7-9">
+\begin{equation}
+M \, dx + N \, dy = 0, \qquad
+\text{or} \qquad
+M + N \, \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="para">An equation of this form is called <em class="emphasis">exact</em> if it was obtained as <span class="process-math">\(dF = 0\)</span> for some potential function <span class="process-math">\(F\text{.}\)</span> In our simple example, we obtain the equation</div>
+<div class="displaymath process-math" id="exact_section-2-7-13">
+\begin{equation}
+2x \, dx + 2y \, dy = 0, \qquad
+\text{or} \qquad
+2x + 2y \, \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="para">Since we obtained this equation by differentiating <span class="process-math">\(x^2+y^2=C\text{,}\)</span> the equation is exact. We often wish to solve for <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(x\text{.}\)</span>  In our example,</div>
+<div class="displaymath process-math" id="exact_section-2-7-17">
+\begin{equation}
+y = \pm \sqrt{C-x^2} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-2-8">
+<div class="para">In terms of multivariable calculus, at each point <span class="process-math">\((x,y)\)</span> in the plane, <span class="process-math">\(\vec{v} = (M,N)\)</span> is a vector, that is, a direction and a magnitude. As <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> are functions of <span class="process-math">\((x,y)\text{,}\)</span> we have a <em class="emphasis">vector field</em>. A vector field <span class="process-math">\(\vec{v}\)</span> that comes from an exact equation is a so-called <em class="emphasis">conservative vector field</em>, that is, a vector field that comes with a potential function <span class="process-math">\(F(x,y)\text{,}\)</span> such that</div>
+<div class="displaymath process-math" id="exact_section-2-8-10">
+\begin{equation}
+\vec{v} = \left( \frac{\partial F}{\partial x} ,\frac{\partial F}{\partial
+y} \right) .
+\end{equation}
+</div>
+<div class="para">Let <span class="process-math">\(\gamma\)</span> be a path in the plane starting at <span class="process-math">\((x_1,y_1)\)</span> and ending at <span class="process-math">\((x_2,y_2)\text{.}\)</span> If we think of <span class="process-math">\(\vec{v}\)</span> as force, then the work required to move along <span class="process-math">\(\gamma\)</span> is the path integral</div>
+<div class="displaymath process-math" id="exact_section-2-8-16">
+\begin{equation}
+\int_\gamma \vec{v}(\vec{r}) \cdot d\vec{r}
+=
+\int_\gamma M \, dx + N \, dy
+=
+F(x_2,y_2) - F(x_1,y_1) .
+\end{equation}
+</div>
+<div class="para">In other words, the work done depends only on the endpoints—where we start and where we end. For example, suppose <span class="process-math">\(F\)</span> is gravitational potential (physicists use the convention that <span class="process-math">\(-F\)</span> is the potential, but idea is the same). The derivative of <span class="process-math">\(F\)</span> given by <span class="process-math">\(\vec{v}\)</span> is the gravitational force. What we are saying is that the work required to move a heavy box from the ground floor to the roof only depends on the change in potential energy. The work done is the same no matter what path we took; if we took the stairs or the elevator. Although if we took the elevator, the elevator did the work for us. Movement along the curves <span class="process-math">\(F(x,y) = C\)</span> requires no work done, such as the heavy box sliding along without accelerating or braking on a perfectly flat roof on a cart with incredibly well-oiled wheels.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exact_section-2-9">An exact equation is a conservative vector field, and the implicit solution of this equation is the potential function.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="exact_section-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving exact equations</span>
+</h3>
+<div class="para logical" id="exact_section-3-2">
+<div class="para">Now you, the reader, should ask: Where did we solve a differential equation? Well, in applications we generally know <span class="process-math">\(M\)</span> and <span class="process-math">\(N\text{,}\)</span> but we do not know <span class="process-math">\(F\text{.}\)</span>  That is, we may have just started with <span class="process-math">\(2x + 2y \frac{dy}{dx} = 0\text{,}\)</span> or perhaps even</div>
+<div class="displaymath process-math" id="exact_section-3-2-5">
+\begin{equation}
+x + y \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="para">It is up to us to find some potential <span class="process-math">\(F\)</span> that works.  Many different <span class="process-math">\(F\)</span> will work; adding a constant to <span class="process-math">\(F\)</span> does not change the equation. Once we have a potential function <span class="process-math">\(F\text{,}\)</span> the equation <span class="process-math">\(F\bigl(x,y(x)\bigr) = C\)</span> gives an implicit solution of the ODE.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="exact_section-3-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="exact_section-3-3-1-1">Let us find the general solution to <span class="process-math">\(2x + 2y \frac{dy}{dx} = 0\text{.}\)</span>  Forget we know <span class="process-math">\(F\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_section-3-3-1-2">
+<div class="para">If we know that this is an exact equation, we start looking for a potential function <span class="process-math">\(F\text{.}\)</span> We have <span class="process-math">\(M = 2x\)</span> and <span class="process-math">\(N=2y\text{.}\)</span> If <span class="process-math">\(F\)</span> exists, it must be such that <span class="process-math">\(F_x (x,y) = 2x\text{.}\)</span> Integrate in the <span class="process-math">\(x\)</span> variable to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_exact_fint.html" id="eq_exact_fint">
+\begin{equation}
+F(x,y) = x^2 + A(y) ,\tag{1.5}
+\end{equation}
+</div>
+<div class="para">for some function <span class="process-math">\(A(y)\text{.}\)</span>  The function <span class="process-math">\(A\)</span> is the “constant of integration,” though it is only constant as far as <span class="process-math">\(x\)</span> is concerned, and may still depend on <span class="process-math">\(y\text{.}\)</span>  Now differentiate <a href="exact_section.html#eq_exact_fint" class="xref" data-knowl="./knowl/xref/eq_exact_fint.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5">(1.5)</a> in <span class="process-math">\(y\)</span> and set it equal to <span class="process-math">\(N\text{,}\)</span> which is what <span class="process-math">\(F_y\)</span> is supposed to be:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_exact_fint.html" id="exact_section-3-3-1-2-17">
+\begin{equation}
+2y = F_y (x,y) = A'(y) .
+\end{equation}
+</div>
+<div class="para">Integrating, we find <span class="process-math">\(A(y) = y^2\text{.}\)</span>  We could add a constant of integration if we wanted to, but there is no need.  We found <span class="process-math">\(F(x,y) = x^2+y^2\text{.}\)</span> Next for a constant <span class="process-math">\(C\text{,}\)</span> we solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_exact_fint.html" id="exact_section-3-3-1-2-21">
+\begin{equation}
+F\bigl(x,y(x)\bigr) = C
+\end{equation}
+</div>
+<div class="para">for <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(x\text{.}\)</span>  In this case, we obtain <span class="process-math">\(y = \pm \sqrt{C-x^2}\)</span> as we did before.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.8.1"><a href="#exact_section-3-3" title="Copy heading and permalink for Example 1.8.1" aria-label="Copy heading and permalink for Example 1.8.1">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-3-4"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="exact_section-3-4-1-1">Why did we not need to add a constant of integration when integrating <span class="process-math">\(A'(y)
+= 2y\text{?}\)</span>  Add a constant of integration, say <span class="process-math">\(3\text{,}\)</span> and see what <span class="process-math">\(F\)</span> you get. What is the difference from what we got above, and why does it not matter?<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 1.8.1"><a href="#exact_section-3-4" title="Copy heading and permalink for Exercise 1.8.1" aria-label="Copy heading and permalink for Exercise 1.8.1">🔗</a></div></article><div class="para" id="exact_section-3-5">The procedure, once we know that the equation is exact, is:<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-roman ol-marker-2" id="exact_section-3-6">
+<li id="exact_section-3-6-1">
+<div class="para" id="exact_section-3-6-1-1">Integrate <span class="process-math">\(F_x = M\)</span> in <span class="process-math">\(x\)</span> resulting in <span class="process-math">\(F(x,y) = \text{something} + A(y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#exact_section-3-6-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="exact_section-3-6-2">
+<div class="para" id="exact_section-3-6-2-1">Differentiate this <span class="process-math">\(F\)</span> in <span class="process-math">\(y\)</span> and set that equal to <span class="process-math">\(N\text{.}\)</span>   Then find <span class="process-math">\(A(y)\)</span> by integration.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#exact_section-3-6-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+</ol>
+<div class="para" id="exact_section-3-7">The procedure can also be done by first integrating in <span class="process-math">\(y\)</span> and then differentiating in <span class="process-math">\(x\text{.}\)</span> Pretty easy huh?  Let’s try this again.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="exact_example_2xyandxy"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="exact_example_2xyandxy-1-1">Consider now <span class="process-math">\(2x+y + xy \frac{dy}{dx} = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_example_2xyandxy-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_example_2xyandxy-1-2">
+<div class="para">OK, so <span class="process-math">\(M = 2x+y\)</span> and <span class="process-math">\(N=xy\text{.}\)</span>  We try to proceed as before. Suppose <span class="process-math">\(F\)</span> exists.  Then <span class="process-math">\(F_x (x,y) = 2x+y\text{.}\)</span> We integrate:</div>
+<div class="displaymath process-math" id="exact_example_2xyandxy-1-2-5">
+\begin{equation}
+F(x,y) = x^2 + xy + A(y)
+\end{equation}
+</div>
+<div class="para">for some function <span class="process-math">\(A(y)\text{.}\)</span>  Differentiate in <span class="process-math">\(y\)</span> and set equal to <span class="process-math">\(N\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="exact_example_2xyandxy-1-2-9">
+\begin{equation}
+N = xy = F_y (x,y) = x+A'(y) .
+\end{equation}
+</div>
+<div class="para">But there is no way to satisfy this requirement!  The function <span class="process-math">\(xy\)</span> cannot be written as <span class="process-math">\(x\)</span> plus a function of <span class="process-math">\(y\text{.}\)</span>  The equation is not exact; no potential function <span class="process-math">\(F\)</span> exists.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_example_2xyandxy-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.8.2"><a href="#exact_example_2xyandxy" title="Copy heading and permalink for Example 1.8.2" aria-label="Copy heading and permalink for Example 1.8.2">🔗</a></div></article><div class="para logical" id="exact_section-3-9">
+<div class="para">Is there an easier way to check for exactness, other than failing in trying to find <span class="process-math">\(F\text{?}\)</span> Yes there is.  Suppose <span class="process-math">\(M = F_x\)</span> and <span class="process-math">\(N = F_y\text{.}\)</span> As long as the second derivatives are continuous,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_example_2xyandxy.html" id="exact_section-3-9-4">
+\begin{equation}
+\frac{\partial M}{\partial y}
+=
+\frac{\partial^2 F}{\partial y \partial x}
+=
+\frac{\partial^2 F}{\partial x \partial y}
+=
+\frac{\partial N}{\partial x} .
+\end{equation}
+</div>
+<div class="para">If <span class="process-math">\(M_y \not= N_x\text{,}\)</span> the equation is not exact. For example, in <a href="exact_section.html#exact_example_2xyandxy" class="xref" data-knowl="./knowl/xref/exact_example_2xyandxy.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.8.2">Example 1.8.2</a>, where <span class="process-math">\(M = 2x + y\)</span> and <span class="process-math">\(N = xy\text{,}\)</span> the equation is not exact. Indeed, <span class="process-math">\(M_y = 1\)</span> and <span class="process-math">\(N_x = y\)</span> are not equal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="exact_section-3-10">What is interesting is that this idea works in reverse too. If <span class="process-math">\(M_y=N_x\text{,}\)</span> then a potential exists, at least near an initial point. This result is called the Poincaré Lemma<details class="ptx-footnote" aria-live="polite" id="exact_section-3-10-2"><summary class="ptx-footnote__number" title="Footnote 1.8.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="exact_section-3-10-2">Named for the French polymath <a class="external" href="https://en.wikipedia.org/wiki/Henri_Poincar\%C3\%A9" target="_blank">Jules Henri Poincaré</a> (1854–1912).</div></details>.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="exact_section-3-11"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Poincaré Lemma.</span>
+</h4>
+<div class="para" id="exact_section-3-11-3-1">If <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> are continuously differentiable functions of <span class="process-math">\((x,y)\text{,}\)</span> and <span class="process-math">\(\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\text{,}\)</span> then near any point there is a function <span class="process-math">\(F(x,y)\)</span> such that <span class="process-math">\(M = \frac{\partial F}{\partial x}\)</span> and <span class="process-math">\(N = \frac{\partial F}{\partial y}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.8.1: Poincaré Lemma"><a href="#exact_section-3-11" title="Copy heading and permalink for Theorem 1.8.1: Poincaré Lemma" aria-label="Copy heading and permalink for Theorem 1.8.1: Poincaré Lemma">🔗</a></div></article><article class="example example-like" id="exact_exactR2example"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="exact_exactR2example-1-1">
+<div class="para">Solve</div>
+<div class="displaymath process-math" id="exact_exactR2example-1-1-1">
+\begin{equation}
+\frac{dy}{dx} = \frac{-2x-y}{x-1}, \qquad y(0) = 1.
+\end{equation}
+</div>
+<div class="para">Write the equation as</div>
+<div class="displaymath process-math" id="exact_exactR2example-1-1-2">
+\begin{equation}
+(2x+y) + (x-1)\frac{dy}{dx} = 0 ,
+\end{equation}
+</div>
+<div class="para">so <span class="process-math">\(M = 2x+y\text{,}\)</span> <span class="process-math">\(N = x-1\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="exact_exactR2example-1-1-5">
+\begin{equation}
+M_y = 1 = N_x .
+\end{equation}
+</div>
+<div class="para">Poincaré Lemma applies, so let us look for <span class="process-math">\(F\text{.}\)</span> Integrating <span class="process-math">\(M\)</span> in <span class="process-math">\(x\text{,}\)</span> we find</div>
+<div class="displaymath process-math" id="exact_exactR2example-1-1-9">
+\begin{equation}
+F(x,y) = x^2+xy + A(y) .
+\end{equation}
+</div>
+<div class="para">Differentiating in <span class="process-math">\(y\)</span> and setting to <span class="process-math">\(N\text{,}\)</span> we find</div>
+<div class="displaymath process-math" id="exact_exactR2example-1-1-12">
+\begin{equation}
+x-1 = x + A'(y) .
+\end{equation}
+</div>
+<div class="para">So <span class="process-math">\(A'(y) = -1\text{,}\)</span> and <span class="process-math">\(A(y) = -y\)</span> will work.  We obtain <span class="process-math">\(F(x,y) = x^2+xy-y\text{,}\)</span> so the implicit solution is <span class="process-math">\(x^2+xy-y = C\text{.}\)</span>  First we find <span class="process-math">\(C\text{.}\)</span>  As <span class="process-math">\(y(0)=1\text{,}\)</span> we have <span class="process-math">\(F(0,1) = C\text{.}\)</span>  Therefore, <span class="process-math">\(0^2+0\times 1 - 1 = C\text{,}\)</span> so <span class="process-math">\(C=-1\text{.}\)</span>  Now we solve <span class="process-math">\(x^2+xy-y = -1\)</span> for <span class="process-math">\(y\)</span> to get</div>
+<div class="displaymath process-math" id="exact_exactR2example-1-1-24">
+\begin{equation}
+y = \frac{-x^2-1}{x-1} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_exactR2example-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.8.3"><a href="#exact_exactR2example" title="Copy heading and permalink for Example 1.8.3" aria-label="Copy heading and permalink for Example 1.8.3">🔗</a></div></article><article class="example example-like" id="exact_examplevortex"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="exact_examplevortex-1-1">
+<div class="para">Solve</div>
+<div class="displaymath process-math" id="exact_examplevortex-1-1-1">
+\begin{equation}
+\frac{-y}{x^2+y^2} dx + \frac{x}{x^2+y^2} dy = 0 , \qquad y(1) = 2.
+\end{equation}
+</div>
+<div class="para">We leave to the reader to check that <span class="process-math">\(M_y = N_x\text{,}\)</span> so the Poincaré Lemma applies.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_examplevortex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_examplevortex-1-2">
+<div class="para">This vector field <span class="process-math">\((M,N)\)</span> is not conservative (the equation is not exact) if considered as a vector field of the entire plane minus the origin.  The problem is that if the curve <span class="process-math">\(\gamma\)</span> is a circle around the origin, say starting at <span class="process-math">\((1,0)\)</span> and ending at <span class="process-math">\((1,0)\)</span> going counterclockwise, then if <span class="process-math">\(F\)</span> existed, we would expect</div>
+<div class="displaymath process-math" id="exact_examplevortex-1-2-6">
+\begin{equation}
+0 = F(1,0) - F(1,0) = \int_\gamma F_x \, dx + F_y \, dy = \int_\gamma \frac{-y}{x^2+y^2} \, dx +
+\frac{x}{x^2+y^2} \, dy = 2\pi .
+\end{equation}
+</div>
+<div class="para">That is nonsense! We leave the computation of the path integral to the interested reader, or you can consult your multivariable calculus textbook.  So there is no potential function <span class="process-math">\(F\)</span> defined everywhere outside the origin <span class="process-math">\((0,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_examplevortex-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_examplevortex-1-3">
+<div class="para">The Poincaré Lemma does not guarantee such an <span class="process-math">\(F\)</span> anyway. It only guarantees a potential function <span class="process-math">\(F\)</span> locally—only in some region containing the initial point.  As <span class="process-math">\(y(1) = 2\text{,}\)</span> we start at the point <span class="process-math">\((1,2)\text{.}\)</span>  Considering <span class="process-math">\(x &gt; 0\)</span> and integrating <span class="process-math">\(M\)</span> in <span class="process-math">\(x\)</span> or <span class="process-math">\(N\)</span> in <span class="process-math">\(y\text{,}\)</span> we find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_y2x.html" id="exact_examplevortex-1-3-12">
+\begin{equation}
+F(x,y) = \operatorname{arctan} \bigl( \nicefrac{y}{x} \bigr) .
+\end{equation}
+</div>
+<div class="para">This <span class="process-math">\(F\)</span> is defined on the region <span class="process-math">\(x &gt; 0\)</span> and so the equation is exact on that region. The implicit solution is <span class="process-math">\(\operatorname{arctan} \bigl( \nicefrac{y}{x} \bigr) = C\text{.}\)</span>  Solving, <span class="process-math">\(y = \tan(C) x\text{.}\)</span>  That is, the solution is a straight line.  Solving <span class="process-math">\(y(1) =
+2\)</span> gives us that <span class="process-math">\(\tan(C) = 2\text{,}\)</span> and so <span class="process-math">\(y= 2x\)</span> is the desired solution. See <a href="exact_section.html#exact_y2x" class="internal" title="Figure 1.19">Figure 1.19</a>, and note again that the solution only exists for <span class="process-math">\(x &gt; 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_examplevortex-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like" id="exact_y2x"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/exact-y2x-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Solution to <span class="process-math">\(\frac{-y}{x^2+y^2} dx + \frac{x}{x^2+y^2} dy = 0\text{,}\)</span> <span class="process-math">\(y(1) = 2\text{,}\)</span> with initial point marked.<div class="autopermalink" data-description="Figure 1.19"><a href="#exact_y2x" title="Copy heading and permalink for Figure 1.19" aria-label="Copy heading and permalink for Figure 1.19">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 1.8.4"><a href="#exact_examplevortex" title="Copy heading and permalink for Example 1.8.4" aria-label="Copy heading and permalink for Example 1.8.4">🔗</a></div></article><div class="para" id="exact_section-3-14">If the region where <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> are defined and where <span class="process-math">\(M_y=N_x\)</span> has “no holes,” such as, for instance, the entire <span class="process-math">\(xy\)</span>-plane, then the equation is exact and an <span class="process-math">\(F\)</span> defined on that region can be found. For example, in <a href="exact_section.html#exact_exactR2example" class="xref" data-knowl="./knowl/xref/exact_exactR2example.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.8.3">Example 1.8.3</a>, <span class="process-math">\(M=2x+y\)</span> and <span class="process-math">\(N=x-1\)</span> are defined in the entire plane and <span class="process-math">\(M_y = 1 = N_x\text{,}\)</span> so there a global <span class="process-math">\(F\)</span> exists. Similarly, in <a href="exact_section.html#exact_examplevortex" class="xref" data-knowl="./knowl/xref/exact_examplevortex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.8.4">Example 1.8.4</a> the half-plane where <span class="process-math">\(x &gt; 0\)</span> also has “no holes” and a potential function exists on that region. So in such cases, checking <span class="process-math">\(M_y = N_x\)</span> is good enough to check for being exact.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-3-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="exact_exampleabove"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="exact_exampleabove-1-1">
+<div class="para">Solve</div>
+<div class="displaymath process-math" id="exact_exampleabove-1-1-1">
+\begin{equation}
+x^2+y^2 + 2y(x+1) \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_exampleabove-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_exampleabove-1-2">
+<div class="para">The reader should check that this equation is exact. Let <span class="process-math">\(M= x^2+y^2\)</span> and <span class="process-math">\(N=2y(x+1)\text{.}\)</span> We follow the procedure for exact equations</div>
+<div class="displaymath process-math" id="exact_exampleabove-1-2-3">
+\begin{equation}
+F(x,y) = \frac{1}{3}x^3 + xy^2 + A(y) ,
+\end{equation}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="exact_exampleabove-1-2-4">
+\begin{equation}
+2y(x+1) = 2xy + A'(y) .
+\end{equation}
+</div>
+<div class="para">Therefore <span class="process-math">\(A'(y) = 2y\)</span> or <span class="process-math">\(A(y) = y^2\)</span> and <span class="process-math">\(F(x,y) = \frac{1}{3}x^3 + xy^2 +
+y^2\text{.}\)</span> We try to solve <span class="process-math">\(F(x,y) = C\text{.}\)</span>  We easily solve for <span class="process-math">\(y^2\)</span> and then just take the square root:</div>
+<div class="displaymath process-math" id="exact_exampleabove-1-2-10">
+\begin{equation}
+y^2 = \frac{C-(\nicefrac{1}{3})x^3}{x+1},
+\qquad \text{so} \qquad
+y = \pm \sqrt{\frac{C-(\nicefrac{1}{3})x^3}{x+1}} .
+\end{equation}
+</div>
+<div class="para">When <span class="process-math">\(x=-1\text{,}\)</span> the term in front of <span class="process-math">\(\frac{dy}{dx}\)</span> is zero, and our explicit solution is not valid. The given equation has no solution (for <span class="process-math">\(y(x)\)</span>) near <span class="process-math">\(x=-1\text{,}\)</span> but the equation <span class="process-math">\((x^2+y^2) \, dx + 2y(x+1) \, dy = 0\)</span> does have a solution <span class="process-math">\(x=-1\text{.}\)</span>  In fact, one could solve for <span class="process-math">\(x\)</span> in terms of <span class="process-math">\(y\)</span> for any initial condition.  The solution is messy, so we leave it as <span class="process-math">\(\frac{1}{3}x^3 + xy^2 + y^2 = C\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_exampleabove-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.8.5"><a href="#exact_exampleabove" title="Copy heading and permalink for Example 1.8.5" aria-label="Copy heading and permalink for Example 1.8.5">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.8.1: Solving exact equations"><a href="#exact_section-3" title="Copy heading and permalink for Subsection 1.8.1: Solving exact equations" aria-label="Copy heading and permalink for Subsection 1.8.1: Solving exact equations">🔗</a></div></section><section class="subsection" id="exact_section-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integrating factors</span>
+</h3>
+<div class="para logical" id="exact_section-4-2">
+<div class="para">Sometimes an equation <span class="process-math">\(M\, dx + N \, dy = 0\)</span> is not exact, but it can be made exact by multiplying with a function <span class="process-math">\(u(x,y)\text{.}\)</span>  That is, perhaps for some nonzero function <span class="process-math">\(u(x,y)\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="exact_section-4-2-4">
+\begin{equation}
+u(x,y) M(x,y) \, dx + u(x,y) N(x,y) \, dy = 0
+\end{equation}
+</div>
+<div class="para">is exact.  Any solution to this new equation is also a solution to <span class="process-math">\(M\, dx + N \, dy = 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-4-3">
+<div class="para">In fact, a linear equation</div>
+<div class="displaymath process-math" id="exact_section-4-3-1">
+\begin{equation}
+\frac{dy}{dx} + p(x) y = f(x), \qquad
+\text{or} \qquad
+\bigl( p(x) y - f(x) \bigr)\, dx +  dy  = 0,
+\end{equation}
+</div>
+<div class="para">is always such an equation.  Let <span class="process-math">\(r(x) = e^{\int p(x)\,dx}\)</span> be the integrating factor for the linear equation.  Multiply the equation by <span class="process-math">\(r(x)\)</span> and write it in the form of <span class="process-math">\(M + N \frac{dy}{dx} = 0\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="exact_section-4-3-5">
+\begin{equation}
+r(x) p(x) y - r(x) f(x) + r(x) \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="para">Then <span class="process-math">\(M = r(x) p(x) y - r(x) f(x)\text{,}\)</span> so <span class="process-math">\(M_y = r(x) p(x)\text{,}\)</span> while <span class="process-math">\(N = r(x)\text{,}\)</span> so <span class="process-math">\(N_x = r'(x) = r(x) p(x)\text{.}\)</span>  In other words, we have an exact equation. Integrating factors for linear functions are just a special case of integrating factors for exact equations.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-4-4">
+<div class="para">But how do we find the integrating factor <span class="process-math">\(u\text{?}\)</span>  Well, for <span class="process-math">\(uM \, dx + uN \, dy = 0\)</span> to be exact, the function <span class="process-math">\(u\)</span> should satisfy</div>
+<div class="displaymath process-math" id="exact_section-4-4-4">
+\begin{equation}
+\frac{\partial}{\partial y} \bigl[ u M \bigr] = 
+u_y M + u M_y = 
+\frac{\partial}{\partial x} \bigl[ u N \bigr] = 
+u_x N + u N_x .
+\end{equation}
+</div>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="exact_section-4-4-5">
+\begin{equation}
+(M_y-N_x)u = u_x N - u_y M .
+\end{equation}
+</div>
+<div class="para">At first it may seem we replaced one differential equation by another. Even worse, the new equation is a PDE. True, but all hope is not lost.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-4-5">
+<div class="para">A strategy that often works is to look for a <span class="process-math">\(u\)</span> that is a function of <span class="process-math">\(x\)</span> alone, or a function of <span class="process-math">\(y\)</span> alone. After all, that is what worked for linear equations. If <span class="process-math">\(u\)</span> is a function of <span class="process-math">\(x\)</span> alone, that is, <span class="process-math">\(u(x)\text{,}\)</span> then we write <span class="process-math">\(u'(x)\)</span> instead of <span class="process-math">\(u_x\text{,}\)</span> and <span class="process-math">\(u_y\)</span> is just zero. Then</div>
+<div class="displaymath process-math" id="exact_section-4-5-10">
+\begin{equation}
+\frac{M_y-N_x}{N}u = u' .
+\end{equation}
+</div>
+<div class="para">In particular, <span class="process-math">\(\frac{M_y-N_x}{N}\)</span> ought to be a function of <span class="process-math">\(x\)</span> alone (not depend on <span class="process-math">\(y\)</span>).  If so, then we have a linear equation</div>
+<div class="displaymath process-math" id="exact_section-4-5-14">
+\begin{equation}
+u' - \frac{M_y-N_x}{N} u = 0 .
+\end{equation}
+</div>
+<div class="para">Letting <span class="process-math">\(P(x) = \frac{M_y-N_x}{N}\text{,}\)</span> we solve the linear equation to find <span class="process-math">\(u(x) = C e^{\int P(x) \, dx}\text{.}\)</span>  The constant in the solution is not relevant, we need any nonzero solution, so we take <span class="process-math">\(C=1\text{.}\)</span> Then <span class="process-math">\(u(x) = e^{\int P(x) \, dx}\)</span> is the integrating factor making the equation exact.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="exact_section-4-6">
+<div class="para">Similarly, we could try a function of the form <span class="process-math">\(u(y)\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="exact_section-4-6-2">
+\begin{equation}
+\frac{M_y-N_x}{M} u = - u' .
+\end{equation}
+</div>
+<div class="para">In particular, <span class="process-math">\(\frac{M_y-N_x}{M}\)</span> ought to be a function of <span class="process-math">\(y\)</span> alone. If so, we have a linear equation</div>
+<div class="displaymath process-math" id="exact_section-4-6-5">
+\begin{equation}
+u' + \frac{M_y-N_x}{M} u = 0 .
+\end{equation}
+</div>
+<div class="para">Letting <span class="process-math">\(Q(y) = \frac{M_y-N_x}{M}\text{,}\)</span> we find <span class="process-math">\(u(y) = C e^{-\int Q(y) \, dy}\text{.}\)</span>  We take <span class="process-math">\(C=1\text{.}\)</span>  So <span class="process-math">\(u(y) = e^{-\int Q(y) \, dy}\)</span> is the integrating factor.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="exact_section-4-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="exact_section-4-7-1-1">
+<div class="para">Solve</div>
+<div class="displaymath process-math" id="exact_section-4-7-1-1-1">
+\begin{equation}
+\frac{x^2+y^2}{x+1} + 2y \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_section-4-7-1-2">
+<div class="para">Let <span class="process-math">\(M= \frac{x^2+y^2}{x+1}\)</span> and <span class="process-math">\(N=2y\text{.}\)</span> Compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_exampleabove.html" id="exact_section-4-7-1-2-3">
+\begin{equation}
+M_y-N_x = \frac{2y}{x+1} - 0 = \frac{2y}{x+1} .
+\end{equation}
+</div>
+<div class="para">As this is not zero, the equation is not exact.  We notice</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_exampleabove.html" id="exact_section-4-7-1-2-4">
+\begin{equation}
+P(x) = \frac{M_y-N_x}{N} = \frac{2y}{x+1} \, \frac{1}{2y} = \frac{1}{x+1} 
+\end{equation}
+</div>
+<div class="para">is a function of <span class="process-math">\(x\)</span> alone.    We compute the integrating factor</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_exampleabove.html" id="exact_section-4-7-1-2-6">
+\begin{equation}
+e^{\int  P(x) \, dx}
+=
+e^{\ln (x+1)} = x+1 .
+\end{equation}
+</div>
+<div class="para">We multiply our given equation by <span class="process-math">\((x+1)\)</span> to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_exampleabove.html" id="exact_section-4-7-1-2-8">
+\begin{equation}
+x^2+y^2 + 2y(x+1) \frac{dy}{dx} = 0 ,
+\end{equation}
+</div>
+<div class="para">which is an exact equation that we solved in <a href="exact_section.html#exact_exampleabove" class="xref" data-knowl="./knowl/xref/exact_exampleabove.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.8.5">Example 1.8.5</a>.  The solution was</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exact_exampleabove.html" id="exact_section-4-7-1-2-10">
+\begin{equation}
+y = \pm \sqrt{\frac{C-(\nicefrac{1}{3})x^3}{x+1}} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.8.6"><a href="#exact_section-4-7" title="Copy heading and permalink for Example 1.8.6" aria-label="Copy heading and permalink for Example 1.8.6">🔗</a></div></article><article class="example example-like" id="exact_section-4-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="exact_section-4-8-1-1">
+<div class="para">Solve</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-1-1">
+\begin{equation}
+y^2 + (xy+1) \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exact_section-4-8-1-2">
+<div class="para">First compute</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-1">
+\begin{equation}
+M_y-N_x = 2y-y = y .
+\end{equation}
+</div>
+<div class="para">As this is not zero, the equation is not exact.  We observe</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-2">
+\begin{equation}
+Q(y) = \frac{M_y-N_x}{M} = \frac{y}{y^2} = \frac{1}{y} 
+\end{equation}
+</div>
+<div class="para">is a function of <span class="process-math">\(y\)</span> alone.    We compute the integrating factor</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-4">
+\begin{equation}
+e^{-\int  Q(y) \, dy}
+=
+e^{-\ln y} = \frac{1}{y} .
+\end{equation}
+</div>
+<div class="para">Therefore, we look at the exact equation</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-5">
+\begin{equation}
+y + \frac{xy+1}{y} \frac{dy}{dx} = 0 .
+\end{equation}
+</div>
+<div class="para">The reader should double check that this equation is exact. We follow the procedure for exact equations</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-6">
+\begin{equation}
+F(x,y) = xy + A(y) ,
+\end{equation}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-7">
+\begin{equation}
+\frac{xy+1}{y} = x+\frac{1}{y} = x+ A'(y) .\tag{1.6}
+\end{equation}
+</div>
+<div class="para">Consequently, <span class="process-math">\(A'(y) = \nicefrac{1}{y}\)</span> or <span class="process-math">\(A(y) = \ln \, \lvert y \rvert\text{.}\)</span>  Thus <span class="process-math">\(F(x,y)
+= xy + \ln \, \lvert y \rvert\text{.}\)</span> It is not possible to solve <span class="process-math">\(F(x,y)=C\)</span> for <span class="process-math">\(y\)</span> in terms of elementary functions, so let us be content with the implicit solution:</div>
+<div class="displaymath process-math" id="exact_section-4-8-1-2-13">
+\begin{equation}
+xy + \ln \, \lvert y \rvert = C .
+\end{equation}
+</div>
+<div class="para">We are looking for the general solution and we divided by <span class="process-math">\(y\)</span> above.  We should check what happens when <span class="process-math">\(y=0\text{,}\)</span> as the equation itself makes perfect sense in that case.  We plug in <span class="process-math">\(y=0\)</span> to find the equation is satisfied.  So <span class="process-math">\(y=0\)</span> is also a solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-4-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.8.7"><a href="#exact_section-4-8" title="Copy heading and permalink for Example 1.8.7" aria-label="Copy heading and permalink for Example 1.8.7">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.8.2: Integrating factors"><a href="#exact_section-4" title="Copy heading and permalink for Subsection 1.8.2: Integrating factors" aria-label="Copy heading and permalink for Subsection 1.8.2: Integrating factors">🔗</a></div></section><section class="exercises" id="exact_section-5"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exact_section-5-1"><h4 class="heading"><span class="codenumber">1.8.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-1-1-1">Solve the following exact equations, implicit general solutions will suffice:<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="exact_section-5-1-1-2">
+<li id="exact_section-5-1-1-2-1">
+<div class="para" id="exact_section-5-1-1-2-1-1">
+<span class="process-math">\(\displaystyle (2 xy + x^2) \, dx + (x^2+y^2+1) \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.2.a"><a href="#exact_section-5-1-1-2-1" title="Copy heading and permalink for Item 1.8.2.a" aria-label="Copy heading and permalink for Item 1.8.2.a">🔗</a></div>
+</li>
+<li id="exact_section-5-1-1-2-2">
+<div class="para" id="exact_section-5-1-1-2-2-1">
+<span class="process-math">\(\displaystyle x^5 + y^5 \frac{dy}{dx} = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.2.b"><a href="#exact_section-5-1-1-2-2" title="Copy heading and permalink for Item 1.8.2.b" aria-label="Copy heading and permalink for Item 1.8.2.b">🔗</a></div>
+</li>
+<li id="exact_section-5-1-1-2-3">
+<div class="para" id="exact_section-5-1-1-2-3-1">
+<span class="process-math">\(\displaystyle e^x+y^3 + 3xy^2 \frac{dy}{dx} = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-1-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.2.c"><a href="#exact_section-5-1-1-2-3" title="Copy heading and permalink for Item 1.8.2.c" aria-label="Copy heading and permalink for Item 1.8.2.c">🔗</a></div>
+</li>
+<li id="exact_section-5-1-1-2-4">
+<div class="para" id="exact_section-5-1-1-2-4-1">
+<span class="process-math">\(\displaystyle (x+y)\cos(x)+\sin(x) + \sin(x)y' = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-1-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.2.d"><a href="#exact_section-5-1-1-2-4" title="Copy heading and permalink for Item 1.8.2.d" aria-label="Copy heading and permalink for Item 1.8.2.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 1.8.2"><a href="#exact_section-5-1" title="Copy heading and permalink for Exercise 1.8.2" aria-label="Copy heading and permalink for Exercise 1.8.2">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-2"><h4 class="heading"><span class="codenumber">1.8.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-2-1-1">Find the integrating factors for the following equations making them into exact equations:<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="exact_section-5-2-1-2">
+<li id="exact_section-5-2-1-2-1">
+<div class="para" id="exact_section-5-2-1-2-1-1">
+<span class="process-math">\(\displaystyle e^{xy} \, dx + \frac{y}{x} e^{xy} \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.3.a"><a href="#exact_section-5-2-1-2-1" title="Copy heading and permalink for Item 1.8.3.a" aria-label="Copy heading and permalink for Item 1.8.3.a">🔗</a></div>
+</li>
+<li id="exact_section-5-2-1-2-2">
+<div class="para" id="exact_section-5-2-1-2-2-1">
+<span class="process-math">\(\displaystyle \frac{e^x+y^3}{y^2} \, dx + 3x \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.3.b"><a href="#exact_section-5-2-1-2-2" title="Copy heading and permalink for Item 1.8.3.b" aria-label="Copy heading and permalink for Item 1.8.3.b">🔗</a></div>
+</li>
+<li id="exact_section-5-2-1-2-3">
+<div class="para" id="exact_section-5-2-1-2-3-1">
+<span class="process-math">\(\displaystyle 4(y^2+x) \, dx + \frac{2x+2y^2}{y} \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.3.c"><a href="#exact_section-5-2-1-2-3" title="Copy heading and permalink for Item 1.8.3.c" aria-label="Copy heading and permalink for Item 1.8.3.c">🔗</a></div>
+</li>
+<li id="exact_section-5-2-1-2-4">
+<div class="para" id="exact_section-5-2-1-2-4-1">
+<span class="process-math">\(\displaystyle 2\sin(y) \, dx + x\cos(y)\, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.3.d"><a href="#exact_section-5-2-1-2-4" title="Copy heading and permalink for Item 1.8.3.d" aria-label="Copy heading and permalink for Item 1.8.3.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 1.8.3"><a href="#exact_section-5-2" title="Copy heading and permalink for Exercise 1.8.3" aria-label="Copy heading and permalink for Exercise 1.8.3">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-3"><h4 class="heading"><span class="codenumber">1.8.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-3-1-1">Suppose you have an equation of the form: <span class="process-math">\(f(x) + g(y) \frac{dy}{dx} = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="exact_section-5-3-1-2">
+<li id="exact_section-5-3-1-2-1">
+<div class="para" id="exact_section-5-3-1-2-1-1">Show it is exact.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.4.a"><a href="#exact_section-5-3-1-2-1" title="Copy heading and permalink for Item 1.8.4.a" aria-label="Copy heading and permalink for Item 1.8.4.a">🔗</a></div>
+</li>
+<li id="exact_section-5-3-1-2-2">
+<div class="para" id="exact_section-5-3-1-2-2-1">Find the form of the potential function in terms of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-3-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.4.b"><a href="#exact_section-5-3-1-2-2" title="Copy heading and permalink for Item 1.8.4.b" aria-label="Copy heading and permalink for Item 1.8.4.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 1.8.4"><a href="#exact_section-5-3" title="Copy heading and permalink for Exercise 1.8.4" aria-label="Copy heading and permalink for Exercise 1.8.4">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-4"><h4 class="heading"><span class="codenumber">1.8.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-4-1-1">Suppose that we have the equation <span class="process-math">\(f(x) \, dx - dy = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="exact_section-5-4-1-2">
+<li id="exact_section-5-4-1-2-1">
+<div class="para" id="exact_section-5-4-1-2-1-1">Is this equation exact?<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-4-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.5.a"><a href="#exact_section-5-4-1-2-1" title="Copy heading and permalink for Item 1.8.5.a" aria-label="Copy heading and permalink for Item 1.8.5.a">🔗</a></div>
+</li>
+<li id="exact_section-5-4-1-2-2">
+<div class="para" id="exact_section-5-4-1-2-2-1">Find the general solution using a definite integral.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-4-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.5.b"><a href="#exact_section-5-4-1-2-2" title="Copy heading and permalink for Item 1.8.5.b" aria-label="Copy heading and permalink for Item 1.8.5.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 1.8.5"><a href="#exact_section-5-4" title="Copy heading and permalink for Exercise 1.8.5" aria-label="Copy heading and permalink for Exercise 1.8.5">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-5"><h4 class="heading"><span class="codenumber">1.8.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-5-1-1">Find the potential function <span class="process-math">\(F(x,y)\)</span> of the exact equation <span class="process-math">\(\frac{1+xy}{x}\, dx +
+\left(\frac{1}{y} + x \right) \, dy = 0\)</span> in two different ways.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="exact_section-5-5-1-2">
+<li id="exact_section-5-5-1-2-1">
+<div class="para" id="exact_section-5-5-1-2-1-1">Integrate <span class="process-math">\(M\)</span> in terms of <span class="process-math">\(x\)</span> and then differentiate in <span class="process-math">\(y\)</span> and set to <span class="process-math">\(N\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-5-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.6.a"><a href="#exact_section-5-5-1-2-1" title="Copy heading and permalink for Item 1.8.6.a" aria-label="Copy heading and permalink for Item 1.8.6.a">🔗</a></div>
+</li>
+<li id="exact_section-5-5-1-2-2">
+<div class="para" id="exact_section-5-5-1-2-2-1">Integrate <span class="process-math">\(N\)</span> in terms of <span class="process-math">\(y\)</span> and then differentiate in <span class="process-math">\(x\)</span> and set to <span class="process-math">\(M\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-5-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.6.b"><a href="#exact_section-5-5-1-2-2" title="Copy heading and permalink for Item 1.8.6.b" aria-label="Copy heading and permalink for Item 1.8.6.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 1.8.6"><a href="#exact_section-5-5" title="Copy heading and permalink for Exercise 1.8.6" aria-label="Copy heading and permalink for Exercise 1.8.6">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-6"><h4 class="heading"><span class="codenumber">1.8.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-6-1-1">A function <span class="process-math">\(u(x,y)\)</span> is said to be a <em class="emphasis">harmonic function</em> if <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="exact_section-5-6-1-2"><li id="exact_section-5-6-1-2-1">
+<div class="para" id="exact_section-5-6-1-2-1-1">Show if <span class="process-math">\(u\)</span> is harmonic, <span class="process-math">\(-u_y \, dx + u_x \, dy = 0\)</span> is an exact equation.  So there exists (at least locally) the so-called <em class="emphasis">harmonic conjugate</em> function <span class="process-math">\(v(x,y)\)</span> such that <span class="process-math">\(v_x = -u_y\)</span> and <span class="process-math">\(v_y = u_x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-6-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.7.a"><a href="#exact_section-5-6-1-2-1" title="Copy heading and permalink for Item 1.8.7.a" aria-label="Copy heading and permalink for Item 1.8.7.a">🔗</a></div>
+</li></ol> <div class="para" id="exact_section-5-6-1-3">Verify that the following <span class="process-math">\(u\)</span> are harmonic and find the corresponding harmonic conjugates <span class="process-math">\(v\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-6-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="exact_section-5-6-1-4">
+<li id="exact_section-5-6-1-4-1">
+<div class="para" id="exact_section-5-6-1-4-1-1">
+<span class="process-math">\(\displaystyle u = 2xy\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-6-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.7.a"><a href="#exact_section-5-6-1-4-1" title="Copy heading and permalink for Item 1.8.7.a" aria-label="Copy heading and permalink for Item 1.8.7.a">🔗</a></div>
+</li>
+<li id="exact_section-5-6-1-4-2">
+<div class="para" id="exact_section-5-6-1-4-2-1">
+<span class="process-math">\(\displaystyle u = e^x \cos y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-6-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.7.b"><a href="#exact_section-5-6-1-4-2" title="Copy heading and permalink for Item 1.8.7.b" aria-label="Copy heading and permalink for Item 1.8.7.b">🔗</a></div>
+</li>
+<li id="exact_section-5-6-1-4-3">
+<div class="para" id="exact_section-5-6-1-4-3-1">
+<span class="process-math">\(\displaystyle u = x^3-3xy^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-6-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.7.c"><a href="#exact_section-5-6-1-4-3" title="Copy heading and permalink for Item 1.8.7.c" aria-label="Copy heading and permalink for Item 1.8.7.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 1.8.7"><a href="#exact_section-5-6" title="Copy heading and permalink for Exercise 1.8.7" aria-label="Copy heading and permalink for Exercise 1.8.7">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-7"><h4 class="heading"><span class="codenumber">1.8.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-7-1-1">Solve the following exact equations, implicit general solutions will suffice:<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="exact_section-5-7-1-2">
+<li id="exact_section-5-7-1-2-1">
+<div class="para" id="exact_section-5-7-1-2-1-1">
+<span class="process-math">\(\displaystyle \cos(x)+ye^{xy} + xe^{xy} y' = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.101.a"><a href="#exact_section-5-7-1-2-1" title="Copy heading and permalink for Item 1.8.101.a" aria-label="Copy heading and permalink for Item 1.8.101.a">🔗</a></div>
+</li>
+<li id="exact_section-5-7-1-2-2">
+<div class="para" id="exact_section-5-7-1-2-2-1">
+<span class="process-math">\(\displaystyle (2x+y)\, dx + (x-4y) \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.101.b"><a href="#exact_section-5-7-1-2-2" title="Copy heading and permalink for Item 1.8.101.b" aria-label="Copy heading and permalink for Item 1.8.101.b">🔗</a></div>
+</li>
+<li id="exact_section-5-7-1-2-3">
+<div class="para" id="exact_section-5-7-1-2-3-1">
+<span class="process-math">\(\displaystyle e^x + e^y \frac{dy}{dx} = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-7-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.101.c"><a href="#exact_section-5-7-1-2-3" title="Copy heading and permalink for Item 1.8.101.c" aria-label="Copy heading and permalink for Item 1.8.101.c">🔗</a></div>
+</li>
+<li id="exact_section-5-7-1-2-4">
+<div class="para" id="exact_section-5-7-1-2-4-1">
+<span class="process-math">\(\displaystyle (3x^2+3y)\,dx + (3y^2+3x)\, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-7-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.101.d"><a href="#exact_section-5-7-1-2-4" title="Copy heading and permalink for Item 1.8.101.d" aria-label="Copy heading and permalink for Item 1.8.101.d">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="exact_section-5-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exact_section-5-7-2-1">a) <span class="process-math">\(e^{xy}+\sin(x)=C\)</span>     b) <span class="process-math">\(x^2+xy-2y^2=C\)</span>     c) <span class="process-math">\(e^x+e^y=C\)</span>     d) <span class="process-math">\(x^3 + 3xy+ y^3 = C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.8.101.1"><a href="#exact_section-5-7-2" title="Copy heading and permalink for Answer 1.8.101.1" aria-label="Copy heading and permalink for Answer 1.8.101.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.8.101"><a href="#exact_section-5-7" title="Copy heading and permalink for Exercise 1.8.101" aria-label="Copy heading and permalink for Exercise 1.8.101">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-8"><h4 class="heading"><span class="codenumber">1.8.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-8-1-1">Find the integrating factor for the following equations making them into exact equations:<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="exact_section-5-8-1-2">
+<li id="exact_section-5-8-1-2-1">
+<div class="para" id="exact_section-5-8-1-2-1-1">
+<span class="process-math">\(\displaystyle \frac{1}{y}\, dx + 3y \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-8-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.102.a"><a href="#exact_section-5-8-1-2-1" title="Copy heading and permalink for Item 1.8.102.a" aria-label="Copy heading and permalink for Item 1.8.102.a">🔗</a></div>
+</li>
+<li id="exact_section-5-8-1-2-2">
+<div class="para" id="exact_section-5-8-1-2-2-1">
+<span class="process-math">\(\displaystyle dx - e^{-x-y} \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-8-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.102.b"><a href="#exact_section-5-8-1-2-2" title="Copy heading and permalink for Item 1.8.102.b" aria-label="Copy heading and permalink for Item 1.8.102.b">🔗</a></div>
+</li>
+<li id="exact_section-5-8-1-2-3">
+<div class="para" id="exact_section-5-8-1-2-3-1">
+<span class="process-math">\(\displaystyle \left( \frac{\cos(x)}{y^2} + \frac{1}{y} \right) \, dx + \frac{x}{y^2} \, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-8-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.102.c"><a href="#exact_section-5-8-1-2-3" title="Copy heading and permalink for Item 1.8.102.c" aria-label="Copy heading and permalink for Item 1.8.102.c">🔗</a></div>
+</li>
+<li id="exact_section-5-8-1-2-4">
+<div class="para" id="exact_section-5-8-1-2-4-1">
+<span class="process-math">\(\displaystyle \left( 2y + \frac{y^2}{x} \right) \, dx + ( 2y+x )\, dy = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-8-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.102.d"><a href="#exact_section-5-8-1-2-4" title="Copy heading and permalink for Item 1.8.102.d" aria-label="Copy heading and permalink for Item 1.8.102.d">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="exact_section-5-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exact_section-5-8-2-1">a) Integrating factor is <span class="process-math">\(y\text{,}\)</span> equation becomes <span class="process-math">\(dx + 3y^2\,dy = 0\text{.}\)</span>     b) Integrating factor is <span class="process-math">\(e^x\text{,}\)</span> equation becomes <span class="process-math">\(e^x \, dx - e^{-y}\,dy
+= 0\text{.}\)</span>     c) Integrating factor is <span class="process-math">\(y^2\text{,}\)</span> equation becomes <span class="process-math">\((\cos(x)+y)\, dx +
+x\,dy = 0\text{.}\)</span>     d) Integrating factor is <span class="process-math">\(x\text{,}\)</span> equation becomes <span class="process-math">\(( 2xy+y^2 )\, dx +
+(x^2+2xy)\,dy = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.8.102.1"><a href="#exact_section-5-8-2" title="Copy heading and permalink for Answer 1.8.102.1" aria-label="Copy heading and permalink for Answer 1.8.102.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.8.102"><a href="#exact_section-5-8" title="Copy heading and permalink for Exercise 1.8.102" aria-label="Copy heading and permalink for Exercise 1.8.102">🔗</a></div></article><article class="exercise exercise-like" id="exact_section-5-9"><h4 class="heading"><span class="codenumber">1.8.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exact_section-5-9-1-1"><div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <ol class="lower-alpha ol-marker-1" id="exact_section-5-9-1-2">
+<li id="exact_section-5-9-1-2-1">
+<div class="para" id="exact_section-5-9-1-2-1-1">Show that every separable equation <span class="process-math">\(y' = f(x)g(y)\)</span> can be written as an exact equation, and verify that it is indeed exact.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.103.a"><a href="#exact_section-5-9-1-2-1" title="Copy heading and permalink for Item 1.8.103.a" aria-label="Copy heading and permalink for Item 1.8.103.a">🔗</a></div>
+</li>
+<li id="exact_section-5-9-1-2-2">
+<div class="para" id="exact_section-5-9-1-2-2-1">Rewrite <span class="process-math">\(y' = xy\)</span> as an exact equation, solve it, and verify that the solution is the same as it was in <a href="separable_section.html#example_yprimeisxy" class="xref" data-knowl="./knowl/xref/example_yprimeisxy.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.3.1">Example 1.3.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.8.103.b"><a href="#exact_section-5-9-1-2-2" title="Copy heading and permalink for Item 1.8.103.b" aria-label="Copy heading and permalink for Item 1.8.103.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="exact_section-5-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exact_section-5-9-2-1">a) The equation is <span class="process-math">\(- f(x) \, dx + \frac{1}{g(y)} \, dy = 0\text{,}\)</span> and this is exact because <span class="process-math">\(M = -f(x)\text{,}\)</span> <span class="process-math">\(N = \frac{1}{g(y)}\text{,}\)</span> so <span class="process-math">\(M_y = 0 = N_x\text{.}\)</span>     b) <span class="process-math">\(-x \, dx + \frac{1}{y} \, dy = 0\text{,}\)</span> leads to potential function <span class="process-math">\(F(x,y) = -\frac{x^2}{2} + \ln \lvert y \rvert\text{,}\)</span> solving <span class="process-math">\(F(x,y) = C\)</span> leads to the same solution as the example.<div class="autopermalink" data-description="Paragraph"><a href="#exact_section-5-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.8.103.1"><a href="#exact_section-5-9-2" title="Copy heading and permalink for Answer 1.8.103.1" aria-label="Copy heading and permalink for Answer 1.8.103.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 1.8.103"><a href="#exact_section-5-9" title="Copy heading and permalink for Exercise 1.8.103" aria-label="Copy heading and permalink for Exercise 1.8.103">🔗</a></div></article><div class="autopermalink" data-description="Exercises 1.8.3"><a href="#exact_section-5" title="Copy heading and permalink for Exercises 1.8.3" aria-label="Copy heading and permalink for Exercises 1.8.3">🔗</a></div></section><div class="autopermalink" data-description="Section 1.8: Exact equations"><a href="#exact_section" title="Copy heading and permalink for Section 1.8: Exact equations" aria-label="Copy heading and permalink for Section 1.8: Exact equations">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="numer_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="fopde_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF version: <tt>https://www.jirka.org/diffyqs/diffyqs.pdf</tt> or <tt>https://jirilebl.github.io/diffyqs/diffyqs.pdf</tt></em>
+</span>
+</body>
+</html>

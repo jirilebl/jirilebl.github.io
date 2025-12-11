@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">There is a simple way to improve Euler’s method to make it a second-order method by doing just one extra step. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span> What we do is to pretend we compute the next step as in Euler, that is, we start with <span class="process-math">\((x_i,y_i)\text{,}\)</span> we compute a slope <span class="process-math">\(k_1 = f(x_i,y_i)\text{,}\)</span> and then look at the point <span class="process-math">\((x_i+h,y_i + k_1h)\text{.}\)</span> Instead of letting our new point be <span class="process-math">\((x_i+h,y_i + k_1h)\text{,}\)</span> we compute the slope at that point, call it <span class="process-math">\(k_2\text{,}\)</span> and then take the average of <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\text{,}\)</span> hoping that the average is going to be closer to the actual slope on the interval from <span class="process-math">\(x_i\)</span> to <span class="process-math">\(x_i+h\text{.}\)</span>  And we are correct, if we halve the step, the error should get multiplied by <span class="process-math">\({(\nicefrac{1}{2})}^2 = \nicefrac{1}{4}\text{.}\)</span> To summarize, the setup is the same as for regular Euler, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span> At each step, we compute the new slopes <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\)</span> and then the next <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+&amp; k_1 = f(x_i,y_i) , &amp; &amp; 
+x_{i+1} = x_i + h , \\
+&amp; k_2 = f(x_i + h,y_i + k_1h) ,
+&amp; &amp; y_{i+1} = y_i + \frac{k_1+k_2}{2}\,h .
+\end{aligned}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="numer_section.html#numer_section-32-10">in-context</a></span>
+</body>
+</html>

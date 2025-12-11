@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para">Suppose that <span class="process-math">\(k=2\)</span> and <span class="process-math">\(m=1\text{.}\)</span> The units are again the mks units (meters-kilograms-seconds). There is a jetpack strapped to the mass, which fires with a force of 1 newton for 1 second and then is off for 1 second, and so on.  We want to find the steady periodic solution.<div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">The equation is, therefore,</div>
+<div class="displaymath process-math">
+\begin{equation}
+x'' + 2 x = F(t) ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(F(t)\)</span> is the step function</div>
+<div class="displaymath process-math">
+\begin{equation}
+F(t) =
+\begin{cases}
+0 &amp; \text{if } \; {-1} &lt; t &lt; 0 , \\
+1 &amp; \text{if } \; \phantom{-}0 &lt; t &lt; 1 ,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically. We write</div>
+<div class="displaymath process-math">
+\begin{equation}
+F(t) = \frac{c_0}{2} + \sum_{n=1}^\infty
+c_n \cos (n \pi t) +
+d_n \sin (n \pi t) .
+\end{equation}
+</div>
+<div class="para">We compute</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+c_n &amp; = \int_{-1}^1 F(t) \cos (n \pi t) \, dt = 
+\int_{0}^1 \cos (n \pi t) \, dt = 0 \qquad \text{for } \; n \geq 1,
+\\
+c_0 &amp; = \int_{-1}^1 F(t) \, dt = 
+\int_{0}^1 \, dt = 1 ,
+\\
+d_n &amp; = \int_{-1}^1 F(t) \sin (n \pi t) \, dt
+\\
+&amp; = \int_{0}^1 \sin (n \pi t) \, dt
+\\
+&amp; = \left[ \frac{-\cos (n \pi t)}{n \pi} \right]_{t=0}^1
+\\
+&amp; = \frac{1-{(-1)}^n}{\pi n} =
+\begin{cases}
+\frac{2}{\pi n} &amp; \text{if } n \text{ odd} , \\
+0 &amp; \text{if } n \text{ even} .
+\end{cases}
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">So</div>
+<div class="displaymath process-math">
+\begin{equation}
+F(t) = \frac{1}{2} + \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+\frac{2}{\pi n} \sin (n \pi t) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">We want to try</div>
+<div class="displaymath process-math">
+\begin{equation}
+x(t) = \frac{a_0}{2} + \sum_{n=1}^\infty
+a_n \cos (n \pi t) +
+b_n \sin (n \pi t) .
+\end{equation}
+</div>
+<div class="para">Once we plug <span class="process-math">\(x\)</span> into the differential equation <span class="process-math">\(x''+2x = F(t)\text{,}\)</span> it is clear that <span class="process-math">\(a_n = 0\)</span> for <span class="process-math">\(n \geq 1\)</span> as there are no corresponding terms in the series for <span class="process-math">\(F(t)\text{.}\)</span>  Similarly, <span class="process-math">\(b_n = 0\)</span> for even <span class="process-math">\(n\text{.}\)</span>  Hence we try</div>
+<div class="displaymath process-math">
+\begin{equation}
+x(t) = \frac{a_0}{2} +
+\sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+b_n \sin (n \pi t) .
+\end{equation}
+</div>
+<div class="para">We plug into the differential equation and obtain</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+x'' + 2 x &amp; =
+\sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+\Bigl[ - b_n n^2 \pi^2 \sin (n \pi t) \Bigr] + 
+a_0 +
+2
+\sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+\Bigl[ b_n \sin (n \pi t) \Bigr]
+\\
+&amp; =
+a_0 +
+\sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+b_n (2 - n^2 \pi^2 ) \sin (n \pi t)
+\\
+&amp; =
+F(t) = \frac{1}{2} + \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+\frac{2}{\pi n} \sin (n \pi t) .
+\end{split}
+\end{equation}
+</div>
+<div class="para">So <span class="process-math">\(a_0 = \frac{1}{2}\text{,}\)</span> <span class="process-math">\(b_n = 0\)</span> for even <span class="process-math">\(n\text{,}\)</span> and for odd <span class="process-math">\(n\text{,}\)</span> we get</div>
+<div class="displaymath process-math">
+\begin{equation}
+b_n = 
+\frac{2}{\pi n (2 - n^2 \pi^2 )} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">The steady periodic solution has the Fourier series</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/afs_steadyexfig.html">
+\begin{equation}
+x_{sp}(t) = \frac{1}{4} + \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
+\frac{2}{\pi n (2 - n^2 \pi^2 )}
+\sin (n \pi t) .
+\end{equation}
+</div>
+<div class="para">We know this is the steady periodic solution as it contains no terms of the complementary solution and it is periodic with the same period as <span class="process-math">\(F(t)\)</span> itself.  See <a href="appoffourier_section.html#afs_steadyexfig" class="internal" title="Figure 4.14">Figure 4.14</a> for the plot of this solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/afs-steadyex-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the steady periodic solution <span class="process-math">\(x_{sp}\)</span> of <a href="appoffourier_section.html#afs_steadyex" class="xref" data-knowl="./knowl/xref/afs_steadyex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.5.1">Example 4.5.1</a>.<div class="autopermalink" data-description="Figure 4.14"><a href="#afs_steadyexfig" title="Copy heading and permalink for Figure 4.14" aria-label="Copy heading and permalink for Figure 4.14">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 4.5.1"><a href="#afs_steadyex" title="Copy heading and permalink for Example 4.5.1" aria-label="Copy heading and permalink for Example 4.5.1">🔗</a></div></article><span class="incontext"><a class="internal" href="appoffourier_section.html#afs_steadyex">in-context</a></span>
+</body>
+</html>

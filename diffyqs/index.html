@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs: Differential Equations for Engineers</title>
+<link rel=stylesheet type="text/css" href="../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<meta property="og:title" content="Notes on Diffy Qs: Differential Equations for Engineers">
+<meta property="og:type" content="book">
+<meta property="og:book:author" content="Jiri Lebl">
+<meta property="og:image" content="plot2-2.png">
+<meta property="og:site_name" content="Notes on Diffy Qs: Differential Equations for Engineers">
+<meta property="og:description" content="Free online textbook for an undergraduate differential equations course aimed at scientists and engineers.">
+<style>
+br.smallscreenbr { display: none; }
+@media all and (max-width: 700px) {
+  br.smallscreenbr { display: inline; }
+}
+input.search { width:350px; }
+@media all and (max-width: 450px) {
+  input.search { width:250px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<h1>Notes on Diffy Qs: Differential Equations for Engineers</h1>
+
+<p class="left nojustify">
+<b>
+By: Ji&#345;&#237; Lebl
+</b>
+<br class=smallscreenbr>
+(<a href="https://www.jirka.org/">website #1 <span class=urls>https://www.jirka.org/</span> (personal)</a>,
+<a href="https://math.okstate.edu/people/lebl/">website #2 <span class=urls>https://math.okstate.edu/people/lebl/</span> (work: OSU)</a>,
+email: 
+<script>
+var username = "jiri" + "." + "lebl";
+var hostname = "g" + "mail" + ".com";
+var linktext = username + "@" + hostname;
+document.write("<a href='" + "mail" + "to:" + linktext + "'>" + linktext + "</a>");
+</script>)
+
+<p class="left nojustify" style="line-height:140%;">
+<span>
+&rArr;
+<a href="diffyqs.pdf">Download PDF</a>
+/
+<br class=smallscreenbr>
+<a href="https://smile.amazon.com/dp/1706230230">Buy paperback</a>
+/
+<!--<br class=smallscreenbr>-->
+<a href="html/diffyqs.html">Web version</a>
+/
+<a href="#sage">Sage demos</a>
+/
+<a href="#youtubecourse">YouTube course</a>
+</span>
+
+<p class="nojustify left">
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_email"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_mastodon"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_bluesky"></a>
+<a class="a2a_button_threads"></a>
+<a class="a2a_button_x"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+<p>
+<style>
+#plot22png {
+  width:255px;
+  height:271px;
+}
+@media screen and (max-width:600px) {
+  #plot22png {
+    width:127px;
+    height:135px;
+  }
+}
+</style>
+<img id=plot22png class=floatright src="plot2-2.png" alt="Sample Dirichlet problem solution">
+A first course on differential equations, aimed at engineering
+students.  The prerequisite for the course is the basic calculus sequence.
+This free online book (OER more formally)
+should be usable as a stand-alone
+textbook or as a companion to a course using another book such as
+Edwards and Penney,
+<em>Dif&shy;fe&shy;ren&shy;tial Equa&shy;tions and Boun&shy;da&shy;ry Va&shy;lue Pro&shy;blems:
+Computing and Modeling</em>
+or Boyce and DiPrima,
+<em>El&shy;e&shy;men&shy;tary Dif&shy;fer&shy;en&shy;tial Equa&shy;tions and Boun&shy;da&shy;ry Va&shy;lue Pro&shy;blems</em>
+(section correspondence to these two is given).
+I developed and used this book to teach Math
+286/285 at the Uni&shy;ver&shy;si&shy;ty of Illi&shy;nois at Ur&shy;ba&shy;na-Cham&shy;paign
+(one is a
+4-day-a-week, the other a 3-day-a-week semester-long course).
+I also used it for
+Math 20D at the Uni&shy;ver&shy;si&shy;ty of Ca&shy;li&shy;for&shy;nia, San Diego
+(a 3-day-a-week quarter-long course)
+and Math 2233 (semester-long introduction) and Math 4233 (an upper division
+continuation of 2233) at
+Okla&shy;homa State Uni&shy;ver&shy;si&shy;ty.
+There is enough material to run
+a two-semester sequence depending on lecturer speed.
+<p>
+The aim is to provide a low cost, redistributable, not overly long,
+high-quality textbook that students will keep rather than selling back
+after the semester is over.
+Even if the students throw it out or sell it, they can always
+look it up on the net again.
+Or perhaps today's students mostly use online sources to begin with.
+(Chan&shy;ces are your students might be using this book even if you are
+requiring another one.)
+You are free to have a local bookstore or copy
+store make and sell copies for your students.
+See below about the license.
+<p>
+Another aim of the book is to allow modification and customization
+for a specific purpose if necessary.  If you do modify the book,
+mark it prominently as such to avoid confusion.  This aspect is important for
+the longevity of the book as well.
+The book can be updated, fixed, and modified even if I happen
+to drop off the face of the earth.
+You do not have to depend on any publisher
+being interested as with traditional textbooks.
+<p>
+Finally, errata are fixed promptly.
+No need to wait several years for a new edition.
+Every once in a while I may make some major addition and a new major version
+(edition), and then in between as errata are fixed I make minor version
+updates (like a corrected printing) usually once or twice a year, 
+depending on the errata discovered.  Exercise, chapter, and section numbers
+are preserved as much as humanly possible.
+What's added is added at the end with new numbers, so the book is generally
+compatible even if students (or the instructor) have an older printed copy.
+The minor updates are totally interchangeable and have very minimal
+changes, essentially nothing new.
+<p>
+<!--
+While the textbook may be used by itself, it can also be used in conjunction
+with the <a href="https://publish.illinois.edu/iode-diffeq/">IODE</a> software.  IODE is a
+free software package for experimenting with basic ODEs developed at University
+of Illinois specifically for teaching this course.  IODE works both with <a
+href="http://www.mathworks.com">Matlab</a> (proprietary) and <a
+href="http://www.octave.org">Octave</a> (free).  The IODE website has several
+extra projects for the students to work through as homework. -->
+The graphs in the
+book were created using the <a href="../genius.html">Genius</a> software.
+
+<p>
+MAA published a 
+<a href="http://www.maa.org/publications/maa-reviews/notes-on-diffy-qs-differential-equations-for-engineers">review of the book</a>
+(they looked at the De&shy;cem&shy;ber 2012 edition;
+quite bit of stuff has happened since then).
+
+<style>
+#plot12png {
+  margin-top:30px;
+  width:300px;
+  height:226px;
+}
+@media screen and (max-width:700px) {
+  #plot12png {
+    width:150px;
+    height:113px;
+  }
+}
+@media screen and (max-width:560px) {
+  #plot12png {
+    width:100px;
+    height:75px;
+  }
+}
+</style>
+<img id=plot12png class=floatright src="plot1-2.png" alt="Temperatures of object with ambient temperature oscillating">
+<h2 id=toc>Table of contents:</h2>
+<p class=nojustify>
+Introduction
+<br>1. First-order equations
+<br>2. Higher-order linear ODEs
+<br>3. Systems of ODEs
+<br>4. Fourier series and PDEs
+<br>5. More on eigenvalue problems
+<br>6. The Laplace transform
+<br>7. Power-series methods
+<br>8. Nonlinear systems
+<br>A. Linear algebra
+
+<p>
+There are 747 exercises throughout the book, <!-- (August 6th, 2025 edition),-->
+251 of which have a solution in the back
+(those numbered 101 and above).
+A few exercises are within the section text, but most are in their
+own subsection at the end of every section.  Each section should have enough exercises
+for homework even for a demanding class.
+<!--  The <a
+href="https://publish.illinois.edu/iode-diffeq/">IODE</a> projects offer alternatives
+to homework and also include independent extra exercises.-->
+
+<p>
+Please let me know at
+<script>
+var username = "jiri" + "." + "lebl";
+var hostname = "g" + "mail" + ".com";
+var linktext = username + "@" + hostname;
+document.write("<a href='" + "mail" + "to:" + linktext + "'>" + linktext + "</a>");
+</script>
+if you find any typos or have corrections, extra exercises or material, or any
+other comments. <!--  I will always keep all older versions available for download,
+at least when there are nontrivial updates.  When the updates are reasonably
+minor, I will try to preserve pagination and numbering of
+sections/examples/theorems/equations/exercises as much as possible.-->
+
+<h2 id=adoption>Adoption:</h2>
+
+<p>
+
+If you use the book for teaching a course,
+do let me know (<script>
+var username = "jiri" + "." + "lebl";
+var hostname = "g" + "mail" + ".com";
+var linktext = username + "@" + hostname;
+document.write("<a href='" + "mail" + "to:" + linktext + "'>" + linktext + "</a>");
+</script>)!
+The book was
+used, or is being used, at over a hundered
+universities and colleges including Dartmouth Col&shy;lege, Uni&shy;ver&shy;si&shy;ty of Ten&shy;nessee, Uni&shy;ver&shy;si&shy;ty of To&shy;le&shy;do,
+Uni&shy;ver&shy;si&shy;ty of Bri&shy;tish Co&shy;lum&shy;bia, Uni&shy;ver&shy;si&shy;ty of Ca&shy;li&shy;for&shy;nia at Ir&shy;vine,
+Uni&shy;ver&shy;si&shy;ty of Ken&shy;tu&shy;cky, Uni&shy;ver&shy;si&shy;ty of Hawaii, and
+<a href="adoption.html">many others</a>.
+<!--The Saylor Foundation is using it as
+one of the
+books for their online <a href="http://www.saylor.org/courses/ma221/">Math
+221</a> course.-->
+
+<p>
+The book has been selected as an <a
+href="http://aimath.org/textbooks/approved-textbooks/">Ap&shy;proved Text&shy;book</a>
+in the <a href="http://www.aimath.org">Amer&shy;i&shy;can In&shy;sti&shy;tute of Math&shy;e&shy;ma&shy;tics</a> Open
+Text&shy;book Ini&shy;tia&shy;tive.
+
+<p>
+See a <a href="adoption.html"><b>list of classroom adoptions</b></a> for more details.
+
+<h2 id=download>Download:</h2>
+<p class=nojustify>
+<a href="diffyqs.pdf">Download the book as PDF</a>
+<br>
+(August 6th, 2025, version 6.9, 466 pages, approximately 4.1 MB download)
+<p class=nojustify>
+<em>Version 6 added Appendix A (linear algebra), and sections 1.9 and 6.5 (PDEs).</em>
+<p class=nojustify>
+Look at the
+<a href="errata.html">errata</a> in the current
+revision (if any).
+<p class=nojustify>
+Look at the <a href="changes.html">change log</a> to see what changed in
+the latest version.
+
+
+<h2 id=buy>Buy paperback:</h2>
+
+<p>
+I get a bit of money when you buy these (depending on where exactly they are
+bought).  Probably enough to buy
+me a coffee, so by buying a copy you will support this project.  You will also
+save your toner cartridge.
+The difference between these two versions is
+essentially just the cover art.  I have seen printed versions from both and
+they are both good quality.
+
+<p style="clear:left">
+<table class=floatleft>
+<tr>
+<td>
+<a href="https://smile.amazon.com/dp/1706230230">
+<img width=70 height=90 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABaCAMAAAAy5NBWAAAAYFBMVEX///8HFATZ9frU8fceMGHP7fS60tttdYzI5eyiur0EHFw9S3Hw8PHe3+KxsbLMztGLlpbS1Nq8w8V+iYmWpaVcZmc5SUVufHthcXMBBgApPDJVYWFOXFsRIBBDVFAbLiE2xVcrAAAHPklEQVR4XuzQSYocQQwF0HcAKebMrLnvf0vTXcZgQ1VvjFf+EEj8xUOE8Dfyb5n/TBmUGbRZKK21maO1lnK1gJxHpyWtvWTiPCjiylqKU2a1R6STHqiTU1XPIfprplzSUCruOBIPPVwH2IJ4qP0ekW+YOMfQEo8nw0c7Qp42+EDc1ajbW0b9GMbE/uuakMJKzE5MNbXtNZOTUsQ2rIFrxyViaUogL+mUxmDrr5kaBGoPRO9k7z1kD55VkB3xkkGZbQVrZs42u9lmidm0FrBmQ20L75i6i6MaN45QlaoYm5ZwpLqHacR7pu/kbmzMEEqV3NaAbDh1547vmcuTWS2N2SpxB3WhdbnN94zcGeXJBEoFG4gLbhnhiO/+JmqjXDkSpUA8ApQVZbFi/sn0/C1jjPE1eh8lM0vpn20ZmV/LOpfPsuYz/efzg85yXZIVBYKw2qELf04QAlU01/d/y80qYcbYOJs6tvbgF5lViE29EnVsP+qdao2xOGtDsNd/5dZXb23fv2n0SIO6NdYev/p8Pud54kMucGpwha9ED2Z/M/Z9z23fG3Ew0I2hBzYV7psUcEQ4KuaFGApsTRjYMrNnF7wBRigLdggHxLdeocbI+/7tRDswA5iSaqZUw7rvttcJhDAm5ge2vfM0AECD2o4DFa6cnDWa4i41Rbj7c9+XMSvgCvWfwjRKtY2aCBxYYW+N0XrYEktMzA4KIfwxAvjF0Ght5Pyw9tZ6CCkVopxc7SlcgIhuigWYlLybupWiHHNuXGvyiR4K1ErinkcO1xU4mOn8AgR7gthPhXNCoC0w0f7dcyoKElbmkrO7MOAy07arwMQqdiJPCedcmNpktpVOAz1+HA0fvA3ALKG8pVS1E6M6UqUwIYKBhVFS3qFMTXpNwQZ0Q0Mb5dQKRJ12OKpgK1kZoRgCBjUe+9hzZKG1XLt34maBQu9R/Dh7W46eFZJEaP3ESDmIRo+9cEhjADoyB/vrxqQOOzXiscAW2Mcf8eMGDc9yY+WUc+bke6pE6Ky7lKIYCwpS2eNUBbGz5MAQTMsdxemJM0wgr3VAJg6/Jf5UwVR3PDNXOLGohINY+jDsrY1GGRtRCiGk6r2zgcOi2C6YdAlF9tM4rVRV1D9CgRtw8j4AQWWHu4OTdSl4b3VWwACDUmo4FaOOrlR+ONUKfJMGjzGqc+S4e13uMGsve80QF6z0yvekKMgJZXKiARpuMijkb1uCdegzarLWplMwgcSNk8FLQAMDFQHZzyEYUEqy1kUXvJUlZVGeBa6AUhmLzpIM8EU5RRQ1FKwQ2/u6PXs/H1tgVADehEzFX5pwQvDtwsgejnNDm3uKaO8VIjsDzLEoesLSJ316FDBpJi0OQPWStXgfqCHby3rGEy0T9/GjR4NMvc62KeY5rFSaKxh0quWRcy/O+mCO45aXk7VmZrMyOGJOT8qqfxDMalYCZoCCdnEwsmAby+w8JWtONeRkKMJOgO7H6tVyU+22175DTQIdh7l88sw9cZDrzxkF4wOirJgzcZmpVGnTVxva1QMKYV1v1HZynnWmHHfH4OgvxazCK8eVWNRLlJOtzcV81BAiPe+JgX/q7D98xVmSBsrVWzcQCxPjhtIISR7QXQRgzpSI0OPbEQZqJg310sfgZmCmnW30rBgliBp1yTm8dalmhEIPV6I3hpUDhLppQ1Pp61YFW7gGh3ItvZfK7noDVn2cFmWm2jrtYIACjBpSqPKQlyoyOfMXysdqjYFQN8m3SEKYFCC/DdBdDgNmiryPXoD1Q+cSG4JRN40qZyRqbVoQXstZ/bVMPTp7vFr983PCxFdxtu+XsvhQAdCAgYDtVbJmdvc7y6LIYqGKoq2SQlRgLLVBRA0a7M0bo1KOVQIOYG00hPKQmlRbL0eVtovIu1dp3xizMM/0m3F0/s6W77k+L3W4SWFBFmByTHphZh5AnkRy0nLnCopgcrULo1UBYLlxiilvjD4O+BNQjuQ5JUKqkeW5fHlRzQ+rmArUxLxYo33RI89UWVZ70sn3eXHUzcLoDNQSizr2jr3LAoJDSo69LLeJXbj+T/ZfTsxlNdcYhoHenY0sxbI/0vd/0kNIaRd/oZcxdgYC2tv979QhXN+hknSGjn5Sur+HQFyO4IOjcS3ivTNwFWdeeVmEsInpHKurlU8uU2MGoQxZA+9YYC0RHDXIeo1ZKS7YuTDEhj3BcHRlRsmM6XA+wRCFXV3yS0xuY04M2p3eXnf9nlyaEs3JWkl7QAwhkPrD4QX5u/tN2WYtRtIE6WxXZVe7OukfxqSU4WZggiYDjVG8oQs7WT+MUYHyQyRpcUmPwXz0MPdw4gsycOuzcPoKEPH+4hJf1//26FgFgRiAwbDDD4FkKbRC3v9JHTxwrnY5MASyfUt0JA+O5B6MMQ4EMPiaTcbLIx1lBhRUeYmZfcaZQkCDEq9h8ROTN8Mke8ywkhaBq7RlBvX5zVO+5lMfOvzezJ95AenA+DPjJfQHAAAAAElFTkSuQmCC" alt="Differential Equations Cover">
+</a>
+</td>
+</tr>
+</table>
+<a href="https://smile.amazon.com/dp/1706230230">Buy
+a copy on Amazon</a> for $25.00.
+This should be a little easier to buy and quicker/cheaper to ship than lulu, though it depends on where you live.
+This copy is
+the August 6th, 2025 revision (version 6.9).
+<!--This one has an ISBN:-->
+<br>
+ISBN-13: 978-1706230236<br>
+ISBN-10: 1706230230
+
+<!--
+<p><span class=smaller>(The older edition 5 has ISBN-13:  978-1541329058, if you really need the old version)</span>
+-->
+
+<p style="clear:left">
+<table class=floatleft>
+<tr>
+<td>
+<a href="https://www.lulu.com/shop/ji%C5%99%C3%AD-lebl/notes-on-diffy-qs/paperback/product-1yvrdd85.html">
+<img width=70 height=90 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABaCAMAAAAy5NBWAAAAV1BMVEXn6flZZtRNW9E0Q8pEUs9sd9nKzvG6v+1TYNOpr+lKV9CZoOU+TM06SMx7hd0qOcghMcURIsEAE72HkOAMHsAVJsIbLMQdLsUHGr8YKcMBFL0DFr7a3fYEcuHWAAABcElEQVR4Xu3Tt26iQRSGYU6amMOfgPu/zgUaS8j2rsCSt5i3PMVTfKM5tR9pMpP5a5OZzGQm4yGmG1DhGRhX7UcKHtIDEK2Pbxir0Bvb8RqtX60dLVh/aO3aUM2G7q3utva2qLPpYuFLBpRXuybbvULla7ObRxv6nfGoQRL7BC3bM3r/DZOtt6KKTqmHpKj1pOjBnLpaHwyfajvrdJIu+ium7HXdcW1u53Lh2NrF5UsZa7sQjUupyzGyvU+FRCsub7wUl89e6lhfb/lgrqfXUx8M4+uF//oziGFJmWqJlQIu5Jq4JR5jiRjXsua87kI1369Uiba8lVu5PDHmnARBBE0iAU7YhIElYkI0BgxwAzRwvyIAgpFbYPCJQZOZsomb4cVhgNjQsRhw4AIjkQuNTKRmXMwuEREzB2L3L9vU8em5xB+beDKTmcxkJjOZyUxmMpOZzOFMpn0jjO8w5yAcwgBw8tY2VG/FslH97W0mM5k/21Co5gf8GPkAAAAASUVORK5CYII=" alt="Differential Equations Cover">
+</a>
+</td>
+</tr>
+</table>
+Buy a
+<a href="https://www.lulu.com/shop/ji%C5%99%C3%AD-lebl/notes-on-diffy-qs/paperback/product-1yvrdd85.html">paperback
+copy at lulu.com</a> for $25.00.
+You can also buy a larger (letter size)
+<a href="https://www.lulu.com/shop/jiri-lebl/notes-on-diffy-qs/paperback/product-14rv6628.html">coil-bound copy at lulu.com</a> for $25.84.
+This copy is
+the August 6th, 2025 revision (version 6.9).
+No ISBN for this guy.
+
+
+
+<h2 id=web style="clear:left">Web version:</h2>
+<p>
+<a href="html/diffyqs.html">Browse the web version</a>
+of the book (for easier reading on the web).
+This version uses <a href="https://mathbook.pugetsound.edu/">PreTeXt</a> and
+so should be easier to browse and read.
+The <a href="#download">PDF version</a> is
+the canonical version and should be the one used for printing.
+
+<h2 id=search style="clear:left">Search:</h2>
+<p>
+Search this site, including the web version (Google puts in a bunch of ads at the top of every
+search, unfortunately, can't get rid of that):
+<div>
+<script>
+  (function() {
+    var cx = '006490116505509195242:bde3wzawypm';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+
+<h2 id=sage>Interactive Sage demonstrations:</h2>
+
+<p>
+<a href="https://www.sagemath.org/">Sage</a> is a very comprehensive
+free mathematical software.
+Here we collect some relevant Sage worksheets and demonstrations you can play around with.
+Some simply use Sage to give a demonstration,
+but many are worksheets where you can edit the code and use it to experiment.
+The code here runs on the free SageCell server; you cannot save your work and there are
+other limitations.  If you want to use Sage without installing
+but still want to be able to save your work and do more complicated
+computations, consider <a href="https://cocalc.com">CoCalc</a>, which is a
+cloud based Sage installation.
+
+<p class=nojustify>
+<a href="sage/sage-ode.html">Using Sage for ODE:</a> Plot functions, solve ODEs numerically
+and symbolically.
+
+<p class=nojustify>
+<a href="sage/sage-1.2.html">Section 1.2:</a> Plot slope fields and solutions given an initial condition.
+
+<p class=nojustify>
+<a href="sage/sage-1.3.html">Section 1.3:</a> Plot implicit solutions.
+
+<p class=nojustify>
+<a href="sage/sage-1.6.html">Section 1.6:</a> Several interactive demos on autonomous equations in one variable.
+
+<p class=nojustify>
+<a href="sage/sage-1.7.html">Section 1.7:</a> An interactive demo of Euler's method.
+
+<p class=nojustify>
+<a href="sage/sage-1.8.html">Section 1.8:</a> Plot level sets of potential functions;
+implicit solutions to exact equations.
+
+<p class=nojustify>
+<a href="sage/sage-1.9.html">Section 1.9:</a> Plotting the characteristics, and the solutions
+to first order linear PDE.
+
+<p class=nojustify>
+<a href="sage/sage-2.3.html">Section 2.3:</a> Using Sage to solve the characteristic polynomials.
+
+<p class=nojustify>
+<a href="sage/sage-2.4.html">Section 2.4:</a> Several animations of mechanical vibrations.
+
+<p class=nojustify>
+<a href="sage/sage-2.6.html">Section 2.6:</a> Interactive demo of forced oscillations and resonance.
+
+<p class=nojustify>
+<a href="sage/sage-3.1.html">Section 3.1:</a> Using Sage to solve systems of ODE and plotting vector fields.
+
+<p class=nojustify>
+<a href="sage/sage-3.2.html">Section 3.2:</a> Using Sage for solving linear systems and basic matrix operations.
+
+<p class=nojustify>
+<a href="sage/sage-3.5.html">Section 3.5:</a> Interactive demos of two-dimensional autonomous systems.
+
+<p class=nojustify>
+<a href="sage/sage-3.6.html">Section 3.6:</a> A second order system (carts connected with springs) interactive demo.
+
+<h2 id=youtubecourse>YouTube course and slides (not yet complete):</h2>
+<p>
+I am building a set of slides and a YouTube course.  You may want to watch
+it fullscreen.
+The course is not yet complete, new lectures are added as time allows.
+<div style="text-align:center">
+<iframe width="800" height="450" style="border:0" src="https://www.youtube.com/embed/videoseries?list=PLRfQb6m35rf5E7QllafnyOXD0tHHI_N9E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+
+<p>
+<a href="https://youtube.com/playlist?list=PLRfQb6m35rf5E7QllafnyOXD0tHHI_N9E">Link to the playlist.</a>
+
+<p>
+<b>The Slides:</b> (also incomplete so far) <a
+href="deslides.zip">as PDFs</a>.  Note that some of the slides have been slightly
+improved since I recorded the lectures, so they might not match 100%.
+
+<h2 style="clear:left">Instructor resources:</h2>
+
+<h3 style="clear:left">Online homework (WeBWorK / Edfinity):</h3>
+
+<p>
+<b><a href="https://openwebwork.org/">WeBWorK</a>:</b>
+I put together a set of problems for WeBWorK with 497 problems.
+<a href="diffyqs-webwork.tgz">Download the set</a>
+as a tgz file
+(or <a href="https://github.com/jirilebl/diffyqs-webwork/">see the github repository</a>).
+Just upload the tgz file to your WeBWorK course,
+and it will automatically unpack in your templates directory
+and create a directory called <span class=tt>diffyqs-webwork</span>.
+There are predefined problem sets for the relevant sections,
+as "def" files, that you can "import" as new homework.
+There are currently problems for chapters 0, 1, 2, 3, 4, 6, 7, 8, A.
+The problems also have links to the web version of the book for easy reference.
+Majority of the problems come from OPL (Open Problem Library), but have been
+edited to fit the course or generally improved, some have been edited or
+changed quite heavily, and quite a few new problems were added.
+There should be enough
+problems for most types of courses, but let me know if anything is missing, or
+if there are other OPL problems that you think I should include.
+<!--Currently I'd say the set is <i>beta</i> quality.-->
+
+<p>
+<b><a href="https://www.edfinity.com">Edfinity</a>:</b>
+Essentially the same set of problems, based on a slightly older version of my set, is
+<!--A slightly older version of the problem set is-->
+<a href="https://www.edfinity.com/products/5c8199d3b8497d000d4e5eb1">available on Edfinity</a>.
+Edfinity may be a bit easier to use than WeBWorK, you don't have to install
+anything, it is hosted by Edfinity, and is student-paid.
+Unfortunately, the Edfinity set seems to have diverged from my version over time,
+and for example, these do not have the book links.
+You can still add other OPL problems into your class,
+create your own, or if you prefer my set, you can download the set above and
+paste in my set as webwork problems.
+
+<p>
+Let me know (<script>
+var username = "jiri" + "." + "lebl";
+var hostname = "g" + "mail" + ".com";
+var linktext = username + "@" + hostname;
+document.write("<a href='" + "mail" + "to:" + linktext + "'>" + linktext + "</a>");
+</script>) if you use the problem set.  I'm also interested to know any
+feedback on what's missing, what should be changed, etc.
+
+<h3 style="clear:left">Discussion/Announcement forum:</h3>
+
+<p>
+I set up a discussion forum for the book on
+<a href="https://groups.google.com/d/forum/notes-on-diffy-qs-forum">Google
+Groups</a>.  I expect this to be a low volume forum, but it might be a good
+place for instructors to interact, where to post extra material, ask a question
+of the other instructors, discuss the WeBWorK problems, and I will send
+announcements there, such as when a new version is out.
+
+<h3 style="clear:left">Other instructor resources:</h3>
+
+<p>
+I put together all the <a href="diffyqs-figures.zip">figures as PDFs</a>
+as one big zipfile.  This should make it easier to create computer slides using
+the figures, without messing with the source tarball.  If a figure
+appears in multiple places, its filename only refers to the first such place.
+
+<p>
+There's tons of extra materials (including longer modeling projects) at
+<a href="https://simiode.qubeshub.org/">SIMIODE</a>.
+
+<p>
+The <a href="https://publish.illinois.edu/iode-diffeq/">IODE</a> software is a
+free software package for experimenting with basic ODEs developed at University
+of Illinois specifically for teaching this kind of course.
+IODE works both with <a
+href="http://www.mathworks.com">Matlab</a> (proprietary) and <a
+href="http://www.octave.org">Octave</a> (free, but no GUI).
+The IODE website has several
+extra projects for the students to work through as homework.
+
+<p>
+Adam Spiegler of the University of Colorado Denver has put together a 
+<a href"https://aspiegler.github.io/Exploring-Differential-Equations/">a
+suite of Jupyter notebooks</a> that are linked to various sections in
+this book and also in Trench's book.
+
+<h2 style="clear:left">Translations, derivative versions, video lectures:</h2>
+
+<p>
+Prof. <a href="http://mtm.ufsc.br/~martin/">Martin Weilandt</a> of Universidade
+de Santa Catarina has prepared a partial Portuguese translation.  See <a
+href="http://mtm.ufsc.br/~martin/2011-2-calc-c/index.html">his class page</a>.
+
+<p>
+Prof. Charles Bergeron has created a modified version of the book.  The title is
+<a href="http://www.differentialequations.net">Differential Equations:
+Including Linear Algebra Topics And Computer-Aided Problem-Solving</a>.  This
+book removes some topics (e.g. PDEs), and adds its own linear algebra
+chapter (this was before appendix A).
+The book covers the use of the computer algebra system Maxima in
+the context of the material.
+
+<p>
+The department at University at Buffalo (Brian Hassard, James Javor, John
+Ringland, Asela Viraj) have created their own edition without the PDE content
+and including some extra content on using python.
+
+<p>
+Prof. Matthew Charnley made a <a
+href="https://sites.rutgers.edu/matthew-charnley/course-materials/differential-equations-an-introduction-for-engineers/">version</a>
+for Rutgers University that modifies and restructures the text to fit the syllabus at
+Rutgers and, for example, adds an appendix on using MATLAB.
+
+<p>
+The text (slightly older version) has been entered into the <a href="https://math.libretexts.org/Bookshelves/Differential_Equations/Book%3A_Differential_Equations_for_Engineers_(Lebl)">libretext.org platform</a>
+run by UC Davis.
+
+<p>
+Trefor Bazett of the University of Victoria, has a <a href="https://web.uvic.ca/~tbazett/diffyqs/">custom version</a> including video lectures on YouTube (linked from
+his version of the text).
+
+<p>
+Allan Majdanec of Douglass College created a set of <a href="https://youtube.com/playlist?list=PL2cnMVuUCPtkjT7OJj6273MUDJeoBmIx9">video lectures on YouTube</a>
+using the book (though slightly different order of sections).
+
+
+<h2 style="clear:left">Source:</h2>
+<p>
+The source is hosted on <b>GitHub</b>:
+<a href="https://github.com/jirilebl/diffyqs">https://github.com/jirilebl/diffyqs</a>
+<p>
+You can get an archive of the source of the released version on github, look under
+<a href="https://github.com/jirilebl/diffyqs/releases">https://github.com/jirilebl/diffyqs/releases</a>,
+though if you plan to work with it, maybe best to look at just the latest working version
+as that might have any errata or new additions.  Though these might be a work in progress.
+Perhaps best is to let me know.
+<p>
+The main file is
+<span class=tt>diffyqs.tex</span>, which includes the chapters that are in separate
+files <span class=tt>ch-*.tex</span>.  I compile the pdf with <span class=tt>pdflatex diffyqs</span>.  You also want
+to run <span class=tt>makeindex</span> to generate the index (I generally run <span class=tt>pdflatex
+diffyqs</span> three times, then <span class=tt>makeindex diffyqs</span>, and then finally
+<span class=tt>pdflatex diffyqs</span> again).  The setup file with all the preamble you may
+want to edit is <span class=tt>diffyqssetup.sty</span>.
+<p>
+The github 'master' version is the current working version,
+so it will have whatever new changes I make in my tree.
+<p>
+Slides (incomplete so far) used for the youtube lectures:
+<a href="deslides.zip">as PDFs</a> (may have been edited since recording).
+The LaTeX source for the slides is available on github
+in the <span class=tt>slides</span> subdirectory.
+You have to build them from there to get the figures right if you want to
+rework the slides, or you'd have to probably modify the source and copy the
+figures out of the <span class=tt>figures</span> subdirectory.
+Feel free to use them for your class, the license is the same as the book.
+
+<hr>
+
+<p>
+During the writing of this book, 
+the author was in part supported by NSF grant DMS-0900885 and DMS-1362337.
+
+<h2>License:</h2>
+<p>
+<a rel=license
+href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+class=floatright alt="Creative Commons License" style="border-width:0"
+width=88 height=31
+src="/images/ccbyncsa-nq8.png"></a>
+<a rel=license
+href="https://creativecommons.org/licenses/by-sa/4.0/"><img
+class=floatright alt="Creative Commons License" style="border-width:0"
+width=88 height=31
+src="/images/ccbysa-nq8.png"></a>
+This work is
+dual licensed under a
+<a rel=license
+href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+Attribution-Noncommercial-Share Alike 4.0 License</a> and
+<a rel=license
+href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+Attribution-Share Alike 4.0 License</a>.
+You can use, print, copy, and share this book as much as you want.  You can
+base your own book/notes on these and reuse parts if you keep the license the
+same (that is, as long as you use at least one of the two licenses).
+<p>
+<hr>
+
+<img class=floatright width=300 height=49 src="formula1.png" alt="Integrating factor formula">
+<h2 id=links>Useful links:</h2>
+<p>
+
+<ul class=nojustify>
+<li><a href="https://www.jirka.org/ra/">My other free undergraduate textbook: Basic Analysis: In&shy;tro&shy;duc&shy;tion to Real Analysis</a>
+<li><a href="ca/">My graduate textbook: Cultivating Complex Analysis</a>
+<li><a href="scv/">My graduate textbook: Tasty Bits of Several Complex Va&shy;ri&shy;ables</a>
+<li><a href="https://en.wikipedia.org/wiki/Differential_equation">Differential equation - Wikipedia, the free encyclopedia</a>
+<li><a href="http://aimath.org/textbooks/approved-textbooks/">List of approved free textbooks from the Amer&shy;i&shy;can Ins&shy;ti&shy;tute of Math&shy;e&shy;ma&shy;tics</a>
+<li><a href="http://people.math.gatech.edu/~cain/textbooks/onlinebooks.html">Online Math&shy;e&shy;ma&shy;tics Text&shy;books</a>
+<li><a href="http://www.ebyte.it/library/refs/Refs_Math_Books.html">Math Books</a>
+<li><a href="https://simiode.qubeshub.org/">SIMIODE</a>, lots of resources including longer projects especially focusing on modeling.
+<li><a href="https://publish.illinois.edu/iode-diffeq/">IODE software</a>
+<li><a href="http://www.onlinecourses.com/">OnlineCourses.com</a>, a directory of online courses
+<li><a href="https://openwebwork.org/">WeBWorK</a>, free software online homework
+system with lots of questions on differential equations (mainly ODE) in the
+standard problem library, some from this book.
+</ul>
+
+<div class=noprint>
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+
+</div>
+
+</div>
+
+</body>
+</html>

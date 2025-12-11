@@ -1,0 +1,266 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 1.6</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 1.6</h1>
+
+<p>
+Press the <em>Activate</em> buttons below to launch each
+Sage demonstration.  After the demonstration launches you should
+be able to interact with it to change numbers with sliders.  You may have to
+wait a little before the graph appears.  Be patient.
+
+
+<h2>Logistic equation</h2>
+
+<p>
+Consider the autonomous equation
+<p>
+\(x' = k x(M-x).\)
+<p>
+A plot of the slope field is shown, the two equilibria solutions are drawn in
+green.  Three representative solutions are drawn in blue.  Finally, a
+solution with the initial value \(x(0) = x_0\) is drawn in red.  Sliders are presented
+for the values of \(k,\) \(M,\) and \(x_0.\)
+
+<div class="sage">
+<script type="text/x-sage">
+var("t x")
+
+@interact
+def interactive_function(l1=text_control("Slope field of the logistic equation x' = kx(M-x)"),
+                         l2=text_control("Three representative solutions graphed, along with a solution with x(0) = x0"),
+                         k = slider(-2,2,.0625, default = 0.5),
+                         M = slider(-8,8,.125, default = 5),
+                         x0 = slider(-10,10,.125,default = 1)):
+    f(x)  =  k*x*(M-x)  # f = slope
+    pt = plot_slope_field( f, ( t, 0, 5 ), ( x, -10, 10 ), plot_points = 25)
+    # Three initial solutions plotted
+    if M > 0.001 :
+        x00 = M/2
+        if k > 0 :
+            x01 = 10
+            x02 = -0.05
+        else :
+            x01 = M+0.05
+            x02 = -10
+    elif M < -0.001 :
+        x00 = M/2
+        if k > 0 :
+            x01 = 10
+            x02 = M-0.05
+        else :
+            x01 = 0.1
+            x02 = -10
+    else :
+        x00 = 1.5
+        x01 = -1.5
+        if k > 0 : x02 = -0.3
+        else : x02 = 0.3 
+    
+
+    # find potential divisions by zero
+    t0 = 5
+    t1 = 5
+    t2 = 5
+    tc = 5
+    if abs(M) > 0.001 :
+        c0 = (M-x00)/x00
+        c1 = (M-x01)/x01
+        c2 = (M-x02)/x02
+        c = (M-x0)/x0
+
+        if (M*k > 0 and 1 < -c0) or (M*k < 0 and 1 > -c0 and c0 < 0) : t0 = ln(-c0)/(M*k) - 0.01
+        if (M*k > 0 and 1 < -c1) or (M*k < 0 and 1 > -c1 and c1 < 0) : t1 = ln(-c1)/(M*k) - 0.01
+        if (M*k > 0 and 1 < -c2) or (M*k < 0 and 1 > -c2 and c2 < 0) : t2 = ln(-c2)/(M*k) - 0.01
+        if (M*k > 0 and 1 < -c) or (M*k < 0 and 1 > -c and c < 0) : tc = ln(-c)/(M*k) - 0.01
+        if t0 > 5 : t0 = 5
+        if t1 > 5 : t1 = 5
+        if t2 > 5 : t2 = 5
+        if tc > 5 : tc = 5 
+        p0 = plot(M*e^(M*k*t)/(e^(M*k*t)+c0),(t, 0, t0), color = 'blue', thickness = 2)
+        p1 = plot(M*e^(M*k*t)/(e^(M*k*t)+c1),(t, 0, t1), color = 'blue', thickness = 2)
+        p2 = plot(M*e^(M*k*t)/(e^(M*k*t)+c2),(t, 0, t2), color = 'blue', thickness = 2)
+        pc = plot(M*e^(M*k*t)/(e^(M*k*t)+c),(t, 0, tc), color = 'red', thickness = 2)
+    else :
+        c0 = 1/x00
+        c1 = 1/x01
+        c2 = 1/x02
+        c = 1/x0
+        if (k > 0 and c0 < 0) or (k < 0 and c0 > 0) : t0 = -c0/k
+        if (k > 0 and c1 < 0) or (k < 0 and c1 > 0) : t1 = -c1/k
+        if (k > 0 and c2 < 0) or (k < 0 and c2 > 0) : t2 = -c2/k
+        if (k > 0 and c < 0) or (k < 0 and c > 0) : tc = -c/k
+        if t0 > 5 : t0 = 5
+        if t1 > 5 : t1 = 5
+        if t2 > 5 : t2 = 5
+        if tc > 5 : tc = 5 
+
+        p0 = plot(1/(k*t+c0),(t, 0, t0), color = 'blue', thickness = 2)
+        p1 = plot(1/(k*t+c1),(t, 0, t1), color = 'blue', thickness = 2)
+        p2 = plot(1/(k*t+c2),(t, 0, t2), color = 'blue', thickness = 2)
+        pc = plot(1/(k*t+c),(t, 0, tc), color = 'red', thickness = 2)
+
+      
+    
+    hline1 = line([(0,M),(5,M)], color = 'darkgreen', thickness = 3)
+    hline2 = line([(0,0),(5,0)], color = 'darkgreen', thickness = 3)
+    
+    show(pt + p0 + p1 + p2 + pc + hline1 + hline2, ymin = -10, ymax = 10, xmin = -0, xmax = 5) # plot slope field and solutions
+</script>
+</div>
+
+<h2>Exponential growth/decay (with phase diagram)</h2>
+
+<p>
+Consider the general exponential growth and decay:
+<p>
+\(x' = k(x-A), \quad x(0)= x_0. \)
+<p>
+This demonstration will plot slope field,
+the phase diagram, and the solution of the
+given initial value problem in red
+along with the equilibrium solutions in green.
+The values of \(k,\)
+\(A,\) and \(x_0\) are changable with the sliders.
+
+<div class="sage">
+<script type="text/x-sage">
+var("t x z")
+@interact
+def interactive_function(l1 = text_control("Slope field and phase diagram of x' = k(x-A)"),
+                         l2 = text_control("and a solution with initial condition x(0) = x0"),
+                         k = slider(-5,5,.125, default = 1),
+                         A = slider(-8,8,.125, default = 0),
+                         x0 = slider(-10,10,.0625, default = 0.2)):
+    f(x) = k*(x-A) # f = slope
+    pt = plot_slope_field( f, (t, 0, 15), (x, -10, 10), plot_points = 25)
+    if not abs(k) < 0.0000001: # ensures there is an asymptote 
+        pt += line([(17.0,A),(18.0,A)], color = 'darkblue') # makes small notch on slope indicator at asymptote
+        pt += line([(0,A),(15,A)], color = 'darkgreen', thickness=2) # makes horizontal line at asymptote
+    if k < -0.0000001:
+        pt += arrow2d((17.5,10),(17.5,(A+10)/2 - .5), head = 1, color = 'darkblue', width = 1) # makes arrow indicating sign of slope
+        pt += arrow2d((17.5,-10),(17.5,(A-10)/2 + .5), head = 1, color = 'darkblue', width = 1)
+    elif k > 0.0000001:
+        pt += arrow2d((17.5,0),(17.5,(A+10)/2 + .5), head = 1, color = 'darkblue', width = 1)
+        pt += arrow2d((17.5, 0),(17.5,(A-10)/2 - .5), head = 1, color = 'darkblue', width = 1)
+    if abs(x0-A) < 0.0000001:
+        pt += line([(0,x0),(15,x0)], color = 'red', thickness = 3) # horizontal line for if initial condition yields horizontal line
+    else:
+        y = function('y')(t)
+        y = desolve(diff(y,t)-k*y+k*A, y, ics = [0, x0]) # finds solution of differential equation with initial condition y(0) = x0
+        pt += plot(y, (t,0,15), color = 'red', thickness = 3) # graphs solution
+    pt += line([(17.5, -10),(17.51,10)], thickness = 2, color = 'darkblue')
+    show(pt, ymin = -10, ymax = 10, xmin = -0, xmax = 20)
+</script>
+</div>
+
+<h2>Logistic equation with harvesting (with phase diagram)</h2>
+
+<p>
+Let us add a constant to the logistic equation to allow harvesting:
+<p>
+\(x' = kx(M-x) - h, \quad x(0)= x_0.\)
+<p>
+The plot is the same idea as the demonstration for the 
+exponential growth above.
+
+<div class="sage">
+<script type="text/x-sage">
+var("t x")
+@interact
+def interactive_function(l1=text_control("Slope field and phase diagram of x' = kx(M-x)-h"),
+                         l2=text_control("and a solution with initial value x(0)=x0"),
+                         k = slider(-2, 2, .0625, default = 0.5),
+                         M = slider(-8, 8, .25, default = 5),
+                         h = slider(-5, 5, .25, default = 0),
+                         x0 = slider(-10, 10, .25, default = 3)):
+    f(x) = k*x*(M-x)- h # f = slope
+    pt = plot_slope_field( f, ( t, 0, 3 ), ( x, -10, 10 ), plot_points = 25)
+    if not ((k*M)^2-(4*k*h)) < 0 and not abs(k) < 0.0000001 : #checks to see if any asymptotes exist
+        z = solve(k*x*(M-x)-h,x) # finds asymptotes
+        z1 = z[0].rhs()
+    if ((k*M)^2-(4*k*h)) > 0:
+        z2 = z[1].rhs() #checks to see if there are two asymptotes 
+    if ((k*M)^2-(4*k*h)) > 0 and z2 > z1: # if z2 > z1, switches the two values 
+        zt = z1
+        z1 = z2
+        z2 = zt
+    if abs(k) > 0.0000001 and not ((k*M)^2-(4*k*h)) < -0.0000001 and f(z1+1) > 0:
+        pt += arrow2d((3.5,z1),(3.5, (z1+10)/2 + .5), color = 'darkblue', width = 1) # draws arrows for 
+    if abs(k) > 0.0000001 and not ((k*M)^2-(4*k*h)) < -0.0000001 and f(z1+1) < 0:
+        pt += arrow2d((3.5,10),(3.5, (z1+10)/2 - .5), color = 'darkblue', width = 1)  # sign of slope
+    if ((k*M)^2-(4*k*h)) > 0 and f(z2-1) < 0:
+        pt += arrow2d((3.5,z2),(3.5,(z2-10)/2-.5), color = 'darkblue', width = 1)
+    if ((k*M)^2-(4*k*h)) > 0 and f(z2-1) > 0:
+        pt += arrow2d((3.5,-10),(3.5,(z2-10)/2+.5), color = 'darkblue', width = 1)
+    if abs((k*M)^2-(4*k*h)) < 0.0000001 and abs(k) > 0.0000001 and f(z1-1) > 0:
+        pt += arrow2d((3.5,-10),(3.5,(z1-10)/2+.5), color = 'darkblue', width = 1)
+    if abs((k*M)^2-(4*k*h)) < 0.0000001 and abs(k) > 0.0000001 and f(z1-1) < 0:
+        pt += arrow2d((3.5,z1),(3.5,(z1-10)/2-.5), color = 'darkblue', width = 1)
+    if ((k*M)^2-(4*k*h)) > 0.0000001 and f((z1+z2)/2) > 0:
+        pt += arrow2d((3.5,z2),(3.5,(z1+z2)/2+.5), color = 'darkblue', width = 1)
+    if ((k*M)^2-(4*k*h)) > 0.0000001 and f((z1+z2)/2) < 0:
+        pt += arrow2d((3.5,z1),(3.5,(z1+z2)/2 -.5), color = 'darkblue', width = 1)
+    if ((k*M)^2-(4*k*h)) > 0.0000001:
+        pt += line([(0,z2),(3,z2 + .01)], color='darkgreen', thickness=2) # plots second asymptote, if it exists
+    if not ((k*M)^2-(4*k*h)) < -0.0000001 and abs(k) > 0.0000001 : 
+        pt += line([(0,z1),(3,z1+.01)], color='darkgreen', thickness=2) # plots first asymptote
+        pt += line([(3.4,z1),(3.6,z1+.01)], color = 'darkblue') # makes short line on slope sign graphic at first asymptote  
+    if ((k*M)^2-(4*k*h)) > 0:
+        pt += line([(3.4,z2),(3.6,z2+.01)], color = 'darkblue') # makes short line on slope sign graphic at second asymptote
+    if (abs(k) < 0.0000001 and -h > 0.0000001) or (((k*M)^2-(4*k*h)) < -0.0000001 and f(0) > 0):
+        pt += arrow2d((3.5,-10),(3.5,.5), head = 1, color = 'darkblue', width = 1) # makes middle arrow
+    if (abs(k) < 0.0000001 and -h < -0.0000001) or (((k*M)^2-(4*k*h)) < -0.0000001 and f(0) < 0):
+        pt += arrow2d((3.5,10),(3.5,-.5), head = 1, color = 'darkblue', width = 1)
+    pt += line([(3.5,-10),(3.51,10)], color = 'darkblue', thickness = 2)    
+    y = function('y')(t)
+    if (abs(k*x0*(M-x0)-h)) < 0.0000001 == 0:
+        pt += line([(0,x0),(3,x0+.01)], color = 'red', thickness = 3)                                                                    # of differential equation
+    else:
+        pt += desolve_rk4(diff(y,t) - (k*y*(M-y)-h), y, ics = [0,x0], step = .01, output = 'plot', color = 'red', thickness = 3, end_points = [0,3]) # approximates solution
+    show(pt, xmin = 0, xmax = 4, ymin = -10, ymax = 10)
+</script>
+</div>
+
+<hr>
+<p>
+The original code is mainly due to Ryan Burkhart.
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

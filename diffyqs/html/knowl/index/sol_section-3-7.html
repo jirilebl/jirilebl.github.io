@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Let us set up the equations for the three mass system. By Hooke’s law, the force acting on the mass equals the spring compression times the spring constant.  By Newton’s second law, force is mass times acceleration.  So if we sum the forces acting on each mass, put the right sign in front of each term, depending on the direction in which it is acting, and set this equal to mass times the acceleration, we end up with the desired system of equations.</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+m_1 x_1'' &amp;= -k_1 x_1 + k_2 (x_2-x_1)
+&amp; &amp; = -(k_1+k_2) x_1 + k_2 x_2 , \\
+m_2 x_2'' &amp;= -k_2 (x_2-x_1) + k_3 (x_3-x_2)
+&amp; &amp; = k_2 x_1 -(k_2+k_3) x_2 + k_3 x_3 , \\
+m_3 x_3'' &amp;= -k_3 (x_3-x_2) - k_4 x_3
+&amp; &amp; = k_3 x_2 - (k_3+k_4) x_3 . 
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">We define the matrices</div>
+<div class="displaymath process-math">
+\begin{equation}
+M =
+\begin{bmatrix}
+m_1 &amp; 0 &amp; 0 \\
+0 &amp; m_2 &amp; 0 \\
+0 &amp; 0 &amp; m_3
+\end{bmatrix}
+\qquad
+\text{and}
+\qquad
+K =
+\begin{bmatrix}
+-(k_1+k_2) &amp; k_2 &amp; 0 \\
+k_2 &amp; -(k_2+k_3) &amp; k_3 \\
+0 &amp; k_3 &amp; -(k_3+k_4)
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">We write the equation simply as</div>
+<div class="displaymath process-math">
+\begin{equation}
+M {\vec{x}}'' = K \vec{x} .
+\end{equation}
+</div>
+<div class="para">At this point we could introduce 3 new variables and write out a system of 6 first-order equations.  We claim this simple setup is easier to handle as a second-order system. We call <span class="process-math">\(\vec{x}\)</span> the <em class="emphasis">displacement vector</em>, <span class="process-math">\(M\)</span> the <em class="emphasis">mass matrix</em>, and <span class="process-math">\(K\)</span> the <em class="emphasis">stiffness matrix</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sol_section-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="sol_section.html#sol_section-3-7">in-context</a></span>
+</body>
+</html>

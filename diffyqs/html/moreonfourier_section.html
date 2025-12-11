@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>DIFFYQS More on the Fourier series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Notes on Diffy Qs">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="diffyqs.html"><span class="title">Notes on Diffy Qs</span> <span class="subtitle">Differential Equations for Engineers</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ts_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="FS_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_scs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\mybxbg}[1]{\boxed{#1}}
+\newcommand{\mybxsm}[1]{\boxed{#1}}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="diffyqs-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro_chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde_section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-3" class="internal"><span class="codenumber">0.2.1</span> <span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-4" class="internal"><span class="codenumber">0.2.2</span> <span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-5" class="internal"><span class="codenumber">0.2.3</span> <span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#subsection_fourfundamental" class="internal"><span class="codenumber">0.2.4</span> <span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde_section.html#introde_section-7" class="internal"><span class="codenumber">0.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification_section.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification_section.html#classification_section-14" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First-order equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols_section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols_section.html#integralsols_section-16" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields_section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable_section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">More examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable_section.html#separable_section-6" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor_section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor_section.html#intfactor_section-3" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution_section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-3" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-4" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-6" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq_section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq_section.html#auteq_section-33" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer_section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer_section.html#numer_section-32" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact_section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-3" class="internal"><span class="codenumber">1.8.1</span> <span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-4" class="internal"><span class="codenumber">1.8.2</span> <span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact_section.html#exact_section-5" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="fopde_section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">First-order linear PDEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="fopde_section.html#fopde_section-19" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear_section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear_section.html#solinear_section-25" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ccsol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Constant-coefficient second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Solving constant-coefficient equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Complex numbers and Euler’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_hol.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Constant-coefficient higher-order ODEs</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Some examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_mv.html#sec_mv-5" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-3" class="internal"><span class="codenumber">2.4.3.1</span> <span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-4" class="internal"><span class="codenumber">2.4.3.2</span> <span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-5" class="internal"><span class="codenumber">2.4.3.3</span> <span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo_section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="sys_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_introtosys.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Changing to first-order systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-8" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matrix.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-7" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-8" class="internal"><span class="codenumber">3.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems_section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems_section.html#linsystems_section-18" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod_section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Complex eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_twodimaut.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_twodimaut.html#sec_twodimaut-38" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol_section.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Second-order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol_section.html#sol_section-6" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_multeigen.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-3" class="internal"><span class="codenumber">3.7.1</span> <span class="title">Geometric multiplicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-4" class="internal"><span class="codenumber">3.7.2</span> <span class="title">Defective eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-5" class="internal"><span class="codenumber">3.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matexp.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-3" class="internal"><span class="codenumber">3.8.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-4" class="internal"><span class="codenumber">3.8.2</span> <span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-5" class="internal"><span class="codenumber">3.8.3</span> <span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-6" class="internal"><span class="codenumber">3.8.4</span> <span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-7" class="internal"><span class="codenumber">3.8.5</span> <span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-8" class="internal"><span class="codenumber">3.8.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys_section.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3" class="internal"><span class="codenumber">3.9.1</span> <span class="title">First-order constant-coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-2" class="internal"><span class="codenumber">3.9.1.1</span> <span class="title">Integrating factor</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-3" class="internal"><span class="codenumber">3.9.1.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-4" class="internal"><span class="codenumber">3.9.1.3</span> <span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4" class="internal"><span class="codenumber">3.9.2</span> <span class="title">First-order variable-coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4-2" class="internal"><span class="codenumber">3.9.2.1</span> <span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Second-order constant-coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-2" class="internal"><span class="codenumber">3.9.3.1</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-3" class="internal"><span class="codenumber">3.9.3.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-6" class="internal"><span class="codenumber">3.9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="FS_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Fourier series and PDEs</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bvp_section.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Boundary value problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvalue problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Orthogonality of eigenfunctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-6" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-7" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-8" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ts_section.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The trigonometric series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Periodic functions and motivation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Inner product and eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">The trigonometric series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ts_section.html#ts_section-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="moreonfourier_section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">More on the Fourier series</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title"><span class="process-math">\(2L\)</span>-periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Differentiation and integration of Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-6" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Rates of convergence and smoothness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-7" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_scs.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Sine and cosine series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Odd and even periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Sine and cosine series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-5" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-6" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="appoffourier_section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Applications of Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-3" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Periodically forced oscillation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-4" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-5" class="internal"><span class="codenumber">4.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="heateq_section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">PDEs, separation of variables, and the heat equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-3" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Heat on an insulated wire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-4" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Separation of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-5" class="internal"><span class="codenumber">4.6.3</span> <span class="title">Insulated ends</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-6" class="internal"><span class="codenumber">4.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="we_section.html" class="internal"><span class="codenumber">4.7</span> <span class="title">One-dimensional wave equation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="we_section.html#we_section-24" class="internal"><span class="codenumber">4.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dalemb_section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">D’Alembert solution of the wave equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-3" class="internal"><span class="codenumber">4.8.1</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-4" class="internal"><span class="codenumber">4.8.2</span> <span class="title">D’Alembert’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-5" class="internal"><span class="codenumber">4.8.3</span> <span class="title">Another way to solve for the side conditions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-6" class="internal"><span class="codenumber">4.8.4</span> <span class="title">Some remarks</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-7" class="internal"><span class="codenumber">4.8.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirich_section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Steady state temperature and the Laplacian</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirich_section.html#dirich_section-19" class="internal"><span class="codenumber">4.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirichdisc_section.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Dirichlet problem in the circle and the Poisson kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-3" class="internal"><span class="codenumber">4.10.1</span> <span class="title">Laplace in polar coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-4" class="internal"><span class="codenumber">4.10.2</span> <span class="title">Series solution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-5" class="internal"><span class="codenumber">4.10.3</span> <span class="title">Poisson kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-6" class="internal"><span class="codenumber">4.10.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="SL_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">More on eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slproblems_section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sturm–Liouville problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Eigenfunction series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-7" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_appeig.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Higher-order eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_appeig.html#sec_appeig-19" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sps_section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Steady periodic solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Forced vibrating string</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Underground temperature oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sps_section.html#sps_section-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LT_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplace_section.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">The inverse transform</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="transformsofders_section.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Transforms of derivatives and ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Transforms of derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Solving ODEs with the Laplace transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Using the Heaviside function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Transfer functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Transforms of integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-8" class="internal"><span class="codenumber">6.2.6</span> <span class="title">Periodic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-9" class="internal"><span class="codenumber">6.2.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="convolution_section.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Convolution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">The convolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Solving ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Volterra integral equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="diracdelta_section.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dirac delta and impulse response</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-3" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Rectangular pulse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-4" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The delta function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-5" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Impulse response</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-6" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Three-point beam bending</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-7" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplacepde_section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Solving PDEs with the Laplace transform</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplacepde_section.html#laplacepde_section-16" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ps_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power-series methods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="powerseries_section.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Power series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-3" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-4" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Radius of convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-5" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-6" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Manipulating power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-7" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Power series for rational functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-8" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="seriessols_section.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series solutions of linear second-order ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="seriessols_section.html#seriessols_section-11" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="frobenius_section.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Singular points and the method of Frobenius</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The method of Frobenius</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#bessel_subsection" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Bessel functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization_section.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Linearization, critical points, and equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinstability_section.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-7" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps_section.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles_section.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles_section.html#limitcycles_section-21" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_chaos.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-5" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="diffyqs-13.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="linalg_appendix.html" class="internal"><span class="codenumber">A</span> <span class="title">Linear algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps_section.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-3" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Vectors and operations on vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-4" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-5" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg_section.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-3" class="internal"><span class="codenumber">A.2.1</span> <span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-4" class="internal"><span class="codenumber">A.2.2</span> <span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-5" class="internal"><span class="codenumber">A.2.3</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-6" class="internal"><span class="codenumber">A.2.4</span> <span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-7" class="internal"><span class="codenumber">A.2.5</span> <span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-8" class="internal"><span class="codenumber">A.2.6</span> <span class="title">Diagonal matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-9" class="internal"><span class="codenumber">A.2.7</span> <span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-10" class="internal"><span class="codenumber">A.2.8</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim_section.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-3" class="internal"><span class="codenumber">A.3.1</span> <span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-4" class="internal"><span class="codenumber">A.3.2</span> <span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-5" class="internal"><span class="codenumber">A.3.3</span> <span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-6" class="internal"><span class="codenumber">A.3.4</span> <span class="title">Linear independence and rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-7" class="internal"><span class="codenumber">A.3.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim_section.html#elim_section-8" class="internal"><span class="codenumber">A.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subspaces_section.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Subspaces, dimension, and the kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-3" class="internal"><span class="codenumber">A.4.1</span> <span class="title">Subspaces, basis, and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-4" class="internal"><span class="codenumber">A.4.2</span> <span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-5" class="internal"><span class="codenumber">A.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="innerproduct_section.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Inner product and projections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-3" class="internal"><span class="codenumber">A.5.1</span> <span class="title">Inner product and orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-4" class="internal"><span class="codenumber">A.5.2</span> <span class="title">Orthogonal projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-5" class="internal"><span class="codenumber">A.5.3</span> <span class="title">Orthogonal basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-6" class="internal"><span class="codenumber">A.5.4</span> <span class="title">The Gram–Schmidt process</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-7" class="internal"><span class="codenumber">A.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det_section.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det_section.html#det_section-24" class="internal"><span class="codenumber">A.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="laplacelist_appendix.html" class="internal"><span class="codenumber">B</span> <span class="title">Table of Laplace Transforms</span></a></div></li>
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="diffyqs-13-4.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="moreonfourier_section"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More on the Fourier series</span>
+</h2>
+<section class="introduction" id="moreonfourier_section-2"><div class="para" id="moreonfourier_section-2-1">
+<em class="emphasis">Note: 2 lectures, §9.2–§9.3 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, §10.3 in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="moreonfourier_section-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(2L\)</span>-periodic functions</span>
+</h3>
+<div class="para logical" id="moreonfourier_section-3-2">
+<div class="para">We computed the Fourier series for a <span class="process-math">\(2\pi\)</span>-periodic function, but what about functions of different periods.  Well, fear not, the computation is a simple case of change of variables.  We just rescale the independent axis.  Consider a <span class="process-math">\(2L\)</span>-periodic function <span class="process-math">\(f(t)\text{.}\)</span>  The <span class="process-math">\(L\)</span> is called the <em class="emphasis">half period</em>.  Let <span class="process-math">\(s = \frac{\pi}{L}  t\text{.}\)</span> Then the function</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-2-7">
+\begin{equation}
+g(s) = f\left(\frac{L}{\pi} s \right)
+\end{equation}
+</div>
+<div class="para">is <span class="process-math">\(2\pi\)</span>-periodic and we know what to do with it. We must also rescale all our sines and cosines. In the series, we use <span class="process-math">\(\frac{\pi}{L} t\)</span> as the variable.  That is, we want to write</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-2-10">
+\begin{equation}
+\mybxbg{~~
+f(t) = 
+\frac{a_0}{2} +
+\sum_{n=1}^\infty a_n \cos \left( \frac{n \pi}{L} t \right)
++ b_n \sin \left(\frac{n \pi}{L} t \right) .
+~~}
+\end{equation}
+</div>
+<div class="para">If we change variables to <span class="process-math">\(s\text{,}\)</span> we see that</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-2-12">
+\begin{equation}
+g(s) = 
+\frac{a_0}{2} +
+\sum_{n=1}^\infty a_n \cos (n s)
++ b_n \sin (n s) .
+\end{equation}
+</div>
+<div class="para">We compute <span class="process-math">\(a_n\)</span> and <span class="process-math">\(b_n\)</span> as before.  After we write down the integrals, we change variables from <span class="process-math">\(s\)</span> back to <span class="process-math">\(t\text{,}\)</span> noting also that <span class="process-math">\(ds = \frac{\pi}{L} \, dt\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-2-18">
+\begin{equation}
+\mybxbg{~~
+\begin{aligned}
+&amp; a_0 =
+\frac{1}{\pi}
+\int_{-\pi}^\pi
+g(s) \, ds
+=
+\frac{1}{L}
+\int_{-L}^L
+f(t) \, dt , \\
+&amp; a_n =
+\frac{1}{\pi}
+\int_{-\pi}^\pi
+g(s) \, \cos (n s) \, ds
+=
+\frac{1}{L}
+\int_{-L}^L
+f(t) \, \cos \left( \frac{n \pi}{L} t \right) \, dt , \\
+&amp; b_n =
+\frac{1}{\pi}
+\int_{-\pi}^\pi
+g(s) \, \sin (n s) \, ds
+=
+\frac{1}{L}
+\int_{-L}^L
+f(t) \, \sin \left( \frac{n \pi}{L} t \right) \, dt .
+\end{aligned}
+~~}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="moreonfourier_section-3-3">The two most common half periods that show up in examples are <span class="process-math">\(\pi\)</span> and 1 because of the simplicity of the formulas.  We should stress that we have done no new mathematics, we have only changed variables.  If you understand the Fourier series for <span class="process-math">\(2\pi\)</span>-periodic functions, you understand it for <span class="process-math">\(2L\)</span>-periodic functions.  You can think of it as just using different units for time.  All that we are doing is moving some constants around, but all the mathematics is the same.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="moreonfourier_section-3-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="moreonfourier_section-3-4-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/gfs_sawcontfig.html" id="moreonfourier_section-3-4-1-1-1">
+\begin{equation}
+f(t) =
+\lvert t \rvert
+\qquad \text{for } \; {-1} &lt; t \leq 1,
+\end{equation}
+</div>
+<div class="para">extended periodically.  The plot of the periodic extension is given in <a href="moreonfourier_section.html#gfs_sawcontfig" class="internal" title="Figure 4.9">Figure 4.9</a>. Compute the Fourier series of <span class="process-math">\(f(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like" id="gfs_sawcontfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/gfs-sawcont-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Periodic extension of the function <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 4.9"><a href="#gfs_sawcontfig" title="Copy heading and permalink for Figure 4.9" aria-label="Copy heading and permalink for Figure 4.9">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para logical" id="moreonfourier_section-3-4-1-5">
+<div class="para">First, we recognize that <span class="process-math">\(f\)</span> is <span class="process-math">\(2\)</span>-periodic and so <span class="process-math">\(L=1\text{.}\)</span> We want to write <span class="process-math">\(f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos (n \pi t) + b_n
+\sin (n \pi t)\text{.}\)</span>  We start with <span class="process-math">\(a_n\)</span> for <span class="process-math">\(n \geq 1\text{.}\)</span> We note that <span class="process-math">\(\lvert t \rvert \cos (n \pi t)\)</span> is even and for <span class="process-math">\(0 \leq t \leq 1\text{,}\)</span> <span class="process-math">\(f(t) = \lvert t \rvert = t\text{.}\)</span>  Hence,</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-4-1-5-10">
+\begin{equation}
+\begin{split}
+a_n &amp; = \int_{-1}^1 f(t) \cos (n \pi t) \, dt \\
+&amp; = 2 \int_{0}^1 t \cos (n \pi t) \, dt \\
+&amp; = 2 \left[ \frac{t}{n \pi} \sin (n \pi t) \right]_{t=0}^1 -
+2 \int_{0}^1 \frac{1}{n \pi} \sin (n \pi t) \, dt \\
+&amp; =  0 + \frac{1}{n^2 \pi^2} \Bigl[ \cos (n \pi t) \Bigr]_{t=0}^1
+=  \frac{2 \bigl( {(-1)}^n -1 \bigr) }{n^2 \pi^2}
+=
+\begin{cases}
+0 &amp; \text{if } n \text{ is even} , \\
+\frac{-4 }{n^2 \pi^2} &amp; \text{if } n \text{ is odd}  .
+\end{cases}
+\end{split}
+\end{equation}
+</div>
+<div class="para">Next we find <span class="process-math">\(a_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-4-1-5-12">
+\begin{equation}
+a_0 = \int_{-1}^1 \lvert t \rvert \, dt 
+=
+1 .
+\end{equation}
+</div>
+<div class="para">You should be able to find this integral by thinking about the integral as the area under the graph without doing any computation at all. Finally, we find <span class="process-math">\(b_n\text{.}\)</span>  Notice that <span class="process-math">\(\lvert t \rvert \sin (n \pi t)\)</span> is odd, and so</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-4-1-5-15">
+\begin{equation}
+b_n = \int_{-1}^1 f(t) \sin (n \pi t) \, dt = 0 .
+\end{equation}
+</div>
+<div class="para">Hence, the series is</div>
+<div class="displaymath process-math" id="moreonfourier_section-3-4-1-5-16">
+\begin{equation}
+\frac{1}{2} + 
+\sum_{\substack{n=1 \\ n \text{ odd}}}^\infty \frac{-4}{n^2 \pi^2} \cos (n \pi t) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-4-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="moreonfourier_section-3-4-1-6">
+<div class="para">The first few terms of the series up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/gfs_sawcontfsfig.html" id="moreonfourier_section-3-4-1-6-2">
+\begin{equation}
+\frac{1}{2} -
+\frac{4}{\pi^2} \cos (\pi t)
+-
+\frac{4}{9 \pi^2} \cos (3 \pi t)
+- \cdots
+\end{equation}
+</div>
+<div class="para">The plot of these few terms and also a plot up to the <span class="process-math">\({20}^{\text{th}}\)</span> harmonic is given in <a href="moreonfourier_section.html#gfs_sawcontfsfig" class="internal" title="Figure 4.10">Figure 4.10</a>.  You should notice how close the graph is to the real function.  You should also notice that there is no “Gibbs phenomenon” present as there are no discontinuities.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-4-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like" id="gfs_sawcontfsfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/gfs-sawcont-fs3-fs20-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Fourier series of <span class="process-math">\(f(t)\)</span> up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic (left graph) and up to the <span class="process-math">\({20}^{\text{th}}\)</span> harmonic (right graph).<div class="autopermalink" data-description="Figure 4.10"><a href="#gfs_sawcontfsfig" title="Copy heading and permalink for Figure 4.10" aria-label="Copy heading and permalink for Figure 4.10">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 4.3.1"><a href="#moreonfourier_section-3-4" title="Copy heading and permalink for Example 4.3.1" aria-label="Copy heading and permalink for Example 4.3.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.3.1: 2L-periodic functions"><a href="#moreonfourier_section-3" title="Copy heading and permalink for Subsection 4.3.1: 2L-periodic functions" aria-label="Copy heading and permalink for Subsection 4.3.1: 2L-periodic functions">🔗</a></div></section><section class="subsection" id="moreonfourier_section-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Convergence</span>
+</h3>
+<div class="para logical" id="moreonfourier_section-4-2">
+<div class="para">We will need the one sided limits of functions. We will use the following notation</div>
+<div class="displaymath process-math" id="moreonfourier_section-4-2-1">
+\begin{equation}
+f(c-) = \lim_{t \uparrow c} f(t),
+\qquad \text{and} \qquad
+f(c+) = \lim_{t \downarrow c} f(t).
+\end{equation}
+</div>
+<div class="para">If you are unfamiliar with this notation, <span class="process-math">\(\lim_{t \uparrow c} f(t)\)</span> means we are taking a limit of <span class="process-math">\(f(t)\)</span> as <span class="process-math">\(t\)</span> approaches <span class="process-math">\(c\)</span> from below (i.e. <span class="process-math">\(t &lt; c\)</span>) and <span class="process-math">\(\lim_{t \downarrow c} f(t)\)</span> means we are taking a limit of <span class="process-math">\(f(t)\)</span> as <span class="process-math">\(t\)</span> approaches <span class="process-math">\(c\)</span> from above (i.e. <span class="process-math">\(t &gt; c\)</span>). For example, for the square wave function</div>
+<div class="displaymath process-math" id="gfs_sqwaveeq">
+\begin{equation}
+f(t) =
+\begin{cases}
+0 &amp; \text{if } \; {-\pi} &lt; t \leq 0 , \\
+\pi &amp; \text{if } \; \phantom{-}0 &lt; t \leq \pi ,
+\end{cases}\tag{4.8}
+\end{equation}
+</div>
+<div class="para">we have <span class="process-math">\(f(0-) = 0\)</span> and <span class="process-math">\(f(0+) = \pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="moreonfourier_section-4-3">Let <span class="process-math">\(f(t)\)</span> be a function defined on an interval <span class="process-math">\([a,b]\text{.}\)</span>  Suppose that we find finitely many points <span class="process-math">\(a=t_0\text{,}\)</span> <span class="process-math">\(t_1\text{,}\)</span> <span class="process-math">\(t_2\text{,}\)</span> ..., <span class="process-math">\(t_k=b\)</span> in the interval, such that <span class="process-math">\(f(t)\)</span> is continuous on the intervals <span class="process-math">\((t_0,t_1)\text{,}\)</span> <span class="process-math">\((t_1,t_2)\text{,}\)</span> ..., <span class="process-math">\((t_{k-1},t_k)\text{.}\)</span> Also suppose that all the one sided limits exist, that is, all of <span class="process-math">\(f(t_0+)\text{,}\)</span> <span class="process-math">\(f(t_1-)\text{,}\)</span> <span class="process-math">\(f(t_1+)\text{,}\)</span> <span class="process-math">\(f(t_2-)\text{,}\)</span> <span class="process-math">\(f(t_2+)\text{,}\)</span> ..., <span class="process-math">\(f(t_k-)\)</span> exist and are finite. Then we say <span class="process-math">\(f(t)\)</span> is <em class="emphasis">piecewise continuous</em>.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="moreonfourier_section-4-4">If moreover, <span class="process-math">\(f(t)\)</span> is differentiable at all but finitely many points, and <span class="process-math">\(f'(t)\)</span> is piecewise continuous, then <span class="process-math">\(f(t)\)</span> is said to be <em class="emphasis">piecewise smooth</em>.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="moreonfourier_section-4-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="moreonfourier_section-4-5-1-1">The square wave function, <a href="moreonfourier_section.html#gfs_sqwaveeq" class="xref" data-knowl="./knowl/xref/gfs_sqwaveeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.8">(4.8)</a> extended periodically, is piecewise smooth on <span class="process-math">\([-\pi,\pi]\)</span> or any other finite interval, so we just say that <span class="process-math">\(f(t)\)</span> is piecewise smooth without mentioning an interval.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.2"><a href="#moreonfourier_section-4-5" title="Copy heading and permalink for Example 4.3.2" aria-label="Copy heading and permalink for Example 4.3.2">🔗</a></div></article><article class="example example-like" id="moreonfourier_section-4-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="moreonfourier_section-4-6-1-1">The function <span class="process-math">\(f(t) = \lvert t \lvert\)</span> is piecewise smooth.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.3"><a href="#moreonfourier_section-4-6" title="Copy heading and permalink for Example 4.3.3" aria-label="Copy heading and permalink for Example 4.3.3">🔗</a></div></article><article class="example example-like" id="moreonfourier_section-4-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="moreonfourier_section-4-7-1-1">The function <span class="process-math">\(f(t) = \frac{1}{t}\)</span> is not piecewise smooth on <span class="process-math">\([-1,1]\)</span> (or any other interval containing zero).  In fact, it is not even piecewise continuous.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.4"><a href="#moreonfourier_section-4-7" title="Copy heading and permalink for Example 4.3.4" aria-label="Copy heading and permalink for Example 4.3.4">🔗</a></div></article><article class="example example-like" id="moreonfourier_section-4-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="moreonfourier_section-4-8-1-1">The function <span class="process-math">\(f(t) = \sqrt[3]{t}\)</span> is not piecewise smooth on <span class="process-math">\([-1,1]\)</span> (or any other interval containing zero). The function <span class="process-math">\(f(t)\)</span> is continuous, but its derivative <span class="process-math">\(f'(t) = \frac{1}{3t^{2/3}}\text{,}\)</span> is unbounded near zero and hence not piecewise continuous.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.5"><a href="#moreonfourier_section-4-8" title="Copy heading and permalink for Example 4.3.5" aria-label="Copy heading and permalink for Example 4.3.5">🔗</a></div></article><div class="para" id="moreonfourier_section-4-9">Piecewise smooth functions have an easy answer on the convergence of the Fourier series.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="moreonfourier_section-4-10"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="moreonfourier_section-4-10-1-1">
+<div class="para">Suppose <span class="process-math">\(f(t)\)</span> is a <span class="process-math">\(2L\)</span>-periodic piecewise smooth function. Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-4-10-1-1-3">
+\begin{equation}
+\frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos \left( \frac{n \pi}{L} t
+\right)
++ b_n \sin \left( \frac{n \pi}{L} t \right)
+\end{equation}
+</div>
+<div class="para">be the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span>  Then the series converges for all <span class="process-math">\(t\text{.}\)</span>  If <span class="process-math">\(f(t)\)</span> is continuous at <span class="process-math">\(t\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="moreonfourier_section-4-10-1-1-8">
+\begin{equation}
+f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty
+a_n \cos \left( \frac{n \pi}{L} t \right)
++ b_n \sin \left( \frac{n \pi}{L} t \right) .
+\end{equation}
+</div>
+<div class="para">Otherwise,</div>
+<div class="displaymath process-math" id="moreonfourier_section-4-10-1-1-9">
+\begin{equation}
+\frac{f(t-)+f(t+)}{2} =
+\frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos \left( \frac{n \pi}{L}  t
+\right)
++ b_n \sin \left( \frac{n \pi}{L} t \right) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.3.1"><a href="#moreonfourier_section-4-10" title="Copy heading and permalink for Theorem 4.3.1" aria-label="Copy heading and permalink for Theorem 4.3.1">🔗</a></div></article><div class="para" id="moreonfourier_section-4-11">If we happen to have that <span class="process-math">\(f(t) = \frac{f(t-)+f(t+)}{2}\)</span> at all the discontinuities, the Fourier series converges to <span class="process-math">\(f(t)\)</span> everywhere.  We can always just redefine <span class="process-math">\(f(t)\)</span> by changing the value at each discontinuity appropriately.  Then we can write an equals sign between <span class="process-math">\(f(t)\)</span> and the series without any worry. We mentioned this fact briefly at the end last section.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="moreonfourier_section-4-12">The theorem does not say how fast the series converges. Think back to the discussion of the Gibbs phenomenon in the last section. The closer you get to the discontinuity, the more terms you need to take to get an accurate approximation to the function.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 4.3.2: Convergence"><a href="#moreonfourier_section-4" title="Copy heading and permalink for Subsection 4.3.2: Convergence" aria-label="Copy heading and permalink for Subsection 4.3.2: Convergence">🔗</a></div></section><section class="subsection" id="moreonfourier_section-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Differentiation and integration of Fourier series</span>
+</h3>
+<div class="para" id="moreonfourier_section-5-2">Not only does Fourier series converge nicely, but it is easy to differentiate and integrate the series.  We can do this just by differentiating or integrating term by term.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="moreonfourier_section-5-3"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="moreonfourier_section-5-3-1-1">
+<div class="para">Suppose</div>
+<div class="displaymath process-math" id="moreonfourier_section-5-3-1-1-1">
+\begin{equation}
+f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos \left( \frac{n \pi}{L} t
+\right)
++ b_n \sin \left( \frac{n \pi}{L} t \right)
+\end{equation}
+</div>
+<div class="para">is a piecewise smooth continuous function and the derivative <span class="process-math">\(f'(t)\)</span> is piecewise smooth.  Then the derivative can be obtained by differentiating term by term,</div>
+<div class="displaymath process-math" id="moreonfourier_section-5-3-1-1-3">
+\begin{equation}
+f'(t) = \sum_{n=1}^\infty \frac{-a_n n \pi}{L} 
+\sin \left( \frac{n \pi}{L} t \right)
++ \frac{b_n n \pi}{L} \cos \left( \frac{n \pi}{L} t \right) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.3.2"><a href="#moreonfourier_section-5-3" title="Copy heading and permalink for Theorem 4.3.2" aria-label="Copy heading and permalink for Theorem 4.3.2">🔗</a></div></article><div class="para" id="moreonfourier_section-5-4">It is important that the function is continuous.  It can have corners, but no jumps.  Otherwise, the differentiated series will fail to converge.  For an exercise, take the series obtained for the square wave and try to differentiate the series. Similarly to differentiation, integration of Fourier series is also done term by term.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="moreonfourier_section-5-5"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="moreonfourier_section-5-5-1-1">
+<div class="para">Suppose</div>
+<div class="displaymath process-math" id="moreonfourier_section-5-5-1-1-1">
+\begin{equation}
+f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty
+a_n \cos \left( \frac{n \pi}{L} t \right)
++ b_n \sin \left( \frac{n \pi}{L} t \right)
+\end{equation}
+</div>
+<div class="para">is a piecewise smooth function.  Then the antiderivative is obtained by antidifferentiating term by term and so</div>
+<div class="displaymath process-math" id="moreonfourier_section-5-5-1-1-2">
+\begin{equation}
+F(t) = \frac{a_0 t}{2} + C + \sum_{n=1}^\infty
+\frac{a_n L}{n \pi} \sin \left( \frac{n \pi}{L} t \right)
++ \frac{-b_n L}{n \pi}  \cos \left( \frac{n \pi}{L} t \right) ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(F'(t) = f(t)\)</span> and <span class="process-math">\(C\)</span> is an arbitrary constant.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.3.3"><a href="#moreonfourier_section-5-5" title="Copy heading and permalink for Theorem 4.3.3" aria-label="Copy heading and permalink for Theorem 4.3.3">🔗</a></div></article><div class="para" id="moreonfourier_section-5-6">Note that the series for <span class="process-math">\(F(t)\)</span> is no longer a Fourier series as it contains the <span class="process-math">\(\frac{a_0 t}{2}\)</span> term.  The antiderivative of a periodic function need no longer be periodic and so we should not expect a Fourier series.  Unless, of course, <span class="process-math">\(a_0 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 4.3.3: Differentiation and integration of Fourier series"><a href="#moreonfourier_section-5" title="Copy heading and permalink for Subsection 4.3.3: Differentiation and integration of Fourier series" aria-label="Copy heading and permalink for Subsection 4.3.3: Differentiation and integration of Fourier series">🔗</a></div></section><section class="subsection" id="moreonfourier_section-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Rates of convergence and smoothness</span>
+</h3>
+<div class="para" id="moreonfourier_section-6-2">We consider an example of a periodic function differentiable once but not twice.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="moreonfourier_section-6-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="moreonfourier_section-6-3-1-1">
+<div class="para">Take the function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/gfs_smoothexfig.html" id="moreonfourier_section-6-3-1-1-1">
+\begin{equation}
+f(t) =
+\begin{cases}
+(t+1)\,t &amp; \text{if } \; {-1} &lt; t \leq 0 , \\
+(1-t)\,t &amp; \text{if } \; \phantom{-}0 &lt; t \leq 1 ,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">and extend to a 2-periodic function. The derivative <span class="process-math">\(f'(t)\)</span> exists for all <span class="process-math">\(t\text{,}\)</span> but <span class="process-math">\(f''(t)\)</span> does not exist if <span class="process-math">\(t\)</span> is an integer. In particular, <span class="process-math">\(f'(t) = 2t+1\)</span> if <span class="process-math">\(-1 \leq t \leq 0\)</span> and <span class="process-math">\(f'(t) = 1-2t\)</span> if <span class="process-math">\(0 \leq t \leq 1\text{,}\)</span> so <span class="process-math">\(f'(t)\)</span> has a “corner” at <span class="process-math">\(0\text{.}\)</span> See <a href="moreonfourier_section.html#gfs_smoothexfig" class="internal" title="Figure 4.11">Figure 4.11</a> for the plot of <span class="process-math">\(f(t)\)</span> and <span class="process-math">\(f'(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like" id="gfs_smoothexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/gfs-smoothex-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Smooth 2-periodic function (the smooth line) with its nonsmooth derivative (the jagged line).<div class="autopermalink" data-description="Figure 4.11"><a href="#gfs_smoothexfig" title="Copy heading and permalink for Figure 4.11" aria-label="Copy heading and permalink for Figure 4.11">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <article class="exercise exercise-like" id="moreonfourier_section-6-3-1-5">
+
+
+
+<div class="autopermalink" data-description="Exercise 4.3.1"><a href="#moreonfourier_section-6-3-1-5" title="Copy heading and permalink for Exercise 4.3.1" aria-label="Copy heading and permalink for Exercise 4.3.1">🔗</a></div></article> <div class="para logical" id="moreonfourier_section-6-3-1-6">
+<div class="para">Let us compute the Fourier-series coefficients.  The actual computation involves several integrations by parts and is left to the reader.</div>
+<div class="displaymath process-math" id="moreonfourier_section-6-3-1-6-1">
+\begin{equation}
+\begin{aligned}
+a_0 &amp; = 
+\int_{-1}^1
+f(t) \, dt = 
+\int_{-1}^0
+(t+1)\,t \, dt +
+\int_0^1
+(1-t)\,t \, dt = 0 , \\
+a_n &amp; = 
+\int_{-1}^1
+f(t) \, \cos (n\pi t) \, dt = 
+\int_{-1}^0
+(t+1)\,t
+\, \cos (n \pi t) \, dt +
+\int_0^1
+(1-t)\,t
+\, \cos (n \pi t) \, dt = 0, \\
+b_n &amp; = 
+\int_{-1}^1
+f(t) \, \sin (n\pi t) \, dt = 
+\int_{-1}^0
+(t+1)\,t
+\, \sin (n \pi t) \, dt +
+\int_0^1
+(1-t)\,t
+\, \sin (n \pi t) \, dt \\
+&amp; =
+\frac{4 ( 1-{(-1)}^n)}{\pi^3 n^3} 
+=
+\begin{cases}
+\frac{8}{\pi^3 n^3} &amp; \text{if } n \text{ is odd} , \\
+0 &amp; \text{if } n \text{ is even} .
+\end{cases}
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">That is, the series is</div>
+<div class="displaymath process-math" id="moreonfourier_section-6-3-1-6-2">
+\begin{equation}
+\sum_{\substack{n=1 \\ n \text{ odd}}}^\infty \frac{8}{\pi^3 n^3} \sin (n \pi t) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-3-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="moreonfourier_section-6-3-1-7">
+<div class="para">This series converges very fast. If we plot up to the third harmonic, that is,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/gfs_smoothexfig.html" id="moreonfourier_section-6-3-1-7-1">
+\begin{equation}
+\frac{8}{\pi^3} \sin (\pi t) + 
+\frac{8}{27 \pi^3} \sin (3 \pi t) ,
+\end{equation}
+</div>
+<div class="para">the plot is almost indistinguishable from the plot of <span class="process-math">\(f(t)\)</span> in <a href="moreonfourier_section.html#gfs_smoothexfig" class="internal" title="Figure 4.11">Figure 4.11</a>. In fact, the coefficient <span class="process-math">\(\frac{8}{27 \pi^3}\)</span> is already just 0.0096 (approximately). The reason for this behavior is the <span class="process-math">\(n^3\)</span> term in the denominator. The coefficients <span class="process-math">\(b_n\)</span> in this case go to zero as fast as <span class="process-math">\(\nicefrac{1}{n^3}\)</span> goes to zero.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-3-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.6"><a href="#moreonfourier_section-6-3" title="Copy heading and permalink for Example 4.3.6" aria-label="Copy heading and permalink for Example 4.3.6">🔗</a></div></article><div class="para" id="moreonfourier_section-6-4">For functions constructed piecewise from polynomials as above, it is generally true that if you have one derivative but not two derivatives, the Fourier coefficients will go to zero approximately like <span class="process-math">\(\nicefrac{1}{n^3}\text{.}\)</span> If you have only a continuous function that is not differentiable, then the Fourier coefficients will go to zero as <span class="process-math">\(\nicefrac{1}{n^2}\text{.}\)</span>  If you have discontinuities, then the Fourier coefficients will go to zero approximately as <span class="process-math">\(\nicefrac{1}{n}\text{.}\)</span> For more general functions the story is somewhat more complicated but the same idea holds, the more derivatives you have, the faster the coefficients go to zero.  Similar reasoning works in reverse.  If the coefficients go to zero like <span class="process-math">\(\nicefrac{1}{n^2}\)</span> (or faster), you always obtain a continuous function.  If they go to zero like <span class="process-math">\(\nicefrac{1}{n^3}\)</span> (or faster), you obtain an everywhere differentiable function.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="moreonfourier_section-6-5">
+<div class="para">To justify this behavior, take for example the function defined by the Fourier series</div>
+<div class="displaymath process-math" id="moreonfourier_section-6-5-1">
+\begin{equation}
+f(t) = \sum_{n=1}^\infty \frac{1}{n^3} \sin (n t) .
+\end{equation}
+</div>
+<div class="para">When we differentiate term by term, we notice</div>
+<div class="displaymath process-math" id="moreonfourier_section-6-5-2">
+\begin{equation}
+f'(t) = \sum_{n=1}^\infty \frac{1}{n^2} \cos (n t) .
+\end{equation}
+</div>
+<div class="para">Therefore, the coefficients now go down like <span class="process-math">\(\nicefrac{1}{n^2}\text{,}\)</span> which means that we have a continuous function. The derivative of <span class="process-math">\(f'(t)\)</span> is defined at most points, but there are points where <span class="process-math">\(f'(t)\)</span> is not differentiable. It has corners, but no jumps. If we differentiate again (where we can), we find that the function <span class="process-math">\(f''(t)\text{,}\)</span> now fails to be continuous (has jumps)</div>
+<div class="displaymath process-math" id="moreonfourier_section-6-5-7">
+\begin{equation}
+f''(t) = \sum_{n=1}^\infty \frac{-1}{n} \sin (n t) .
+\end{equation}
+</div>
+<div class="para">This function is similar to the sawtooth.  If we tried to differentiate the series again, we would obtain</div>
+<div class="displaymath process-math" id="moreonfourier_section-6-5-8">
+\begin{equation}
+\sum_{n=1}^\infty -\cos (n t) ,
+\end{equation}
+</div>
+<div class="para">which does not converge!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="moreonfourier_section-6-6"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="moreonfourier_section-6-6-1-1">Use a computer to plot the series we obtained for <span class="process-math">\(f(t)\text{,}\)</span> <span class="process-math">\(f'(t)\)</span> and <span class="process-math">\(f''(t)\text{.}\)</span>  That is, plot say the first 5 harmonics of the functions.  At what points does <span class="process-math">\(f''(t)\)</span> have the discontinuities?<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 4.3.2"><a href="#moreonfourier_section-6-6" title="Copy heading and permalink for Exercise 4.3.2" aria-label="Copy heading and permalink for Exercise 4.3.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.3.4: Rates of convergence and smoothness"><a href="#moreonfourier_section-6" title="Copy heading and permalink for Subsection 4.3.4: Rates of convergence and smoothness" aria-label="Copy heading and permalink for Subsection 4.3.4: Rates of convergence and smoothness">🔗</a></div></section><section class="exercises" id="moreonfourier_section-7"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="moreonfourier_section-7-1"><h4 class="heading"><span class="codenumber">4.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-1-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-1-1-1-1">
+\begin{equation}
+f(t) =
+\begin{cases}
+0 &amp; \text{if } \; {-1} &lt; t \leq 0 , \\
+t &amp; \text{if } \; \phantom{-}0 &lt; t \leq  1 ,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-1-1-2">
+<li id="moreonfourier_section-7-1-1-2-1">
+<div class="para" id="moreonfourier_section-7-1-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.3.a"><a href="#moreonfourier_section-7-1-1-2-1" title="Copy heading and permalink for Item 4.3.3.a" aria-label="Copy heading and permalink for Item 4.3.3.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-1-1-2-2">
+<div class="para" id="moreonfourier_section-7-1-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.3.b"><a href="#moreonfourier_section-7-1-1-2-2" title="Copy heading and permalink for Item 4.3.3.b" aria-label="Copy heading and permalink for Item 4.3.3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.3"><a href="#moreonfourier_section-7-1" title="Copy heading and permalink for Exercise 4.3.3" aria-label="Copy heading and permalink for Exercise 4.3.3">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-2"><h4 class="heading"><span class="codenumber">4.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-2-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-2-1-1-1">
+\begin{equation}
+f(t) =
+\begin{cases}
+-t &amp; \text{if } \; {-1} &lt; t \leq 0 , \\
+t^2 &amp; \text{if } \; \phantom{-}0 &lt; t \leq  1 ,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-2-1-2">
+<li id="moreonfourier_section-7-2-1-2-1">
+<div class="para" id="moreonfourier_section-7-2-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.4.a"><a href="#moreonfourier_section-7-2-1-2-1" title="Copy heading and permalink for Item 4.3.4.a" aria-label="Copy heading and permalink for Item 4.3.4.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-2-1-2-2">
+<div class="para" id="moreonfourier_section-7-2-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.4.b"><a href="#moreonfourier_section-7-2-1-2-2" title="Copy heading and permalink for Item 4.3.4.b" aria-label="Copy heading and permalink for Item 4.3.4.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.4"><a href="#moreonfourier_section-7-2" title="Copy heading and permalink for Exercise 4.3.4" aria-label="Copy heading and permalink for Exercise 4.3.4">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-3"><h4 class="heading"><span class="codenumber">4.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-3-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-3-1-1-1">
+\begin{equation}
+f(t) =
+\begin{cases}
+\frac{-t}{10} &amp; \text{if } \; {-10} &lt; t \leq 0 , \\
+\frac{t}{10} &amp; \text{if } \; \phantom{-1}0 &lt; t \leq  10 ,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically (period is 20).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-3-1-2">
+<li id="moreonfourier_section-7-3-1-2-1">
+<div class="para" id="moreonfourier_section-7-3-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.5.a"><a href="#moreonfourier_section-7-3-1-2-1" title="Copy heading and permalink for Item 4.3.5.a" aria-label="Copy heading and permalink for Item 4.3.5.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-3-1-2-2">
+<div class="para" id="moreonfourier_section-7-3-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-3-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.5.b"><a href="#moreonfourier_section-7-3-1-2-2" title="Copy heading and permalink for Item 4.3.5.b" aria-label="Copy heading and permalink for Item 4.3.5.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.5"><a href="#moreonfourier_section-7-3" title="Copy heading and permalink for Exercise 4.3.5" aria-label="Copy heading and permalink for Exercise 4.3.5">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-4"><h4 class="heading"><span class="codenumber">4.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="moreonfourier_section-7-4-1-1">Let <span class="process-math">\(f(t) = \sum_{n=1}^\infty \frac{1}{n^3} \cos (n t)\text{.}\)</span>  Is <span class="process-math">\(f(t)\)</span> continuous and differentiable everywhere?  Find the derivative (if it exists everywhere) or justify why <span class="process-math">\(f(t)\)</span> is not differentiable everywhere.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 4.3.6"><a href="#moreonfourier_section-7-4" title="Copy heading and permalink for Exercise 4.3.6" aria-label="Copy heading and permalink for Exercise 4.3.6">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-5"><h4 class="heading"><span class="codenumber">4.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="moreonfourier_section-7-5-1-1">Let <span class="process-math">\(f(t) = \sum_{n=1}^\infty \frac{{(-1)}^n}{n} \sin (n t)\text{.}\)</span>  Is <span class="process-math">\(f(t)\)</span> differentiable everywhere?  Find the derivative (if it exists everywhere) or justify why <span class="process-math">\(f(t)\)</span> is not differentiable everywhere.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 4.3.7"><a href="#moreonfourier_section-7-5" title="Copy heading and permalink for Exercise 4.3.7" aria-label="Copy heading and permalink for Exercise 4.3.7">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-6"><h4 class="heading"><span class="codenumber">4.3.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-6-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-6-1-1-1">
+\begin{equation}
+f(t) =
+\begin{cases}
+0 &amp; \text{if } \; {-2} &lt; t \leq 0, \\
+t &amp; \text{if } \; \phantom{-}0 &lt; t \leq 1, \\
+-t+2 &amp; \text{if } \; \phantom{-}1 &lt; t \leq 2,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-6-1-2">
+<li id="moreonfourier_section-7-6-1-2-1">
+<div class="para" id="moreonfourier_section-7-6-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-6-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.8.a"><a href="#moreonfourier_section-7-6-1-2-1" title="Copy heading and permalink for Item 4.3.8.a" aria-label="Copy heading and permalink for Item 4.3.8.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-6-1-2-2">
+<div class="para" id="moreonfourier_section-7-6-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-6-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.8.b"><a href="#moreonfourier_section-7-6-1-2-2" title="Copy heading and permalink for Item 4.3.8.b" aria-label="Copy heading and permalink for Item 4.3.8.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.8"><a href="#moreonfourier_section-7-6" title="Copy heading and permalink for Exercise 4.3.8" aria-label="Copy heading and permalink for Exercise 4.3.8">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-7"><h4 class="heading"><span class="codenumber">4.3.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-7-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-7-1-1-1">
+\begin{equation}
+f(t) = e^t \qquad \text{for } \; {-1} &lt; t \leq 1
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-7-1-2">
+<li id="moreonfourier_section-7-7-1-2-1">
+<div class="para" id="moreonfourier_section-7-7-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.9.a"><a href="#moreonfourier_section-7-7-1-2-1" title="Copy heading and permalink for Item 4.3.9.a" aria-label="Copy heading and permalink for Item 4.3.9.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-7-1-2-2">
+<div class="para" id="moreonfourier_section-7-7-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.9.b"><a href="#moreonfourier_section-7-7-1-2-2" title="Copy heading and permalink for Item 4.3.9.b" aria-label="Copy heading and permalink for Item 4.3.9.b">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-7-1-2-3">
+<div class="para" id="moreonfourier_section-7-7-1-2-3-1">What does the series converge to at <span class="process-math">\(t=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-7-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.9.c"><a href="#moreonfourier_section-7-7-1-2-3" title="Copy heading and permalink for Item 4.3.9.c" aria-label="Copy heading and permalink for Item 4.3.9.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.9"><a href="#moreonfourier_section-7-7" title="Copy heading and permalink for Exercise 4.3.9" aria-label="Copy heading and permalink for Exercise 4.3.9">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-8"><h4 class="heading"><span class="codenumber">4.3.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-8-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-8-1-1-1">
+\begin{equation}
+f(t) = t^2 \qquad \text{for } \; {-1} &lt; t \leq 1
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-8-1-2">
+<li id="moreonfourier_section-7-8-1-2-1">
+<div class="para" id="moreonfourier_section-7-8-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-8-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.10.a"><a href="#moreonfourier_section-7-8-1-2-1" title="Copy heading and permalink for Item 4.3.10.a" aria-label="Copy heading and permalink for Item 4.3.10.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-8-1-2-2">
+<div class="para" id="moreonfourier_section-7-8-1-2-2-1">By plugging in <span class="process-math">\(t=0\text{,}\)</span> evaluate <span class="process-math">\(\displaystyle \sum_{n=1}^\infty \frac{{(-1)}^n}{n^2} = -1 + \frac{1}{4} -
+\frac{1}{9} + \cdots\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-8-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.10.b"><a href="#moreonfourier_section-7-8-1-2-2" title="Copy heading and permalink for Item 4.3.10.b" aria-label="Copy heading and permalink for Item 4.3.10.b">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-8-1-2-3">
+<div class="para" id="moreonfourier_section-7-8-1-2-3-1">Now evaluate <span class="process-math">\(\displaystyle \sum_{n=1}^\infty \frac{1}{n^2} = 1 + \frac{1}{4} +
+\frac{1}{9} + \cdots\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-8-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.10.c"><a href="#moreonfourier_section-7-8-1-2-3" title="Copy heading and permalink for Item 4.3.10.c" aria-label="Copy heading and permalink for Item 4.3.10.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.10"><a href="#moreonfourier_section-7-8" title="Copy heading and permalink for Exercise 4.3.10" aria-label="Copy heading and permalink for Exercise 4.3.10">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-9"><h4 class="heading"><span class="codenumber">4.3.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-9-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-9-1-1-1">
+\begin{equation}
+f(t) =
+\begin{cases}
+0 &amp; \text{if } \; {-3} &lt; t \leq 0, \\
+t &amp; \text{if } \; \phantom{-}0 &lt; t \leq 3,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically.  Suppose <span class="process-math">\(F(t)\)</span> is the function given by the Fourier series of <span class="process-math">\(f\text{.}\)</span>  Without computing the Fourier series evaluate</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="moreonfourier_section-7-9-1-2">
+<li id="moreonfourier_section-7-9-1-2-1">
+<div class="para" id="moreonfourier_section-7-9-1-2-1-1">
+<span class="process-math">\(\displaystyle F(2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.11.a"><a href="#moreonfourier_section-7-9-1-2-1" title="Copy heading and permalink for Item 4.3.11.a" aria-label="Copy heading and permalink for Item 4.3.11.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-9-1-2-2">
+<div class="para" id="moreonfourier_section-7-9-1-2-2-1">
+<span class="process-math">\(\displaystyle F(-2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.11.b"><a href="#moreonfourier_section-7-9-1-2-2" title="Copy heading and permalink for Item 4.3.11.b" aria-label="Copy heading and permalink for Item 4.3.11.b">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-9-1-2-3">
+<div class="para" id="moreonfourier_section-7-9-1-2-3-1">
+<span class="process-math">\(\displaystyle F(4)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.11.c"><a href="#moreonfourier_section-7-9-1-2-3" title="Copy heading and permalink for Item 4.3.11.c" aria-label="Copy heading and permalink for Item 4.3.11.c">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-9-1-2-4">
+<div class="para" id="moreonfourier_section-7-9-1-2-4-1">
+<span class="process-math">\(\displaystyle F(-4)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.11.d"><a href="#moreonfourier_section-7-9-1-2-4" title="Copy heading and permalink for Item 4.3.11.d" aria-label="Copy heading and permalink for Item 4.3.11.d">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-9-1-2-5">
+<div class="para" id="moreonfourier_section-7-9-1-2-5-1">
+<span class="process-math">\(\displaystyle F(3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.11.e"><a href="#moreonfourier_section-7-9-1-2-5" title="Copy heading and permalink for Item 4.3.11.e" aria-label="Copy heading and permalink for Item 4.3.11.e">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-9-1-2-6">
+<div class="para" id="moreonfourier_section-7-9-1-2-6-1">
+<span class="process-math">\(\displaystyle F(-9)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-9-1-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.11.f"><a href="#moreonfourier_section-7-9-1-2-6" title="Copy heading and permalink for Item 4.3.11.f" aria-label="Copy heading and permalink for Item 4.3.11.f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 4.3.11"><a href="#moreonfourier_section-7-9" title="Copy heading and permalink for Exercise 4.3.11" aria-label="Copy heading and permalink for Exercise 4.3.11">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-10"><h4 class="heading"><span class="codenumber">4.3.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-10-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-10-1-1-1">
+\begin{equation}
+f(t) = t^2 \qquad \text{for } \; {-2} &lt; t \leq 2
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-10-1-2">
+<li id="moreonfourier_section-7-10-1-2-1">
+<div class="para" id="moreonfourier_section-7-10-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-10-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.101.a"><a href="#moreonfourier_section-7-10-1-2-1" title="Copy heading and permalink for Item 4.3.101.a" aria-label="Copy heading and permalink for Item 4.3.101.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-10-1-2-2">
+<div class="para" id="moreonfourier_section-7-10-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-10-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.101.b"><a href="#moreonfourier_section-7-10-1-2-2" title="Copy heading and permalink for Item 4.3.101.b" aria-label="Copy heading and permalink for Item 4.3.101.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="moreonfourier_section-7-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="moreonfourier_section-7-10-2-1">a) <span class="process-math">\(\frac{8}{6} +
+\sum\limits_{n=1}^\infty
+\frac{16{(-1)}^n}{\pi^2 n^2}
+\cos\bigl(\frac{n\pi}{2} t\bigr)\)</span>     b) <span class="process-math">\(\frac{8}{6}
+-
+\frac{16}{\pi^2 }
+\cos\bigl(\frac{\pi}{2} t\bigr)
++
+\frac{4}{\pi^2}
+\cos\bigl(\pi t\bigr)
+-
+\frac{16}{9\pi^2}
+\cos\bigl(\frac{3\pi}{2} t\bigr) + \cdots\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.3.101.1"><a href="#moreonfourier_section-7-10-2" title="Copy heading and permalink for Answer 4.3.101.1" aria-label="Copy heading and permalink for Answer 4.3.101.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4.3.101"><a href="#moreonfourier_section-7-10" title="Copy heading and permalink for Exercise 4.3.101" aria-label="Copy heading and permalink for Exercise 4.3.101">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-11"><h4 class="heading"><span class="codenumber">4.3.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-11-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-11-1-1-1">
+\begin{equation}
+f(t) = t \qquad \text{for } \; {-\lambda} &lt; t \leq \lambda \; \text{ (for some } \lambda &gt; 0 \text{)}
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-11-1-2">
+<li id="moreonfourier_section-7-11-1-2-1">
+<div class="para" id="moreonfourier_section-7-11-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-11-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.102.a"><a href="#moreonfourier_section-7-11-1-2-1" title="Copy heading and permalink for Item 4.3.102.a" aria-label="Copy heading and permalink for Item 4.3.102.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-11-1-2-2">
+<div class="para" id="moreonfourier_section-7-11-1-2-2-1">Write out the series explicitly up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-11-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.102.b"><a href="#moreonfourier_section-7-11-1-2-2" title="Copy heading and permalink for Item 4.3.102.b" aria-label="Copy heading and permalink for Item 4.3.102.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="moreonfourier_section-7-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="moreonfourier_section-7-11-2-1">a) <span class="process-math">\(\sum\limits_{n=1}^\infty
+\frac{{(-1)}^{n+1}2\lambda}{n \pi}
+\sin\bigl(\frac{n\pi}{\lambda} t\bigr)\)</span>     b) <span class="process-math">\(\frac{2\lambda}{\pi}
+\sin\bigl(\frac{\pi}{\lambda} t\bigr)
+-
+\frac{\lambda}{\pi}
+\sin\bigl(\frac{2\pi}{\lambda} t\bigr)
++
+\frac{2\lambda}{3\pi}
+\sin\bigl(\frac{3\pi}{\lambda} t\bigr) - \cdots\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.3.102.1"><a href="#moreonfourier_section-7-11-2" title="Copy heading and permalink for Answer 4.3.102.1" aria-label="Copy heading and permalink for Answer 4.3.102.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4.3.102"><a href="#moreonfourier_section-7-11" title="Copy heading and permalink for Exercise 4.3.102" aria-label="Copy heading and permalink for Exercise 4.3.102">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-12"><h4 class="heading"><span class="codenumber">4.3.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-12-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-12-1-1-1">
+\begin{equation}
+f(t) = \frac{1}{2} + \sum_{n=1}^\infty
+\frac{1}{n(n^2+1)}
+\sin(n\pi t) .
+\end{equation}
+</div>
+<div class="para">Compute <span class="process-math">\(f'(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="moreonfourier_section-7-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="moreonfourier_section-7-12-2-1">
+<span class="process-math">\(f'(t) = \sum\limits_{n=1}^\infty
+\frac{\pi}{n^2+1}
+\cos(n\pi t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.3.103.1"><a href="#moreonfourier_section-7-12-2" title="Copy heading and permalink for Answer 4.3.103.1" aria-label="Copy heading and permalink for Answer 4.3.103.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4.3.103"><a href="#moreonfourier_section-7-12" title="Copy heading and permalink for Exercise 4.3.103" aria-label="Copy heading and permalink for Exercise 4.3.103">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-13"><h4 class="heading"><span class="codenumber">4.3.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-13-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-13-1-1-1">
+\begin{equation}
+f(t) = \frac{1}{2} + \sum_{n=1}^\infty
+\frac{1}{n^3}
+\cos(n t) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-13-1-2">
+<li id="moreonfourier_section-7-13-1-2-1">
+<div class="para" id="moreonfourier_section-7-13-1-2-1-1">Find the antiderivative.<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-13-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.104.a"><a href="#moreonfourier_section-7-13-1-2-1" title="Copy heading and permalink for Item 4.3.104.a" aria-label="Copy heading and permalink for Item 4.3.104.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-13-1-2-2">
+<div class="para" id="moreonfourier_section-7-13-1-2-2-1">Is the antiderivative periodic?<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-13-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.104.b"><a href="#moreonfourier_section-7-13-1-2-2" title="Copy heading and permalink for Item 4.3.104.b" aria-label="Copy heading and permalink for Item 4.3.104.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="moreonfourier_section-7-13-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="moreonfourier_section-7-13-2-1">a) <span class="process-math">\(F(t) = \frac{t}{2} + C + \sum\limits_{n=1}^\infty
+\frac{1}{n^4}
+\sin(nt)\)</span>        b) no<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.3.104.1"><a href="#moreonfourier_section-7-13-2" title="Copy heading and permalink for Answer 4.3.104.1" aria-label="Copy heading and permalink for Answer 4.3.104.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4.3.104"><a href="#moreonfourier_section-7-13" title="Copy heading and permalink for Exercise 4.3.104" aria-label="Copy heading and permalink for Exercise 4.3.104">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-14"><h4 class="heading"><span class="codenumber">4.3.105<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-14-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-14-1-1-1">
+\begin{equation}
+f(t) = \nicefrac{t}{2} \qquad \text{for } \; {-\pi} &lt; t &lt; \pi
+\end{equation}
+</div>
+<div class="para">extended periodically.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="moreonfourier_section-7-14-1-2">
+<li id="moreonfourier_section-7-14-1-2-1">
+<div class="para" id="moreonfourier_section-7-14-1-2-1-1">Compute the Fourier series for <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-14-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.105.a"><a href="#moreonfourier_section-7-14-1-2-1" title="Copy heading and permalink for Item 4.3.105.a" aria-label="Copy heading and permalink for Item 4.3.105.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-14-1-2-2">
+<div class="para" id="moreonfourier_section-7-14-1-2-2-1">Plug in <span class="process-math">\(t=\nicefrac{\pi}{2}\)</span> to find a series representation for <span class="process-math">\(\nicefrac{\pi}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-14-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.105.b"><a href="#moreonfourier_section-7-14-1-2-2" title="Copy heading and permalink for Item 4.3.105.b" aria-label="Copy heading and permalink for Item 4.3.105.b">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-14-1-2-3">
+<div class="para" id="moreonfourier_section-7-14-1-2-3-1">Using the first 4 terms of the result from part b) approximate <span class="process-math">\(\nicefrac{\pi}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-14-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.105.c"><a href="#moreonfourier_section-7-14-1-2-3" title="Copy heading and permalink for Item 4.3.105.c" aria-label="Copy heading and permalink for Item 4.3.105.c">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="moreonfourier_section-7-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="moreonfourier_section-7-14-2-1">a) <span class="process-math">\(\sum\limits_{n=1}^\infty
+\frac{{(-1)}^{n+1}}{n} \sin(nt)\)</span>        b) <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(t=\nicefrac{\pi}{2}\)</span> so the Fourier series converges to <span class="process-math">\(f(\nicefrac{\pi}{2}) = \nicefrac{\pi}{4}\text{.}\)</span> Obtain <span class="process-math">\(\nicefrac{\pi}{4} = \sum\limits_{n=1}^\infty
+\frac{{(-1)}^{n+1}}{2n-1} = 1 - \nicefrac{1}{3} + \nicefrac{1}{5}-
+\nicefrac{1}{7} + \cdots\text{.}\)</span>        c) Using the first 4 terms get <span class="process-math">\(\nicefrac{76}{105}\approx 0.72\)</span> (quite a bad approximation, you would have to take about 50 terms to start to get to within <span class="process-math">\(0.01\)</span> of <span class="process-math">\(\nicefrac{\pi}{4}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.3.105.1"><a href="#moreonfourier_section-7-14-2" title="Copy heading and permalink for Answer 4.3.105.1" aria-label="Copy heading and permalink for Answer 4.3.105.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4.3.105"><a href="#moreonfourier_section-7-14" title="Copy heading and permalink for Exercise 4.3.105" aria-label="Copy heading and permalink for Exercise 4.3.105">🔗</a></div></article><article class="exercise exercise-like" id="moreonfourier_section-7-15"><h4 class="heading"><span class="codenumber">4.3.106<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="moreonfourier_section-7-15-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="moreonfourier_section-7-15-1-1-1">
+\begin{equation}
+f(t) = 
+\begin{cases}
+0 &amp; \text{if } \; {-2} &lt; t \leq 0, \\
+2 &amp; \text{if } \; \phantom{-}0 &lt; t \leq 2,
+\end{cases}
+\end{equation}
+</div>
+<div class="para">extended periodically.  Suppose <span class="process-math">\(F(t)\)</span> is the function given by the Fourier series of <span class="process-math">\(f\text{.}\)</span>  Without computing the Fourier series evaluate</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="moreonfourier_section-7-15-1-2">
+<li id="moreonfourier_section-7-15-1-2-1">
+<div class="para" id="moreonfourier_section-7-15-1-2-1-1">
+<span class="process-math">\(\displaystyle F(0)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.106.a"><a href="#moreonfourier_section-7-15-1-2-1" title="Copy heading and permalink for Item 4.3.106.a" aria-label="Copy heading and permalink for Item 4.3.106.a">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-15-1-2-2">
+<div class="para" id="moreonfourier_section-7-15-1-2-2-1">
+<span class="process-math">\(\displaystyle F(-1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.106.b"><a href="#moreonfourier_section-7-15-1-2-2" title="Copy heading and permalink for Item 4.3.106.b" aria-label="Copy heading and permalink for Item 4.3.106.b">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-15-1-2-3">
+<div class="para" id="moreonfourier_section-7-15-1-2-3-1">
+<span class="process-math">\(\displaystyle F(1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.106.c"><a href="#moreonfourier_section-7-15-1-2-3" title="Copy heading and permalink for Item 4.3.106.c" aria-label="Copy heading and permalink for Item 4.3.106.c">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-15-1-2-4">
+<div class="para" id="moreonfourier_section-7-15-1-2-4-1">
+<span class="process-math">\(\displaystyle F(-2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.106.d"><a href="#moreonfourier_section-7-15-1-2-4" title="Copy heading and permalink for Item 4.3.106.d" aria-label="Copy heading and permalink for Item 4.3.106.d">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-15-1-2-5">
+<div class="para" id="moreonfourier_section-7-15-1-2-5-1">
+<span class="process-math">\(\displaystyle F(4)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.106.e"><a href="#moreonfourier_section-7-15-1-2-5" title="Copy heading and permalink for Item 4.3.106.e" aria-label="Copy heading and permalink for Item 4.3.106.e">🔗</a></div>
+</li>
+<li id="moreonfourier_section-7-15-1-2-6">
+<div class="para" id="moreonfourier_section-7-15-1-2-6-1">
+<span class="process-math">\(\displaystyle F(-9)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-1-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.106.f"><a href="#moreonfourier_section-7-15-1-2-6" title="Copy heading and permalink for Item 4.3.106.f" aria-label="Copy heading and permalink for Item 4.3.106.f">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="moreonfourier_section-7-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="moreonfourier_section-7-15-2-1">a) <span class="process-math">\(F(0) = 1\text{,}\)</span> b) <span class="process-math">\(F(-1) = 0\text{,}\)</span> c) <span class="process-math">\(F(1) = 2\text{,}\)</span> d) <span class="process-math">\(F(-2) = 1\text{,}\)</span> e) <span class="process-math">\(F(4) = 1\text{,}\)</span> f) <span class="process-math">\(F(-9) = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-7-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.3.106.1"><a href="#moreonfourier_section-7-15-2" title="Copy heading and permalink for Answer 4.3.106.1" aria-label="Copy heading and permalink for Answer 4.3.106.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 4.3.106"><a href="#moreonfourier_section-7-15" title="Copy heading and permalink for Exercise 4.3.106" aria-label="Copy heading and permalink for Exercise 4.3.106">🔗</a></div></article><div class="autopermalink" data-description="Exercises 4.3.5"><a href="#moreonfourier_section-7" title="Copy heading and permalink for Exercises 4.3.5" aria-label="Copy heading and permalink for Exercises 4.3.5">🔗</a></div></section><div class="autopermalink" data-description="Section 4.3: More on the Fourier series"><a href="#moreonfourier_section" title="Copy heading and permalink for Section 4.3: More on the Fourier series" aria-label="Copy heading and permalink for Section 4.3: More on the Fourier series">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ts_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_scs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF version: <tt>https://www.jirka.org/diffyqs/diffyqs.pdf</tt> or <tt>https://jirilebl.github.io/diffyqs/diffyqs.pdf</tt></em>
+</span>
+</body>
+</html>

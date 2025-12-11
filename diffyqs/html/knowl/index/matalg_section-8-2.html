@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">A simple (and surprisingly useful) type of a square matrix is a so-called <em class="emphasis">diagonal matrix</em>.  It is a matrix whose entries are all zero except those on the main diagonal from top left to bottom right.  For example a <span class="process-math">\(4 \times 4\)</span> diagonal matrix is of the form</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+d_1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; d_2 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; d_3 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; d_4
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">Such matrices have nice properties when we multiply by them.  If we multiply them by a vector, they multiply the <span class="process-math">\(k^{\text{th}}\)</span> entry by <span class="process-math">\(d_k\text{.}\)</span>  For example,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+0 &amp; 0 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}
+4 \\ 5 \\ 6
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \cdot 4 \\ 2 \cdot 5 \\ 3 \cdot 6
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\ 10 \\ 18
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">Similarly, when they multiply another matrix from the left, they multiply the <span class="process-math">\(k^{\text{th}}\)</span> row by <span class="process-math">\(d_k\text{.}\)</span>  For example,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 &amp; 2 &amp; 2 \\
+3 &amp; 3 &amp; 3 \\
+-1 &amp; -1 &amp; -1 
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">On the other hand, multiplying on the right, they multiply the columns:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 
+\end{bmatrix}
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; -1
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 &amp; 3 &amp; -1 \\
+2 &amp; 3 &amp; -1 \\
+2 &amp; 3 &amp; -1 
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">And it is really easy to multiply two diagonal matrices together—we multiply the entries:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+0 &amp; 0 &amp; 3 
+\end{bmatrix}
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; -1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \cdot 2 &amp; 0 &amp; 0 \\
+0 &amp; 2 \cdot 3 &amp; 0 \\
+0 &amp; 0 &amp; 3 \cdot (-1) 
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; 6 &amp; 0 \\
+0 &amp; 0 &amp; -3 
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#matalg_section-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="matalg_section.html#matalg_section-8-2">in-context</a></span>
+</body>
+</html>

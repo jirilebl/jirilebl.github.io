@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Find the general solution to</div>
+<div class="displaymath process-math">
+\begin{equation}
+y''' - 3 y'' - y' + 3y = 0 .\tag{2.5}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_hol-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">Try: <span class="process-math">\(y = e^{rx}\text{.}\)</span>  We plug in and get</div>
+<div class="displaymath process-math">
+\begin{equation}
+\underbrace{r^3 e^{rx}}_{y'''} - 3 \underbrace{r^2 e^{rx}}_{y''} -
+\underbrace{r e^{rx}}_{y'} + 3 \underbrace{e^{rx}}_{y} = 0 .
+\end{equation}
+</div>
+<div class="para">We divide through by <span class="process-math">\(e^{rx}\text{.}\)</span>  Then</div>
+<div class="displaymath process-math">
+\begin{equation}
+r^3 - 3 r^2 - r + 3 = 0 .
+\end{equation}
+</div>
+<div class="para">The trick now is to find the roots.  There is a formula for the roots of degree 3 and 4 polynomials, but it is very complicated.  There is no formula for higher degree polynomials.  That does not mean that the roots do not exist.  There are always <span class="process-math">\(n\)</span> roots for an <span class="process-math">\(n^{\text{th}}\)</span> degree polynomial.  They may be repeated and they may be complex.  Computers are pretty good at finding roots approximately for reasonable size polynomials.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_hol-4-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">A good place to start is to plot the polynomial and check where it is zero. We can also simply try plugging in.  We just start plugging in numbers <span class="process-math">\(r=-2,-1,0,1,2,\ldots\)</span> and see if we get a hit (we can also try complex numbers).  Even if we do not get a hit, we may get an indication of where the root is.  For example, we plug <span class="process-math">\(r=-2\)</span> into our polynomial and get <span class="process-math">\(-15\text{;}\)</span> we plug in <span class="process-math">\(r=0\)</span> and get <span class="process-math">\(3\text{.}\)</span> That means there is a root between <span class="process-math">\(r=-2\)</span> and <span class="process-math">\(r=0\text{,}\)</span> because the sign changed. If we find one root, say <span class="process-math">\(r_1\text{,}\)</span> then we know <span class="process-math">\((r-r_1)\)</span> is a factor of our polynomial.  Polynomial long division can then be used.<div class="autopermalink" data-description="Paragraph"><a href="#sec_hol-4-3-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">A good strategy is to begin with <span class="process-math">\(r=0\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> or <span class="process-math">\(-1\text{.}\)</span>  These are easy to compute.  Our polynomial has two such roots, <span class="process-math">\(r_1 = -1\)</span> and <span class="process-math">\(r_2 = 1\text{.}\)</span>  There should be 3 roots and the last root is reasonably easy to find.  The constant term in a monic<details class="ptx-footnote" aria-live="polite" id="sec_hol-4-3-1-4-6"><summary class="ptx-footnote__number" title="Footnote 2.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_hol-4-3-1-4-6">The word monic means that the coefficient of the top degree <span class="process-math">\(r^d\text{,}\)</span> in our case <span class="process-math">\(r^3\text{,}\)</span> is <span class="process-math">\(1\text{.}\)</span>
+</div></details> polynomial such as this is the product of the negations of all the roots because <span class="process-math">\(r^3 - 3 r^2 - r + 3 = (r-r_1)(r-r_2)(r-r_3)\text{.}\)</span> So</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/hol_cceq1.html">
+\begin{equation}
+3 = (-r_1)(-r_2)(-r_3) = (1)(-1)(-r_3) = r_3 .
+\end{equation}
+</div>
+<div class="para">You should check that <span class="process-math">\(r_3 = 3\)</span> really is a root.  Hence <span class="process-math">\(e^{-x}\text{,}\)</span> <span class="process-math">\(e^{x}\)</span> and <span class="process-math">\(e^{3x}\)</span> are solutions to <a href="sec_hol.html#hol_cceq1" class="xref" data-knowl="./knowl/xref/hol_cceq1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5">(2.5)</a>.  They are linearly independent as can easily be checked, and there are 3 of them, which happens to be exactly the number we need.  So the general solution is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/hol_cceq1.html">
+\begin{equation}
+y = C_1 e^{-x} + C_2 e^{x} + C_3 e^{3x} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_hol-4-3-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">Suppose we were given some initial conditions <span class="process-math">\(y(0) = 1\text{,}\)</span> <span class="process-math">\(y'(0) = 2\text{,}\)</span> and <span class="process-math">\(y''(0) = 3\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec_matrix.html ./knowl/xref/linalg_appendix.html">
+\begin{equation}
+\begin{aligned}
+1 = y(0) &amp; = C_1 + C_2 + C_3 , \\
+2 = y'(0) &amp; = -C_1 + C_2 + 3C_3 , \\
+3 = y''(0) &amp; = C_1 + C_2 + 9C_3 .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">It is possible to find the solution by high school algebra, but it would be a pain. The sensible way to solve a system of equations such as this is to use matrix algebra, see <a href="sec_matrix.html" class="internal" title="Section 3.2: Matrices and linear systems">Section 3.2</a> or <a href="linalg_appendix.html" class="internal" title="Appendix A: Linear algebra">Appendix A</a>. For now we note that the solution is <span class="process-math">\(C_1 =
+-\nicefrac{1}{4}\text{,}\)</span> <span class="process-math">\(C_2 = 1\text{,}\)</span> and <span class="process-math">\(C_3 = \nicefrac{1}{4}\text{.}\)</span>  The specific solution to the ODE is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec_matrix.html ./knowl/xref/linalg_appendix.html">
+\begin{equation}
+y = \frac{-1}{4}\, e^{-x} + e^x + \frac{1}{4}\, e^{3x} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_hol-4-3-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.3.3"><a href="#sec_hol-4-3" title="Copy heading and permalink for Example 2.3.3" aria-label="Copy heading and permalink for Example 2.3.3">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_hol.html#sec_hol-4-3">in-context</a></span>
+</body>
+</html>

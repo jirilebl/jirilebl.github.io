@@ -1,0 +1,267 @@
+<!doctype html>
+
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notes on Diffy Qs - Sage demos for section 1.7</title>
+<link rel=stylesheet type="text/css" href="../../basicstyle.css"> 
+<link rel=stylesheet type="text/css" href="../../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+<script id="MathJax-script" async 
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> 
+</script> 
+<script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage",
+template:       sagecell.templates.minimal,
+evalButtonText: 'Activate'});
+sagecell.makeSagecell({"inputLocation": ".sageedit"});</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<p class="nojustify left">
+[<a href="http://www.jirka.org/diffyqs/">Go to the Notes on Diffy Qs home page</a>]
+
+<h1>Notes on Diffy Qs - Sage demos for section 1.7</h1>
+
+<p>
+Press the <em>Activate</em> or <em>Evaluate</em> button below to launch each Sage demonstration.
+You will be able to interact with the first demonstration after it launches and
+change numbers with sliders.
+You may have to wait a little before the graph
+or result appears.  Be patient.
+After the first demonstration there are a few separate Sage demos where you can edit the code
+to experiment with Euler's method.
+
+<h2>Euler's method demo</h2>
+
+<p>
+Euler's method for one of three problems
+<p>
+\((1) \qquad y' = 5x + y - 5, \quad y(0) = 1, \)
+<p>
+\((2) \qquad y' = 2-y, \quad y(0) = 0, \)
+<p>
+\((3) \qquad y' = \left(5+\frac{1}{0.001+(x-1.5)^2}\right)(3-y)(2-y)^2, \quad y(0) = 1.9, \)
+<p>
+using several different step sizes h.  The actual solution is also graphed in green to compare.
+The slider will modify the step size.
+Notice how the third example does not seem to get much better as we reduce the step size,
+especially for \(x &ge; 1.5 .\)
+
+<div class="sage">
+<script type="text/x-sage">
+# variables for euler
+var("x y")
+# variables for desolve
+var('w')
+z = function('z')(w)
+@interact
+def interactive_function(equation = selector(["Equation (1)", "Equation (2)", "Equation (3)"]),
+                         h = slider((.0625,.125,.25,.5,1.0),default=1.0)) :
+    f(x,y) = 5*x+y-5
+    fstr = "5x+y-5"
+    y0 = 1.0
+    if equation == "Equation (2)":
+      f(x,y) = 2-y
+      fstr = "2-y"
+      y0 = 0.0
+    elif equation == "Equation (3)":
+      f(x,y) = (5+1/(0.001+(x-1.5)^2))*(3-y)*(2-y)^2
+      fstr = "(5+1/(0.001+(x-1.5)^2))(3-y)(2-y)^2"
+      y0 = 1.9
+    ode = diff(z,w) == f(w,z)
+    print ("Graph (in blue) and table of Euler's method used on")
+    print ("y' =", fstr)
+    print ("initial condition y(0) =", y0)
+    print ("step size h =", h)
+    print ("with actual solution in green.")
+    print ("")
+    sys.stdout.flush()
+    x0=0
+    xlast=3
+    #Compute the number of steps
+    n = round((xlast-x0) / h)
+    # make a list of the x and the y values
+    xp=[RR(x0)]
+    yp=[RR(y0)]
+    # Compute the next step from the previous
+    for i in range(n):
+        xp.append(RR(x0+(i+1)*h))
+        # The RR makes the number into a floating point to avoid slow
+        # symbolic computation
+        yp.append(yp[i]+h*RR(f(xp[i],yp[i])))
+    # P2 is the line of the approximated solution
+    # PP are the red points computed in the approximation
+    # PY is Runge-Kutta approximation which is good enough for
+    # all three examples.
+    P2 = line([(xp[i],yp[i]) for i in range(n+1)],
+              color='blue', thickness=2, legend_label = "Approximate")
+    PP = point([(xp[i],yp[i]) for i in range(n+1)], color='red', size=20)
+    PY = desolve_rk4(ode, z, ivar=w, ics = [0,y0], end_points=[0,3], step=0.01,
+                     output='plot', color = 'darkgreen', thickness = 2,
+                     legend_color = 'darkgreen', legend_label = "Actual")
+
+    (P2 + PP + PY).show()
+    # Print a table
+    print ("")
+    print("x               \ty               \th*f(x,y)")
+    for i in range(n+1):
+        print(xp[i],yp[i],h*RR(f(xp[i],yp[i])),sep='\t')    
+    sys.stdout.flush()
+</script>
+</div>
+
+<h2>Euler's method with Sage</h2>
+
+
+<p>
+First let's just make a table.
+
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+
+# The equation and the parameters
+f(x,y) = 5*x+y-5
+x0=0
+y0=1
+h=0.5
+xlast=3
+
+# Compute the number of steps
+n = round((xlast-x0) / h)
+
+# Make a list of the x and the y values
+xp=[RR(x0)]
+yp=[RR(y0)]
+
+# Compute the next step from the previous
+for i in range(n):
+    xp.append(RR(x0+(i+1)*h))
+    # The RR makes the number into a floating point to avoid slow
+    # symbolic computation
+    yp.append(yp[i]+h*RR(f(xp[i],yp[i])))
+
+# Print a table
+print("x               \ty               \th*f(x,y)")
+for i in range(n+1):
+    print(xp[i],yp[i],h*RR(f(xp[i],yp[i])),sep='\t')    
+</script>
+</div>
+
+<p>
+Now let's plot the result.
+
+<div class="sageedit">
+<script type="text/x-sage">
+var("x y")
+
+# The equation and the parameters
+f(x,y) = 5*x+y-5
+x0=0
+y0=1
+h=0.5
+xlast=3
+
+# Compute the number of steps
+n = round((xlast-x0) / h)
+
+# Make a list of the x and the y values
+xp=[RR(x0)]
+yp=[RR(y0)]
+
+# Compute the next step from the previous
+for i in range(n):
+    xp.append(RR(x0+(i+1)*h))
+    # The RR makes the number into a floating point to avoid slow
+    # symbolic computation
+    yp.append(yp[i]+h*RR(f(xp[i],yp[i])))
+
+# Draw a line and show it
+LL = line([(xp[i],yp[i]) for i in range(n+1)], color='blue', thickness=2)
+PP = point([(xp[i],yp[i]) for i in range(n+1)], color='red', size=20)
+(LL+PP).show();
+</script>
+</div>
+
+<p>
+A challenge for those that know a little Python/Sage
+would be to modify the two examples above to do the improved Euler 
+method (described just above Exercise 1.7.104), or the Runge-Kutta method (described
+just above Exercise 1.7.7).  Be careful to keep the correct indentation
+as Sage is really Python under the hood and the indentation is important.
+
+<p>
+How about plotting the actual solution.  In this code we ask
+Sage to symbolically solve, so Sage will only plot the solution if
+it can find the actual solution analytically, and it will give you an
+error otherwise.  This works for the examples (1) and
+(2) above, but not for example (3).
+
+<div class="sageedit">
+<script type="text/x-sage">
+var('x')
+y = function('y')(x)
+
+# Here is our setup
+ode = diff(y,x) == 5*x+y-5
+x0=0
+y0=1
+xlast=3
+
+# Here we solve
+thesol = desolve(ode, y, ivar=x, ics = [x0,y0])
+theplot = plot(thesol, (x,x0,xlast), color = 'darkgreen', thickness = 2,
+               legend_color = 'darkgreen', legend_label = "y(x)")
+theplot.show()
+</script>
+</div>
+
+<p>
+Sage has Runge-Kutta built in, so we could just use that instead of solving
+exactly, let's do that for the example (3) from above.
+That is going to be very close to the real answer for most examples you
+throw at it.  You can also try playing around with the step parameter below,
+and you can see that even Runge-Kutta gets confused with a large enough step size.
+
+<div class="sageedit">
+<script type="text/x-sage">
+var('x')
+y = function('y')(x)
+
+# Here is our setup
+ode = diff(y,x) == (5+1/(0.001+(x-1.5)^2))*(3-y)*(2-y)^2
+x0=0
+y0=1.9
+xlast=3
+
+theplot = desolve_rk4(ode, y, ivar=x, ics = [x0,y0],
+                      end_points=[x0,xlast], step = 0.01,
+                      output = 'plot', color = 'darkgreen', thickness = 2,
+                      legend_color = 'darkgreen', legend_label = "y(x)")
+theplot.show()
+</script>
+</div>
+
+<hr>
+<p>
+The original code is due to Ryan Burkhart, but is now heavily modified.
+
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+
+<!-- hack -->
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+-->
+<div style="height:1000px; background-image:linear-gradient(white,black);"></div>
+
+</body>
+</html>

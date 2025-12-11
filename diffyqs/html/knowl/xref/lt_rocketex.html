@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Consider the mass-spring system</div>
+<div class="displaymath process-math">
+\begin{equation}
+x''(t) + x(t) = f(t) , \quad x(0) = 0, \quad x'(0) = 0,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(f(t) = 1\)</span> if <span class="process-math">\(1 \leq t &lt; 5\)</span> and zero otherwise. The function <span class="process-math">\(f(t)\)</span> is not periodic and defined piecewise; no problem for Laplace. Imagine a rocket attached to the mass is fired for 4 seconds starting at <span class="process-math">\(t=1\text{.}\)</span>  Or perhaps imagine an RLC circuit, where the voltage is raised at a constant rate for 4 seconds starting at <span class="process-math">\(t=1\)</span> and then held steady again starting at <span class="process-math">\(t=5\)</span> (recall that <span class="process-math">\(f(t)\)</span> represents the derivative of the voltage in the RLC circuit).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lt_rocketex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">We write <span class="process-math">\(f(t) = u(t-1) - u(t-5)\text{.}\)</span>  We transform the equation and we plug in the initial conditions as before</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltd_sseq.html ./knowl/xref/lt_heavisideexfig.html">
+\begin{equation}
+s^2 X(s) + X(s) = \frac{e^{-s}}{s} - \frac{e^{-5s}}{s} .
+\end{equation}
+</div>
+<div class="para">We solve for <span class="process-math">\(X(s)\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltd_sseq.html ./knowl/xref/lt_heavisideexfig.html">
+\begin{equation}
+X(s) = \frac{e^{-s}}{s(s^2+1)} - \frac{e^{-5s}}{s(s^2+1)} .
+\end{equation}
+</div>
+<div class="para">We leave it as an exercise to the reader to show that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltd_sseq.html ./knowl/xref/lt_heavisideexfig.html">
+\begin{equation}
+{\mathcal{L}}^{-1} \left\{ \frac{1}{s(s^2+1)} \right\}
+= 1 - \cos t .
+\end{equation}
+</div>
+<div class="para">In other words, <span class="process-math">\(\mathcal{L} \{ 1 - \cos t  \} = 
+\frac{1}{s(s^2+1)}\text{.}\)</span> Using the second shifting property <a href="transformsofders_section.html#ltd_sseq" class="xref" data-knowl="./knowl/xref/ltd_sseq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.1">(6.1)</a>, we find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltd_sseq.html ./knowl/xref/lt_heavisideexfig.html">
+\begin{equation}
+{\mathcal{L}}^{-1} \left\{ \frac{e^{-s}}{s(s^2+1)} \right\}
+=
+{\mathcal{L}}^{-1} \bigl\{
+e^{-s}
+\mathcal{L} \{ 1 - \cos t \}
+\bigr\}
+=
+\bigl( 1 - \cos (t-1) \bigr) \, u(t-1) .
+\end{equation}
+</div>
+<div class="para">Similarly,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltd_sseq.html ./knowl/xref/lt_heavisideexfig.html">
+\begin{equation}
+{\mathcal{L}}^{-1} \left\{ \frac{e^{-5s}}{s(s^2+1)} \right\}
+=
+{\mathcal{L}}^{-1} \bigl\{
+e^{-5s}
+\mathcal{L} \{ 1 - \cos t \}
+\bigr\}
+=
+\bigl( 1 - \cos (t-5) \bigr) \, u(t-5) .
+\end{equation}
+</div>
+<div class="para">Hence, the solution is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltd_sseq.html ./knowl/xref/lt_heavisideexfig.html">
+\begin{equation}
+x(t) = 
+\bigl( 1 - \cos (t-1) \bigr) \, u(t-1) -
+\bigl( 1 - \cos (t-5) \bigr) \, u(t-5) .
+\end{equation}
+</div>
+<div class="para">The plot of this solution is given in <a href="transformsofders_section.html#lt_heavisideexfig" class="internal" title="Figure 6.2">Figure 6.2</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lt_rocketex-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-heavisideex-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(x(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.2"><a href="#lt_heavisideexfig" title="Copy heading and permalink for Figure 6.2" aria-label="Copy heading and permalink for Figure 6.2">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 6.2.2"><a href="#lt_rocketex" title="Copy heading and permalink for Example 6.2.2" aria-label="Copy heading and permalink for Example 6.2.2">🔗</a></div></article><span class="incontext"><a class="internal" href="transformsofders_section.html#lt_rocketex">in-context</a></span>
+</body>
+</html>

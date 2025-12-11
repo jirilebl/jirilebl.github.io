@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">How does the Heaviside function interact with the Laplace transform?  We saw that (for <span class="process-math">\(a \geq 0\)</span>)</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mathcal{L} \bigl\{ u(t-a) \bigr\} = \frac{e^{-as}}{s} .
+\end{equation}
+</div>
+<div class="para">This computation can be generalized into a <em class="emphasis">shifting property</em> or <em class="emphasis">second shifting property</em>:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mybxbg{~~
+\mathcal{L} \bigl\{ f(t-a) \, u(t-a) \bigr\}
+= e^{-as} \mathcal{L} \bigl\{ f(t) \bigr\}
+\qquad (a \geq 0).
+~~}\tag{6.1}
+\end{equation}
+</div>
+<div class="para">For example,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mathcal{L} \bigl\{ t \, u(t-1) \bigr\}
+=
+\mathcal{L} \bigl\{ \bigl( (t-1) + 1\bigr) \, u(t-1) \bigr\}
+= e^{-s} \mathcal{L} \bigl\{ t+1 \bigr\}
+= e^{-s} \left(\frac{1}{s^2} + \frac{1}{s} \right)
+.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#transformsofders_section-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="transformsofders_section.html#transformsofders_section-5-7">in-context</a></span>
+</body>
+</html>

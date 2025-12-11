@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para">Bob made a cup of coffee, and Bob likes to drink coffee only once it reaches 60 degrees Celsius and will not burn him. Initially, right after it was poured in the cup, Bob measured the temperature and the coffee was 89 degrees Celsius. One minute later, Bob measured the coffee again and it had 85 degrees. The temperature of the room (the ambient temperature) is 22 degrees. When should Bob start drinking?<div class="autopermalink" data-description="Paragraph"><a href="#sep_coffeeexample-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">Let <span class="process-math">\(T\)</span> be the temperature of the coffee in degrees Celsius, let <span class="process-math">\(A\)</span> be the ambient (room) temperature, also in degrees Celsius, and let <span class="process-math">\(t\)</span> denote the time in minutes, with <span class="process-math">\(t=0\)</span> denoting the time when Bob made the coffee. Newton’s law of cooling states that the rate at which the temperature of the coffee is changing is proportional to the difference between the ambient temperature and the temperature of the coffee.  That is,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sintro_coffeefig.html">
+\begin{equation}
+\frac{dT}{dt} = k(A-T) ,
+\end{equation}
+</div>
+<div class="para">for some positive constant <span class="process-math">\(k\text{.}\)</span> For our setup <span class="process-math">\(A=22\text{,}\)</span> <span class="process-math">\(T(0) = 89\text{,}\)</span> <span class="process-math">\(T(1) = 85\text{.}\)</span> Let <span class="process-math">\(C\)</span> and <span class="process-math">\(D\)</span> denote arbitrary constants, and notice that <span class="process-math">\(T - A &gt; 0\)</span> since the coffee is clearly warmer than the room. We separate variables and integrate.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sintro_coffeefig.html">
+\begin{equation}
+\begin{aligned}
+\frac{1}{T-A} \, \frac{dT}{dt} &amp; = -k , \\
+\ln (T-A) &amp;= -kt + C , \\ T-A &amp;= D e^{-kt} ,  \\
+T &amp;= A + D e^{-kt} .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">That is, <span class="process-math">\(T = 22 + D e^{-kt}\text{.}\)</span>  We plug in the first condition: <span class="process-math">\(89 = T(0) = 22 +
+D\text{,}\)</span> and hence <span class="process-math">\(D = 67\text{.}\)</span>  So <span class="process-math">\(T = 22 + 67 e^{-kt}\text{.}\)</span>  The second condition says <span class="process-math">\(85 = T(1) = 
+22 + 67 e^{-k}\text{.}\)</span>  Solving for <span class="process-math">\(k\text{,}\)</span> we get <span class="process-math">\(k = - \ln \frac{85-22}{67} \approx 0.0616\text{.}\)</span>  We solve for the time <span class="process-math">\(t\)</span> that gives a temperature of 60 degrees.  Namely, we solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sintro_coffeefig.html">
+\begin{equation}
+60 = 22 + 67 e^{-0.0616\,t}
+\end{equation}
+</div>
+<div class="para">to get <span class="process-math">\(t = - \frac{\ln \frac{60-22}{67}}{0.0616} \approx 9.21\)</span> minutes.  So Bob can begin to drink the coffee at just over 9 minutes from the time Bob made it.  That is probably about the amount of time it took us to calculate how long it would take.  See <a href="separable_section.html#sintro_coffeefig" class="internal" title="Figure 1.9">Figure 1.9</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sep_coffeeexample-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="diffyqshr">
+<figure class="figure figure-like"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/coffeefig-1-2-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of the coffee temperature function <span class="process-math">\(T(t)\text{.}\)</span> On the left, horizontal lines are drawn at temperatures 60, 85, and 89.  Vertical lines are drawn at <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=9.21\text{.}\)</span>  Notice that the temperature of the coffee hits 85 at <span class="process-math">\(t=1\text{,}\)</span> and 60 at <span class="process-math">\(t \approx 9.21\text{.}\)</span>  On the right, the graph is over a longer period of time, with a horizontal line at the ambient temperature 22.<div class="autopermalink" data-description="Figure 1.9"><a href="#sintro_coffeefig" title="Copy heading and permalink for Figure 1.9" aria-label="Copy heading and permalink for Figure 1.9">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 1.3.3"><a href="#sep_coffeeexample" title="Copy heading and permalink for Example 1.3.3" aria-label="Copy heading and permalink for Example 1.3.3">🔗</a></div></article><span class="incontext"><a class="internal" href="separable_section.html#sep_coffeeexample">in-context</a></span>
+</body>
+</html>

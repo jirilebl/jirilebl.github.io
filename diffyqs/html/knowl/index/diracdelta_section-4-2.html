@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The <em class="emphasis">Dirac delta function</em><details class="ptx-footnote" aria-live="polite" id="diracdelta_section-4-2-3"><summary class="ptx-footnote__number" title="Footnote 6.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="diracdelta_section-4-2-3">Named after the English physicist and mathematician <a class="external" href="https://en.wikipedia.org/wiki/Paul_Dirac" target="_blank">Paul Adrien Maurice Dirac</a> (1902–1984).</div></details> is not exactly a function; it is sometimes called a <em class="emphasis">generalized function</em>.  We avoid unnecessary details and simply say that it is an object that does not really make sense unless we integrate it.  The motivation is that we would like a “function” <span class="process-math">\(\delta(t)\)</span> such that for any continuous function <span class="process-math">\(f(t)\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mybxbg{~~
+\int_{-\infty}^\infty \delta(t) f(t) \,dt = f(0) .
+~~}
+\end{equation}
+</div>
+<div class="para">The formula should hold if we integrate over any interval that contains 0, not just <span class="process-math">\((-\infty,\infty)\text{.}\)</span> So <span class="process-math">\(\delta(t)\)</span> is a “function” with all its “mass” at the single point <span class="process-math">\(t=0\text{.}\)</span>  For any interval<details class="ptx-footnote" aria-live="polite" id="diracdelta_section-4-2-14"><summary class="ptx-footnote__number" title="Footnote 6.4.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="diracdelta_section-4-2-14">It is important that we consider <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> as part of the interval.  One could write this integral as <span class="process-math">\(\int_{c-}^{d+}\text{.}\)</span>
+</div></details> <span class="process-math">\([c,d]\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\int_c^d \delta(t) \,dt = 
+\begin{cases}
+1 &amp; \text{if the interval $[c,d]$ contains 0, i.e.\ } c \leq 0 \leq d, \\
+0 &amp; \text{otherwise.}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">Unfortunately there is no such function in the classical sense.  You could informally think that <span class="process-math">\(\delta(t)\)</span> is zero for <span class="process-math">\(t\not=0\)</span> and somehow infinite at <span class="process-math">\(t=0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#diracdelta_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="diracdelta_section.html#diracdelta_section-4-2">in-context</a></span>
+</body>
+</html>

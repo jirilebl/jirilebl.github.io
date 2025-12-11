@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>DIFFYQS Matrix exponentials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Notes on Diffy Qs">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="diffyqs.html"><span class="title">Notes on Diffy Qs</span> <span class="subtitle">Differential Equations for Engineers</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_multeigen.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sys_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="nonhomogsys_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\mybxbg}[1]{\boxed{#1}}
+\newcommand{\mybxsm}[1]{\boxed{#1}}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="diffyqs-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro_chapter.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introde_section.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Introduction to differential equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-3" class="internal"><span class="codenumber">0.2.1</span> <span class="title">Differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-4" class="internal"><span class="codenumber">0.2.2</span> <span class="title">Solutions of differential equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#introde_section-5" class="internal"><span class="codenumber">0.2.3</span> <span class="title">Differential equations in practice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introde_section.html#subsection_fourfundamental" class="internal"><span class="codenumber">0.2.4</span> <span class="title">Four fundamental equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="introde_section.html#introde_section-7" class="internal"><span class="codenumber">0.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="classification_section.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Classification of differential equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="classification_section.html#classification_section-14" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fo_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">First-order equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="integralsols_section.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integrals as solutions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="integralsols_section.html#integralsols_section-16" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slopefields_section.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Slope fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slopefields_section.html#slopefields_section-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="separable_section.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Separable equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Implicit solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="separable_section.html#separable_section-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">More examples of separable equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="separable_section.html#separable_section-6" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="intfactor_section.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Linear equations and the integrating factor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intfactor_section.html#intfactor_section-3" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="substitution_section.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-3" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Substitution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-4" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Bernoulli equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Homogeneous equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="substitution_section.html#substitution_section-6" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auteq_section.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="auteq_section.html#auteq_section-33" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="numer_section.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Numerical methods: Euler’s method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="numer_section.html#numer_section-32" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="exact_section.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exact equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-3" class="internal"><span class="codenumber">1.8.1</span> <span class="title">Solving exact equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="exact_section.html#exact_section-4" class="internal"><span class="codenumber">1.8.2</span> <span class="title">Integrating factors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exact_section.html#exact_section-5" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="fopde_section.html" class="internal"><span class="codenumber">1.9</span> <span class="title">First-order linear PDEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="fopde_section.html#fopde_section-19" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ho_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="solinear_section.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="solinear_section.html#solinear_section-25" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ccsol.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Constant-coefficient second-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Solving constant-coefficient equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Complex numbers and Euler’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Complex roots</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ccsol.html#sec_ccsol-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_hol.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Higher-order linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Linear independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Constant-coefficient higher-order ODEs</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_hol.html#sec_hol-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mv.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Mechanical vibrations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Some examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_mv.html#sec_mv-5" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Free damped motion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-3" class="internal"><span class="codenumber">2.4.3.1</span> <span class="title">Overdamping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-4" class="internal"><span class="codenumber">2.4.3.2</span> <span class="title">Critical damping</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-5-5" class="internal"><span class="codenumber">2.4.3.3</span> <span class="title">Underdamping</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mv.html#sec_mv-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_nonhom.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Nonhomogeneous equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Solving nonhomogeneous equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Variation of parameters</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_nonhom.html#sec_nonhom-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="forcedo_section.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Forced oscillations and resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Undamped forced motion and resonance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Damped forced motion and practical resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="forcedo_section.html#forcedo_section-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="sys_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Systems of ODEs</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_introtosys.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Changing to first-order systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Autonomous systems and vector fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_introtosys.html#sec_introtosys-8" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matrix.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Matrices and linear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Matrices and vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">The determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Solving linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-7" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matrix.html#sec_matrix-8" class="internal"><span class="codenumber">3.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linsystems_section.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Linear systems of ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linsystems_section.html#linsystems_section-18" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="eigenmethod_section.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Eigenvalue method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Eigenvalues and eigenvectors of a matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The eigenvalue method with distinct real eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Complex eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="eigenmethod_section.html#eigenmethod_section-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_twodimaut.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Two-dimensional systems and their vector fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_twodimaut.html#sec_twodimaut-38" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sol_section.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Second-order systems and applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Undamped mass-spring systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sol_section.html#sol_section-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Forced oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sol_section.html#sol_section-6" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_multeigen.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Repeated eigenvalues</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-3" class="internal"><span class="codenumber">3.7.1</span> <span class="title">Geometric multiplicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-4" class="internal"><span class="codenumber">3.7.2</span> <span class="title">Defective eigenvalues</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_multeigen.html#sec_multeigen-5" class="internal"><span class="codenumber">3.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_matexp.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Matrix exponentials</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-3" class="internal"><span class="codenumber">3.8.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-4" class="internal"><span class="codenumber">3.8.2</span> <span class="title">Simple cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-5" class="internal"><span class="codenumber">3.8.3</span> <span class="title">General matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-6" class="internal"><span class="codenumber">3.8.4</span> <span class="title">Fundamental matrix solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-7" class="internal"><span class="codenumber">3.8.5</span> <span class="title">Approximations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_matexp.html#sec_matexp-8" class="internal"><span class="codenumber">3.8.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nonhomogsys_section.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Nonhomogeneous systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3" class="internal"><span class="codenumber">3.9.1</span> <span class="title">First-order constant-coefficient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-2" class="internal"><span class="codenumber">3.9.1.1</span> <span class="title">Integrating factor</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-3" class="internal"><span class="codenumber">3.9.1.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-3-4" class="internal"><span class="codenumber">3.9.1.3</span> <span class="title">Undetermined coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4" class="internal"><span class="codenumber">3.9.2</span> <span class="title">First-order variable-coefficient</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-4-2" class="internal"><span class="codenumber">3.9.2.1</span> <span class="title">Variation of parameters</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Second-order constant-coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-2" class="internal"><span class="codenumber">3.9.3.1</span> <span class="title">Undetermined coefficients</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-5-3" class="internal"><span class="codenumber">3.9.3.2</span> <span class="title">Eigenvector decomposition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nonhomogsys_section.html#nonhomogsys_section-6" class="internal"><span class="codenumber">3.9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="FS_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Fourier series and PDEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bvp_section.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Boundary value problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvalue problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Orthogonality of eigenfunctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-6" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-7" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="bvp_section.html#bvp_section-8" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ts_section.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The trigonometric series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Periodic functions and motivation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Inner product and eigenvector decomposition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ts_section.html#ts_section-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">The trigonometric series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ts_section.html#ts_section-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="moreonfourier_section.html" class="internal"><span class="codenumber">4.3</span> <span class="title">More on the Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title"><span class="process-math">\(2L\)</span>-periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Differentiation and integration of Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-6" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Rates of convergence and smoothness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="moreonfourier_section.html#moreonfourier_section-7" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_scs.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Sine and cosine series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Odd and even periodic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Sine and cosine series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-5" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Application</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_scs.html#sec_scs-6" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="appoffourier_section.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Applications of Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-3" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Periodically forced oscillation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-4" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="appoffourier_section.html#appoffourier_section-5" class="internal"><span class="codenumber">4.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="heateq_section.html" class="internal"><span class="codenumber">4.6</span> <span class="title">PDEs, separation of variables, and the heat equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-3" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Heat on an insulated wire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-4" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Separation of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-5" class="internal"><span class="codenumber">4.6.3</span> <span class="title">Insulated ends</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="heateq_section.html#heateq_section-6" class="internal"><span class="codenumber">4.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="we_section.html" class="internal"><span class="codenumber">4.7</span> <span class="title">One-dimensional wave equation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="we_section.html#we_section-24" class="internal"><span class="codenumber">4.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dalemb_section.html" class="internal"><span class="codenumber">4.8</span> <span class="title">D’Alembert solution of the wave equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-3" class="internal"><span class="codenumber">4.8.1</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-4" class="internal"><span class="codenumber">4.8.2</span> <span class="title">D’Alembert’s formula</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-5" class="internal"><span class="codenumber">4.8.3</span> <span class="title">Another way to solve for the side conditions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-6" class="internal"><span class="codenumber">4.8.4</span> <span class="title">Some remarks</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dalemb_section.html#dalemb_section-7" class="internal"><span class="codenumber">4.8.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirich_section.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Steady state temperature and the Laplacian</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirich_section.html#dirich_section-19" class="internal"><span class="codenumber">4.9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="dirichdisc_section.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Dirichlet problem in the circle and the Poisson kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-3" class="internal"><span class="codenumber">4.10.1</span> <span class="title">Laplace in polar coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-4" class="internal"><span class="codenumber">4.10.2</span> <span class="title">Series solution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-5" class="internal"><span class="codenumber">4.10.3</span> <span class="title">Poisson kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="dirichdisc_section.html#dirichdisc_section-6" class="internal"><span class="codenumber">4.10.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="SL_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">More on eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="slproblems_section.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Sturm–Liouville problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Boundary value problems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Fredholm alternative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Eigenfunction series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="slproblems_section.html#slproblems_section-7" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_appeig.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Higher-order eigenvalue problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_appeig.html#sec_appeig-19" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sps_section.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Steady periodic solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Forced vibrating string</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sps_section.html#sps_section-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Underground temperature oscillations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sps_section.html#sps_section-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LT_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplace_section.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Laplace transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Existence and uniqueness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">The inverse transform</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplace_section.html#laplace_section-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="transformsofders_section.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Transforms of derivatives and ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Transforms of derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Solving ODEs with the Laplace transform</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Using the Heaviside function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Transfer functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Transforms of integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-8" class="internal"><span class="codenumber">6.2.6</span> <span class="title">Periodic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="transformsofders_section.html#transformsofders_section-9" class="internal"><span class="codenumber">6.2.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="convolution_section.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Convolution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">The convolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Solving ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Volterra integral equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="convolution_section.html#convolution_section-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="diracdelta_section.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dirac delta and impulse response</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-3" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Rectangular pulse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-4" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The delta function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-5" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Impulse response</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-6" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Three-point beam bending</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="diracdelta_section.html#diracdelta_section-7" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="laplacepde_section.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Solving PDEs with the Laplace transform</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="laplacepde_section.html#laplacepde_section-16" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ps_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power-series methods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="powerseries_section.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Power series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-3" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-4" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Radius of convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-5" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-6" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Manipulating power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-7" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Power series for rational functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerseries_section.html#powerseries_section-8" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="seriessols_section.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series solutions of linear second-order ODEs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="seriessols_section.html#seriessols_section-11" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="frobenius_section.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Singular points and the method of Frobenius</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The method of Frobenius</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="frobenius_section.html#bessel_subsection" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Bessel functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="frobenius_section.html#frobenius_section-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="nlin_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linearization_section.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Linearization, critical points, and equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Autonomous systems and phase plane analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="linearization_section.html#linearization_section-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinstability_section.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Isolated critical points and almost linear systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Stability and classification of isolated critical points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">The trouble with centers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Conservative equations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinstability_section.html#nlinstability_section-7" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="nlinapps_section.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Applications of nonlinear systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Pendulum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Predator-prey or Lotka–Volterra systems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="nlinapps_section.html#nlinapps_section-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="limitcycles_section.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Limit cycles</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="limitcycles_section.html#limitcycles_section-21" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_chaos.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Chaos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Duffing equation and strange attractors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">The Lorenz system</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_chaos.html#sec_chaos-5" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="diffyqs-13.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="linalg_appendix.html" class="internal"><span class="codenumber">A</span> <span class="title">Linear algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="vecsandmaps_section.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Vectors, mappings, and matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-3" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Vectors and operations on vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-4" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Linear mappings and matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="vecsandmaps_section.html#vecsandmaps_section-5" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="matalg_section.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Matrix algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-3" class="internal"><span class="codenumber">A.2.1</span> <span class="title">One-by-one matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-4" class="internal"><span class="codenumber">A.2.2</span> <span class="title">Matrix addition and scalar multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-5" class="internal"><span class="codenumber">A.2.3</span> <span class="title">Matrix multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-6" class="internal"><span class="codenumber">A.2.4</span> <span class="title">Some rules of matrix algebra</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-7" class="internal"><span class="codenumber">A.2.5</span> <span class="title">Inverse</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-8" class="internal"><span class="codenumber">A.2.6</span> <span class="title">Diagonal matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-9" class="internal"><span class="codenumber">A.2.7</span> <span class="title">Transpose</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="matalg_section.html#matalg_section-10" class="internal"><span class="codenumber">A.2.8</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="elim_section.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-3" class="internal"><span class="codenumber">A.3.1</span> <span class="title">Linear systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-4" class="internal"><span class="codenumber">A.3.2</span> <span class="title">Row echelon form and elementary operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-5" class="internal"><span class="codenumber">A.3.3</span> <span class="title">Non-unique solutions and inconsistent systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-6" class="internal"><span class="codenumber">A.3.4</span> <span class="title">Linear independence and rank</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="elim_section.html#elim_section-7" class="internal"><span class="codenumber">A.3.5</span> <span class="title">Computing the inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="elim_section.html#elim_section-8" class="internal"><span class="codenumber">A.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subspaces_section.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Subspaces, dimension, and the kernel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-3" class="internal"><span class="codenumber">A.4.1</span> <span class="title">Subspaces, basis, and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-4" class="internal"><span class="codenumber">A.4.2</span> <span class="title">Kernel</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="subspaces_section.html#subspaces_section-5" class="internal"><span class="codenumber">A.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="innerproduct_section.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Inner product and projections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-3" class="internal"><span class="codenumber">A.5.1</span> <span class="title">Inner product and orthogonality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-4" class="internal"><span class="codenumber">A.5.2</span> <span class="title">Orthogonal projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-5" class="internal"><span class="codenumber">A.5.3</span> <span class="title">Orthogonal basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-6" class="internal"><span class="codenumber">A.5.4</span> <span class="title">The Gram–Schmidt process</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="innerproduct_section.html#innerproduct_section-7" class="internal"><span class="codenumber">A.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="det_section.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Determinant</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="det_section.html#det_section-24" class="internal"><span class="codenumber">A.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="laplacelist_appendix.html" class="internal"><span class="codenumber">B</span> <span class="title">Table of Laplace Transforms</span></a></div></li>
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="diffyqs-13-4.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_matexp"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Matrix exponentials</span>
+</h2>
+<section class="introduction" id="sec_matexp-2"><div class="para" id="sec_matexp-2-1">
+<em class="emphasis">Note: 2 lectures, may need to refer to <a href="powerseries_section.html" class="internal" title="Section 7.1: Power series">Section 7.1</a>, §5.6 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, §7.7 in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="sec_matexp-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Definition</span>
+</h3>
+<div class="para logical" id="sec_matexp-3-2">
+<div class="para">There is another way of finding a fundamental matrix solution of a system. Consider the constant-coefficient equation</div>
+<div class="displaymath process-math" id="sec_matexp-3-2-1">
+\begin{equation}
+{\vec{x}}' = P \vec{x} .
+\end{equation}
+</div>
+<div class="para">If this would be just one equation (when <span class="process-math">\(P\)</span> is a number or a <span class="process-math">\(1
+\times 1\)</span> matrix), then the solution would be</div>
+<div class="displaymath process-math" id="sec_matexp-3-2-4">
+\begin{equation}
+\vec{x} = e^{Pt} .
+\end{equation}
+</div>
+<div class="para">That does not (yet) make sense if <span class="process-math">\(P\)</span> is a larger matrix, but essentially the same computation that led to the above works for matrices when we define <span class="process-math">\(e^{Pt}\)</span> properly.  First we write the Taylor series for <span class="process-math">\(e^{at}\)</span> for some number <span class="process-math">\(a\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec_matexp-3-2-9">
+\begin{equation}
+e^{at} = 1 + at
++ \frac{{(at)}^2}{2}
++ \frac{{(at)}^3}{6}
++ \frac{{(at)}^4}{24}
++ \cdots
+= \sum_{k=0}^\infty \frac{{(at)}^k}{k!} .
+\end{equation}
+</div>
+<div class="para">Recall <span class="process-math">\(k! = 1 \cdot 2 \cdot 3 \cdots k\)</span> is the factorial, and <span class="process-math">\(0! = 1\text{.}\)</span> We differentiate this series term by term</div>
+<div class="displaymath process-math" id="sec_matexp-3-2-12">
+\begin{equation}
+\frac{d}{dt} \left(e^{at} \right) = 
+0
++ a
++ a^2 t
++ \frac{a^3t^2}{2}
++ \frac{a^4t^3}{6}
++ \cdots
+= a \left(
+1
++ a t
++ \frac{{(at)}^2}{2}
++ \frac{{(at)}^3}{6}
++ \cdots \right)
+= a e^{at}.
+\end{equation}
+</div>
+<div class="para">Maybe we can try the same trick with matrices.  For an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> we define the <em class="emphasis">matrix exponential</em> as</div>
+<div class="displaymath process-math" id="sec_matexp-3-2-16">
+\begin{equation}
+\mybxbg{~~
+e^A \overset{\text{def}}{=} I + A + \frac{1}{2} A^2 + 
+\frac{1}{6} A^3 + \cdots + \frac{1}{k!} A^k + \cdots
+~~}
+\end{equation}
+</div>
+<div class="para">We will not worry about convergence—the series really does always converge. We usually write <span class="process-math">\(Pt\)</span> as <span class="process-math">\(tP\)</span> by convention when <span class="process-math">\(P\)</span> is a matrix. With this small change and by the exact same calculation as above, we have that</div>
+<div class="displaymath process-math" id="sec_matexp-3-2-20">
+\begin{equation}
+\frac{d}{dt} \left(e^{tP} \right) = 
+P e^{tP} .
+\end{equation}
+</div>
+<div class="para">Now <span class="process-math">\(P\)</span> and hence <span class="process-math">\(e^{tP}\)</span> is an <span class="process-math">\(n \times n\)</span> matrix.  What we are looking for is a vector.  In the <span class="process-math">\(1 \times 1\)</span> case we would at this point multiply by an arbitrary constant to get the general solution.  In the matrix case we multiply by a column vector <span class="process-math">\(\vec{c}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="sec_matexp-3-3"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_matexp-3-3-1-1">
+<div class="para">Let <span class="process-math">\(P\)</span> be an <span class="process-math">\(n \times n\)</span> matrix.  Then the general solution to <span class="process-math">\({\vec{x}}' = P \vec{x}\)</span> is</div>
+<div class="displaymath process-math" id="sec_matexp-3-3-1-1-4">
+\begin{equation}
+\vec{x} = e^{tP} \vec{c} ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(\vec{c}\)</span> is an arbitrary constant vector.  In fact, <span class="process-math">\(\vec{x}(0) =
+\vec{c}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.8.1"><a href="#sec_matexp-3-3" title="Copy heading and permalink for Theorem 3.8.1" aria-label="Copy heading and permalink for Theorem 3.8.1">🔗</a></div></article><div class="para logical" id="sec_matexp-3-4">
+<div class="para">Check:</div>
+<div class="displaymath process-math" id="sec_matexp-3-4-1">
+\begin{equation}
+\frac{d}{dt}
+\vec{x} =
+\frac{d}{dt} \left( 
+e^{tP} \vec{c}\, \right)
+=
+P e^{tP} \vec{c} =
+P \vec{x}.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_matexp-3-5">
+<div class="para">Hence <span class="process-math">\(e^{tP}\)</span> is a fundamental matrix solution of the homogeneous system. If we can compute the matrix exponential, we have another method of solving constant-coefficient homogeneous systems.  It also makes it easy to solve for initial conditions.  To solve <span class="process-math">\({\vec{x}}' = P \vec{x}\text{,}\)</span> <span class="process-math">\(\vec{x}(0) = \vec{b}\text{,}\)</span> we take the solution</div>
+<div class="displaymath process-math" id="sec_matexp-3-5-5">
+\begin{equation}
+\vec{x} = e^{tP} \vec{b} .
+\end{equation}
+</div>
+<div class="para">This equation follows because <span class="process-math">\(e^{0P} = I\text{,}\)</span> so <span class="process-math">\(\vec{x} (0) = e^{0P} \vec{b} = \vec{b}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_matexp-3-6">We mention a drawback of matrix exponentials. In general <span class="process-math">\(e^{A+B} \not= e^A e^B\text{.}\)</span>  The trouble is that matrices do not commute, that is, in general <span class="process-math">\(AB \not= BA\text{.}\)</span> If you would try to rewrite <span class="process-math">\(e^A e^B\)</span> as <span class="process-math">\(e^{A+B}\)</span> using the Taylor series, you will see why the lack of commutativity becomes a problem. It is true that if <span class="process-math">\(AB = BA\text{,}\)</span> that is, if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> commute, then <span class="process-math">\(e^{A+B} = e^Ae^B\text{.}\)</span>  We will find this fact useful.  We restate this as a theorem to make a point.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="sec_matexp-3-7"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_matexp-3-7-1-1">If <span class="process-math">\(AB = BA\text{,}\)</span> then <span class="process-math">\(e^{A+B} = e^Ae^B\text{.}\)</span>  Otherwise, <span class="process-math">\(e^{A+B} \not= e^Ae^B\)</span> in general.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.8.2"><a href="#sec_matexp-3-7" title="Copy heading and permalink for Theorem 3.8.2" aria-label="Copy heading and permalink for Theorem 3.8.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 3.8.1: Definition"><a href="#sec_matexp-3" title="Copy heading and permalink for Subsection 3.8.1: Definition" aria-label="Copy heading and permalink for Subsection 3.8.1: Definition">🔗</a></div></section><section class="subsection" id="sec_matexp-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Simple cases</span>
+</h3>
+<div class="para logical" id="sec_matexp-4-2">
+<div class="para">In some instances it may work to just plug into the series definition. Suppose the matrix is diagonal. For example, <span class="process-math">\(D = \left[ \begin{smallmatrix} a &amp; 0 \\ 0 &amp; b \end{smallmatrix} \right]\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="sec_matexp-4-2-3">
+\begin{equation}
+D^k = \begin{bmatrix} a^k &amp; 0 \\ 0 &amp; b^k \end{bmatrix} ,
+\end{equation}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="sec_matexp-4-2-4">
+\begin{equation}
+\begin{split}
+e^D &amp; =
+I + D + \frac{1}{2} D^2 + 
+\frac{1}{6} D^3 + \cdots
+\\
+&amp;=
+\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} +
+\begin{bmatrix} a &amp; 0 \\ 0 &amp; b \end{bmatrix} +
+\frac{1}{2}
+\begin{bmatrix} a^2 &amp; 0 \\ 0 &amp; b^2 \end{bmatrix} +
+\frac{1}{6}
+\begin{bmatrix} a^3 &amp; 0 \\ 0 &amp; b^3 \end{bmatrix} + \cdots
+=
+\begin{bmatrix} e^a &amp; 0 \\ 0 &amp; e^b \end{bmatrix} .
+\end{split}
+\end{equation}
+</div>
+<div class="para">In particular,</div>
+<div class="displaymath process-math" id="sec_matexp-4-2-5">
+\begin{equation}
+e^I = \begin{bmatrix} e &amp; 0\\ 0 &amp; e \end{bmatrix}
+\qquad \text{and} \qquad
+e^{aI} = \begin{bmatrix} e^a &amp; 0\\ 0 &amp; e^a \end{bmatrix}.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_matexp-4-3">
+<div class="para">This makes exponentials of certain other matrices easy to compute. For example, the matrix <span class="process-math">\(A = \left[ \begin{smallmatrix} 5 &amp; 4 \\ -1 &amp; 1 \end{smallmatrix} \right]\)</span> can be written as <span class="process-math">\(3I + B\)</span> where <span class="process-math">\(B = \left[ \begin{smallmatrix} 2 &amp; 4 \\ -1 &amp; -2 \end{smallmatrix} \right]\text{.}\)</span> Notice that <span class="process-math">\(B^2 = 
+\left[ \begin{smallmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{smallmatrix} \right]\text{.}\)</span>  So <span class="process-math">\(B^k = 0\)</span> for all <span class="process-math">\(k \geq 2\text{.}\)</span>  Therefore, <span class="process-math">\(e^B = I + B\text{.}\)</span>  Suppose we actually want to compute <span class="process-math">\(e^{tA}\text{.}\)</span>  The matrices <span class="process-math">\(3tI\)</span> and <span class="process-math">\(tB\)</span> commute (exercise: check this) and <span class="process-math">\(e^{tB} = I + tB\text{,}\)</span> since <span class="process-math">\({(tB)}^2 = t^2 B^2 = 0\text{.}\)</span> We write</div>
+<div class="displaymath process-math" id="sec_matexp-4-3-13">
+\begin{multline*}
+e^{tA} = 
+e^{3tI + tB} = e^{3tI} e^{tB} = 
+\begin{bmatrix} e^{3t} &amp; 0 \\ 0 &amp; e^{3t} \end{bmatrix}
+\left(
+I + tB
+\right)
+=
+\\
+=
+\begin{bmatrix} e^{3t} &amp; 0 \\ 0 &amp; e^{3t} \end{bmatrix}
+\begin{bmatrix} 1+2t &amp; 4t \\ -t &amp; 1-2t \end{bmatrix}
+=
+\begin{bmatrix} (1+2t)\,e^{3t} &amp; 4te^{3t} \\ -te^{3t} &amp; (1-2t)\,e^{3t} \end{bmatrix} .
+\end{multline*}
+</div>
+<div class="para">We found a fundamental matrix solution for the system <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span>  Note that this matrix has a repeated eigenvalue with a defect; there is only one eigenvector for the eigenvalue 3.  So we found a perhaps easier way to handle this case.  In fact, if a matrix <span class="process-math">\(A\)</span> is <span class="process-math">\(2 \times 2\)</span> and has an eigenvalue <span class="process-math">\(\lambda\)</span> of multiplicity 2, then either <span class="process-math">\(A = \lambda I\text{,}\)</span> or <span class="process-math">\(A = \lambda I + B\)</span> where <span class="process-math">\(B^2 = 0\text{.}\)</span>  This is a good exercise.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec_matexp-4-4"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_matexp-4-4-1-1">Suppose that <span class="process-math">\(A\)</span> is <span class="process-math">\(2 \times 2\)</span> and <span class="process-math">\(\lambda\)</span> is the only eigenvalue.  Show that <span class="process-math">\({(A - \lambda I)}^2 = 0\text{,}\)</span> and therefore that we can write <span class="process-math">\(A = \lambda I + B\text{,}\)</span> where <span class="process-math">\(B^2 = 0\)</span> (and possibly <span class="process-math">\(B=0\)</span>). Hint: First write down what does it mean for the eigenvalue to be of multiplicity 2. You will get an equation for the entries.  Now compute the square of <span class="process-math">\(B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-4-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.1"><a href="#sec_matexp-4-4" title="Copy heading and permalink for Exercise 3.8.1" aria-label="Copy heading and permalink for Exercise 3.8.1">🔗</a></div></article><div class="para" id="sec_matexp-4-5">Matrices <span class="process-math">\(B\)</span> such that <span class="process-math">\(B^k = 0\)</span> for some <span class="process-math">\(k\)</span> are called <em class="emphasis">nilpotent</em>.  Computation of the matrix exponential for nilpotent matrices is easy by just writing down the first <span class="process-math">\(k\)</span> terms of the Taylor series.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 3.8.2: Simple cases"><a href="#sec_matexp-4" title="Copy heading and permalink for Subsection 3.8.2: Simple cases" aria-label="Copy heading and permalink for Subsection 3.8.2: Simple cases">🔗</a></div></section><section class="subsection" id="sec_matexp-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">General matrices</span>
+</h3>
+<div class="para logical" id="sec_matexp-5-2">
+<div class="para">In general, the exponential is not as easy to compute as above.  We usually cannot write a matrix as a sum of commuting matrices where the exponential is simple for each one.  But fear not, it is still not too difficult provided we can find enough eigenvectors.  First we need the following interesting result about matrix exponentials.  For two square matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> with <span class="process-math">\(B\)</span> invertible, we have</div>
+<div class="displaymath process-math" id="sec_matexp-5-2-4">
+\begin{equation}
+e^{BAB^{-1}} = B e^A B^{-1} .
+\end{equation}
+</div>
+<div class="para">This can be seen by writing down the Taylor series.  First</div>
+<div class="displaymath process-math" id="sec_matexp-5-2-5">
+\begin{equation}
+{(BAB^{-1})}^2 =
+BAB^{-1} BAB^{-1} =
+BAIAB^{-1} =
+BA^2B^{-1} .
+\end{equation}
+</div>
+<div class="para">And by the same reasoning <span class="process-math">\({(BAB^{-1})}^k = B A^k B^{-1}\text{.}\)</span>  Now write the Taylor series for <span class="process-math">\(e^{BAB^{-1}}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec_matexp-5-2-8">
+\begin{equation}
+\begin{split}
+e^{BAB^{-1}} &amp; =
+I + {BAB^{-1}} + \frac{1}{2} {(BAB^{-1})}^2 + 
+\frac{1}{6} {(BAB^{-1})}^3 + \cdots
+\\
+&amp; =
+BB^{-1} + {BAB^{-1}} + \frac{1}{2} BA^2B^{-1} + 
+\frac{1}{6} BA^3B^{-1} + \cdots
+\\
+&amp; =
+B \bigl(
+I + A + \frac{1}{2} A^2 + 
+\frac{1}{6} A^3 + \cdots \bigr) B^{-1} \\
+&amp; = B e^A B^{-1} .
+\end{split}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_matexp-5-3">
+<div class="para">Given a square matrix <span class="process-math">\(A\text{,}\)</span> we can usually write <span class="process-math">\(A = E D E^{-1}\text{,}\)</span> where <span class="process-math">\(D\)</span> is diagonal and <span class="process-math">\(E\)</span> invertible. This procedure is called <em class="emphasis">diagonalization</em>. If we can do that, the computation  of the exponential becomes easy as <span class="process-math">\(e^D\)</span> is just taking the exponential of the entries on the diagonal.  Adding <span class="process-math">\(t\)</span> into the mix, we can then compute the exponential</div>
+<div class="displaymath process-math" id="sec_matexp-5-3-8">
+\begin{equation}
+e^{tA} = E e^{tD} E^{-1} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_matexp-5-4">
+<div class="para">To diagonalize <span class="process-math">\(A\)</span> we need <span class="process-math">\(n\)</span> linearly independent eigenvectors of <span class="process-math">\(A\text{.}\)</span> Otherwise, this method of computing the exponential does not work and we need to be trickier, but we will not get into such details. Let <span class="process-math">\(E\)</span> be the matrix with the eigenvectors as columns. Let <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> ..., <span class="process-math">\(\lambda_n\)</span> be the eigenvalues and let <span class="process-math">\(\vec{v}_1\text{,}\)</span> <span class="process-math">\(\vec{v}_2\text{,}\)</span> ..., <span class="process-math">\(\vec{v}_n\)</span> be the eigenvectors, then <span class="process-math">\(E = [\, \vec{v}_1 \quad \vec{v}_2 \quad \cdots \quad \vec{v}_n \,]\text{.}\)</span> Make a diagonal matrix <span class="process-math">\(D\)</span> with the eigenvalues on the diagonal:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_diagfundsol.html" id="sec_matexp-5-4-13">
+\begin{equation}
+D =
+\begin{bmatrix}
+\lambda_1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \lambda_2 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_n
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">We compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_diagfundsol.html" id="sec_matexp-5-4-14">
+\begin{equation}
+\begin{split}
+AE &amp; = A 
+[\, \vec{v}_1 \quad \vec{v}_2 \quad \cdots \quad \vec{v}_n \,]
+\\
+&amp; =
+[\, A\vec{v}_1 \quad A\vec{v}_2 \quad \cdots \quad A\vec{v}_n \,]
+\\
+&amp; =
+[\, \lambda_1 \vec{v}_1 \quad \lambda_2 \vec{v}_2 \quad \cdots \quad
+\lambda_n \vec{v}_n \,]
+\\
+&amp; =
+[\, \vec{v}_1 \quad \vec{v}_2 \quad \cdots \quad \vec{v}_n \,] D
+\\
+&amp; =
+ED .
+\end{split}
+\end{equation}
+</div>
+<div class="para">The columns of <span class="process-math">\(E\)</span> are linearly independent as these are linearly independent eigenvectors of <span class="process-math">\(A\text{.}\)</span>  Hence <span class="process-math">\(E\)</span> is invertible. Since <span class="process-math">\(AE = ED\text{,}\)</span> we multiply on the right by <span class="process-math">\(E^{-1}\)</span> and we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_diagfundsol.html" id="sec_matexp-5-4-20">
+\begin{equation}
+A = E D E^{-1}.
+\end{equation}
+</div>
+<div class="para">This means that <span class="process-math">\(e^A = E e^D E^{-1}\text{.}\)</span>  Multiplying the matrix by <span class="process-math">\(t\text{,}\)</span> we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_diagfundsol.html" id="matexp_diagfundsol">
+\begin{equation}
+\mybxbg{~~
+e^{tA} = 
+Ee^{tD}E^{-1} = 
+E
+\begin{bmatrix}
+e^{\lambda_1 t} &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; e^{\lambda_2 t} &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; e^{\lambda_n t}
+\end{bmatrix} 
+E^{-1} .
+~~}\tag{3.5}
+\end{equation}
+</div>
+<div class="para">The formula <a href="sec_matexp.html#matexp_diagfundsol" class="xref" data-knowl="./knowl/xref/matexp_diagfundsol.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.5">(3.5)</a>, therefore, gives the formula for computing a fundamental matrix solution <span class="process-math">\(e^{tA}\)</span> for the system <span class="process-math">\({\vec{x}}' = A \vec{x}\text{,}\)</span> in the case where we have <span class="process-math">\(n\)</span> linearly independent eigenvectors.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_matexp-5-5">This computation still works when the eigenvalues and eigenvectors are complex, though then you have to compute with complex numbers.  It is clear from the definition that if <span class="process-math">\(A\)</span> is real, then <span class="process-math">\(e^{tA}\)</span> is real.  So you will only need complex numbers in the computation and not for the result.  You may need to apply <a href="sec_ccsol.html#eulersformula" class="xref" data-knowl="./knowl/xref/eulersformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Euler’s formula">Euler’s formula</a> to simplify the result.  If simplified properly, the final matrix will not have any complex numbers in it.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_matexp-5-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_matexp-5-6-1-1">
+<div class="para">Compute a fundamental matrix solution using the matrix exponential for the system</div>
+<div class="displaymath process-math" id="sec_matexp-5-6-1-1-1">
+\begin{equation}
+\begin{bmatrix}
+x \\ y
+\end{bmatrix} '
+=
+\begin{bmatrix}
+1 &amp; 2 \\
+2 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\ y
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">Then compute the particular solution for the initial conditions <span class="process-math">\(x(0) = 4\)</span> and <span class="process-math">\(y(0) = 2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="sec_matexp-5-6-1-2">
+<div class="para">Let <span class="process-math">\(A\)</span> be the coefficient matrix <span class="process-math">\(\left[ \begin{smallmatrix}
+1 &amp; 2 \\
+2 &amp; 1
+\end{smallmatrix} \right]\text{.}\)</span> We first compute (exercise) that the eigenvalues are 3 and <span class="process-math">\(-1\)</span> and corresponding eigenvectors are <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ 1 \end{smallmatrix} \right]\)</span> and <span class="process-math">\(\left[ \begin{smallmatrix} 1 \\ -1 \end{smallmatrix} \right]\text{.}\)</span> Hence the diagonalization of <span class="process-math">\(A\)</span> is</div>
+<div class="displaymath process-math" id="sec_matexp-5-6-1-2-7">
+\begin{equation}
+\underbrace{
+\begin{bmatrix}
+1 &amp; 2 \\
+2 &amp; 1
+\end{bmatrix}
+}_{A}
+=
+\underbrace{
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}
+}_{E}
+\underbrace{
+\begin{bmatrix}
+3 &amp; 0 \\
+0 &amp; -1
+\end{bmatrix}
+}_{D}
+\underbrace{
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}^{-1}
+}_{E^{-1}} .
+\end{equation}
+</div>
+<div class="para">We write</div>
+<div class="displaymath process-math" id="sec_matexp-5-6-1-2-8">
+\begin{equation}
+\begin{split}
+e^{t A}
+=
+E e^{tD} E^{-1}
+&amp; =
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+e^{3t} &amp; 0 \\
+0 &amp; e^{-t}
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}^{-1}
+\\
+&amp; =
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+e^{3t} &amp; 0 \\
+0 &amp; e^{-t}
+\end{bmatrix}
+\frac{-1}{2}
+\begin{bmatrix}
+-1 &amp; -1 \\
+-1 &amp; 1
+\end{bmatrix}
+\\
+&amp; =
+\frac{-1}{2}
+\begin{bmatrix}
+e^{3t} &amp; e^{-t} \\
+e^{3t} &amp; -e^{-t}
+\end{bmatrix}
+\begin{bmatrix}
+-1 &amp; -1 \\
+-1 &amp; 1
+\end{bmatrix}
+\\
+&amp; =
+\frac{-1}{2}
+\begin{bmatrix}
+-e^{3t}-e^{-t} &amp; -e^{3t}+e^{-t} \\
+-e^{3t}+e^{-t} &amp; -e^{3t}-e^{-t}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{e^{3t}+e^{-t}}{2} &amp; \frac{e^{3t}-e^{-t}}{2} \\
+\frac{e^{3t}-e^{-t}}{2} &amp; \frac{e^{3t}+e^{-t}}{2}
+\end{bmatrix} .
+\end{split}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="sec_matexp-5-6-1-3">
+<div class="para">The initial conditions are <span class="process-math">\(x(0) = 4\)</span> and <span class="process-math">\(y(0) = 2\text{.}\)</span>  Hence, by the property that <span class="process-math">\(e^{0A} = I\text{,}\)</span> we find that the particular solution we are looking for is <span class="process-math">\(e^{tA} \vec{b}\)</span> where <span class="process-math">\(\vec{b}\)</span> is <span class="process-math">\(\left[
+\begin{smallmatrix} 4 \\ 2 \end{smallmatrix} \right]\text{.}\)</span> The particular solution we are looking for is</div>
+<div class="displaymath process-math" id="sec_matexp-5-6-1-3-7">
+\begin{equation}
+\begin{bmatrix}
+x \\ y
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{e^{3t}+e^{-t}}{2} &amp; \frac{e^{3t}-e^{-t}}{2} \\
+\frac{e^{3t}-e^{-t}}{2} &amp; \frac{e^{3t}+e^{-t}}{2}
+\end{bmatrix}
+\begin{bmatrix}
+4 \\ 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+2e^{3t}+2e^{-t} + e^{3t}-e^{-t} \\
+2e^{3t}-2e^{-t} + e^{3t}+e^{-t}
+\end{bmatrix}
+=
+\begin{bmatrix}
+3e^{3t}+e^{-t} \\
+3e^{3t}-e^{-t}
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-5-6-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.8.1"><a href="#sec_matexp-5-6" title="Copy heading and permalink for Example 3.8.1" aria-label="Copy heading and permalink for Example 3.8.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 3.8.3: General matrices"><a href="#sec_matexp-5" title="Copy heading and permalink for Subsection 3.8.3: General matrices" aria-label="Copy heading and permalink for Subsection 3.8.3: General matrices">🔗</a></div></section><section class="subsection" id="sec_matexp-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fundamental matrix solutions</span>
+</h3>
+<div class="para logical" id="sec_matexp-6-2">
+<div class="para">If you can compute a fundamental matrix solution in a different way, you can use this to find the matrix exponential <span class="process-math">\(e^{tA}\text{.}\)</span> A fundamental matrix solution of a system of ODEs is not unique.  The exponential is the fundamental matrix solution with the property that for <span class="process-math">\(t=0\)</span> we get the identity matrix.  So we must find the right fundamental matrix solution.  Let <span class="process-math">\(X\)</span> be any fundamental matrix solution to <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span>  We claim</div>
+<div class="displaymath process-math" id="sec_matexp-6-2-5">
+\begin{equation}
+e^{tA} = X(t) \left[ X(0) \right]^{-1} .
+\end{equation}
+</div>
+<div class="para">If we plug <span class="process-math">\(t=0\)</span> into <span class="process-math">\(X(t) \left[ X(0) \right]^{-1}\text{,}\)</span> we get the identity as needed. We can multiply a fundamental matrix solution on the right by any constant invertible matrix and we still get a fundamental matrix solution. All we are doing is changing what are the arbitrary constants in the general solution <span class="process-math">\(\vec{x}(t) = X(t)\, \vec{c}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 3.8.4: Fundamental matrix solutions"><a href="#sec_matexp-6" title="Copy heading and permalink for Subsection 3.8.4: Fundamental matrix solutions" aria-label="Copy heading and permalink for Subsection 3.8.4: Fundamental matrix solutions">🔗</a></div></section><section class="subsection" id="sec_matexp-7"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Approximations</span>
+</h3>
+<div class="para" id="sec_matexp-7-2">If you think about it, the computation of any fundamental matrix solution <span class="process-math">\(X\)</span> using the eigenvalue method is just as difficult as the computation of <span class="process-math">\(e^{tA}\text{.}\)</span> So perhaps we did not gain much by this new tool.  However, the Taylor series expansion actually gives us a way to approximate solutions, which the eigenvalue method did not.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_matexp-7-3">
+<div class="para">The simplest thing we can do is to just compute the series up to a certain number of terms.  There are better ways to approximate the exponential<details class="ptx-footnote" aria-live="polite" id="sec_matexp-7-3-1"><summary class="ptx-footnote__number" title="Footnote 3.8.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_matexp-7-3-1">C. Moler and C.F. Van Loan, <em class="emphasis">Nineteen Dubious Ways to Compute the Exponential of a Matrix, Twenty-Five Years Later</em>, SIAM Review 45 (1), 2003, 3–49</div></details>.  In many cases, however, few terms of the Taylor series give a reasonable approximation for the exponential and may suffice for the application.  For example, let us compute the first 4 terms of the series for the matrix <span class="process-math">\(A = 
+\left[ \begin{smallmatrix}
+1 &amp; 2 \\
+2 &amp; 1
+\end{smallmatrix} \right]\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="sec_matexp-7-3-3">
+\begin{multline*}
+e^{tA}
+\approx
+I + tA + \frac{t^2}{2}A^2 + \frac{t^3}{6}A^3
+=
+I + t
+\begin{bmatrix}
+1 &amp; 2 \\
+\noalign{\smallskip}
+2 &amp; 1
+\end{bmatrix}
++ t^2
+\begin{bmatrix}
+\frac{5}{2} &amp; 2 \\
+\noalign{\smallskip}
+2 &amp; \frac{5}{2}
+\end{bmatrix}
++ t^3
+\begin{bmatrix}
+\frac{13}{6} &amp; \frac{7}{3} \\
+\noalign{\smallskip}
+\frac{7}{3} &amp; \frac{13}{6}
+\end{bmatrix}
+=
+\\
+=
+\begin{bmatrix}
+1 + t + \frac{5}{2}\, t^2 + \frac{13}{6}\, t^3 &amp;
+2\,t + 2\, t^2   + \frac{7}{3}\, t^3 \\
+\noalign{\smallskip}
+2\,t + 2\, t^2   + \frac{7}{3}\, t^3 &amp;
+1 + t + \frac{5}{2}\, t^2 + \frac{13}{6}\, t^3
+\end{bmatrix} .
+\end{multline*}
+</div>
+<div class="para">Just like the scalar version of the Taylor series approximation, the approximation will be better for small <span class="process-math">\(t\)</span> and worse for larger <span class="process-math">\(t\text{.}\)</span>  For larger <span class="process-math">\(t\text{,}\)</span> we will have to compute more terms. Let us see how we stack up against the real solution with <span class="process-math">\(t=0.1\text{.}\)</span>  The approximate solution is approximately (rounded to 8 decimal places)</div>
+<div class="displaymath process-math" id="sec_matexp-7-3-8">
+\begin{equation}
+e^{0.1\,A} \approx
+I + 0.1\,A + \frac{0.1^2}{2}A^2 + \frac{0.1^3}{6}A^3
+=
+\begin{bmatrix}
+1.12716667 &amp; 0.22233333 \\
+0.22233333 &amp; 1.12716667 \\
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">Plugging <span class="process-math">\(t=0.1\)</span> into the real solution (rounded to 8 decimal places), we get</div>
+<div class="displaymath process-math" id="sec_matexp-7-3-10">
+\begin{equation}
+e^{0.1\,A} = 
+\begin{bmatrix}
+1.12734811 &amp; 0.22251069 \\
+0.22251069 &amp; 1.12734811
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">Not bad at all!  Although if we take the same approximation for <span class="process-math">\(t=1\text{,}\)</span> we get</div>
+<div class="displaymath process-math" id="sec_matexp-7-3-12">
+\begin{equation}
+I + A + \frac{1}{2}A^2 + \frac{1}{6}A^3
+=
+\begin{bmatrix}
+6.66666667 &amp; 6.33333333 \\
+6.33333333 &amp; 6.66666667
+\end{bmatrix} ,
+\end{equation}
+</div>
+<div class="para">while the real value is (again rounded to 8 decimal places)</div>
+<div class="displaymath process-math" id="sec_matexp-7-3-13">
+\begin{equation}
+e^{A} =
+\begin{bmatrix}
+10.22670818           &amp; \phantom{0}9.85882874 \\
+\phantom{0}9.85882874 &amp; 10.22670818
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">So the approximation is not very good once we get up to <span class="process-math">\(t=1\text{.}\)</span>  To get a good approximation at <span class="process-math">\(t=1\)</span> (say up to 2 decimal places), we would need to go up to the <span class="process-math">\({11}^{\text{th}}\)</span> power (exercise).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 3.8.5: Approximations"><a href="#sec_matexp-7" title="Copy heading and permalink for Subsection 3.8.5: Approximations" aria-label="Copy heading and permalink for Subsection 3.8.5: Approximations">🔗</a></div></section><section class="exercises" id="sec_matexp-8"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.8.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="sec_matexp-8-1"><h4 class="heading"><span class="codenumber">3.8.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-1-1-1">Using the matrix exponential, find a fundamental matrix solution for the system <span class="process-math">\(x' = 3x+y\text{,}\)</span> <span class="process-math">\(y' = x+3y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.2"><a href="#sec_matexp-8-1" title="Copy heading and permalink for Exercise 3.8.2" aria-label="Copy heading and permalink for Exercise 3.8.2">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-2"><h4 class="heading"><span class="codenumber">3.8.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-2-1-1">Find <span class="process-math">\(e^{tA}\)</span> for the matrix <span class="process-math">\(A =
+\left[ \begin{smallmatrix}
+2 &amp; 3 \\
+0 &amp; 2
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.3"><a href="#sec_matexp-8-2" title="Copy heading and permalink for Exercise 3.8.3" aria-label="Copy heading and permalink for Exercise 3.8.3">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-3"><h4 class="heading"><span class="codenumber">3.8.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-3-1-1">Find a fundamental matrix solution for the system <span class="process-math">\(x_1' = 7x_1+4x_2+ 12x_3\text{,}\)</span> <span class="process-math">\(x_2' = x_1+2x_2+x_3\text{,}\)</span> <span class="process-math">\(x_3' = -3x_1-2x_2- 5x_3\text{.}\)</span>  Then find the solution that satisfies <span class="process-math">\(\vec{x}(0) = 
+\left[ \begin{smallmatrix} 0 \\ 1 \\ -2 \end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.4"><a href="#sec_matexp-8-3" title="Copy heading and permalink for Exercise 3.8.4" aria-label="Copy heading and permalink for Exercise 3.8.4">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-4"><h4 class="heading"><span class="codenumber">3.8.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-4-1-1">Compute the matrix exponential <span class="process-math">\(e^A\)</span> for <span class="process-math">\(A = \left[ \begin{smallmatrix} 1 &amp; 2 \\ 0 &amp; 1 \end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.5"><a href="#sec_matexp-8-4" title="Copy heading and permalink for Exercise 3.8.5" aria-label="Copy heading and permalink for Exercise 3.8.5">🔗</a></div></article><article class="exercise exercise-like" id="matexp_explawex"><h4 class="heading"><span class="codenumber">3.8.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="matexp_explawex-1-1">
+<em class="emphasis">(challenging)</em>   Suppose <span class="process-math">\(AB = BA\text{.}\)</span>  Show that under this assumption, <span class="process-math">\(e^{A+B} = e^A e^B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#matexp_explawex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.6"><a href="#matexp_explawex" title="Copy heading and permalink for Exercise 3.8.6" aria-label="Copy heading and permalink for Exercise 3.8.6">🔗</a></div></article><article class="exercise exercise-like" id="matexp_expinvex"><h4 class="heading"><span class="codenumber">3.8.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="matexp_expinvex-1-1">Use <a href="sec_matexp.html#matexp_explawex" class="xref" data-knowl="./knowl/xref/matexp_explawex.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.8.6">Exercise 3.8.6</a> to show that <span class="process-math">\({(e^{A})}^{-1} = e^{-A}\text{.}\)</span>  In particular, <span class="process-math">\(e^A\)</span> is invertible even if <span class="process-math">\(A\)</span> is not.<div class="autopermalink" data-description="Paragraph"><a href="#matexp_expinvex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.7"><a href="#matexp_expinvex" title="Copy heading and permalink for Exercise 3.8.7" aria-label="Copy heading and permalink for Exercise 3.8.7">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-7"><h4 class="heading"><span class="codenumber">3.8.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-7-1-1">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(2 \times 2\)</span> matrix with eigenvalues <span class="process-math">\(-1\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and corresponding eigenvectors <span class="process-math">\(\left[ \begin{smallmatrix}
+1 \\
+1
+\end{smallmatrix} \right]\text{,}\)</span> <span class="process-math">\(\left[ \begin{smallmatrix}
+0 \\
+1
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1" id="sec_matexp-8-7-1-2">
+<li id="sec_matexp-8-7-1-2-1">
+<div class="para" id="sec_matexp-8-7-1-2-1-1">Find matrix <span class="process-math">\(A\)</span> with these properties.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.8.a"><a href="#sec_matexp-8-7-1-2-1" title="Copy heading and permalink for Item 3.8.8.a" aria-label="Copy heading and permalink for Item 3.8.8.a">🔗</a></div>
+</li>
+<li id="sec_matexp-8-7-1-2-2">
+<div class="para" id="sec_matexp-8-7-1-2-2-1">Find a fundamental matrix solution to <span class="process-math">\({\vec{x}}' = A \vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.8.b"><a href="#sec_matexp-8-7-1-2-2" title="Copy heading and permalink for Item 3.8.8.b" aria-label="Copy heading and permalink for Item 3.8.8.b">🔗</a></div>
+</li>
+<li id="sec_matexp-8-7-1-2-3">
+<div class="para" id="sec_matexp-8-7-1-2-3-1">Solve the system in with initial conditions <span class="process-math">\(\vec{x}(0) =
+\left[ \begin{smallmatrix}
+2 \\
+3
+\end{smallmatrix} \right]\)</span> .<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-7-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.8.c"><a href="#sec_matexp-8-7-1-2-3" title="Copy heading and permalink for Item 3.8.8.c" aria-label="Copy heading and permalink for Item 3.8.8.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 3.8.8"><a href="#sec_matexp-8-7" title="Copy heading and permalink for Exercise 3.8.8" aria-label="Copy heading and permalink for Exercise 3.8.8">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-8"><h4 class="heading"><span class="codenumber">3.8.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-8-1-1">Suppose that <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix with a repeated eigenvalue <span class="process-math">\(\lambda\)</span> of multiplicity <span class="process-math">\(n\)</span> with <span class="process-math">\(n\)</span> linearly independent eigenvectors.  Show that the matrix is diagonal, in fact, <span class="process-math">\(A = \lambda I\text{.}\)</span>  Hint: Use diagonalization and the fact that the identity matrix commutes with every other matrix.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.9"><a href="#sec_matexp-8-8" title="Copy heading and permalink for Exercise 3.8.9" aria-label="Copy heading and permalink for Exercise 3.8.9">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-9"><h4 class="heading"><span class="codenumber">3.8.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-9-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix}
+-1 &amp; -1 \\
+1 &amp; -3
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="sec_matexp-8-9-1-2">
+<li id="sec_matexp-8-9-1-2-1">
+<div class="para" id="sec_matexp-8-9-1-2-1-1">Find <span class="process-math">\(e^{tA}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.10.a"><a href="#sec_matexp-8-9-1-2-1" title="Copy heading and permalink for Item 3.8.10.a" aria-label="Copy heading and permalink for Item 3.8.10.a">🔗</a></div>
+</li>
+<li id="sec_matexp-8-9-1-2-2">
+<div class="para" id="sec_matexp-8-9-1-2-2-1">Solve <span class="process-math">\({\vec{x}}' = A \vec{x}\text{,}\)</span> <span class="process-math">\(\vec{x}(0) =
+\left[ \begin{smallmatrix}
+1 \\
+-2
+\end{smallmatrix} \right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.10.b"><a href="#sec_matexp-8-9-1-2-2" title="Copy heading and permalink for Item 3.8.10.b" aria-label="Copy heading and permalink for Item 3.8.10.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 3.8.10"><a href="#sec_matexp-8-9" title="Copy heading and permalink for Exercise 3.8.10" aria-label="Copy heading and permalink for Exercise 3.8.10">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-10"><h4 class="heading"><span class="codenumber">3.8.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-10-1-1">Let <span class="process-math">\(A = \left[ \begin{smallmatrix}
+1 &amp; 2 \\
+3 &amp; 4 
+\end{smallmatrix} \right]\text{.}\)</span> Approximate <span class="process-math">\(e^{tA}\)</span> by expanding the power series up to the third order.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.8.11"><a href="#sec_matexp-8-10" title="Copy heading and permalink for Exercise 3.8.11" aria-label="Copy heading and permalink for Exercise 3.8.11">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-11"><h4 class="heading"><span class="codenumber">3.8.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-11-1-1">For any positive integer <span class="process-math">\(n\text{,}\)</span> find a formula (or a recipe) for <span class="process-math">\(A^n\)</span> for the following matrices:<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols4 multicolumn" id="sec_matexp-8-11-1-2">
+<li id="sec_matexp-8-11-1-2-1">
+<div class="para" id="sec_matexp-8-11-1-2-1-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+3 &amp; 0 \\ 0 &amp; 9
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-11-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.12.a"><a href="#sec_matexp-8-11-1-2-1" title="Copy heading and permalink for Item 3.8.12.a" aria-label="Copy heading and permalink for Item 3.8.12.a">🔗</a></div>
+</li>
+<li id="sec_matexp-8-11-1-2-2">
+<div class="para" id="sec_matexp-8-11-1-2-2-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+5 &amp; 2 \\ 4 &amp; 7
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-11-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.12.b"><a href="#sec_matexp-8-11-1-2-2" title="Copy heading and permalink for Item 3.8.12.b" aria-label="Copy heading and permalink for Item 3.8.12.b">🔗</a></div>
+</li>
+<li id="sec_matexp-8-11-1-2-3">
+<div class="para" id="sec_matexp-8-11-1-2-3-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+0 &amp; 1 \\ 0 &amp; 0
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-11-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.12.c"><a href="#sec_matexp-8-11-1-2-3" title="Copy heading and permalink for Item 3.8.12.c" aria-label="Copy heading and permalink for Item 3.8.12.c">🔗</a></div>
+</li>
+<li id="sec_matexp-8-11-1-2-4">
+<div class="para" id="sec_matexp-8-11-1-2-4-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+2 &amp; 1 \\ 0 &amp; 2
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-11-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.12.d"><a href="#sec_matexp-8-11-1-2-4" title="Copy heading and permalink for Item 3.8.12.d" aria-label="Copy heading and permalink for Item 3.8.12.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 3.8.12"><a href="#sec_matexp-8-11" title="Copy heading and permalink for Exercise 3.8.12" aria-label="Copy heading and permalink for Exercise 3.8.12">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-12"><h4 class="heading"><span class="codenumber">3.8.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-12-1-1">Compute <span class="process-math">\(e^{tA}\)</span> where <span class="process-math">\(A=\left[ \begin{smallmatrix}
+1 &amp; -2 \\
+-2 &amp; 1 
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec_matexp-8-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec_matexp-8-12-2-1">
+<span class="process-math">\(e^{tA}=\left[ \begin{smallmatrix}
+\frac{{e}^{3t}+{e}^{-t}}{2} &amp; \quad
+\frac{{e}^{-t}-{e}^{3t}}{2}\\
+\frac{{e}^{-t}-{e}^{3t}}{2} &amp; \quad
+\frac{{e}^{3t}+{e}^{-t}}{2}
+\end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.8.101.1"><a href="#sec_matexp-8-12-2" title="Copy heading and permalink for Answer 3.8.101.1" aria-label="Copy heading and permalink for Answer 3.8.101.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3.8.101"><a href="#sec_matexp-8-12" title="Copy heading and permalink for Exercise 3.8.101" aria-label="Copy heading and permalink for Exercise 3.8.101">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-13"><h4 class="heading"><span class="codenumber">3.8.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-13-1-1">Compute <span class="process-math">\(e^{tA}\)</span> where <span class="process-math">\(A=\left[ \begin{smallmatrix}
+1 &amp; -3 &amp; 2 \\
+-2 &amp; 1 &amp; 2 \\
+-1 &amp; -3 &amp; 4
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec_matexp-8-13-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec_matexp-8-13-2-1">
+<span class="process-math">\(e^{tA}=\left[ \begin{smallmatrix}
+2{e}^{3t}-4{e}^{2t}+3{e}^{t} &amp; \quad
+\frac{3{e}^{t}}{2}-\frac{3{e}^{3t}}{2} &amp; \quad
+-{e}^{3t}+4{e}^{2t}-3{e}^{t} \\
+2{e}^{t}-2{e}^{2t} &amp; \quad
+{e}^{t} &amp; \quad
+2{e}^{2t}-2{e}^{t} \\
+2{e}^{3t}-5{e}^{2t}+3{e}^{t} &amp; \quad
+\frac{3{e}^{t}}{2}-\frac{3{e}^{3t}}{2} &amp; \quad
+-{e}^{3t}+5{e}^{2t}-3{e}^{t}
+\end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.8.102.1"><a href="#sec_matexp-8-13-2" title="Copy heading and permalink for Answer 3.8.102.1" aria-label="Copy heading and permalink for Answer 3.8.102.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3.8.102"><a href="#sec_matexp-8-13" title="Copy heading and permalink for Exercise 3.8.102" aria-label="Copy heading and permalink for Exercise 3.8.102">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-14"><h4 class="heading"><span class="codenumber">3.8.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-14-1-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="sec_matexp-8-14-1-2">
+<li id="sec_matexp-8-14-1-2-1">
+<div class="para" id="sec_matexp-8-14-1-2-1-1">Compute <span class="process-math">\(e^{tA}\)</span> where <span class="process-math">\(A=\left[ \begin{smallmatrix}
+3 &amp; -1 \\
+1 &amp; 1 
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-14-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.103.a"><a href="#sec_matexp-8-14-1-2-1" title="Copy heading and permalink for Item 3.8.103.a" aria-label="Copy heading and permalink for Item 3.8.103.a">🔗</a></div>
+</li>
+<li id="sec_matexp-8-14-1-2-2">
+<div class="para" id="sec_matexp-8-14-1-2-2-1">Solve <span class="process-math">\(\vec{x}\,' = A \vec{x}\)</span> for <span class="process-math">\(\vec{x}(0) =
+\left[ \begin{smallmatrix}
+1 \\ 2
+\end{smallmatrix}\right]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-14-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.103.b"><a href="#sec_matexp-8-14-1-2-2" title="Copy heading and permalink for Item 3.8.103.b" aria-label="Copy heading and permalink for Item 3.8.103.b">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="sec_matexp-8-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec_matexp-8-14-2-1">a) <span class="process-math">\(e^{tA}=\left[ \begin{smallmatrix}
+( t+1) \,{e}^{2t} &amp; -t{e}^{2t} \\
+t{e}^{2t} &amp; ( 1-t) \,{e}^{2t}
+\end{smallmatrix}\right]\)</span>     b) <span class="process-math">\(\vec{x}=\left[ \begin{smallmatrix}
+(1-t) \,{e}^{2t} \\
+(2-t) \,{e}^{2t}
+\end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.8.103.1"><a href="#sec_matexp-8-14-2" title="Copy heading and permalink for Answer 3.8.103.1" aria-label="Copy heading and permalink for Answer 3.8.103.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3.8.103"><a href="#sec_matexp-8-14" title="Copy heading and permalink for Exercise 3.8.103" aria-label="Copy heading and permalink for Exercise 3.8.103">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-15"><h4 class="heading"><span class="codenumber">3.8.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-15-1-1">Compute the first 3 terms (up to the second degree) of the Taylor expansion of <span class="process-math">\(e^{tA}\)</span> where <span class="process-math">\(A=\left[ \begin{smallmatrix}
+2 &amp; 3 \\
+2 &amp; 2 
+\end{smallmatrix}\right]\text{.}\)</span>  Write it as a single matrix. Then use it to approximate <span class="process-math">\(e^{0.1A}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="sec_matexp-8-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec_matexp-8-15-2-1">
+<span class="process-math">\(\left[ \begin{smallmatrix}
+1+2t+5t^2 &amp; 3t+6t^2 \\
+2t+4t^2 &amp; 1+2t+5t^2
+\end{smallmatrix}\right]\)</span>     <span class="process-math">\(e^{0.1A} \approx
+\left[ \begin{smallmatrix}
+1.25 &amp; 0.36 \\
+0.24 &amp; 1.25
+\end{smallmatrix}\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.8.104.1"><a href="#sec_matexp-8-15-2" title="Copy heading and permalink for Answer 3.8.104.1" aria-label="Copy heading and permalink for Answer 3.8.104.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3.8.104"><a href="#sec_matexp-8-15" title="Copy heading and permalink for Exercise 3.8.104" aria-label="Copy heading and permalink for Exercise 3.8.104">🔗</a></div></article><article class="exercise exercise-like" id="sec_matexp-8-16"><h4 class="heading"><span class="codenumber">3.8.105<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_matexp-8-16-1-1">For any positive integer <span class="process-math">\(n\text{,}\)</span> find a formula (or a recipe) for <span class="process-math">\(A^n\)</span> for the following matrices:<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="sec_matexp-8-16-1-2">
+<li id="sec_matexp-8-16-1-2-1">
+<div class="para" id="sec_matexp-8-16-1-2-1-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+7 &amp; 4 \\ -5 &amp; -2
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-16-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.105.a"><a href="#sec_matexp-8-16-1-2-1" title="Copy heading and permalink for Item 3.8.105.a" aria-label="Copy heading and permalink for Item 3.8.105.a">🔗</a></div>
+</li>
+<li id="sec_matexp-8-16-1-2-2">
+<div class="para" id="sec_matexp-8-16-1-2-2-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+-3 &amp; 4 \\ -6 &amp; 7
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-16-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.105.b"><a href="#sec_matexp-8-16-1-2-2" title="Copy heading and permalink for Item 3.8.105.b" aria-label="Copy heading and permalink for Item 3.8.105.b">🔗</a></div>
+</li>
+<li id="sec_matexp-8-16-1-2-3">
+<div class="para" id="sec_matexp-8-16-1-2-3-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix}
+0 &amp; 1 \\ 1 &amp; 0
+\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-16-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.8.105.c"><a href="#sec_matexp-8-16-1-2-3" title="Copy heading and permalink for Item 3.8.105.c" aria-label="Copy heading and permalink for Item 3.8.105.c">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="sec_matexp-8-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="sec_matexp-8-16-2-1">a) <span class="process-math">\(\begin{bmatrix}
+5 (3^n)-2^{n+2} &amp; 4 (3^n)-2^{n+2}\\
+5 (2^n)-5 (3^n) &amp; 5 (2^n)-4 (3^n)
+\end{bmatrix}\)</span>        b) <span class="process-math">\(\begin{bmatrix}3-2 (3^n) &amp; 2 (3^n)-2\\
+3-3^{n+1} &amp; 3^{n+1}-2\end{bmatrix}\)</span> <br> c) <span class="process-math">\(\begin{bmatrix}1 &amp; 0 \\ 0 &amp; 1\end{bmatrix}\)</span> if <span class="process-math">\(n\)</span> is even,  and <span class="process-math">\(\begin{bmatrix}0 &amp; 1 \\ 1 &amp; 0\end{bmatrix}\)</span> if <span class="process-math">\(n\)</span> is odd.<div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-8-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.8.105.1"><a href="#sec_matexp-8-16-2" title="Copy heading and permalink for Answer 3.8.105.1" aria-label="Copy heading and permalink for Answer 3.8.105.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 3.8.105"><a href="#sec_matexp-8-16" title="Copy heading and permalink for Exercise 3.8.105" aria-label="Copy heading and permalink for Exercise 3.8.105">🔗</a></div></article><div class="autopermalink" data-description="Exercises 3.8.6"><a href="#sec_matexp-8" title="Copy heading and permalink for Exercises 3.8.6" aria-label="Copy heading and permalink for Exercises 3.8.6">🔗</a></div></section><div class="autopermalink" data-description="Section 3.8: Matrix exponentials"><a href="#sec_matexp" title="Copy heading and permalink for Section 3.8: Matrix exponentials" aria-label="Copy heading and permalink for Section 3.8: Matrix exponentials">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_multeigen.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="nonhomogsys_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF version: <tt>https://www.jirka.org/diffyqs/diffyqs.pdf</tt> or <tt>https://jirilebl.github.io/diffyqs/diffyqs.pdf</tt></em>
+</span>
+</body>
+</html>
