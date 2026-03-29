@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">What we want to do with the eigenfunctions once we have them is to compute the <em class="emphasis">eigenfunction decomposition</em> of an arbitrary function <span class="process-math">\(f(x)\text{.}\)</span>  That is, we wish to write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_fdecomp.html">
+\begin{equation}
+f(x) = \sum_{n=1}^\infty c_n y_n(x) ,\tag{5.3}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(y_n(x)\)</span> are eigenfunctions. We wish to find out if we can represent any function <span class="process-math">\(f(x)\)</span> in this way, and if so, we wish to calculate the <span class="process-math">\(c_n\)</span> (and of course we would want to know if the sum converges).  OK, so imagine we could write <span class="process-math">\(f(x)\)</span> as <a href="slproblems_section.html#sl_fdecomp" class="xref" data-knowl="./knowl/xref/sl_fdecomp.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.3">(5.3)</a>.  We will assume convergence and the ability to integrate the series term by term. Because of orthogonality we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_fdecomp.html">
+\begin{equation}
+\begin{split}
+\langle f , y_m \rangle
+= \int_a^b f(x) \, y_m (x) \, r(x) \, dx
+&amp; = \int_a^b \left( \sum_{n=1}^\infty c_n y_n(x) \right) \, y_m (x) \, r(x)
+\, dx\\
+&amp;= \sum_{n=1}^\infty c_n \int_a^b y_n(x) \, y_m (x) \, r(x) \, dx\\
+&amp;= c_m \int_a^b y_m(x) \, y_m (x) \, r(x) \, dx = c_m \langle y_m , y_m \rangle
+.
+\end{split}
+\end{equation}
+</div>
+<div class="para">Hence,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sl_fdecomp.html">
+\begin{equation}
+\mybxbg{~~
+c_m = \frac{\langle f , y_m \rangle}{\langle y_m , y_m \rangle}
+=
+\frac{\int_a^b f(x) \, y_m (x)\, r(x) \, dx}{\int_a^b {\bigl(y_m(x)\bigr)}^2 \, r(x) \,dx} .
+~~}\tag{5.4}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#slproblems_section-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="slproblems_section.html#slproblems_section-6-2">in-context</a></span>
+</body>
+</html>

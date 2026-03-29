@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">What we do is start with the series solution and replace the coefficients with the integrals that compute them.  Then we try to write everything as a single integral.  We must use a different dummy variable for the integration and hence we use <span class="process-math">\(\alpha\)</span> instead of <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+u(r,\theta)
+&amp; =
+\frac{a_0}{2} +
+\sum_{n=1}^\infty
+a_n r^n \cos(n \theta) + b_n r^n \sin(n \theta)
+\\
+&amp; =
+\underbrace{
+\left(
+\frac{1}{2\pi} \int_{-\pi}^\pi g(\alpha) \, d\alpha
+\right)
+}_{\frac{a_0}{2}}
++
+\sum_{n=1}^\infty
+\underbrace{
+\left(
+\frac{1}{\pi} \int_{-\pi}^\pi g(\alpha) \cos (n\alpha) \, d\alpha
+\right)
+}_{a_n}
+r^n \cos(n \theta) +
+\\
+&amp; ~~~~~~~~ +
+\underbrace{
+\left(
+\frac{1}{\pi} \int_{-\pi}^\pi g(\alpha) \sin (n\alpha) \, d\alpha
+\right)
+}_{b_n}
+r^n \sin(n \theta)
+\\
+&amp; =
+\frac{1}{2\pi}
+\int_{-\pi}^\pi
+\left(  g(\alpha)
++
+2
+\sum_{n=1}^\infty
+g(\alpha) \cos (n\alpha) 
+\, r^n \cos(n \theta) +
+g(\alpha) \sin (n\alpha)
+\, r^n \sin(n \theta)
+\right) \,d\alpha
+\\
+&amp; =
+\frac{1}{2\pi}
+\int_{-\pi}^\pi
+\underbrace{
+\left( 1
++
+2
+\sum_{n=1}^\infty
+r^n 
+\bigl(
+\cos (n\alpha) 
+\cos(n \theta) +
+\sin (n\alpha)
+\sin(n \theta) \bigr)
+\right)
+}_{P(r,\theta,\alpha)}
+g(\alpha) \,d\alpha .
+\end{split}
+\end{equation}
+</div>
+<div class="para">OK, so we have what we wanted, the expression in the parentheses is the Poisson kernel, <span class="process-math">\(P(r,\theta,\alpha)\text{.}\)</span>  However, we can do a lot better.  It is still given as a series, and we would really like to have a nice simple expression for it. We must work a little harder.  The trick is to rewrite everything in terms of complex exponentials.  Let us work just on the kernel.</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+P(r,\theta,\alpha)
+&amp; =
+1
++
+2
+\sum_{n=1}^\infty
+r^n 
+\bigl(
+\cos (n\alpha) 
+\cos(n \theta) +
+\sin (n\alpha)
+\sin(n \theta) \bigr)
+\\
+&amp; =
+1
++
+2
+\sum_{n=1}^\infty
+r^n 
+\cos \bigl(n(\theta-\alpha)\bigr)
+\\
+&amp; =
+1
++
+\sum_{n=1}^\infty
+r^n 
+\bigl(
+e^{in(\theta-\alpha)} +
+e^{-in(\theta-\alpha)} \bigr)
+\\
+&amp; =
+1
++
+\sum_{n=1}^\infty
+{\bigl(
+re^{i(\theta-\alpha)}\bigr)}^{n}
++
+\sum_{n=1}^\infty
+{\bigl(
+re^{-i(\theta-\alpha)}\bigr)}^{n} .
+\end{split}
+\end{equation}
+</div>
+<div class="para">In the expression above, we recognize the <em class="emphasis">geometric series</em>. Recall from calculus that if <span class="process-math">\(z\)</span> is a complex number where <span class="process-math">\(\lvert z \rvert &lt; 1\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation}
+\sum_{n=1}^\infty z^n = \frac{z}{1-z} .
+\end{equation}
+</div>
+<div class="para">Note that <span class="process-math">\(n\)</span> starts at <span class="process-math">\(1\text{,}\)</span> and that is why we have the <span class="process-math">\(z\)</span> in the numerator. It is the standard geometric series multiplied by <span class="process-math">\(z\text{.}\)</span> We can use <span class="process-math">\(z = re^{i(\theta-\alpha)}\text{,}\)</span> as lo and behold <span class="process-math">\(\lvert re^{i(\theta-\alpha)} \rvert = r &lt; 1\text{.}\)</span> We continue with the computation.</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+P(r,\theta,\alpha)
+&amp; =
+1
++
+\sum_{n=1}^\infty
+{\bigl(
+re^{i(\theta-\alpha)}\bigr)}^{n}
++
+\sum_{n=1}^\infty
+{\bigl(
+re^{-i(\theta-\alpha)}\bigr)}^{n}
+\\
+&amp; =
+1
++
+\frac{re^{i(\theta-\alpha)}}{1-re^{i(\theta-\alpha)}}
++
+\frac{re^{-i(\theta-\alpha)}}{1-re^{-i(\theta-\alpha)}}
+\\
+&amp; = 
+\frac{
+\bigl(1-re^{i(\theta-\alpha)}\bigr)\bigl(1-re^{-i(\theta-\alpha)}\bigr)
++
+\bigl(1-re^{-i(\theta-\alpha)}\bigr)re^{i(\theta-\alpha)} +
+\bigl(1-re^{i(\theta-\alpha)}\bigr)re^{-i(\theta-\alpha)}}
+{\bigl(1-re^{i(\theta-\alpha)}\bigr)\bigl(1-re^{-i(\theta-\alpha)}\bigr)}
+\\
+&amp; = 
+\frac{1 -r^2}{1 - re^{i(\theta-\alpha)} - re^{-i(\theta-\alpha)} +r^2}
+\\
+&amp; = 
+\frac{1 -r^2}{1 - 2r\cos(\theta-\alpha) +r^2} .
+\end{split}
+\end{equation}
+</div>
+<div class="para">That is a formula we can live with.  The solution to the Dirichlet problem using the Poisson kernel is</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mybxbg{~~
+u(r,\theta) = 
+\frac{1}{2\pi} \int_{-\pi}^{\pi}
+\frac{1 -r^2}{1 - 2r\cos(\theta-\alpha) +r^2} g(\alpha) \, d\alpha .
+~~}
+\end{equation}
+</div>
+<div class="para">Sometimes the formula for the Poisson kernel is given together with the constant <span class="process-math">\(\frac{1}{2\pi}\text{,}\)</span> in which case we should, of course, not leave it in front of the integral. Sometimes the limits of the integral are given as 0 to <span class="process-math">\(2\pi\text{;}\)</span> everything inside is <span class="process-math">\(2\pi\)</span>-periodic in <span class="process-math">\(\alpha\text{,}\)</span> so this does not change the integral.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#dirichdisc_section-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="dirichdisc_section.html#dirichdisc_section-5-5">in-context</a></span>
+</body>
+</html>

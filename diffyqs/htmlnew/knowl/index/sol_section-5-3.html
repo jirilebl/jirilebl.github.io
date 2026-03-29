@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">As before, this system just requires us to find one particular solution <span class="process-math">\(\vec{x}_p\text{,}\)</span> add it to the general solution of the associated homogeneous system <span class="process-math">\(\vec{x}_c\text{,}\)</span> and we will have the general solution to <a href="sol_section.html#sosa_forcedeq" class="xref" data-knowl="./knowl/xref/sosa_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.4">(3.4)</a>. Let us suppose that <span class="process-math">\(\omega\)</span> is not one of the natural frequencies of <span class="process-math">\({\vec{x}}'' = A \vec{x}\text{,}\)</span> then we can guess</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa_forcedeq.html ./knowl/xref/sosa_forcedeq.html">
+\begin{equation}
+\vec{x}_p = \vec{c} \cos (\omega t) ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(\vec{c}\)</span> is an unknown constant vector.  Note that we do not need to use sine since there are only second derivatives.  We solve for <span class="process-math">\(\vec{c}\)</span> to find <span class="process-math">\(\vec{x}_p\text{.}\)</span>  This is really just the method of <em class="emphasis">undetermined coefficients</em> for systems.  Let us differentiate <span class="process-math">\(\vec{x}_p\)</span> twice to get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa_forcedeq.html ./knowl/xref/sosa_forcedeq.html">
+\begin{equation}
+{\vec{x}_p}'' = -\omega^2 \vec{c} \cos (\omega t) .
+\end{equation}
+</div>
+<div class="para">Plug <span class="process-math">\(\vec{x}_p\)</span> and <span class="process-math">\({\vec{x}_p}''\)</span> into equation <a href="sol_section.html#sosa_forcedeq" class="xref" data-knowl="./knowl/xref/sosa_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.4">(3.4)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa_forcedeq.html ./knowl/xref/sosa_forcedeq.html">
+\begin{equation}
+\overbrace{
+-\omega^2 \vec{c} \cos (\omega t)
+}^{{\vec{x}_p}''}
+=
+\overbrace{
+A \vec{c} \cos (\omega t) 
+}^{A \vec{x}_p}
++ \vec{F} \cos (\omega t) .
+\end{equation}
+</div>
+<div class="para">We cancel out the cosine and rearrange the equation to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa_forcedeq.html ./knowl/xref/sosa_forcedeq.html">
+\begin{equation}
+(A +\omega^2 I) \vec{c}
+=
+- \vec{F} .
+\end{equation}
+</div>
+<div class="para">So</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sosa_forcedeq.html ./knowl/xref/sosa_forcedeq.html">
+\begin{equation}
+\vec{c}
+=
+{(A +\omega^2 I)}^{-1}
+(-\vec{F} ).
+\end{equation}
+</div>
+<div class="para">Of course this is possible only if <span class="process-math">\((A+ \omega^2 I) = \bigl(A- (-\omega^2) I\bigr)\)</span> is invertible.  That matrix is invertible if and only if <span class="process-math">\(-\omega^2\)</span> is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span>  That is true if and only if <span class="process-math">\(\omega\)</span> is not a natural frequency of the system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sol_section-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="sol_section.html#sol_section-5-3">in-context</a></span>
+</body>
+</html>

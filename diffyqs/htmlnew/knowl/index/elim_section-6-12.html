@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Given a matrix <span class="process-math">\(A\text{,}\)</span> the maximal number of linearly independent rows is called the <em class="emphasis">rank</em> of <span class="process-math">\(A\text{,}\)</span> and we write “<span class="process-math">\(\operatorname{rank} A\)</span>” for the rank. For example,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\operatorname{rank}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 \\
+2 &amp; 2 &amp; 2 \\
+-1 &amp; -1 &amp; -1
+\end{bmatrix}
+=
+1 .
+\end{equation}
+</div>
+<div class="para">The second and third row are multiples of the first one.  We cannot choose more than one row and still have a linearly independent set.   But what is</div>
+<div class="displaymath process-math">
+\begin{equation}
+\operatorname{rank}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{bmatrix} \quad = \quad ?
+\end{equation}
+</div>
+<div class="para">That seems to be a tougher question to answer.  The first two rows are linearly independent (neither is a multiple of the other), so the rank is at least two.  If we would set up the equations for the <span class="process-math">\(\alpha_1\text{,}\)</span> <span class="process-math">\(\alpha_2\text{,}\)</span> and <span class="process-math">\(\alpha_3\text{,}\)</span> we would find a system with infinitely many solutions.  One solution is</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3
+\end{bmatrix} -2
+\begin{bmatrix}
+4 &amp; 5 &amp; 6 
+\end{bmatrix} +
+\begin{bmatrix}
+7 &amp; 8 &amp; 9
+\end{bmatrix} =
+\begin{bmatrix}
+0 &amp; 0 &amp; 0
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">So the set of all three rows is linearly dependent, the rank cannot be 3.  Therefore the rank is 2.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="elim_section.html#elim_section-6-12">in-context</a></span>
+</body>
+</html>

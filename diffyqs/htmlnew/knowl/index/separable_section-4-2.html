@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">We sometimes get stuck even if we can do the integration.  Consider the separable equation</div>
+<div class="displaymath process-math">
+\begin{equation}
+y' = \frac{xy}{y^2+1} .
+\end{equation}
+</div>
+<div class="para">We separate variables,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\frac{y^2+1}{y}\,dy = \left(y+\frac{1}{y}\right)\,dy = x\,dx .
+\end{equation}
+</div>
+<div class="para">We integrate to get</div>
+<div class="displaymath process-math">
+\begin{equation}
+\frac{y^2}{2} + \ln \, \lvert y \rvert = \frac{x^2}{2} + C ,
+\end{equation}
+</div>
+<div class="para">or perhaps the less intimidating expression (where <span class="process-math">\(D = 2C\)</span>)</div>
+<div class="displaymath process-math">
+\begin{equation}
+y^2 + 2 \ln \, \lvert y\rvert = x^2 + D .
+\end{equation}
+</div>
+<div class="para">It is not easy to find the solution explicitly—it is hard to solve for <span class="process-math">\(y\text{.}\)</span>  We, therefore, leave the solution in this form and call it an <em class="emphasis">implicit solution</em>. It is still easy to check that an implicit solution satisfies the differential equation.  In this case, we differentiate with respect to <span class="process-math">\(x\text{,}\)</span> and remember that <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation}
+2y y' + 2 \frac{1}{y} y'
+=
+y'\left(2y + \frac{2}{y}\right) = 2x .
+\end{equation}
+</div>
+<div class="para">That is usually called “implicit differentiation” in calculus, but it is just the chain rule. Anyway, now multiply both sides by <span class="process-math">\(y\)</span> and divide by <span class="process-math">\(2(y^2+1)\)</span> and you will get exactly the differential equation.  We leave this computation to the reader.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#separable_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="separable_section.html#separable_section-4-2">in-context</a></span>
+</body>
+</html>

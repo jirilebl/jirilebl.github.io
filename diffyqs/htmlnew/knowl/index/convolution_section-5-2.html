@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">An integral equation involving convolution that comes up, for example, when studying systems with memory effects is the <em class="emphasis">Volterra integral equation</em><details class="ptx-footnote" aria-live="polite" id="convolution_section-5-2-3"><summary class="ptx-footnote__number" title="Footnote 6.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="convolution_section-5-2-3">Named for the Italian mathematician <a class="external" href="https://en.wikipedia.org/wiki/Vito_Volterra" target="_blank">Vito Volterra</a> (1860–1940).</div></details>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+x(t) = f(t) + \int_0^t g(t-\tau) x(\tau) \, d\tau .
+\end{equation}
+</div>
+<div class="para">Here <span class="process-math">\(f(t)\)</span> and <span class="process-math">\(g(t)\)</span> are known functions and <span class="process-math">\(x(t)\)</span> is an unknown we wish to solve for. We have <span class="process-math">\(x(t) = f(t) + (g * x)(t)\text{,}\)</span> so the question is if convolution is like a product, can we also “divide” to solve this equation. We apply the Laplace transform to the equation to obtain</div>
+<div class="displaymath process-math">
+\begin{equation}
+X(s) = F(s) + G(s) X(s) ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(X(s)\text{,}\)</span> <span class="process-math">\(F(s)\text{,}\)</span> and <span class="process-math">\(G(s)\)</span> are the Laplace transforms of <span class="process-math">\(x(t)\text{,}\)</span> <span class="process-math">\(f(t)\text{,}\)</span> and <span class="process-math">\(g(t)\)</span> respectively.  We find</div>
+<div class="displaymath process-math">
+\begin{equation}
+X(s) = \frac{F(s)}{1-G(s)} .
+\end{equation}
+</div>
+<div class="para">To find <span class="process-math">\(x(t)\text{,}\)</span> we now need to find the inverse Laplace transform of <span class="process-math">\(X(s)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#convolution_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="convolution_section.html#convolution_section-5-2">in-context</a></span>
+</body>
+</html>

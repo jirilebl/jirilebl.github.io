@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">If you have one nonzero solution to a second-order linear homogeneous equation, then you can find another one.  This is the <em class="emphasis">reduction of order method</em>.  The idea is that if we somehow found <span class="process-math">\(y_1\)</span> as a solution of <span class="process-math">\(y'' + p(x) y' + q(x) y = 0\text{,}\)</span> then we try a second solution of the form <span class="process-math">\(y_2(x) = y_1(x) v(x)\text{.}\)</span> We just need to find <span class="process-math">\(v\text{.}\)</span>  We plug <span class="process-math">\(y_2\)</span> into the equation:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+0 = 
+y_2'' + p(x) y_2' + q(x) y_2
+&amp; =
+\underbrace{y_1'' v + 2 y_1' v' + y_1 v''}_{y_2''}
++ p(x) \underbrace{( y_1' v + y_1 v' )}_{y_2'}
++ q(x) \underbrace{y_1 v}_{y_2}
+\\
+&amp; =
+y_1 v''
++ (2 y_1' + p(x) y_1) v'
++
+\cancelto{0}{\bigl( y_1'' + p(x) y_1' + q(x) y_1 \bigr)} v .
+\end{split}
+\end{equation}
+</div>
+<div class="para">In other words, <span class="process-math">\(y_1 v'' + (2 y_1' + p(x) y_1) v' = 0\text{.}\)</span>  Using <span class="process-math">\(w = v'\text{,}\)</span> we have the first-order linear equation <span class="process-math">\(y_1 w' + (2 y_1' + p(x) y_1) w = 0\text{.}\)</span>  After solving this equation for <span class="process-math">\(w\)</span> (integrating factor), we find <span class="process-math">\(v\)</span> by antidifferentiating <span class="process-math">\(w\text{.}\)</span>  We then form <span class="process-math">\(y_2\)</span> by computing <span class="process-math">\(y_1 v\text{.}\)</span>  For example, suppose we somehow know <span class="process-math">\(y_1 = x\)</span> is a solution to <span class="process-math">\(y''+x^{-1}y'-x^{-2} y=0\text{.}\)</span> The equation for <span class="process-math">\(w\)</span> is then <span class="process-math">\(xw' + 3 w = 0\text{.}\)</span>  We find a solution, <span class="process-math">\(w = Cx^{-3}\text{,}\)</span> and we find an antiderivative <span class="process-math">\(v = \frac{-C}{2x^2}\text{.}\)</span> Hence <span class="process-math">\(y_2 = y_1 v = \frac{-C}{2x}\text{.}\)</span> Any <span class="process-math">\(C\)</span> works and so <span class="process-math">\(C=-2\)</span> makes <span class="process-math">\(y_2 = \nicefrac{1}{x}\text{.}\)</span>  Thus, the general solution is <span class="process-math">\(y = C_1 x + C_2\nicefrac{1}{x}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#solinear_section-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="solinear_section.html#solinear_section-22">in-context</a></span>
+</body>
+</html>

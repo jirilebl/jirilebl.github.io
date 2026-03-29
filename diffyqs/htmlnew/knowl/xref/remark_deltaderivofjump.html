@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="remark remark-like"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">The Laplace transform of <span class="process-math">\(\delta(t-a)\)</span> would be the Laplace transform of the derivative of the Heaviside function <span class="process-math">\(u(t-a)\text{,}\)</span> if the Heaviside function had a derivative. First,</div>
+<div class="displaymath process-math">
+\begin{equation}
+{\mathcal{L}} \bigl\{ u(t-a) \bigr\} = \frac{e^{-as}}{s}.
+\end{equation}
+</div>
+<div class="para">To obtain what the Laplace transform of the derivative would be, we multiply by <span class="process-math">\(s\text{,}\)</span> to obtain <span class="process-math">\(e^{-as}\text{,}\)</span> which is the Laplace transform of <span class="process-math">\(\delta(t-a)\text{.}\)</span> We see the same thing using integration,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\int_0^t \delta(s-a)\,ds = u(t-a) .
+\end{equation}
+</div>
+<div class="para">So in a certain sense</div>
+<div class="displaymath process-math">
+\begin{equation}
+\text{"}
+\quad \frac{d}{dt} \Bigl[ u(t-a) \Bigr] = \delta(t-a) . \quad
+\text{"}
+\end{equation}
+</div>
+<div class="para">This line of reasoning allows us to talk about derivatives of functions with jump discontinuities. We can think of the derivative of the Heaviside function <span class="process-math">\(u(t-a)\)</span> as being somehow infinite at <span class="process-math">\(a\text{,}\)</span> which is precisely our intuitive understanding of the delta function.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#remark_deltaderivofjump-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 6.4.1"><a href="#remark_deltaderivofjump" title="Copy heading and permalink for Remark 6.4.1" aria-label="Copy heading and permalink for Remark 6.4.1">🔗</a></div></article><span class="incontext"><a class="internal" href="diracdelta_section.html#remark_deltaderivofjump">in-context</a></span>
+</body>
+</html>

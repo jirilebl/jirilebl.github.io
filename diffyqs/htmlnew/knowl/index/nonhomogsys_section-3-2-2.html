@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">We first focus on the nonhomogeneous first-order equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+{\vec{x}}'(t) = A\vec{x}(t) + \vec{f}(t) ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(A\)</span> is a constant matrix.  The first method we look at is the <em class="emphasis">integrating factor method</em>. For simplicity, we rewrite the equation as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+{\vec{x}}'(t) + P \vec{x}(t) = \vec{f}(t) ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(P = -A\text{.}\)</span> We multiply both sides of the equation by <span class="process-math">\(e^{tP}\)</span> (being mindful that we are dealing with matrices that may not commute) to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+e^{tP}{\vec{x}}'(t) + e^{tP}P\vec{x}(t) = e^{tP}\vec{f}(t) .
+\end{equation}
+</div>
+<div class="para">We notice that <span class="process-math">\(P e^{tP} = e^{tP} P\text{.}\)</span>  This fact follows by writing down the series definition of <span class="process-math">\(e^{tP}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+\begin{split}
+P e^{tP} &amp; = 
+P \left(
+I + tP + \frac{1}{2} {(tP)}^2 + \cdots \right)
+=
+P + tP^2 + \frac{1}{2} t^2P^3 + \cdots
+=
+\\
+&amp; =
+\left(
+I + tP + \frac{1}{2} {(tP)}^2 + \cdots \right) P 
+= e^{tP} P . 
+\end{split}
+\end{equation}
+</div>
+<div class="para">So <span class="process-math">\(\frac{d}{dt} \left( e^{tP} \right) = P e^{tP} = e^{tP} P\text{.}\)</span>  The product rule says</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+\frac{d}{dt}
+\Bigl( e^{tP} \vec{x}(t) \Bigr) =
+e^{tP}{\vec{x}}'(t) + e^{tP}P\vec{x}(t),
+\end{equation}
+</div>
+<div class="para">and so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+\frac{d}{dt}
+\Bigl( e^{tP} \vec{x}(t) \Bigr) = e^{tP}\vec{f}(t) .
+\end{equation}
+</div>
+<div class="para">We can now integrate.  That is, we integrate each component of the vector separately</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+e^{tP} \vec{x}(t) = \int e^{tP}\vec{f}(t) \, dt + \vec{c} .
+\end{equation}
+</div>
+<div class="para">Recall from <a href="sec_matexp.html#matexp_expinvex" class="xref" data-knowl="./knowl/xref/matexp_expinvex.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.8.7">Exercise 3.8.7</a> that <span class="process-math">\({(e^{tP})}^{-1} = e^{-tP}\text{.}\)</span> Therefore, we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/matexp_expinvex.html">
+\begin{equation}
+\vec{x}(t) = e^{-tP} \int e^{tP}\vec{f}(t) \, dt + e^{-tP} \vec{c} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nonhomogsys_section-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="nonhomogsys_section.html#nonhomogsys_section-3-2-2">in-context</a></span>
+</body>
+</html>

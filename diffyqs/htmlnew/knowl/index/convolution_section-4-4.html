@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Notice one more feature of the example above. We can now see how the Laplace transform handles resonance.  Suppose that <span class="process-math">\(f(t) =
+\cos (\omega_0 t)\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltc_convsincosex.html">
+\begin{equation}
+x(t) = 
+\int_0^t
+\frac{\sin (\omega_0 \tau)}{\omega_0} \,
+\cos \bigl( \omega_0 (t-\tau) \bigr) \, d\tau
+=
+\frac{1}{\omega_0}
+\int_0^t
+\sin ( \omega_0 \tau ) \,
+\cos \bigl(\omega_0 (t-\tau) \bigr) \, d\tau .
+\end{equation}
+</div>
+<div class="para">We have computed the convolution of sine and cosine in <a href="convolution_section.html#ltc_convsincosex" class="xref" data-knowl="./knowl/xref/ltc_convsincosex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.3.2">Example 6.3.2</a>.  Hence</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ltc_convsincosex.html">
+\begin{equation}
+x(t) =
+\left(
+\frac{1}{\omega_0}
+\right) \,
+\left(
+\frac{1}{2} \,
+t
+\sin ( \omega_0 t )
+\right)
+=
+\frac{1}{2 \omega_0} \,
+t
+\sin ( \omega_0 t ).
+\end{equation}
+</div>
+<div class="para">Note the <span class="process-math">\(t\)</span> in front of the sine.  The solution, therefore, grows without bound as <span class="process-math">\(t\)</span> gets large, meaning we get resonance.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#convolution_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="convolution_section.html#convolution_section-4-4">in-context</a></span>
+</body>
+</html>

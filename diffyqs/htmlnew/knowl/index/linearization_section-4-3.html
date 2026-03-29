@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">In calculus we learned to estimate a function by taking its derivative and linearizing.  We work similarly with nonlinear systems of ODEs. Suppose <span class="process-math">\((x_0,y_0)\)</span> is a critical point. First change variables to <span class="process-math">\((u,v)\text{,}\)</span> so that <span class="process-math">\((u,v)=(0,0)\)</span> corresponds to <span class="process-math">\((x_0,y_0)\text{.}\)</span>  That is,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_nlinautn2.html">
+\begin{equation}
+u=x-x_0, \qquad v=y-y_0 .
+\end{equation}
+</div>
+<div class="para">Next we need to find the derivative.  In multivariable calculus you may have seen that the several variables version of the derivative is the <em class="emphasis">Jacobian matrix</em><details class="ptx-footnote" aria-live="polite" id="linearization_section-4-3-7"><summary class="ptx-footnote__number" title="Footnote 8.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="linearization_section-4-3-7">Named for the German mathematician <a class="external" href="https://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi" target="_blank">Carl Gustav Jacob Jacobi</a> (1804–1851).</div></details>.   The Jacobian matrix of the vector-valued function <span class="process-math">\(\left[ \begin{smallmatrix} f(x,y) \\ g(x,y) \end{smallmatrix} \right]\)</span> at <span class="process-math">\((x_0,y_0)\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_nlinautn2.html">
+\begin{equation}
+\begin{bmatrix}
+\frac{\partial f}{\partial x}(x_0,y_0) &amp;
+\frac{\partial f}{\partial y}(x_0,y_0) \\
+\frac{\partial g}{\partial x}(x_0,y_0) &amp;
+\frac{\partial g}{\partial y}(x_0,y_0)
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">This matrix gives the best linear approximation as <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> (and therefore <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span>) vary. We define the <em class="emphasis">linearization</em> of the equation <a href="linearization_section.html#eq_nlinautn2" class="xref" data-knowl="./knowl/xref/eq_nlinautn2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 8.1">(8.1)</a> as the linear system</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_nlinautn2.html">
+\begin{equation}
+\begin{bmatrix} u \\ v \end{bmatrix} ' =
+\begin{bmatrix}
+\frac{\partial f}{\partial x}(x_0,y_0) &amp;
+\frac{\partial f}{\partial y}(x_0,y_0) \\
+\frac{\partial g}{\partial x}(x_0,y_0) &amp;
+\frac{\partial g}{\partial y}(x_0,y_0)
+\end{bmatrix} 
+\begin{bmatrix} u \\ v \end{bmatrix} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#linearization_section-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="linearization_section.html#linearization_section-4-3">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">On the other hand, if we find a row echelon form</div>
+<div class="displaymath process-math">
+\begin{equation}
+\left[
+\begin{array}{ccc|c}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+0 &amp; 0 &amp; 1 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 0 
+\end{array}
+\right] ,
+\end{equation}
+</div>
+<div class="para">then there is no issue with finding solutions.  In fact, we will find way too many.  Let us continue with backsubstitution (subtracting 3 times the third row from the first) to find the reduced row echelon form and let’s mark the pivots.</div>
+<div class="displaymath process-math">
+\begin{equation}
+\left[
+\begin{array}{ccc|c}
+\mybxsm{1} &amp; 2 &amp; 0 &amp; -5 \\
+0 &amp; 0 &amp; \mybxsm{1} &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 0 
+\end{array}
+\right]
+\end{equation}
+</div>
+<div class="para">The last row is all zeros; it just says <span class="process-math">\(0=0\)</span> and we ignore it. The two remaining equations are</div>
+<div class="displaymath process-math">
+\begin{equation}
+x_1 + 2 x_2 = -5 , \qquad
+x_3 = 3 .
+\end{equation}
+</div>
+<div class="para">Let us solve for the variables that corresponded to the pivots, that is, <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_3\)</span> as there was a pivot in the first column and in the third column:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+&amp; x_1 = - 2 x_2 -5 , \\
+&amp; x_3 = 3 .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">The variable <span class="process-math">\(x_2\)</span> can be anything you wish and we still get a solution. The <span class="process-math">\(x_2\)</span> is called a <em class="emphasis">free variable</em>. There are infinitely many solutions, one for every choice of <span class="process-math">\(x_2\text{.}\)</span> If we pick <span class="process-math">\(x_2=0\text{,}\)</span> then <span class="process-math">\(x_1 = -5\text{,}\)</span> and <span class="process-math">\(x_3 = 3\)</span> give a solution.  But we also get a solution by picking say <span class="process-math">\(x_2 = 1\text{,}\)</span> in which case <span class="process-math">\(x_1 = -9\)</span> and <span class="process-math">\(x_3 = 3\text{,}\)</span> or by picking <span class="process-math">\(x_2 = -5\)</span> in which case <span class="process-math">\(x_1 = 5\)</span> and <span class="process-math">\(x_3 = 3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="elim_section.html#elim_section-5-3">in-context</a></span>
+</body>
+</html>

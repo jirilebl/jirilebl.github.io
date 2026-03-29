@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">When <span class="process-math">\(p\)</span> is not an integer, <span class="process-math">\(J_p\)</span> and <span class="process-math">\(J_{-p}\)</span> are linearly independent.  When <span class="process-math">\(n\)</span> is an integer we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/bessel_graphsfig.html">
+\begin{equation}
+J_n(x) =
+\sum_{k=0}^\infty
+\frac{{(-1)}^k}{k! \,(k+n)!}
+{\left(\frac{x}{2}\right)}^{2k+n} .
+\end{equation}
+</div>
+<div class="para">In this case</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/bessel_graphsfig.html">
+\begin{equation}
+J_n(x) = {(-1)}^nJ_{-n}(x) ,
+\end{equation}
+</div>
+<div class="para">and so <span class="process-math">\(J_{-n}\)</span> is not a second linearly independent solution.  The other solution is the so-called <em class="emphasis">Bessel function of second kind</em>.  These make sense only for integer orders <span class="process-math">\(n\)</span> and are defined as limits of linear combinations of <span class="process-math">\(J_p(x)\)</span> and <span class="process-math">\(J_{-p}(x)\text{,}\)</span> as <span class="process-math">\(p\)</span> approaches <span class="process-math">\(n\)</span> in the following way:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/bessel_graphsfig.html">
+\begin{equation}
+Y_n(x) = \lim_{p\to n} \frac{\cos(p \pi) J_p(x) - J_{-p}(x)}{\sin(p \pi)} .
+\end{equation}
+</div>
+<div class="para">Each linear combination of <span class="process-math">\(J_p(x)\)</span> and <span class="process-math">\(J_{-p}(x)\)</span> is a solution to Bessel’s equation of order <span class="process-math">\(p\text{.}\)</span>  Then as we take the limit as <span class="process-math">\(p\)</span> goes to <span class="process-math">\(n\text{,}\)</span> we see that <span class="process-math">\(Y_n(x)\)</span> is a solution to Bessel’s equation of order <span class="process-math">\(n\text{.}\)</span>  It also turns out that <span class="process-math">\(Y_n(x)\)</span> and <span class="process-math">\(J_n(x)\)</span> are linearly independent.  Therefore when <span class="process-math">\(n\)</span> is an integer, we have the general solution to Bessel’s equation of order <span class="process-math">\(n\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/bessel_graphsfig.html">
+\begin{equation}
+y = A J_n(x) + B Y_n(x) ,
+\end{equation}
+</div>
+<div class="para">for arbitrary constants <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span>  Note that <span class="process-math">\(Y_n(x)\)</span> goes to negative infinity at <span class="process-math">\(x=0\text{.}\)</span>   Many mathematical software packages have these functions <span class="process-math">\(J_n(x)\)</span> and <span class="process-math">\(Y_n(x)\)</span> defined, so they can be used just like say <span class="process-math">\(\sin(x)\)</span> and <span class="process-math">\(\cos(x)\text{.}\)</span>  In fact, Bessel functions have some similar properties.  For example, <span class="process-math">\(-J_1(x)\)</span> is a derivative of <span class="process-math">\(J_0(x)\text{,}\)</span> and in general the derivative of <span class="process-math">\(J_n(x)\)</span> can be written as a linear combination of <span class="process-math">\(J_{n-1}(x)\)</span> and <span class="process-math">\(J_{n+1}(x)\text{.}\)</span>  Furthermore, these functions oscillate, although they are not periodic.  See <a href="frobenius_section.html#bessel_graphsfig" class="internal" title="Figure 7.4">Figure 7.4</a> for graphs of Bessel functions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#bessel_subsection-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="frobenius_section.html#bessel_subsection-8">in-context</a></span>
+</body>
+</html>

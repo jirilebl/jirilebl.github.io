@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">How can we be sure we are in the stable situation? As we said before, in the case of purely imaginary eigenvalues, we have to do a bit more work.  Previously we found that for conservative systems, there was a certain quantity that was conserved on the trajectories, and hence the trajectories had to go in closed loops. We can use a similar technique here.  We just have to figure out what is the conserved quantity.  After some trial and error we find the constant</div>
+<div class="displaymath process-math">
+\begin{equation}
+C = \frac{y^a x^d}{e^{cx+by}} = y^a x^d e^{-cx-by}
+\end{equation}
+</div>
+<div class="para">is conserved.  Such a quantity is called the <em class="emphasis">constant of motion</em>.  Let us check <span class="process-math">\(C\)</span> really is a constant of motion.  How do we check, you say?  Well, a constant is something that does not change with time, so let us compute the derivative with respect to time:</div>
+<div class="displaymath process-math">
+\begin{equation}
+C' = 
+a y^{a-1}y' x^d e^{-cx-by}
++
+y^a d x^{d-1} x' e^{-cx-by}
++
+y^a x^d e^{-cx-by} (-cx'-by') .
+\end{equation}
+</div>
+<div class="para">Our equations give us what <span class="process-math">\(x'\)</span> and <span class="process-math">\(y'\)</span> are so let us plug those in:</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+C' &amp; = 
+a y^{a-1} (cx-d)y x^d e^{-cx-by}
++
+y^a d x^{d-1} (a-by)x e^{-cx-by}
+\\
+&amp; \phantom{mm} +
+y^a x^d e^{-cx-by} \bigl(-c(a-by)x-b(cx-d)y\bigr)
+\\
+&amp; =
+y^a x^d e^{-cx-by}
+\Bigl(
+a (cx-d)
++
+d (a-by)
++
+\bigl(-c(a-by)x-b(cx-d)y\bigr) \Bigr)
+\\
+&amp; = 
+0 .
+\end{split}
+\end{equation}
+</div>
+<div class="para">So along the trajectories <span class="process-math">\(C\)</span> is constant.  In fact, the expression <span class="process-math">\(C =
+\frac{y^a x^d}{e^{cx+by}}\)</span> gives us an implicit equation for the trajectories.  In any case, once we have found this constant of motion, it must be true that the trajectories are simple curves—the level curves of <span class="process-math">\(\frac{y^a x^d}{e^{cx+by}}\text{.}\)</span>  It turns out, the critical point at <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\)</span> is a maximum for <span class="process-math">\(C\)</span> (left as an exercise). So <span class="process-math">\((\nicefrac{d}{c},\nicefrac{a}{b})\)</span> is a stable equilibrium point, and we do not have to worry about the foxes and hares going extinct or their populations exploding.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#nlinapps_section-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="nlinapps_section.html#nlinapps_section-4-13">in-context</a></span>
+</body>
+</html>
