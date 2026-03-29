@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -713,7 +711,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec_appeig-3">The eigenfunction series can arise even from higher-order equations. Consider an elastic beam (say made of steel).  We will study the <em class="emphasis">transversal vibrations</em> (vibrations where the beam “bends”) of the beam. Suppose the beam lies along the <span class="process-math">\(x\)</span>-axis and let <span class="process-math">\(y(x,t)\)</span> measure the displacement of the point <span class="process-math">\(x\)</span> on the beam at time <span class="process-math">\(t\text{.}\)</span>  See <a href="sec_appeig.html#appeig_transbeamfig" class="internal" title="Figure 5.2">Figure 5.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_appeig-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="appeig_transbeamfig"><img class="diffyimg" style="width:289pt; height:102pt; display:block;" src="figures/trans-beam-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Transversal vibrations of a beam.<div class="autopermalink" data-description="Figure 5.2"><a href="#appeig_transbeamfig" title="Copy heading and permalink for Figure 5.2" aria-label="Copy heading and permalink for Figure 5.2">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="appeig_transbeamfig"><img class="diffyimg" style="width:289pt; height:102pt; display:block;" src="figures/trans-beam-tex4ht.svg" role="img" alt="Diagram of a rigid beam laid along the x-axis in the xy-plane with one end at the origin and the second end somewhere on the positive x-axis. The beam is bent upwards into the y direction indicating that the graph of y gives the shape of the bent beam."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Transversal vibrations of a beam.<div class="autopermalink" data-description="Figure 5.2"><a href="#appeig_transbeamfig" title="Copy heading and permalink for Figure 5.2" aria-label="Copy heading and permalink for Figure 5.2">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="sec_appeig-7">
 <div class="para">The equation that governs this setup is</div>
 <div class="displaymath process-math" id="sec_appeig-7-1">
@@ -791,7 +789,7 @@ D \cos (\omega x) .
 X(x) = A e^{\omega x} - A e^{-\omega x} + C \sin (\omega x) .
 \end{equation}
 </div>
-<div class="para">Also <span class="process-math">\(0 = X(1) = A (e^{\omega} - e^{-\omega}) + C \sin \omega\text{,}\)</span> and <span class="process-math">\(0 = X''(1) = A \omega^2 (e^{\omega} - e^{-\omega}) - C \omega^2 \sin \omega\text{.}\)</span> This means that <span class="process-math">\(C \sin \omega  = 0\)</span> and <span class="process-math">\(A (e^{\omega} - e^{-\omega}) = 2 A \sinh \omega = 0\text{.}\)</span>  If <span class="process-math">\(\omega &gt; 0\text{,}\)</span> then <span class="process-math">\(\sinh \omega \not= 0\)</span> and so <span class="process-math">\(A = 0\text{.}\)</span>  Thus <span class="process-math">\(C \not=0\text{,}\)</span> otherwise <span class="process-math">\(\lambda\)</span> is not an eigenvalue.  Also, <span class="process-math">\(\omega\)</span> must be an integer multiple of <span class="process-math">\(\pi\text{.}\)</span>  Hence <span class="process-math">\(\omega = n \pi\)</span> and <span class="process-math">\(n \geq 1\)</span> (as <span class="process-math">\(\omega &gt; 0\)</span>).  We can take <span class="process-math">\(C=1\text{.}\)</span>  So the eigenvalues are <span class="process-math">\(\lambda_n = n^4 \pi^4\text{,}\)</span> and corresponding eigenfunctions are <span class="process-math">\(\sin (n \pi x)\text{.}\)</span>
+<div class="para">Also <span class="process-math">\(0 = X(1) = A (e^{\omega} - e^{-\omega}) + C \sin \omega\text{,}\)</span> and <span class="process-math">\(0 = X''(1) = A \omega^2 (e^{\omega} - e^{-\omega}) - C \omega^2 \sin \omega\text{.}\)</span> This means that <span class="process-math">\(C \sin \omega  = 0\)</span> and <span class="process-math">\(A (e^{\omega} - e^{-\omega}) = 2 A \sinh \omega = 0\text{.}\)</span>  If <span class="process-math">\(\omega &gt; 0\text{,}\)</span> then <span class="process-math">\(\sinh \omega \neq 0\)</span> and so <span class="process-math">\(A = 0\text{.}\)</span>  Thus <span class="process-math">\(C \neq 0\text{,}\)</span> otherwise <span class="process-math">\(\lambda\)</span> is not an eigenvalue.  Also, <span class="process-math">\(\omega\)</span> must be an integer multiple of <span class="process-math">\(\pi\text{.}\)</span>  Hence <span class="process-math">\(\omega = n \pi\)</span> and <span class="process-math">\(n \geq 1\)</span> (as <span class="process-math">\(\omega &gt; 0\)</span>).  We can take <span class="process-math">\(C=1\text{.}\)</span>  So the eigenvalues are <span class="process-math">\(\lambda_n = n^4 \pi^4\text{,}\)</span> and corresponding eigenfunctions are <span class="process-math">\(\sin (n \pi x)\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_appeig-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

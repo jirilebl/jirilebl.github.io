@@ -118,10 +118,12 @@ dl.description-list dl dd {
   margin-left: 12ex;
 }
 @media screen and (max-width: 480px) {
-  dl.description-list dt {
+  dl.description-list dt,
+  dl.description-list.narrow dt {
     float: none;
     margin-left: 0;
     text-align: left;
+    width: 25ex;
   }
   dl.description-list dd,
   dl.description-list.narrow dd,
@@ -463,7 +465,8 @@ a[href^="mailto:"] {
 }
 .ptx-content tr.header-vertical th {
   writing-mode: vertical-rl;
-  padding-left: 2em;
+  transform: rotate(180deg);
+  padding-top: 5px;
 }
 .ptx-content .center table {
   text-align: center;
@@ -799,6 +802,10 @@ iframe.asymptote,
 .image-box img,
 img.contained {
   width: 100%;
+}
+.asymptote-fullsize-link {
+  text-align: center;
+  font-size: 0.9em;
 }
 .ptx-content img,
 .ptx-content svg {
@@ -1270,7 +1277,7 @@ pre[class*=language-] .line-highlight {
 }
 .displaymath mjx-container[jax=CHTML][display=true] {
   margin: 0 0 0 0;
-  padding-top: 2px;
+  padding-top: 0.3em;
 }
 .process-math mjx-container svg {
   background: none;
@@ -1797,6 +1804,54 @@ ul[data-component=timedAssessment] {
 :root.dark-mode .ptx-runestone-container pre[class*=language-] {
   color: white;
   background: hsl(0, 0%, 8%);
+}
+@layer spacing {
+  .runestone :is(.exercise-statement, .exercise-content) > *:not(:first-child) {
+    margin-top: 1em;
+  }
+  .ptx-runestone-container + .solutions {
+    margin-top: 0.5em;
+  }
+}
+.interactive-iframe-container {
+  max-width: 100%;
+  overflow: auto;
+}
+.interactive-iframe-container > iframe {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.interactive__instructions {
+  max-width: var(--base-content-width);
+}
+.standalone-page .interactive-iframe-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.standalone-page .interactive__instructions {
+  margin: 5px auto 20px;
+}
+.interactive-iframe-container__opener {
+  display: block;
+  margin-right: 5px;
+  margin-top: 11px;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.interactive-iframe-container__opener .icon {
+  font-size: 18px;
+}
+.interactive-iframe-container__opener:has(+ figcaption, + .instructions) {
+  float: left;
+  z-index: 1;
+  position: relative;
+}
+.interactive-iframe-container__opener + .instructions + figcaption {
+  clear: left;
+}
+.interactive-iframe-container__opener + .instructions {
+  margin-top: 0.5em;
 }
 .ptx-content .wwprob table.attemptResults {
   margin-left: 2em;

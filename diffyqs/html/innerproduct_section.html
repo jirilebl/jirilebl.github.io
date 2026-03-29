@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -812,7 +810,7 @@ a \langle \vec{x} , \vec{y} \rangle\text{,}\)</span><div class="autopermalink" d
 <div class="autopermalink" data-description="Paragraph"><a href="#innerproduct_section-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="vec-angle_fig"><img class="diffyimg" style="width:80pt; height:91pt; display:block;" src="figures/vec-angle-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Angle between vectors.<div class="autopermalink" data-description="Figure A.5"><a href="#vec-angle_fig" title="Copy heading and permalink for Figure A.5" aria-label="Copy heading and permalink for Figure A.5">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="vec-angle_fig"><img class="diffyimg" style="width:80pt; height:91pt; display:block;" src="figures/vec-angle-tex4ht.svg" role="img" alt="A diagram with two vectors x and y going from the same point, x going up and to the right, and y going down and to the right. The angle from y to x counterclockwise is marked theta. The angle from x to y clockwise is marked minus theta. The angle from x to y counterclockwise is marked 2 pi minus theta."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Angle between vectors.<div class="autopermalink" data-description="Figure A.5"><a href="#vec-angle_fig" title="Copy heading and permalink for Figure A.5" aria-label="Copy heading and permalink for Figure A.5">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <article class="example example-like" id="innerproduct_section-3-13"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
@@ -865,7 +863,7 @@ a \langle \vec{x} , \vec{y} \rangle\text{,}\)</span><div class="autopermalink" d
 <div class="autopermalink" data-description="Paragraph"><a href="#innerproduct_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="vec-orthoproj_fig"><img class="diffyimg" style="width:105pt; height:82pt; display:block;" src="figures/vec-orthoproj-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Orthogonal projection.<div class="autopermalink" data-description="Figure A.6"><a href="#vec-orthoproj_fig" title="Copy heading and permalink for Figure A.6" aria-label="Copy heading and permalink for Figure A.6">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="vec-orthoproj_fig"><img class="diffyimg" style="width:105pt; height:82pt; display:block;" src="figures/vec-orthoproj-tex4ht.svg" role="img" alt="Diagram showing a vector v in light gray and a vector w making an angle of theta with v and originating at the same point is marked in dark bold. A right triangle with the right angle on the line given by the vector v is shown and the corresponding smaller vector in the direction of v and marked as proj sub v of w is shown in dark bold."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Orthogonal projection.<div class="autopermalink" data-description="Figure A.6"><a href="#vec-orthoproj_fig" title="Copy heading and permalink for Figure A.6" aria-label="Copy heading and permalink for Figure A.6">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="innerproduct_section-4-8">
 <div class="para">The formula follows from basic trigonometry.  The length of <span class="process-math">\(\operatorname{proj}_{\vec{v}}(\vec{w})\)</span> should be <span class="process-math">\(\cos \theta\)</span> times the length of <span class="process-math">\(\vec{w}\text{,}\)</span> that is, <span class="process-math">\((\cos \theta)\lVert\vec{w}\rVert\text{.}\)</span> We take the unit vector in the direction of <span class="process-math">\(\vec{v}\text{,}\)</span> that is, <span class="process-math">\(\frac{\vec{v}}{\lVert \vec{v} \rVert}\)</span> and we multiply it by the length of the projection.  In other words,</div>
 <div class="displaymath process-math" id="innerproduct_section-4-8-7">
@@ -950,7 +948,7 @@ a \langle \vec{x} , \vec{y} \rangle\text{,}\)</span><div class="autopermalink" d
 \langle \vec{v}_j , \vec{v}_k \rangle = 0
 \end{equation}
 </div>
-<div class="para">for all choices of <span class="process-math">\(j\)</span> and <span class="process-math">\(k\)</span> where <span class="process-math">\(j \not= k\)</span> (a nonzero vector cannot be orthogonal to itself). A basis is furthermore called an <em class="emphasis">orthonormal basis</em> if all the vectors in a basis are also unit vectors, that is, if all the vectors have magnitude 1. For example, the standard basis <span class="process-math">\(\{ (1,0,0), (0,1,0), (0,0,1) \}\)</span> is an orthonormal basis of <span class="process-math">\({\mathbb{R}}^3\text{:}\)</span> Any pair is orthogonal, and each vector is of unit magnitude.</div>
+<div class="para">for all choices of <span class="process-math">\(j\)</span> and <span class="process-math">\(k\)</span> where <span class="process-math">\(j \neq k\)</span> (a nonzero vector cannot be orthogonal to itself). A basis is furthermore called an <em class="emphasis">orthonormal basis</em> if all the vectors in a basis are also unit vectors, that is, if all the vectors have magnitude 1. For example, the standard basis <span class="process-math">\(\{ (1,0,0), (0,1,0), (0,0,1) \}\)</span> is an orthonormal basis of <span class="process-math">\({\mathbb{R}}^3\text{:}\)</span> Any pair is orthogonal, and each vector is of unit magnitude.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#innerproduct_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="innerproduct_section-5-3">The reason why we are interested in orthogonal (or orthonormal) bases is that they make it really simple to represent a vector (or a projection onto a subspace) in the basis.  The formula for the orthogonal projection onto a vector gives us the coefficients.  In <a href="FS_chapter.html" class="internal" title="Chapter 4: Fourier series and PDEs">Chapter 4</a>, we use the same idea by finding the correct orthogonal basis for the set of solutions of a differential equation. We are then able to find any particular solution by simply applying the orthogonal projection formula, which is just a couple of a inner products.<div class="autopermalink" data-description="Paragraph"><a href="#innerproduct_section-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1032,7 +1030,7 @@ a_n \langle \vec{v}_n , \vec{v}_j \rangle .
 \end{split}
 \end{equation}
 </div>
-<div class="para">As the basis is orthogonal, then <span class="process-math">\(\langle \vec{v}_k , \vec{v}_j \rangle = 0\)</span> whenever <span class="process-math">\(k \not= j\text{.}\)</span>  That means that only one of the terms, the <span class="process-math">\(j^{\text{th}}\)</span> one, on the right-hand side is nonzero and we get</div>
+<div class="para">As the basis is orthogonal, then <span class="process-math">\(\langle \vec{v}_k , \vec{v}_j \rangle = 0\)</span> whenever <span class="process-math">\(k \neq j\text{.}\)</span>  That means that only one of the terms, the <span class="process-math">\(j^{\text{th}}\)</span> one, on the right-hand side is nonzero and we get</div>
 <div class="displaymath process-math" id="innerproduct_section-5-6-7">
 \begin{equation}
 \langle \vec{x} , \vec{v}_j \rangle

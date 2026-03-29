@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -728,7 +726,7 @@ M &amp; \text{if } \; a \leq t &lt; b , \\
 <div class="autopermalink" data-description="Paragraph"><a href="#diracdelta_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="lt_sqpulse"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-sqpulse-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sample rectangular pulse with <span class="process-math">\(a=0.5\text{,}\)</span> <span class="process-math">\(b=1\text{,}\)</span> and <span class="process-math">\(M = 2\text{.}\)</span><div class="autopermalink" data-description="Figure 6.3"><a href="#lt_sqpulse" title="Copy heading and permalink for Figure 6.3" aria-label="Copy heading and permalink for Figure 6.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="lt_sqpulse"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-sqpulse-mbx.svg" role="img" alt="A graph of a rectangular pulse shown from t equals 0 to t equals 3. The function is zero until t equals 0.5, then it equals 2 between t equals 0.5 and t equals 1.0, and then it is zero again from t equals 1.0 onwards."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sample rectangular pulse with <span class="process-math">\(a=0.5\text{,}\)</span> <span class="process-math">\(b=1\text{,}\)</span> and <span class="process-math">\(M = 2\text{.}\)</span><div class="autopermalink" data-description="Figure 6.3"><a href="#lt_sqpulse" title="Copy heading and permalink for Figure 6.3" aria-label="Copy heading and permalink for Figure 6.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="diracdelta_section-3-6">
 <div class="para">Notice that</div>
 <div class="displaymath process-math" id="diracdelta_section-3-6-1">
@@ -798,7 +796,7 @@ M
 \end{cases}
 \end{equation}
 </div>
-<div class="para">Unfortunately there is no such function in the classical sense.  You could informally think that <span class="process-math">\(\delta(t)\)</span> is zero for <span class="process-math">\(t\not=0\)</span> and somehow infinite at <span class="process-math">\(t=0\text{.}\)</span>
+<div class="para">Unfortunately there is no such function in the classical sense.  You could informally think that <span class="process-math">\(\delta(t)\)</span> is zero for <span class="process-math">\(t \neq 0\)</span> and somehow infinite at <span class="process-math">\(t=0\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#diracdelta_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1028,7 +1026,7 @@ EI \frac{d^4 y}{dx^4} = F(x) ,
 <div class="autopermalink" data-description="Paragraph"><a href="#diracdelta_section-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="lt_beambendingfig"><img class="diffyimg" style="width:287pt; height:63pt; display:block;" src="figures/beam-bending-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Three-point bending.<div class="autopermalink" data-description="Figure 6.4"><a href="#lt_beambendingfig" title="Copy heading and permalink for Figure 6.4" aria-label="Copy heading and permalink for Figure 6.4">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="lt_beambendingfig"><img class="diffyimg" style="width:287pt; height:63pt; display:block;" src="figures/beam-bending-tex4ht.svg" role="img" alt="A diagram of a beam along the x-axis being held at fixed points at x equals 0 and at some positive x. The beam is getting bent down by a weight labeled F times delta times quantity x minus a in the center at one point."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Three-point bending.<div class="autopermalink" data-description="Figure 6.4"><a href="#lt_beambendingfig" title="Copy heading and permalink for Figure 6.4" aria-label="Copy heading and permalink for Figure 6.4">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="diracdelta_section-6-7">
 <div class="para">The equation becomes</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec_appeig.html" id="diracdelta_section-6-7-1">

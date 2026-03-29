@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -978,7 +976,7 @@ y(x,t) = \frac{F(x-t) + F(x+t)}{2} .
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#dalemb_implusexample-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="dalemb_impulsfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/dalemb-impuls-1-2-mbx.svg" alt=""><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/dalemb-impuls-3-4-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the d’Alembert solution for <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(t=0.2\text{,}\)</span> <span class="process-math">\(t=0.4\text{,}\)</span> and <span class="process-math">\(t=0.6\text{.}\)</span><div class="autopermalink" data-description="Figure 4.24"><a href="#dalemb_impulsfig" title="Copy heading and permalink for Figure 4.24" aria-label="Copy heading and permalink for Figure 4.24">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="dalemb_impulsfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/dalemb-impuls-1-2-mbx.svg" role="img" alt="Two graphs of the shape of the solution of the wave equation in the xy-plane for different fixed t, where x is between 0 and 1. On the left is the initial shape at t equals 0, which is composed of line segments and is a horizontal segment at y equals 0 until almost the middle of the plot, then rises and falls into a sharp peak up to y equals 1. It is then a horizontal segment at y equals 0 until the right end. On the right is a similar picture for the shape at t equals 0.2, but now it has two smaller peaks which only rise to 0.5 one on each side (symmetrically) of the center."><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/dalemb-impuls-3-4-mbx.svg" role="img" alt="Two graphs of the shape of the solution of the wave equation in the xy-plane for different fixed t, where x is between 0 and 1. On the left is the shape at t equals 0.4, which is similar to the shape at t equals 0.2 above, but now the two peaks are closer to the sides. They still rise to y equals 0.5. On the right is the shape at t equals 0.6, which is an inverted shape of the picture at t equals 0.4, that is, the peaks are now going down to y equals minus 0.5."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the d’Alembert solution for <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(t=0.2\text{,}\)</span> <span class="process-math">\(t=0.4\text{,}\)</span> and <span class="process-math">\(t=0.6\text{.}\)</span><div class="autopermalink" data-description="Figure 4.24"><a href="#dalemb_impulsfig" title="Copy heading and permalink for Figure 4.24" aria-label="Copy heading and permalink for Figure 4.24">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 4.8.1"><a href="#dalemb_implusexample" title="Copy heading and permalink for Example 4.8.1" aria-label="Copy heading and permalink for Example 4.8.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.8.2: D’Alembert’s formula"><a href="#dalemb_section-4" title="Copy heading and permalink for Subsection 4.8.2: D’Alembert’s formula" aria-label="Copy heading and permalink for Subsection 4.8.2: D’Alembert’s formula">🔗</a></div></section><section class="subsection" id="dalemb_section-5"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.8.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Another way to solve for the side conditions</span>
 </h3>

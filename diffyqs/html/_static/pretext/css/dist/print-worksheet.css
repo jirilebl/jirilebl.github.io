@@ -603,10 +603,12 @@ dl.description-list dl dd {
   margin-left: 12ex;
 }
 @media screen and (max-width: 480px) {
-  dl.description-list dt {
+  dl.description-list dt,
+  dl.description-list.narrow dt {
     float: none;
     margin-left: 0;
     text-align: left;
+    width: 25ex;
   }
   dl.description-list dd,
   dl.description-list.narrow dd,
@@ -943,7 +945,8 @@ a[href^="mailto:"] {
 }
 .ptx-content tr.header-vertical th {
   writing-mode: vertical-rl;
-  padding-left: 2em;
+  transform: rotate(180deg);
+  padding-top: 5px;
 }
 .ptx-content .center table {
   text-align: center;
@@ -1279,6 +1282,10 @@ iframe.asymptote,
 .image-box img,
 img.contained {
   width: 100%;
+}
+.asymptote-fullsize-link {
+  text-align: center;
+  font-size: 0.9em;
 }
 .ptx-content img,
 .ptx-content svg {
@@ -1644,7 +1651,7 @@ pre[class*=language-] .line-highlight {
 }
 .displaymath mjx-container[jax=CHTML][display=true] {
   margin: 0 0 0 0;
-  padding-top: 2px;
+  padding-top: 0.3em;
 }
 .process-math mjx-container svg {
   background: none;
@@ -2172,6 +2179,54 @@ ul[data-component=timedAssessment] {
   color: white;
   background: hsl(0, 0%, 8%);
 }
+@layer spacing {
+  .runestone :is(.exercise-statement, .exercise-content) > *:not(:first-child) {
+    margin-top: 1em;
+  }
+  .ptx-runestone-container + .solutions {
+    margin-top: 0.5em;
+  }
+}
+.interactive-iframe-container {
+  max-width: 100%;
+  overflow: auto;
+}
+.interactive-iframe-container > iframe {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.interactive__instructions {
+  max-width: var(--base-content-width);
+}
+.standalone-page .interactive-iframe-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.standalone-page .interactive__instructions {
+  margin: 5px auto 20px;
+}
+.interactive-iframe-container__opener {
+  display: block;
+  margin-right: 5px;
+  margin-top: 11px;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.interactive-iframe-container__opener .icon {
+  font-size: 18px;
+}
+.interactive-iframe-container__opener:has(+ figcaption, + .instructions) {
+  float: left;
+  z-index: 1;
+  position: relative;
+}
+.interactive-iframe-container__opener + .instructions + figcaption {
+  clear: left;
+}
+.interactive-iframe-container__opener + .instructions {
+  margin-top: 0.5em;
+}
 .ptx-content .wwprob table.attemptResults {
   margin-left: 2em;
   background: #efefef;
@@ -2595,7 +2650,7 @@ body.pretext > a.assistive,
 .autopermalink {
   display: none;
 }
-details.image-description,
+.image-description,
 .ptx-content .webwork-button,
 .ptx-runestone-container button.btn {
   display: none;
@@ -2612,22 +2667,76 @@ section.handout {
 .onepage .instructions {
   display: none;
 }
-summary::marker {
-  content: "";
+.onepage .first-page-header,
+.onepage .running-header,
+.onepage .first-page-footer,
+.onepage .running-footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
 }
-summary {
+.onepage .first-page-header div,
+.onepage .running-header div,
+.onepage .first-page-footer div,
+.onepage .running-footer div {
+  min-width: 10em;
+}
+.onepage .first-page-header .header-center,
+.onepage .first-page-header .footer-center,
+.onepage .running-header .header-center,
+.onepage .running-header .footer-center,
+.onepage .first-page-footer .header-center,
+.onepage .first-page-footer .footer-center,
+.onepage .running-footer .header-center,
+.onepage .running-footer .footer-center {
+  text-align: center;
+}
+.onepage .first-page-header .header-right,
+.onepage .first-page-header .footer-right,
+.onepage .running-header .header-right,
+.onepage .running-header .footer-right,
+.onepage .first-page-footer .header-right,
+.onepage .first-page-footer .footer-right,
+.onepage .running-footer .header-right,
+.onepage .running-footer .footer-right {
+  text-align: right;
+}
+.onepage .first-page-header,
+.onepage .running-header {
+  margin-bottom: 1em;
+  border-bottom: 1px dashed lightgray;
+}
+.onepage .first-page-footer,
+.onepage .running-footer {
+  margin-top: 1em;
+  border-top: 1px dashed lightgray;
+}
+.solutions {
+  margin-top: 1em;
+}
+.solutions .solution-like.born-hidden-knowl {
+  margin-top: 1em;
+  padding: unset;
+}
+.solutions .solution-like.born-hidden-knowl h5 {
   font-weight: bolder;
   display: inline;
+  font-size: 1em;
 }
-.knowl__content {
+.solutions .solution-like.born-hidden-knowl > div {
   display: inline;
-  margin: unset;
-  border: none;
-  padding: 3px 0;
-  background-color: unset;
 }
-.knowl__link {
-  all: unset;
+.solutions .solution-like.born-hidden-knowl .knowl__content {
+  display: inline;
+  border: none;
+  background-color: unset;
+  padding: 0;
+}
+.solutions .solution-like.born-hidden-knowl .knowl__content > :first-child {
+  display: inline;
+}
+.solutions .solution-like.born-hidden-knowl .knowl__content .para {
+  margin-top: 0.5em;
 }
 .code-inline {
   border: unset;
@@ -2647,8 +2756,16 @@ summary {
 .onepage > section > .heading {
   margin-top: 0;
 }
-section article.task {
+section article.task,
+.conclusion.subtask {
   margin-left: 20px;
+}
+section article.subtask,
+.conclusion.subsubtask {
+  margin-left: 40px;
+}
+section article.subsubtask {
+  margin-left: 60px;
 }
 section.worksheet > .heading,
 section.handout > .heading {
@@ -2700,7 +2817,7 @@ form.papersize-select {
     width: 100%;
   }
   .highlight-workspace .onepage .workspace {
-    border: 1px dashed grey;
+    border: 1px dashed gray;
     background: hsl(224, 100%, 95%);
   }
   .onepage .original-workspace {
@@ -2765,6 +2882,28 @@ form.papersize-select {
     align-items: center;
     padding-bottom: 1em;
   }
+  label,
+  input {
+    cursor: pointer;
+  }
+  .header-option,
+  .footer-option {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+  }
+  .header-option .title::after,
+  .footer-option .title::after {
+    content: ":";
+  }
+  .print-options summary {
+    cursor: pointer;
+    display: list-item inline;
+  }
+  .print-options .hide-option {
+    display: inline-block;
+    padding-right: 1em;
+  }
 }
 @media print {
   body {
@@ -2788,6 +2927,18 @@ form.papersize-select {
     overflow: hidden;
     page-break-after: always;
     page-break-inside: avoid;
+  }
+  section.worksheet .first-page-header,
+  section.worksheet .running-header,
+  section.handout .first-page-header,
+  section.handout .running-header {
+    border-bottom: none;
+  }
+  section.worksheet .first-page-footer,
+  section.worksheet .running-footer,
+  section.handout .first-page-footer,
+  section.handout .running-footer {
+    border-top: none;
   }
   section.worksheet div.workspace,
   section.worksheet div.workspace.squashed.tight,

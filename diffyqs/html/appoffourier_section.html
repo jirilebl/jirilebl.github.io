@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -713,7 +711,7 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Periodically forced oscillation</span>
 </h3>
 <div class="para" id="appoffourier_section-3-2">
-<img class="diffyimg diffyfloatright" style="width:143pt; height:63pt; display:block;" src="figures/massfigforce-tex4ht.svg" alt=""><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<img class="diffyimg diffyfloatright" style="width:143pt; height:63pt; display:block;" src="figures/massfigforce-tex4ht.svg" role="img" alt="A diagram showing a mass labeled m, attached on the left to a spring labeled as k, attached to a wall on the left. An arrow indicating force to the right on the mass is labeled F of t. An arrow below the mass indicating displacement points to the right and is labeled x. The ’floor’ of the diagram is labeled as ’damping c’."><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="appoffourier_section-3-3">
 <div class="para">We return to the forced oscillations.  Consider a mass-spring system as before, where we have a mass <span class="process-math">\(m\)</span> on a spring with spring constant <span class="process-math">\(k\text{,}\)</span> with damping <span class="process-math">\(c\text{,}\)</span> and a force <span class="process-math">\(F(t)\)</span> applied to the mass.  Suppose the forcing function <span class="process-math">\(F(t)\)</span> is <span class="process-math">\(2L\)</span>-periodic for some <span class="process-math">\(L &gt; 0\text{.}\)</span> We saw this problem in <a href="ho_chapter.html" class="internal" title="Chapter 2: Higher-order linear ODEs">Chapter 2</a> with <span class="process-math">\(F(t) = F_0 \cos (\omega t)\text{.}\)</span>  The equation that governs this particular setup is</div>
@@ -885,7 +883,7 @@ x_{sp}(t) = \frac{1}{4} + \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
 <div class="para">We know this is the steady periodic solution as it contains no terms of the complementary solution and it is periodic with the same period as <span class="process-math">\(F(t)\)</span> itself.  See <a href="appoffourier_section.html#afs_steadyexfig" class="internal" title="Figure 4.14">Figure 4.14</a> for the plot of this solution.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="afs_steadyexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/afs-steadyex-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the steady periodic solution <span class="process-math">\(x_{sp}\)</span> of <a href="appoffourier_section.html#afs_steadyex" class="xref" data-knowl="./knowl/xref/afs_steadyex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.5.1">Example 4.5.1</a>.<div class="autopermalink" data-description="Figure 4.14"><a href="#afs_steadyexfig" title="Copy heading and permalink for Figure 4.14" aria-label="Copy heading and permalink for Figure 4.14">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="afs_steadyexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/afs-steadyex-mbx.svg" role="img" alt="Graph of a periodic function that looks like a sinusoidal path that oscillates several times as t goes from 0 to 10. It starts at 0.25 when t equals 0, goes a bit below 0.2, then goes back up to a bit above 0.3, and so on. It makes 5 oscillations on the interval."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the steady periodic solution <span class="process-math">\(x_{sp}\)</span> of <a href="appoffourier_section.html#afs_steadyex" class="xref" data-knowl="./knowl/xref/afs_steadyex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.5.1">Example 4.5.1</a>.<div class="autopermalink" data-description="Figure 4.14"><a href="#afs_steadyexfig" title="Copy heading and permalink for Figure 4.14" aria-label="Copy heading and permalink for Figure 4.14">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 4.5.1"><a href="#afs_steadyex" title="Copy heading and permalink for Example 4.5.1" aria-label="Copy heading and permalink for Example 4.5.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.5.1: Periodically forced oscillation"><a href="#appoffourier_section-3" title="Copy heading and permalink for Subsection 4.5.1: Periodically forced oscillation" aria-label="Copy heading and permalink for Subsection 4.5.1: Periodically forced oscillation">🔗</a></div></section><section class="subsection" id="appoffourier_section-4"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Resonance</span>
 </h3>
@@ -909,7 +907,7 @@ x(t) = \frac{a_0}{2} +
 t \left(
 a_N \cos \left( \frac{N \pi}{L} t \right) +
 b_N \sin \left( \frac{N \pi}{L} t \right) \right) +
-\sum_{\substack{n=1\\n\not= N}}^\infty
+\sum_{\substack{n=1\\n \neq N}}^\infty
 a_n \cos \left( \frac{n \pi}{L} t \right) +
 b_n \sin \left( \frac{n \pi}{L} t \right) .
 \end{equation}
@@ -977,7 +975,7 @@ t \cos (3 \pi t )
 b_3
 t \sin (3 \pi t)
 +
-\sum_{\substack{n=1 \\ n~\text{odd} \\ n\not= 3}}^\infty
+\sum_{\substack{n=1 \\ n~\text{odd} \\ n \neq 3}}^\infty
 b_n
 \sin (n \pi t) . 
 \end{equation}
@@ -993,7 +991,7 @@ x_p''(t) =
 \pi \, \cos (3 \pi t) - 9\pi^2 b_3 \, t \, \sin (3 \pi t)
 \\
 {} +
-\sum_{\substack{n=1 \\ n~\text{odd} \\ n\not= 3}}^\infty
+\sum_{\substack{n=1 \\ n~\text{odd} \\ n \neq 3}}^\infty
 (-n^2 \pi^2 b_n ) \,
 \sin (n \pi t) . 
 \end{multline*}
@@ -1014,7 +1012,7 @@ x_p''(t) =
 \phantom{\, + 12 b_3 \pi \cos (3 \pi t)} ~
 {} + 18 \pi^2 b_3 t \sin (3 \pi t)
 \\
-&amp; {} + \sum_{\substack{n=1 \\ n~\text{odd} \\ n\not= 3}}^\infty
+&amp; {} + \sum_{\substack{n=1 \\ n~\text{odd} \\ n \neq 3}}^\infty
 (-2n^2 \pi^2 b_n + 18\pi^2 b_n) \,
 \sin (n \pi t) . 
 \end{aligned}
@@ -1030,7 +1028,7 @@ x_p''(t) =
 12 b_3
 \pi \cos (3 \pi t)
 +
-\sum_{\substack{n=1 \\ n~\text{odd} \\ n\not= 3}}^\infty
+\sum_{\substack{n=1 \\ n~\text{odd} \\ n \neq 3}}^\infty
 (-2n^2 \pi^2 b_n + 18\pi^2 b_n)
 \sin (n \pi t) . 
 \end{equation}
@@ -1043,7 +1041,7 @@ x_p''(t) =
 &amp; a_3 = \frac{4/(3\pi)}{-12\pi} = \frac{-1}{9\pi^2} , \\
 &amp; b_3 = 0 , \\
 &amp; b_n = \frac{4}{n\pi(18\pi^2 - 2n^2 \pi^2)} 
-= \frac{2}{\pi^3 n(9 - n^2)} \qquad \text{for } n \text{ odd and } n\not=3 .
+= \frac{2}{\pi^3 n(9 - n^2)} \qquad \text{for } n \text{ odd and } n \neq 3 .
 \end{aligned}
 \end{equation}
 </div>
@@ -1055,7 +1053,7 @@ x_p(t) =
 \,
 t \, \cos (3 \pi t)
 +
-\sum_{\substack{n=1 \\ n~\text{odd} \\ n\not= 3}}^\infty
+\sum_{\substack{n=1 \\ n~\text{odd} \\ n \neq 3}}^\infty
 \frac{2}{\pi^3 n(9 - n^2)}
 \sin (n \pi t) . 
 \end{equation}

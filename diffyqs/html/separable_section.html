@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -761,7 +759,7 @@ y' = f(x)g(y) ,
 y' = xy .
 \end{equation}
 </div>
-<div class="para">Note that <span class="process-math">\(y=0\)</span> is a solution.  We will remember that fact and assume <span class="process-math">\(y \not =0\)</span> from now on, so that we can divide by <span class="process-math">\(y\text{.}\)</span> Write the equation as <span class="process-math">\(\frac{dy}{dx} = xy\)</span> or <span class="process-math">\(\frac{dy}{y} = x \, dx\text{.}\)</span> Then</div>
+<div class="para">Note that <span class="process-math">\(y=0\)</span> is a solution.  We will remember that fact and assume <span class="process-math">\(y \neq 0\)</span> from now on, so that we can divide by <span class="process-math">\(y\text{.}\)</span> Write the equation as <span class="process-math">\(\frac{dy}{dx} = xy\)</span> or <span class="process-math">\(\frac{dy}{y} = x \, dx\text{.}\)</span> Then</div>
 <div class="displaymath process-math" id="example_yprimeisxy-1-1-7">
 \begin{equation}
 \int \frac{dy}{y} = \int x\,dx + C .
@@ -871,7 +869,7 @@ y'\left(2y + \frac{2}{y}\right) = 2x .
 <div class="para" id="separable_section-4-4">Computers are also good at some of these tricks. More advanced mathematical software usually has some way of plotting solutions to implicit equations. For example, for <span class="process-math">\(D=0\text{,}\)</span> if you plot all the points <span class="process-math">\((x,y)\)</span> that are solutions to <span class="process-math">\(y^2+2\ln \, \lvert y\rvert=x^2\text{,}\)</span> you find the two curves in <a href="separable_section.html#implicitsols_fig" class="internal" title="Figure 1.8">Figure 1.8</a>.  This is not quite a graph of a function. For each <span class="process-math">\(x\)</span> there are two choices of <span class="process-math">\(y\text{.}\)</span> To find a function, you have to pick one of these two curves. You pick the one that satisfies your initial condition if you have one. For instance, the top curve satisfies the condition <span class="process-math">\(y(1)=1\text{.}\)</span> So for each <span class="process-math">\(D\text{,}\)</span> we really got two solutions. As you can see, computing values from an implicit solution can be somewhat tricky.  But sometimes, an implicit solution is the best we can do.<div class="autopermalink" data-description="Paragraph"><a href="#separable_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="implicitsols_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/implicitsols-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The implicit solution <span class="process-math">\(y^2+2\ln \, \lvert y\rvert = x^2\)</span> to <span class="process-math">\(y'=\frac{xy}{y^2+1}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.8"><a href="#implicitsols_fig" title="Copy heading and permalink for Figure 1.8" aria-label="Copy heading and permalink for Figure 1.8">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="implicitsols_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/implicitsols-mbx.svg" role="img" alt="Plot of the region of the xy-plane near the origin, and there are two solutions plotted one concave up above the x-axis and one concave down below the x-axis."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The implicit solution <span class="process-math">\(y^2+2\ln \, \lvert y\rvert = x^2\)</span> to <span class="process-math">\(y'=\frac{xy}{y^2+1}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.8"><a href="#implicitsols_fig" title="Copy heading and permalink for Figure 1.8" aria-label="Copy heading and permalink for Figure 1.8">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="separable_section-4-8">
 <div class="para">The equation above also has the solution <span class="process-math">\(y=0\text{.}\)</span> So the general solution is</div>
 <div class="displaymath process-math" id="separable_section-4-8-2">
@@ -952,13 +950,13 @@ D\text{,}\)</span> and hence <span class="process-math">\(D = 67\text{.}\)</span
 <div class="para">to get <span class="process-math">\(t = - \frac{\ln \frac{60-22}{67}}{0.0616} \approx 9.21\)</span> minutes.  So Bob can begin to drink the coffee at just over 9 minutes from the time Bob made it.  That is probably about the amount of time it took us to calculate how long it would take.  See <a href="separable_section.html#sintro_coffeefig" class="internal" title="Figure 1.9">Figure 1.9</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sep_coffeeexample-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="sintro_coffeefig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/coffeefig-1-2-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of the coffee temperature function <span class="process-math">\(T(t)\text{.}\)</span> On the left, horizontal lines are drawn at temperatures 60, 85, and 89.  Vertical lines are drawn at <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=9.21\text{.}\)</span>  Notice that the temperature of the coffee hits 85 at <span class="process-math">\(t=1\text{,}\)</span> and 60 at <span class="process-math">\(t \approx 9.21\text{.}\)</span>  On the right, the graph is over a longer period of time, with a horizontal line at the ambient temperature 22.<div class="autopermalink" data-description="Figure 1.9"><a href="#sintro_coffeefig" title="Copy heading and permalink for Figure 1.9" aria-label="Copy heading and permalink for Figure 1.9">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="sintro_coffeefig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/coffeefig-1-2-mbx.svg" role="img" alt="Two plots of the coffee temperature. On the left, the downwards solution is shown for time 0 to 12.5 as the temperature goes from 89 to below 60. There are horizontal lines at 89, 85, and 60. A vertical line at t equals 1 intersects the solution at temperature 85. A vertical line at t equals 9.21 intersects the solution at temperature 60. The right hand plot is over longer period of time to t equals 80. The solution exponentially decays towards a vertical line at temperature 22."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Graphs of the coffee temperature function <span class="process-math">\(T(t)\text{.}\)</span> On the left, horizontal lines are drawn at temperatures 60, 85, and 89.  Vertical lines are drawn at <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=9.21\text{.}\)</span>  Notice that the temperature of the coffee hits 85 at <span class="process-math">\(t=1\text{,}\)</span> and 60 at <span class="process-math">\(t \approx 9.21\text{.}\)</span>  On the right, the graph is over a longer period of time, with a horizontal line at the ambient temperature 22.<div class="autopermalink" data-description="Figure 1.9"><a href="#sintro_coffeefig" title="Copy heading and permalink for Figure 1.9" aria-label="Copy heading and permalink for Figure 1.9">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 1.3.3"><a href="#sep_coffeeexample" title="Copy heading and permalink for Example 1.3.3" aria-label="Copy heading and permalink for Example 1.3.3">🔗</a></div></article><article class="example example-like" id="separable_section-5-4"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="separable_section-5-4-1-1">Find the general solution to <span class="process-math">\(y' = \frac{-xy^2}{3}\)</span> (including any singular solutions).<div class="autopermalink" data-description="Paragraph"><a href="#separable_section-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="separable_section-5-4-1-2">
-<div class="para">First, note that <span class="process-math">\(y=0\)</span> is a solution (a singular solution). Next, assume <span class="process-math">\(y \not= 0\)</span> and separate:</div>
+<div class="para">First, note that <span class="process-math">\(y=0\)</span> is a solution (a singular solution). Next, assume <span class="process-math">\(y \neq 0\)</span> and separate:</div>
 <div class="displaymath process-math" id="separable_section-5-4-1-2-3">
 \begin{equation}
 \begin{aligned}

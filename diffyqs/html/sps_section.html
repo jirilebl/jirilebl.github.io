@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -715,7 +713,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sps_section-3-2">Consider a guitar string of length <span class="process-math">\(L\text{.}\)</span>  We studied this setup in <a href="we_section.html" class="internal" title="Section 4.7: One-dimensional wave equation">Section 4.7</a>. Let <span class="process-math">\(x\)</span> be the position on the string, <span class="process-math">\(t\)</span> the time, and <span class="process-math">\(y\)</span> the displacement of the string.  See <a href="sps_section.html#sps_vibstrfig" class="internal" title="Figure 5.3">Figure 5.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="sps_vibstrfig"><img class="diffyimg" style="width:321pt; height:89pt; display:block;" src="figures/sps-vibstr-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vibrating string.<div class="autopermalink" data-description="Figure 5.3"><a href="#sps_vibstrfig" title="Copy heading and permalink for Figure 5.3" aria-label="Copy heading and permalink for Figure 5.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="sps_vibstrfig"><img class="diffyimg" style="width:321pt; height:89pt; display:block;" src="figures/sps-vibstr-tex4ht.svg" role="img" alt="Diagram of a string of a guitar (a shaded guitar is in the background), the bridge of the guitar is at x equals 0 on the x-axis and the nut of the guitar is at x equals L. The string is fixed to the x-axis at these two points. The string appears to be plucked in the middle upwards making a wide triangle. The vertical axis is labeled y, and an arrow indicates that y gives the displacement of the string at any particular x, that is, the graph of y is the shape of the string."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vibrating string.<div class="autopermalink" data-description="Figure 5.3"><a href="#sps_vibstrfig" title="Copy heading and permalink for Figure 5.3" aria-label="Copy heading and permalink for Figure 5.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="sps_section-3-6">
 <div class="para">The problem is governed by the wave equation</div>
 <div class="displaymath process-math" id="sps_freevib">
@@ -868,8 +866,8 @@ y_p(x,t) =
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sps_section-3-16-1-1">
-<div class="para">Let us do the computation for specific values. Suppose <span class="process-math">\(F_0 = 1\)</span> and <span class="process-math">\(\omega = 1\)</span> and <span class="process-math">\(L=1\)</span> and <span class="process-math">\(a=1\text{.}\)</span>  Then</div>
-<div class="displaymath process-math" id="sps_section-3-16-1-1-5">
+<div class="para">Suppose <span class="process-math">\(F_0 = 1\text{,}\)</span> <span class="process-math">\(\omega = 1\text{,}\)</span> <span class="process-math">\(L=1\text{,}\)</span> and <span class="process-math">\(a=1\text{.}\)</span> Let us find a solution <span class="process-math">\(y\)</span> to <a href="sps_section.html#sps_forcedeq" class="xref" data-knowl="./knowl/xref/sps_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> satisfying the zero boundary conditions <a href="sps_section.html#sps_forcedinitcond" class="xref" data-knowl="./knowl/xref/sps_forcedinitcond.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.8">(5.8)</a>.  First we find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sps_forcedeq.html ./knowl/xref/sps_forcedinitcond.html" id="sps_section-3-16-1-1-8">
 \begin{equation}
 y_p(x,t) =
 \left(
@@ -884,8 +882,8 @@ y_p(x,t) =
 <div class="para">Write <span class="process-math">\(B = \frac{\cos (1) - 1}{\sin (1)}\)</span> for simplicity.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sps_section-3-16-1-2">
-<div class="para">Then plug in <span class="process-math">\(t=0\)</span> to get</div>
-<div class="displaymath process-math" id="sps_section-3-16-1-2-2">
+<div class="para">Plug in <span class="process-math">\(t=0\)</span> into <span class="process-math">\(y_p\)</span> to get</div>
+<div class="displaymath process-math" id="sps_section-3-16-1-2-3">
 \begin{equation}
 f(x) =- y_p(x,0) = 
 - \cos x +
@@ -893,23 +891,23 @@ B \sin x
 +1 ,
 \end{equation}
 </div>
-<div class="para">and after differentiating in <span class="process-math">\(t\)</span> we see that <span class="process-math">\(g(x) = -\frac{\partial y_p}{\partial t}(x,0) = 0\text{.}\)</span>
+<div class="para">and after differentiating <span class="process-math">\(y_p\)</span> in <span class="process-math">\(t\text{,}\)</span> we see that <span class="process-math">\(g(x) = -\frac{\partial y_p}{\partial t}(x,0) = 0\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sps_section-3-16-1-3">
 <div class="para">Hence to find <span class="process-math">\(y_c\text{,}\)</span> we need to solve the problem</div>
-<div class="displaymath process-math" id="sps_section-3-16-1-3-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sps_forcedeq.html ./knowl/xref/sps_forcedinitcond.html" id="sps_section-3-16-1-3-2">
 \begin{equation}
 \begin{aligned}
-&amp; y_{tt} = y_{xx} , \\
-&amp; y(0,t) = 0 , \quad y(1,t) = 0 , \\
-&amp; y(x,0) = - \cos x + B \sin x +1 , \\
-&amp; y_t(x,0) = 0 .
+&amp; w_{tt} = w_{xx} , \\
+&amp; w(0,t) = 0 , \quad w(1,t) = 0 , \\
+&amp; w(x,0) = f(x) = - \cos x + B \sin x +1 , \\
+&amp; w_t(x,0) = g(x) = 0 ,
 \end{aligned}
 \end{equation}
 </div>
-<div class="para">If we use d’Alembert, we note that the formula that we use to define <span class="process-math">\(y(x,0)\)</span> is not odd, hence it is not a simple matter of plugging in the expression for <span class="process-math">\(y(x,0)\)</span> to the d’Alembert formula directly!  You must define <span class="process-math">\(F\)</span> to be the odd, 2-periodic extension of <span class="process-math">\(y(x,0)\text{.}\)</span>  Then our solution is</div>
-<div class="displaymath process-math" id="natfreq_exsol">
+<div class="para">and set <span class="process-math">\(y_c=w\text{.}\)</span> If we use d’Alembert, we note that the formula that we use to define <span class="process-math">\(w(x,0)\)</span> is not odd, hence it is not a simple matter of plugging in the expression for <span class="process-math">\(w(x,0)\)</span> to the d’Alembert formula directly!  You must define <span class="process-math">\(F\)</span> to be the odd, 2-periodic extension of <span class="process-math">\(w(x,0)\text{.}\)</span>  Then our solution <span class="process-math">\(y = y_p+y_c\)</span> to <a href="sps_section.html#sps_forcedeq" class="xref" data-knowl="./knowl/xref/sps_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> subject to <a href="sps_section.html#sps_forcedinitcond" class="xref" data-knowl="./knowl/xref/sps_forcedinitcond.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.8">(5.8)</a> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sps_forcedeq.html ./knowl/xref/sps_forcedinitcond.html" id="natfreq_exsol">
 \begin{equation}
 y(x,t) = 
 \frac{F(x+t) + F(x-t)}{2} + 
@@ -925,7 +923,7 @@ y(x,t) =
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sps_section-3-16-1-4">It is not hard to compute specific values for an odd periodic extension of a function and hence <a href="sps_section.html#natfreq_exsol" class="xref" data-knowl="./knowl/xref/natfreq_exsol.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.10">(5.10)</a> is a wonderful solution to the problem. For example, it is very easy to have a computer do it, unlike a series solution. A plot is given in <a href="sps_section.html#natfreq_forcedvibfig" class="internal" title="Figure 5.4">Figure 5.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="natfreq_forcedvibfig"><img class="diffyimg" style="width:100%; max-width:7.5in; background-color:white; display:block;" src="figures/natfreq-forcedvib-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(y(x,t) = \frac{F(x+t) + F(x-t)}{2} + \left( \cos (x) -
+<figure class="figure figure-like" id="natfreq_forcedvibfig"><img class="diffyimg" style="width:100%; max-width:7.5in; background-color:white; display:block;" src="figures/natfreq-forcedvib-mbx.svg" role="img" alt="A plot of a surface above the xt-plane where x ranges from 0 to 1 and t ranges from 0 to 5. The function y is zero on 3 sides, that is at t equals 0 and when x equals 0 or x equals 1. Inside its domain as t grows there is a bump going up to a bit above 0.2, then there are two bumps going below the xt-plane, the second one seeming a little more pronounced. Then the function starts going into another bump upwards."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(y(x,t) = \frac{F(x+t) + F(x-t)}{2} + \left( \cos (x) -
 \frac{\cos (1) - 1}{\sin (1)} \sin (x) -1 \right) \cos (t)\text{.}\)</span><div class="autopermalink" data-description="Figure 5.4"><a href="#natfreq_forcedvibfig" title="Copy heading and permalink for Figure 5.4" aria-label="Copy heading and permalink for Figure 5.4">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 5.3.1"><a href="#sps_section-3-16" title="Copy heading and permalink for Example 5.3.1" aria-label="Copy heading and permalink for Example 5.3.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.3.1: Forced vibrating string"><a href="#sps_section-3" title="Copy heading and permalink for Subsection 5.3.1: Forced vibrating string" aria-label="Copy heading and permalink for Subsection 5.3.1: Forced vibrating string">🔗</a></div></section><section class="subsection" id="sps_section-4"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Underground temperature oscillations</span>
@@ -933,7 +931,7 @@ y(x,t) =
 <div class="para" id="sps_section-4-2">Let <span class="process-math">\(u(x,t)\)</span> be the temperature at a certain location at depth <span class="process-math">\(x\)</span> underground at time <span class="process-math">\(t\text{.}\)</span>  See <a href="sps_section.html#sps_groundtempfig" class="internal" title="Figure 5.5">Figure 5.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="sps_groundtempfig"><img class="diffyimg" style="width:125pt; height:91pt; display:block;" src="figures/sps-groundtemp-tex4ht.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Underground temperature.<div class="autopermalink" data-description="Figure 5.5"><a href="#sps_groundtempfig" title="Copy heading and permalink for Figure 5.5" aria-label="Copy heading and permalink for Figure 5.5">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="sps_groundtempfig"><img class="diffyimg" style="width:125pt; height:91pt; display:block;" src="figures/sps-groundtemp-tex4ht.svg" role="img" alt="A diagram of the ground with a person standing on it, and an arrow downward marked with ’depth x’ indicating that x means the depth below ground."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Underground temperature.<div class="autopermalink" data-description="Figure 5.5"><a href="#sps_groundtempfig" title="Copy heading and permalink for Figure 5.5" aria-label="Copy heading and permalink for Figure 5.5">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="sps_section-4-6">
 <div class="para">The temperature <span class="process-math">\(u\)</span> satisfies the heat equation <span class="process-math">\(u_t = ku_{xx}\text{,}\)</span> where <span class="process-math">\(k\)</span> is the diffusivity of the soil. We know the temperature at the surface <span class="process-math">\(u(0,t)\)</span> from weather records.  Let us assume for simplicity that</div>
 <div class="displaymath process-math" id="sps_section-4-6-5">
@@ -1008,7 +1006,7 @@ X(x) = A e^{-(1+i)\sqrt{\frac{\omega}{2k}} \, x}
 \end{equation}
 </div>
 <div class="para">We assume that an <span class="process-math">\(X(x)\)</span> that solves the problem must be bounded as <span class="process-math">\(x \to
-\infty\)</span> since <span class="process-math">\(u(x,t)\)</span> should be bounded (we are not worrying about Earth’s core!). If you use <a href="sec_ccsol.html#eulersformula" class="xref" data-knowl="./knowl/xref/eulersformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Euler’s formula">Euler’s formula</a> to expand the complex exponentials, note that the second term is unbounded (if <span class="process-math">\(B \not = 0\)</span>), while the first term is always bounded.  Hence <span class="process-math">\(B=0\text{.}\)</span>
+\infty\)</span> since <span class="process-math">\(u(x,t)\)</span> should be bounded (we are not worrying about Earth’s core!). If you use <a href="sec_ccsol.html#eulersformula" class="xref" data-knowl="./knowl/xref/eulersformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Euler’s formula">Euler’s formula</a> to expand the complex exponentials, note that the second term is unbounded (if <span class="process-math">\(B \neq 0\)</span>), while the first term is always bounded.  Hence <span class="process-math">\(B=0\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

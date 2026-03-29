@@ -80,7 +80,7 @@
 //   webwork "activate" buttons
 //   buttons in general (to remove Runestone "Check Me" button)
 // We remove these here.
-details.image-description,
+.image-description,
 .ptx-content .webwork-button,
 .ptx-runestone-container button.btn {
   display: none;
@@ -103,28 +103,77 @@ section.worksheet, section.handout {
   display: none;
 }
 
+// Headers and footers
+.onepage .first-page-header,
+.onepage .running-header,
+.onepage .first-page-footer,
+.onepage .running-footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
 
-// Try to make an open solution knowl look less strange.  Eventually the print version of worksheets should create HTML that isn't a details element.
-summary::marker {
-  content: "";
+  // Make divs have minimum width to make it easier to select them for editing
+  div {
+    min-width: 10em;
+  }
+
+  .header-center, .footer-center {
+    text-align: center;
+  }
+
+  .header-right, .footer-right {
+    text-align: right;
+  }
 }
 
-summary {
-  font-weight: bolder;
-  display: inline;
+.onepage .first-page-header, .onepage .running-header {
+  margin-bottom: 1em;
+  border-bottom: 1px dashed lightgray;
 }
 
-.knowl__content {
-  display: inline;
-  margin: unset;
-  border: none;
-  padding: 3px 0;
-  background-color: unset;
+.onepage .first-page-footer, .onepage .running-footer {
+  margin-top: 1em;
+  border-top: 1px dashed lightgray;
 }
 
-.knowl__link {
-  all: unset
+
+// Style solutions divs, which the javascript transforms from knowls to divs with titles
+
+.solutions {
+  margin-top: 1em;
+
+  .solution-like.born-hidden-knowl {
+    margin-top: 1em;
+    padding: unset;
+
+    h5 {
+      font-weight: bolder;
+      display: inline;
+      font-size: 1em;
+    }
+
+    > div {
+      display: inline;
+    }
+
+    .knowl__content {
+      display: inline;
+      border: none;
+      background-color: unset;
+      padding: 0;
+
+      >:first-child {
+        display: inline;
+      }
+
+      .para {
+        margin-top: 0.5em;
+      }
+    }
+  }
 }
+
+// Additional styling tweaks for print
 
 .code-inline {
   border: unset;
@@ -152,8 +201,14 @@ summary {
 }
 
 // tasks might be "free-floating" articles, in which case they should get the same indenting as tasks inside exercises.
- section article.task {
+section article.task, .conclusion.subtask {
   margin-left: 20px;
+}
+section article.subtask, .conclusion.subsubtask {
+  margin-left: 40px;
+}
+section article.subsubtask {
+  margin-left: 60px;
 }
 
 section.worksheet > .heading, section.handout > .heading {
@@ -219,7 +274,7 @@ form.papersize-select {
   }
 
   .highlight-workspace .onepage .workspace {
-    border: 1px dashed grey;
+    border: 1px dashed gray;
     background: hsl(224, 100%, 95%);
   }
 
@@ -255,8 +310,36 @@ form.papersize-select {
     align-items: center;
     padding-bottom: 1em;
   }
-}
 
+  // Make labels and inputs for print options have pointer cursor
+  label, input {
+    cursor: pointer;
+  }
+
+  // Add spacing for header/footer options
+  .header-option, .footer-option {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+
+    .title::after {
+      content: ":";
+    }
+  }
+
+// Style the additional printing options the same as we do for knowls
+  .print-options {
+    summary {
+      cursor: pointer;
+      display: list-item inline;
+    }
+
+    .hide-option {
+      display: inline-block;
+      padding-right: 1em;
+    }
+  }
+}
 
 
 // Print specific styles
@@ -283,6 +366,15 @@ form.papersize-select {
       page-break-after: always;
       page-break-inside: avoid;
     }
+
+    .first-page-header, .running-header {
+      border-bottom: none;
+    }
+
+    .first-page-footer, .running-footer {
+      border-top: none;
+    }
+
     // Never show the workspace preview in print
     div.workspace,
     div.workspace.squashed.tight {

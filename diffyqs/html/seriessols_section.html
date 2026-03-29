@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -728,7 +726,7 @@ y = \sum_{k=0}^\infty a_k {(x-x_0)}^k
 <div class="autopermalink" data-description="Paragraph"><a href="#seriessols_section-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="seriessols_section-4">
-<div class="para">The point <span class="process-math">\(x_0\)</span> is called an <em class="emphasis">ordinary point</em> if <span class="process-math">\(P(x_0) \not= 0\text{.}\)</span>  That is, the functions</div>
+<div class="para">The point <span class="process-math">\(x_0\)</span> is called an <em class="emphasis">ordinary point</em> if <span class="process-math">\(P(x_0) \neq 0\text{.}\)</span>  That is, the functions</div>
 <div class="displaymath process-math" id="seriessols_section-4-4">
 \begin{equation}
 \frac{Q(x)}{P(x)} \qquad \text{and} \qquad \frac{R(x)}{P(x)}
@@ -1005,7 +1003,7 @@ x + \frac{1}{12} x^4 + \frac{1}{504} x^7 + \cdots +
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#seriessols_section-7-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="ps_airyfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/ps-airy-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two solutions <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\)</span> to Airy’s equation.<div class="autopermalink" data-description="Figure 7.3"><a href="#ps_airyfig" title="Copy heading and permalink for Figure 7.3" aria-label="Copy heading and permalink for Figure 7.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="ps_airyfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/ps-airy-mbx.svg" role="img" alt="Graph of two functions, they both seem to be oscillating up and down for x less than 0, and both seem to go up like an exponential for positive x. One of them goes through the origin with slope 1, one of them goes through the point (0,1) with slope zero."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two solutions <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\)</span> to Airy’s equation.<div class="autopermalink" data-description="Figure 7.3"><a href="#ps_airyfig" title="Copy heading and permalink for Figure 7.3" aria-label="Copy heading and permalink for Figure 7.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 7.2.2"><a href="#seriessols_section-7" title="Copy heading and permalink for Example 7.2.2" aria-label="Copy heading and permalink for Example 7.2.2">🔗</a></div></article><div class="para" id="seriessols_section-8">The functions <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\)</span> cannot be written in terms of the elementary functions that you know.  See <a href="seriessols_section.html#ps_airyfig" class="internal" title="Figure 7.3">Figure 7.3</a> for the plot of the solutions <span class="process-math">\(y_1\)</span> and <span class="process-math">\(y_2\text{.}\)</span>  These functions have many interesting properties.  For example, they are oscillatory for negative <span class="process-math">\(x\)</span> (like solutions to <span class="process-math">\(y''+y=0\)</span>) and for positive <span class="process-math">\(x\)</span> they grow without bound (like solutions to <span class="process-math">\(y''-y=0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#seriessols_section-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="seriessols_section-9">Sometimes a series solution may turn out to be a polynomial. Let us see an example.<div class="autopermalink" data-description="Paragraph"><a href="#seriessols_section-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>

@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -738,7 +736,7 @@ y' = f(x,y), \qquad y(x_0) = y_0 .
 <div class="autopermalink" data-description="Paragraph"><a href="#numer_section-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="euler-step12_fig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/euler-steps-1-2-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>First two steps of Euler’s method with <span class="process-math">\(h=1\)</span> for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial conditions <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.16"><a href="#euler-step12_fig" title="Copy heading and permalink for Figure 1.16" aria-label="Copy heading and permalink for Figure 1.16">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="euler-step12_fig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/euler-steps-1-2-mbx.svg" role="img" alt="Two plots plot in the xy-plane of a slope field with slopes y^2 over 3 in the region where x is between minus 1 and 3 and y is between 0 and 3. All the slopes are upwards with the ones further up being steeper. In the left plot, the first step of Euler’s method is shown as a green line starting at (0,1) of slope 1 over 3, which is the slope at (0,1) and going right until x equals 1. In the right plot, a second line is added starting at the end of the first line with slope equal to the slope of the slope field and going further right until x equals 2."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>First two steps of Euler’s method with <span class="process-math">\(h=1\)</span> for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial conditions <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.16"><a href="#euler-step12_fig" title="Copy heading and permalink for Figure 1.16" aria-label="Copy heading and permalink for Figure 1.16">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="numer_section-9">
 <div class="para">We can continue along, for any <span class="process-math">\(i=0,1,2,3,\ldots\text{,}\)</span> we compute</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/euler-step12-sol_fig.html" id="numer_section-9-2">
@@ -750,7 +748,7 @@ x_{i+1} = x_i + h , \qquad y_{i+1}  = y_i + h\, f(x_i,y_i) .
 <div class="autopermalink" data-description="Paragraph"><a href="#numer_section-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="euler-step12-sol_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/euler-step12-sol-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two steps of Euler’s method (step size 1) and the exact solution for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial conditions <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.17"><a href="#euler-step12-sol_fig" title="Copy heading and permalink for Figure 1.17" aria-label="Copy heading and permalink for Figure 1.17">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="euler-step12-sol_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/euler-step12-sol-mbx.svg" role="img" alt="A plot in the xy-plane of a slope field with slopes y^2/3 in the region where x is between minus 1 and 3 and y is between 0 and 3. The first two steps are shown the two green line segments as before, but also the solution through (0,1) is drawn in red, which is curved upwards and follows the slope field. We can see that it stays above the green line segments."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two steps of Euler’s method (step size 1) and the exact solution for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial conditions <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.17"><a href="#euler-step12-sol_fig" title="Copy heading and permalink for Figure 1.17" aria-label="Copy heading and permalink for Figure 1.17">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="numer_section-13">
 <div class="para">We continue with the example <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span> We have approximated <span class="process-math">\(y(2)\)</span> with Euler’s method with step size 1. We conclude that <span class="process-math">\(y(2)\)</span> is approximately <span class="process-math">\(y_2\text{,}\)</span> that is, <span class="process-math">\(y(2) \approx 1.926\text{.}\)</span> The real answer is 3. We are off by roughly 1.074. The difference between the actual solution and the approximate solution is called the error.  We usually talk about the size of the error and we do not care much about its sign.</div>
 <div class="displaymath process-math" id="numer_section-13-7">

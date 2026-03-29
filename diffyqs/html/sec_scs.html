@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -776,7 +774,7 @@ f(-t) &amp; \text{if } \; {-L} &lt; t &lt; 0 .
 </h4>
 <div class="para" id="sec_scs-3-9-1-1">Take the function <span class="process-math">\(f(t) = t\,(1-t)\)</span> defined on <span class="process-math">\([0,1]\text{.}\)</span> <a href="sec_scs.html#scs_oddevenextfig" class="internal" title="Figure 4.12">Figure 4.12</a> shows the plots of the odd and even periodic extensions of <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_scs-3-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="scs_oddevenextfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/scs-ext-odd-even-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Odd and even 2-periodic extension of <span class="process-math">\(f(t) =
+<figure class="figure figure-like" id="scs_oddevenextfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/scs-ext-odd-even-mbx.svg" role="img" alt="Two graphs for t between mimus 2 to 2, which are the odd (on the left) and the even (on the right) periodic extensions of t times quantity 1 minus t defined for t between 0 and 1. That is the function on the interval from 0 to 1 is an upside down parabola starting and ending on the t-axis. In the odd extension, the graph is simply composed of alternating upside down and right side up parabolas all starting and ending on the t-axis, forming a roughly sinusoidal shape. On the right, the even extension is simply a series of identical upside down parabolas glued together."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Odd and even 2-periodic extension of <span class="process-math">\(f(t) =
 t\,(1-t)\text{,}\)</span> <span class="process-math">\(0 \leq t \leq 1\text{.}\)</span><div class="autopermalink" data-description="Figure 4.12"><a href="#scs_oddevenextfig" title="Copy heading and permalink for Figure 4.12" aria-label="Copy heading and permalink for Figure 4.12">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 4.4.1"><a href="#sec_scs-3-9" title="Copy heading and permalink for Example 4.4.1" aria-label="Copy heading and permalink for Example 4.4.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.4.1: Odd and even periodic functions"><a href="#sec_scs-3" title="Copy heading and permalink for Subsection 4.4.1: Odd and even periodic functions" aria-label="Copy heading and permalink for Subsection 4.4.1: Odd and even periodic functions">🔗</a></div></section><section class="subsection" id="sec_scs-4"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sine and cosine series</span>
@@ -1048,7 +1046,7 @@ x(t) =
 <div class="para">See <a href="sec_scs.html#bnd-dirich-graph_fig" class="internal" title="Figure 4.13">Figure 4.13</a> for a graph of the solution. Notice that because the eigenfunctions satisfy the boundary conditions, and <span class="process-math">\(x\)</span> is written in terms of the boundary conditions, then <span class="process-math">\(x\)</span> satisfies the boundary conditions.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_scs-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="bnd-dirich-graph_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/bnd-dirich-graph-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the solution of <span class="process-math">\(x''+2x=t\text{,}\)</span> <span class="process-math">\(x(0)=0\text{,}\)</span> <span class="process-math">\(x(1)=0\text{.}\)</span><div class="autopermalink" data-description="Figure 4.13"><a href="#bnd-dirich-graph_fig" title="Copy heading and permalink for Figure 4.13" aria-label="Copy heading and permalink for Figure 4.13">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="bnd-dirich-graph_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/bnd-dirich-graph-mbx.svg" role="img" alt="A graph of a function in the tx-plane for t between 0 and 1. The graph starts at 0 when t equals 0 and goes down relatively straight for a bit. It then curves upwards, first reaching a minimum of what seems like minus 0.08 before going up back to 0 at t equals 1. The minimum is slightly to the right of center of the figure."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the solution of <span class="process-math">\(x''+2x=t\text{,}\)</span> <span class="process-math">\(x(0)=0\text{,}\)</span> <span class="process-math">\(x(1)=0\text{.}\)</span><div class="autopermalink" data-description="Figure 4.13"><a href="#bnd-dirich-graph_fig" title="Copy heading and permalink for Figure 4.13" aria-label="Copy heading and permalink for Figure 4.13">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 4.4.3"><a href="#sec_scs-5-3" title="Copy heading and permalink for Example 4.4.3" aria-label="Copy heading and permalink for Example 4.4.3">🔗</a></div></article><article class="example example-like" id="sec_scs-5-4"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>

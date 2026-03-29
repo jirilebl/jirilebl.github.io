@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -775,7 +773,7 @@ u_{xx} + u_{yy} = 0 .
 \end{align}
 </div>
 <div class="para" id="dirich_section-13">
-<img class="diffyimg" style="width:200pt; height:121pt; display:block;" src="figures/dirichsetup-tex4ht.svg" alt=""><div class="autopermalink" data-description="Paragraph"><a href="#dirich_section-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<img class="diffyimg" style="width:200pt; height:121pt; display:block;" src="figures/dirichsetup-tex4ht.svg" role="img" alt="A diagram of shaded rectangle in the xy-plane with vertices (0,0), (w,0), (w,h), and (0,h). The inside of the rectangle is shaded and labeled Delta u equals 0. The top and the sides are labeled as u equals 0. The bottom side is labeled as u equals f of x."><div class="autopermalink" data-description="Paragraph"><a href="#dirich_section-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="dirich_section-14">The method we apply is separation of variables.  Again, we will come up with enough building-block solutions satisfying all the homogeneous boundary conditions (all conditions except <a href="dirich_section.html#dirich_section-12" class="xref" data-knowl="./knowl/xref/dirich_eq5.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.24">(4.24)</a>).  We notice that superposition still works for the equation and all the homogeneous conditions. Therefore, we can use the Fourier series for <span class="process-math">\(f(x)\)</span> to find a solution <span class="process-math">\(u\)</span> that also solves <a href="dirich_section.html#dirich_section-12" class="xref" data-knowl="./knowl/xref/dirich_eq5.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.24">(4.24)</a>.<div class="autopermalink" data-description="Paragraph"><a href="#dirich_section-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -890,7 +888,7 @@ u(x,y) =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#dirich_section-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="dirichsquareplot_fig"><img class="diffyimg" style="width:100%; max-width:7.5in; background-color:white; display:block;" src="figures/dirichsquareplot-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Steady state temperature of a square plate, three sides held at zero and one side held at <span class="process-math">\(\pi\text{.}\)</span><div class="autopermalink" data-description="Figure 4.25"><a href="#dirichsquareplot_fig" title="Copy heading and permalink for Figure 4.25" aria-label="Copy heading and permalink for Figure 4.25">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="dirichsquareplot_fig"><img class="diffyimg" style="width:100%; max-width:7.5in; background-color:white; display:block;" src="figures/dirichsquareplot-mbx.svg" role="img" alt="A plot of the graph of a function u of (x,y) over the xy-plane over the square region where x is between 0 and pi and y is between 0 and pi. On the side of the square where y minus 0, the function equals pi and on the remaining three sides it is 0. In the middle it appears almost as if one stretched a rubber sheet and fixed it on the sides at the given values."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Steady state temperature of a square plate, three sides held at zero and one side held at <span class="process-math">\(\pi\text{.}\)</span><div class="autopermalink" data-description="Figure 4.25"><a href="#dirichsquareplot_fig" title="Copy heading and permalink for Figure 4.25" aria-label="Copy heading and permalink for Figure 4.25">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 4.9.1"><a href="#dirich_section-16" title="Copy heading and permalink for Example 4.9.1" aria-label="Copy heading and permalink for Example 4.9.1">🔗</a></div></article><div class="para" id="dirich_section-17">This scenario corresponds to the steady-state temperature on a square plate of width <span class="process-math">\(\pi\)</span> with 3 sides held at 0 degrees and one side held at <span class="process-math">\(\pi\)</span> degrees. If we have arbitrary initial data on all sides, then we solve four problems, each using one piece of nonhomogeneous data.  Then we use the principle of superposition to add up all four solutions to have a solution to the original problem.<div class="autopermalink" data-description="Paragraph"><a href="#dirich_section-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="dirich_section-18">A different way to visualize solutions of the Laplace equation is to take a wire and bend it so that it corresponds to the graph of the temperature above the boundary of your region.  Cut a rubber sheet in the shape of your region—a square in our case—and stretch it fixing the edges of the sheet to the wire. The rubber sheet is a good approximation of the graph of the solution to the Laplace equation with the given boundary data.<div class="autopermalink" data-description="Paragraph"><a href="#dirich_section-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>

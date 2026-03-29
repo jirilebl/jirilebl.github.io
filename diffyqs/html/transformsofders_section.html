@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -842,7 +840,7 @@ u(t) =
 <div class="autopermalink" data-description="Paragraph"><a href="#transformsofders_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="lt_heavisidefig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-heaviside-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the Heaviside (unit step) function <span class="process-math">\(u(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.1"><a href="#lt_heavisidefig" title="Copy heading and permalink for Figure 6.1" aria-label="Copy heading and permalink for Figure 6.1">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="lt_heavisidefig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-heaviside-mbx.svg" role="img" alt="A plot of the unit step function on the interval from minus 1 to 1. The function is zero for negative x and 1 for positive x."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the Heaviside (unit step) function <span class="process-math">\(u(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.1"><a href="#lt_heavisidefig" title="Copy heading and permalink for Figure 6.1" aria-label="Copy heading and permalink for Figure 6.1">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para logical" id="transformsofders_section-5-6">
 <div class="para">The Heaviside function is useful for putting other functions together or cutting functions off.  Usually we use <span class="process-math">\(u(t-a)\)</span> for some constant <span class="process-math">\(a\text{;}\)</span>  we just shift the graph to the right by <span class="process-math">\(a\text{.}\)</span>  That is, <span class="process-math">\(u(t-a) = 0\)</span> when <span class="process-math">\(t &lt; a\)</span> and <span class="process-math">\(u(t-a) = 1\)</span> when <span class="process-math">\(t \geq a\text{.}\)</span>  For example, suppose <span class="process-math">\(f(t)\)</span> is a “signal”, and we started receiving <span class="process-math">\(\sin t\)</span> at time <span class="process-math">\(t=\pi\text{.}\)</span> The function <span class="process-math">\(f(t)\)</span> is then defined as</div>
 <div class="displaymath process-math" id="transformsofders_section-5-6-13">
@@ -976,7 +974,7 @@ x(t) =
 <div class="para">The plot of this solution is given in <a href="transformsofders_section.html#lt_heavisideexfig" class="internal" title="Figure 6.2">Figure 6.2</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#lt_rocketex-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="lt_heavisideexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-heavisideex-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(x(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.2"><a href="#lt_heavisideexfig" title="Copy heading and permalink for Figure 6.2" aria-label="Copy heading and permalink for Figure 6.2">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="lt_heavisideexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/lt-heavisideex-mbx.svg" role="img" alt="A plot of a function for t equals 0 to 20. The function starts at zero and stays at zero until t equals 1 when it curves upwards and follows a sightly deformed sinusoid curve before settling into a regular sinusoid curve past t equals 5."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(x(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.2"><a href="#lt_heavisideexfig" title="Copy heading and permalink for Figure 6.2" aria-label="Copy heading and permalink for Figure 6.2">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 6.2.2"><a href="#lt_rocketex" title="Copy heading and permalink for Example 6.2.2" aria-label="Copy heading and permalink for Example 6.2.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 6.2.3: Using the Heaviside function"><a href="#transformsofders_section-5" title="Copy heading and permalink for Subsection 6.2.3: Using the Heaviside function" aria-label="Copy heading and permalink for Subsection 6.2.3: Using the Heaviside function">🔗</a></div></section><section class="subsection" id="transformsofders_section-6"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Transfer functions</span>
 </h3>

@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -776,7 +774,7 @@ x = \cos t + \sin t + C e^{-t} ,
 <div class="autopermalink" data-description="Paragraph"><a href="#introde_section-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="intro_plotsfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/intro-plots-alt-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A few solutions of <span class="process-math">\(\frac{dx}{dt} + x = 2 \cos t\text{.}\)</span><div class="autopermalink" data-description="Figure 1"><a href="#intro_plotsfig" title="Copy heading and permalink for Figure 1" aria-label="Copy heading and permalink for Figure 1">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="intro_plotsfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/intro-plots-alt-mbx.svg" role="img" alt="A plot with 3 graphs that start at the right hand side at different places, one at 3, one at 1, and one at minus 1. All three lines tend towards each other and tend closer to what looks like a sine wave."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A few solutions of <span class="process-math">\(\frac{dx}{dt} + x = 2 \cos t\text{.}\)</span><div class="autopermalink" data-description="Figure 1"><a href="#intro_plotsfig" title="Copy heading and permalink for Figure 1" aria-label="Copy heading and permalink for Figure 1">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="para" id="introde_section-4-7">Solving differential equations can be quite hard. There is no general method that solves every differential equation.  We will generally focus on how to get exact formulas for solutions of certain differential equations, but we will also spend a little bit of time on getting approximate solutions. And we will spend some time on understanding the equations without solving them.<div class="autopermalink" data-description="Paragraph"><a href="#introde_section-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="introde_section-4-8">Most of this book is dedicated to <em class="emphasis">ordinary differential equations</em> or ODEs, that is, equations with only one independent variable, where derivatives are only with respect to this one variable. If there are several independent variables, we get <em class="emphasis">partial differential equations</em> or PDEs.<div class="autopermalink" data-description="Paragraph"><a href="#introde_section-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -789,7 +787,7 @@ x = \cos t + \sin t + C e^{-t} ,
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">0.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Differential equations in practice</span>
 </h3>
 <div class="para" id="introde_section-5-2">
-<img class="diffyimg diffyfloatright" style="width:217pt; height:86pt; display:block;" src="figures/1-1-fig-tex4ht.svg" alt=""><div class="autopermalink" data-description="Paragraph"><a href="#introde_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<img class="diffyimg diffyfloatright" style="width:217pt; height:86pt; display:block;" src="figures/1-1-fig-tex4ht.svg" role="img" alt="A diagram connecting three terms on top is ’Real-world problem’, then an arrow marked &quot;abstract&quot; connects to ’Mathematical model’, then an arrow marked &quot;solve&quot; connects to ’Mathematical solution’, and finally an arrow marks &quot;interpret connects back to the first term."><div class="autopermalink" data-description="Paragraph"><a href="#introde_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="introde_section-5-3">How do we use differential equations in science and engineering? First, we have some <em class="emphasis">real-world problem</em> we wish to understand. We make some simplifying assumptions and create a <em class="emphasis">mathematical model</em>. That is, we translate the real-world situation into a differential equation (or equations). Then we use mathematics to get some sort of a <em class="emphasis">mathematical solution</em>. There is still something left to do.  We must interpret the results. We have to figure out what the mathematical solution says about the real-world problem we started with.<div class="autopermalink" data-description="Paragraph"><a href="#introde_section-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -843,7 +841,7 @@ P(t) = 100 \, e^{(\ln 2) t / 10} \approx 100 \, e^{0.069 t} .
 <div class="para">At one minute, <span class="process-math">\(t=60\text{,}\)</span> the population is <span class="process-math">\(P(60) = 6400\text{.}\)</span>  See <a href="introde_section.html#intro_plotbactfig" class="internal" title="Figure 2">Figure 2</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#introde_section-5-5-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="intro_plotbactfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/intro-plotbact-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bacteria growth in the first 60 seconds.<div class="autopermalink" data-description="Figure 2"><a href="#intro_plotbactfig" title="Copy heading and permalink for Figure 2" aria-label="Copy heading and permalink for Figure 2">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para" id="introde_section-5-5-1-8">Let us interpret the results.  Does our solution mean that there must be exactly 6400 bacteria on the plate at 60s?  No!  We made assumptions that might not be true exactly, just approximately. If our assumptions are reasonable, then there will be approximately 6400 bacteria. Also, in real life <span class="process-math">\(P\)</span> is a discrete quantity, that is, a whole number.  However, our model has no problem saying that for example at 61 seconds, <span class="process-math">\(P(61) \approx 6859.35\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#introde_section-5-5-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="intro_plotbactfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/intro-plotbact-mbx.svg" role="img" alt="Graph of an exponential growth function (an upward concave curve that is steeper and steeper as we go rightwards) starting at 100 on the left hand side and ending at 6000 on the right hand side."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bacteria growth in the first 60 seconds.<div class="autopermalink" data-description="Figure 2"><a href="#intro_plotbactfig" title="Copy heading and permalink for Figure 2" aria-label="Copy heading and permalink for Figure 2">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para" id="introde_section-5-5-1-8">Let us interpret the results.  Does our solution mean that there must be exactly 6400 bacteria on the plate at 60s?  No!  We made assumptions that might not be true exactly, just approximately. If our assumptions are reasonable, then there will be approximately 6400 bacteria. Also, in real life <span class="process-math">\(P\)</span> is a discrete quantity, that is, a whole number.  However, our model has no problem saying that for example at 61 seconds, <span class="process-math">\(P(61) \approx 6859.35\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#introde_section-5-5-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 0.2.1"><a href="#introde_section-5-5" title="Copy heading and permalink for Example 0.2.1" aria-label="Copy heading and permalink for Example 0.2.1">🔗</a></div></article><div class="para logical" id="introde_section-5-6">
 <div class="para">Normally, the <span class="process-math">\(k\)</span> in <span class="process-math">\(\frac{dP}{dt} = kP\)</span> is given, and we want to solve the equation for some <em class="emphasis">initial condition</em>. For example, the problem could be: Solve the equation <span class="process-math">\(\frac{dP}{dt} = P\)</span> (so <span class="process-math">\(k=1\)</span>) subject to <span class="process-math">\(P(0) = 1000\)</span> (the initial condition). Then the solution is (exercise)</div>

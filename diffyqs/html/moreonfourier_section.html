@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -793,7 +791,7 @@ f(t) =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="gfs_sawcontfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/gfs-sawcont-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Periodic extension of the function <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 4.9"><a href="#gfs_sawcontfig" title="Copy heading and permalink for Figure 4.9" aria-label="Copy heading and permalink for Figure 4.9">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para logical" id="moreonfourier_section-3-4-1-5">
+<figure class="figure figure-like" id="gfs_sawcontfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/gfs-sawcont-mbx.svg" role="img" alt="Graph of a 2-periodic function on the interval minus 2 to 2, which is a line from (minus 2,0) to (minus 1,1), then from (minus 1,1) to (0,0), then from (0,0) to (1,1), then from (1,1) to (2,0). The line is continuous but has sharp corners."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Periodic extension of the function <span class="process-math">\(f(t)\text{.}\)</span><div class="autopermalink" data-description="Figure 4.9"><a href="#gfs_sawcontfig" title="Copy heading and permalink for Figure 4.9" aria-label="Copy heading and permalink for Figure 4.9">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para logical" id="moreonfourier_section-3-4-1-5">
 <div class="para">First, we recognize that <span class="process-math">\(f\)</span> is <span class="process-math">\(2\)</span>-periodic and so <span class="process-math">\(L=1\text{.}\)</span> We want to write <span class="process-math">\(f(t) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos (n \pi t) + b_n
 \sin (n \pi t)\text{.}\)</span>  We start with <span class="process-math">\(a_n\)</span> for <span class="process-math">\(n \geq 1\text{.}\)</span> We note that <span class="process-math">\(\lvert t \rvert \cos (n \pi t)\)</span> is even and for <span class="process-math">\(0 \leq t \leq 1\text{,}\)</span> <span class="process-math">\(f(t) = \lvert t \rvert = t\text{.}\)</span>  Hence,</div>
 <div class="displaymath process-math" id="moreonfourier_section-3-4-1-5-10">
@@ -850,7 +848,7 @@ b_n = \int_{-1}^1 f(t) \sin (n \pi t) \, dt = 0 .
 <div class="para">The plot of these few terms and also a plot up to the <span class="process-math">\({20}^{\text{th}}\)</span> harmonic is given in <a href="moreonfourier_section.html#gfs_sawcontfsfig" class="internal" title="Figure 4.10">Figure 4.10</a>.  You should notice how close the graph is to the real function.  You should also notice that there is no “Gibbs phenomenon” present as there are no discontinuities.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-3-4-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="gfs_sawcontfsfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/gfs-sawcont-fs3-fs20-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Fourier series of <span class="process-math">\(f(t)\)</span> up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic (left graph) and up to the <span class="process-math">\({20}^{\text{th}}\)</span> harmonic (right graph).<div class="autopermalink" data-description="Figure 4.10"><a href="#gfs_sawcontfsfig" title="Copy heading and permalink for Figure 4.10" aria-label="Copy heading and permalink for Figure 4.10">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="gfs_sawcontfsfig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/gfs-sawcont-fs3-fs20-mbx.svg" role="img" alt="The graph of the first 3 and 20 harmonics of the Fourier series for f of t. One can see that the line on the left (the first 3 harmonics) is a little rounded but follows the shape well. On the right, the graph of the first 20 harmonic is almost indistinguishable from the graph of f of t at first glance, except it is just very slightly rounded at the corners."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Fourier series of <span class="process-math">\(f(t)\)</span> up to the <span class="process-math">\(3^{\text{rd}}\)</span> harmonic (left graph) and up to the <span class="process-math">\({20}^{\text{th}}\)</span> harmonic (right graph).<div class="autopermalink" data-description="Figure 4.10"><a href="#gfs_sawcontfsfig" title="Copy heading and permalink for Figure 4.10" aria-label="Copy heading and permalink for Figure 4.10">🔗</a></div></figcaption></figure><hr class="diffyqshr">
 <div class="autopermalink" data-description="Example 4.3.1"><a href="#moreonfourier_section-3-4" title="Copy heading and permalink for Example 4.3.1" aria-label="Copy heading and permalink for Example 4.3.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.3.1: 2L-periodic functions"><a href="#moreonfourier_section-3" title="Copy heading and permalink for Subsection 4.3.1: 2L-periodic functions" aria-label="Copy heading and permalink for Subsection 4.3.1: 2L-periodic functions">🔗</a></div></section><section class="subsection" id="moreonfourier_section-4"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Convergence</span>
 </h3>
@@ -1015,7 +1013,7 @@ f(t) =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#moreonfourier_section-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="gfs_smoothexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/gfs-smoothex-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Smooth 2-periodic function (the smooth line) with its nonsmooth derivative (the jagged line).<div class="autopermalink" data-description="Figure 4.11"><a href="#gfs_smoothexfig" title="Copy heading and permalink for Figure 4.11" aria-label="Copy heading and permalink for Figure 4.11">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <article class="exercise exercise-like" id="moreonfourier_section-6-3-1-5">
+<figure class="figure figure-like" id="gfs_smoothexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/gfs-smoothex-mbx.svg" role="img" alt="A plot of the function f of t which appears roughly sinusoidal but is composed of segments of the parabola glued together in such a way so that the derivative at this point of gluing is defined. The graph of the derivative is overlaid, and the derivative is simply composed of straight lines and it has corners (but it is continuous). More exactly, for t from minus 2 to 2, the function f of t first goes up and curves downward back to the t-axis, then goes down and curves back up to the t-axis, and so on. The derivative simply starts at 1 when t equals minus 2, and goes down as a straight line until it reaches minus 1 when t equals minus 1, then it goes back up as a straight line until it reaches 1 at t equals 0, and so on."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Smooth 2-periodic function (the smooth line) with its nonsmooth derivative (the jagged line).<div class="autopermalink" data-description="Figure 4.11"><a href="#gfs_smoothexfig" title="Copy heading and permalink for Figure 4.11" aria-label="Copy heading and permalink for Figure 4.11">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <article class="exercise exercise-like" id="moreonfourier_section-6-3-1-5">
 
 
 

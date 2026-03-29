@@ -37,7 +37,6 @@ window.MathJax = {
     "packages": {
       "[+]": [
         "base",
-        "extpfeil",
         "ams",
         "amscd",
         "color",
@@ -57,14 +56,13 @@ window.MathJax = {
   "loader": {
     "load": [
       "input/asciimath",
-      "[tex]/extpfeil",
       "[tex]/amscd",
       "[tex]/color",
       "[tex]/newcommand",
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +79,7 @@ window.MathJax = {
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
 <meta property="book:author" content="Jiří Lebl">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -110,7 +108,7 @@ eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 <style>
  .hidden-content { display:none; }
@@ -125,9 +123,9 @@ eBookConfig.enable_chatcodes =  false;
 <p class="byline">Jiří Lebl</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
-<a class="index-button button" href="../diffyqs.pdf" title="PDF"><span class="name">PDF</span></a>
-<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Paperback" alt="Buy Paperback"><span class="name">Paperback</span></a>
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="diffyqs-13-4.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../diffyqs.pdf" title="PDF Version"><span class="name">PDF</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/1706230230" title="Buy Paperback"><span class="name">Paperback</span></a>
 <div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -828,7 +826,7 @@ x(y) = \int \frac{1}{f(y)} \,dy + C .
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="integralsols_section-10-1-1">
-<div class="para">Previously, we guessed <span class="process-math">\(y' = ky\)</span> (for some <span class="process-math">\(k &gt; 0\)</span>) has the solution <span class="process-math">\(y=Ce^{kx}\text{.}\)</span>  We could have found the solution by integrating. First we note that <span class="process-math">\(y=0\)</span> is a solution. Henceforth, we assume <span class="process-math">\(y\not= 0\text{.}\)</span>  We write</div>
+<div class="para">Previously, we guessed <span class="process-math">\(y' = ky\)</span> (for some <span class="process-math">\(k &gt; 0\)</span>) has the solution <span class="process-math">\(y=Ce^{kx}\text{.}\)</span>  We could have found the solution by integrating. First we note that <span class="process-math">\(y=0\)</span> is a solution. Henceforth, we assume <span class="process-math">\(y \neq 0\text{.}\)</span>  We write</div>
 <div class="displaymath process-math" id="integralsols_section-10-1-1-6">
 \begin{equation}
 \frac{dx}{dy} = \frac{1}{ky} .
@@ -857,7 +855,7 @@ e^{-kD} e^{k x} .
 </h3>
 <div class="para" id="integralsols_section-11-1-1">Find the general solution of <span class="process-math">\(y' = y^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="integralsols_section-11-1-2">
-<div class="para">First we note that <span class="process-math">\(y=0\)</span> is a solution.  We can now assume that <span class="process-math">\(y \not= 0\text{.}\)</span> Write</div>
+<div class="para">First we note that <span class="process-math">\(y=0\)</span> is a solution.  We can now assume that <span class="process-math">\(y \neq 0\text{.}\)</span> Write</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/X1over1mx_fig.html" id="integralsols_section-11-1-2-3">
 \begin{equation}
 \frac{dx}{dy} = \frac{1}{y^2} .
@@ -878,7 +876,7 @@ y = \frac{1}{C-x} \qquad \text{together with} \qquad y = 0.
 <div class="para">Note the singularities of the solution.  If, for example, <span class="process-math">\(C=1\text{,}\)</span> then the solution “blows up” as we approach <span class="process-math">\(x=1\text{.}\)</span>  See <a href="integralsols_section.html#X1over1mx_fig" class="internal" title="Figure 1.1">Figure 1.1</a>.  Generally, it is hard to tell from just looking at the equation itself how the solution is going to behave. The equation <span class="process-math">\(y' = y^2\)</span> is very nice and defined everywhere, but the solution is only defined on the interval <span class="process-math">\((-\infty, C)\)</span> or <span class="process-math">\((C, \infty)\text{.}\)</span>  Usually when this happens, we only consider the solution on one of these intervals and not both. For example, if we impose an initial condition <span class="process-math">\(y(0) = 1\text{,}\)</span> then the solution is <span class="process-math">\(y=\frac{1}{1-x}\text{,}\)</span> and we consider this solution only for <span class="process-math">\(x\)</span> on the interval <span class="process-math">\((-\infty,1)\text{,}\)</span> because our initial <span class="process-math">\(x\)</span> (that is, <span class="process-math">\(0\)</span>) is in this interval. In the figure, it is the left side of the graph.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-11-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="X1over1mx_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/1over1mx-mbx.svg" alt=""><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(y=\frac{1}{1-x}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.1"><a href="#X1over1mx_fig" title="Copy heading and permalink for Figure 1.1" aria-label="Copy heading and permalink for Figure 1.1">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para" id="integralsols_section-11-1-6">On the other hand, if we impose the initial condition <span class="process-math">\(y(2)=-1\)</span> instead, then we again get the solution <span class="process-math">\(y=\frac{1}{1-x}\text{.}\)</span>  Now, however, it is the right hand side of the graph, that is, it is defined on the interval <span class="process-math">\((1,\infty)\text{,}\)</span> as that is the interval containing <span class="process-math">\(2\text{,}\)</span> the initial <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-11-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="X1over1mx_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/1over1mx-mbx.svg" role="img" alt="A plot of y equals 1 over quantity 1 minus x, which is a line starting at a positive value on the left, then rising towards a vertical asymptote at x equals 1. Then from below there is another line that rises from the vertical asymptote and approaches the x-axis."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(y=\frac{1}{1-x}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.1"><a href="#X1over1mx_fig" title="Copy heading and permalink for Figure 1.1" aria-label="Copy heading and permalink for Figure 1.1">🔗</a></div></figcaption></figure><hr class="diffyqshr"> <div class="para" id="integralsols_section-11-1-6">On the other hand, if we impose the initial condition <span class="process-math">\(y(2)=-1\)</span> instead, then we again get the solution <span class="process-math">\(y=\frac{1}{1-x}\text{.}\)</span>  Now, however, it is the right hand side of the graph, that is, it is defined on the interval <span class="process-math">\((1,\infty)\text{,}\)</span> as that is the interval containing <span class="process-math">\(2\text{,}\)</span> the initial <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-11-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 1.1.4"><a href="#integralsols_section-11" title="Copy heading and permalink for Example 1.1.4" aria-label="Copy heading and permalink for Example 1.1.4">🔗</a></div></article><div class="para" id="integralsols_section-12">Classical problems leading to differential equations solvable by integration are problems dealing with velocity, acceleration, and distance.  You have surely seen these problems before in your calculus class.<div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1023,7 +1021,7 @@ v' = t^2, \qquad v(0) = 10 .
 <div class="para" id="integralsols_section-16-16-1-1">Solve <span class="process-math">\(y' = y^n\text{,}\)</span> <span class="process-math">\(y(0) = 1\text{,}\)</span> where <span class="process-math">\(n\)</span> is a positive integer. Hint: You have to consider different cases.<div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-16-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="integralsols_section-16-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
-<div class="para" id="integralsols_section-16-16-2-1">If <span class="process-math">\(n \not= 1\text{,}\)</span> then <span class="process-math">\(y={\bigl((1-n)x+1\bigr)}^{1/(1-n)}\text{.}\)</span> If <span class="process-math">\(n=1\text{,}\)</span> then <span class="process-math">\(y = e^x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-16-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="integralsols_section-16-16-2-1">If <span class="process-math">\(n \neq 1\text{,}\)</span> then <span class="process-math">\(y={\bigl((1-n)x+1\bigr)}^{1/(1-n)}\text{.}\)</span> If <span class="process-math">\(n=1\text{,}\)</span> then <span class="process-math">\(y = e^x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#integralsols_section-16-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.1.105.1"><a href="#integralsols_section-16-16-2" title="Copy heading and permalink for Answer 1.1.105.1" aria-label="Copy heading and permalink for Answer 1.1.105.1">🔗</a></div>
 </div></details></div>
