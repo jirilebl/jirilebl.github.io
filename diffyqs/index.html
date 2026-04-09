@@ -32,6 +32,33 @@ input.search { width:350px; }
 @media all and (max-width: 450px) {
   input.search { width:250px; }
 }
+#plot22png {
+  width:255px;
+  height:271px;
+}
+@media screen and (max-width:600px) {
+  #plot22png {
+    width:127px;
+    height:135px;
+  }
+}
+#plot12png {
+  margin-top:30px;
+  width:300px;
+  height:226px;
+}
+@media screen and (max-width:700px) {
+  #plot12png {
+    width:150px;
+    height:113px;
+  }
+}
+@media screen and (max-width:560px) {
+  #plot12png {
+    width:100px;
+    height:75px;
+  }
+}
 </style>
 </head>
 
@@ -96,18 +123,6 @@ document.write("<a href='" + "mail" + "to:" + linktext + "'>" + linktext + "</a>
 
 <main>
 <p>
-<style>
-#plot22png {
-  width:255px;
-  height:271px;
-}
-@media screen and (max-width:600px) {
-  #plot22png {
-    width:127px;
-    height:135px;
-  }
-}
-</style>
 <img id=plot22png class=floatright src="plot2-2.png" alt="Sample Dirichlet problem solution">
 A first course on differential equations, aimed at engineering
 students.  The prerequisite for the course is the basic calculus sequence.
@@ -183,25 +198,6 @@ MAA published a
 (they looked at the De&shy;cem&shy;ber 2012 edition;
 quite bit of stuff has happened since then).
 
-<style>
-#plot12png {
-  margin-top:30px;
-  width:300px;
-  height:226px;
-}
-@media screen and (max-width:700px) {
-  #plot12png {
-    width:150px;
-    height:113px;
-  }
-}
-@media screen and (max-width:560px) {
-  #plot12png {
-    width:100px;
-    height:75px;
-  }
-}
-</style>
 <img id=plot12png class=floatright src="plot1-2.png" alt="Temperatures of object with ambient temperature oscillating">
 <h2 id=toc>Table of contents:</h2>
 <p class=nojustify>
@@ -360,7 +356,7 @@ search, unfortunately, can't get rid of that):
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<gcse:search></gcse:search>
+<div class="gcse-search"></div>
 </div>
 
 <h2 id=sage>Interactive Sage demonstrations:</h2>
