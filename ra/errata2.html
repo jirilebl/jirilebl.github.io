@@ -1,0 +1,505 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Basic Analysis II: Introduction to Real Analysis, Volume II: Errata</title>
+<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
+<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script>
+MathJax = {
+  output: {
+    font: 'mathjax-pagella'
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js">
+</script>
+</head>
+
+<body>
+
+<div class=thebody>
+
+<nav>
+<p class="nojustify left">
+[<a href=".">Go to the Basic Analysis home page</a>]
+</nav>
+
+<header>
+<h1>Basic Analysis II: Introduction to Real Analysis, Volume II: Errata</h1>
+</header>
+
+<main>
+<p>
+Every book (no matter how much you paid for it) has errors and typos, especially
+text that is new in a given edition.
+I try to be as transparent as possible about any errors found, and I try to fix them
+as quickly as possible.  Please do let me know if you find any errors or typos, so that
+they may be fixed.  A free book relies on readers sending in corrections.
+
+<p>
+This page lists errors in the various editions.  Nonmathematical
+typos,
+misspellings, and grammar or style problems are not listed here.
+Also not listed are things that were correct but simply deserved improvement.
+Of course, older editions
+may suffer from recently discovered errata as well.
+
+<p>
+<b>May 23rd 2025 edition, Version 6.2 (edition 6, 2nd update):</b>
+<p>
+
+<ol>
+<li>On page 12, the combination given is for a set including \((1,0)\) instead of \((5,0).\)
+Thanks to Geoffrey Sired.
+<li>On page 33, in Exercise 8.2.17, what is supposed to be shown is \(\rho(S^{-1}AS) = \rho(A).\)
+<li>On page 34, in Exercise 8.2.19, part b).
+There are two issues here:
+1) It should say that \(C\) spans
+\({\mathbb{R}}^n.\)
+2) The set is "compact symmetric convex".
+The ", but note"
+should be struck (was probably pasted in by mistake at some point).
+<li>On page 38, proof of Theorem 8.3.7 (Chain rule):
+The proof forgets to talk about the case where \(k=0,\) but in this case 
+the estimate can end early since then
+\(\frac{\| g(q+k)-g(q) - Bk \|}{\|h\|}=0\) and so we are done.
+<li>On page 50, Exercise 8.4.6, there is a requirement missing on the \(x\) and
+  \(y\) in part a, it should say "for every \((x,y) \in {\mathbb{R}}^2\) with \(x^2+y^2=1,\)"
+  that is, the point should be on the unit circle, not anywhere in the plane.
+  Otherwise part b is not possible.
+<li>On page 61, in the first displayed equation the \(x+\tau e_m\) should be
+  \(p + \tau e_m .\)
+<li>On page 62, Exercise 8.6.4, there is a condition missing about
+  \(\varphi .\)  It should also say that \(\varphi(r,\theta) =
+  \varphi(-r,\theta+\pi) .\)
+<li>On page 63, Exercise 8.6.7, in part a, the second derivatives in \(x\)
+  and \(y\) should be equal to 2, otherwise part b would need a factor of
+  a half.
+<li>On page 77, in Example 9.2.13, the parametrization by \(\beta\) is not correct
+in the computation (though the result is correctly \(4\pi.\)  The second line in the displayed
+equation should have always \(2t,\) so it should end with \(\cos(2t)
+\bigl(2\cos(2t)\bigr).\)
+<li>On page 81, when it says "smooth function" in Exercise 9.2.9, it should
+  say "continuously differentiable function" as we haven't defined "smooth"
+  in this setting, although one can probably guess what it means as we
+  defined "smooth path".
+<li>On page 90, in the "Note" to Exercise 9.3.10, when it defines the widing
+  number, it should say "counterclockwise" not "clockwise".  The exercise is
+  doable without this definition, it is a just a remark.
+<li>On page 93, in the proof of Proposition 10.1.5, the tilde rectangles
+  are subrectangles of \(\widetilde{P}\) not \(\widetilde{R}.\)
+  Thanks to 0x03B4 in github.
+<li>On page 101, Exercise 10.1.6, it is missing that \(h\) must be defined on
+  both \(R\) and \(S .\)  The way it is used is when \(R \subset S\) so just
+  assume that, and assume that \(h\) is defined on \(S .\)
+<li>On page 102, Exercise 10.1.12 is missing a hypothesis making it
+  impossible.  We must assume that \(R = \bigcup_{j=1}^\infty S_j .\)
+<li>On page 107, in Exercise 10.2.9, the exercise is fine, but in the note
+  that follows the last part, the integral should be \(dx \, dy\) not \(dy \,
+  dx .\)
+<li>On page 113 Example 10.3.8 claim (iii), and Exercise 10.3.10 part b), the expression
+for the measure of \(C_k\) is not correct.  Moreover, there is a far simpler
+expression for the correct measure: \(\left(\frac{2}{3}\right)^k.\)
+<li>On page 130, in the proof of Green's theorem, the \(f(x)\) and \(g(x)\) are swapped
+in the computation of the integral (it should be \(\int_{f(x)}^{g(x)}\)).  Similarly
+the \(h(y)\) and \(k(y)\) are swapped.
+Moreover, in the computation of the integral for 
+\(\int_U 
+\frac{\partial Q}{\partial x} ,
+\)
+the third integral should be \(\int_c^d \ldots dy\) not \(\int_a^b \ldots dx .\)
+<li>On page 118, there are a few instances of \(o(x,f)\) that should be
+  \(o(f,x) .\)
+<li>On page 119, the rectangles \(T_x\) may include points outside of \(R\)
+  and so in the estimate in the second displayed equation, the supremum and
+  infimum should be over \(T_x \cap R\) instead of \(T_x\) as \(f\) is not
+  defined outside of \(R.\)
+<li>On page 124, in the proof of Proposition 10.5.3, in the last displayed
+  equation, \(L(P,f)\) should be \(L(P,\chi_S).\)
+<li>On page 126, in Proposition 10.5.8, the function \(\varphi\) should
+  be assumed to be continuous if we just want to use the Riemann integral
+  inside.  Otherwise we'd have to use a Darboux integral.  This of course
+  affects Exercise 10.5.3 part b) which is to prove this formula.
+<li>On page 130, in the penultimate computation of \(\int_U \frac{\partial
+  Q}{\partial x}\) the expression on the right has its arguments transposed,
+  it should say \( Q\bigl(k(y),y\bigr) - Q\bigl(h(y),y\bigr) \) and not
+  \(Q\bigl(y,k(y)\bigr) - Q\bigl(y,h(y)\bigr) .\)
+<li>On page 133, in Exercise 10.6.7, the integral should be over \(C_r\) not
+  \(\partial C_r\) which does not make sense here as \(C_r\) is the circle
+  not the disc.
+<li>On page 135-137, the proof of Theorem 10.7.2 (change of variables)
+  has 3 issues:
+  <ol>
+    <li>In the change of variables going from \(g'(0)=I\) to
+      a \(g'(0)=A,\) we forgot to keep track of the size of \(A^{-1} ,\)
+      to get the estimate to work out, we need the estimate defining \(W_x\)
+      to be \(&lt; \frac{\epsilon}{2M}\) where \(M\) is the bound on
+      norm of \(g'(x)^{-1} .\)
+    <li>The \(x_j\) was supposed to have been picked specifically to make
+      \(|J_g(x)|\) achieve a minimum at \(x_j .\)
+    <li>The reason why the Darboux style estimate works was glossed over
+      a bit and required the reader to note that \(\delta\) could have been
+      picked smaller to make the partition work as a partition for Darboux.
+  </ol>
+<li>On page 146, when writing the Cauchy criterion for a series in the proof of the
+  M-test, it should say \(m &gt; n\) rather than \(m \geq n \) to avoid an
+  empty sum.
+<li>On page 148, on the top of the page, it should say
+  \(a := \lim_{n\to\infty} a_n ,\) that is, the limit is
+  in \(n\) not \(k.\)
+<li>On page 159, in the proof of Corollary 11.3.7, we should also assume without loss of
+  generality that \(b \neq 0\) as otherwise the result is trivial, but the
+  proof does not work.
+<li>On page 162, in Exercise 11.3.9, the definition of the (generalized) binomial
+  coefficient has a typo in the numerator.
+  It should say \(\displaystyle \binom{\alpha}{k} := \frac{\alpha(\alpha-1)\cdots(\alpha-k+1)}{k!}\).
+<li>On page 165, in the proof of item (v) there is a sign error in the
+  computation, it should say \(\displaystyle \cos(x) =
+\frac{e^{ix}+e^{-ix}}{2} =
+\frac{e^{ix}+\overline{e^{ix}}}{2} =
+\operatorname{Re} (e^{ix}).\)
+<li>On page 166, in the proof of item (ix) we conclude \(\sin(x) \geq x\) when
+we should conclude \(\sin(x) \leq x\) as it states in the proposition.
+<li>On page 168, there is a typo in Exercise 11.4.11 in the integral expression for
+the \(\arctan .\)  The \(\dfrac{1}{1+t^s}\) should be \(\dfrac{1}{1+t^2}.\)
+<li>On page 170, in the statement of Lemma 11.5.4, there is an unfortunate
+  typo where the "an" in front of \(M &gt; 0\) should be "any", as "an" implies
+  the incorrect quantifier making the lemma useless and trivial.
+<li>On page 171, in Exercise 11.5.7, the hypothesis that \(f\) is
+  nonconstant is missing.  A constant function does not have a pole at infinity.
+<li>On page 178, Exercise 11.6.11 does not go through the correct proof of Peano.  Picard iterates
+  may not work, so the suggested outline is incorrect.  I will replace the
+  outline with a correct one in the next version.
+  Thanks to Michael Anshelevich for pointing this out.
+  Note that an example of an equation where (subsequences of)
+  Picard iterates do not converge to a solution is given in
+  M. Müller, <i>Uber das Fundamentaltheorem in der Theorie der gewöhnlichen
+    Differentialgleichungen</i>, Math. Zeit, <b>26</b>, 1927.
+<li>On page 190, Exercise 11.7.8, the exercise is stated wrongly, it should
+  say we can uniformly approximate by trigonometric polynomials continuous
+  where \(f(-\pi)=f(\pi) .\)
+<li>On page 190, Exercise 11.7.11, the hypothesis that \(X\) contains at
+  least two points is missing.
+<li>On page 194, Example 11.8.3: The general coefficient is for \(n \neq 0\)
+not for \(n \geq 1 .\)  For both functions.
+<li>On page 201, bottom of page, the series runs from \(-\infty\) not from
+  \(\infty .\)
+<li>On page 207, Exercise 11.8.10, the \(e^{-1/n}\) should be \(e^{-n} ,\)
+  otherwise the series doesn't even converge.
+</ol>
+
+<p>
+<b>October 24th 2024 edition, Version 6.1 (edition 6, 1st update):</b>
+<p>
+
+<ol>
+<li>On page 125, just above Proposition 10.5.5, \(f \xi_S\) should be \(f \chi_s.\)
+</ol>
+
+<p>
+<b>July 11th 2023 edition, Version 6.0 (edition 6, 0th update):</b>
+<p>
+
+<ol>
+<li>Exercise 8.5.8 part e is incorrect, this map is not open.  A small open rectangle
+near the origin will check that.  Thanks to Nikita Borisov and Bob Strain for finding
+this erratum.
+<li>In Exercise 10.1.4, the S and the R in the second sentence are
+reversed making the exercise make no sense.  What the second sentence should say is
+"If \(f\) is a bounded function such that \(f(x) = 0\) for \(x \in S \setminus R,\) show
+that \(f \in {\mathcal{R}}(S)\) and \(\int_S f = 0.\)"  Thanks to Bob Strain.
+<li>In Exercise 11.4.4, we're asking for something we explained in the text
+  already.  This exercise will be replaced in the next version.
+</ol>
+
+<p>
+<b>May 16th 2022 edition, Version 2.6 (edition 2, 6th update):</b>
+<p>
+
+<ol>
+<li>The last line of the discussion before Proposition 8.1.11 says that
+  \(0 \in Y\) when it should say
+  \(0 \in \operatorname{span}(Y).\)
+<li>The conclusion of Exercise 8.4.10 is not true with the given hypotheses.
+  \(\frac{\partial h}{\partial x}\) also needs to exist and be continuous.
+  Thanks to Jesse Wallace for bringing this up.
+  This question will be moved to 9.1 in the next edition as that's the natural
+  place for it.
+<li>In Exercise 8.5.6, the interval \((c,d)\) could be infinite,
+  that is, \(c\) and \(d\) need to be allowed to be \(\pm \infty,\)
+  but this is not stated.
+  Better just write \(I\) and call it an open interval instead.
+<li>In the proof of Proposition 10.1.12, a priori the infima are taken
+  over independent partitions, that is, infimum of \(U(P,f)-L(Q,f)\)
+  is zero when taken over partitions \(P\) and \(Q .\)
+  To get that infimum of \(U(P,f)-L(P,f)\) is zero, we must take
+  a common refinement first.
+<li>On page 102, in the displayed equation about halfway through,
+  the \(R_k\) should be \(R_j .\)
+<li>On page 104, in Example 10.3.6, the last displayed
+  inequality starts with \(m^*([a,b]) \geq \) which should be
+  removed.  The inequality gives that \(m^*([a,b]) \geq b-a \) by
+  taking the infimum.
+<li>In Lemma 10.3.9, the domain of \(f\) should be \(U\) not \(B.\)
+  While \(U=B\) would work if \(B\) is open, it doesn't work if \(B\)
+  is closed as we have not defined differentiable functions of several
+  variables on non-open sets.
+<li>In the proof of Riemann-Lebesgue (Theorem 10.4.3),
+  we claim that if \(R_j \subset T_\ell\), then \(M_j-m_j &lt; 2\epsilon .\)
+  That is actually correct but misleading, we have obtained above that
+  \(M_j-m_j &lt; \epsilon .\)
+<li>In Exercise 10.5.3, the \(f(x)\) and \(g(x)\) are swapped in the integral.
+<li>In Example 10.6.5, it says \(D_r := B(p,r)\) is a closed disc,
+  when it is clearly not closed.  Just remove the word "closed".
+<li>In Exercise 11.2.5, obviously \(X\) cannot be an arbitrary compact
+  metric space, it was meant to be the compact interval \([a,b].\)
+<li>In Proposition 11.2.7, the hypothesis that \(Y\) is complete is missing,
+  even though it is used in the proof. (Thanks to Judah Nouriyelian)
+<li>In the proof of Theorem 11.7.1, in the footnote about the delta function,
+  the \(g(x)\) under the integral sign should be \(g(t) .\)
+<li>In Exercise 11.7.10, the hypothesis that \(\mathcal{A}\) vanishes
+  at no other point of \(X\) is missing.  Thanks to Jessee Wallace
+  for bringing this up.
+<li>When talking about writing \(s_N(f;x)\) as a convolution, there is
+  no need to change \(x-t\) to \(t-x,\) that's a typo.
+<li>In Exercise 11.8.9, the boundary value should obviously be
+\(f(e^{i\theta}) = \sum_{n=0}^\infty c_n e^{in\theta}.\)
+The \(n\) was missing in the exponent on the right hand side.
+</ol>
+
+<p>
+<b>November 9th 2021 edition, Version 2.5 (edition 2, 5th update):</b>
+<p>
+
+<ol>
+<li>On page 10, we didn't define span for empty set, take \(\operatorname{span}(\emptyset) := \{ 0 \} .\)
+Similarly best to explicitly mention that an empty set is (by
+convention) linearly independent and spans \(\{ 0 \}.\)
+<li>The example starting on page 20 and continuing on page 21:
+differentiation on continuously differentiable functions of course
+returns only a continuous function, not a differentiable function,
+so that should be mentioned.
+<li>On page 24, Proposition 8.2.7 is only stated for functions whose codomain
+is \(L({\mathbb{R}}^n,{\mathbb{R}}^m)\) but we also need
+it for the domain in just the next subsection (showing that determinant is
+continuous).  The fix is to show the inequality that the euclidean norm
+of the entries is bounded by square root of \(n\) times the operator norm,
+to show that the metrics are equivalent.
+Takes about the same space on the page and proves more.
+<li>On page 27, we should be supposing without loss of generality
+that \(\gamma_1 \not= 0\) (and not 1 as it says).
+<li>On page 28 when defining the the first type of elementary matrix, it says
+\(k\)th row, when it should say \(j\)th row.
+Thanks to Wang KP for spotting this.
+<li>On page 33, proof of Proposition 8.3.2.  The letter \(x\) appears as
+the point at which we are differentiating and then in the last three lines
+of the proof it changes to be an arbitrary unit vector, so that needs to be
+changed to a different letter.
+<li>Exercise 10.2.5, the function \(h\) must is defined on \([c,d]\)
+not \([a,b].\)
+<li>In the proof of Lemma 10.3.9, we use Proposition 8.4.2 for a closed set,
+though that was not proved (it still works).  But it is easier to prove
+the lemma for open \(B\) first anyway and just use the closure.
+<li>In the proof of Proposition 10.3.10 towards the end,
+the balls \(B_1,\ldots,B_k\)
+must be chosen to be of radius at most \(\delta/2\) and intersect \(E\)
+for them to be definitely in \(U.\)
+<li>In the same proof, the final estimate, there is a parenthesis missing
+around the \(Mr_j\) as that whole number must be raised to the \(n\)th power
+leading to \(M^n \epsilon .\)
+<li>In Exercise 10.3.7, it should say "Show that \(G\) is of measure zero."
+<li>In the proof of Theorem 10.4.3, the bound \(|f(x)| \leq B\) for all \(x\)
+implies that \(M_j-m_j \leq 2B\) (the intequality was strict by mistake).
+<li>The last item (iv) of Corollary 10.4.4, and hence Exercise 10.4.8:
+First \(m=n,\) and second we need to assume \(g(R) \subset R'.\)
+<li>In Exercise 10.5.7, the Jordan measurable sets should be closed.
+<li>At the end of the proof of 11.8.12, in first line of the last estimate,
+the \(g\) should always be \(\bar{g}.\)
+Thanks to Wang KP for spotting this.
+<li>On page 181, when we write as a remark that the \(D_N(x)\) are partial
+  sums of the delta functions, it should be \(2\pi \, \delta(x),\)
+  the \(2 \pi\) is missing.
+</ol>
+
+<p>
+<b>June 8th 2021 edition, Version 2.4 (edition 2, 4th update):</b>
+<p>
+
+<ol>
+<li>In the proof of Proposition 9.3.3 on the lower half of page 78,
+starting with "We wish to take the limit," all the \(\omega\) up to
+but no tincluding the last one in that paragraph should be \(\omega_j.\)
+Thanks to Wang KP for spotting this.
+<li>In the first sentence of the proof of Proposition 10.3.2, "then \(R\) is contained in a closed ball of ...", that should be \(C,\) not \(R.\)
+Thanks to Wang KP for spotting this.
+</ol>
+
+<p>
+<b>June 10th 2020 edition, Version 2.3 (edition 2, 3rd update):</b>
+<p>
+
+<ol>
+<li>Definition 9.2.1, page 66: The definition of "a simple path" is still not
+quite right for non-closed simple paths.  We should require that if \(\gamma\) is
+not one-to-one on the entire interval then it should be equal at the endpoints
+(no biting itself in the middle): "A path \(\gamma \colon [a,b] \to
+{\mathbb{R}}^n\) is <i>simple</i> if either 1) \(\gamma\) is one-to-one, or 2)
+\(\gamma|_{[a,b)}\) is one-to-one and \(\gamma(a)=\gamma(b).\)"
+The wording of Exercise 9.3.7
+already assumed this correct definition.
+<li>In Definition 9.2.5, page 68, for a piecewise smooth \(h\) the fact that
+all one-sided limits of \(h'\) are nonzero is forgotten, although
+it is correctly explained below, and correct in the definition for
+a smooth reparametrization.
+<li>Exercise 9.2.14, page 76: The explanation of what not being one-to-one
+except on a finite set was misleading it was only a consequence not an if and
+only if (to be an if and only if it was missing that the preimages are always
+finite).  It is better to just state directly what being one-to-one except on a finite set means.  Same issue is on page 71 where the exercise is referred.
+<li>Exercise 10.5.3, page 115: The function defined on \(U\) should clearly be named
+something else than \(f.\)  Say \(\varphi.\)
+<li>Exercise 10.5.4, page 116: Definition of \(W\) should subtract the complement
+of \(U,\) not \(U.\)  Actually an easier way to write what \(W\) should be is
+\(\bigl( U \times (0,2) \bigr) \cup \bigl( (0,1) \times (1,2) \bigr).\)
+<li>Exercise 10.6.4, page 120: In part c), the first \(dy\) should be a \(dx,\) that is,
+the integral should be \(\displaystyle \int_{\partial B(p,r)} \frac{-y}{2} ~ dx +
+\frac{x}{2} ~ dy.\)
+<li>In the proof of 10.7.2, throughout the proof,
+\((1+4\sqrt{n}\, \epsilon)\) should be
+\({(1+4\sqrt{n}\, \epsilon)}^n\) and
+in the long estimate on page 123, the three instances
+of \((1+4\sqrt{n}\, \epsilon)\) should be
+\(\frac{1}{{(1+4\sqrt{n}\, \epsilon)}^n}.\)
+<li>The statement of Theorem 11.3.1 is confusingly worded.  The three items are three distinct possibilities.
+<li>On page 156, at the bottom, in the formula for \(f^{(\ell)}(x),\)
+the \(c_k\) should be \(c_n.\)
+<li>In Lemmas 11.5.1 and 11.5.4 and Theorem 11.5.5 (FTA), the hypothesis that
+the polynomials are <i>nonconstant</i> is missing.
+<li>In the caption to Figure 11.7 it says the vertical axis is from \(-e^6\) to 
+\(e^6,\) but it should say \(-e^4\) to \(e^4.\)  The approximate value \(54.6\) is correct.
+</ol>
+
+<p>
+<b>May 15th 2019 edition, Version 2.2 (edition 2, 2nd update):</b>
+<p>
+
+<ol>
+<li>
+On page 35, towards the end of the proof of the chain rule,
+it says that \({\|f(p+h)-f(p)-Ah\|}{\|h\|}\) is bounded,
+when it should be, of course,
+\(\frac{\|f(p+h)-f(p)-Ah\|}{\|h\|}.\)
+<li>
+On bottom of page 47, defining \(\varphi_y,\) the domain of \(\varphi_y\)
+should be \(V\) not \(C.\)
+<li>
+Definition 9.2.1, page 67: definition of "a simple path" is not quite right, it
+should be that \(\gamma\) is one-to-one on \([a,b),\) not just \((a,b).\)
+The error is then carried over in the couple of places where "simple" is used in
+the examples and exercises: Example 9.2.2, discussion on page 71, exercise 9.2.13.
+<li>
+On page 145, end of proof of Theorem 11.3.9.  We have only proved that the set
+of cluster points of \(E\) is open (we claimed that we proved that \(E\) is open),
+but the set of cluster points is also closed and so equal to \(U\) anyway.
+<li>
+On page 157, when we say we enumerate \(X\) in the proof of Proposition 11.6.5,
+it makes it seem like \(X\) is
+necessarily infinite, which is the important case, but the proof should work
+even for finite \(X.\)
+<li>
+On page 160, Exercise 11.6.1 only asks about why the sequence does not converge
+uniformly, it should ask about a subsequence.  The solution is essentially the
+same, and we are asking about why Arzelà-Ascoli does not apply so we must ask
+about a subsequence.
+</ol>
+
+<p>
+<b>October 11th 2018 edition, Version 2.1 (edition 2, 1st update):</b>
+<p>
+
+<ol>
+<li>On page 102, middle of the page in the estimate for \(\sum r_k^n,\)
+the right hand side should be \({(4\sqrt{n})}^n \epsilon.\)
+</ol>
+
+
+<p>
+<b>May 7th 2018 edition, Version 2.0 (edition 2, 0th update):</b>
+<p>
+
+<ol>
+<li>On top of page 35 (right after Theorem 8.3.7, Chain Rule)
+it says \((f \circ g)'\) when it ought to be \((g \circ f)'.\)  Thanks to Trevor Fancher.
+</ol>
+
+<p>
+<b>March 21st 2017 edition, Version 1.0 (edition 1, 0th update):</b>
+<p>
+
+<ol>
+<li>On page 10, when solving for \(x_j,\) the coefficients must be negative, that is,
+\(
+x_j = \frac{-a_1}{a_j} x_1 + \cdots + 
+\frac{-a_{j-1}}{a_j} x_{j-1} +
+\frac{-a_{j+1}}{a_j} x_{j+1} +
+\cdots + 
+\frac{-a_k}{a_k} x_k .
+\)
+<li>In Exercise 8.2.13, part a), it should say
+"for all \(c\in {\mathbb{R}}^n\)" instead of just "for"
+<li>On page 76, in the definition of the Darboux sums, \(P\) is a partition of
+  \(R.\)
+<li>In Exercise 8.3.8, the hypothesis should say \(\nabla f(0,0) = (0,1).\)  Thanks to Trevor Fancher.
+<li>In the Inverse function theorem, Theorem 8.5.1, the \(U\) should 
+be an open set.
+<li>In Exercise 8.5.6, the hypothesis should be that the first component of
+\(\nabla f(t)\) is not zero.
+<li>In the proof of Theorem 9.1.1, an offhand remark is made about replacing
+\(h\) with \(\frac{1}{n}.\)  That wouldn't work, we need an arbitrary
+sequence \(\{ h_n \}\) converging to zero.
+<li>Exercise 9.1.7 part c) is impossible (not true).  Removing part c makes the exercise quite uninteresting so it will be replaced with a different exercise (demonstrating the same issue) in the next edition.
+<li>In definition of smooth path, we really assume that derivative of a function of one variable
+has been defined, although this was only properly defined for the components.  Thanks to Trevor Fancher for pointing this out.
+<li>In the proof of Proposition 9.2.6, the restriction of \(h\) in the
+first paragraph is to \([r_{j-1},r_j],\) not
+\([t_{j-1},t_j].\)  In the second paragraph, the \(\varphi\) should be a \(\gamma.\)
+<li>In Definition 9.2.7, the functions \(f_1,\ldots,f_n\) should be named \(\omega_1,\ldots,\omega_n\) as those are used in the definition.
+<li>In Definition 9.2.9, when talking about the partition being minimal we mean
+\(t_1,t_2,\ldots,t_{k-1}\) not
+\(t_2,t_3,\ldots,t_{k-1}.\)  Also in the definition, in the displayed equation 
+for the piecewise smooth definition, the last interval is
+marked as \([t_{n-1},t_n]\) when it should of course be
+\([t_{k-1},t_k].\)
+<li>Exercise 9.3.6 should require that \(U_1 \cap U_2\) is path connected,
+  we don't want to have to use another exercise here.
+<li>Exercise 9.3.9 is for an open set \(U,\) while this is tacitly implied as
+  we have not defined path-connected for other sets, it should be explicit.
+<li>In proof of Theorem 10.1.15, the expression \(M_i-m_i\)
+  should be \(M_k-m_k .\)
+<li>In the proof of Proposition 10.3.2, the proof of the reverse direction
+  does not make sense.  There is no need estimate \(r_j^n\) with \(r_j.\)
+<li>In the construction of Cantor set in Example 10.3.8, \(j\) and \(n\)
+  are used interchangeably.  It should all just be \(n.\)
+<li>In the proof of Claim 1 of the proof of Stone-Weierstrass 11.7.12,
+  \(N\) and \(n\) are both used for the same thing, it should be one or the
+  other.
+</ol>
+
+</main>
+
+<footer>
+<p>
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+</footer>
+
+</div>
+
+</body>
+</html>

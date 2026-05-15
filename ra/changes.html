@@ -1,0 +1,1626 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Basic Analysis: Introduction to Real Analysis: Changes</title>
+<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
+<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="unsafe-url">
+<script>
+MathJax = {
+  output: {
+    font: 'mathjax-pagella'
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js">
+</script>
+
+</head>
+
+<body>
+
+<div class=thebody>
+
+<nav>
+<p class="nojustify left">
+[<a href=".">Go to the Basic Analysis home page</a>]
+</nav>
+
+<header>
+<h1>Basic Analysis I: Introduction to Real Analysis, Volume I: Changes</h1>
+</header>
+
+<main>
+<p>
+I preserve numbering as much as possible.  So for example exercises are only
+added with new numbers, so that old exercises are not renumbered, etc.  I try
+to preserve pagination as well though adding a page in the middle is sometimes
+unavoidable.
+
+<!--
+Draft of new changes (if applicable) is in github
+-->
+
+<p>
+<b>May 23rd 2025 edition, Version 6.2 (edition 6, 2nd update):</b>
+<p>
+
+<ol>
+<li>Language/grammar fixes.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+<b>October 24th 2024 edition, Version 6.1 (edition 6, 1st update):</b>
+<p>
+
+Minor update focused on fixing errata and some very minor wording improvements.
+
+<ol>
+<li>Proposition 2.5.8 is stated as an if and only if to fix an erratum
+  (an if and only if was already being proved).
+<li>After the definition of subsequence, in the first example \(
+  \{\frac{1}{3i}\}_{i=1}^\infty ,\) write out the
+  first few terms explicitly.
+<li>In Example 7.3.7, use \([a,b]\) instead of \([0,1]\) for consistency
+  with the previous example.
+<li>A few minor improvements and clarifications in wording.
+<li>Language/grammar fixes.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+
+<p>
+<b>July 11th 2023 edition, Version 6.0 (edition 6, 0th update):</b>
+<p>
+
+This is a major new edition.  Numbering is kept as constant as humanly possible,
+so the new edition is more or less compatible with the old.
+See the bolded items below for the very few changes that affect existing exercises.
+
+<p>
+General changes:
+
+<ol>
+<li>In definitions of limits (sequence, continuous limits, in metric spaces,
+  etc), don't "cheat" and say "if a limit is unique."  While it feels a
+  little wordy since the first thing we do is prove that the limit is 
+  unique, I'm starting to feel that this may be contributing to confusion
+  about proof writing to students.
+<li>Do not shorten sequences to \(\{ x_n \},\) but always write out
+	\(\{x_n\}_{n=1}^\infty.\)  It seems to me this shorthand is
+	causing more confusion than it is worth, especially with
+	regards to the distinction between set and sequence, and also
+	when working with subsequences.
+<li>Do not shorten sequence limits to \(\lim\, x_n,\) but always write out
+	\(\lim_{n\to\infty} x_n.\)  It seems to me this shorthand is
+	causing more confusion than it is worth, especially
+	when subsequences are introduced.
+<li>Do not shorten series to \(\sum\, x_n,\) but always write out
+	\(\sum_{n=1}^{\infty} x_n.\)  It seems that it is making students
+	forget a limit is involved.
+<li>Uniform norm notation is changed to \(\|\cdot\|_K,\)
+  where \(K\) is the set where the supremum is taken.  I've had a number of
+  complaints about the \(u\) notation not being very standard.  And this goes
+  better with my other books where I use the more standard notation.
+<li>Add parentheses to the notation for "Riemann integrable" for consistency,
+	that is, \(\mathscr{R}([a,b])\) instead of \(\mathscr{R}[a,b] .\)
+<li>Use newpx (Palatino) fonts in the PDF version.  The line length has gotten slightly
+  shorter to improve readability.
+<li>7 new exercises.
+<li>12 new figures.
+<li>Many small improvements in wording throughout.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+Specific larger changes:
+
+<ol>
+<li>In 0.3, after definition of composition state as an "exercise"
+  that compositions of bijections are bijections.  This is actually a
+  WebWorK exercise.
+<li>Add Exercises 0.3.26 and 0.3.27 to prove the DeMorgan's laws and
+  the pushforward/pullback propositions for infinite unions and
+  intersections.
+<li>Add Figure 1.3 on the set \(\{ \frac{1}{n} : n \in {\mathbb{N}} \}\)
+  and its infimum (Corollary 1.2.5) (renumbers all the following figures in
+  chapter 1).
+<li>Simplify proof of Proposition 2.1.7 by just defining the \(B\) once
+  rather than defining two different bounds.
+<li>As per suggestions name 2.1.10 the "Monotone convergence theorem"
+  and therefore make it a Theorem rather than a Proposition.
+<li><b>Exercise 2.2.9, add hypothesis that \(x_n\not=x\) for all \(n.\)</b>
+	It is implied in that the limit makes sense,
+	but it should be stated explicitly.
+<li>Replace Example 2.4.3 with a more useful example, one that isn't Cauchy.
+  Suggested by Harold Boas.
+<li>Clean up the proof of Proposition 2.6.2, the Alternating series test.
+  Mainly improve the readability by using the variable names more
+  consistently, rewrite the end of the proof, and fix an erratum.
+<li>Add Figure 2.8 showing graphically why the alternating sum converges.
+<li>Add Figure 2.9 to show how the sample rearrangement of the alternating
+  harmonic sum converging to 1.2 works.  Renumbers the following figure
+  chapter 2.
+<li>Add Exercise 2.6.15 for Tonelli/Fubini for sums.  This is too useful of
+	a "variant" of reordering not to have it, plus we do use it in
+	volume II in a proposition.
+<li>Add Figure 3.1 for Example 3.1.6 where limit is different from
+  value (renumbers all figures in chapter 3).
+<li>In Corollaries 3.1.9, 3.1.10, 3.1.11, the hypothesis is only needed
+	for all \(x \in S \setminus \{ c \},\) as we do in all the other
+	results of this section.  The way it is stated could
+	be confusing, so change them to this hypothesis.  (It is equivalent
+	because one can always replace \(S\) with \(S \setminus \{ c \} \)
+	of course. <b>This affects
+	Exercises 3.1.3 and 3.1.4, but it at worst makes them slightly less
+	confusing and more straight forward.</b>
+<li><b>Replace Exercise 3.1.10</b>.  This exercise was almost exactly the
+  same as 3.1.11.
+<li>Rename section 3.3 to "Extreme and intermediate value theorems".
+<li>Add a new Example 3.3.11 showing the existence of roots,
+	so the old 3.3.11 becomes 3.3.12, and
+	Corollary 3.3.12 becomes 3.3.13.  This is a nice application,
+	and ties in some prior results, and it is good to see it especially
+	if 4.4 is not covered.
+<li>Add Figure 3.8 for the Corollary 3.3.13 (was 3.3.12) where
+  image of a continuous function is an interval.
+<li>Add Figure 3.10 to visualize why the square root is not Lipschitz.
+<li>Make the Lemma 4.2.2 be stated for an open interval \((a,b)\) since we
+  don't need the endpoints and it could really just be confusing.
+<li>Add Exercise 5.1.15
+<li>In the proof of Proposition 5.2.2 mention boundedness to be completely 
+  rigorous.
+<li>Add Exercise 5.2.18.
+<li>In Exercise 5.3.7, add \(a+\epsilon \lt b-\epsilon\) to emphasize where
+  things are well defined.
+<li>Add Exercise 5.3.13.
+<li>Add Figure 5.6 and Figure 5.7 giving the logarithm and the exponential,
+  the later figures in chapter 5 are renumbered.
+<li>Add Figure 6.7 to Example 6.2.9 to illustrate what is happening.
+<li>Add Exercise 6.2.22.
+<li>Add Figure 6.8 in subsection 6.3.1 to demonstrate a first order ODE
+  as a slope field.
+<li>In Example 6.3.3, refer back to the figure for the exponential which
+  shows the slope field.  Also add figure showing the exponential together
+  with the first few iterates.
+<li>In Remark 6.3.7, use \(x\) instead of \(t\) for the Heaviside function
+  to make things less confusing.
+<li>Add Figure 7.2, to clarify especially the end of Example 7.1.3.  This
+  renumbers the rest of figures in chapter 7.
+<li>Add \(\{x\}\) as an example of a closed set to Example 7.2.5, but leave
+	the proof to the online homework (it is rather simple).
+<li>To be more consistent, and avoid overuse of the letter x for everything,
+  use \(p\) instead of \(x\) in Propositions 7.3.11, 7.3.12, 7.3.13, 7.4.2,
+  Exercises 7.3.1, 7.3.5, 7.3.7, and Definition 7.4.2
+<li>Move the remark about subspaces not being complete after Proposition
+  7.4.5 as it makes more sense that way.
+<li>In Definition 7.4.7, Example 7.4.8, and the proof of Proposition 7.4.9,
+  use \(m\) instead of \(k\) to avoid overusing the letter \(k,\) to make
+  it easier to talk about the proof.
+<li>Add a paragraph after Proposition 7.4.9 emphasizing the difference
+  between compactness and closedness in the sense that "compact" doesn't
+  care about the ambient topology while "closed" most definitely does.
+<li>Rewrite the \(n=1\) part of the proof of 7.4.13 (Heine-Borel) to be a
+  little bit more like \(n=2\) part (use the proposition to reduce to
+  closed and bounded interval) and just refer to Example 2.3.8 instead of
+  repeating the argument.
+<li>Change the mapping in Theorem 7.6.2 (Contraction mapping principle)
+  to \(\varphi\) from \(f\) to avoid overusing \(f\) in this section.
+<li>Mention that \(d\) is the uniform norm on \([-h,h]\) in the proof.
+</ol>
+
+Smaller changes:
+
+<ol>
+<li>Many minor rephrasings and rewordings for added clarity.
+<li>In the definition of \(S\) in the proof of Theorem 0.3.6,
+  use \(n,\) to avoid overloading of \(m.\)
+<li>Say that \(A\) is a set in Cantor to be a bit more precise.
+<li>Simplify parts (iii) and (iv) of Definition 1.1.2.
+<li>In proof of part (v) of 1.1.8, should just use the definition rather than
+  part (ii) of the proposition.
+<li>Improve wording around Proposition 1.2.2, remove some unnecessary words
+	and explicitly state the version with \(|x|,\) which is a common
+	statement.
+<li>In the proof of 1.2.6, use \(c\) instead of \(b\) for the second
+  inequality to avoid overloading \(b.\)
+<li>Improve slightly the wording in the examples after definition of a limit
+	of a sequence.
+<li>After Proposition 2.1.10, make a remark about monotone sequences and
+	boundedness above/below.
+<li>Improve wording of Example 2.1.12.
+<li>After definition of subsequences, give a little bit more detail of the
+	example subsequence.
+<li>Improve the recursive sequence (Newton's method) wording slightly.
+<li>In the proof of Proposition 2.2.11, use \(x\) instead of \(L\) in the
+  proof as \(L\) is used in the related Lemma 2.2.12 for something else.
+<li>In the proof of Theorem 2.3.4, when defining the subsequence, suppose
+	\(n_1,\ldots,n_{k-1}\) is defined and define \(n_k\).  That way it
+	is more consistent with the rest of the proof and should be easier
+	to follow.  Also say \(m \geq n_{k-1}+1\) instead of \(m \gt n_{k-1}\)
+	to make it clearer where the \(+1\) comes from.
+<li>Change the index variable in Proof of Proposition 2.3.6 from \(j\) to
+  \(n\) for consistency.
+<li>Simplify the remark after Definition 2.3.12 as it may be hard to parse.
+<li>Be more precise with the hint and the indexing in Exercise 2.3.7.  Also
+  mention that it is just one of the possible proofs (I find it a cool proof).
+<li>Remark 2.4.6 should refer to theorem not proposition.  Also clarify that
+	Cauchy completeness means that the limit should be back in the set.
+	The remark is purposefully vague (to omit the gory details),
+	it's not really a definition, nor a construction of the reals,
+	but we don't want to be misleading.
+<li>In Definition 2.5.1 don't define an extra variable \(x\) just for the
+  limit.
+<li>In Definition 2.5.14 be consistent with wording for absolute
+  and conditional convergence.  That is, change "is conditionally
+  convergent" to "converges conditionally", and add both "converges
+  conditionally" and "conditional convergence" to the index.
+<li>In 2.5, when talking about the terms going to zero "fast enough"
+	before the comparison test, this is about series with positive terms,
+	so make that clear.
+<li>Throughout, where appropriate, use \(i\) or another letter instead of \(j\)
+	as that typesets a lot better with series and as powers.
+	In some places this also changes the other indices.
+<li>Rephrase Merten's theorem a tiny bit.
+<li>In Exercise 2.6.11 part c, be more precise in the parenthetical remark
+	about divergence.
+<li>Reword Exercise 2.6.4 part a) to be a little easier to understand
+  what is being asked
+<li>Before Proposition 3.1.15, emphasize the meaning of it, that it means
+	that the limit is "local."
+<li>Below Definition 3.2.1, we make a statement about the converse not
+  holding, but with no reference.  An example is given in Example
+  3.2.13 so give a parenthetical reference to it.
+<li>While fixing the labels in Figure 3.4 (was 3.3), make them smaller so that they
+  don't run into each other and move them below the axis.
+<li>Improve wording of Example 3.2.12.
+<li>Before Lemma 3.3.1, emphasize that \([a,b]\) is a closed and bounded
+	interval.  In a related change, this was emphasized in the statement
+	of the Min-Max/Extreme value theorem, but that was making it too
+	wordy, so make a remark right after the theorem and simplify the
+	statement.
+<li>When defining absolute minimum/absolute maximum, say that these are
+	what \(f(c)\) is (as is shown in the figure).
+<li>Improve the wording of the examples 3.3.4, 3.3.5, 3.3.6 to emphasize
+	which properties are satisfied and which are not.
+<li>At the end of the proof of Proposition 3.3.10, when we claim the root
+  by Bolzano, say it is in the open interval so that the claim lines up
+  better with the theorem.
+<li>Remove the "definition" of the phrase "uniformly continuous on \(X\)"
+  as we only ever use it in a remark and it is not standard verbiage anyway.
+<li>Rewrite the introductory paragraph to section 3.4.2 a bit, and
+  make the statement of Lemma 3.4.5 slightly more precise.
+<li>Clean up Figure 3.9 very slightly.
+<li>In Example 3.4.10, name the second function \(g\) to make things
+  hopefully a bit clearer.
+<li>Reword Example 3.5.3 a little.
+<li>Make caption to Figure 3.12 a bit more precise.
+<li>Clean up Figure 4.1 very slightly.
+<li>In Lemma 4.2.2, move the initial sentence of the proof to the end and
+  reword it.
+<li>After Theorem 4.2.4, say explicitly that the slope of the secant line
+  is the mean value of the derivative, hence the name of the theorem.
+<li>In subsection 4.2.4 (applications of the mean value theorem) add a short
+  description of how the applications work: by getting rid of a limit.
+<li>At the end of Example 4.2.12, be a little less wordy.
+<li>Reword the paragraph in front of Corollary 4.4.3, now that we have the
+  existence of roots as an explicit example in 3.3.
+<li>In Exercise 4.4.2, remark that it is the same as Exercise 4.1.10, to avoid
+  possibly assigning this type of problem twice.
+<li>In Proof of Proposition 5.1.7, use (in addition to changing \(j\) to
+  \(i\)) \(q\) instead of \(p\) since I just realized that this is a
+  terrible name since the partition is \(P.\)  Also changes Figure 5.2.
+<li>Before Proposition 5.1.13, refer to Figure 5.1 for intuition of what
+  the difference of the upper and lower sums measures.
+<li>Explicitly mention in the beginning of the proof of Lemma 5.2.7
+  that \(f\) is bounded.
+<li>Mention in a footnote that people often say "converges" when they mean "converges
+  pointwise"
+<li>Improve the wording of Exercise 6.1.10.
+<li>Reorganize the setup in proof of Proposition 7.2.11 a bit.
+<li>Add a small note after Heine-Borel (7.4.14) to emphasize it does not
+  hold in subspaces of \({\mathbb{R}}^n.\)
+<li>In Exercise 7.5.2, reference the figure with the graph.
+<li>Rewrite Proposition 7.4.9 to emphasize in which direction the
+  implication goes.
+<li>Use \(z\) instead of \(\tilde{y}\) in the proof of Proposition 7.5.12
+<li>In 6.3 and 7.6, mention for completeness that
+  \([h-x_0,x_0+h] \subset I\) in the statement of Picard's theorem.
+<li>In 7.6, improve the wording of the proof of Picard's theorem.
+<li>Improve the wording in part c) of Exercise 7.6.9.  The point of applying
+  the theorem is not to find that \(\sqrt{2}\) is a fixed point, that follows
+  just from the formula.  The point is that the theorem does apply.
+  Add a note about why this is useful.
+</ol>
+
+<p>
+<b>May 16th 2022 edition, Version 5.6 (edition 5, 6th update):</b>
+<p>
+
+As in the last version, the list of changes may seem long, but they are in
+fact all rather small changes.  Numbering did not change, and most changes
+are in chapter 6 and 7.  One exercise, 1.5.6, was changed (it was way too hard
+and really unnecessary).  No numbers were changed.  Pagination changed ever so
+slightly in a couple of places.
+
+<ol>
+<li><b>Exercise 1.5.6 is way too challenging, and the hint is misleading.
+  Replace with essentially the alternative from the footnote, and then
+  replace the footnote with how one would prove existence of a bijection.</b>
+<li>In the equation in the introductory paragraph of section 6.2, multiply
+  both top and bottom of the fraction by \(k\) as \(\frac{n}{n+k}\) is much
+  easier to read (and the point is just as well made) than
+  \(\frac{\frac{n}{k}}{\frac{n}{k} + 1}.\)
+<li>In the introduction to 6.2, do not mention just two types of exchanges,
+  we cover four.
+<li>In Theorem 6.2.2, say explicitly that \(S \subset {\mathbb{R}}.\)  (The
+  proof works word for word in any metric space, but we haven't covered
+  metric spaces yet.)
+<li>Add a footnote to before Theorem 6.2.4 since I always mention this in
+  class: Uniform continuity is in some sense overkill for this, uniformly
+  bounded would be enough, but we don't prove this.
+<li>In the proof of Theorem 6.2.10 use parentheses to make the beginning of
+  the estimate clearer.
+<li>In Exercise 6.2.1, remove the first sentence, it used to be this wordy
+  because in old editions, this fact was not mentioned in text.
+<li>Remove the Note after Exercise 6.2.2
+<li>Make Exercise 7.1.13 clearer in that the students need to prove that all
+  the series in question actually converge, that is, that all those limits
+  that one has to take actually exist.  That seems to be getting forgotten by
+  almost all my students.
+<li>In the proof of Proposition 7.2.16, make the first \(\delta\) into an
+  \(\epsilon\) since those are two different numbers, that should clear
+  up the proof a little bit.
+<li>Add a note after definition of the interior that alternately it is the
+  union of open sets inside \(A.\)  Also note that the definition
+  says gives that the interior is a subset of \(A,\) but points of
+  boundary may inside or outside \(A.\)
+<li>The footnote about Buniakovsky now correctly identifies him as
+  Ukrainian (he was born near Vinnytsia in west-central Ukraine).
+<li>Due to some minor edits, the pagination improved slightly by the proof
+  of 7.2.22 being on the same page as the proposition and same
+  with the proof of 7.2.27.  A couple of exercises thus jumped from
+  page 245 to page 244.
+<li><b>Exercise 7.3.1 was stated as if it is both directions of 7.3.13, while
+    only one is left to prove.  So only state the direction left to prove.</b>
+<li>In Exercise 7.5.6, emphasize that \(K\) is a subset of any metric space,
+  so that the student does not think \(\mathbb{R}\) or something equally
+  too simple.
+<li>Simplify the proof of Proposition 7.5.12 a little.  We don't need to
+  refer to sequences of functions and uniform convergence here, the direct
+  estimate is easier.  Avoids unnecessary reference to chapter 6.
+<li>In the beginning of the proof of the fixed point theorem in 7.6, decouple
+  the first displayed inequality.  Do one step, then say "do \(n\) more steps"
+  and then write down the inequality with \(k^n.\)
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+<b>November 9th 2021 edition, Version 5.5 (edition 5, 5th update):</b>
+<p>
+
+While the list of changes below may seem large, they are all fairly minor.
+This version is compatible with the previous versions.
+<b>No numbers were changed.</b>  Even for all but a couple of sentences,
+pagination is completely preserved in this version.
+The theme of this revision is trying to fix all the minor issues and errata I
+could find, and improve clarity, but not make any large changes, nor add any
+content.  Perhaps the biggest change are 3 new exercises.  Two are there to
+fix an erratum, and one was sort of kind of hidden part of an old exercise.
+There are a few new explanatory sentences here and there,
+but nothing new beyond that.  A couple of issues with some exercises were
+fixed, and some remarks to clarify what is required were added to some
+exercises.
+Since exercise changes are critical to not miss, they are marked in bold below.
+
+<ol>
+<li>Add a very short finite example of cartesian product after
+  Definition 0.3.10.
+<li>Make Definition 0.3.11 (function) a bit easier to read by explicitly
+  stating that it is the \(y\) that is unique.
+<li>In Definition 0.3.11 (function), define codomain.  It does appear in at
+  least one place in the book, and it may be good for the sake of being a
+  reference book.
+<li>Example 0.3.32 is a bit too informal and just leaves out 0 and the
+  negatives, so add that.
+<li>Move the argument for why infimum and supremum are unique to right
+  after Definition 1.1.2 and note why this means that the notation is
+  well-defined.
+<li>In Definition 1.1.1 (ordered set), label "transitivity" and "trichotomy"
+<li>Remove the first sentence of the proof of Proposition 1.1.9 and just
+  give the example before the proof.  It is not really part of the "proof" of
+  the statement itself.
+<li>In the proof of Example 1.2.3, the second displayed estimate, the \(h\) is
+  given as an equality, so the last \(\leq\) is actually \(=.\)
+  Also show explicitly that \(s-h &gt; 0\) to fix erratum.
+<li>Improve the wording of proof of 1.4.2, also in the same proof the sets
+  \(A\) and \(B\) were being defined but we only used \(=\) and not \(:=.\)  Also,
+  change \(b_k\) to just be any number in \((a_k,b_{k-1}),\) that is simpler and
+  sufficient.
+<li>In Definition 2.1.9, move the "Some authors use the word monotonic." to a
+  footnote to simplify the definition.
+<li>After definition 2.1.9 mention \(\{ n \}\) as an example of a monotone
+  increasing sequence.
+<li>Simplify the proof of Proposition 2.1.10.  Don't say anything about the
+  \(B,\) we never use the bound, just say the set of values is bounded, that is
+  good enough to compute the supremum.
+<li>After Definition 2.1.16, explicitly mention what we mean by a subsequence
+  by writing \(x_{n_1},x_{n_2},x_{n_3},\ldots.\)
+<li><b>Add Exercise 2.1.23</b>
+<li>In Proposition 2.2.11, recast the proof of unboundedness to not be a
+  contradiction proof.  It's the same idea, but it avoids having to explain
+  why it is a contradiction, and avoids a contradiction proof.
+<li>In Example 2.2.14, use \(M\) instead of \(N\) for consistency.
+<li><b>Add Exercise 2.3.20</b>
+<li>Before Proposition 2.5.6, make "tail of a series" a defined term and add
+  it to index.
+<li>Rephrase the last argument in the proof of Proposition 2.5.17 to be a
+  little bit more straightforward.
+<li><b>Add useful remark to Exercise 2.5.6.</b>
+<li><b>Add remark to Exercise 2.5.16 about starting the series, and that only
+  tails satisfy the hypotheses, so that students do not forget to check these
+  technicalities.</b>
+<li>Add footnote on \(L=\infty\) to proof of Proposition 2.6.1
+<li>Add a better introductory sentence to cluster points in 3.1.1.
+<li>In Lemma 3.1.7 and Proposition 3.1.17, add \(L \in {\mathbb{R}}\) to the
+  hypotheses, that makes it clearer that it is a given number.
+<li><b>Since every semester I get a question about Exercise 3.1.1, add a
+  parenthetical remark: Yes one must prove the limit is what one claims
+  it is.</b>
+<li><b>In Exercise 3.1.11, change "Then show \(f(x) \to L\) as \(x \to c\) for some
+  \(L \in {\mathbb{R}}\)" to "Then show that the limit of \(f(x)\) as \(x \to c\) exists."
+  Perhaps that will make students not start on the wrong path of starting with
+  some \(L\) existing rather than proving that it exists.</b>
+<li>When proving the Thomae function (3.2.12) is continuous at irrational
+  numbers, note that since the limit of \(\{ x_n \}\) is \(c,\) then every
+  rational number is in the sequence at most finitely many times.
+<li>At the end of example 3.2.13, mention that \(g\) is in fact continuous on \(B.\)
+<li>After proof of Lemma 3.3.1, add a short paragraph highlighting the use of
+  Bolzano-Weierstrass, to emphasize the technique.  It changes the pagination
+  of 3.3 a tiny bit (inadvertently getting less jarring page breaks)
+<li>Reword slightly the end of the proof of Example 3.4.3 to improve clarity.
+<li>Add two lines of text after proof of Theorem 3.4.4 to make a similar
+  point as for 3.3.1, again changing pagination of the rest of 3.4 very
+  slightly.
+<li><b>The "In other words" of Exercise 4.1.14 is confusingly stated with an
+  inequality, while the way to prove it is simply with an equality, that was
+  a cut and paste typo.  Of course it is true with an inequality still.</b>
+<li><b>In Exercise 4.1.15 (simple L'Hospital's rule) note that the limit of the
+  quotient of derivatives must exist, no need to "suppose" it, we're assuming
+  here that the derivatives are continuous and the denominator is never
+  zero.  Also assume that \(g(x)\not= 0\) if \(x \not= c.\)  While it can be
+  proved that \(g(x) \not= 0\) in some neighborhood of \(c,\) that was not
+  intended in this simple version.</b>
+<li><b>Added Exercise 4.1.16 to keep this sort of exercise explicitly.  That
+  is, if \(f'(c) > 0,\) then show that \(f(x)\) is negative a bit before \(c\)
+  and positive for a bit after \(c,\) thus zero only at \(x=c.\)</b>
+<li>Be a little bit more precise in the proof of Lemma 4.2.2 to say that
+  all the \(x\) and the \(y\) are still within \(\delta\) of \(c.\)
+<li>In the proof of Proposition 4.2.6 (and also 4.2.7) note explicitly
+  that \([x,y] \subset I\) because \(I\) is an interval.
+<li><b>In Exercise 4.2.9, add a note that the student needs to prove that
+  \(g(x)\) is not zero for \(x \not= c\) so that the left hand side of the
+  equality makes any sense at all.</b>
+<li><b>In Exercise 4.3.2, ask about the \(d\)th Taylor polynomial, not the
+  \((d+1)\)th, that was a typo.  Though of course the exercise is still true
+  for \(d+1.\)</b>
+<li>In Definition 5.1.6 and proof of Proposition 5.1.7 use \(\ell\) instead of
+  \(m\) since \(m\) is used all over the place for a minimum of the function.
+<li>In proof of 5.3.5, explicitly mention the domain of \(F\) for clarity.
+<li>In Propositions 7.2.6 and 7.2.8 explicitly mention that the sets are
+  subsets of \(X.\)
+<li>Throughout get rid of the use of the word "any" where it could be ambiguous.
+<li>Fix a couple of uses of "=" where ":=" is more appropriate.
+<li>Improve the typesetting of some statements.
+<li>Some minor clarifications and tightening of the language a bit throughout
+  the book.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+
+<p>
+<b>June 8th 2021 edition, Version 5.4 (edition 5, 4th update):</b>
+<p>
+
+<ol>
+<li>When stating that well ordering of \(\mathbb{N}\) and induction are
+  equivalent, hedge our bets with "in a sense" and add a footnote mentioning
+  that we are really assuming \(n-1\) exists (which is obvious from the proof).
+  In a related change, make Exercise 0.3.18 just straight to the point and
+  don't mention the equivalence.
+<li>Reword the beginning of the proof of Example 1.2.3.
+<li>Make Proposition 1.4.1 more readable.
+<li>In the proofs of Propositions 2.3.2, 2.3.6, Example 3.1.8, when referring to a sequence, always
+  use braces.
+<li>Add explicit link/reference to chapter 7 to remark 2.4.6.
+<li>Add another example restriction on which \(g\) is continuous to Example 3.2.13.
+<li>Reword Lemma 3.3.1 and Theorem 3.3.2 (min-max) as a simpler single sentence.
+<li>After Definition 3.4.1, add definition of "uniformly continuous on X".
+  Thanks to Manuele Santoprete for suggesting this.
+<li>Make the Min-max theorem alternatively titled "Extreme value theorem" which
+  is more common.  Emphasize the "closed and bounded" in the theorem
+  statement.
+<li>Reword the proof of Proposition 4.1.10 a little bit to make it clearer.
+  Also include a tiny bit more motivation.
+<li>Add some intuition (being in a fog analogy) to the intro for critical points.
+<li>Add Remark 5.1.15 to say something about integral being a sum and being
+  global as opposed to derivatives being local.
+<li>In 5.2 add a few more motivating sentences.  And merge the paragraph from
+  below Proposition 5.2.5 to the one above it to make things flow a little better.
+<li>Mark 5.5.13 as "Integral test," and add that to the index.
+<li>In 6.3, define "initial condition" as a term.
+<li>At the end of 6.3, reword the quip about continuity being necessary and add a
+  very short remark about Peano existence if \(F\) is only
+  continuous to justify Example 6.3.6 being discontinuous.
+<li>Name the identity bit of Definition 7.1.1 the "identity of
+  indiscernibles."  It is a bit wordy, but it feels like the property ought to
+  have a name if the others do.
+<li>Reword proof of Proposition 7.2.14 to do the forward direction first.
+<li>Add \(A \subset \overline{A}\) to Proposition 7.2.19 rather than just in text.
+  The proof flows much nicer then.
+<li>Several small clarifications.
+<li>A few more explicit references/links.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+<b>June 10th 2020 edition, Version 5.3 (edition 5, 3rd update):</b>
+<p>
+
+<ol>
+<li>Remove the note before Exercise 7.2.12.  It is obsolete and could be
+confusing as we have already defined "subspace topology" above.
+<li>Note after Definition 0.3.13 that \(R(f)=f(A).\)
+<li>Add very small example to composition of functions after Definition
+  0.3.18.
+<li>Add a couple of sentences about why existence of a bijection is
+  an equivalence relation.
+<li>Note why the only set with cardinality of 0 is the empty set.
+<li><b>Exercise 5.2.13 part d) replaced, part e) adds a hypothesis
+    (differentiable at 0)</b> (to fix errata)
+<li>Many minor language and style improvements as well as some minor
+  clarifications.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+<b>May 15th 2019 edition, Version 5.2 (edition 5, 2nd update):</b>
+<p>
+
+<ol>
+<li>Several minor grammar and style fixes.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li><b>Exercise 3.6.10 changed slightly due to an erratum</b>: a hypothesis that the
+function is bounded is necessary.
+</ol>
+
+<p>
+<b>Oct 11th 2018 edition, Version 5.1 (edition 5, 1st update):</b>
+<p>
+
+<ol>
+<li>When introducing power series, explicitly mention \(0^0=1.\)
+<li>Links are now https.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+
+<p>
+<b>May 7th 2018 edition, Version 5.0 (edition 5, 0th update):</b>
+<p>
+The motivation for this revision is to improve readability of existing material
+rather than adding much new material.
+To this end,
+<b>39 new figures</b> were added (so 65 total) <!-- 26 in last edition -->
+there are several new examples,
+as well as reorganizing and expanding explanations throughout.
+Furthermore,
+<b>99 new exercises</b> were added bringing the total to 528 
+(plus two had to be replaced). <!-- 429 in last edition -->
+<p>
+A <b>List of Notations</b> is added at the back, giving a description and
+a page number for the most relevant definition or use for the notations used
+in the book.
+<p>
+There are the following more major additions:
+<b>A short new subsection</b> in 0.3 on relations.
+<b>Two new subsections</b> in 6.2 on limits of derivatives, and on power series.
+I always felt like chapter 6 ends too abruptly if 6.3 is not covered.  This
+adds a nice simpler application of swapping of limits with much easier proof
+than Picard.
+<b>A short new subsection</b> on limits of functions in 7.5, as this is
+really used in chapter 8 of volume II.
+<b>Section 4.3 was expanded</b> with a discussion on Taylor series, as
+well as the second derivative test.
+Throughout the book, some material that was in remarks, examples, and exercises
+but was used often, was formalized into several new propositions.
+<p>
+Some exercises, examples, propositions were added, some theorems became
+propositions, a few definitions, theorems, propositions, lemmas, corollaries,
+and examples in 0.3, 1.4, 2.5, 3.4, 4.1, 4.2, 5.2, 7.1, 7.2, 7.3, 7.4 were
+renumbered.  Figure numbers have changed.
+<b>Existing exercise numbers are the same, except:
+Exercises 2.5.1, 7.2.5 were replaced.
+7.2.12 asks for the reverse implication (that was an erratum, as this was
+already proved in the text).
+In Exercise 3.3.11 we require that the example is continuous.
+Exercise 4.4.6 was simplified very slightly (the original was a typo).
+Due to new material, Exercise 3.6.2 now asks for more, and exercise
+6.2.7 is easier.  Exercise 7.5.9 is easier with a new proposition.
+A couple of other exercises had errata fixed (0.3.5, 1.4.3,
+5.4.2, 7.1.5).</b>
+Other than this, the new edition is essentially backward compatible as usual.
+
+<p>
+A detailed list of changes:
+<ol>
+<li>Identify the book as Volume I on the title page, and refer to Volume II
+in the introduction.
+<li>In the PDF the pages have been made slightly longer so that we can lower
+the page count to save some paper.
+<li>To be more consistent with what is a Theorem and what is a Proposition,
+demote Theorems 2.1.10, 2.3.5, 2.3.7, 3.4.6, 5.2.2 to Propositions.
+Also change Theorem 4.2.2 to a Lemma as that's more appropriate.
+Numbering didn't change.
+<li>Change the look of the figures to match the Volume II and
+to better visually distinguish them from the surrounding text.
+<li>Change the "basic analysis result" to \(x \leq \epsilon\)
+for all \(\epsilon &gt; 0\) implies \(x \leq 0.\)  This better fits the mantra that
+in analysis we prove inequalities, and separates out the idea that to show
+\(x=0\) one proves \(x \leq 0\) and \(x \geq 0.\)
+<li>Add a short paragraph about naming of Theorem vs Proposition vs Lemma vs
+Corollary to answer a common question.
+<li>Add a subsection on relations, equivalence relations,
+and equivalence classes.  This renumbers the following
+propositions, definitions, etc.
+<li>Add figure for the sets \(S\) and \(T\) in 0.3.
+<li>Add figure for direct/inverse images in section 0.3.
+<li>Add figure for showing \({\mathbb{N}}^2\) is countable.
+<li>Add Exercises 0.3.21, 0.3.22, 0.3.23, 0.3.24, 0.3.25.
+<li>Add figure for least upper bound definition.
+<li>Add note about uniqueness of sups and infs.
+<li><b>In Proposition 1.1.8, add the two very commonly used properties
+as parts (vi) and (vii).</b>
+<li>Add explicitly Proposition 1.1.11 about an ordered field with
+LUB property also having GLB property.
+<li>Add link to Dedekind's Wikipedia page.
+<li>In Exercise 1.1.6, removed the "In particular, \(A\) is infinite".  There
+is no point in going into the distinction and it just confuses students.
+<li>Add Exercises 1.1.11, 1.1.12, 1.1.13, 1.1.14.
+<li>Add footnote on impossibility of tuned pianos and rational roots
+<li><b>In Proposition 1.2.2 simplify matters by changing the statement to not
+assume that \(x \geq 0.\)</b>  The original statement is given in the paragraph
+below as a remark.
+<li>Add figure to proof of the density of \(\mathbb{Q}\) in section 1.2.
+<li>Add Exercise 1.2.14, 1.2.15, 1.2.16, 1.2.17.
+<li>Change title of 1.3 to include "bounded functions".
+<li>Add figure for a bounded function, its supremum and its infimum
+in section 1.3.
+<li>Add Exercises 1.3.8, 1.3.9.
+<li>Add Proposition 1.4.1 (which moves Theorem 1.4.1 to 1.4.2), which is the
+characterization of intervals that we often use later, so better to formalize
+it.  Proof is still an exercise.
+<li>We never defined/open closed for unbounded intervals, although later on
+we make a big deal about a closed and bounded interval.  To be more in line
+with general usage, define what "unbounded closed" and
+"unbounded open" intervals.
+<li>In Exercise 1.4.6, be more explicit about what the intersection of closed
+intervals is, and explicitly mention boundedness.
+That is, say the intersection is
+\(\cap_{\lambda \in I} [a_\lambda,b_\lambda].\)
+<li>Add Exercise 1.4.10.
+<li>In Proposition 1.5.1, add the inequalities for all representations as well,
+since we use these facts later.  Also add the detail of the proof as it is
+perhaps not as obvious to every reader.
+<li>Mark Exercise 1.5.6 as challenging and add a longer hint.  The real tricky
+part is to get a bijection rather than two injections which is easier.
+<li>Add Exercise 1.5.8, which is really required in the proof, so that
+we do not require things from chapter 2.  Be more explicit about its use
+in the proof.
+<li>Add figure on cantor diagonalization in section 1.5.
+<li>Add more detail in proof of Proposition 1.5.3 to see how we use the
+unique representation.
+<li>Add Exercises 1.5.7, 1.5.9.
+<li>Add a very short example of a tail of a sequence in 2.1.
+<li>Add a diagram to proof of Proposition 2.1.15.
+<li>Simplify the proof of squeeze lemma as suggested by Atilla Yıllmaz.
+<li>Add example of showing \(n^{1/n}\) going to 1 as a more subtle example of
+the use of the ratio test.
+<li>Simplify/symmetrize the proof of product of limits is the limit of the
+product.  (Thanks to Harold Boas)
+<li>Show the convergence/unboundedness of \(\{ c^n \}\) in a somewhat 
+a more elementary way without Bernoulli's inequality.
+(Thanks to Harold Boas)
+<li>Add Exercises 2.2.13, 2.2.14, 2.2.15, 2.2.16.
+<li>Add two figures in 2.3 for liminf and limsups, one for a random example,
+and one for the given example.
+<li>Expand the discussion of infinite limits and liminf/limsup for unbounded
+sequences.  Add a proposition about unbounded monotone sequences, and a
+proposition connecting the definition of liminf/limsup to the previous
+definition for bounded sequences.
+<li>Add Exercises 2.3.15, 2.3.16, 2.3.17, 2.3.18, 2.3.19.
+<li>Add figure to the example of geometric series with 1/2.
+<li>Make the geometric series into a Proposition as we use it quite a bit.
+Also use geometric series as an example for the divergence if terms do not
+go to 0, that is when \(r \notin (-1,1).\)
+<li>Mention the "infinite triangle inequality" in text in 2.5,
+I always do in class.
+These two things renumber the subsequent examples, propositions, etc. in 2.5
+<li><b>Replace Exercise 2.5.1</b>.  The exercise was proved in Example 0.3.8
+and already used previously.
+<li>Add Exercises 2.5.14, 2.5.15, 2.5.16, 2.5.17.
+<li>Add a sentence and notation to the figure about possible
+non-convergence at the endpoints of the radius of convergence.
+<li>Add Exercises 2.6.13, 2.6.14.
+<li>Add a note and a footnote on the other common notations for the various
+limits of restrictions.
+<li>Add Corollary after 3.1.12 for the absolute value, which shifts the
+numbering of propositions and examples by one in 3.1.
+<li>Add Exercises 3.1.15, 3.1.16.
+<li>Expand Example 3.2.10 a little bit, and add a figure for the example.
+<li>Add Exercises 3.2.17, 3.2.18, 3.2.19.
+<li>Add figure for definition of absolute minimum and maximum.
+<li>Add corollary 3.3.12 whose proof is the existing Exercise 3.3.7.
+<li><b>In Exercise 3.3.11 add the missing continuity hypothesis</b>.
+Otherwise the exercise is too easy (it is already easy).
+<li>Add Exercise 3.3.14, 3.3.15, 3.3.16, 3.3.17.
+<li>Swap examples 3.4.2 and 3.4.3, they make a lot more sense in that order.
+<li>In Section 3.4 add a very short application of the continuous extension.
+<li>Add figure for the idea of the proof of the product rule, that is,
+a picture of the identity given as hint.
+<li>Add Exercises 3.4.15, 3.4.16, 3.4.17.
+<li>Add Exercise 3.5.9.
+<li>Strengthen Proposition 3.6.2 to include limits at infinity,
+which means that <b>Exercise 3.6.2 asks for a bit more</b>
+since two new statements must be proved.
+<li>Add Exercises 3.6.12, 3.6.13, 3.6.14, 3.6.15.
+<li>Actually prove the use of intermediate value theorem in proof of
+corollary 3.6.3.
+<li>Add figure to Example 3.6.5.
+<li>Add figure to Example 3.6.7.
+<li>Add Examples 4.1.3, 4.1.4, which moves everything down a number in 4.1.
+<li>Add link to Schwarz and Bunyakovsky and give a short note on the name
+in a footnote.
+<li>Add Exercises 4.1.13, 4.1.14, 4.1.15.
+<li>Reorganize the proof of Mean value theorem a little bit, add some
+motivation for the proof, and move the figure up
+earlier as it gives an idea for the proof.
+<li>Make Example 4.2.8 into a Proposition since that's what it really is.
+Then we can refer to it rather than the exercise that proves it later.
+<li>The proof of Exercise 4.2.9 was a little too challenging.  In essence
+one reproves Cauchy's mean value theorem anyway, so add that as a theorem,
+and add an exercise to prove it.  This causes some renumbering in 4.2.
+<li>Add a proposition about extension of derivatives to the boundary as that
+is a in fact quite useful and has a very quick and straightforward
+proof which is left as exercise.
+<li>Add small note about measuring speed with aircraft and mean value theorem.
+<li>Add some motivation to the proof of Darboux's theorem, and
+add a figure.
+<li>Add Exercises 4.2.13, 4.2.14, 4.2.15.
+<li>Add two figures for Taylor's theorem section (4.3).
+<li>Mention Taylor series and connection to power series in 4.3.
+<li>Add quick application of Taylor's theorem to prove second derivative test.
+Proposition 4.3.3.
+<li>Add Exercises 4.3.9, 4.3.10, 4.3.11.
+<li>Rewrite proof of Lemma 4.4.1, and use clearer variable names.
+<li>Add figure to Example 4.4.5.
+<li><b>Modify Exercise 4.4.6 very slightly</b>, replace "interval" with
+"open interval."  The distinction is irrelevant for how one proves it
+and considering other types of intervals makes the proof longer.
+<li>Add figure to the proof of Proposition 5.1.7.
+<li>Add figure to Proposition 5.1.10.
+<li>Add figure to Example 5.1.12.
+<li>Add proposition on the sub/super additivity as Proposition 5.2.5,
+so all other propositions, theorems, and lemmas shift by one in 5.2.
+<li>In the monotonicity proposition, state it for upper and lower integrals
+as well, we prove that anyway, it fits better with the style of exposition
+in this book, and it can be useful in proofs.
+<li>Add proposition for the integrability of monotone functions.
+We use this later, it is better to just refer to a proposition
+than an exercise, and it is also genuinely useful.
+<li>Add Exercise 5.2.17.
+<li>Add figure to proof of the fundamental theorem of calculus in 5.3.
+<li>Add remarks about other definitions of logarithm and the exponential,
+and about the uniqueness and existence following from a subset
+of the given conditions.
+<li>Add Exercise 5.4.11.
+<li>Improve the exposition of the summability of the sinc function in
+Example 5.5.12 and add another figure to the example to show the bound.
+<li>Add figure for integral test for series in 5.5.
+<li>Add figure to Example 6.1.4.
+<li>Add figure to definition uniform convergence in 6.1.
+<li>Add Exercise 6.1.12, 6.1.13, 6.1.14.
+<li>Add subsection to 6.2 on swapping of limit of functions and derivatives
+for continuously differentiable functions.
+<b>This makes Exercise 6.2.7 much easier</b> as we essentially do the main
+bit as a theorem.  There is a new figure in this subsection.
+<li>Add subsection to 6.2 on convergence, differentiation, and integration
+of power series.
+<li>Change hint in 6.2.1 to be simpler, \(|x|^{1+1/n}\) works but it is a
+bit messy to prove all the details.
+<li>Add Exercises 6.2.15, 6.2.16, 6.2.17, 6.2.18, 6.2.19, 6.2.20, 6.2.21.
+<li>Add remark about weaker solutions to ODEs using the integral equation.
+<li>Use the more common interior notation in 6.3, and in 7.6.
+<li>Add Exercises 6.3.7, 6.3.8, 6.3.9.
+<li>Improve triangle inequality figure in 7.1.
+<li>Add example of complex numbers to 7.1, and an example of a sphere,
+that renumbers the rest of the examples and propositions in 7.1.
+<li>Add Exercises 7.1.9, 7.1.10, 7.1.11, 7.1.12, 7.1.13.
+<li>Improve the open set figure in 7.2.
+<li>Add Propositions 7.2.11 and 7.2.12 that codify some of the
+subspace topology things we keep using.  This renumbers the rest of the
+definitions, examples, and propositions in 7.2.
+<li>Simplify proof of Proposition 7.2.15, as the conclusion was already
+proved in exercise in 1.4, and is formalized in Proposition 1.4.1.
+<li><b>Replace Exercise 7.2.5</b>, the conclusion was already proved
+in Exercise 1.4.3 (in more generality, in fact).
+<li><b>In Exercise 7.2.12</b> the implication goes the other way (erratum in
+earlier versions), as is needed in the text.
+<li>Add figures to Propositions 7.2.9, 7.2.13, 7.2.15, and 7.2.26.
+<li>Add \((0,\infty)\) and \([0,\infty)\) as an examples of an open and
+closed sets in \({\mathbb{R}}\) to Example 7.2.5.
+<li>Add footnote about empty sets and connectedness.
+<li>Add Exercises 7.2.15, 7.2.16, 7.2.17, 7.2.18.
+<li>Add figure to definition of convergence in 7.3.
+<li>Add example to 7.3 of \(C([0,1],{\mathbb{R}})\) where convergence is the
+uniform convergence.  This renumbers the following examples, propositions,
+etc.
+<li>Add remark that pointwise convergence does not come from a metric.
+<li>Add example for convergence in the complex numbers.
+<li>Add Exercises 7.3.13, 7.3.14.
+<li>Add an example (in fact a set of 4 examples) of compact and noncompact
+sets on the real numbers in 7.4.  This again renumbers the remaining
+propositions, etc.
+<li>Add proposition that \(C([a,b],{\mathbb R})\) is a complete metric space.
+<li>Add proposition that a closed subset of a complete metric space is
+complete, that is used later.
+<li>Add remark at the end of 7.4 about Cauchy depending on the actual metric
+and not just on the topology, along with an exercise working through the
+counterexample.
+<li>Add an example for the Lebesgue covering lemma, finding a \(\delta\) for a
+cover.
+<li>Add figures to proof of Proposition 7.4.9, Lebesgue covering lemma, and 
+Theorem 7.4.11.
+<li>Add Exercises 7.4.17, 7.4.18, 7.4.19, 7.4.20.
+<li>Add figure for Lemma 7.5.7.
+<li>Add a Proposition 7.5.12 on continuity of functions defined by integration.
+Makes Exercise 7.5.9 simpler, but it seemed to that most students missed the
+subtlety, and we use this result later a few times.
+<li>Add Exercises 7.5.11, 7.5.12, 7.5.13, 7.5.14, 7.5.15, 7.5.16, 7.5.17,
+  7.5.18.
+<li>Make notation more in line with the rest of the chapter in 7.6.
+<li>Move all exercises to the Exercises subsection 7.6 to be consistent
+with the rest of the book.
+<li>Add Exercise 7.6.11.
+</ol>
+
+<p>
+You can download the
+<a href="realanal-may07-18.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+
+<p>
+<b>February 29th 2016 edition, Version 4.0 (edition 4, 0th update):</b>
+<p>
+
+The main point of this revision is to improve places where it seemed a
+bit too terse and dry.  So I added a number of small examples throughout,
+especially in the beginning of the book,
+certain explanations and proofs were expanded or rewritten,
+and quite a few new figures were added to illustrate examples or proofs.
+It also adds a number of new exercises.
+<p>
+Mostly due to the added content page numbers and
+some figure numbers have changed,
+in section 2.6 a numbered Example 2.6.9 was added, which changed
+numbers on the two propositions and an example following.
+<b>Existing exercise numbers are the same, except that</b>
+some exercises were added and,
+<b>Exercises 4.4.2, 5.1.9, and 7.6.3 were replaced</b>.
+That is, the new edition is essentially backward compatible as usual.
+
+<p>
+Here is a detailed list of the larger changes:
+<ol>
+<li>Add a couple of examples to section 1.1 on different types of ordered sets
+so that students are not lulled into the sense that only numbers can be
+ordered.  Also mention already in this section that the rationals are an
+example of an ordered field.
+<li>Also add a couple more quick concrete examples of subsets of the rationals and their upper/lower bounds or lack thereof after Definition 1.1.2.
+<li>Add Exercise 1.1.10 on computing supremum in an infinite dictionary.
+<li>Very slight simplification in the proof of Theorem 1.2.4 part (ii)
+as \(x &lt; \frac{m}{n}\) actually is proved earlier and so disentangle it
+from the proof of \(\frac{m}{n} &lt; y\)
+<li>In Proposition 1.2.6, put the right sort of boundedness of \(A\) into
+the statements as needed.  Then make the note about \(x+A\) and \(xA\) being
+nonempty and bounded match this (and be more explicit).  This really fixes
+a logical gap in the exposition.
+<li>Add Exercise 1.2.12 to prove Proposition 1.2.8, and exercise
+1.2.13 to prove Bernoulli's inequality.
+<li>Compute the inf and sup of the example function after Definition 1.3.6
+and the definition of inf and sup of a function.
+<li>In the proof of Proposition 1.5.1,
+add a displayed inequality to make the derivation
+of the inequality for \(n+1\) more explicit.
+<li>In Exercise 1.3.7 we add a hypothesis of "bounded" to avoid
+use of arithmetic on extended reals, which we have not defined and said we
+would avoid just a few pages earlier.
+<li>Add Exercise 1.4.8 to show cardinalities of [0,1] and (0,1) are equal
+by constructing injections only, also add Exercise 1.4.9 to prove there are only countably many algebraic numbers. 
+<li>Add a figure (actually two figures) illustrating the convergence of a sequence, that is the role played by the limit, the epsilon and the M.
+<li>After definition of monotone sequences, add a small paragraph with a couple
+of quick words of which sequences we have seen are monotone and which are not
+monotone sequences.  Plus add a sample "graph" figure of an increasing sequence.
+<li>Make Proposition 2.1.15 into a TFAE type of statement with 3 statements to give students practice with these.
+Thanks to Sonmez Sahutoglu for the suggestion.
+<li>Add a quick example of a non-monotone sequence whose 3-tail is monotone
+to illustrate use of Proposition 2.1.15
+<li>Add Exercises 2.1.19, 2.1.20, 2.1.21, 2.1.22
+<li>Slightly simplify the proof of the division claim in the proof of
+Proposition 2.2.5.
+<li>After Proposition 2.2.7, add a small example of the use of the continuity
+propositions.
+<li>In the recursive sequences subsection mention that the example is Newton's method (and add Wikipedia link to Newton) and mention that it can work to compute square roots more generally, with the explicit statements left as an exercise.
+<li>Add Exercise 2.2.11, 2.2.12
+<li>Add figure to illustrate proof of Lemma 2.2.12, and expand on possible
+counterexamples when L=1.
+<li>Move the note about boundedness and monotonicity of \(a_n\) and \(b_n\) from Definition 2.3.1, and make it into the first item in Proposition 2.3.2.
+<li>In section 2.4, add an extra remark about 
+<li>Add Exercises 2.4.6, 2.4.7, 2.4.8.
+<li>In section 2.5 among other minor improvements, more consistently use \(n\)
+for index of the terms and \(k) as index of the partial sums to avoid switching
+the meaning of \(n\) too often.
+<li>Add Exercises 2.5.12, 2.5.13.
+<li>Add Example 2.6.9, this moves the numbers of the following two propositions
+and the example.
+<li>Add Exercises 3.1.13, 3.1.14.
+<li>Add a couple of inline examples in 3.1.
+<li>In proof of Proposition 3.2.4, do the computation in reverse as that is the
+way it should be understood.  Same in 3.2.3.
+<li>Add Example 3.2.13, removable discontinuity, and contrast this to the
+step function. 
+<li>Add Exercises 3.2.14, 3.2.15, 3.2.16.
+<li>Add Exercises 3.3.11, 3.3.12, 3.3.13.
+<li>Add figure for proof of Lemma 3.3.7 (bisection method).
+<li>Add figure for definition of Lipschitz in section 3.4.
+<li>Add Exercises 3.4.10, 3.4.11, 3.4.12, 3.4.13, 3.4.14.
+<li>Fixed the error in Proposition 3.5.8.
+<li>Add Figure 3.6 to illustrate corollary 3.6.3, but it also illustrates
+monotone functions and continuity in general.
+<li>Add more detail throughout 3.6.
+<li>Add Exercise 4.1.12
+<li>Add two figures in Section 4.2, first one illustrating the proof that a
+relative extremum is a critical point and the second illustrating the function
+with a discontinuous derivative.
+<li>Add very short example in 4.2 showing that differentiability is necessary for Rolle's theorem.
+<li>In Rolle's theorem, don't assume \(f(a)=f(b)=0,\) simply assume
+\(f(a)=f(b).\)  I am not sure why I did that originally.
+Since I was at it I also rewrote the proof Rolle's to be a little clearer.
+<li>Add Exercises 4.2.11, 4.2.12.
+<li>Add Exercises 4.3.7, 4.3.8.
+<li>In 4.4 add a figure to the proof of Lemma 4.4.1, also
+change Lemma 4.4.1 to be the pointwise result.
+<li><b>Replace Exercise 4.4.2</b> as Lemma 4.4.1 is now the pointwise result.
+<li>Add Exercise 4.4.8
+<li>Improve the basic Riemann sum figure.
+<li><b>Replace Exercise 5.1.9</b> (which was a duplicate of 5.1.8) with a new one.
+<li>Add Exercises 5.1.12, 5.1.13, 5.1.14
+<li>After Proposition 5.2.4, add a note about only getting inequalities for the upper and
+lower integrals for sums, and refer to the exercise.
+<li>Add a couple of quick examples about discontinuity and differentiability after second form of FTC.
+<li>Add Exercise 5.3.12
+<li>After Definition 6.1.9 note that S is important and also mention some other notations and names for the uniform norm.
+<li>Streamline the proofs in Example 6.1.8 and Proposition 6.1.13.
+<li>Add Example 6.2.7, pointwise convergence of bounded functions does not imply even bounded.
+<li>At end of 6.2 mention that derivatives need stronger convergence and point
+to the exercises.
+<li>Add Exercises 6.2.13 and 6.2.14 about joint limits.
+<li>Exercise 7.1.5, remove the increasing hypothesis it is not necessary.
+<li>In Proposition 7.2.14 add nonempty as hypothesis.  Better that than to rely on a technicality of our definition of connected.
+<li>Include the reverse direction in Proposition 7.3.10, and refer to Exercise 7.3.1 in the proof.
+<li>In Propositions 7.3.7 and 7.4.4, stop using superscripts for sequences in
+  \({\mathbb{R}}^n.\)  Seems to confuse students more,
+  so use a double subscript.  Perhaps that works better, they are more used to it.
+<li>Add Example 7.4.12 (discrete metric counterexample),
+and a few add notes on the results throughout 7.4
+<li>Add Lipschitz functions as Example 7.5.11.
+<li>Split 7.6 into subsections, also explicitly state we are going to work with
+\(C([a,b],{\mathbb{R}})\) before delving into the proof.
+<li>Add some simple examples in 7.6.
+<li>Rework the the proof of Picard's a little bit, that is make \(Y\) be the
+more natural space of all functions mapping into \(J\) and add more details to
+the proof.  This simplifies the proof and removes the need for Exercise 7.6.3,
+so <b>replace 7.6.3</b> with another easy exercise.
+<li>In Exercise 7.6.7 mention explicitly the iteration scheme is from the
+fixed point theorem, which is in fact the same iteration scheme as in 
+chapter 6.
+<li>Add Exercises 7.6.8, 7.6.9, and 7.6.10, and reword some of the other exercises to be clearer.
+<li>There were several labeled equations in chapter 7 that were never referred
+to, removed those labels.
+<li>Some very minor improvements in style and exposition throughout.
+<li>Typos fixed.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+You can download the
+<a href="realanal-feb29-16.tar.gz">LaTeX</a> source
+or
+<a href="realanal-feb29-16.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 16th 2014 edition:</b>
+<p>
+<ol>
+<li>Some very minor improvements in style and exposition.
+<li>Add note to Exercise 5.3.6 to compare to 4.2.8.
+<li>Fix the <a href="errata.html">erratum</a> from the last revision.
+</ol>
+
+<p>
+You can download the
+<a href="realanal-dec16-14.tar.gz">LaTeX</a> source
+or
+<a href="realanal-dec16-14.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>October 20th 2014 edition:</b>
+<p>
+<ol>
+<li>Many minor improvements in grammar, style, and exposition.
+<li>Fix the <a href="errata.html">erratum</a> from the last revision, that is,
+Exercise 2.6.11 part c) was unsolvable due to a missing piece of the
+definition of \(a_n.\)
+</ol>
+
+<p>
+You can download the
+<a href="realanal-oct20-14.tar.gz">LaTeX</a> source
+or
+<a href="realanal-oct20-14.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 18th 2013 edition:</b>
+<p>
+<ol>
+<li>Add uniform continuity to Section 7.5 and add Theorem 7.5.10
+to prove that function continuous on a compact set is uniformly continuous.
+<li>Fix Exercise 7.1.8 to ask only for a pseudometric space, and add a part
+asking for an example of degeneracy.  Then add Exercise 7.4.15 to prove
+that the set of compact sets is a metric space.  Thanks to Kenji Kozai for the suggestion.
+<li>Many minor improvements in grammar, style, and exposition.
+</ol>
+<p>
+You can download the
+<a href="realanal-dec18-13.tar.gz">LaTeX</a> source
+or
+<a href="realanal-dec18-13.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>October 7th 2013 edition:</b>
+<p>
+<ol>
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li>Fix some grammar/English issues.
+<li>Add some minor clarifications.
+<li>Actually define the words "Cauchy product" in the new series section,
+and put it in the index.
+<li>Example 3.3.9 is the "bisection method", so give this name and
+put it in the index.
+<li>In Exercise 5.4.4, in the "Finally" comment, the answer was included
+leaving the reader possibly confused as to what they are to do.
+<li>In chapter 6, there were quite a few places where a sequence of
+functions was simply referred to as \(f_n\) rather than \(\{ f_n \},\)
+so fix that.
+<li>Go on an anti-"that" offensive as it is overused  and just
+contributes to "wordiness" in many places.
+(I feel it is still overused
+but it is now somewhat better)
+</ol>
+<p>
+You can download the
+<a href="realanal-oct07-13.tar.gz">LaTeX</a> source
+or
+<a href="realanal-oct07-13.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>May 29th 2013 edition:</b>
+<p>
+Many of the additions in this version were inspired by feedback from Sonmez
+Sahutoglu, and also by browsing the additions in the University of Pittsburgh
+version, so they deserve much credit in making me write these new sections.
+<p>
+Numbering changes as little as possible.  Obviously page numbers are changed
+and new sections and propositions were added, but none of the new ones
+change numbering of previous sections, propositions, examples, or exercises.
+Other than that the only relevant numbering changes are
+that <b>Exercises 1.4.3 and 7.3.10 were replaced</b>.
+<p>
+<ol>
+<li><b>Add optional Section 1.5</b> on decimal expansion.  This makes the hard
+Exercise 1.4.3 obsolete, so replace with another exercise.
+<li><b>Add optional Section 2.6</b> on more topics on series.
+<li><b>Add optional Section 3.5</b> on limits at infinity.
+<li><b>Add optional Section 3.6</b> on monotone functions and continuity.
+<li><b>Add optional Section 4.4</b> on inverse function theorem.
+<li><b>Add optional Section 5.4</b> on the logarithm and the exponential.
+<li><b>Add optional Section 5.5</b> on improper integrals.
+<li>Add Proposition 5.1.13 and another Example 5.1.14 to show integrability directly.
+<li>Add a very short Subsection 2.3.4 about infinite limits of sequences and
+add Exercises 2.3.13 and 2.3.14 to go with it.
+<li>Add Exercises 1.3.7, 1.4.6, 1.4.7, 2.5.11, 3.3.10, 4.3.5, 4.3.6, 5.2.16,
+6.3.6.
+<li>In 3.1.4 it is natural to define one sided limits (Definition 3.1.15),
+do so and add Proposition 3.1.16 and Exercise 3.1.12
+<li>In Exercise 7.3.5, onto is not needed, and might confuse the student, so remove the hypothesis.
+<li>Mark the dependence on x<sub>0</sub> on the Taylor polynomial
+and remainder.
+<li>Add links to <a href="http://ares.southernct.edu/~fields/GIAM/">A Gentle
+Introduction to the Art of Mathematics</a>, and <a
+href="https://richardhammack.github.io/BookOfProof/">Book of Proof</a> for
+the proof based courses in the book intro.  Being a free book we should
+recommend other good free books.
+<li>In references to famous mathematicians link the Wikipedia article.  Also
+we completely lacked such a footnote for Cantor.
+<li>Removed the correspondence of sections with [BS].  I don't think it's very
+useful anymore (it was originally for my students when the book was really just
+a set of lecture notes), it is getting more complicated anyway.
+<li>Fix the <a href="errata.html">errata</a> from the last revision
+(In particular Exercise 7.3.10 was replaced).
+<li>Minor English and style fixes.
+</ol>
+
+<p>
+You can download the
+<a href="realanal-may29-13.tar.gz">LaTeX</a> source
+or
+<a href="realanal-may29-13.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 16th 2012 edition:</b>
+<p>
+<ol>
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li>Footnote counter is reset per page as is usual,
+so that we don't go into weird footnote symbols.
+<li>In Taylor's theorem proof make it explicit that M and hence c depends
+on x and x<sub>0</sub>.  (Thanks to Sonmez Sahutoglu for the suggestion)
+<li>Add Exercises 3.3.9, 4.3.4, 5.3.10, 5.3.11.
+</ol>
+
+<p>
+You can download the
+<a href="realanal-dec16-12.tar.gz">LaTeX</a> source
+or
+<a href="realanal-dec16-12.pdf">PDF</a> 
+for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>October 1st 2012 edition:</b>
+<p>
+<ol>
+<li>Improve exposition in the proof that \(\sqrt{2}\) exists.
+<li>Minor improvements in style and exposition in numerous places.
+<li>Put "derivative" into the index.
+<li>Use only "well ordering property" to make logicians happy.
+<li>Remove definition of "size" of a partition as it was never actually used.
+<li>Several minor typos and grammar errors fixed.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-oct01-12.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>April 8th 2012 edition:</b>
+<p>
+<ol>
+<li>Make Proposition 7.3.6 (ii) clearer and make it just a one way implication.
+The other direction is contained in (i) and just made the statement somewhat
+ambiguous.
+<li>Add Figure 3.2 for continuity, which renumbers the popcorn function figure.
+<li>Add a sentence about defining arithmetic on extended real numbers.
+<li>Some small improvements to readability in places.
+<li>A few style, grammar, and spelling fixes.
+<li>Some small changes in spacing (lists) to make them slightly
+more compact, also
+fiddle with pagination manually on a few pages to get nicer page breaks, so
+pagination changed slightly.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-apr08-12.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 25th 2011 edition:</b>
+<p>
+<ol>
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li>Add Proposition 7.3.6 for limits of sequences and an exercise to prove it.  This caused a <b>slight renumbering</b> in 7.3.
+<li>Add reference to uniform norm in definition of C([a,b])
+<li>Several very minor grammar/style fixes.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-dec25-11.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 15th 2011 edition:</b>
+<p>
+<ol>
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li>Add examples 7.2.22, and 7.2.23, which caused a <b>slight renumbering in 7.2</b>:
+Proposition 7.2.22 became 7.2.24 and 7.2.23 became 7.2.25, and corollary
+7.2.24 became 7.2.26.
+<li>Add a proposition that every convergent sequence is Cauchy (7.4.2)
+This caused a <b>renumbering in 7.4</b>.  Furthermore, I realized that if we
+just prove the Lebesgue covering lemma, the proof of "sequentially compact
+implies compact" is about the same length but split up and hopefully easier to
+read.
+And we prove another useful fact as a bonus for no extra effort.
+This caused some more renumbering in in 7.4.
+<li>Add examples 7.5.3 and 7.5.8, which caused a <b>slight renumbering in 7.5</b> and it move Section 7.6 up a page.
+<li>Make Proposition 7.2.11 into an if and only if and change the
+assumption on the intersection to \(U_1 \cap U_2
+\cap S \not= \emptyset.\)
+<li>Improve exposition in a number of places in chapter 7.
+<li>Use \(\lambda\) instead of \(\iota\) for an index for the arbitrary
+unions and intersections.
+<li>Fix and improve the proof of Proposition 7.2.13.
+<li>Make the statement of 7.2.10 more precise.
+<li>Proof of Proposition 7.2.21 is much simpler, no need for unions.
+<li>Add note about open sets being unions of balls, now that we don't use it
+in any proof.  It is a useful thing to mention.
+<li>Use Proposition 7.3.7 in the proof of 7.3.8 to 
+improve exposition.
+<li>Slightly improve definition of compactness.
+<li>Add Exercises 7.2.12-14, 7.3.9-11, 7.4.11-14, 7.5.10, 3.1.11, 3.2.13.
+<li>7.6 probably only takes 1 lecture, unless one also does the examples from 6.3, so revise the number of lectures estimate.
+<li>Reformulate Exercise 7.6.2 to explicitly show that F(s,f(s)) is continuous
+as we use that later.
+<li>Use x and y instead of t and x in Section 7.6 to make it consistent with 6.3.
+<li>Use \(C(I,\mathbb{R})\) for real valued continuous functions on I rather than just C(I).
+</ol>
+The following changes are suggestions from Paul Vojta:
+<ol>
+<li>In Subsection 1.2.3, add the elementary Proposition 1.2.8 (proof left to
+reader) about suprema and existence of x arbitrarily close. This led to <b>renumbering</b> as Definition 1.2.8 became Definition 1.2.9.
+<li>In Exercise 1.2.2: change \(t &gt; 0\) to \(t \geq 0,\) which makes it more natural.
+<li>Mark Exercise 2.5.7 as challenging.
+<li>In corollary 3.1.12 (iv) no need to require that \(g(c) \neq 0.\)
+<li>In Exercise 4.2.4, require that the sequence converges to c.
+<li>Provide alternative reverse directions of Lemma 3.1.7 and Proposition 3.2.2 (ii) as Exercises 3.1.11 and 3.2.13
+<li>Several improvements in grammar and style, and several minor typos.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-dec15-11.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>November 18th 2011 edition:</b>
+<p>
+
+<ol>
+<li><b>Add Chapter 7 on Metric spaces</b>.
+The pagination of Chapters 1-6 did not
+change.  There are 192 pages to the book now, with 286 exercises.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li>Add Exercises 1.1.9, 2.1.18, 3.1.10, 3.3.8, 4.1.11, 4.2.9, 4.2.10, 5.1.8-11,
+5.2.14, 5.2.15, 6.1.11
+(and of course all the new metric space exercises)
+<li>Add Example 6.3.6.
+<li>In Exercise 5.3.6, require that it be done by FTC, not by mean value
+theorem as a previous similar exercise.
+<li>In Theorem 6.2.2, change the domain to be arbitrary, there is no need
+to only consider intervals.
+<li>Many small improvements and fixes in both exposition and style, mainly in
+chapters 3 through 6.
+<li>Improved definition of uniform convergence
+<li>In Section 6.2, add in some minor omitted details
+<li>Revised some of the "number of lectures estimates" to match somewhat better
+what what I actually do.  It is of course still
+very approximate and depends on the level of the students, etc.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-nov18-11.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>October 16th 2011 edition:</b>
+<p>
+
+<ol>
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+<li>Reorder Subsection 1.2.3.  The "extended reals" are moved to end of the
+subsection.  It is really mostly an optional thing, we almost
+never use it (I mention
+this fact as well).  This resulted in a <b>slight renumbering</b>:
+Definition 1.2.6 became Definition 1.2.8, and Propositions 1.2.7 and 1.2.8
+are Propositions 1.2.6 and 1.2.7 respectively.
+<li>Add Exercises 1.1.8, 1.3.6, 2.1.17, 2.3.11, 2.3.12, 2.5.8, 2.5.9, 2.5.10,
+3.1.9
+<li>Exercises are now set in slightly smaller font.
+<li>Add footnote to Proposition 1.3.7 for the interested reader that bounded is not necessary if one uses the extended reals (and add as exercise).
+<li>Explicitly define in 1.1 the word "bounded" for ordered sets
+to mean bounded from above and below.
+<li>In Exercise 1.1.7: add "nonempty" hypothesis to avoid an easy way out via a technicality.
+<li>Add note about 0x=0 when introducing fields.
+<li>Improve Figure 2.1.
+<li>Rework and improve the proof that the reals are uncountable.
+<li>Rewrite Exercise 2.4.3 (and fix the erratum that density, or some other
+form of archimedean property, is needed; density is natural to use here).  Also marked as challenging.
+<li>Make the distinction of "claim" and "proof" more explicit in all examples
+by adding "Proof:" if needed.
+Some examples seemed to be causing trouble for some students not accustomed to
+reading mathematics.
+<li>Improve wording slightly
+in a number of places, for example in the definition of continuity.
+<li>Lots of minor improvements in style and many minor typo fixes, especially chapters 1, 2, and beginning of 3.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-oct16-11.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>April 26th 2011 edition:</b>
+<p>
+
+<ol>
+<li>Reword remark 2.4.6 so that it is not interpreted wrongly (thanks to Frank
+Beatrous)
+<li>Add Exercises 2.5.6, 2.5.7, 4.2.8, 6.2.12.
+<li>Many minor typo fixes and clarifications.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-apr26-11.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>February 28th 2011 edition:</b>
+<p>
+
+<ol>
+<li>The proof of Prop 1.2.2 actually proved a stronger result, that is
+we only need to assume that \(0 \leq x \leq \epsilon\) instead
+of \(0 \leq x &lt; \epsilon.\)
+So state it as such (the "weaker" statement has a simpler proof by
+taking \(x=\epsilon\)).
+<li>Add Exercise 6.2.11.
+<li>Some minor grammar and cosmetic fixes.
+<li>Fix the <a href="errata.html">errata</a> from the last revision.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-feb28-11.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 26th 2010 edition:</b>
+<p>
+
+<ol>
+<li>Use \(\{ x \in A : P(x) \}\) for set building notation instead of 
+\(\{ x \in A \mid P(x) \}\) to avoid visual conflict with absolute values.
+<li>On page 11, fix "So let us assume that \(x \in A \cap (B \cup C)\)"
+which should be
+"So let us assume that \(x \in A \setminus (B \cup C)\)".  Thanks to Dan Stoneham.
+<li>On page 80, first line of Subsection 3.1.2 c is of course
+a cluster point of S, not A.
+<li>Improve Figure 3.1 near the origin, it looks a lot cleaner now.
+<li>Some grammatical and cosmetic fixes.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-dec26-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>November 1st 2010 edition:</b>
+<p>
+
+<ol>
+<li>In Exercise 1.3.4, the functions f and g are of course bounded as
+in Proposition 1.3.7. (Glen Pugh)
+<li>Fix proof of Proposition 2.2.5 part (iii) was off if \(y=0.\) (Glen Pugh)
+<li>Fix the definition of the function defined in the beginning of Example
+6.2.3 to match the graph on Figure 6.3.
+<li>In Example 4.2.10, finish the argument showing that \(f'\)
+is not continuous at zero (and leave the actual computation to the student).
+<li>Some grammatical and cosmetic fixes.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-nov01-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>October 3rd 2010 edition:</b>
+<p>
+
+<ol>
+<li>Slightly modify Example 0.3.14 to fix a typo (Thanks to Glen Pugh).
+<li>Fix typo in the statement of Proposition 0.3.16 (Thanks to Glen Pugh).
+<li>Fix the typo in the explanatory sentence in Exercise 0.3.4 part b)
+(Thanks to Glen Pugh).
+<li>Add note that bounded does not imply convergent for sequences.
+<li>Explicitly mention order when introducing subsequences.
+<li>Some clarifications.
+<li>Some grammar and spelling fixes.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-oct03-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>September 6th 2010 edition:</b>
+<p>
+
+The numbering of theorems, propositions, exercises, etc. has not changed at
+all.  The pagination has essentially not changed either.
+
+<ol>
+<li>On bottom of page 11, the counter-example for swapping intersection and union
+didn't work due to a typo.  The set is defined by
+\(\{ k \in \mathbb{N} \mid mk &lt; n \}.\)  Thanks to Glen Pugh.
+<li>Few extra internal hyperlinks.
+<li>Some minor clarifications and grammar fixes.
+</ol>
+
+<p>
+I forgot to make an archive of LaTeX sources for the September 6th edition.
+
+<p>
+<b>August 12th 2010 edition:</b>
+<p>
+
+The numbering of theorems, propositions, exercises, etc. has not changed at
+all.  The pagination has essentially not changed either.
+
+<ol>
+<li>Exercise 5.2.11 mentioned as a side note that the Thomae function is
+"everywhere discontinuous," which is a typo.  It is discontinuous on
+the rational numbers which is a dense set.
+(Thanks to an anonymous reader for noticing)
+<li>More hyperlinks
+<li>Few more indexed terms
+<li>Add note about Leibniz for product rule
+<li>Some clarifications and grammar/typo fixes
+</ol>
+
+<p>
+You can download the <a
+href="realanal-aug12-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>July 15th 2010 edition:</b>
+<p>
+
+The numbering of theorems, propositions, exercises, etc. has not changed at
+all.  The pagination has essentially not changed either.
+
+<p>
+<ul>
+<li>Use microtype package with pdflatex for nicer looking output and better
+line breaks.
+<li>Fix some hyper linking issues, and use the whole name of the
+object as the link target rather than just the number.
+<li>Some minor grammar fixes.
+</ul>
+
+<p>
+You can download the <a
+href="realanal-jul15-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+
+<p>
+<b>June 23rd 2010 edition:</b>
+<p>
+
+The numbering of theorems, propositions, exercises, etc. has not changed at
+all.  The pagination has not changed either.
+
+<p>
+All the errata fixed were found thanks to Jana Ma&#345;&#237;kov&aacute;.
+<ul>
+<li>p.13, the denominator should be \(1-c^{n+1} + (1-c)c^{n+1}\)
+<li>p.15, Def. 0.3.18: \(f\) and \(g\) were switched in the definition.
+<li>p.21, Def. 1.1.2: the definition of lower bound was missing
+<li>p.22, Def. 1.1.3: need to assume that \(E\) is nonempty
+<li>p.61, \(y=\frac{b_k - a_k}{2}\) should be \(y=\frac{a_k + b_k}{2}.\)
+<li>p.66, \(b:=\liminf x_n\) should be \(b:=\limsup x_n\)"
+<li>p.87, "Fix \(c \in (0,\infty).\)" should be
+  "Fix \(c \in (-\infty , \infty).\)"
+<li>p.87, "x" was missing the lower index "n"
+<li>p.102, Exercise 3.4.5: A and B are assumed to be intervals with nonempty
+intersection for the exercise to be possible.  Add second part to find a counterexample where A and B  are disjoint.
+<li>p.105, numerator of second fraction should be
+"(f(x)+g(x))-(f(c)+g(c))"
+<li>p.107: equality was missing between "...(g(x)-g(c))" and "u(g(x))..."
+<li>Some other minor typo and cosmetic fixes.
+<li>Using new texlive, which outputs PDF 1.5, which is significantly smaller.
+<li>Underline links, the underlines should not appear in printed output.
+</ul>
+
+<p>
+You can download the <a
+href="realanal-jun23-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>April 8th 2010 edition:</b>
+<p>
+
+The numbering of theorems, propositions, exercises, etc. has not changed at
+all.  The pagination has not changed either.
+
+<ol>
+<li>Add Exercises 0.3.20 and 1.1.7.
+<li>Minor clarifications in places.
+<li>Lots of minor typo and grammar fixes.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-apr08-10.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 23rd 2009 edition:</b>
+<p>
+
+The numbering of theorems, propositions, exercises, etc. has not changed at
+all.  The pagination has essentially not changed either.
+
+<ol>
+<li> Fixed typo in proof of Proposition 5.2.4 (there were a bit too many alphas around)
+<li> The proof of Picard's theorem does not require us to assume that an
+interval of radius \(2\alpha\) around \(y_0\) is in \(J.\)
+\([y_0-\alpha,y_0+\alpha]\) suffices.
+<li> Add hint to Exercise 5.2.2.
+<li> Note use of Proposition 5.1.8 in Example 5.1.12 and explicitly allow its
+use in the exercises (to avoid confusion).
+<li> Fixed minor typos and grammar mistakes.
+</ol>
+
+<p>
+You can download the <a
+href="realanal-dec23-09.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+<p>
+<b>December 11th 2009 edition:</b>
+<p>
+
+First version.  You can download the <a
+href="realanal-dec11-09.tar.gz">LaTeX</a> source for this old version if you want (but I recommend just using the current version).
+
+</main>
+
+<footer>
+<p>
+<hr>
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/images/valid-html5.png" alt="Valid HTML 5" style="border:0; width:88px; height:31px;"></a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/images/vcss.png" alt="Valid CSS!"></a>
+</footer>
+
+</div>
+
+</body>
+</html>
