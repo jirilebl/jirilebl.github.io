@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="definition definition-like"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para">Let <span class="process-math">\((a_1,a_2,\ldots,a_n)\)</span> and <span class="process-math">\((b_1,b_2,\ldots,b_n)\)</span> be such that <span class="process-math">\(a_k \leq b_k\)</span> for all <span class="process-math">\(k\text{.}\)</span> The set <span class="process-math">\([a_1,b_1] \times
+[a_2,b_2] \times \cdots \times
+[a_n,b_n]\)</span> is called a <em class="emphasis">closed rectangle</em>. It can be useful to allow <span class="process-math">\(a_k = b_k\text{,}\)</span> where <span class="process-math">\([a_k,b_k] = \{ a_k \}\text{.}\)</span> If <span class="process-math">\(a_k &lt; b_k\)</span> for all <span class="process-math">\(k\text{,}\)</span> then the set <span class="process-math">\((a_1,b_1) \times
+(a_2,b_2) \times \cdots \times
+(a_n,b_n)\)</span> is called an <em class="emphasis">open rectangle</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rirect-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
+<div class="para">For an open or closed rectangle <span class="process-math">\(R \coloneqq [a_1,b_1] \times
+[a_2,b_2] \times \cdots \times
+[a_n,b_n] \subset \R^n\)</span> or <span class="process-math">\(R \coloneqq (a_1,b_1) \times
+(a_2,b_2) \times \cdots \times
+(a_n,b_n) \subset \R^n\text{,}\)</span> we define the <em class="emphasis"><span class="process-math">\(n\)</span>-dimensional volume</em> by</div>
+<div class="displaymath process-math">
+\begin{equation}
+V(R) \coloneqq
+(b_1-a_1)
+(b_2-a_2)
+\cdots
+(b_n-a_n) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rirect-3-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
+<div class="para">A <em class="emphasis">partition</em> <span class="process-math">\(P\)</span> of the closed rectangle <span class="process-math">\(R = [a_1,b_1] \times
+[a_2,b_2] \times \cdots \times
+[a_n,b_n]\)</span> is given by partitions <span class="process-math">\(P_1,P_2,\ldots,P_n\)</span> of the intervals <span class="process-math">\([a_1,b_1], [a_2,b_2],\ldots, [a_n,b_n]\text{.}\)</span> We write <span class="process-math">\(P=(P_1,P_2,\ldots,P_n)\text{.}\)</span> That is, for every <span class="process-math">\(k=1,2,\ldots,n\)</span> there is an integer <span class="process-math">\(\ell_k\)</span> and a finite set of numbers <span class="process-math">\(P_k = \{ x_{k,0},x_{k,1},x_{k,2},\ldots,x_{k,\ell_k} \}\)</span> such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mv_figrect.html">
+\begin{equation}
+a_k = x_{k,0} &lt; x_{k,1} &lt; x_{k,2} &lt; \cdots &lt; x_{k,{\ell_k}-1} &lt; x_{k,\ell_k} = b_k .
+\end{equation}
+</div>
+<div class="para">Picking a set of <span class="process-math">\(n\)</span> integers <span class="process-math">\(j_1,j_2,\ldots,j_n\)</span> where <span class="process-math">\(j_k \in \{ 1,2,\ldots,\ell_k \}\)</span> we get the <em class="emphasis">subrectangle</em>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mv_figrect.html">
+\begin{equation}
+[x_{1,j_1-1}~,~ x_{1,j_1}]
+\times
+[x_{2,j_2-1}~,~ x_{2,j_2}]
+\times
+\cdots
+\times
+[x_{n,j_n-1}~,~ x_{n,j_n}] .
+\end{equation}
+</div>
+<div class="para">We order the subrectangles in any way and we say <span class="process-math">\(\{R_1,R_2,\ldots,R_N\}\)</span> are the subrectangles corresponding to the partition <span class="process-math">\(P\)</span> of <span class="process-math">\(R\text{,}\)</span> or more simply, subrectangles of <span class="process-math">\(P\text{.}\)</span> In other words, we subdivided the original rectangle into many smaller subrectangles.  See <a href="sec_rirect.html#mv_figrect" class="internal" title="Figure 10.1">Figure 10.1</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rirect-3-2-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="rahr">
+<figure class="figure figure-like"><img class="raimg" style="width:256pt; height:135pt; display:block;" src="figures/figrect-mbxpdft.svg" role="img" alt="A diagram of a rectangle divided by two horizontal and two vertical lines into 9 smaller rectangles. The four vertices on the horizontal axis from left to right are labeled x sub 1,0, x sub 1,1, x sub 1,2, and x sub 1,3. On the vertical axis from bottom to top the vertices are labeled x sub 2,0, x sub 2,1, x sub 2,2, and x sub 2,3. The smaller rectangles are labeled in a snaking pattern from top left to bottom right R sub 1, R sub 2, and so on until R sub 9."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Example partition of a rectangle in <span class="process-math">\(\R^2\text{.}\)</span>  The order of the subrectangles is not important.<div class="autopermalink" data-description="Figure 10.1"><a href="#mv_figrect" title="Copy heading and permalink for Figure 10.1" aria-label="Copy heading and permalink for Figure 10.1">🔗</a></div></figcaption>
+</figure><hr class="rahr"> 
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(R \subset \R^n\)</span> be a closed rectangle and let <span class="process-math">\(f \colon R \to \R\)</span> be a bounded function.  Let <span class="process-math">\(P\)</span> be a partition of <span class="process-math">\(R\)</span> with <span class="process-math">\(N\)</span> subrectangles <span class="process-math">\(R_1,R_2,\ldots,R_N\text{.}\)</span> Define</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{aligned}
+&amp; m_i \coloneqq \inf \bigl\{ f(x) : x \in R_i \bigr\} , &amp; 
+&amp; M_i \coloneqq \sup \bigl\{ f(x) : x \in R_i \bigr\} , \\
+&amp; L(P,f) \coloneqq
+\sum_{i=1}^N m_i V(R_i) , &amp;
+&amp; U(P,f) \coloneqq
+\sum_{i=1}^N M_i V(R_i) .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">We call <span class="process-math">\(L(P,f)\)</span> the <em class="emphasis">lower Darboux sum</em> and <span class="process-math">\(U(P,f)\)</span> the <em class="emphasis">upper Darboux sum</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rirect-3-2-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 10.1.1"><a href="#sec_rirect-3-2" title="Copy heading and permalink for Definition 10.1.1" aria-label="Copy heading and permalink for Definition 10.1.1">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_rirect.html#sec_rirect-3-2">In Context</a></span>
+</body>
+</html>

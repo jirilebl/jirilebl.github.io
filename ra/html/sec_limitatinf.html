@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>RA Limits at infinity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Basic Analysis I &amp; II">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="ra.html"><span class="title">Basic Analysis I &amp; II</span> <span class="subtitle">Introduction to Real Analysis, Volumes I &amp; II</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ra-16-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../realanal.pdf" title="PDF"><span class="name">PDF(I)</span></a>
+<a class="index-button button" href="../realanal2.pdf" title="PDF"><span class="name">PDF(II)</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/B0C9S99TKF" title="Paperback" alt="Buy Paperback"><span class="name">Book(I)</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/B0C9S7P6M8" title="Paperback" alt="Buy Paperback"><span class="name">Book(II)</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_unifcont.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="lim_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_monotonefunc.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\require{mathtools}\newcommand{\avoidbreak}{\postdisplaypenalty=100}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\aut}{\operatorname{aut}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\sing}{\operatorname{sing}}
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+\newcommand{\babs}[1]{\bigl\lvert {#1} \bigr\rvert}
+\newcommand{\bnorm}[1]{\bigl\lVert {#1} \bigr\rVert}
+\newcommand{\Babs}[1]{\Bigl\lvert {#1} \Bigr\rvert}
+\newcommand{\Bnorm}[1]{\Bigl\lVert {#1} \Bigr\rVert}
+\newcommand{\bbabs}[1]{\biggl\lvert {#1} \biggr\rvert}
+\newcommand{\bbnorm}[1]{\biggl\lVert {#1} \biggr\rVert}
+\newcommand{\BBabs}[1]{\Biggl\lvert {#1} \Biggr\rvert}
+\newcommand{\BBnorm}[1]{\Biggl\lVert {#1} \Biggr\rVert}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bP}{{\mathbb{P}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\bV}{{\mathbb{V}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathscr{A}}}
+\newcommand{\sB}{{\mathscr{B}}}
+\newcommand{\sC}{{\mathscr{C}}}
+\newcommand{\sF}{{\mathscr{F}}}
+\newcommand{\sG}{{\mathscr{G}}}
+\newcommand{\sH}{{\mathscr{H}}}
+\newcommand{\sM}{{\mathscr{M}}}
+\newcommand{\sO}{{\mathscr{O}}}
+\newcommand{\sP}{{\mathscr{P}}}
+\newcommand{\sQ}{{\mathscr{Q}}}
+\newcommand{\sR}{{\mathscr{R}}}
+\newcommand{\sS}{{\mathscr{S}}}
+\newcommand{\sI}{{\mathscr{I}}}
+\newcommand{\sL}{{\mathscr{L}}}
+\newcommand{\sK}{{\mathscr{K}}}
+\newcommand{\sU}{{\mathscr{U}}}
+\newcommand{\sV}{{\mathscr{V}}}
+\newcommand{\sX}{{\mathscr{X}}}
+\newcommand{\sY}{{\mathscr{Y}}}
+\newcommand{\sZ}{{\mathscr{Z}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+\newcommand{\interior}{\operatorname{int}}
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\myincludegraphics}[3][]{\includegraphics[#1]{figures/#2}}
+\newcommand{\myincludepdft}[2]{\subimport*{figures/}{#1.pdf_t}}
+\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\qedhere}{}
+\newcommand{\widebar}[1]{\overline{#1}}
+\newcommand{\coloneqq}{:=}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="ra-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ra-4.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ra-4-2.html" class="internal"><span class="codenumber">0.1</span> <span class="title">About this book</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ra-4-2.html#ra-4-2-2" class="internal"><span class="codenumber">0.1.1</span> <span class="title">About Volume I</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ra-4-2.html#ra-4-2-3" class="internal"><span class="codenumber">0.1.2</span> <span class="title">About Volume II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_aboutra.html" class="internal"><span class="codenumber">0.2</span> <span class="title">About analysis</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_basicset.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Basic set theory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-4" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-5" class="internal"><span class="codenumber">0.3.2</span> <span class="title">Induction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-6" class="internal"><span class="codenumber">0.3.3</span> <span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-7" class="internal"><span class="codenumber">0.3.4</span> <span class="title">Relations and equivalence classes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-8" class="internal"><span class="codenumber">0.3.5</span> <span class="title">Cardinality</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-9" class="internal"><span class="codenumber">0.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="rn_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_basicpropsrn.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic properties</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_basicpropsrn.html#sec_basicpropsrn-33" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_setofreals.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The set of real numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The set of real numbers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Archimedean property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Using supremum and infimum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-6" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Maxima and minima</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-7" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_absval.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Absolute value and bounded functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_absval.html#sec_absval-26" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_intandsizeR.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Intervals and the size of <span class="process-math">\(\R\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_intandsizeR.html#sec_intandsizeR-14" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_decimals.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Decimal representation of the reals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_decimals.html#sec_decimals-19" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="seq_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_seqsandlims.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Sequences and limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Monotone sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Tail of a sequence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Subsequences</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-6" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_factslimsseqs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Facts about limits of sequences</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Limits and inequalities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Continuity of algebraic operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Recursively defined sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Some convergence tests</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-7" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_bw.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Limit superior, limit inferior, and Bolzano–Weierstrass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Upper and lower limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Using limit inferior and limit superior</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Bolzano–Weierstrass theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-6" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-7" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_cauchy.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Cauchy sequences</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_cauchy.html#sec_cauchy-14" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Cauchy series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Absolute convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-7" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Comparison test and the <span class="process-math">\(p\)</span>-series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-8" class="internal"><span class="codenumber">2.5.6</span> <span class="title">Ratio test</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_series.html#sec_series-9" class="internal"><span class="codenumber">2.5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_moreonseries.html" class="internal"><span class="codenumber">2.6</span> <span class="title">More on series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Root test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Alternating series test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Rearrangements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-6" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Multiplication of series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-7" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Power series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-8" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="lim_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Continuous Functions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_limoffunc.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Limits of functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Cluster points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Limits of functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#subseq_sequentiallimits" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Sequential limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Limits of restrictions and one-sided limits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_cont.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Continuous functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Definition and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Composition of continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Discontinuous functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_minmaxint.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Extreme and intermediate value theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Min-max or extreme value theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Bolzano’s intermediate value theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_unifcont.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Uniform continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Uniform continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Continuous extension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Lipschitz continuous functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_limitatinf.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Limits at infinity</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-3" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-4" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Infinite limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-5" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Compositions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-6" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_monotonefunc.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Monotone functions and continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Continuity of monotone functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Continuity of inverse functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="der_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">The Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_der.html" class="internal"><span class="codenumber">4.1</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_der.html#sec_der-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Definition and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_der.html#sec_der-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_der.html#sec_der-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvt.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Mean value theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Relative minima and maxima</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Rolle’s theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-7" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Continuity of derivatives and the intermediate value theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-8" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_taylor.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Taylor’s theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Derivatives of higher orders</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Taylor’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ift.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Inverse function theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ift.html#sec_ift-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Inverse function theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ift.html#sec_ift-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="int_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">The Riemann Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rint.html" class="internal"><span class="codenumber">5.1</span> <span class="title">The Riemann integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Partitions and lower and upper integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Riemann integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">More notation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rintprop.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Properties of the integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-3" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Additivity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-4" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Linearity and monotonicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-5" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-6" class="internal"><span class="codenumber">5.2.4</span> <span class="title">More on integrable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-7" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ftc.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Fundamental theorem of calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">First form of the theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Second form of the theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-6" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_logandexp.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The logarithm and the exponential</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-3" class="internal"><span class="codenumber">5.4.1</span> <span class="title">The logarithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-4" class="internal"><span class="codenumber">5.4.2</span> <span class="title">The exponential</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-5" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_impropriemann.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Improper integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_impropriemann.html#sec_impropriemann-3" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Integral test for series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_impropriemann.html#sec_impropriemann-4" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fs_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Sequences of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_puconv.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Pointwise and uniform convergence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Pointwise convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Uniform convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Convergence in uniform norm</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_liminter.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Interchange of limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Continuity of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Integral of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Derivative of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Convergence of power series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_picard.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Picard’s theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">First order ordinary differential equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">The theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ms_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Metric Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metric.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Metric spaces</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metric.html#sec_metric-34" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mettop.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Open and closed sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Topology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Connected sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Closure and boundary</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metseqs.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and convergence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Convergence in euclidean space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-5" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Convergence and topology</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metcompact.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Completeness and compactness</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-3" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Cauchy sequences and completeness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-4" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Compactness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-5" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metcont.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Continuous functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-3" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-4" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Compactness and continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-5" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Continuity and topology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-6" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Uniform continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-7" class="internal"><span class="codenumber">7.5.5</span> <span class="title">Cluster points and limits of functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-8" class="internal"><span class="codenumber">7.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metpicard.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fixed point theorem and Picard’s theorem again</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-3" class="internal"><span class="codenumber">7.6.1</span> <span class="title">Fixed point theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-4" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-5" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="pd_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Several Variables and Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_vectorspaces.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Vector spaces, linear mappings, and convexity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Vector spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linear combinations and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Linear mappings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-6" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Convexity</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-7" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_normsmatsdets.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Analysis with vector spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Norms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svtheder.html" class="internal"><span class="codenumber">8.3</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">The derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Gradients, curves, and directional derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-6" class="internal"><span class="codenumber">8.3.4</span> <span class="title">The Jacobian</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-7" class="internal"><span class="codenumber">8.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svthedercont.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Continuity and the derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-3" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Bounding the derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-4" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Continuously differentiable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-5" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svinvfuncthm.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Inverse and implicit function theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svinvfuncthm.html#sec_svinvfuncthm-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Implicit function theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svinvfuncthm.html#sec_svinvfuncthm-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvhighordders.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Higher order derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvhighordders.html#sec_mvhighordders-12" class="internal"><span class="codenumber">8.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="path_chapter.html" class="internal"><span class="codenumber">9</span> <span class="title">One-dimensional Integrals in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_diffunderint.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Differentiation under the integral</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_diffunderint.html#sec_diffunderint-11" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pathintegral.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Path integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-3" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Piecewise smooth paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-4" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Path integral of a one-form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-5" class="internal"><span class="codenumber">9.2.3</span> <span class="title">Path integral of a function</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-6" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pathind.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Path independence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-3" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Path independent integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-4" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Vector fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-5" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="mi_chapter.html" class="internal"><span class="codenumber">10</span> <span class="title">Multivariable Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rirect.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Riemann integral over rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-3" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Rectangles and partitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-4" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Upper and lower integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-5" class="internal"><span class="codenumber">10.1.3</span> <span class="title">The Riemann integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-6" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Integrals of continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-7" class="internal"><span class="codenumber">10.1.5</span> <span class="title">Integration of functions with compact support</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-8" class="internal"><span class="codenumber">10.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_iteratedints.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Iterated integrals and the Fubini theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_iteratedints.html#sec_iteratedints-17" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_outermeasure.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Outer measure and null sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-3" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Outer measure and null sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-4" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Examples and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-5" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Images of null sets under differentiable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-6" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_riemannlebesgue.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The set of Riemann integrable functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-3" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Oscillation and continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-4" class="internal"><span class="codenumber">10.4.2</span> <span class="title">The set of Riemann integrable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-5" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_jordansets.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Jordan measurable sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-3" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Volume and Jordan measurable sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-4" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Integration over Jordan measurable sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-5" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Images of Jordan measurable subsets</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-6" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvgreenstheorem.html" class="internal"><span class="codenumber">10.6</span> <span class="title">Green’s theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvgreenstheorem.html#sec_mvgreenstheorem-25" class="internal"><span class="codenumber">10.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvchangeofvars.html" class="internal"><span class="codenumber">10.7</span> <span class="title">Change of variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvchangeofvars.html#sec_mvchangeofvars-11" class="internal"><span class="codenumber">10.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="approx_chapter.html" class="internal"><span class="codenumber">11</span> <span class="title">Functions as Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_complexnums.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Complex numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-3" class="internal"><span class="codenumber">11.1.1</span> <span class="title">The complex plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-4" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Complex numbers and limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-5" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Complex-valued functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-6" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_swaplim.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Swapping limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-4" class="internal"><span class="codenumber">11.2.2</span> <span class="title">Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-5" class="internal"><span class="codenumber">11.2.3</span> <span class="title">Differentiation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-6" class="internal"><span class="codenumber">11.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_analfuncs.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Power series and analytic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-3" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-4" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Convergence of power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-5" class="internal"><span class="codenumber">11.3.3</span> <span class="title">Properties of analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-6" class="internal"><span class="codenumber">11.3.4</span> <span class="title">Power series as analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-7" class="internal"><span class="codenumber">11.3.5</span> <span class="title">Identity theorem for analytic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-8" class="internal"><span class="codenumber">11.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_complexexp.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Complex exponential and trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-3" class="internal"><span class="codenumber">11.4.1</span> <span class="title">The complex exponential</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-4" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Trigonometric functions and <span class="process-math">\(\pi\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-5" class="internal"><span class="codenumber">11.4.3</span> <span class="title">The unit circle and polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-6" class="internal"><span class="codenumber">11.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_fundalgeb.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Maximum principle and the fundamental theorem of algebra</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_fundalgeb.html#sec_fundalgeb-18" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arzelaascoli.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Equicontinuity and the Arzelà–Ascoli theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arzelaascoli.html#sec_arzelaascoli-31" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_stoneweier.html" class="internal"><span class="codenumber">11.7</span> <span class="title">The Stone–Weierstrass theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-3" class="internal"><span class="codenumber">11.7.1</span> <span class="title">Weierstrass approximation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-4" class="internal"><span class="codenumber">11.7.2</span> <span class="title">Stone–Weierstrass approximation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-5" class="internal"><span class="codenumber">11.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_fourier.html" class="internal"><span class="codenumber">11.8</span> <span class="title">Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-3" class="internal"><span class="codenumber">11.8.1</span> <span class="title">Trigonometric polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-4" class="internal"><span class="codenumber">11.8.2</span> <span class="title">Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-5" class="internal"><span class="codenumber">11.8.3</span> <span class="title">Orthonormal systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-6" class="internal"><span class="codenumber">11.8.4</span> <span class="title">The Dirichlet kernel and approximate delta functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-7" class="internal"><span class="codenumber">11.8.5</span> <span class="title">Localization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-8" class="internal"><span class="codenumber">11.8.6</span> <span class="title">Parseval’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-9" class="internal"><span class="codenumber">11.8.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ra-16.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ra-16-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_limitatinf">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits at infinity</span>
+</h2>
+<section class="introduction" id="sec_limitatinf-2">
+<div class="para" id="sec_limitatinf-2-1">
+<em class="emphasis">Note: less than 1 lecture (optional, can safely be omitted unless <a href="sec_monotonefunc.html" class="internal" title="Section 3.6: Monotone functions and continuity">Section 3.6</a> or <a href="sec_impropriemann.html" class="internal" title="Section 5.5: Improper integrals">Section 5.5</a> is also covered)</em><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<section class="subsection" id="sec_limitatinf-3">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits at infinity</span>
+</h3>
+<div class="para" id="sec_limitatinf-3-2">Just as with sequences, a continuous variable can also approach infinity.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_limitatinf-3-3"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_limitatinf-3-3-1-1">We say <span class="process-math">\(\infty\)</span> is a <em class="emphasis">cluster point</em> of <span class="process-math">\(S \subset \R\)</span> if for every <span class="process-math">\(M \in \R\text{,}\)</span> there exists an <span class="process-math">\(x \in S\)</span> such that <span class="process-math">\(x \geq M\text{.}\)</span>  Similarly, <span class="process-math">\(- \infty\)</span> is a <em class="emphasis">cluster point</em> of <span class="process-math">\(S \subset \R\)</span> if for every <span class="process-math">\(M \in \R\text{,}\)</span> there exists an <span class="process-math">\(x \in S\)</span> such that <span class="process-math">\(x \leq M\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="sec_limitatinf-3-3-1-3">
+<div class="para">Let <span class="process-math">\(f \colon S \to \R\)</span> be a function, where <span class="process-math">\(\infty\)</span> is a cluster point of <span class="process-math">\(S\text{.}\)</span> If there exists an <span class="process-math">\(L \in \R\)</span> with the property that for every <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there is an <span class="process-math">\(M \in \R\)</span> such that</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-3-1-3-7">
+\begin{equation}
+\babs{f(x) - L} &lt; \epsilon 
+\end{equation}
+</div>
+<div class="para">whenever <span class="process-math">\(x \in S\)</span> and <span class="process-math">\(x \geq M\text{,}\)</span> then we say <span class="process-math">\(f(x)\)</span> <em class="emphasis">converges</em> to <span class="process-math">\(L\)</span> as <span class="process-math">\(x\)</span> goes to <span class="process-math">\(\infty\text{.}\)</span>  We call <span class="process-math">\(L\)</span> a <em class="emphasis">limit</em> and, if unique, write</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-3-1-3-18">
+\begin{equation}
+\lim_{x \to \infty} f(x) \coloneqq L .
+\end{equation}
+</div>
+<div class="para">Alternatively, we write <span class="process-math">\(f(x) \to L\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-3-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="sec_limitatinf-3-3-1-4">
+<div class="para">Similarly, if <span class="process-math">\(-\infty\)</span> is a cluster point of <span class="process-math">\(S\)</span> and there exists an <span class="process-math">\(L \in \R\)</span> such that for every <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there is an <span class="process-math">\(M \in \R\)</span> such that</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-3-1-4-6">
+\begin{equation}
+\babs{f(x) - L} &lt; \epsilon 
+\end{equation}
+</div>
+<div class="para">whenever <span class="process-math">\(x \in S\)</span> and <span class="process-math">\(x \leq M\text{,}\)</span> then we say <span class="process-math">\(f(x)\)</span> <em class="emphasis">converges</em> to <span class="process-math">\(L\)</span> as <span class="process-math">\(x\)</span> goes to <span class="process-math">\(-\infty\text{.}\)</span> Alternatively, we write <span class="process-math">\(f(x) \to L\)</span> as <span class="process-math">\(x \to -\infty\text{.}\)</span> We call <span class="process-math">\(L\)</span> a <em class="emphasis">limit</em> and, if unique, write</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-3-1-4-18">
+\begin{equation}
+\lim_{x \to -\infty} f(x) \coloneqq L .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-3-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.5.1"><a href="#sec_limitatinf-3-3" title="Copy heading and permalink for Definition 3.5.1" aria-label="Copy heading and permalink for Definition 3.5.1">🔗</a></div>
+</article>
+<div class="para" id="sec_limitatinf-3-4">The first thing to do, as usual, is to prove that the limit, if it exists, is unique. We leave it as an exercise for the reader.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="liminfty_unique"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="liminfty_unique-1-1">The limit at <span class="process-math">\(\infty\)</span> or <span class="process-math">\(-\infty\)</span> as defined above is unique if it exists.<div class="autopermalink" data-description="Paragraph"><a href="#liminfty_unique-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 3.5.2"><a href="#liminfty_unique" title="Copy heading and permalink for Proposition 3.5.2" aria-label="Copy heading and permalink for Proposition 3.5.2">🔗</a></div>
+</article>
+<article class="example example-like" id="sec_limitatinf-3-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_limitatinf-3-6-1-1">
+<div class="para">Let <span class="process-math">\(f(x) \coloneqq \frac{1}{\sabs{x}+1}\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-6-1-1-2">
+\begin{equation}
+\lim_{x\to \infty} f(x) = 0 \qquad \text{and} \qquad
+\lim_{x\to -\infty} f(x) = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_limitatinf-3-6-1-2">Proof: Let <span class="process-math">\(\epsilon &gt; 0\)</span> be given.  Find <span class="process-math">\(M &gt; 0\)</span> large enough so that <span class="process-math">\(\frac{1}{M+1} &lt; \epsilon\text{.}\)</span>  If <span class="process-math">\(x \geq M\text{,}\)</span> then <span class="process-math">\(0 &lt; \frac{1}{\sabs{x}+1} = \frac{1}{x+1} \leq \frac{1}{M+1} &lt; \epsilon\text{.}\)</span> The first limit follows. The proof for <span class="process-math">\(-\infty\)</span> is left to the reader.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.5.3"><a href="#sec_limitatinf-3-6" title="Copy heading and permalink for Example 3.5.3" aria-label="Copy heading and permalink for Example 3.5.3">🔗</a></div>
+</article>
+<article class="example example-like" id="sec_limitatinf-3-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_limitatinf-3-7-1-1">Let <span class="process-math">\(f(x) \coloneqq \sin(\pi x)\text{.}\)</span>  Then <span class="process-math">\(\lim_{x\to\infty} f(x)\)</span> does not exist. To prove this fact, note that if <span class="process-math">\(x = 2n+\nicefrac{1}{2}\)</span> for some <span class="process-math">\(n \in
+\N\text{,}\)</span> then <span class="process-math">\(f(x)=1\text{,}\)</span> while if <span class="process-math">\(x = 2n+\nicefrac{3}{2}\text{,}\)</span> then <span class="process-math">\(f(x)=-1\text{.}\)</span> Both of these values, <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{,}\)</span> cannot be within a small <span class="process-math">\(\epsilon\)</span> of a single real number.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="sec_limitatinf-3-7-1-2">
+<div class="para">Be careful not to confuse continuous limits with limits of sequences. We could say</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-7-1-2-1">
+\begin{equation}
+\lim_{n \to \infty} \sin(\pi n) = 0, \qquad \text{but} \qquad
+\lim_{x \to \infty} \sin(\pi x) \enspace \text{does not exist}.
+\end{equation}
+</div>
+<div class="para">Of course, the notation is ambiguous:  Are we thinking of the sequence <span class="process-math">\(\bigl\{ \sin (\pi n) \bigr\}_{n=1}^\infty\)</span> or the function <span class="process-math">\(\sin(\pi x)\)</span> of a real variable?  We are simply using the convention that <span class="process-math">\(n \in \N\text{,}\)</span> while <span class="process-math">\(x \in \R\text{.}\)</span>  When the notation is not clear, it is good to explicitly mention where the variable lives, or what kind of limit you are using.  If there is a possibility of confusion, one can write, for example,</div>
+<div class="displaymath process-math" id="sec_limitatinf-3-7-1-2-6">
+\begin{equation}
+\lim_{\substack{n \to \infty\\n \in \N}} \sin(\pi n) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.5.4"><a href="#sec_limitatinf-3-7" title="Copy heading and permalink for Example 3.5.4" aria-label="Copy heading and permalink for Example 3.5.4">🔗</a></div>
+</article>
+<div class="para" id="sec_limitatinf-3-8">There is a connection between continuous limits and limits of sequences, but we must take all sequences going to infinity, just as before in <a href="sec_limoffunc.html#seqflimit_lemma" class="xref" data-knowl="./knowl/xref/seqflimit_lemma.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 3.1.7">Lemma 3.1.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="seqflimitinf_lemma"><h4 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="seqflimitinf_lemma-1-1">
+<div class="para">Suppose <span class="process-math">\(f \colon S \to \R\)</span> is a function, <span class="process-math">\(\infty\)</span> is a cluster point of <span class="process-math">\(S \subset \R\text{,}\)</span> and <span class="process-math">\(L \in \R\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" id="seqflimitinf_lemma-1-1-5">
+\begin{equation}
+\lim_{x\to\infty} f(x) = L
+\qquad \text{if and only if} \qquad
+\lim_{n\to\infty} f(x_n) = L
+\end{equation}
+</div>
+<div class="para">for all sequences <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> in <span class="process-math">\(S\)</span> such that <span class="process-math">\(\lim\limits_{n\to\infty} x_n = \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#seqflimitinf_lemma-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 3.5.5"><a href="#seqflimitinf_lemma" title="Copy heading and permalink for Lemma 3.5.5" aria-label="Copy heading and permalink for Lemma 3.5.5">🔗</a></div>
+</article>
+<div class="para" id="sec_limitatinf-3-10">The lemma also holds for the limit as <span class="process-math">\(x \to -\infty\text{.}\)</span> Its proof is almost identical and is left as an exercise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proof" id="sec_limitatinf-3-11"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-3-11-1">First suppose <span class="process-math">\(f(x) \to L\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span> Given an <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists an <span class="process-math">\(M\)</span> such that for all <span class="process-math">\(x \in S\)</span> where <span class="process-math">\(x \geq M\text{,}\)</span> we have <span class="process-math">\(\babs{f(x)-L} &lt; \epsilon\text{.}\)</span> Let <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> be a sequence in <span class="process-math">\(S\)</span> such that <span class="process-math">\(\lim_{n\to\infty} x_n = \infty\text{.}\)</span>  Then there exists an <span class="process-math">\(N\)</span> such that <span class="process-math">\(x_n \geq M\)</span> for all <span class="process-math">\(n \geq N\text{.}\)</span> Thus <span class="process-math">\(\babs{f(x_n)-L} &lt; \epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_limitatinf-3-11-2">We prove the converse by contrapositive.  Suppose <span class="process-math">\(f(x)\)</span> does not go to <span class="process-math">\(L\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span> This means that there exists an <span class="process-math">\(\epsilon &gt; 0\)</span> such that for every <span class="process-math">\(n \in \N\text{,}\)</span> there exists an <span class="process-math">\(x \in S\text{,}\)</span> <span class="process-math">\(x \geq n\text{,}\)</span> let us call it <span class="process-math">\(x_n\text{,}\)</span> such that <span class="process-math">\(\babs{f(x_n)-L} \geq \epsilon\text{.}\)</span> Consider the sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\text{.}\)</span>  Clearly <span class="process-math">\(\bigl\{ f(x_n) \bigr\}_{n=1}^\infty\)</span> does not converge to <span class="process-math">\(L\text{.}\)</span>  It remains to note that <span class="process-math">\(\lim_{n\to\infty} x_n = \infty\)</span> because <span class="process-math">\(x_n \geq n\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.5.1.1"><a href="#sec_limitatinf-3-11" title="Copy heading and permalink for Proof 3.5.1.1" aria-label="Copy heading and permalink for Proof 3.5.1.1">🔗</a></div>
+</article>
+<div class="para" id="sec_limitatinf-3-12">Using the lemma, we again translate results about sequential limits into results about continuous limits as <span class="process-math">\(x\)</span> goes to infinity.  That is, we have almost immediate analogues of the corollaries in <a href="sec_limoffunc.html#subseq_sequentiallimits" class="internal" title="Subsection 3.1.3: Sequential limits">Subsection 3.1.3</a>.  We simply allow the cluster point <span class="process-math">\(c\)</span> to be either <span class="process-math">\(\infty\)</span> or <span class="process-math">\(-\infty\text{,}\)</span> in addition to a real number.  We leave it to the student to verify these statements.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 3.5.1: Limits at infinity"><a href="#sec_limitatinf-3" title="Copy heading and permalink for Subsection 3.5.1: Limits at infinity" aria-label="Copy heading and permalink for Subsection 3.5.1: Limits at infinity">🔗</a></div>
+</section>
+<section class="subsection" id="sec_limitatinf-4">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Infinite limit</span>
+</h3>
+<div class="para" id="sec_limitatinf-4-2">Just as for sequences, it is often convenient to distinguish certain divergent sequences, and talk about limits being infinite almost as if the limits existed.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_limitatinf-4-3"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_limitatinf-4-3-3-1">
+<div class="para">Let <span class="process-math">\(f \colon S \to \R\)</span> be a function and suppose <span class="process-math">\(S\)</span> has <span class="process-math">\(\infty\)</span> as a cluster point. We say <span class="process-math">\(f(x)\)</span> <em class="emphasis">diverges to infinity</em> as <span class="process-math">\(x\)</span> goes to <span class="process-math">\(\infty\)</span> if for every <span class="process-math">\(N \in \R\)</span> there exists an <span class="process-math">\(M \in \R\)</span> such that</div>
+<div class="displaymath process-math" id="sec_limitatinf-4-3-3-1-10">
+\begin{equation}
+f(x) &gt; N
+\end{equation}
+</div>
+<div class="para">whenever <span class="process-math">\(x \in S\)</span> and <span class="process-math">\(x \geq M\text{.}\)</span> We write</div>
+<div class="displaymath process-math" id="sec_limitatinf-4-3-3-1-13">
+\begin{equation}
+\lim_{x \to \infty} f(x) \coloneqq \infty ,
+\end{equation}
+</div>
+<div class="para">or we say that <span class="process-math">\(f(x) \to \infty\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-4-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.5.6"><a href="#sec_limitatinf-4-3" title="Copy heading and permalink for Definition 3.5.6" aria-label="Copy heading and permalink for Definition 3.5.6">🔗</a></div>
+</article>
+<div class="para" id="sec_limitatinf-4-4">A similar definition can be made for limits as <span class="process-math">\(x \to -\infty\)</span> or as <span class="process-math">\(x \to c\)</span> for a finite <span class="process-math">\(c\text{.}\)</span>  Also, similar definitions can be made for limits being <span class="process-math">\(-\infty\text{.}\)</span>  Stating these definitions is left as an exercise. Note that sometimes the slightly incorrect (in this context) wording <em class="emphasis">converges to infinity</em> is used. We can again use sequential limits, and an analogue of <a href="sec_limoffunc.html#seqflimit_lemma" class="xref" data-knowl="./knowl/xref/seqflimit_lemma.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 3.1.7">Lemma 3.1.7</a> is left as an exercise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_limitatinf-4-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_limitatinf-4-5-1-1">Let us show that <span class="process-math">\(\lim\limits_{x \to \infty} \frac{1+x^2}{1+x} = \infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="sec_limitatinf-4-5-1-2">
+<div class="para">Proof: For <span class="process-math">\(x \geq 1\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="sec_limitatinf-4-5-1-2-2">
+\begin{equation}
+\frac{1+x^2}{1+x} \geq 
+\frac{x^2}{x+x}  = 
+\frac{x}{2} .
+\end{equation}
+</div>
+<div class="para">Given <span class="process-math">\(N \in \R\text{,}\)</span> take <span class="process-math">\(M = \max \{ 2N+1 , 1 \}\text{.}\)</span> If <span class="process-math">\(x \geq M\text{,}\)</span> then <span class="process-math">\(x \geq 1\)</span> and <span class="process-math">\(\nicefrac{x}{2} &gt; N\text{.}\)</span> So</div>
+<div class="displaymath process-math" id="sec_limitatinf-4-5-1-2-8">
+\begin{equation}
+\frac{1+x^2}{1+x} \geq 
+\frac{x}{2} &gt; N .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-4-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.5.7"><a href="#sec_limitatinf-4-5" title="Copy heading and permalink for Example 3.5.7" aria-label="Copy heading and permalink for Example 3.5.7">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 3.5.2: Infinite limit"><a href="#sec_limitatinf-4" title="Copy heading and permalink for Subsection 3.5.2: Infinite limit" aria-label="Copy heading and permalink for Subsection 3.5.2: Infinite limit">🔗</a></div>
+</section>
+<section class="subsection" id="sec_limitatinf-5">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Compositions</span>
+</h3>
+<div class="para" id="sec_limitatinf-5-2">Finally, just as for limits at finite numbers, limits play nice with compositions given a continuity assumption.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_inflimcompositions"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="prop_inflimcompositions-1-1">
+<div class="para">Suppose <span class="process-math">\(f \colon A \to B\text{,}\)</span> <span class="process-math">\(g \colon B \to \R\text{,}\)</span> <span class="process-math">\(A, B \subset \R\text{,}\)</span> <span class="process-math">\(a \in \R \cup \{ -\infty, \infty\}\)</span> is a cluster point of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(b \in \R \cup \{ -\infty, \infty\}\)</span> is a cluster point of <span class="process-math">\(B\text{.}\)</span> Suppose</div>
+<div class="displaymath process-math" id="prop_inflimcompositions-1-1-8">
+\begin{equation}
+\lim_{x \to a} f(x) = b\qquad \text{and} \qquad \lim_{y \to b} g(y) = c
+\end{equation}
+</div>
+<div class="para">for some <span class="process-math">\(c \in \R \cup \{ -\infty, \infty \}\text{.}\)</span> If <span class="process-math">\(b \in B\text{,}\)</span> then suppose <span class="process-math">\(g(b) = c\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="prop_inflimcompositions-1-1-12">
+\begin{equation}
+\lim_{x \to a} g\bigl(f(x)\bigr) = c .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_inflimcompositions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 3.5.8"><a href="#prop_inflimcompositions" title="Copy heading and permalink for Proposition 3.5.8" aria-label="Copy heading and permalink for Proposition 3.5.8">🔗</a></div>
+</article>
+<div class="para" id="sec_limitatinf-5-4">The proof is straightforward, and left as an exercise.  We already know the proposition when <span class="process-math">\(a, b, c \in \R\)</span> (see Exercises <a href="sec_limoffunc.html#exercise_contlimitcomposition" class="xref" data-knowl="./knowl/xref/exercise_contlimitcomposition.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.1.9">3.1.9</a> and <a href="sec_limoffunc.html#exercise_contlimitbadcomposition" class="xref" data-knowl="./knowl/xref/exercise_contlimitbadcomposition.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.1.14">3.1.14</a>).  Again, the requirement that <span class="process-math">\(g\)</span> is continuous at <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(b \in B\text{,}\)</span> is necessary.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_limitatinf-5-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_limitatinf-5-5-1-1">
+<div class="para">Let <span class="process-math">\(h(x) \coloneqq e^{-x^2+x}\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" id="sec_limitatinf-5-5-1-1-2">
+\begin{equation}
+\lim_{x\to \infty} h(x) = 0 .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="sec_limitatinf-5-5-1-2">
+<div class="para">Proof: The claim follows once we know</div>
+<div class="displaymath process-math" id="sec_limitatinf-5-5-1-2-1">
+\begin{equation}
+\lim_{x\to \infty} (-x^2+x) = -\infty
+\end{equation}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="sec_limitatinf-5-5-1-2-2">
+\begin{equation}
+\lim_{y\to -\infty} e^y = 0 ,
+\end{equation}
+</div>
+<div class="para">which is usually proved when the exponential function is defined.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-5-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.5.9"><a href="#sec_limitatinf-5-5" title="Copy heading and permalink for Example 3.5.9" aria-label="Copy heading and permalink for Example 3.5.9">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 3.5.3: Compositions"><a href="#sec_limitatinf-5" title="Copy heading and permalink for Subsection 3.5.3: Compositions" aria-label="Copy heading and permalink for Subsection 3.5.3: Compositions">🔗</a></div>
+</section>
+<section class="exercises" id="sec_limitatinf-6">
+<h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="sec_limitatinf-6-1"><h4 class="heading"><span class="codenumber">3.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-6-1-1-1">Prove <a href="sec_limitatinf.html#liminfty_unique" class="xref" data-knowl="./knowl/xref/liminfty_unique.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.5.2">Proposition 3.5.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.1"><a href="#sec_limitatinf-6-1" title="Copy heading and permalink for Exercise 3.5.1" aria-label="Copy heading and permalink for Exercise 3.5.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-2"><h4 class="heading"><span class="codenumber">3.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-6-2-1-1">Let <span class="process-math">\(f \colon [1,\infty) \to \R\)</span> be a function.  Define <span class="process-math">\(g \colon (0,1] \to \R\)</span> via <span class="process-math">\(g(x) \coloneqq f(\nicefrac{1}{x})\text{.}\)</span> Using the definitions of limits directly, show that <span class="process-math">\(\lim_{x\to 0^+} g(x)\)</span> exists if and only if <span class="process-math">\(\lim_{x\to \infty} f(x)\)</span> exists, in which case they are equal.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.2"><a href="#sec_limitatinf-6-2" title="Copy heading and permalink for Exercise 3.5.2" aria-label="Copy heading and permalink for Exercise 3.5.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-3"><h4 class="heading"><span class="codenumber">3.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-6-3-1-1">Prove <a href="sec_limitatinf.html#prop_inflimcompositions" class="xref" data-knowl="./knowl/xref/prop_inflimcompositions.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.5.8">Proposition 3.5.8</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.3"><a href="#sec_limitatinf-6-3" title="Copy heading and permalink for Exercise 3.5.3" aria-label="Copy heading and permalink for Exercise 3.5.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-4"><h4 class="heading"><span class="codenumber">3.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-6-4-1-1">Let us justify terminology. Let <span class="process-math">\(f \colon \R \to \R\)</span> be a function such that <span class="process-math">\(\lim_{x \to \infty} f(x) = \infty\)</span> (diverges to infinity). Show that <span class="process-math">\(f(x)\)</span> diverges (i.e. does not converge) as <span class="process-math">\(x \to \infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.4"><a href="#sec_limitatinf-6-4" title="Copy heading and permalink for Exercise 3.5.4" aria-label="Copy heading and permalink for Exercise 3.5.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-5"><h4 class="heading"><span class="codenumber">3.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-6-5-1-1">Come up with the definitions for limits of <span class="process-math">\(f(x)\)</span> going to <span class="process-math">\(-\infty\)</span> as <span class="process-math">\(x \to
+\infty\text{,}\)</span> <span class="process-math">\(x \to -\infty\text{,}\)</span> and as <span class="process-math">\(x \to c\)</span> for a finite <span class="process-math">\(c \in \R\text{.}\)</span> Then state the definitions for limits of <span class="process-math">\(f(x)\)</span> going to <span class="process-math">\(\infty\)</span> as <span class="process-math">\(x \to -\infty\text{,}\)</span> and as <span class="process-math">\(x \to c\)</span> for a finite <span class="process-math">\(c \in \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.5"><a href="#sec_limitatinf-6-5" title="Copy heading and permalink for Exercise 3.5.5" aria-label="Copy heading and permalink for Exercise 3.5.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-6"><h4 class="heading"><span class="codenumber">3.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_limitatinf-6-6-1-1">Suppose <span class="process-math">\(P(x) \coloneqq x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0\)</span> is a <em class="emphasis">monic polynomial</em> of degree <span class="process-math">\(n \geq 1\)</span> (monic means that the coefficient of <span class="process-math">\(x^n\)</span> is 1).<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="sec_limitatinf-6-6-1-2">
+<li id="sec_limitatinf-6-6-1-2-1">
+<div class="para" id="sec_limitatinf-6-6-1-2-1-1">Show that if <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(\lim\limits_{x\to\infty} P(x) = 
+\lim\limits_{x\to-\infty} P(x) = \infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-6-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.5.6.a"><a href="#sec_limitatinf-6-6-1-2-1" title="Copy heading and permalink for Item 3.5.6.a" aria-label="Copy heading and permalink for Item 3.5.6.a">🔗</a></div>
+</li>
+<li id="sec_limitatinf-6-6-1-2-2">
+<div class="para" id="sec_limitatinf-6-6-1-2-2-1">Show that if <span class="process-math">\(n\)</span> is odd, then <span class="process-math">\(\lim\limits_{x\to\infty} P(x) = \infty\)</span> and <span class="process-math">\(\lim\limits_{x\to-\infty} P(x) = -\infty\)</span> (see previous exercise).<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-6-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.5.6.b"><a href="#sec_limitatinf-6-6-1-2-2" title="Copy heading and permalink for Item 3.5.6.b" aria-label="Copy heading and permalink for Item 3.5.6.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 3.5.6"><a href="#sec_limitatinf-6-6" title="Copy heading and permalink for Exercise 3.5.6" aria-label="Copy heading and permalink for Exercise 3.5.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-7"><h4 class="heading"><span class="codenumber">3.5.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_limitatinf-6-7-1-1">
+<div class="para">Let <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> be a sequence.  Consider <span class="process-math">\(S \coloneqq \N \subset \R\text{,}\)</span> and <span class="process-math">\(f \colon S \to \R\)</span> defined by <span class="process-math">\(f(n) \coloneqq x_n\text{.}\)</span>  Show that the two notions of limit,</div>
+<div class="displaymath process-math" id="sec_limitatinf-6-7-1-1-5">
+\begin{equation}
+\lim_{n\to\infty} x_n \qquad \text{and} \qquad
+\lim_{x\to\infty} f(x) 
+\end{equation}
+</div>
+<div class="para">are equivalent.  That is, show that if one exists so does the other one, and in this case they are equal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.7"><a href="#sec_limitatinf-6-7" title="Copy heading and permalink for Exercise 3.5.7" aria-label="Copy heading and permalink for Exercise 3.5.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-8"><h4 class="heading"><span class="codenumber">3.5.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_limitatinf-6-8-1-1">
+<div class="para">Extend <a href="sec_limitatinf.html#seqflimitinf_lemma" class="xref" data-knowl="./knowl/xref/seqflimitinf_lemma.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 3.5.5">Lemma 3.5.5</a> as follows. Suppose <span class="process-math">\(S \subset \R\)</span> has a cluster point <span class="process-math">\(c \in \R\text{,}\)</span> <span class="process-math">\(c = \infty\text{,}\)</span> or <span class="process-math">\(c = -\infty\text{.}\)</span>  Let <span class="process-math">\(f \colon S \to \R\)</span> be a function and suppose <span class="process-math">\(L = \infty\)</span> or <span class="process-math">\(L = -\infty\text{.}\)</span>  Show that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/seqflimitinf_lemma.html" id="sec_limitatinf-6-8-1-1-9">
+\begin{equation}
+\begin{aligned}
+&amp;
+\lim_{x\to c} f(x) = L
+\\
+&amp;
+\qquad \text{if and only if}
+\\
+&amp;
+\lim_{n\to\infty} f(x_n) = L \enspace \text{for all sequences }
+\{ x_n \}_{n=1}^\infty \text{ such that } \lim_{n\to\infty} x_n = c
+\text{ and } x_n \in S \setminus \{c\}
+\text{ for all } n  .
+\end{aligned}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.8"><a href="#sec_limitatinf-6-8" title="Copy heading and permalink for Exercise 3.5.8" aria-label="Copy heading and permalink for Exercise 3.5.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_limitatinf-6-9"><h4 class="heading"><span class="codenumber">3.5.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_limitatinf-6-9-1-1">
+<div class="para">Suppose <span class="process-math">\(f \colon \R \to \R\)</span> is a 2-periodic function, that is <span class="process-math">\(f(x + 2) =
+f(x)\)</span> for all <span class="process-math">\(x\text{.}\)</span>  Define <span class="process-math">\(g \colon \R \to \R\)</span> by <span class="process-math">\(g(0) \coloneqq f(0)\)</span> and for <span class="process-math">\(x \neq 0\)</span> by</div>
+<div class="displaymath process-math" id="sec_limitatinf-6-9-1-1-7">
+\begin{equation}
+g(x) \coloneqq f\left(\frac{\sqrt{x^2+1}-1}{x}\right)
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="sec_limitatinf-6-9-1-2">
+<li id="sec_limitatinf-6-9-1-2-1">
+<div class="para" id="sec_limitatinf-6-9-1-2-1-1">Find the function <span class="process-math">\(\varphi \colon (-1,1) \to \R\)</span> such that <span class="process-math">\(g\bigl(\varphi(t)\bigr) = f(t)\text{,}\)</span> that is, <span class="process-math">\(\varphi^{-1}(x) = 
+\frac{\sqrt{x^2+1}-1}{x}\)</span> for <span class="process-math">\(x \neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.5.9.a"><a href="#sec_limitatinf-6-9-1-2-1" title="Copy heading and permalink for Item 3.5.9.a" aria-label="Copy heading and permalink for Item 3.5.9.a">🔗</a></div>
+</li>
+<li id="sec_limitatinf-6-9-1-2-2">
+<div class="para logical" id="sec_limitatinf-6-9-1-2-2-1">
+<div class="para">Show that <span class="process-math">\(f\)</span> is continuous if and only if <span class="process-math">\(g\)</span> is continuous and</div>
+<div class="displaymath process-math" id="sec_limitatinf-6-9-1-2-2-1-3">
+\begin{equation}
+\lim_{x \to \infty} g(x) = 
+\lim_{x \to -\infty} g(x) = 
+f(1) = f(-1) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitatinf-6-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.5.9.b"><a href="#sec_limitatinf-6-9-1-2-2" title="Copy heading and permalink for Item 3.5.9.b" aria-label="Copy heading and permalink for Item 3.5.9.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 3.5.9"><a href="#sec_limitatinf-6-9" title="Copy heading and permalink for Exercise 3.5.9" aria-label="Copy heading and permalink for Exercise 3.5.9">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 3.5.4"><a href="#sec_limitatinf-6" title="Copy heading and permalink for Exercises 3.5.4" aria-label="Copy heading and permalink for Exercises 3.5.4">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 3.5: Limits at infinity"><a href="#sec_limitatinf" title="Copy heading and permalink for Section 3.5: Limits at infinity" aria-label="Copy heading and permalink for Section 3.5: Limits at infinity">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_unifcont.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_monotonefunc.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF versions: <tt>https://www.jirka.org/ra/realanal.pdf</tt>,<tt>https://www.jirka.org/ra/realanal2.pdf</tt></em>
+or <tt>https://jirilebl.github.io/ra/realanal.pdf</tt>,<tt>https://jirilebl.github.io/ra/realanal2.pdf</tt></em>
+</span>
+</body>
+</html>

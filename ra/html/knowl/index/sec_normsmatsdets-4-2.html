@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Once we fix a basis in a finite-dimensional vector space <span class="process-math">\(X\text{,}\)</span> we can represent a vector of <span class="process-math">\(X\)</span> as an <span class="process-math">\(n\)</span>-tuple of numbers—a vector in <span class="process-math">\(\R^n\text{.}\)</span> The same can be done with <span class="process-math">\(L(X,Y)\text{,}\)</span> bringing us to matrices, which are a convenient way to represent finite-dimensional linear transformations. Suppose <span class="process-math">\(\{ x_1, x_2, \ldots, x_n \}\)</span> and <span class="process-math">\(\{ y_1, y_2, \ldots, y_m \}\)</span> are bases for vector spaces <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> respectively.  A linear operator is determined by its values on the basis.  Given <span class="process-math">\(A \in L(X,Y)\text{,}\)</span> <span class="process-math">\(A x_j\)</span> is an element of <span class="process-math">\(Y\text{.}\)</span>  Define the numbers <span class="process-math">\(a_{i,j}\)</span> via</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_matrixrepresent.html">
+\begin{equation}
+A x_j = \sum_{i=1}^m a_{i,j} \, y_i ,\tag{8.3}
+\end{equation}
+</div>
+<div class="para">and write them as a <em class="emphasis">matrix</em>, which we, by slight abuse of notation, also call <span class="process-math">\(A\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_matrixrepresent.html">
+\begin{equation}
+A =
+\begin{bmatrix}
+a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n}
+\end{bmatrix} .
+\end{equation}
+</div>
+<div class="para">We sometimes write <span class="process-math">\(A\)</span> as <span class="process-math">\([a_{i,j}]\text{.}\)</span> We say <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\)</span>-by-<span class="process-math">\(n\)</span> matrix. The <span class="process-math">\(j\)</span>th <em class="emphasis">column</em> of the matrix contains precisely the coefficients that represent <span class="process-math">\(A x_j\)</span> in terms of the basis <span class="process-math">\(\{ y_1,y_2,\ldots,y_m \}\text{.}\)</span> Given the numbers <span class="process-math">\(a_{i,j}\text{,}\)</span> then via the formula <a href="sec_normsmatsdets.html#eq_matrixrepresent" class="xref" data-knowl="./knowl/xref/eq_matrixrepresent.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 8.3">(8.3)</a>, we find the corresponding linear operator, as it is determined by the action on a basis.  Hence, once we fix bases on <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> we have a one-to-one correspondence between <span class="process-math">\(L(X,Y)\)</span> and the <span class="process-math">\(m\)</span>-by-<span class="process-math">\(n\)</span> matrices. When</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_matrixrepresent.html">
+\begin{equation}
+z = \sum_{j=1}^n z_j \, x_j ,
+\end{equation}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_matrixrepresent.html">
+\begin{equation}
+A z =
+\sum_{j=1}^n z_j \, A x_j 
+=
+\sum_{j=1}^n z_j \left( \sum_{i=1}^m  a_{i,j}\, y_i \right) 
+=
+\sum_{i=1}^m \left(\sum_{j=1}^n  a_{i,j}\, z_j \right) y_i ,
+\end{equation}
+</div>
+<div class="para">which gives rise to the familiar rule for matrix multiplication, thinking of <span class="process-math">\(z\)</span> as a column vector, that is, an <span class="process-math">\(n\)</span>-by-1 matrix. More generally, if <span class="process-math">\(B\)</span> is an <span class="process-math">\(n\)</span>-by-<span class="process-math">\(r\)</span> matrix with entries <span class="process-math">\(b_{j,k}\text{,}\)</span> then the matrix for <span class="process-math">\(C = AB\)</span> is an <span class="process-math">\(m\)</span>-by-<span class="process-math">\(r\)</span> matrix whose <span class="process-math">\((i,k)\)</span>th entry <span class="process-math">\(c_{i,k}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_matrixrepresent.html">
+\begin{equation}
+c_{i,k} =
+\sum_{j=1}^n a_{i,j}\,b_{j,k} .
+\end{equation}
+</div>
+<div class="para">A way to remember it is if you order the indices as we do—<em class="emphasis">row, column</em>—and put the elements in the same order as the matrices, then the “middle index” is “summed-out.”</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_normsmatsdets-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="sec_normsmatsdets.html#sec_normsmatsdets-4-2">In Context</a></span>
+</body>
+</html>

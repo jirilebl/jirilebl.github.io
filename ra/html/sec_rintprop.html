@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>RA Properties of the integral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Basic Analysis I &amp; II">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="ra.html"><span class="title">Basic Analysis I &amp; II</span> <span class="subtitle">Introduction to Real Analysis, Volumes I &amp; II</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ra-16-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../realanal.pdf" title="PDF"><span class="name">PDF(I)</span></a>
+<a class="index-button button" href="../realanal2.pdf" title="PDF"><span class="name">PDF(II)</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/B0C9S99TKF" title="Paperback" alt="Buy Paperback"><span class="name">Book(I)</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/B0C9S7P6M8" title="Paperback" alt="Buy Paperback"><span class="name">Book(II)</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_rint.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="int_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_ftc.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\require{mathtools}\newcommand{\avoidbreak}{\postdisplaypenalty=100}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\aut}{\operatorname{aut}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\sing}{\operatorname{sing}}
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+\newcommand{\babs}[1]{\bigl\lvert {#1} \bigr\rvert}
+\newcommand{\bnorm}[1]{\bigl\lVert {#1} \bigr\rVert}
+\newcommand{\Babs}[1]{\Bigl\lvert {#1} \Bigr\rvert}
+\newcommand{\Bnorm}[1]{\Bigl\lVert {#1} \Bigr\rVert}
+\newcommand{\bbabs}[1]{\biggl\lvert {#1} \biggr\rvert}
+\newcommand{\bbnorm}[1]{\biggl\lVert {#1} \biggr\rVert}
+\newcommand{\BBabs}[1]{\Biggl\lvert {#1} \Biggr\rvert}
+\newcommand{\BBnorm}[1]{\Biggl\lVert {#1} \Biggr\rVert}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bP}{{\mathbb{P}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\bV}{{\mathbb{V}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathscr{A}}}
+\newcommand{\sB}{{\mathscr{B}}}
+\newcommand{\sC}{{\mathscr{C}}}
+\newcommand{\sF}{{\mathscr{F}}}
+\newcommand{\sG}{{\mathscr{G}}}
+\newcommand{\sH}{{\mathscr{H}}}
+\newcommand{\sM}{{\mathscr{M}}}
+\newcommand{\sO}{{\mathscr{O}}}
+\newcommand{\sP}{{\mathscr{P}}}
+\newcommand{\sQ}{{\mathscr{Q}}}
+\newcommand{\sR}{{\mathscr{R}}}
+\newcommand{\sS}{{\mathscr{S}}}
+\newcommand{\sI}{{\mathscr{I}}}
+\newcommand{\sL}{{\mathscr{L}}}
+\newcommand{\sK}{{\mathscr{K}}}
+\newcommand{\sU}{{\mathscr{U}}}
+\newcommand{\sV}{{\mathscr{V}}}
+\newcommand{\sX}{{\mathscr{X}}}
+\newcommand{\sY}{{\mathscr{Y}}}
+\newcommand{\sZ}{{\mathscr{Z}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+\newcommand{\interior}{\operatorname{int}}
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\myincludegraphics}[3][]{\includegraphics[#1]{figures/#2}}
+\newcommand{\myincludepdft}[2]{\subimport*{figures/}{#1.pdf_t}}
+\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\qedhere}{}
+\newcommand{\widebar}[1]{\overline{#1}}
+\newcommand{\coloneqq}{:=}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="ra-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ra-4.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ra-4-2.html" class="internal"><span class="codenumber">0.1</span> <span class="title">About this book</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ra-4-2.html#ra-4-2-2" class="internal"><span class="codenumber">0.1.1</span> <span class="title">About Volume I</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ra-4-2.html#ra-4-2-3" class="internal"><span class="codenumber">0.1.2</span> <span class="title">About Volume II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_aboutra.html" class="internal"><span class="codenumber">0.2</span> <span class="title">About analysis</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_basicset.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Basic set theory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-4" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-5" class="internal"><span class="codenumber">0.3.2</span> <span class="title">Induction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-6" class="internal"><span class="codenumber">0.3.3</span> <span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-7" class="internal"><span class="codenumber">0.3.4</span> <span class="title">Relations and equivalence classes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-8" class="internal"><span class="codenumber">0.3.5</span> <span class="title">Cardinality</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-9" class="internal"><span class="codenumber">0.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="rn_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_basicpropsrn.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic properties</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_basicpropsrn.html#sec_basicpropsrn-33" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_setofreals.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The set of real numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The set of real numbers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Archimedean property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Using supremum and infimum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-6" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Maxima and minima</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-7" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_absval.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Absolute value and bounded functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_absval.html#sec_absval-26" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_intandsizeR.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Intervals and the size of <span class="process-math">\(\R\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_intandsizeR.html#sec_intandsizeR-14" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_decimals.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Decimal representation of the reals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_decimals.html#sec_decimals-19" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="seq_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_seqsandlims.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Sequences and limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Monotone sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Tail of a sequence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Subsequences</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-6" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_factslimsseqs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Facts about limits of sequences</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Limits and inequalities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Continuity of algebraic operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Recursively defined sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Some convergence tests</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-7" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_bw.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Limit superior, limit inferior, and Bolzano–Weierstrass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Upper and lower limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Using limit inferior and limit superior</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Bolzano–Weierstrass theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-6" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-7" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_cauchy.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Cauchy sequences</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_cauchy.html#sec_cauchy-14" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Cauchy series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Absolute convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-7" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Comparison test and the <span class="process-math">\(p\)</span>-series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-8" class="internal"><span class="codenumber">2.5.6</span> <span class="title">Ratio test</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_series.html#sec_series-9" class="internal"><span class="codenumber">2.5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_moreonseries.html" class="internal"><span class="codenumber">2.6</span> <span class="title">More on series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Root test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Alternating series test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Rearrangements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-6" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Multiplication of series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-7" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Power series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-8" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="lim_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Continuous Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_limoffunc.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Limits of functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Cluster points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Limits of functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#subseq_sequentiallimits" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Sequential limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Limits of restrictions and one-sided limits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_cont.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Continuous functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Definition and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Composition of continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Discontinuous functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_minmaxint.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Extreme and intermediate value theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Min-max or extreme value theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Bolzano’s intermediate value theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_unifcont.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Uniform continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Uniform continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Continuous extension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Lipschitz continuous functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_limitatinf.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Limits at infinity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-3" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-4" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Infinite limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-5" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Compositions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-6" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_monotonefunc.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Monotone functions and continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Continuity of monotone functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Continuity of inverse functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="der_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">The Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_der.html" class="internal"><span class="codenumber">4.1</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_der.html#sec_der-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Definition and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_der.html#sec_der-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_der.html#sec_der-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvt.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Mean value theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Relative minima and maxima</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Rolle’s theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-7" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Continuity of derivatives and the intermediate value theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-8" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_taylor.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Taylor’s theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Derivatives of higher orders</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Taylor’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ift.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Inverse function theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ift.html#sec_ift-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Inverse function theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ift.html#sec_ift-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="int_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">The Riemann Integral</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rint.html" class="internal"><span class="codenumber">5.1</span> <span class="title">The Riemann integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Partitions and lower and upper integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Riemann integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">More notation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_rintprop.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Properties of the integral</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-3" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Additivity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-4" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Linearity and monotonicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-5" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-6" class="internal"><span class="codenumber">5.2.4</span> <span class="title">More on integrable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-7" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ftc.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Fundamental theorem of calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">First form of the theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Second form of the theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-6" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_logandexp.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The logarithm and the exponential</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-3" class="internal"><span class="codenumber">5.4.1</span> <span class="title">The logarithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-4" class="internal"><span class="codenumber">5.4.2</span> <span class="title">The exponential</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-5" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_impropriemann.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Improper integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_impropriemann.html#sec_impropriemann-3" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Integral test for series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_impropriemann.html#sec_impropriemann-4" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fs_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Sequences of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_puconv.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Pointwise and uniform convergence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Pointwise convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Uniform convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Convergence in uniform norm</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_liminter.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Interchange of limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Continuity of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Integral of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Derivative of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Convergence of power series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_picard.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Picard’s theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">First order ordinary differential equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">The theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ms_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Metric Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metric.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Metric spaces</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metric.html#sec_metric-34" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mettop.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Open and closed sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Topology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Connected sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Closure and boundary</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metseqs.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and convergence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Convergence in euclidean space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-5" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Convergence and topology</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metcompact.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Completeness and compactness</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-3" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Cauchy sequences and completeness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-4" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Compactness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-5" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metcont.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Continuous functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-3" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-4" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Compactness and continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-5" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Continuity and topology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-6" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Uniform continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-7" class="internal"><span class="codenumber">7.5.5</span> <span class="title">Cluster points and limits of functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-8" class="internal"><span class="codenumber">7.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metpicard.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fixed point theorem and Picard’s theorem again</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-3" class="internal"><span class="codenumber">7.6.1</span> <span class="title">Fixed point theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-4" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-5" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="pd_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Several Variables and Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_vectorspaces.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Vector spaces, linear mappings, and convexity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Vector spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linear combinations and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Linear mappings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-6" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Convexity</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-7" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_normsmatsdets.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Analysis with vector spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Norms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svtheder.html" class="internal"><span class="codenumber">8.3</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">The derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Gradients, curves, and directional derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-6" class="internal"><span class="codenumber">8.3.4</span> <span class="title">The Jacobian</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-7" class="internal"><span class="codenumber">8.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svthedercont.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Continuity and the derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-3" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Bounding the derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-4" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Continuously differentiable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-5" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svinvfuncthm.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Inverse and implicit function theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svinvfuncthm.html#sec_svinvfuncthm-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Implicit function theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svinvfuncthm.html#sec_svinvfuncthm-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvhighordders.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Higher order derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvhighordders.html#sec_mvhighordders-12" class="internal"><span class="codenumber">8.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="path_chapter.html" class="internal"><span class="codenumber">9</span> <span class="title">One-dimensional Integrals in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_diffunderint.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Differentiation under the integral</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_diffunderint.html#sec_diffunderint-11" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pathintegral.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Path integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-3" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Piecewise smooth paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-4" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Path integral of a one-form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-5" class="internal"><span class="codenumber">9.2.3</span> <span class="title">Path integral of a function</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-6" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pathind.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Path independence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-3" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Path independent integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-4" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Vector fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-5" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="mi_chapter.html" class="internal"><span class="codenumber">10</span> <span class="title">Multivariable Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rirect.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Riemann integral over rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-3" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Rectangles and partitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-4" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Upper and lower integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-5" class="internal"><span class="codenumber">10.1.3</span> <span class="title">The Riemann integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-6" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Integrals of continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-7" class="internal"><span class="codenumber">10.1.5</span> <span class="title">Integration of functions with compact support</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-8" class="internal"><span class="codenumber">10.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_iteratedints.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Iterated integrals and the Fubini theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_iteratedints.html#sec_iteratedints-17" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_outermeasure.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Outer measure and null sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-3" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Outer measure and null sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-4" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Examples and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-5" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Images of null sets under differentiable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-6" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_riemannlebesgue.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The set of Riemann integrable functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-3" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Oscillation and continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-4" class="internal"><span class="codenumber">10.4.2</span> <span class="title">The set of Riemann integrable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-5" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_jordansets.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Jordan measurable sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-3" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Volume and Jordan measurable sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-4" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Integration over Jordan measurable sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-5" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Images of Jordan measurable subsets</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-6" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvgreenstheorem.html" class="internal"><span class="codenumber">10.6</span> <span class="title">Green’s theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvgreenstheorem.html#sec_mvgreenstheorem-25" class="internal"><span class="codenumber">10.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvchangeofvars.html" class="internal"><span class="codenumber">10.7</span> <span class="title">Change of variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvchangeofvars.html#sec_mvchangeofvars-11" class="internal"><span class="codenumber">10.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="approx_chapter.html" class="internal"><span class="codenumber">11</span> <span class="title">Functions as Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_complexnums.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Complex numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-3" class="internal"><span class="codenumber">11.1.1</span> <span class="title">The complex plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-4" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Complex numbers and limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-5" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Complex-valued functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-6" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_swaplim.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Swapping limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-4" class="internal"><span class="codenumber">11.2.2</span> <span class="title">Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-5" class="internal"><span class="codenumber">11.2.3</span> <span class="title">Differentiation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-6" class="internal"><span class="codenumber">11.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_analfuncs.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Power series and analytic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-3" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-4" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Convergence of power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-5" class="internal"><span class="codenumber">11.3.3</span> <span class="title">Properties of analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-6" class="internal"><span class="codenumber">11.3.4</span> <span class="title">Power series as analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-7" class="internal"><span class="codenumber">11.3.5</span> <span class="title">Identity theorem for analytic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-8" class="internal"><span class="codenumber">11.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_complexexp.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Complex exponential and trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-3" class="internal"><span class="codenumber">11.4.1</span> <span class="title">The complex exponential</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-4" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Trigonometric functions and <span class="process-math">\(\pi\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-5" class="internal"><span class="codenumber">11.4.3</span> <span class="title">The unit circle and polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-6" class="internal"><span class="codenumber">11.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_fundalgeb.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Maximum principle and the fundamental theorem of algebra</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_fundalgeb.html#sec_fundalgeb-18" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arzelaascoli.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Equicontinuity and the Arzelà–Ascoli theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arzelaascoli.html#sec_arzelaascoli-31" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_stoneweier.html" class="internal"><span class="codenumber">11.7</span> <span class="title">The Stone–Weierstrass theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-3" class="internal"><span class="codenumber">11.7.1</span> <span class="title">Weierstrass approximation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-4" class="internal"><span class="codenumber">11.7.2</span> <span class="title">Stone–Weierstrass approximation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-5" class="internal"><span class="codenumber">11.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_fourier.html" class="internal"><span class="codenumber">11.8</span> <span class="title">Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-3" class="internal"><span class="codenumber">11.8.1</span> <span class="title">Trigonometric polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-4" class="internal"><span class="codenumber">11.8.2</span> <span class="title">Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-5" class="internal"><span class="codenumber">11.8.3</span> <span class="title">Orthonormal systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-6" class="internal"><span class="codenumber">11.8.4</span> <span class="title">The Dirichlet kernel and approximate delta functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-7" class="internal"><span class="codenumber">11.8.5</span> <span class="title">Localization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-8" class="internal"><span class="codenumber">11.8.6</span> <span class="title">Parseval’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-9" class="internal"><span class="codenumber">11.8.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ra-16.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ra-16-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_rintprop">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of the integral</span>
+</h2>
+<section class="introduction" id="sec_rintprop-2">
+<div class="para" id="sec_rintprop-2-1">
+<em class="emphasis">Note: 2 lectures, integrability of functions with discontinuities can safely be skipped</em><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<section class="subsection" id="sec_rintprop-3">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Additivity</span>
+</h3>
+<div class="para" id="sec_rintprop-3-2">Adding a bunch of things in two parts and then adding those two parts should be the same as adding everything all at once. The corresponding property for integrals is called the additive property of the integral.  First, we prove the additivity property for the lower and upper Darboux integrals.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="lemma_darbouxadd"><h4 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="lemma_darbouxadd-1-1">
+<div class="para">Suppose <span class="process-math">\(a &lt; b &lt; c\)</span> and <span class="process-math">\(f \colon [a,c] \to \R\)</span> is a bounded function. Then</div>
+<div class="displaymath process-math" id="lemma_darbouxadd-1-1-3">
+\begin{equation}
+\underline{\int_a^c} f
+=
+\underline{\int_a^b} f
++
+\underline{\int_b^c} f
+\quad \text{and} \quad
+\overline{\int_a^c} f
+=
+\overline{\int_a^b} f
++
+\overline{\int_b^c} f .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lemma_darbouxadd-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 5.2.1"><a href="#lemma_darbouxadd" title="Copy heading and permalink for Lemma 5.2.1" aria-label="Copy heading and permalink for Lemma 5.2.1">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-3-4"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-3-4-1">
+<div class="para">If we have partitions <span class="process-math">\(P_1 = \{ x_0,x_1,\ldots,x_k \}\)</span> of <span class="process-math">\([a,b]\)</span> and <span class="process-math">\(P_2 = \{ x_k, x_{k+1}, \ldots, x_n \}\)</span> of <span class="process-math">\([b,c]\text{,}\)</span> then the set <span class="process-math">\(P \coloneqq P_1 \cup P_2 = \{ x_0, x_1, \ldots, x_n \}\)</span> is a partition of <span class="process-math">\([a,c]\text{.}\)</span>  We find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise_dominatingb.html ./knowl/xref/exercise_supofsum.html" id="sec_rintprop-3-4-1-7">
+\begin{equation}
+L(P,f) =
+\sum_{i=1}^n m_i \Delta x_i
+=
+\sum_{i=1}^k m_i \Delta x_i
++
+\sum_{i=k+1}^n m_i \Delta x_i
+=
+L(P_1,f) + L(P_2,f) .
+\end{equation}
+</div>
+<div class="para">When we take the supremum of the right-hand side over all <span class="process-math">\(P_1\)</span> and <span class="process-math">\(P_2\text{,}\)</span> we are taking a supremum of the left-hand side over all partitions <span class="process-math">\(P\)</span> of <span class="process-math">\([a,c]\)</span> that contain <span class="process-math">\(b\text{.}\)</span>  If <span class="process-math">\(Q\)</span> is a partition of <span class="process-math">\([a,c]\)</span> and <span class="process-math">\(P = Q \cup \{ b \}\text{,}\)</span> then <span class="process-math">\(P\)</span> is a refinement of <span class="process-math">\(Q\)</span> and so <span class="process-math">\(L(Q,f) \leq L(P,f)\text{.}\)</span>  Therefore, taking a supremum only over the <span class="process-math">\(P\)</span> that contain <span class="process-math">\(b\)</span> is sufficient to find the supremum of <span class="process-math">\(L(P,f)\)</span> over all partitions <span class="process-math">\(P\text{,}\)</span> see <a href="sec_basicpropsrn.html#exercise_dominatingb" class="xref" data-knowl="./knowl/xref/exercise_dominatingb.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.1.9">Exercise 1.1.9</a>. Finally, recall <a href="sec_setofreals.html#exercise_supofsum" class="xref" data-knowl="./knowl/xref/exercise_supofsum.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.2.9">Exercise 1.2.9</a> to compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise_dominatingb.html ./knowl/xref/exercise_supofsum.html" id="sec_rintprop-3-4-1-25">
+\begin{equation}
+\begin{split}
+\underline{\int_a^c} f
+&amp; =
+\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,c] \bigr\}
+\\
+&amp; =
+\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,c], b \in P \bigr\}
+\\
+&amp; =
+\sup \, \bigl\{ L(P_1,f) + L(P_2,f) :
+P_1 \text{ a partition of } [a,b], P_2 \text{ a partition of } [b,c] \bigr\}
+\\
+&amp; =
+\sup \, \bigl\{ L(P_1,f) : P_1 \text{ a partition of } [a,b] \bigr\}
++
+\sup \, \bigl\{ L(P_2,f) : P_2 \text{ a partition of } [b,c] \bigr\}
+\\
+&amp;=
+\underline{\int_a^b} f + \underline{\int_b^c} f .
+\end{split}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_rintprop-3-4-2">
+<div class="para">Similarly, for <span class="process-math">\(P\text{,}\)</span> <span class="process-math">\(P_1\text{,}\)</span> and <span class="process-math">\(P_2\)</span> as above, we obtain</div>
+<div class="displaymath process-math" id="sec_rintprop-3-4-2-4">
+\begin{equation}
+U(P,f) =
+\sum_{i=1}^n M_i \Delta x_i
+=
+\sum_{i=1}^k M_i \Delta x_i
++
+\sum_{i=k+1}^n M_i \Delta x_i
+=
+U(P_1,f) + U(P_2,f) .
+\end{equation}
+</div>
+<div class="para">We wish to take the infimum on the right over all <span class="process-math">\(P_1\)</span> and <span class="process-math">\(P_2\text{,}\)</span> and so we are taking the infimum over all partitions <span class="process-math">\(P\)</span> of <span class="process-math">\([a,c]\)</span> that contain <span class="process-math">\(b\text{.}\)</span>  If <span class="process-math">\(Q\)</span> is a partition of <span class="process-math">\([a,c]\)</span> and <span class="process-math">\(P = Q \cup \{ b \}\text{,}\)</span> then <span class="process-math">\(P\)</span> is a refinement of <span class="process-math">\(Q\)</span> and so <span class="process-math">\(U(Q,f) \geq U(P,f)\text{.}\)</span>  Therefore, taking an infimum only over the <span class="process-math">\(P\)</span> that contain <span class="process-math">\(b\)</span> is sufficient to find the infimum of <span class="process-math">\(U(P,f)\)</span> for all <span class="process-math">\(P\text{.}\)</span> We obtain</div>
+<div class="displaymath process-math" id="sec_rintprop-3-4-2-20">
+\begin{equation}
+\overline{\int_a^c} f
+=
+\overline{\int_a^b} f + \overline{\int_b^c} f .  \qedhere
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.1.1"><a href="#sec_rintprop-3-4" title="Copy heading and permalink for Proof 5.2.1.1" aria-label="Copy heading and permalink for Proof 5.2.1.1">🔗</a></div>
+</article>
+<article class="proposition theorem-like" id="sec_rintprop-3-5"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_rintprop-3-5-1-1">
+<div class="para">Let <span class="process-math">\(a &lt; b &lt; c\text{.}\)</span>  A function <span class="process-math">\(f \colon [a,c] \to \R\)</span> is Riemann integrable if and only if <span class="process-math">\(f\)</span> is Riemann integrable on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\([b,c]\text{.}\)</span>  If <span class="process-math">\(f\)</span> is Riemann integrable, then</div>
+<div class="displaymath process-math" id="sec_rintprop-3-5-1-1-7">
+\begin{equation}
+\int_a^c f
+=
+\int_a^b f
++
+\int_b^c f .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 5.2.2"><a href="#sec_rintprop-3-5" title="Copy heading and permalink for Proposition 5.2.2" aria-label="Copy heading and permalink for Proposition 5.2.2">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-3-6"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-3-6-1">
+<div class="para">Suppose <span class="process-math">\(f \in \sR\bigl([a,c]\bigr)\text{.}\)</span>  Then it is bounded and <span class="process-math">\(\overline{\int_a^c} f = 
+\underline{\int_a^c} f = 
+\int_a^c f\text{.}\)</span>  The lemma gives</div>
+<div class="displaymath process-math" id="sec_rintprop-3-6-1-3">
+\begin{equation}
+\int_a^c f
+=
+\underline{\int_a^c} f
+=
+\underline{\int_a^b} f + \underline{\int_b^c} f
+\leq
+\overline{\int_a^b} f + \overline{\int_b^c} f
+=
+\overline{\int_a^c} f
+=
+\int_a^c f .
+\end{equation}
+</div>
+<div class="para">Thus the inequality is an equality:</div>
+<div class="displaymath process-math" id="sec_rintprop-3-6-1-4">
+\begin{equation}
+\underline{\int_a^b} f + \underline{\int_b^c} f
+=
+\overline{\int_a^b} f + \overline{\int_b^c} f .
+\end{equation}
+</div>
+<div class="para">As we also know <span class="process-math">\(\underline{\int_a^b} f \leq \overline{\int_a^b} f\)</span> and <span class="process-math">\(\underline{\int_b^c} f \leq \overline{\int_b^c} f\text{,}\)</span> we conclude</div>
+<div class="displaymath process-math" id="sec_rintprop-3-6-1-7">
+\begin{equation}
+\underline{\int_a^b} f
+=
+\overline{\int_a^b} f
+\qquad \text{and} \qquad
+\underline{\int_b^c} f
+=
+\overline{\int_b^c} f .
+\end{equation}
+</div>
+<div class="para">Thus <span class="process-math">\(f\)</span> is Riemann integrable on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\([b,c]\)</span> and the desired formula holds.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_rintprop-3-6-2">
+<div class="para">Now assume <span class="process-math">\(f\)</span> is Riemann integrable on <span class="process-math">\([a,b]\)</span> and on <span class="process-math">\([b,c]\text{.}\)</span> Again it is bounded, and the lemma gives</div>
+<div class="displaymath process-math" id="sec_rintprop-3-6-2-4">
+\begin{equation}
+\underline{\int_a^c} f
+=
+\underline{\int_a^b} f + \underline{\int_b^c} f
+=
+\int_a^b f + \int_b^c f
+=
+\overline{\int_a^b} f + \overline{\int_b^c} f
+=
+\overline{\int_a^c} f .
+\end{equation}
+</div>
+<div class="para">Therefore, <span class="process-math">\(f\)</span> is Riemann integrable on <span class="process-math">\([a,c]\text{,}\)</span> and the integral is computed as indicated.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.1.2"><a href="#sec_rintprop-3-6" title="Copy heading and permalink for Proof 5.2.1.2" aria-label="Copy heading and permalink for Proof 5.2.1.2">🔗</a></div>
+</article>
+<div class="para" id="sec_rintprop-3-7">An easy consequence of the additivity is the following corollary.  We leave the details to the reader as an exercise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="intsubcor"><h4 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="intsubcor-1-1">If <span class="process-math">\(f \in \sR\bigl([a,b]\bigr)\)</span> and <span class="process-math">\([c,d] \subset [a,b]\text{,}\)</span> then the restriction <span class="process-math">\(f|_{[c,d]}\)</span> is in <span class="process-math">\(\sR\bigl([c,d]\bigr)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#intsubcor-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 5.2.3"><a href="#intsubcor" title="Copy heading and permalink for Corollary 5.2.3" aria-label="Copy heading and permalink for Corollary 5.2.3">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 5.2.1: Additivity"><a href="#sec_rintprop-3" title="Copy heading and permalink for Subsection 5.2.1: Additivity" aria-label="Copy heading and permalink for Subsection 5.2.1: Additivity">🔗</a></div>
+</section>
+<section class="subsection" id="sec_rintprop-4">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linearity and monotonicity</span>
+</h3>
+<div class="para" id="sec_rintprop-4-2">A sum is a linear function of the summands.  So is the integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_integrallinear"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linearity.</span>
+</h4>
+<div class="para" id="prop_integrallinear-3-1">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be in <span class="process-math">\(\sR\bigl([a,b]\bigr)\)</span> and <span class="process-math">\(\alpha \in \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_integrallinear-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-2" id="prop_integrallinear-3-2">
+<li id="prop_integrallinear-3-2-1">
+<div class="para logical" id="prop_integrallinear-3-2-1-1">
+<div class="para">
+<span class="process-math">\(\alpha f\)</span> is in <span class="process-math">\(\sR\bigl([a,b]\bigr)\)</span> and</div>
+<div class="displaymath process-math" id="prop_integrallinear-3-2-1-1-3">
+\begin{equation}
+\int_a^b \alpha f(x) \,dx = \alpha \int_a^b f(x) \,dx .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_integrallinear-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#prop_integrallinear-3-2-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="prop_integrallinear-3-2-2">
+<div class="para logical" id="prop_integrallinear-3-2-2-1">
+<div class="para">
+<span class="process-math">\(f+g\)</span> is in <span class="process-math">\(\sR\bigl([a,b]\bigr)\)</span> and</div>
+<div class="displaymath process-math" id="prop_integrallinear-3-2-2-1-3">
+\begin{equation}
+\int_a^b \bigl( f(x)+g(x) \bigr) \,dx = 
+\int_a^b f(x) \,dx 
++
+\int_a^b g(x) \,dx .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_integrallinear-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#prop_integrallinear-3-2-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Proposition 5.2.4: Linearity"><a href="#prop_integrallinear" title="Copy heading and permalink for Proposition 5.2.4: Linearity" aria-label="Copy heading and permalink for Proposition 5.2.4: Linearity">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-4-4"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-4-4-1">
+<div class="para">Let us prove the first item for <span class="process-math">\(\alpha \geq 0\text{.}\)</span> Let <span class="process-math">\(P\)</span> be a partition of <span class="process-math">\([a,b]\text{,}\)</span> and <span class="process-math">\(m_i \coloneqq \inf \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\}\)</span> as usual. As <span class="process-math">\(\alpha \geq 0\text{,}\)</span> the multiplication by <span class="process-math">\(\alpha\)</span> moves past the infimum,</div>
+<div class="displaymath process-math" id="sec_rintprop-4-4-1-7">
+\begin{equation}
+\inf \bigl\{ \alpha f(x) : x \in [x_{i-1},x_i] \bigr\}
+=
+\alpha \inf \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\} = \alpha m_i .
+\end{equation}
+</div>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="sec_rintprop-4-4-1-8">
+\begin{equation}
+L(P,\alpha f) =
+\sum_{i=1}^n \alpha m_i \Delta x_i = \alpha \sum_{i=1}^n m_i \Delta x_i = \alpha
+L(P,f).
+\end{equation}
+</div>
+<div class="para">Similarly,</div>
+<div class="displaymath process-math" id="sec_rintprop-4-4-1-9">
+\begin{equation}
+U(P,\alpha f) = \alpha U(P,f) .
+\end{equation}
+</div>
+<div class="para">Again, as <span class="process-math">\(\alpha \geq 0\text{,}\)</span> we may move multiplication by <span class="process-math">\(\alpha\)</span> past the supremum.  Hence,</div>
+<div class="displaymath process-math" id="sec_rintprop-4-4-1-12">
+\begin{equation}
+\begin{split}
+\underline{\int_a^b} \alpha f(x)\,dx &amp; =
+\sup \, \bigl\{ L(P,\alpha f) : P \text{ a partition of } [a,b] \bigr\}
+\\
+&amp; =
+\sup \, \bigl\{ \alpha L(P,f) : P \text{ a partition of } [a,b] \bigr\}
+\\
+&amp; =
+\alpha \,
+\sup \, \bigl\{ L(P,f) : P \text{ a partition of } [a,b] \bigr\}
+\\
+&amp; =
+\alpha
+\underline{\int_a^b} f(x)\,dx .
+\end{split}
+\end{equation}
+</div>
+<div class="para">Similarly, we show</div>
+<div class="displaymath process-math" id="sec_rintprop-4-4-1-13">
+\begin{equation}
+\overline{\int_a^b} \alpha f(x)\,dx
+=
+\alpha
+\overline{\int_a^b} f(x)\,dx .
+\end{equation}
+</div>
+<div class="para">The conclusion now follows for <span class="process-math">\(\alpha \geq 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_rintprop-4-4-2">To finish the proof of the first item (for <span class="process-math">\(\alpha &lt; 0\)</span>), we need to show that <span class="process-math">\(-f\)</span> is Riemann integrable and <span class="process-math">\(\int_a^b - f(x)\,dx =
+-
+\int_a^b f(x)\,dx\text{.}\)</span>  The proof of this fact is left as <a href="sec_rintprop.html#exercise_proofoflinpropparti" class="xref" data-knowl="./knowl/xref/exercise_proofoflinpropparti.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.1">Exercise 5.2.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_rintprop-4-4-3">The proof of the second item is left as <a href="sec_rintprop.html#exercise_proofoflinproppartii" class="xref" data-knowl="./knowl/xref/exercise_proofoflinproppartii.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.2">Exercise 5.2.2</a>. It is not difficult, but it is not as trivial as it may appear at first glance.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.2.1"><a href="#sec_rintprop-4-4" title="Copy heading and permalink for Proof 5.2.2.1" aria-label="Copy heading and permalink for Proof 5.2.2.1">🔗</a></div>
+</article>
+<div class="para" id="sec_rintprop-4-5">The second item in the proposition does not hold with equality for the Darboux integrals, but we do obtain inequalities. The proof of the following proposition is <a href="sec_rintprop.html#exercise_upperlowerlinineq" class="xref" data-knowl="./knowl/xref/exercise_upperlowerlinineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.16">Exercise 5.2.16</a>. It follows for upper and lower sums on a fixed partition by <a href="sec_absval.html#exercise_sumofsup" class="xref" data-knowl="./knowl/xref/exercise_sumofsup.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.3.7">Exercise 1.3.7</a>, that is, supremum of a sum is less than or equal to the sum of suprema and similarly for infima.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_upperlowerlinineq"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="prop_upperlowerlinineq-1-1">
+<div class="para">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> and <span class="process-math">\(g \colon [a,b] \to \R\)</span> be bounded functions.  Then</div>
+<div class="displaymath process-math" id="prop_upperlowerlinineq-1-1-3">
+\begin{equation}
+\overline{\int_a^b} (f+g) \leq \overline{\int_a^b}f+\overline{\int_a^b}g
+,
+\qquad
+\text{and}
+\qquad
+\underline{\int_a^b} (f+g) \geq \underline{\int_a^b}f+\underline{\int_a^b}g
+.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_upperlowerlinineq-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 5.2.5"><a href="#prop_upperlowerlinineq" title="Copy heading and permalink for Proposition 5.2.5" aria-label="Copy heading and permalink for Proposition 5.2.5">🔗</a></div>
+</article>
+<div class="para" id="sec_rintprop-4-7">Adding up smaller numbers should give us a smaller result. That is true for an integral as well.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="sec_rintprop-4-8"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Monotonicity.</span>
+</h4>
+<div class="para logical" id="sec_rintprop-4-8-3-1">
+<div class="para">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> and <span class="process-math">\(g \colon [a,b] \to \R\)</span> be bounded, and <span class="process-math">\(f(x) \leq g(x)\)</span> for all <span class="process-math">\(x \in [a,b]\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" id="sec_rintprop-4-8-3-1-5">
+\begin{equation}
+\underline{\int_a^b} f 
+\leq
+\underline{\int_a^b} g 
+\qquad \text{and} \qquad
+\overline{\int_a^b} f 
+\leq
+\overline{\int_a^b} g .
+\end{equation}
+</div>
+<div class="para">Moreover, if <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are in <span class="process-math">\(\sR\bigl([a,b]\bigr)\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="sec_rintprop-4-8-3-1-9">
+\begin{equation}
+\int_a^b f 
+\leq
+\int_a^b g .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 5.2.6: Monotonicity"><a href="#sec_rintprop-4-8" title="Copy heading and permalink for Proposition 5.2.6: Monotonicity" aria-label="Copy heading and permalink for Proposition 5.2.6: Monotonicity">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-4-9"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-4-9-1">
+<div class="para">Let <span class="process-math">\(P = \{ x_0, x_1, \ldots, x_n \}\)</span> be a partition of <span class="process-math">\([a,b]\text{.}\)</span>  Then let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_funcsupinf.html" id="sec_rintprop-4-9-1-3">
+\begin{equation}
+m_i \coloneqq \inf \, \bigl\{ f(x) : x \in [x_{i-1},x_i] \bigr\}
+\qquad \text{and} \qquad
+\widetilde{m}_i \coloneqq \inf \, \bigl\{ g(x) : x \in [x_{i-1},x_i] \bigr\} .
+\end{equation}
+</div>
+<div class="para">As <span class="process-math">\(f(x) \leq g(x)\text{,}\)</span> we have <span class="process-math">\(m_i \leq \widetilde{m}_i\text{.}\)</span> Therefore,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_funcsupinf.html" id="sec_rintprop-4-9-1-6">
+\begin{equation}
+L(P,f)
+=
+\sum_{i=1}^n m_i \Delta x_i
+\leq
+\sum_{i=1}^n \widetilde{m}_i \Delta x_i
+=
+L(P,g) .
+\end{equation}
+</div>
+<div class="para">We take the supremum over all <span class="process-math">\(P\)</span> (see <a href="sec_absval.html#prop_funcsupinf" class="xref" data-knowl="./knowl/xref/prop_funcsupinf.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.3.7">Proposition 1.3.7</a>) to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_funcsupinf.html" id="sec_rintprop-4-9-1-9">
+\begin{equation}
+\underline{\int_a^b} f 
+\leq
+\underline{\int_a^b} g .
+\end{equation}
+</div>
+<div class="para">Similarly, we obtain the same conclusion for the upper integrals. Finally, if <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are Riemann integrable all the integrals are equal, and the conclusion follows.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-4-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.2.2"><a href="#sec_rintprop-4-9" title="Copy heading and permalink for Proof 5.2.2.2" aria-label="Copy heading and permalink for Proof 5.2.2.2">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 5.2.2: Linearity and monotonicity"><a href="#sec_rintprop-4" title="Copy heading and permalink for Subsection 5.2.2: Linearity and monotonicity" aria-label="Copy heading and permalink for Subsection 5.2.2: Linearity and monotonicity">🔗</a></div>
+</section>
+<section class="subsection" id="sec_rintprop-5">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Continuous functions</span>
+</h3>
+<div class="para" id="sec_rintprop-5-2">Let us show that continuous functions are Riemann integrable. We can even allow some discontinuities.  We start with a function continuous on the whole closed interval <span class="process-math">\([a,b]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="lemma_contint"><h4 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="lemma_contint-1-1">If <span class="process-math">\(f \colon [a,b] \to \R\)</span> is a continuous function, then <span class="process-math">\(f \in \sR\bigl([a,b]\bigr)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lemma_contint-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 5.2.7"><a href="#lemma_contint" title="Copy heading and permalink for Lemma 5.2.7" aria-label="Copy heading and permalink for Lemma 5.2.7">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-5-4"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-5-4-1">As <span class="process-math">\(f\)</span> is continuous on a closed bounded interval, it is bounded and uniformly continuous. Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> find a <span class="process-math">\(\delta &gt; 0\)</span> such that <span class="process-math">\(\sabs{x-y} &lt; \delta\)</span> implies <span class="process-math">\(\babs{f(x)-f(y)} &lt; \frac{\epsilon}{b-a}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_rintprop-5-4-2">
+<div class="para">Let <span class="process-math">\(P = \{ x_0, x_1, \ldots, x_n \}\)</span> be a partition of <span class="process-math">\([a,b]\)</span> such that <span class="process-math">\(\Delta x_i &lt; \delta\)</span> for all <span class="process-math">\(i = 1,2,
+\ldots, n\text{.}\)</span>  For example, take <span class="process-math">\(n\)</span> such that <span class="process-math">\(\frac{b-a}{n} &lt; \delta\text{,}\)</span> and let <span class="process-math">\(x_i \coloneqq \frac{i}{n}(b-a) + a\text{.}\)</span> Then for all <span class="process-math">\(x, y \in [x_{i-1},x_i]\text{,}\)</span> we have <span class="process-math">\(\sabs{x-y} \leq \Delta x_i &lt; \delta\text{,}\)</span> and so</div>
+<div class="displaymath process-math" id="sec_rintprop-5-4-2-10">
+\begin{equation}
+f(x)-f(y) \leq \babs{f(x)-f(y)} &lt; \frac{\epsilon}{b-a} .
+\end{equation}
+</div>
+<div class="para">As <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([x_{i-1},x_i]\text{,}\)</span> it attains a maximum and a minimum on this interval. Let <span class="process-math">\(x\)</span> be a point where <span class="process-math">\(f\)</span> attains the maximum and <span class="process-math">\(y\)</span> be a point where <span class="process-math">\(f\)</span> attains the minimum.  Then <span class="process-math">\(f(x) = M_i\)</span> and <span class="process-math">\(f(y) = m_i\)</span> in the notation from the definition of the integral. Therefore,</div>
+<div class="displaymath process-math" id="sec_rintprop-5-4-2-19">
+\begin{equation}
+M_i-m_i = f(x)-f(y) &lt; 
+\frac{\epsilon}{b-a} .
+\end{equation}
+</div>
+<div class="para">And so</div>
+<div class="displaymath process-math" id="sec_rintprop-5-4-2-20">
+\begin{equation}
+\begin{split}
+\overline{\int_a^b} f - 
+\underline{\int_a^b} f 
+&amp; \leq
+U(P,f) - L(P,f)
+\\
+&amp; =
+\left(
+\sum_{i=1}^n
+M_i \Delta x_i
+\right)
+-
+\left(
+\sum_{i=1}^n
+m_i \Delta x_i
+\right)
+\\
+&amp; =
+\sum_{i=1}^n
+(M_i-m_i) \Delta x_i
+\\
+&amp; &lt;
+\frac{\epsilon}{b-a}
+\sum_{i=1}^n
+\Delta x_i
+\\
+&amp; =
+\frac{\epsilon}{b-a} (b-a)
+= \epsilon .
+\end{split}
+\end{equation}
+</div>
+<div class="para">As <span class="process-math">\(\epsilon &gt; 0\)</span> was arbitrary,</div>
+<div class="displaymath process-math" id="sec_rintprop-5-4-2-22">
+\begin{equation}
+\overline{\int_a^b} f = \underline{\int_a^b} f ,
+\end{equation}
+</div>
+<div class="para">and <span class="process-math">\(f\)</span> is Riemann integrable on <span class="process-math">\([a,b]\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.3.1"><a href="#sec_rintprop-5-4" title="Copy heading and permalink for Proof 5.2.3.1" aria-label="Copy heading and permalink for Proof 5.2.3.1">🔗</a></div>
+</article>
+<div class="para" id="sec_rintprop-5-5">The second lemma says that we need the function to only be “Riemann integrable inside the interval,” as long as it is bounded.  It also tells us how to compute the integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="lemma_boundedimpriemann"><h4 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="lemma_boundedimpriemann-1-1">
+<div class="para">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be a bounded function, <span class="process-math">\(\{ a_n \}_{n=1}^\infty\)</span> and <span class="process-math">\(\{b_n \}_{n=1}^\infty\)</span> be sequences such that <span class="process-math">\(a &lt; a_n &lt; b_n &lt; b\)</span> for all <span class="process-math">\(n\text{,}\)</span> with <span class="process-math">\(\lim_{n\to\infty} a_n = a\)</span> and <span class="process-math">\(\lim_{n\to\infty} b_n = b\text{.}\)</span> Suppose <span class="process-math">\(f \in \sR\bigl([a_n,b_n]\bigr)\)</span> for all <span class="process-math">\(n\text{.}\)</span> Then <span class="process-math">\(f \in \sR\bigl([a,b]\bigr)\)</span> and</div>
+<div class="displaymath process-math" id="lemma_boundedimpriemann-1-1-11">
+\begin{equation}
+\int_a^b f = 
+\lim_{n \to \infty} \int_{a_n}^{b_n} f .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lemma_boundedimpriemann-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 5.2.8"><a href="#lemma_boundedimpriemann" title="Copy heading and permalink for Lemma 5.2.8" aria-label="Copy heading and permalink for Lemma 5.2.8">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-5-7"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-5-7-1">
+<div class="para">Let <span class="process-math">\(M &gt; 0\)</span> be a real number such that <span class="process-math">\(\babs{f(x)} \leq M\text{.}\)</span> As <span class="process-math">\((b-a) \geq (b_n-a_n)\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_bwseq.html" id="sec_rintprop-5-7-1-4">
+\begin{equation}
+-M(b-a) \leq
+-M(b_n-a_n) \leq
+\int_{a_n}^{b_n} f
+\leq
+M(b_n-a_n) \leq
+M(b-a) .
+\end{equation}
+</div>
+<div class="para">Therefore, the sequence of numbers <span class="process-math">\(\bigl\{ \int_{a_n}^{b_n} f \bigr\}_{n=1}^\infty\)</span> is bounded and by <a href="sec_bw.html#thm_bwseq" class="xref" data-knowl="./knowl/xref/thm_bwseq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.8: Bolzano–Weierstrass">Bolzano–Weierstrass</a> has a convergent subsequence indexed by <span class="process-math">\(n_k\text{.}\)</span>  Let us call <span class="process-math">\(L\)</span> the limit of the subsequence <span class="process-math">\(\bigl\{ \int_{a_{n_k}}^{b_{n_k}} f \bigr\}_{k=1}^\infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_rintprop-5-7-2">
+<div class="para">
+<a href="sec_rintprop.html#lemma_darbouxadd" class="xref" data-knowl="./knowl/xref/lemma_darbouxadd.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 5.2.1">Lemma 5.2.1</a> says that the lower and upper integral are additive and the hypothesis says that <span class="process-math">\(f\)</span> is integrable on <span class="process-math">\([a_{n_k},b_{n_k}]\text{.}\)</span> Therefore,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lemma_darbouxadd.html" id="sec_rintprop-5-7-2-4">
+\begin{equation}
+\underline{\int_a^b} f
+=
+\underline{\int_a^{a_{n_k}}} f
++
+\int_{a_{n_k}}^{b_{n_k}} f
++
+\underline{\int_{b_{n_k}}^b} f
+\geq
+-M(a_{n_k}-a)
++
+\int_{a_{n_k}}^{b_{n_k}} f
+-
+M(b-b_{n_k}) .
+\end{equation}
+</div>
+<div class="para">We take the limit as <span class="process-math">\(k\)</span> goes to <span class="process-math">\(\infty\)</span> on the right-hand side,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lemma_darbouxadd.html" id="sec_rintprop-5-7-2-7">
+\begin{equation}
+\underline{\int_a^b} f
+\geq
+-M\cdot 0
++
+L
+-
+M\cdot 0
+= L .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_rintprop-5-7-3">
+<div class="para">Next we use additivity of the upper integral,</div>
+<div class="displaymath process-math" id="sec_rintprop-5-7-3-1">
+\begin{equation}
+\overline{\int_a^b} f
+=
+\overline{\int_a^{a_{n_k}}} f
++
+\int_{a_{n_k}}^{b_{n_k}} f
++
+\overline{\int_{b_{n_k}}^b} f
+\leq
+M(a_{n_k}-a)
++
+\int_{a_{n_k}}^{b_{n_k}} f
++
+M(b-b_{n_k}) .
+\end{equation}
+</div>
+<div class="para">We take the same subsequence <span class="process-math">\(\{ \int_{a_{n_k}}^{b_{n_k}} f \}_{k=1}^\infty\)</span> and take the limit to obtain</div>
+<div class="displaymath process-math" id="sec_rintprop-5-7-3-3">
+\begin{equation}
+\overline{\int_a^b} f
+\leq
+M\cdot 0
++
+L
++
+M\cdot 0
+= L .
+\end{equation}
+</div>
+<div class="para">Thus <span class="process-math">\(\overline{\int_a^b} f = \underline{\int_a^b} f = L\)</span> and hence <span class="process-math">\(f\)</span> is Riemann integrable and <span class="process-math">\(\int_a^b f = L\text{.}\)</span> In particular, no matter what subsequence we choose, the <span class="process-math">\(L\)</span> is the same number.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_rintprop-5-7-4">To prove the final statement of the lemma we use <a href="sec_bw.html#seqconvsubseqconv_prop" class="xref" data-knowl="./knowl/xref/seqconvsubseqconv_prop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.3.7">Proposition 2.3.7</a>.  We have shown that every convergent subsequence <span class="process-math">\(\bigl\{ \int_{a_{n_k}}^{b_{n_k}} f \bigr\}_{k=1}^\infty\)</span> converges to <span class="process-math">\(L = \int_a^b f\text{.}\)</span> Therefore, the sequence <span class="process-math">\(\bigl\{ \int_{a_n}^{b_n} f \bigr\}_{n=1}^\infty\)</span> is convergent and converges to <span class="process-math">\(\int_a^b f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.3.2"><a href="#sec_rintprop-5-7" title="Copy heading and permalink for Proof 5.2.3.2" aria-label="Copy heading and permalink for Proof 5.2.3.2">🔗</a></div>
+</article>
+<div class="para" id="sec_rintprop-5-8">We say a function <span class="process-math">\(f \colon [a,b] \to \R\)</span> has <em class="emphasis">finitely many discontinuities</em> if there exists a finite set <span class="process-math">\(S = \{ x_1, x_2, \ldots, x_n \}
+\subset [a,b]\text{,}\)</span> and <span class="process-math">\(f\)</span> is continuous at all points of <span class="process-math">\([a,b] \setminus S\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="sec_rintprop-5-9"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_rintprop-5-9-1-1">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be a bounded function with finitely many discontinuities.  Then <span class="process-math">\(f \in \sR\bigl([a,b]\bigr)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.2.9"><a href="#sec_rintprop-5-9" title="Copy heading and permalink for Theorem 5.2.9" aria-label="Copy heading and permalink for Theorem 5.2.9">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-5-10"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-5-10-1">We divide the interval into finitely many intervals <span class="process-math">\([a_i,b_i]\)</span> so that <span class="process-math">\(f\)</span> is continuous on the interior <span class="process-math">\((a_i,b_i)\text{.}\)</span>  If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\((a_i,b_i)\text{,}\)</span> then it is continuous and hence integrable on <span class="process-math">\([c_i,d_i]\)</span> whenever <span class="process-math">\(a_i &lt; c_i &lt; d_i &lt; b_i\text{.}\)</span>  By <a href="sec_rintprop.html#lemma_boundedimpriemann" class="xref" data-knowl="./knowl/xref/lemma_boundedimpriemann.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 5.2.8">Lemma 5.2.8</a>, the restriction of <span class="process-math">\(f\)</span> to <span class="process-math">\([a_i,b_i]\)</span> is integrable. By additivity of the integral (and <a href="sec_basicset.html#induction_thm" class="xref" data-knowl="./knowl/xref/induction_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 0.3.6: Principle of induction">induction</a>), <span class="process-math">\(f\)</span> is integrable on the union of the intervals.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-5-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.3.3"><a href="#sec_rintprop-5-10" title="Copy heading and permalink for Proof 5.2.3.3" aria-label="Copy heading and permalink for Proof 5.2.3.3">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 5.2.3: Continuous functions"><a href="#sec_rintprop-5" title="Copy heading and permalink for Subsection 5.2.3: Continuous functions" aria-label="Copy heading and permalink for Subsection 5.2.3: Continuous functions">🔗</a></div>
+</section>
+<section class="subsection" id="sec_rintprop-6">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More on integrable functions</span>
+</h3>
+<div class="para" id="sec_rintprop-6-2">Sometimes it is convenient (or necessary) to change certain values of a function and then integrate.  The next result says that if we change the values at finitely many points, the integral does not change.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="sec_rintprop-6-3"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_rintprop-6-3-1-1">
+<div class="para">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be Riemann integrable.  Let <span class="process-math">\(g \colon [a,b] \to
+\R\)</span> be such that <span class="process-math">\(f(x) = g(x)\)</span> for all <span class="process-math">\(x \in [a,b] \setminus S\text{,}\)</span> where <span class="process-math">\(S\)</span> is a finite set. Then <span class="process-math">\(g\)</span> is Riemann integrable and</div>
+<div class="displaymath process-math" id="sec_rintprop-6-3-1-1-7">
+\begin{equation}
+\int_a^b g = \int_a^b f.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 5.2.10"><a href="#sec_rintprop-6-3" title="Copy heading and permalink for Proposition 5.2.10" aria-label="Copy heading and permalink for Proposition 5.2.10">🔗</a></div>
+</article>
+<article class="proof" id="sec_rintprop-6-4"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-6-4-1">
+<em class="emphasis">(Sketch of proof)</em> Using additivity of the integral, split the interval <span class="process-math">\([a,b]\)</span> into smaller intervals such that <span class="process-math">\(f(x) = g(x)\)</span> holds for all <span class="process-math">\(x\)</span> except at the endpoints (details are left to the reader).<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-6-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_rintprop-6-4-2">Therefore, without loss of generality suppose <span class="process-math">\(f(x) = g(x)\)</span> for all <span class="process-math">\(x \in (a,b)\text{.}\)</span>  The proof follows by <a href="sec_rintprop.html#lemma_boundedimpriemann" class="xref" data-knowl="./knowl/xref/lemma_boundedimpriemann.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 5.2.8">Lemma 5.2.8</a>, and is left as <a href="sec_rintprop.html#exercise_changeendpointsintegral" class="xref" data-knowl="./knowl/xref/exercise_changeendpointsintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.3">Exercise 5.2.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-6-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.2.4.1"><a href="#sec_rintprop-6-4" title="Copy heading and permalink for Proof 5.2.4.1" aria-label="Copy heading and permalink for Proof 5.2.4.1">🔗</a></div>
+</article>
+<div class="para" id="sec_rintprop-6-5">Finally, monotone (increasing or decreasing) functions are always Riemann integrable.  The proof is left to the reader as part of <a href="sec_rintprop.html#exercise_boundedvariationintegrable" class="xref" data-knowl="./knowl/xref/exercise_boundedvariationintegrable.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.14">Exercise 5.2.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-6-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_monotoneintegrable"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="prop_monotoneintegrable-1-1">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be a monotone function.  Then <span class="process-math">\(f \in
+\sR\bigl([a,b]\bigr)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_monotoneintegrable-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 5.2.11"><a href="#prop_monotoneintegrable" title="Copy heading and permalink for Proposition 5.2.11" aria-label="Copy heading and permalink for Proposition 5.2.11">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 5.2.4: More on integrable functions"><a href="#sec_rintprop-6" title="Copy heading and permalink for Subsection 5.2.4: More on integrable functions" aria-label="Copy heading and permalink for Subsection 5.2.4: More on integrable functions">🔗</a></div>
+</section>
+<section class="exercises" id="sec_rintprop-7">
+<h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise_proofoflinpropparti"><h4 class="heading"><span class="codenumber">5.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="exercise_proofoflinpropparti-1-1">
+<div class="para">Finish the proof of the first part of <a href="sec_rintprop.html#prop_integrallinear" class="xref" data-knowl="./knowl/xref/prop_integrallinear.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.2.4: Linearity">Proposition 5.2.4</a>. Let <span class="process-math">\(f\)</span> be in <span class="process-math">\(\sR\bigl([a,b]\bigr)\text{.}\)</span>  Prove that <span class="process-math">\(-f\)</span> is in <span class="process-math">\(\sR\bigl([a,b]\bigr)\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_integrallinear.html" id="exercise_proofoflinpropparti-1-1-6">
+\begin{equation}
+\int_a^b - f(x) \,dx = - \int_a^b f(x) \,dx .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_proofoflinpropparti-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.1"><a href="#exercise_proofoflinpropparti" title="Copy heading and permalink for Exercise 5.2.1" aria-label="Copy heading and permalink for Exercise 5.2.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_proofoflinproppartii"><h4 class="heading"><span class="codenumber">5.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="exercise_proofoflinproppartii-1-1">
+<div class="para">Prove the second part of <a href="sec_rintprop.html#prop_integrallinear" class="xref" data-knowl="./knowl/xref/prop_integrallinear.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.2.4: Linearity">Proposition 5.2.4</a>. Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be in <span class="process-math">\(\sR\bigl([a,b]\bigr)\text{.}\)</span> Prove, without using <a href="sec_rintprop.html#prop_upperlowerlinineq" class="xref" data-knowl="./knowl/xref/prop_upperlowerlinineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.2.5">Proposition 5.2.5</a>, that <span class="process-math">\(f+g\)</span> is in <span class="process-math">\(\sR\bigl([a,b]\bigr)\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_integrallinear.html ./knowl/xref/prop_upperlowerlinineq.html ./knowl/xref/prop_refinement.html" id="exercise_proofoflinproppartii-1-1-8">
+\begin{equation}
+\int_a^b \bigl( f(x)+g(x) \bigr) \,dx = 
+\int_a^b f(x) \,dx 
++
+\int_a^b g(x) \,dx .
+\end{equation}
+</div>
+<div class="para">Hint: One way to do it is to use <a href="sec_rint.html#prop_refinement" class="xref" data-knowl="./knowl/xref/prop_refinement.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.1.7">Proposition 5.1.7</a> to find a single partition <span class="process-math">\(P\)</span> such that <span class="process-math">\(U(P,f)-L(P,f) &lt; \nicefrac{\epsilon}{2}\)</span> and <span class="process-math">\(U(P,g)-L(P,g) &lt; \nicefrac{\epsilon}{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_proofoflinproppartii-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.2"><a href="#exercise_proofoflinproppartii" title="Copy heading and permalink for Exercise 5.2.2" aria-label="Copy heading and permalink for Exercise 5.2.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_changeendpointsintegral"><h4 class="heading"><span class="codenumber">5.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="exercise_changeendpointsintegral-1-1">
+<div class="para">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be Riemann integrable, and <span class="process-math">\(g \colon [a,b] \to \R\)</span> be such that <span class="process-math">\(f(x) = g(x)\)</span> for all <span class="process-math">\(x \in (a,b)\text{.}\)</span> Prove that <span class="process-math">\(g\)</span> is Riemann integrable and that</div>
+<div class="displaymath process-math" id="exercise_changeendpointsintegral-1-1-6">
+\begin{equation}
+\int_a^b g = \int_a^b f.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_changeendpointsintegral-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.3"><a href="#exercise_changeendpointsintegral" title="Copy heading and permalink for Exercise 5.2.3" aria-label="Copy heading and permalink for Exercise 5.2.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-4"><h4 class="heading"><span class="codenumber">5.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-4-1-1">Prove the <em class="emphasis">mean value theorem for integrals</em>: If <span class="process-math">\(f \colon [a,b] \to \R\)</span> is continuous, then there exists a <span class="process-math">\(c \in [a,b]\)</span> such that <span class="process-math">\(\int_a^b f = f(c)(b-a)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.4"><a href="#sec_rintprop-7-4" title="Copy heading and permalink for Exercise 5.2.4" aria-label="Copy heading and permalink for Exercise 5.2.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-5"><h4 class="heading"><span class="codenumber">5.2.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-5-1-1">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be a continuous function such that <span class="process-math">\(f(x) \geq 0\)</span> for all <span class="process-math">\(x \in [a,b]\)</span> and <span class="process-math">\(\int_a^b f = 0\text{.}\)</span>  Prove that <span class="process-math">\(f(x) = 0\)</span> for all <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.5"><a href="#sec_rintprop-7-5" title="Copy heading and permalink for Exercise 5.2.5" aria-label="Copy heading and permalink for Exercise 5.2.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-6"><h4 class="heading"><span class="codenumber">5.2.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-6-1-1">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be a continuous function and <span class="process-math">\(\int_a^b f = 0\text{.}\)</span>  Prove that there exists a <span class="process-math">\(c \in [a,b]\)</span> such that <span class="process-math">\(f(c) = 0\text{.}\)</span> (Compare with the previous exercise.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.6"><a href="#sec_rintprop-7-6" title="Copy heading and permalink for Exercise 5.2.6" aria-label="Copy heading and permalink for Exercise 5.2.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-7"><h4 class="heading"><span class="codenumber">5.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-7-1-1">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> and <span class="process-math">\(g \colon [a,b] \to \R\)</span> be continuous functions such that <span class="process-math">\(\int_a^b f = \int_a^b g\text{.}\)</span> Show that there exists a <span class="process-math">\(c \in [a,b]\)</span> such that <span class="process-math">\(f(c) = g(c)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.7"><a href="#sec_rintprop-7-7" title="Copy heading and permalink for Exercise 5.2.7" aria-label="Copy heading and permalink for Exercise 5.2.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-8"><h4 class="heading"><span class="codenumber">5.2.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-7-8-1-1">
+<div class="para">Let <span class="process-math">\(f \in \sR\bigl([a,b]\bigr)\text{.}\)</span>  Let <span class="process-math">\(\alpha, \beta, \gamma\)</span> be arbitrary numbers in <span class="process-math">\([a,b]\)</span> (not necessarily ordered in any way).  Prove</div>
+<div class="displaymath process-math" id="sec_rintprop-7-8-1-1-4">
+\begin{equation}
+\int_\alpha^\gamma f =
+\int_\alpha^\beta f +
+\int_\beta^\gamma f .
+\end{equation}
+</div>
+<div class="para">Recall what <span class="process-math">\(\int_a^b f\)</span> means if <span class="process-math">\(b \leq a\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.8"><a href="#sec_rintprop-7-8" title="Copy heading and permalink for Exercise 5.2.8" aria-label="Copy heading and permalink for Exercise 5.2.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-9"><h4 class="heading"><span class="codenumber">5.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-9-1-1">Prove <a href="sec_rintprop.html#intsubcor" class="xref" data-knowl="./knowl/xref/intsubcor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.2.3">Corollary 5.2.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.9"><a href="#sec_rintprop-7-9" title="Copy heading and permalink for Exercise 5.2.9" aria-label="Copy heading and permalink for Exercise 5.2.9">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_easyabsint"><h4 class="heading"><span class="codenumber">5.2.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="exercise_easyabsint-1-1">
+<div class="para">Suppose <span class="process-math">\(f \colon [a,b] \to \R\)</span> is bounded and has finitely many discontinuities. Show that as a function of <span class="process-math">\(x\)</span> the expression <span class="process-math">\(\babs{f(x)}\)</span> is bounded with finitely many discontinuities and is thus Riemann integrable.  Then show</div>
+<div class="displaymath process-math" id="exercise_easyabsint-1-1-4">
+\begin{equation}
+\abs{\int_a^b f(x)\,dx} \leq \int_a^b \babs{f(x)}\,dx .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_easyabsint-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.10"><a href="#exercise_easyabsint" title="Copy heading and permalink for Exercise 5.2.10" aria-label="Copy heading and permalink for Exercise 5.2.10">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-11"><h4 class="heading"><span class="codenumber">5.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-11-1-1">
+<em class="emphasis">(Hard)</em>   Show that the Thomae or popcorn function (see <a href="sec_cont.html#popcornfunction_example" class="xref" data-knowl="./knowl/xref/popcornfunction_example.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.12">Example 3.2.12</a>) is Riemann integrable.  Therefore, there exists a function discontinuous at all rational numbers (a dense set) that is Riemann integrable.<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="sec_rintprop-7-11-1-2">
+<div class="para">That is, define <span class="process-math">\(f \colon [0,1] \to \R\)</span> by <span class="process-math">\(f(0)=1\)</span> and for <span class="process-math">\(x &gt; 0\)</span> by</div>
+<div class="displaymath process-math" id="sec_rintprop-7-11-1-2-4">
+\begin{equation}
+f(x) \coloneqq 
+\begin{cases}
+\nicefrac{1}{k} &amp; \text{if } x=\nicefrac{m}{k} \text{ where }
+m,k \in \N \text{ and } m \text{ and } k \text{ have no common divisors,} \\
+0               &amp; \text{if } x \text{ is irrational.}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">Show <span class="process-math">\(\int_0^1 f = 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-11-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.11"><a href="#sec_rintprop-7-11" title="Copy heading and permalink for Exercise 5.2.11" aria-label="Copy heading and permalink for Exercise 5.2.11">🔗</a></div>
+</article>
+<div class="para logical" id="sec_rintprop-7-12">
+<div class="para">If <span class="process-math">\(I \subset \R\)</span> is a bounded interval, then the function</div>
+<div class="displaymath process-math" id="sec_rintprop-7-12-2">
+\begin{equation}
+\varphi_I(x) \coloneqq
+\begin{cases}
+1 &amp; \text{if } x \in I, \\
+0 &amp; \text{otherwise,}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">is called an <em class="emphasis">elementary step function</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="exercise_stepfunctionintegrable"><h4 class="heading"><span class="codenumber">5.2.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_stepfunctionintegrable-1-1">Let <span class="process-math">\(I\)</span> be an arbitrary bounded interval (you should consider all types of intervals: closed, open, half-open) and <span class="process-math">\(a &lt; b\text{,}\)</span> then using only the definition of the integral show that the elementary step function <span class="process-math">\(\varphi_I\)</span> is integrable on <span class="process-math">\([a,b]\text{,}\)</span> and find the integral in terms of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and the endpoints of <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_stepfunctionintegrable-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.12"><a href="#exercise_stepfunctionintegrable" title="Copy heading and permalink for Exercise 5.2.12" aria-label="Copy heading and permalink for Exercise 5.2.12">🔗</a></div>
+</article>
+<div class="para logical" id="sec_rintprop-7-14">
+<div class="para">A function <span class="process-math">\(f\)</span> is called a <em class="emphasis">step function</em> if it can be written as</div>
+<div class="displaymath process-math" id="sec_rintprop-7-14-3">
+\begin{equation}
+f(x) = \sum_{k=1}^n \alpha_k \varphi_{I_k} (x)
+\end{equation}
+</div>
+<div class="para">for some real numbers <span class="process-math">\(\alpha_1,\alpha_2, \ldots, \alpha_n\)</span> and some bounded intervals <span class="process-math">\(I_1,I_2,\ldots,I_n\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec_rintprop-7-15"><h4 class="heading"><span class="codenumber">5.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_rintprop-7-15-1-1">Using <a href="sec_rintprop.html#exercise_stepfunctionintegrable" class="xref" data-knowl="./knowl/xref/exercise_stepfunctionintegrable.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.12">Exercise 5.2.12</a>, show that a step function (see above) is integrable on every interval <span class="process-math">\([a,b]\text{.}\)</span>  Furthermore, find the integral in terms of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> the endpoints of <span class="process-math">\(I_k\)</span> and the <span class="process-math">\(\alpha_k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.13"><a href="#sec_rintprop-7-15" title="Copy heading and permalink for Exercise 5.2.13" aria-label="Copy heading and permalink for Exercise 5.2.13">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_boundedvariationintegrable"><h4 class="heading"><span class="codenumber">5.2.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_boundedvariationintegrable-1-1">Let <span class="process-math">\(f \colon [a,b] \to \R\)</span> be a function.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_boundedvariationintegrable-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="exercise_boundedvariationintegrable-1-2">
+<li id="exercise_boundedvariationintegrable-1-2-1">
+<div class="para" id="exercise_boundedvariationintegrable-1-2-1-1">Show that if <span class="process-math">\(f\)</span> is increasing, then it is Riemann integrable.  Hint: Use a uniform partition; each subinterval of same length.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_boundedvariationintegrable-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.14.a"><a href="#exercise_boundedvariationintegrable-1-2-1" title="Copy heading and permalink for Item 5.2.14.a" aria-label="Copy heading and permalink for Item 5.2.14.a">🔗</a></div>
+</li>
+<li id="exercise_boundedvariationintegrable-1-2-2">
+<div class="para" id="exercise_boundedvariationintegrable-1-2-2-1">Use part a) to show that if <span class="process-math">\(f\)</span> is decreasing, then it is Riemann integrable.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_boundedvariationintegrable-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.14.b"><a href="#exercise_boundedvariationintegrable-1-2-2" title="Copy heading and permalink for Item 5.2.14.b" aria-label="Copy heading and permalink for Item 5.2.14.b">🔗</a></div>
+</li>
+<li id="exercise_boundedvariationintegrable-1-2-3">
+<div class="para" id="exercise_boundedvariationintegrable-1-2-3-1">Suppose<details class="ptx-footnote" aria-live="polite" id="exercise_boundedvariationintegrable-1-2-3-1-1"><summary class="ptx-footnote__number" title="Footnote 5.2.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="exercise_boundedvariationintegrable-1-2-3-1-1">Such an <span class="process-math">\(h\)</span> is said to be of <em class="emphasis">bounded variation</em>.
+</div></details> <span class="process-math">\(h = f-g\)</span> where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are increasing functions on <span class="process-math">\([a,b]\text{.}\)</span>  Show that <span class="process-math">\(h\)</span> is Riemann integrable.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_boundedvariationintegrable-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.14.c"><a href="#exercise_boundedvariationintegrable-1-2-3" title="Copy heading and permalink for Item 5.2.14.c" aria-label="Copy heading and permalink for Item 5.2.14.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.14"><a href="#exercise_boundedvariationintegrable" title="Copy heading and permalink for Exercise 5.2.14" aria-label="Copy heading and permalink for Exercise 5.2.14">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_hardabsint"><h4 class="heading"><span class="codenumber">5.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_hardabsint-1-1">
+<em class="emphasis">(Challenging)</em>   Suppose <span class="process-math">\(f \in \sR\bigl([a,b]\bigr)\text{.}\)</span>  Prove that the function that takes <span class="process-math">\(x\)</span> to <span class="process-math">\(\babs{f(x)}\)</span> is also Riemann integrable on <span class="process-math">\([a,b]\text{.}\)</span> Then show the same inequality as <a href="sec_rintprop.html#exercise_easyabsint" class="xref" data-knowl="./knowl/xref/exercise_easyabsint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.2.10">Exercise 5.2.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_hardabsint-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.15"><a href="#exercise_hardabsint" title="Copy heading and permalink for Exercise 5.2.15" aria-label="Copy heading and permalink for Exercise 5.2.15">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_upperlowerlinineq"><h4 class="heading"><span class="codenumber">5.2.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_upperlowerlinineq-1-1">Suppose <span class="process-math">\(f \colon [a,b] \to \R\)</span> and <span class="process-math">\(g \colon [a,b] \to \R\)</span> are bounded.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_upperlowerlinineq-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="exercise_upperlowerlinineq-1-2">
+<li id="exercise_upperlowerlinineq-1-2-1">
+<div class="para" id="exercise_upperlowerlinineq-1-2-1-1">Show <span class="process-math">\(\overline{\int_a^b} (f+g) \leq \overline{\int_a^b}f+\overline{\int_a^b}g\)</span> and <span class="process-math">\(\underline{\int_a^b} (f+g) \geq
+\underline{\int_a^b}f+\underline{\int_a^b}g\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_upperlowerlinineq-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.16.a"><a href="#exercise_upperlowerlinineq-1-2-1" title="Copy heading and permalink for Item 5.2.16.a" aria-label="Copy heading and permalink for Item 5.2.16.a">🔗</a></div>
+</li>
+<li id="exercise_upperlowerlinineq-1-2-2">
+<div class="para" id="exercise_upperlowerlinineq-1-2-2-1">Find example <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> where the inequality is strict.  Hint: <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> should not be Riemann integrable.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_upperlowerlinineq-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.16.b"><a href="#exercise_upperlowerlinineq-1-2-2" title="Copy heading and permalink for Item 5.2.16.b" aria-label="Copy heading and permalink for Item 5.2.16.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.16"><a href="#exercise_upperlowerlinineq" title="Copy heading and permalink for Exercise 5.2.16" aria-label="Copy heading and permalink for Exercise 5.2.16">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_rintprop-7-19"><h4 class="heading"><span class="codenumber">5.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_rintprop-7-19-1-1">
+<div class="para">Suppose <span class="process-math">\(f \colon [a,b] \to \R\)</span> is continuous and <span class="process-math">\(g \colon \R \to \R\)</span> is Lipschitz continuous.  Define</div>
+<div class="displaymath process-math" id="sec_rintprop-7-19-1-1-3">
+\begin{equation}
+h(x) \coloneqq \int_a^b g(t-x) f(t) \, dt .
+\end{equation}
+</div>
+<div class="para">Prove that <span class="process-math">\(h\)</span> is Lipschitz continuous.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_rintprop-7-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.17"><a href="#sec_rintprop-7-19" title="Copy heading and permalink for Exercise 5.2.17" aria-label="Copy heading and permalink for Exercise 5.2.17">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_rieleblem"><h4 class="heading"><span class="codenumber">5.2.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="exercise_rieleblem-1-1">
+<div class="para">Prove a version of the <em class="emphasis">Riemann–Lebesgue Lemma</em> (one of several so named): Suppose <span class="process-math">\(f \colon [a,b] \to \R\)</span> is continuous and define the sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> by</div>
+<div class="displaymath process-math" id="exercise_rieleblem-1-1-4">
+\begin{equation}
+x_n \coloneqq \int_a^b f(t) \sin(nt) \, dt .
+\end{equation}
+</div>
+<div class="para">Prove that <span class="process-math">\(\lim\limits_{n\to\infty} x_n = 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_rieleblem-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.18"><a href="#exercise_rieleblem" title="Copy heading and permalink for Exercise 5.2.18" aria-label="Copy heading and permalink for Exercise 5.2.18">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 5.2.5"><a href="#sec_rintprop-7" title="Copy heading and permalink for Exercises 5.2.5" aria-label="Copy heading and permalink for Exercises 5.2.5">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 5.2: Properties of the integral"><a href="#sec_rintprop" title="Copy heading and permalink for Section 5.2: Properties of the integral" aria-label="Copy heading and permalink for Section 5.2: Properties of the integral">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_rint.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_ftc.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF versions: <tt>https://www.jirka.org/ra/realanal.pdf</tt>,<tt>https://www.jirka.org/ra/realanal2.pdf</tt></em>
+or <tt>https://jirilebl.github.io/ra/realanal.pdf</tt>,<tt>https://jirilebl.github.io/ra/realanal2.pdf</tt></em>
+</span>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let the one-form <span class="process-math">\(\omega\)</span> and the path <span class="process-math">\(\gamma \colon [0,2\pi] \to \R^2\)</span> be defined by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_circlepathrepar.html">
+\begin{equation}
+\omega(x,y) \coloneqq \frac{-y}{x^2+y^2} \,dx + \frac{x}{x^2+y^2} \,dy,
+\qquad
+\gamma(t) \coloneqq \bigl(\cos(t),\sin(t)\bigr) .
+\end{equation}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_circlepathrepar.html">
+\begin{equation}
+\begin{split}
+\int_{\gamma} \omega
+&amp; =
+\int_0^{2\pi}
+\Biggl(
+\frac{-\sin(t)}{{\bigl(\cos(t)\bigr)}^2+{\bigl(\sin(t)\bigr)}^2}
+\bigl(-\sin(t)\bigr)
+\\
+&amp; \phantom{=\int_0^{2\pi}\Biggl(~}
++
+\frac{\cos(t)}{{\bigl(\cos(t)\bigr)}^2+{\bigl(\sin(t)\bigr)}^2}
+\bigl(\cos(t)\bigr)
+\Biggr) \, dt
+\\
+&amp; =
+\int_0^{2\pi}
+1 \, dt
+= 2\pi .
+\end{split}
+\end{equation}
+</div>
+<div class="para">Next, parametrize the same curve as <span class="process-math">\(\alpha \colon [0,1] \to \R^2\)</span> defined by <span class="process-math">\(\alpha(t) \coloneqq \bigl(\cos(2\pi
+t),\sin(2 \pi t)\bigr)\text{,}\)</span> that is, <span class="process-math">\(\alpha\)</span> is a smooth reparametrization of <span class="process-math">\(\gamma\text{.}\)</span> Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_circlepathrepar.html">
+\begin{equation}
+\begin{split}
+\int_{\alpha} \omega
+&amp; =
+\int_0^{1}
+\Biggl(
+\frac{-\sin(2\pi t)}{{\bigl(\cos(2\pi t)\bigr)}^2+{\bigl(\sin(2\pi t)\bigr)}^2}
+\bigl(-2\pi \sin(2\pi t)\bigr)
+\\
+&amp; \phantom{=\int_0^1\Biggl(~}
++
+\frac{\cos(2 \pi t)}{{\bigl(\cos(2 \pi t)\bigr)}^2+{\bigl(\sin(2 \pi t)\bigr)}^2}
+\bigl(2 \pi \cos(2 \pi t)\bigr)
+\Biggr) \, dt
+\\
+&amp; =
+\int_0^{1}
+2\pi \, dt
+= 2\pi .
+\end{split}
+\end{equation}
+</div>
+<div class="para">Finally, reparametrize with <span class="process-math">\(\beta \colon [0,2\pi] \to \R^2\)</span> as <span class="process-math">\(\beta(t) \coloneqq \bigl(\cos(-t),\sin(-t)\bigr)\text{.}\)</span>  Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_circlepathrepar.html">
+\begin{equation}
+\begin{split}
+\int_{\beta} \omega
+&amp; =
+\int_0^{2\pi}
+\Biggl(
+\frac{-\sin(-t)}{{\bigl(\cos(-t)\bigr)}^2+{\bigl(\sin(-t)\bigr)}^2}
+\bigl(\sin(-t)\bigr)
+\\
+&amp; \phantom{=\int_0^{2\pi}\Biggl(~}
++
+\frac{\cos(-t)}{{\bigl(\cos(-t)\bigr)}^2+{\bigl(\sin(-t)\bigr)}^2}
+\bigl(-\cos(-t)\bigr)
+\Biggr) \, dt
+\\
+&amp; =
+\int_0^{2\pi}
+(-1) \, dt
+= -2\pi .
+\end{split}
+\end{equation}
+</div>
+<div class="para">The path <span class="process-math">\(\alpha\)</span> is an orientation preserving reparametrization of <span class="process-math">\(\gamma\text{,}\)</span> and the integrals are the same.  The path <span class="process-math">\(\beta\)</span> is an orientation reversing reparametrization of <span class="process-math">\(\gamma\)</span> and the integral is minus the original.  See <a href="sec_pathintegral.html#fig_circlepathrepar" class="internal" title="Figure 9.5">Figure 9.5</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example_mv_irrotoneformint-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="rahr">
+<figure class="figure figure-like"><img class="raimg" style="width:343pt; height:159pt; background-color:white; display:block;" src="figures/circlepathrepar-mbx.svg" role="img" alt="A path going counterclockwise around the origin. The point on the positive x-axis is marked as the start and is labeled as gamma of 0 equals alpha of 0 equals beta of 2 pi. The next point on the path in the first quadrant halfway to the positive y-axis is labeled as gamma of pi over 4 equals alpha of one eighth equals beta of 7 pi over 4. The next point on the positive y-axis is labeled as gamma of pi over 2 equals alpha of one quarter equals beta of 3 pi over 2. The next point on the negative x-axis is labeled as gamma of pi equals alpha of one half equals beta of pi. The next point on the negative y-axis is labeled as gamma of 3 pi over 2 equals alpha of three quarters equals beta of pi over 2. The last point, which is the same as the first point, is labeled as gamma of 2 pi equals alpha of one equals beta of 0."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A circular path reparametrized in two different ways. The arrow indicates the orientation of <span class="process-math">\(\gamma\)</span> and <span class="process-math">\(\alpha\text{.}\)</span> The path <span class="process-math">\(\beta\)</span> traverses the circle in the opposite direction.<div class="autopermalink" data-description="Figure 9.5"><a href="#fig_circlepathrepar" title="Copy heading and permalink for Figure 9.5" aria-label="Copy heading and permalink for Figure 9.5">🔗</a></div></figcaption>
+</figure><hr class="rahr">
+<div class="autopermalink" data-description="Example 9.2.11"><a href="#example_mv_irrotoneformint" title="Copy heading and permalink for Example 9.2.11" aria-label="Copy heading and permalink for Example 9.2.11">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_pathintegral.html#example_mv_irrotoneformint">In Context</a></span>
+</body>
+</html>

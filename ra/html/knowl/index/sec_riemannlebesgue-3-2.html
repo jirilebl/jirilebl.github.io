@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Consider <span class="process-math">\(D \subset \R^n\)</span> and <span class="process-math">\(f \colon D \to \R\text{.}\)</span> Instead of just saying that <span class="process-math">\(f\)</span> is or is not continuous at a point <span class="process-math">\(x \in D\text{,}\)</span> we want to quantify how discontinuous <span class="process-math">\(f\)</span> is at <span class="process-math">\(x\text{.}\)</span> For every <span class="process-math">\(\delta &gt; 0\text{,}\)</span> define the <em class="emphasis">oscillation</em> of <span class="process-math">\(f\)</span> on the <span class="process-math">\(\delta\)</span>-ball in subspace topology, <span class="process-math">\(B_D(x,\delta) = B_{\R^n}(x,\delta) \cap D\text{,}\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation}
+o(f,x,\delta) \coloneqq
+{\sup_{y \in B_D(x,\delta)} f(y)}
+-
+{\inf_{y \in B_D(x,\delta)} f(y)}
+= 
+\sup_{y_1,y_2 \in B_D(x,\delta)} \bigl(f(y_1)-f(y_2)\bigr) .
+\end{equation}
+</div>
+<div class="para">That is, <span class="process-math">\(o(f,x,\delta)\)</span> is the length of the smallest interval that contains the image <span class="process-math">\(f\bigl(B_D(x,\delta)\bigr)\text{.}\)</span> The definition makes sense for unbounded functions, where the oscillation can be <span class="process-math">\(\infty\text{,}\)</span> although we will mainly consider bounded functions. Clearly <span class="process-math">\(o(f,x,\delta) \geq 0\)</span> and <span class="process-math">\(o(f,x,\delta) \leq o(f,x,\delta')\)</span> whenever <span class="process-math">\(\delta &lt; \delta'\text{.}\)</span> Therefore, the limit as <span class="process-math">\(\delta \to 0\)</span> from the right exists, and we define the <em class="emphasis">oscillation</em> of <span class="process-math">\(f\)</span> at <span class="process-math">\(x\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation}
+o(f,x) \coloneqq
+\lim_{\delta \to 0^+}
+o(f,x,\delta) =
+\inf_{\delta &gt; 0}
+o(f,x,\delta) .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_riemannlebesgue-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="sec_riemannlebesgue.html#sec_riemannlebesgue-3-2">In Context</a></span>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para">The series <span class="process-math">\(\sum_{n=1}^\infty \nicefrac{1}{n}\)</span> diverges (despite the fact that <span class="process-math">\(\lim_{n\to\infty} \nicefrac{1}{n} = 0\)</span>). This is the famous <em class="emphasis">harmonic series</em><details class="ptx-footnote" aria-live="polite" id="example_harmonicseries-1-1-4"><summary class="ptx-footnote__number" title="Footnote 2.5.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="example_harmonicseries-1-1-4">The divergence of the harmonic series was known long before the theory of series was made rigorous.  The proof we give is the earliest proof and was given by <a class="external" href="https://en.wikipedia.org/wiki/Oresme" target="_blank">Nicole Oresme</a> (1323?–1382).
+</div></details>.<div class="autopermalink" data-description="Paragraph"><a href="#example_harmonicseries-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
+<div class="para">Proof: We will show that the sequence of partial sums is unbounded, and hence cannot converge. Write the partial sums <span class="process-math">\(s_n\)</span> for <span class="process-math">\(n = 2^k\)</span> as:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_arch_i.html">
+\begin{equation}
+\begin{aligned}
+s_1 &amp; = 1 , \\
+s_2 &amp; = \left( 1 \right) + \left( \frac{1}{2} \right) , \\
+s_4 &amp; = \left( 1 \right) + \left( \frac{1}{2} \right) +
+\left( \frac{1}{3} + \frac{1}{4} \right) , \\
+s_8 &amp; = \left( 1 \right) + \left( \frac{1}{2} \right) +
+\left( \frac{1}{3} + \frac{1}{4} \right) +
+\left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) , \\
+&amp; ~~ \vdots \\
+s_{2^k} &amp; = 
+1 + 
+\sum_{i=1}^k
+\left(
+\sum_{m=2^{i-1}+1}^{2^i} \frac{1}{m}
+\right) .
+\end{aligned}
+\end{equation}
+</div>
+<div class="para">Notice <span class="process-math">\(\nicefrac{1}{3} + \nicefrac{1}{4} \geq \nicefrac{1}{4} + \nicefrac{1}{4} =
+\nicefrac{1}{2}\)</span> and <span class="process-math">\(\nicefrac{1}{5} + \nicefrac{1}{6} + \nicefrac{1}{7} + \nicefrac{1}{8}
+\geq \nicefrac{1}{8} + \nicefrac{1}{8} + \nicefrac{1}{8} + \nicefrac{1}{8} =
+\nicefrac{1}{2}\text{.}\)</span>  More generally</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_arch_i.html">
+\begin{equation}
+\sum_{m=2^{k-1}+1}^{2^k} \frac{1}{m}
+\geq
+\sum_{m=2^{k-1}+1}^{2^k} \frac{1}{2^k}
+=
+(2^{k-1}) \frac{1}{2^k} = \frac{1}{2} .
+\end{equation}
+</div>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_arch_i.html">
+\begin{equation}
+s_{2^k} = 
+1 + 
+\sum_{i=1}^k
+\left(
+\sum_{m=2^{i-1}+1}^{2^i} \frac{1}{m}
+\right) 
+\geq
+1 + \sum_{i=1}^k \frac{1}{2} = 1 + \frac{k}{2} .
+\end{equation}
+</div>
+<div class="para">As <span class="process-math">\(\{ \nicefrac{k}{2} \}_{k=1}^\infty\)</span> is unbounded by the <a href="sec_setofreals.html#thm_arch_i" class="xref" data-knowl="./knowl/xref/thm_arch_i.html" data-reveal-label="Reveal" data-close-label="Close" title="Item i">Archimedean property</a>, <span class="process-math">\(\{ s_{2^k} \}_{k=1}^\infty\)</span> is unbounded, and therefore <span class="process-math">\(\{ s_n \}_{n=1}^\infty\)</span> is unbounded. Hence, <span class="process-math">\(\{ s_n \}_{n=1}^\infty\)</span> diverges, and consequently <span class="process-math">\(\sum_{n=1}^\infty \nicefrac{1}{n}\)</span> diverges.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example_harmonicseries-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.5.11"><a href="#example_harmonicseries" title="Copy heading and permalink for Example 2.5.11" aria-label="Copy heading and permalink for Example 2.5.11">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_series.html#example_harmonicseries">In Context</a></span>
+</body>
+</html>

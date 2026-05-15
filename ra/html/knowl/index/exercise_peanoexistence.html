@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.6.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span>
+</h4>
+<div class="para">Prove the <em class="emphasis">Peano existence theorem</em> (note the weaker hypotheses than Picard, but also the lack of uniqueness in this theorem):<div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
+<div class="para">
+<em class="alert">Theorem:</em> <em class="emphasis">Suppose <span class="process-math">\(F \colon I \times J \to \R\)</span> is a continuous function where <span class="process-math">\(I, J \subset \R\)</span> are closed bounded intervals, let <span class="process-math">\(I^\circ\)</span> and <span class="process-math">\(J^\circ\)</span> be their interiors, and let <span class="process-math">\((x_0,y_0) \in I^\circ \times J^\circ\text{.}\)</span> Then there exists an <span class="process-math">\(h &gt; 0\)</span> and a differentiable function <span class="process-math">\(f \colon [x_0 - h, x_0 + h] \to J \subset \R\text{,}\)</span> such that</em>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+f'(x) = F\bigl(x,f(x)\bigr) \qquad \text{and} \qquad f(x_0) = y_0.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para">We can prove this theorem by applying Euler’s method for numerical solutions to ODE and showing that there is a subsequence of these approximations that converges.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="exercise_peanoexistence-1-4">
+<li>
+<div class="para logical">
+<div class="para">Show that there exists an <span class="process-math">\(h &gt; 0\)</span> so that the following functions <span class="process-math">\(f_n\)</span> and <span class="process-math">\(s_n\)</span> are well-defined on <span class="process-math">\([x_0,x_0+h]\)</span> for all <span class="process-math">\(n \in \N\text{.}\)</span> Define <span class="process-math">\(f_n(x_0) \coloneqq y_0\)</span> and <span class="process-math">\(s_n(x_0) \coloneqq F(x_0,y_0)\)</span> and for each <span class="process-math">\(\ell=0,1,\ldots,n-1\)</span> in turn for <span class="process-math">\(x \in \bigl(x_0+\frac{h\ell}{n},x_0+\frac{h(\ell+1)}{n}\bigr]\)</span> let <span class="process-math">\(s_n(x) \coloneqq F\bigl(x_0+\tfrac{h\ell}{n},
+f_n(x_0+\tfrac{h\ell}{n})\bigr)\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{split}
+f_n(x) &amp; \coloneqq f_n\bigl(x_0+\tfrac{h\ell}{n}\bigr)
++ \bigl(x-x_0-\tfrac{h\ell}{n}\bigr) F\bigl(x_0+\tfrac{h\ell}{n},
+f_n(x_0+\tfrac{h\ell}{n}) \bigr) \\
+&amp; = f_n\bigl(x_0+\tfrac{h\ell}{n}\bigr)
++ \int_{x_0+\tfrac{h\ell}{n}}^x s_n(t) \, dt \\
+&amp; = y_0
++ \int_{x_0}^x s_n(t) \, dt .
+\end{split}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 11.6.11.a"><a href="#exercise_peanoexistence-1-4-1" title="Copy heading and permalink for Item 11.6.11.a" aria-label="Copy heading and permalink for Item 11.6.11.a">🔗</a></div>
+</li>
+<li>
+<div class="para">Show that <span class="process-math">\(\{ f_n \}_{n=1}^\infty\)</span> is equicontinuous (in fact, Lipschitz with the same constant) and uniformly bounded. Arzelà–Ascoli then says that there exists a uniformly convergent subsequence <span class="process-math">\(\{ f_{n_k} \}_{k=1}^\infty\)</span> converging to a continuous <span class="process-math">\(f\)</span> defined on <span class="process-math">\([x_0,x_0+h]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 11.6.11.b"><a href="#exercise_peanoexistence-1-4-2" title="Copy heading and permalink for Item 11.6.11.b" aria-label="Copy heading and permalink for Item 11.6.11.b">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Prove that for all <span class="process-math">\(x \in [x_0,x_0+h]\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\int_{x_0}^x s_{n_k}(t) \, dt
+\quad
+\text{converges to}
+\quad
+\int_{x_0}^x F\bigl(t,f(t)\bigr) \, dt ,
+\end{equation}
+</div>
+<div class="para">and therefore, by applying the fundamental theorem of calculus, <span class="process-math">\(f\)</span> is differentiable on <span class="process-math">\([x_0,x_0+h]\)</span> and <span class="process-math">\(f'(x) = F\bigl(x,f(x)\bigr)\text{.}\)</span> Hint 1: <span class="process-math">\(F\)</span> is uniformly continuous. Hint 2: Show that <span class="process-math">\(s_{n_k}\)</span> converges uniformly.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 11.6.11.c"><a href="#exercise_peanoexistence-1-4-3" title="Copy heading and permalink for Item 11.6.11.c" aria-label="Copy heading and permalink for Item 11.6.11.c">🔗</a></div>
+</li>
+<li>
+<div class="para">Use the solution above to show that <span class="process-math">\(f\)</span> can be defined in <span class="process-math">\([x_0-h,x_0]\)</span> as well, possibly for a smaller <span class="process-math">\(h &gt; 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_peanoexistence-1-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 11.6.11.d"><a href="#exercise_peanoexistence-1-4-4" title="Copy heading and permalink for Item 11.6.11.d" aria-label="Copy heading and permalink for Item 11.6.11.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 11.6.11"><a href="#exercise_peanoexistence" title="Copy heading and permalink for Exercise 11.6.11" aria-label="Copy heading and permalink for Exercise 11.6.11">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_arzelaascoli.html#exercise_peanoexistence">In Context</a></span>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> be defined by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sequence-limsupliminf_an_bn-example.html">
+\begin{equation}
+x_n \coloneqq
+\begin{cases}
+\frac{n+1}{n} &amp; \text{if } n \text{ is odd,} \\
+0             &amp; \text{if } n \text{ is even.}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">Let us compute the <span class="process-math">\(\liminf\)</span> and <span class="process-math">\(\limsup\)</span> of this sequence.  See also <a href="sec_bw.html#sequence-limsupliminf_an_bn-example" class="internal" title="Figure 2.6">Figure 2.6</a>.  First the limit inferior:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sequence-limsupliminf_an_bn-example.html">
+\begin{equation}
+\liminf_{n\to\infty} x_n = 
+\lim_{n\to\infty}
+\bigl(
+\inf \{ x_k : k \geq n \}
+\bigr)
+=
+\lim_{n\to\infty} 0 = 0 .
+\end{equation}
+</div>
+<div class="para">For the limit superior, we write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sequence-limsupliminf_an_bn-example.html">
+\begin{equation}
+\limsup_{n\to\infty} x_n = 
+\lim_{n\to\infty}
+\bigl(
+\sup \{ x_k : k \geq n \}
+\bigr) .
+\end{equation}
+</div>
+<div class="para">It is not hard to see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sequence-limsupliminf_an_bn-example.html">
+\begin{equation}
+\sup \{ x_k : k \geq n \} =
+\begin{cases}
+\frac{n+1}{n}   &amp; \text{if } n \text{ is odd,} \\
+\frac{n+2}{n+1} &amp; \text{if } n \text{ is even.}
+\end{cases}
+\end{equation}
+</div>
+<div class="para">We leave it to the reader to show that the limit is 1.  That is,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sequence-limsupliminf_an_bn-example.html">
+\begin{equation}
+\limsup_{n\to\infty} x_n = 1 .
+\end{equation}
+</div>
+<div class="para">Do note that the sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> is not a convergent sequence.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example_liminfsupex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <hr class="rahr">
+<figure class="figure figure-like"><img class="raimg" style="width:332pt; height:183pt; background-color:white; display:block;" src="figures/sequence-limsupliminf_an_bn-example-mbx.svg" role="img" alt="The same marking as in the previous figure but now for a very specific sequence. The lower dashed line (the lim inf) is the horizontal axis and the upper dashed line is roughly in the middle of the picture. The first dot is high up above the upper dashed line and a circle is at the same place, while the diamond is on the horizontal axis. In fact, all the diamonds are on the horizontal axis. The second dot is on the horizontal axis, but the circle is above the upper dashed line but lower than the first dot. The third dot is at the same height as the second circle and the third circle is at the same spot. The pattern now keeps repeating as the dots for odd n and the circles get closer and closer to the upper dashed line from above."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>First 20 terms of the sequence in <a href="sec_bw.html#example_liminfsupex" class="xref" data-knowl="./knowl/xref/example_liminfsupex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.3.3">Example 2.3.3</a>. The marking is as in <a href="sec_bw.html#sequence-limsupliminf_an_bn" class="internal" title="Figure 2.5">Figure 2.5</a>.<div class="autopermalink" data-description="Figure 2.6"><a href="#sequence-limsupliminf_an_bn-example" title="Copy heading and permalink for Figure 2.6" aria-label="Copy heading and permalink for Figure 2.6">🔗</a></div></figcaption>
+</figure><hr class="rahr">
+<div class="autopermalink" data-description="Example 2.3.3"><a href="#example_liminfsupex" title="Copy heading and permalink for Example 2.3.3" aria-label="Copy heading and permalink for Example 2.3.3">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_bw.html#example_liminfsupex">In Context</a></span>
+</body>
+</html>

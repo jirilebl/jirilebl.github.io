@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-darkmode="disabled">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta charset="UTF-8">
+<title>RA Completeness and compactness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="extra.css">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Basic Analysis I &amp; II">
+<meta property="book:author" content="Jiří Lebl">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+<style>
+ .hidden-content { display:none; }
+ .print-pdf-warning { display:none; }
+ @media print { .print-pdf-warning { display:inline; } }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="../"><img src="logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="ra.html"><span class="title">Basic Analysis I &amp; II</span> <span class="subtitle">Introduction to Real Analysis, Volumes I &amp; II</span></a></h1>
+<p class="byline">Jiří Lebl</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ra-16-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><a class="index-button button" href=".." title="Home" alt="Book Home"><span class="name">Home</span></a>
+<a class="index-button button" href="../realanal.pdf" title="PDF"><span class="name">PDF(I)</span></a>
+<a class="index-button button" href="../realanal2.pdf" title="PDF"><span class="name">PDF(II)</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/B0C9S99TKF" title="Paperback" alt="Buy Paperback"><span class="name">Book(I)</span></a>
+<a class="index-button button" href="https://www.amazon.com/dp/B0C9S7P6M8" title="Paperback" alt="Buy Paperback"><span class="name">Book(II)</span></a>
+<div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_metseqs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ms_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_metcont.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\require{mathtools}\newcommand{\avoidbreak}{\postdisplaypenalty=100}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\aut}{\operatorname{aut}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\sing}{\operatorname{sing}}
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+\newcommand{\babs}[1]{\bigl\lvert {#1} \bigr\rvert}
+\newcommand{\bnorm}[1]{\bigl\lVert {#1} \bigr\rVert}
+\newcommand{\Babs}[1]{\Bigl\lvert {#1} \Bigr\rvert}
+\newcommand{\Bnorm}[1]{\Bigl\lVert {#1} \Bigr\rVert}
+\newcommand{\bbabs}[1]{\biggl\lvert {#1} \biggr\rvert}
+\newcommand{\bbnorm}[1]{\biggl\lVert {#1} \biggr\rVert}
+\newcommand{\BBabs}[1]{\Biggl\lvert {#1} \Biggr\rvert}
+\newcommand{\BBnorm}[1]{\Biggl\lVert {#1} \Biggr\rVert}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bP}{{\mathbb{P}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\bV}{{\mathbb{V}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathscr{A}}}
+\newcommand{\sB}{{\mathscr{B}}}
+\newcommand{\sC}{{\mathscr{C}}}
+\newcommand{\sF}{{\mathscr{F}}}
+\newcommand{\sG}{{\mathscr{G}}}
+\newcommand{\sH}{{\mathscr{H}}}
+\newcommand{\sM}{{\mathscr{M}}}
+\newcommand{\sO}{{\mathscr{O}}}
+\newcommand{\sP}{{\mathscr{P}}}
+\newcommand{\sQ}{{\mathscr{Q}}}
+\newcommand{\sR}{{\mathscr{R}}}
+\newcommand{\sS}{{\mathscr{S}}}
+\newcommand{\sI}{{\mathscr{I}}}
+\newcommand{\sL}{{\mathscr{L}}}
+\newcommand{\sK}{{\mathscr{K}}}
+\newcommand{\sU}{{\mathscr{U}}}
+\newcommand{\sV}{{\mathscr{V}}}
+\newcommand{\sX}{{\mathscr{X}}}
+\newcommand{\sY}{{\mathscr{Y}}}
+\newcommand{\sZ}{{\mathscr{Z}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+\newcommand{\interior}{\operatorname{int}}
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\myincludegraphics}[3][]{\includegraphics[#1]{figures/#2}}
+\newcommand{\myincludepdft}[2]{\subimport*{figures/}{#1.pdf_t}}
+\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+\newcommand{\noalign}[1]{}
+\newcommand{\qed}{\qquad \Box}
+\newcommand{\qedhere}{}
+\newcommand{\widebar}[1]{\overline{#1}}
+\newcommand{\coloneqq}{:=}
+\newcommand{\allowbreak}{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="ra-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ra-4.html" class="internal"><span class="codenumber">0</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ra-4-2.html" class="internal"><span class="codenumber">0.1</span> <span class="title">About this book</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ra-4-2.html#ra-4-2-2" class="internal"><span class="codenumber">0.1.1</span> <span class="title">About Volume I</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ra-4-2.html#ra-4-2-3" class="internal"><span class="codenumber">0.1.2</span> <span class="title">About Volume II</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_aboutra.html" class="internal"><span class="codenumber">0.2</span> <span class="title">About analysis</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_basicset.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Basic set theory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-4" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-5" class="internal"><span class="codenumber">0.3.2</span> <span class="title">Induction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-6" class="internal"><span class="codenumber">0.3.3</span> <span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-7" class="internal"><span class="codenumber">0.3.4</span> <span class="title">Relations and equivalence classes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-8" class="internal"><span class="codenumber">0.3.5</span> <span class="title">Cardinality</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_basicset.html#sec_basicset-9" class="internal"><span class="codenumber">0.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="rn_chapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_basicpropsrn.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic properties</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_basicpropsrn.html#sec_basicpropsrn-33" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_setofreals.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The set of real numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-3" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The set of real numbers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-4" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Archimedean property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-5" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Using supremum and infimum</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-6" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Maxima and minima</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_setofreals.html#sec_setofreals-7" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_absval.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Absolute value and bounded functions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_absval.html#sec_absval-26" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_intandsizeR.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Intervals and the size of <span class="process-math">\(\R\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_intandsizeR.html#sec_intandsizeR-14" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_decimals.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Decimal representation of the reals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_decimals.html#sec_decimals-19" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="seq_chapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_seqsandlims.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Sequences and limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Monotone sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Tail of a sequence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Subsequences</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_seqsandlims.html#sec_seqsandlims-6" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_factslimsseqs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Facts about limits of sequences</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Limits and inequalities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Continuity of algebraic operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Recursively defined sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-6" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Some convergence tests</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_factslimsseqs.html#sec_factslimsseqs-7" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_bw.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Limit superior, limit inferior, and Bolzano–Weierstrass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-3" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Upper and lower limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-4" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Using limit inferior and limit superior</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Bolzano–Weierstrass theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-6" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Infinite limits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_bw.html#sec_bw-7" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_cauchy.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Cauchy sequences</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_cauchy.html#sec_cauchy-14" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-3" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Definition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-4" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Cauchy series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-5" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-6" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Absolute convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-7" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Comparison test and the <span class="process-math">\(p\)</span>-series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_series.html#sec_series-8" class="internal"><span class="codenumber">2.5.6</span> <span class="title">Ratio test</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_series.html#sec_series-9" class="internal"><span class="codenumber">2.5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_moreonseries.html" class="internal"><span class="codenumber">2.6</span> <span class="title">More on series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-3" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Root test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-4" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Alternating series test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-5" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Rearrangements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-6" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Multiplication of series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-7" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Power series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_moreonseries.html#sec_moreonseries-8" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="lim_chapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Continuous Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_limoffunc.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Limits of functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Cluster points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Limits of functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#subseq_sequentiallimits" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Sequential limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Limits of restrictions and one-sided limits</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_limoffunc.html#sec_limoffunc-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_cont.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Continuous functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Definition and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Composition of continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Discontinuous functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_cont.html#sec_cont-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_minmaxint.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Extreme and intermediate value theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Min-max or extreme value theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Bolzano’s intermediate value theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_minmaxint.html#sec_minmaxint-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_unifcont.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Uniform continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Uniform continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Continuous extension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Lipschitz continuous functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_unifcont.html#sec_unifcont-6" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_limitatinf.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Limits at infinity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-3" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Limits at infinity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-4" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Infinite limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-5" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Compositions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_limitatinf.html#sec_limitatinf-6" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_monotonefunc.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Monotone functions and continuity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-3" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Continuity of monotone functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-4" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Continuity of inverse functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_monotonefunc.html#sec_monotonefunc-5" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="der_chapter.html" class="internal"><span class="codenumber">4</span> <span class="title">The Derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_der.html" class="internal"><span class="codenumber">4.1</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_der.html#sec_der-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Definition and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_der.html#sec_der-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Chain rule</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_der.html#sec_der-5" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvt.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Mean value theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Relative minima and maxima</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Rolle’s theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Mean value theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Applications</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-7" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Continuity of derivatives and the intermediate value theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvt.html#sec_mvt-8" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_taylor.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Taylor’s theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Derivatives of higher orders</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Taylor’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_taylor.html#sec_taylor-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ift.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Inverse function theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ift.html#sec_ift-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Inverse function theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ift.html#sec_ift-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="int_chapter.html" class="internal"><span class="codenumber">5</span> <span class="title">The Riemann Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rint.html" class="internal"><span class="codenumber">5.1</span> <span class="title">The Riemann integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Partitions and lower and upper integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-4" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Riemann integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-5" class="internal"><span class="codenumber">5.1.3</span> <span class="title">More notation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rint.html#sec_rint-6" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rintprop.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Properties of the integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-3" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Additivity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-4" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Linearity and monotonicity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-5" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-6" class="internal"><span class="codenumber">5.2.4</span> <span class="title">More on integrable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rintprop.html#sec_rintprop-7" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_ftc.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Fundamental theorem of calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">First form of the theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Second form of the theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Change of variables</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_ftc.html#sec_ftc-6" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_logandexp.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The logarithm and the exponential</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-3" class="internal"><span class="codenumber">5.4.1</span> <span class="title">The logarithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-4" class="internal"><span class="codenumber">5.4.2</span> <span class="title">The exponential</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_logandexp.html#sec_logandexp-5" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_impropriemann.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Improper integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_impropriemann.html#sec_impropriemann-3" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Integral test for series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_impropriemann.html#sec_impropriemann-4" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fs_chapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Sequences of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_puconv.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Pointwise and uniform convergence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-3" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Pointwise convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-4" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Uniform convergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-5" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Convergence in uniform norm</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_puconv.html#sec_puconv-6" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_liminter.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Interchange of limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-3" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Continuity of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-4" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Integral of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-5" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Derivative of the limit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-6" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Convergence of power series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_liminter.html#sec_liminter-7" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_picard.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Picard’s theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-3" class="internal"><span class="codenumber">6.3.1</span> <span class="title">First order ordinary differential equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-4" class="internal"><span class="codenumber">6.3.2</span> <span class="title">The theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-5" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_picard.html#sec_picard-6" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ms_chapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Metric Spaces</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metric.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Metric spaces</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metric.html#sec_metric-34" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mettop.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Open and closed sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Topology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Connected sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Closure and boundary</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mettop.html#sec_mettop-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metseqs.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and convergence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-3" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-4" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Convergence in euclidean space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-5" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Convergence and topology</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metseqs.html#sec_metseqs-6" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_metcompact.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Completeness and compactness</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-3" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Cauchy sequences and completeness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-4" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Compactness</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metcompact.html#sec_metcompact-5" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metcont.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Continuous functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-3" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-4" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Compactness and continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-5" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Continuity and topology</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-6" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Uniform continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-7" class="internal"><span class="codenumber">7.5.5</span> <span class="title">Cluster points and limits of functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metcont.html#sec_metcont-8" class="internal"><span class="codenumber">7.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_metpicard.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fixed point theorem and Picard’s theorem again</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-3" class="internal"><span class="codenumber">7.6.1</span> <span class="title">Fixed point theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-4" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Picard’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_metpicard.html#sec_metpicard-5" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="pd_chapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Several Variables and Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_vectorspaces.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Vector spaces, linear mappings, and convexity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-3" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Vector spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-4" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Linear combinations and dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-5" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Linear mappings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-6" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Convexity</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_vectorspaces.html#sec_vectorspaces-7" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_normsmatsdets.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Analysis with vector spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-3" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Norms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-4" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-5" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_normsmatsdets.html#sec_normsmatsdets-6" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svtheder.html" class="internal"><span class="codenumber">8.3</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-3" class="internal"><span class="codenumber">8.3.1</span> <span class="title">The derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-4" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-5" class="internal"><span class="codenumber">8.3.3</span> <span class="title">Gradients, curves, and directional derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-6" class="internal"><span class="codenumber">8.3.4</span> <span class="title">The Jacobian</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svtheder.html#sec_svtheder-7" class="internal"><span class="codenumber">8.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svthedercont.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Continuity and the derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-3" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Bounding the derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-4" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Continuously differentiable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svthedercont.html#sec_svthedercont-5" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_svinvfuncthm.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Inverse and implicit function theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_svinvfuncthm.html#sec_svinvfuncthm-3" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Implicit function theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_svinvfuncthm.html#sec_svinvfuncthm-4" class="internal"><span class="codenumber">8.5.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvhighordders.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Higher order derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvhighordders.html#sec_mvhighordders-12" class="internal"><span class="codenumber">8.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="path_chapter.html" class="internal"><span class="codenumber">9</span> <span class="title">One-dimensional Integrals in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_diffunderint.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Differentiation under the integral</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_diffunderint.html#sec_diffunderint-11" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pathintegral.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Path integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-3" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Piecewise smooth paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-4" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Path integral of a one-form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-5" class="internal"><span class="codenumber">9.2.3</span> <span class="title">Path integral of a function</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pathintegral.html#sec_pathintegral-6" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pathind.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Path independence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-3" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Path independent integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-4" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Vector fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pathind.html#sec_pathind-5" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="mi_chapter.html" class="internal"><span class="codenumber">10</span> <span class="title">Multivariable Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_rirect.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Riemann integral over rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-3" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Rectangles and partitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-4" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Upper and lower integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-5" class="internal"><span class="codenumber">10.1.3</span> <span class="title">The Riemann integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-6" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Integrals of continuous functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-7" class="internal"><span class="codenumber">10.1.5</span> <span class="title">Integration of functions with compact support</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_rirect.html#sec_rirect-8" class="internal"><span class="codenumber">10.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_iteratedints.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Iterated integrals and the Fubini theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_iteratedints.html#sec_iteratedints-17" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_outermeasure.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Outer measure and null sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-3" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Outer measure and null sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-4" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Examples and basic properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-5" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Images of null sets under differentiable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_outermeasure.html#sec_outermeasure-6" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_riemannlebesgue.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The set of Riemann integrable functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-3" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Oscillation and continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-4" class="internal"><span class="codenumber">10.4.2</span> <span class="title">The set of Riemann integrable functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_riemannlebesgue.html#sec_riemannlebesgue-5" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_jordansets.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Jordan measurable sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-3" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Volume and Jordan measurable sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-4" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Integration over Jordan measurable sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-5" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Images of Jordan measurable subsets</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_jordansets.html#sec_jordansets-6" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvgreenstheorem.html" class="internal"><span class="codenumber">10.6</span> <span class="title">Green’s theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvgreenstheorem.html#sec_mvgreenstheorem-25" class="internal"><span class="codenumber">10.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_mvchangeofvars.html" class="internal"><span class="codenumber">10.7</span> <span class="title">Change of variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_mvchangeofvars.html#sec_mvchangeofvars-11" class="internal"><span class="codenumber">10.7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="approx_chapter.html" class="internal"><span class="codenumber">11</span> <span class="title">Functions as Limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_complexnums.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Complex numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-3" class="internal"><span class="codenumber">11.1.1</span> <span class="title">The complex plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-4" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Complex numbers and limits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-5" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Complex-valued functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_complexnums.html#sec_complexnums-6" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_swaplim.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Swapping limits</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Continuity</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-4" class="internal"><span class="codenumber">11.2.2</span> <span class="title">Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-5" class="internal"><span class="codenumber">11.2.3</span> <span class="title">Differentiation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_swaplim.html#sec_swaplim-6" class="internal"><span class="codenumber">11.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_analfuncs.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Power series and analytic functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-3" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-4" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Convergence of power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-5" class="internal"><span class="codenumber">11.3.3</span> <span class="title">Properties of analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-6" class="internal"><span class="codenumber">11.3.4</span> <span class="title">Power series as analytic functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-7" class="internal"><span class="codenumber">11.3.5</span> <span class="title">Identity theorem for analytic functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_analfuncs.html#sec_analfuncs-8" class="internal"><span class="codenumber">11.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_complexexp.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Complex exponential and trigonometric functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-3" class="internal"><span class="codenumber">11.4.1</span> <span class="title">The complex exponential</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-4" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Trigonometric functions and <span class="process-math">\(\pi\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-5" class="internal"><span class="codenumber">11.4.3</span> <span class="title">The unit circle and polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_complexexp.html#sec_complexexp-6" class="internal"><span class="codenumber">11.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_fundalgeb.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Maximum principle and the fundamental theorem of algebra</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_fundalgeb.html#sec_fundalgeb-18" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arzelaascoli.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Equicontinuity and the Arzelà–Ascoli theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arzelaascoli.html#sec_arzelaascoli-31" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_stoneweier.html" class="internal"><span class="codenumber">11.7</span> <span class="title">The Stone–Weierstrass theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-3" class="internal"><span class="codenumber">11.7.1</span> <span class="title">Weierstrass approximation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-4" class="internal"><span class="codenumber">11.7.2</span> <span class="title">Stone–Weierstrass approximation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_stoneweier.html#sec_stoneweier-5" class="internal"><span class="codenumber">11.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_fourier.html" class="internal"><span class="codenumber">11.8</span> <span class="title">Fourier series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-3" class="internal"><span class="codenumber">11.8.1</span> <span class="title">Trigonometric polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-4" class="internal"><span class="codenumber">11.8.2</span> <span class="title">Fourier series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-5" class="internal"><span class="codenumber">11.8.3</span> <span class="title">Orthonormal systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-6" class="internal"><span class="codenumber">11.8.4</span> <span class="title">The Dirichlet kernel and approximate delta functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-7" class="internal"><span class="codenumber">11.8.5</span> <span class="title">Localization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-8" class="internal"><span class="codenumber">11.8.6</span> <span class="title">Parseval’s theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_fourier.html#sec_fourier-9" class="internal"><span class="codenumber">11.8.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ra-16.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="furtherreading_chapter.html" class="internal"><span class="title">Further Reading</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ra-16-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_metcompact">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Completeness and compactness</span>
+</h2>
+<section class="introduction" id="sec_metcompact-2">
+<div class="para" id="sec_metcompact-2-1">
+<em class="emphasis">Note: 2 lectures</em><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<section class="subsection" id="sec_metcompact-3">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy sequences and completeness</span>
+</h3>
+<div class="para" id="sec_metcompact-3-2">Just like with sequences of real numbers, we define Cauchy sequences.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_metcompact-3-3"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_metcompact-3-3-1-1">
+<div class="para">Let <span class="process-math">\((X,d)\)</span> be a metric space. A sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> in <span class="process-math">\(X\)</span> is a <em class="emphasis">Cauchy sequence</em> if for every <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists an <span class="process-math">\(M \in \N\)</span> such that for all <span class="process-math">\(n \geq M\)</span> and all <span class="process-math">\(k \geq M\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="sec_metcompact-3-3-1-1-9">
+\begin{equation}
+d(x_n, x_k) &lt; \epsilon .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 7.4.1"><a href="#sec_metcompact-3-3" title="Copy heading and permalink for Definition 7.4.1" aria-label="Copy heading and permalink for Definition 7.4.1">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-3-4">The definition is again simply a translation of the concept from the real numbers to metric spaces.  A sequence of real numbers is Cauchy in the sense of <a href="seq_chapter.html" class="internal" title="Chapter 2: Sequences and Series">Chapter 2</a> if and only if it is Cauchy in the sense above, provided we equip the real numbers with the standard metric <span class="process-math">\(d(x,y) = \sabs{x-y}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="sec_metcompact-3-5"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-3-5-1-1">A convergent sequence in a metric space is Cauchy.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.2"><a href="#sec_metcompact-3-5" title="Copy heading and permalink for Proposition 7.4.2" aria-label="Copy heading and permalink for Proposition 7.4.2">🔗</a></div>
+</article>
+<article class="proof" id="sec_metcompact-3-6"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-3-6-1">Suppose <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> converges to <span class="process-math">\(p\text{.}\)</span> Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there is an <span class="process-math">\(M\)</span> such that for all <span class="process-math">\(n \geq M\text{,}\)</span> we have <span class="process-math">\(d(p,x_n) &lt; \nicefrac{\epsilon}{2}\text{.}\)</span>  Hence, for all <span class="process-math">\(n,k \geq M\text{,}\)</span> we have <span class="process-math">\(d(x_n,x_k) \leq d(x_n,p) + d(p,x_k) &lt; \nicefrac{\epsilon}{2} +
+\nicefrac{\epsilon}{2} = \epsilon\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.1.1"><a href="#sec_metcompact-3-6" title="Copy heading and permalink for Proof 7.4.1.1" aria-label="Copy heading and permalink for Proof 7.4.1.1">🔗</a></div>
+</article>
+<article class="definition definition-like" id="sec_metcompact-3-7"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-3-7-1-1">We say a metric space <span class="process-math">\((X,d)\)</span> is <em class="emphasis">complete</em> or <em class="emphasis">Cauchy-complete</em> if every Cauchy sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> in <span class="process-math">\(X\)</span> converges to a <span class="process-math">\(p \in X\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 7.4.3"><a href="#sec_metcompact-3-7" title="Copy heading and permalink for Definition 7.4.3" aria-label="Copy heading and permalink for Definition 7.4.3">🔗</a></div>
+</article>
+<article class="proposition theorem-like" id="sec_metcompact-3-8"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-3-8-1-1">The space <span class="process-math">\(\R^n\)</span> with the standard metric is a complete metric space.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.4"><a href="#sec_metcompact-3-8" title="Copy heading and permalink for Proposition 7.4.4" aria-label="Copy heading and permalink for Proposition 7.4.4">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-3-9">For <span class="process-math">\(\R = \R^1\text{,}\)</span> completeness was proved in <a href="seq_chapter.html" class="internal" title="Chapter 2: Sequences and Series">Chapter 2</a>. The proof of completeness in <span class="process-math">\(\R^n\)</span> is a reduction to the one-dimensional case.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proof" id="sec_metcompact-3-10"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_metcompact-3-10-1">
+<div class="para">Let <span class="process-math">\(\{ x_m \}_{m=1}^\infty\)</span> be a Cauchy sequence in <span class="process-math">\(\R^n\text{,}\)</span> where <span class="process-math">\(x_m = \bigl(x_{m,1},x_{m,2},\ldots,x_{m,n}\bigr) \in \R^n\text{.}\)</span> As the sequence is Cauchy, given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists an <span class="process-math">\(M\)</span> such that for all <span class="process-math">\(i,j \geq M\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="sec_metcompact-3-10-1-7">
+\begin{equation}
+d(x_i,x_j) &lt; \epsilon.
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_metcompact-3-10-2">
+<div class="para">Fix some <span class="process-math">\(k=1,2,\ldots,n\text{.}\)</span>  For <span class="process-math">\(i,j \geq M\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_msconveuc.html" id="sec_metcompact-3-10-2-3">
+\begin{equation}
+\bigl\lvert x_{i,k} - x_{j,k} \bigr\rvert
+=
+\sqrt{{\bigl(x_{i,k} - x_{j,k}\bigr)}^2}
+\leq
+\sqrt{\sum_{\ell=1}^n {\bigl(x_{i,\ell}-x_{j,\ell}\bigr)}^2}
+= d(x_i,x_j) &lt; \epsilon .
+\end{equation}
+</div>
+<div class="para">Hence, the sequence <span class="process-math">\(\{ x_{m,k} \}_{m=1}^\infty\)</span> is Cauchy.  As <span class="process-math">\(\R\)</span> is complete, the sequence converges; there exists a <span class="process-math">\(y_k \in \R\)</span> such that <span class="process-math">\(y_k = \lim_{m\to\infty} x_{m,k}\text{.}\)</span> Write <span class="process-math">\(y = (y_1,y_2,\ldots,y_n) \in \R^n\text{.}\)</span> By <a href="sec_metseqs.html#prop_msconveuc" class="xref" data-knowl="./knowl/xref/prop_msconveuc.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.9">Proposition 7.3.9</a>, <span class="process-math">\(\{ x_m \}_{m=1}^\infty\)</span> converges to <span class="process-math">\(y \in \R^n\text{,}\)</span> and hence <span class="process-math">\(\R^n\)</span> is complete.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.1.2"><a href="#sec_metcompact-3-10" title="Copy heading and permalink for Proof 7.4.1.2" aria-label="Copy heading and permalink for Proof 7.4.1.2">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-3-11">In the language of metric spaces, the results on continuity of <a href="sec_liminter.html" class="internal" title="Section 6.2: Interchange of limits">Section 6.2</a> say that the metric space <span class="process-math">\(C\bigl([a,b],\R\bigr)\)</span> of <a href="sec_metric.html#example_msC01" class="xref" data-knowl="./knowl/xref/example_msC01.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.8">Example 7.1.8</a> is complete. The proof follows by “unrolling the definitions” and is left as <a href="sec_metcompact.html#exercise_CabRcomplete" class="xref" data-knowl="./knowl/xref/exercise_CabRcomplete.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.4.7">Exercise 7.4.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_CabRcomplete"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="prop_CabRcomplete-1-1">The space of continuous functions <span class="process-math">\(C\bigl([a,b],\R\bigr)\)</span> with the uniform norm as metric is a complete metric space.<div class="autopermalink" data-description="Paragraph"><a href="#prop_CabRcomplete-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.5"><a href="#prop_CabRcomplete" title="Copy heading and permalink for Proposition 7.4.5" aria-label="Copy heading and permalink for Proposition 7.4.5">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-3-13">A subset of a complete metric space such as <span class="process-math">\(\R^n\)</span> with the subspace metric need not be complete.  For example, <span class="process-math">\((0,1]\)</span> with the subspace metric is not complete, as <span class="process-math">\(\{ \nicefrac{1}{n} \}_{n=1}^\infty\)</span> is a Cauchy sequence in <span class="process-math">\((0,1]\)</span> with no limit in <span class="process-math">\((0,1]\text{.}\)</span> However, a closed subspace of a complete metric space is complete.  After all, one way to think of a closed set is that it contains all points reachable from the set via a sequence. The proof is <a href="sec_metcompact.html#exercise_closedcomplete" class="xref" data-knowl="./knowl/xref/exercise_closedcomplete.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.4.16">Exercise 7.4.16</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_closedcomplete"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="prop_closedcomplete-1-1">Suppose <span class="process-math">\((X,d)\)</span> is a complete metric space and <span class="process-math">\(E \subset X\)</span> is closed. Then <span class="process-math">\(E\)</span> is a complete metric space with the subspace metric.<div class="autopermalink" data-description="Paragraph"><a href="#prop_closedcomplete-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.6"><a href="#prop_closedcomplete" title="Copy heading and permalink for Proposition 7.4.6" aria-label="Copy heading and permalink for Proposition 7.4.6">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 7.4.1: Cauchy sequences and completeness"><a href="#sec_metcompact-3" title="Copy heading and permalink for Subsection 7.4.1: Cauchy sequences and completeness" aria-label="Copy heading and permalink for Subsection 7.4.1: Cauchy sequences and completeness">🔗</a></div>
+</section>
+<section class="subsection" id="sec_metcompact-4">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Compactness</span>
+</h3>
+<article class="definition definition-like" id="sec_metcompact-4-2"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="sec_metcompact-4-2-1-1">
+<div class="para">Let <span class="process-math">\((X,d)\)</span> be a metric space and <span class="process-math">\(K \subset X\text{.}\)</span> The set <span class="process-math">\(K\)</span> is said to be <em class="emphasis">compact</em> if for every collection of open sets <span class="process-math">\(\{ U_{\lambda} \}_{\lambda \in I}\)</span> such that</div>
+<div class="displaymath process-math" id="sec_metcompact-4-2-1-1-6">
+\begin{equation}
+K \subset \bigcup_{\lambda \in I} U_\lambda ,
+\end{equation}
+</div>
+<div class="para">there exists a finite subset <span class="process-math">\(\{ \lambda_1, \lambda_2,\ldots,\lambda_m \} \subset I\)</span> such that</div>
+<div class="displaymath process-math" id="sec_metcompact-4-2-1-1-8">
+\begin{equation}
+K \subset \bigcup_{j=1}^m U_{\lambda_j} .
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 7.4.7"><a href="#sec_metcompact-4-2" title="Copy heading and permalink for Definition 7.4.7" aria-label="Copy heading and permalink for Definition 7.4.7">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-4-3">A collection of open sets <span class="process-math">\(\{ U_{\lambda} \}_{\lambda \in I}\)</span> as above is said to be an <em class="emphasis">open cover</em> of <span class="process-math">\(K\text{.}\)</span>  A way to say that <span class="process-math">\(K\)</span> is compact is to say that <em class="emphasis">every open cover of <span class="process-math">\(K\)</span> has a finite subcover</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_metcompact-4-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-4-4-1-1">Let <span class="process-math">\(\R\)</span> be the metric space with the standard metric.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_metcompact-4-4-1-2">The set <span class="process-math">\(\R\)</span> is not compact.  Proof: For <span class="process-math">\(j \in \N\text{,}\)</span> let <span class="process-math">\(U_j \coloneqq (-j,j)\text{.}\)</span> Any <span class="process-math">\(x \in \R\)</span> is in some <span class="process-math">\(U_j\)</span> (by the <a href="sec_setofreals.html#thm_arch_i" class="xref" data-knowl="./knowl/xref/thm_arch_i.html" data-reveal-label="Reveal" data-close-label="Close" title="Item i">Archimedean property</a>), so we have an open cover. Suppose we have a finite subcover <span class="process-math">\(\R \subset U_{j_1} \cup U_{j_2} \cup \cdots \cup U_{j_m}\text{,}\)</span> and suppose <span class="process-math">\(j_1 &lt; j_2 &lt; \cdots &lt; j_m\text{.}\)</span>  Then <span class="process-math">\(\R \subset U_{j_m}\text{,}\)</span> but that is a contradiction as <span class="process-math">\(j_m \in \R\)</span> on one hand and <span class="process-math">\(j_m \notin U_{j_m} =
+(-j_m,j_m)\)</span> on the other.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_metcompact-4-4-1-3">The set <span class="process-math">\((0,1) \subset \R\)</span> is also not compact.  Proof:  Take the sets <span class="process-math">\(U_{j} \coloneqq (\nicefrac{1}{j},1-\nicefrac{1}{j})\)</span> for <span class="process-math">\(j=3,4,5,\ldots\text{.}\)</span> As above, <span class="process-math">\((0,1) = \bigcup_{j=3}^\infty U_j\text{.}\)</span>  And similarly as above, if there exists a finite subcover, then there is one <span class="process-math">\(U_j\)</span> such that <span class="process-math">\((0,1)
+\subset U_j\text{,}\)</span> which again leads to a contradiction.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-4-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_metcompact-4-4-1-4">The set <span class="process-math">\(\{ 0 \} \subset \R\)</span> is compact.  Proof: Given an open cover <span class="process-math">\(\{
+U_{\lambda} \}_{\lambda \in I}\text{,}\)</span> there must exist a <span class="process-math">\(\lambda_0 \in I\)</span> such that <span class="process-math">\(0
+\in U_{\lambda_0}\)</span> since <span class="process-math">\(\{ U_{\lambda} \}_{\lambda \in I}\)</span> is a cover. The single <span class="process-math">\(U_{\lambda_0}\)</span> gives a finite subcover.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-4-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_metcompact-4-4-1-5">We will prove below that <span class="process-math">\([0,1]\text{,}\)</span> and in fact every closed and bounded interval <span class="process-math">\([a,b]\text{,}\)</span> is compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-4-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 7.4.8"><a href="#sec_metcompact-4-4" title="Copy heading and permalink for Example 7.4.8" aria-label="Copy heading and permalink for Example 7.4.8">🔗</a></div>
+</article>
+<article class="proposition theorem-like" id="sec_metcompact-4-5"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-4-5-1-1">Let <span class="process-math">\((X,d)\)</span> be a metric space.  If <span class="process-math">\(K \subset X\)</span> is compact, then <span class="process-math">\(K\)</span> is closed and bounded.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.9"><a href="#sec_metcompact-4-5" title="Copy heading and permalink for Proposition 7.4.9" aria-label="Copy heading and permalink for Proposition 7.4.9">🔗</a></div>
+</article>
+<article class="proof" id="sec_metcompact-4-6"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_metcompact-4-6-1">
+<div class="para">First, we prove that a compact set is bounded. Fix <span class="process-math">\(p \in X\text{.}\)</span>  We have the open cover</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_compactbndclosed.html" id="sec_metcompact-4-6-1-2">
+\begin{equation}
+K \subset \bigcup_{n=1}^\infty B(p,n) = X .
+\end{equation}
+</div>
+<div class="para">If <span class="process-math">\(K\)</span> is compact, then there exists some set of indices <span class="process-math">\(n_1 &lt; n_2 &lt; \ldots &lt; n_m\)</span> such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_compactbndclosed.html" id="sec_metcompact-4-6-1-5">
+\begin{equation}
+K \subset \bigcup_{j=1}^m B(p,n_j) = B(p,n_m) .
+\end{equation}
+</div>
+<div class="para">As <span class="process-math">\(K\)</span> is contained in a ball, <span class="process-math">\(K\)</span> is bounded. See the left-hand side of <a href="sec_metcompact.html#fig_compactbndclosed" class="internal" title="Figure 7.11">Figure 7.11</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_metcompact-4-6-2">
+<div class="para">Next, we show that a set that is not closed is not compact.  Suppose <span class="process-math">\(\widebar{K} \neq K\text{,}\)</span> that is, there is a point <span class="process-math">\(x \in \widebar{K}
+\setminus K\text{.}\)</span> If <span class="process-math">\(y \neq x\text{,}\)</span> then <span class="process-math">\(y \notin C(x,\nicefrac{1}{n})\)</span> for <span class="process-math">\(n \in \N\)</span> such that <span class="process-math">\(\nicefrac{1}{n} &lt; d(x,y)\text{.}\)</span> Furthermore, <span class="process-math">\(x \notin K\text{,}\)</span> so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_compactbndclosed.html" id="sec_metcompact-4-6-2-8">
+\begin{equation}
+K \subset \bigcup_{n=1}^\infty {C(x,\nicefrac{1}{n})}^c .
+\end{equation}
+</div>
+<div class="para">A closed ball is closed, so its complement <span class="process-math">\({C(x,\nicefrac{1}{n})}^c\)</span> is open, and we have an open cover. If we take any finite collection of indices <span class="process-math">\(n_1 &lt; n_2 &lt; \ldots &lt; n_m\text{,}\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_compactbndclosed.html" id="sec_metcompact-4-6-2-11">
+\begin{equation}
+\bigcup_{j=1}^m {C(x,\nicefrac{1}{n_j})}^c 
+=
+{C(x,\nicefrac{1}{n_m})}^c 
+\end{equation}
+</div>
+<div class="para">As <span class="process-math">\(x\)</span> is in the closure of <span class="process-math">\(K\text{,}\)</span> then <span class="process-math">\(C(x,\nicefrac{1}{n_m}) \cap K \neq \emptyset\text{.}\)</span>  So there is no finite subcover and <span class="process-math">\(K\)</span> is not compact. See the right-hand side of <a href="sec_metcompact.html#fig_compactbndclosed" class="internal" title="Figure 7.11">Figure 7.11</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.2.1"><a href="#sec_metcompact-4-6" title="Copy heading and permalink for Proof 7.4.2.1" aria-label="Copy heading and permalink for Proof 7.4.2.1">🔗</a></div>
+</article><hr class="rahr">
+<figure class="figure figure-like" id="fig_compactbndclosed"><img class="raimg" style="width:376pt; height:121pt; display:block;" src="figures/compact_bnd_closed-mbxpdft.svg" role="img" alt="Two diagrams. A set K is given as a shaded region with solid boundary. In the left diagram, a point p is highlighted together with 3 nested open balls (circles in this case) of radius 1, 2, and 3 all centered at p with dotted boundary. The set K lies in the largest one. In the right diagram, the background of the diagram is shaded. A point x that is on the boundary of K is shown, and 4 closed balls are drawn as circles with the inside shaded in lighter and lighter gray, indicating that we are looking at the complements. The outer ball is of radius 1, then there is a ball of radius one half, then a ball of radius one third, then a ball of radius one fourth. We note that as x sits on the boundary, the complements of the balls cover more and more of K. On the other hand we also note that K has nonempty intersection with all the closed balls."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Proving compact set is bounded (left) and closed (right).<div class="autopermalink" data-description="Figure 7.11"><a href="#fig_compactbndclosed" title="Copy heading and permalink for Figure 7.11" aria-label="Copy heading and permalink for Figure 7.11">🔗</a></div></figcaption>
+</figure><hr class="rahr">
+<div class="para" id="sec_metcompact-4-10">We prove below that in a finite-dimensional euclidean space, every closed bounded set is compact. So closed bounded sets of <span class="process-math">\(\R^n\)</span> are examples of compact sets. It is not true that in every metric space, closed and bounded is equivalent to compact.  A simple example is an incomplete metric space such as <span class="process-math">\((0,1)\)</span> with the subspace metric from <span class="process-math">\(\R\text{.}\)</span> There are many complete and very useful metric spaces where closed and bounded is not enough to give compactness: <span class="process-math">\(C\bigl([a,b],\R\bigr)\)</span> is a complete metric space, but the closed unit ball <span class="process-math">\(C(0,1)\)</span> is not compact, see <a href="sec_metcompact.html#exercise_msclbounnotcompt" class="xref" data-knowl="./knowl/xref/exercise_msclbounnotcompt.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.4.8">Exercise 7.4.8</a>.  However, see also <a href="sec_metcompact.html#exercise_mstotbound" class="xref" data-knowl="./knowl/xref/exercise_mstotbound.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.4.12">Exercise 7.4.12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-11">Not worrying about the boundedness for a moment, note further the difference between being closed and being compact.  Being closed depends on the ambient metric space: The set <span class="process-math">\((0,1]\)</span> is not closed in <span class="process-math">\(\R\text{,}\)</span> but it is closed in the subspace <span class="process-math">\((0,\infty)\text{.}\)</span> However, a set <span class="process-math">\(K\)</span> is compact in some metric space <span class="process-math">\((X,d)\)</span> if and only if it is compact in the subspace metric on <span class="process-math">\(K\text{.}\)</span>  So for a compact set, we do not have to ask what metric space it lives in. On the other hand, every set is always closed in the subspace metric as a subset of itself. See also <a href="sec_metcompact.html#exercise_subspacecompact" class="xref" data-knowl="./knowl/xref/exercise_subspacecompact.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.4.6">Exercise 7.4.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-12">A useful property of compact sets in a metric space is that every sequence in the set has a convergent subsequence converging to a point in the set. Such sets are called <em class="emphasis">sequentially compact</em>. We will prove that in the context of metric spaces, a set is compact if and only if it is sequentially compact. First we prove a lemma.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="ms_lebesgue"><h4 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lebesgue covering lemma.</span>
+</h4>
+<div class="para" id="ms_lebesgue-3-1">
+<details class="ptx-footnote" aria-live="polite" id="ms_lebesgue-3-1-1"><summary class="ptx-footnote__number" title="Footnote 7.4.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="ms_lebesgue-3-1-1">Named after the French mathematician <a class="external" href="https://en.wikipedia.org/wiki/Henri_Lebesgue" target="_blank">Henri Léon Lebesgue</a> (1875–1941). The number <span class="process-math">\(\delta\)</span> is sometimes called the Lebesgue number of the cover.
+</div></details> Let <span class="process-math">\((X,d)\)</span> be a metric space and <span class="process-math">\(K \subset X\text{.}\)</span>  Suppose every sequence in <span class="process-math">\(K\)</span> has a subsequence convergent in <span class="process-math">\(K\text{.}\)</span>  Given an open cover <span class="process-math">\(\{ U_\lambda \}_{\lambda \in I}\)</span> of <span class="process-math">\(K\text{,}\)</span> there exists a <span class="process-math">\(\delta &gt; 0\)</span> such that for every <span class="process-math">\(x \in K\text{,}\)</span> there exists a <span class="process-math">\(\lambda \in I\)</span> with <span class="process-math">\(B(x,\delta) \subset U_\lambda\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ms_lebesgue-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 7.4.10: Lebesgue covering lemma"><a href="#ms_lebesgue" title="Copy heading and permalink for Lemma 7.4.10: Lebesgue covering lemma" aria-label="Copy heading and permalink for Lemma 7.4.10: Lebesgue covering lemma">🔗</a></div>
+</article>
+<article class="proof" id="sec_metcompact-4-14"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="sec_metcompact-4-14-1">
+<div class="para">We prove the lemma by contrapositive. If the conclusion is not true, then there is an open cover <span class="process-math">\(\{ U_\lambda \}_{\lambda \in I}\)</span> of <span class="process-math">\(K\)</span> with the following property. For every <span class="process-math">\(n \in \N\text{,}\)</span> there exists an <span class="process-math">\(x_n \in K\)</span> such that <span class="process-math">\(B(x_n,\nicefrac{1}{n})\)</span> is not a subset of any <span class="process-math">\(U_\lambda\text{.}\)</span> Take any <span class="process-math">\(x \in K\text{.}\)</span>  There is a <span class="process-math">\(\lambda \in I\)</span> such that <span class="process-math">\(x \in U_\lambda\text{.}\)</span>  As <span class="process-math">\(U_\lambda\)</span> is open, there is an <span class="process-math">\(\epsilon &gt; 0\)</span> such that <span class="process-math">\(B(x,\epsilon) \subset U_\lambda\text{.}\)</span>  Take <span class="process-math">\(M\)</span> such that <span class="process-math">\(\nicefrac{1}{M} &lt; \nicefrac{\epsilon}{2}\text{.}\)</span>  If <span class="process-math">\(y \in 
+B(x,\nicefrac{\epsilon}{2})\)</span> and <span class="process-math">\(n \geq M\text{,}\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_lebesguedelta.html" id="sec_metcompact-4-14-1-17">
+\begin{equation}
+B(y,\nicefrac{1}{n}) \subset
+B(y,\nicefrac{1}{M}) \subset
+B(y,\nicefrac{\epsilon}{2}) \subset B(x,\epsilon)
+\subset U_\lambda ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(B(y,\nicefrac{\epsilon}{2}) \subset B(x,\epsilon)\)</span> follows by triangle inequality. See <a href="sec_metcompact.html#fig_lebesguedelta" class="internal" title="Figure 7.12">Figure 7.12</a>. Thus <span class="process-math">\(y \neq x_n\text{.}\)</span> In other words, for all <span class="process-math">\(n \geq M\text{,}\)</span> <span class="process-math">\(x_n \notin B(x,\nicefrac{\epsilon}{2})\text{.}\)</span> The sequence cannot have a subsequence converging to <span class="process-math">\(x\text{.}\)</span>  As <span class="process-math">\(x \in K\)</span> was arbitrary, we are done.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.2.2"><a href="#sec_metcompact-4-14" title="Copy heading and permalink for Proof 7.4.2.2" aria-label="Copy heading and permalink for Proof 7.4.2.2">🔗</a></div>
+</article><hr class="rahr">
+<figure class="figure figure-like" id="fig_lebesguedelta"><img class="raimg" style="width:229pt; height:113pt; display:block;" src="figures/lebesguedelta-mbxpdft.svg" role="img" alt="A diagram of a shaded open set U sub lambda. A point x in U sub lambda is marked and a ball of radius epsilon centered at x is drawn and this ball sits within U sub lambda. A ball of radius epsilon over 2 centered at x is also drawn which sits within the larger ball. A point y in the smaller ball is marked and a ball of radius epsilon over 2 centered at y is shown. We note that this ball centered at y sits entirely within the ball of radius epsilon centered at x, the largest ball, and hence also within U sub lambda. One last small ball of radius 1 over n centered at y is shown that sits within the epsilon over 2 ball centered at y."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Proof of Lebesgue covering lemma. Note that <span class="process-math">\(B(y,\nicefrac{\epsilon}{2}) \subset
+B(x,\epsilon)\)</span> by triangle inequality.<div class="autopermalink" data-description="Figure 7.12"><a href="#fig_lebesguedelta" title="Copy heading and permalink for Figure 7.12" aria-label="Copy heading and permalink for Figure 7.12">🔗</a></div></figcaption>
+</figure><hr class="rahr">
+<div class="para" id="sec_metcompact-4-18">It is important to recognize what the lemma says.  It says that if <span class="process-math">\(K\)</span> is sequentially compact, then for any given cover, there is a single <span class="process-math">\(\delta &gt; 0\text{.}\)</span>  The <span class="process-math">\(\delta\)</span> depends on the cover, but, of course, it does not depend on <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-19">For example, let <span class="process-math">\(K \coloneqq [-10,10]\)</span> and let <span class="process-math">\(U_n \coloneqq (n,n+2)\)</span> for <span class="process-math">\(n \in \Z\)</span> give an open cover. Consider <span class="process-math">\(x \in K\text{.}\)</span> There is an <span class="process-math">\(n \in \Z\text{,}\)</span> such that <span class="process-math">\(n \leq x &lt; n+1\text{.}\)</span> If <span class="process-math">\(n \leq x &lt; n+\nicefrac{1}{2}\text{,}\)</span> then <span class="process-math">\(B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n-1}\text{.}\)</span> If <span class="process-math">\(n+ \nicefrac{1}{2} \leq x &lt; n+1\text{,}\)</span> then <span class="process-math">\(B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n}\text{.}\)</span>  So <span class="process-math">\(\delta =
+\nicefrac{1}{2}\)</span> will do.  The sets <span class="process-math">\(U'_n \coloneqq \bigl(\frac{n}{2},\frac{n+2}{2} \bigr)\text{,}\)</span> again give an open cover, but now the largest <span class="process-math">\(\delta\)</span> that works is <span class="process-math">\(\nicefrac{1}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-20">On the other hand, <span class="process-math">\(\N \subset \R\)</span> is not sequentially compact. It is an exercise to find a cover for which no <span class="process-math">\(\delta &gt; 0\)</span> works.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_mscompactisseqcpt"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="thm_mscompactisseqcpt-1-1">Let <span class="process-math">\((X,d)\)</span> be a metric space.  Then <span class="process-math">\(K \subset X\)</span> is compact if and only if every sequence in <span class="process-math">\(K\)</span> has a subsequence converging to a point in <span class="process-math">\(K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_mscompactisseqcpt-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 7.4.11"><a href="#thm_mscompactisseqcpt" title="Copy heading and permalink for Theorem 7.4.11" aria-label="Copy heading and permalink for Theorem 7.4.11">🔗</a></div>
+</article>
+<article class="proof" id="sec_metcompact-4-22"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-4-22-1">Claim: <em class="emphasis">Let <span class="process-math">\(K \subset X\)</span> be a subset of <span class="process-math">\(X\)</span> and <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> a sequence in <span class="process-math">\(K\text{.}\)</span>  Suppose that for each <span class="process-math">\(x \in K\text{,}\)</span> there is a ball <span class="process-math">\(B(x,\alpha_x)\)</span> for some <span class="process-math">\(\alpha_x &gt; 0\)</span> such that <span class="process-math">\(x_n \in B(x,\alpha_x)\)</span> for only finitely many <span class="process-math">\(n \in \N\text{.}\)</span> Then <span class="process-math">\(K\)</span> is not compact.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_metcompact-4-22-2">
+<div class="para">Proof of the claim: Notice</div>
+<div class="displaymath process-math" id="sec_metcompact-4-22-2-1">
+\begin{equation}
+K \subset \bigcup_{x \in K} B(x,\alpha_x) .
+\end{equation}
+</div>
+<div class="para">Any finite collection of these balls contains at most finitely many elements of <span class="process-math">\(\{ x_n \}_{n=1}^\infty\text{,}\)</span> and so there must be an <span class="process-math">\(x_n \in K\)</span> not in their union.  Hence, <span class="process-math">\(K\)</span> is not compact and the claim is proved.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-22-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-22-3">So suppose that <span class="process-math">\(K\)</span> is compact and <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> is a sequence in <span class="process-math">\(K\text{.}\)</span> Then there exists an <span class="process-math">\(x \in K\)</span> such that for all <span class="process-math">\(\delta &gt; 0\text{,}\)</span> <span class="process-math">\(B(x,\delta)\)</span> contains <span class="process-math">\(x_n\)</span> for infinitely many <span class="process-math">\(n \in \N\text{.}\)</span> We define the subsequence inductively. The ball <span class="process-math">\(B(x,1)\)</span> contains some <span class="process-math">\(x_k\text{,}\)</span> so let <span class="process-math">\(n_1 \coloneqq k\text{.}\)</span> Suppose <span class="process-math">\(n_{j-1}\)</span> is defined. There must exist a <span class="process-math">\(k &gt; n_{j-1}\)</span> such that <span class="process-math">\(x_k \in B(x,\nicefrac{1}{j})\text{.}\)</span>  Define <span class="process-math">\(n_j \coloneqq k\text{.}\)</span> We now possess a subsequence <span class="process-math">\(\{ x_{n_j} \}_{j=1}^\infty\text{.}\)</span> Since <span class="process-math">\(d(x,x_{n_j}) &lt; \nicefrac{1}{j}\text{,}\)</span>  <a href="sec_metseqs.html#prop_msconvifa" class="xref" data-knowl="./knowl/xref/prop_msconvifa.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.5">Proposition 7.3.5</a> says <span class="process-math">\(\lim_{j\to\infty} x_{n_j} = x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-22-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-22-4">For the other direction, suppose every sequence in <span class="process-math">\(K\)</span> has a subsequence converging in <span class="process-math">\(K\text{.}\)</span> Take an open cover <span class="process-math">\(\{ U_\lambda \}_{\lambda \in I}\)</span> of <span class="process-math">\(K\text{.}\)</span> Using the Lebesgue covering lemma above, find a <span class="process-math">\(\delta &gt; 0\)</span> such that for every <span class="process-math">\(x \in K\text{,}\)</span> there is a <span class="process-math">\(\lambda \in I\)</span> with <span class="process-math">\(B(x,\delta) \subset U_\lambda\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-22-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-22-5">Pick <span class="process-math">\(x_1 \in K\)</span> and find <span class="process-math">\(\lambda_1 \in I\)</span> such that <span class="process-math">\(B(x_1,\delta) \subset
+U_{\lambda_1}\text{.}\)</span> If <span class="process-math">\(K \subset U_{\lambda_1}\text{,}\)</span> we stop as we have found a finite subcover. Otherwise, there must be a point <span class="process-math">\(x_2 \in K \setminus U_{\lambda_1}\text{.}\)</span> Note that <span class="process-math">\(d(x_2,x_1) \geq \delta\text{.}\)</span> There must exist some <span class="process-math">\(\lambda_2 \in I\)</span> such that <span class="process-math">\(B(x_2,\delta) \subset U_{\lambda_2}\text{.}\)</span> We work inductively.  Suppose <span class="process-math">\(\lambda_{n-1}\)</span> is defined. Either <span class="process-math">\(U_{\lambda_1} \cup
+U_{\lambda_2} \cup \cdots \cup
+U_{\lambda_{n-1}}\)</span> is a finite cover of <span class="process-math">\(K\text{,}\)</span> in which case we stop, or there must be a point <span class="process-math">\(x_n \in K \setminus \bigl( U_{\lambda_1} \cup
+U_{\lambda_2} \cup \cdots \cup
+U_{\lambda_{n-1}}\bigr)\text{.}\)</span> Note that <span class="process-math">\(d(x_n,x_j) \geq \delta\)</span> for all <span class="process-math">\(j = 1,2,\ldots,n-1\text{.}\)</span> Next, there must be some <span class="process-math">\(\lambda_n \in I\)</span> such that <span class="process-math">\(B(x_n,\delta) \subset U_{\lambda_n}\text{.}\)</span> See <a href="sec_metcompact.html#fig_seqcompactiscompact" class="internal" title="Figure 7.13">Figure 7.13</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-22-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<hr class="rahr">
+<figure class="figure figure-like" id="fig_seqcompactiscompact"><img class="raimg" style="width:281pt; height:117pt; display:block;" src="figures/seqcompactiscompact-mbxpdft.svg" role="img" alt="A shaded region with a solid boundary is marked K. Four points in K are marked x sub 1, x sub 2, x sub 3, and x sub 4. Circles of radius delta are drawn centered at x sub 1, x sub 2, and x sub 3. Around each of these circles there are three regions outlined in dotted line marked U sub lambda sub 1, U sub lambda sub 2, and U sub lambda sub 3. The discs, and therefore the surrounding regions, seem to be slowly covering the set K entirely on the left-hand side of the picture."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Covering <span class="process-math">\(K\)</span> by <span class="process-math">\(U_{\lambda}\text{.}\)</span>  The points <span class="process-math">\(x_1,x_2,x_3,x_4\text{,}\)</span> the three sets <span class="process-math">\(U_{\lambda_1}\text{,}\)</span> <span class="process-math">\(U_{\lambda_2}\text{,}\)</span> <span class="process-math">\(U_{\lambda_3}\text{,}\)</span> and the first three balls of radius <span class="process-math">\(\delta\)</span> are drawn.<div class="autopermalink" data-description="Figure 7.13"><a href="#fig_seqcompactiscompact" title="Copy heading and permalink for Figure 7.13" aria-label="Copy heading and permalink for Figure 7.13">🔗</a></div></figcaption>
+</figure><hr class="rahr">
+<div class="para" id="sec_metcompact-4-22-9">Either at some point we obtain a finite subcover of <span class="process-math">\(K\text{,}\)</span> or we obtain an infinite sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> as above. For contradiction, suppose that there is no finite subcover and we have the sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\text{.}\)</span> For all <span class="process-math">\(n\)</span> and <span class="process-math">\(k\text{,}\)</span> <span class="process-math">\(n \neq k\text{,}\)</span> we have <span class="process-math">\(d(x_n,x_k) \geq \delta\text{.}\)</span> So no subsequence of <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> is Cauchy. Hence, no subsequence of <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> is convergent, which is a contradiction.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-22-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.2.3"><a href="#sec_metcompact-4-22" title="Copy heading and permalink for Proof 7.4.2.3" aria-label="Copy heading and permalink for Proof 7.4.2.3">🔗</a></div>
+</article>
+<article class="example example-like" id="example_intervalcompact"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="example_intervalcompact-1-1">
+<a href="sec_bw.html#thm_bwseq" class="xref" data-knowl="./knowl/xref/thm_bwseq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.8: Bolzano–Weierstrass">Theorem 2.3.8</a>, the Bolzano–Weierstrass theorem for sequences of real numbers, says that every bounded sequence in <span class="process-math">\(\R\)</span> has a convergent subsequence.  Therefore, every sequence in a closed interval <span class="process-math">\([a,b] \subset \R\)</span> has a convergent subsequence.  The limit is also in <span class="process-math">\([a,b]\)</span> as limits preserve non-strict inequalities.  Hence, a closed bounded interval <span class="process-math">\([a,b]
+\subset \R\)</span> is (sequentially) compact.<div class="autopermalink" data-description="Paragraph"><a href="#example_intervalcompact-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 7.4.12"><a href="#example_intervalcompact" title="Copy heading and permalink for Example 7.4.12" aria-label="Copy heading and permalink for Example 7.4.12">🔗</a></div>
+</article>
+<article class="proposition theorem-like" id="prop_closedsubsetcompact"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="prop_closedsubsetcompact-1-1">Let <span class="process-math">\((X,d)\)</span> be a metric space and let <span class="process-math">\(K \subset X\)</span> be compact.  If <span class="process-math">\(E \subset K\)</span> is a closed set, then <span class="process-math">\(E\)</span> is compact.<div class="autopermalink" data-description="Paragraph"><a href="#prop_closedsubsetcompact-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.13"><a href="#prop_closedsubsetcompact" title="Copy heading and permalink for Proposition 7.4.13" aria-label="Copy heading and permalink for Proposition 7.4.13">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-4-25">Because <span class="process-math">\(K\)</span> is closed, <span class="process-math">\(E\)</span> is closed in <span class="process-math">\(K\)</span> if and only if it is closed in <span class="process-math">\(X\text{.}\)</span> See <a href="sec_mettop.html#prop_topology_subspacesame" class="xref" data-knowl="./knowl/xref/prop_topology_subspacesame.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.12">Proposition 7.2.12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proof" id="sec_metcompact-4-26"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-4-26-1">Let <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> be a sequence in <span class="process-math">\(E\text{.}\)</span>  It is also a sequence in <span class="process-math">\(K\text{.}\)</span> Therefore, it has a convergent subsequence <span class="process-math">\(\{ x_{n_j} \}_{j=1}^\infty\)</span> that converges to some <span class="process-math">\(x \in K\text{.}\)</span>  As <span class="process-math">\(E\)</span> is closed, the limit of a sequence in <span class="process-math">\(E\)</span> is also in <span class="process-math">\(E\)</span> and so <span class="process-math">\(x \in E\text{.}\)</span>  Thus <span class="process-math">\(E\)</span> must be compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-26-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.2.4"><a href="#sec_metcompact-4-26" title="Copy heading and permalink for Proof 7.4.2.4" aria-label="Copy heading and permalink for Proof 7.4.2.4">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm_msbw"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Heine–Borel.</span>
+</h4>
+<div class="para" id="thm_msbw-3-1">
+<details class="ptx-footnote" aria-live="polite" id="thm_msbw-3-1-1"><summary class="ptx-footnote__number" title="Footnote 7.4.2"><sup> 2 </sup></summary>
+<div class="ptx-footnote__contents" id="thm_msbw-3-1-1">Named after the German mathematician <a class="external" href="https://en.wikipedia.org/wiki/Eduard_Heine" target="_blank">Heinrich Eduard Heine</a> (1821–1881), and the French mathematician <a class="external" href="https://en.wikipedia.org/wiki/\%C3\%89mile_Borel" target="_blank">Félix Édouard Justin Émile Borel</a> (1871–1956).
+</div></details> A closed bounded subset <span class="process-math">\(K \subset \R^n\)</span> is compact.<div class="autopermalink" data-description="Paragraph"><a href="#thm_msbw-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 7.4.14: Heine–Borel"><a href="#thm_msbw" title="Copy heading and permalink for Theorem 7.4.14: Heine–Borel" aria-label="Copy heading and permalink for Theorem 7.4.14: Heine–Borel">🔗</a></div>
+</article>
+<div class="para" id="sec_metcompact-4-28">So subsets of <span class="process-math">\(\R^n\)</span> are compact if and only if they are closed and bounded, a condition that is much easier to check. Let us reiterate that the Heine–Borel theorem only holds for <span class="process-math">\(\R^n\)</span> and not for metric spaces in general. The theorem does not hold even for subspaces of <span class="process-math">\(\R^n\text{,}\)</span> just in <span class="process-math">\(\R^n\)</span> itself. In general, compact implies closed and bounded, but not vice versa.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proof" id="sec_metcompact-4-29"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-4-29-1">For <span class="process-math">\(\R = \R^1\text{,}\)</span> suppose <span class="process-math">\(K \subset \R\)</span> is closed and bounded. Then <span class="process-math">\(K \subset [a,b]\)</span> for some closed and bounded interval, which is compact by <a href="sec_metcompact.html#example_intervalcompact" class="xref" data-knowl="./knowl/xref/example_intervalcompact.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.4.12">Example 7.4.12</a>. As <span class="process-math">\(K\)</span> is a closed subset of a compact set, it is compact by <a href="sec_metcompact.html#prop_closedsubsetcompact" class="xref" data-knowl="./knowl/xref/prop_closedsubsetcompact.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.13">Proposition 7.4.13</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-29-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_metcompact-4-29-2">We carry out the proof for <span class="process-math">\(n=2\)</span> and leave arbitrary <span class="process-math">\(n\)</span> as an exercise. As <span class="process-math">\(K \subset \R^2\)</span> is bounded, there exists a set <span class="process-math">\(B=[a,b]\times[c,d] \subset \R^2\)</span> such that <span class="process-math">\(K \subset B\text{.}\)</span>  We will show that <span class="process-math">\(B\)</span> is compact.  Then <span class="process-math">\(K\text{,}\)</span> being a closed subset of a compact <span class="process-math">\(B\text{,}\)</span> is also compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-29-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_metcompact-4-29-3">
+<div class="para">Let <span class="process-math">\(\bigl\{ (x_k,y_k) \bigr\}_{k=1}^\infty\)</span> be a sequence in <span class="process-math">\(B\text{.}\)</span>  That is, <span class="process-math">\(a \leq x_k \leq b\)</span> and <span class="process-math">\(c \leq y_k \leq d\)</span> for all <span class="process-math">\(k\text{.}\)</span>  A bounded sequence of real numbers has a convergent subsequence, so there is a subsequence <span class="process-math">\(\{ x_{k_j} \}_{j=1}^\infty\)</span> that is convergent.  The subsequence <span class="process-math">\(\{ y_{k_j} \}_{j=1}^\infty\)</span> is also a bounded sequence so there exists a subsequence <span class="process-math">\(\{ y_{k_{j_i}} \}_{i=1}^\infty\)</span> that is convergent.  A subsequence of a convergent sequence is still convergent, so <span class="process-math">\(\{ x_{k_{j_i}} \}_{i=1}^\infty\)</span> is convergent. Let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_msconveuc.html" id="sec_metcompact-4-29-3-10">
+\begin{equation}
+x \coloneqq \lim_{i\to\infty} x_{k_{j_i}}
+\qquad \text{and} \qquad
+y \coloneqq \lim_{i\to\infty} y_{k_{j_i}} .
+\end{equation}
+</div>
+<div class="para">By <a href="sec_metseqs.html#prop_msconveuc" class="xref" data-knowl="./knowl/xref/prop_msconveuc.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.9">Proposition 7.3.9</a>, <span class="process-math">\(\bigl\{ (x_{k_{j_i}},y_{k_{j_i}}) \bigr\}_{i=1}^\infty\)</span> converges to <span class="process-math">\((x,y)\text{.}\)</span> Furthermore, as <span class="process-math">\(a \leq x_k \leq b\)</span> and <span class="process-math">\(c \leq y_k \leq d\)</span> for all <span class="process-math">\(k\text{,}\)</span> we know that <span class="process-math">\((x,y) \in B\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-29-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.2.5"><a href="#sec_metcompact-4-29" title="Copy heading and permalink for Proof 7.4.2.5" aria-label="Copy heading and permalink for Proof 7.4.2.5">🔗</a></div>
+</article>
+<article class="example example-like" id="sec_metcompact-4-30"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-4-30-1-1">The discrete metric provides interesting counterexamples again. Let <span class="process-math">\((X,d)\)</span> be a metric space with the discrete metric, that is, <span class="process-math">\(d(x,y) = 1\)</span> if <span class="process-math">\(x \neq y\text{.}\)</span>  Suppose <span class="process-math">\(X\)</span> is an infinite set.  Then<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-30-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-2" id="sec_metcompact-4-30-1-2">
+<li id="sec_metcompact-4-30-1-2-1">
+<div class="para" id="sec_metcompact-4-30-1-2-1-1">
+<span class="process-math">\((X,d)\)</span> is a complete metric space.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-30-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#sec_metcompact-4-30-1-2-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="sec_metcompact-4-30-1-2-2">
+<div class="para" id="sec_metcompact-4-30-1-2-2-1">Any subset <span class="process-math">\(K \subset X\)</span> is closed and bounded.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-30-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#sec_metcompact-4-30-1-2-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+<li id="sec_metcompact-4-30-1-2-3">
+<div class="para" id="sec_metcompact-4-30-1-2-3-1">A subset <span class="process-math">\(K \subset X\)</span> is compact if and only if it is a finite set.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-30-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item iii"><a href="#sec_metcompact-4-30-1-2-3" title="Copy heading and permalink for Item iii" aria-label="Copy heading and permalink for Item iii">🔗</a></div>
+</li>
+<li id="sec_metcompact-4-30-1-2-4">
+<div class="para" id="sec_metcompact-4-30-1-2-4-1">The conclusion of the Lebesgue covering lemma is always satisfied, e.g. with <span class="process-math">\(\delta = \nicefrac{1}{2}\text{,}\)</span> even for noncompact <span class="process-math">\(K \subset X\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-30-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item iv"><a href="#sec_metcompact-4-30-1-2-4" title="Copy heading and permalink for Item iv" aria-label="Copy heading and permalink for Item iv">🔗</a></div>
+</li>
+</ol> 
+<div class="para" id="sec_metcompact-4-30-1-3">The proofs of the statements above are either trivial or are relegated to the exercises below.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-30-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 7.4.15"><a href="#sec_metcompact-4-30" title="Copy heading and permalink for Example 7.4.15" aria-label="Copy heading and permalink for Example 7.4.15">🔗</a></div>
+</article>
+<article class="remark remark-like" id="sec_metcompact-4-31"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="sec_metcompact-4-31-1-1">A subtle issue with Cauchy sequences, completeness, compactness, and convergence is that compactness and convergence only depend on the topology, that is, on which sets are the open sets.  On the other hand, Cauchy sequences and completeness depend on the actual metric. See <a href="sec_metcompact.html#exercise_cauchydepndsonmetric" class="xref" data-knowl="./knowl/xref/exercise_cauchydepndsonmetric.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.4.19">Exercise 7.4.19</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-4-31-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 7.4.16"><a href="#sec_metcompact-4-31" title="Copy heading and permalink for Remark 7.4.16" aria-label="Copy heading and permalink for Remark 7.4.16">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 7.4.2: Compactness"><a href="#sec_metcompact-4" title="Copy heading and permalink for Subsection 7.4.2: Compactness" aria-label="Copy heading and permalink for Subsection 7.4.2: Compactness">🔗</a></div>
+</section>
+<section class="exercises" id="sec_metcompact-5">
+<h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="sec_metcompact-5-1"><h4 class="heading"><span class="codenumber">7.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-1-1-1">Let <span class="process-math">\((X,d)\)</span> be a metric space and <span class="process-math">\(A\)</span> a finite subset of <span class="process-math">\(X\text{.}\)</span> Show that <span class="process-math">\(A\)</span> is compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.1"><a href="#sec_metcompact-5-1" title="Copy heading and permalink for Exercise 7.4.1" aria-label="Copy heading and permalink for Exercise 7.4.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-2"><h4 class="heading"><span class="codenumber">7.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-2-1-1">Let <span class="process-math">\(A \coloneqq \{ \nicefrac{1}{n} : n \in \N \} \subset \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="sec_metcompact-5-2-1-2">
+<li id="sec_metcompact-5-2-1-2-1">
+<div class="para" id="sec_metcompact-5-2-1-2-1-1">Show that <span class="process-math">\(A\)</span> is not compact directly using the definition.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.2.a"><a href="#sec_metcompact-5-2-1-2-1" title="Copy heading and permalink for Item 7.4.2.a" aria-label="Copy heading and permalink for Item 7.4.2.a">🔗</a></div>
+</li>
+<li id="sec_metcompact-5-2-1-2-2">
+<div class="para" id="sec_metcompact-5-2-1-2-2-1">Show that <span class="process-math">\(A \cup \{ 0 \}\)</span> is compact directly using the definition.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.2.b"><a href="#sec_metcompact-5-2-1-2-2" title="Copy heading and permalink for Item 7.4.2.b" aria-label="Copy heading and permalink for Item 7.4.2.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.4.2"><a href="#sec_metcompact-5-2" title="Copy heading and permalink for Exercise 7.4.2" aria-label="Copy heading and permalink for Exercise 7.4.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-3"><h4 class="heading"><span class="codenumber">7.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-3-1-1">Let <span class="process-math">\((X,d)\)</span> be a metric space with the discrete metric.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="sec_metcompact-5-3-1-2">
+<li id="sec_metcompact-5-3-1-2-1">
+<div class="para" id="sec_metcompact-5-3-1-2-1-1">Prove that <span class="process-math">\(X\)</span> is complete.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.3.a"><a href="#sec_metcompact-5-3-1-2-1" title="Copy heading and permalink for Item 7.4.3.a" aria-label="Copy heading and permalink for Item 7.4.3.a">🔗</a></div>
+</li>
+<li id="sec_metcompact-5-3-1-2-2">
+<div class="para" id="sec_metcompact-5-3-1-2-2-1">Prove that <span class="process-math">\(X\)</span> is compact if and only if <span class="process-math">\(X\)</span> is a finite set.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-3-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.3.b"><a href="#sec_metcompact-5-3-1-2-2" title="Copy heading and permalink for Item 7.4.3.b" aria-label="Copy heading and permalink for Item 7.4.3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.4.3"><a href="#sec_metcompact-5-3" title="Copy heading and permalink for Exercise 7.4.3" aria-label="Copy heading and permalink for Exercise 7.4.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-4"><h4 class="heading"><span class="codenumber">7.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-4-1-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> 
+<ol class="lower-alpha ol-marker-3" id="sec_metcompact-5-4-1-2">
+<li id="sec_metcompact-5-4-1-2-1">
+<div class="para" id="sec_metcompact-5-4-1-2-1-1">Show that the union of finitely many compact sets is a compact set.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-4-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.4.a"><a href="#sec_metcompact-5-4-1-2-1" title="Copy heading and permalink for Item 7.4.4.a" aria-label="Copy heading and permalink for Item 7.4.4.a">🔗</a></div>
+</li>
+<li id="sec_metcompact-5-4-1-2-2">
+<div class="para" id="sec_metcompact-5-4-1-2-2-1">Find an example where the union of infinitely many compact sets is not compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-4-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.4.b"><a href="#sec_metcompact-5-4-1-2-2" title="Copy heading and permalink for Item 7.4.4.b" aria-label="Copy heading and permalink for Item 7.4.4.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.4.4"><a href="#sec_metcompact-5-4" title="Copy heading and permalink for Exercise 7.4.4" aria-label="Copy heading and permalink for Exercise 7.4.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-5"><h4 class="heading"><span class="codenumber">7.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-5-1-1">Prove <a href="sec_metcompact.html#thm_msbw" class="xref" data-knowl="./knowl/xref/thm_msbw.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.14: Heine–Borel">Theorem 7.4.14</a> for arbitrary dimension. Hint: The trick is to use the correct notation.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.5"><a href="#sec_metcompact-5-5" title="Copy heading and permalink for Exercise 7.4.5" aria-label="Copy heading and permalink for Exercise 7.4.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_subspacecompact"><h4 class="heading"><span class="codenumber">7.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_subspacecompact-1-1">Show that a compact set <span class="process-math">\(K\)</span> (in any metric space) is itself a complete metric space (using the subspace metric).<div class="autopermalink" data-description="Paragraph"><a href="#exercise_subspacecompact-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.6"><a href="#exercise_subspacecompact" title="Copy heading and permalink for Exercise 7.4.6" aria-label="Copy heading and permalink for Exercise 7.4.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_CabRcomplete"><h4 class="heading"><span class="codenumber">7.4.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_CabRcomplete-1-1">Let <span class="process-math">\(C\bigl([a,b],\R\bigr)\)</span> be the metric space as in <a href="sec_metric.html#example_msC01" class="xref" data-knowl="./knowl/xref/example_msC01.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.8">Example 7.1.8</a>.  Show that <span class="process-math">\(C\bigl([a,b],\R\bigr)\)</span> is a complete metric space.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_CabRcomplete-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.7"><a href="#exercise_CabRcomplete" title="Copy heading and permalink for Exercise 7.4.7" aria-label="Copy heading and permalink for Exercise 7.4.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_msclbounnotcompt"><h4 class="heading"><span class="codenumber">7.4.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_msclbounnotcompt-1-1">
+<em class="emphasis">(Challenging)</em>   Let <span class="process-math">\(C\bigl([0,1],\R\bigr)\)</span> be the metric space of <a href="sec_metric.html#example_msC01" class="xref" data-knowl="./knowl/xref/example_msC01.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.8">Example 7.1.8</a>.  Let <span class="process-math">\(0\)</span> denote the zero function.  Then show that the closed ball <span class="process-math">\(C(0,1)\)</span> is not compact (even though it is closed and bounded). Hints: Construct a sequence of distinct continuous functions <span class="process-math">\(\{ f_n \}_{n=1}^\infty\)</span> such that <span class="process-math">\(d(f_n,0) = 1\)</span> and <span class="process-math">\(d(f_n,f_k) = 1\)</span> for all <span class="process-math">\(n \neq k\text{.}\)</span>  Show that the set <span class="process-math">\(\{ f_n : n \in \N \} \subset C(0,1)\)</span> is closed but not compact. See <a href="fs_chapter.html" class="internal" title="Chapter 6: Sequences of Functions">Chapter 6</a> for inspiration.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_msclbounnotcompt-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.8"><a href="#exercise_msclbounnotcompt" title="Copy heading and permalink for Exercise 7.4.8" aria-label="Copy heading and permalink for Exercise 7.4.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-9"><h4 class="heading"><span class="codenumber">7.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-9-1-1">
+<em class="emphasis">(Challenging)</em>   Show that there exists a metric on <span class="process-math">\(\R\)</span> that makes <span class="process-math">\(\R\)</span> into a compact set.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.9"><a href="#sec_metcompact-5-9" title="Copy heading and permalink for Exercise 7.4.9" aria-label="Copy heading and permalink for Exercise 7.4.9">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-10"><h4 class="heading"><span class="codenumber">7.4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-10-1-1">Suppose <span class="process-math">\((X,d)\)</span> is complete and suppose we have a countably infinite collection of nonempty compact sets <span class="process-math">\(E_1 \supset E_2 \supset E_3 \supset
+\cdots\text{.}\)</span>  Prove <span class="process-math">\(\bigcap_{j=1}^\infty E_j \neq \emptyset\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.10"><a href="#sec_metcompact-5-10" title="Copy heading and permalink for Exercise 7.4.10" aria-label="Copy heading and permalink for Exercise 7.4.10">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-11"><h4 class="heading"><span class="codenumber">7.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-11-1-1">
+<em class="emphasis">(Challenging)</em>   Let <span class="process-math">\(C\bigl([0,1],\R\bigr)\)</span> be the metric space of <a href="sec_metric.html#example_msC01" class="xref" data-knowl="./knowl/xref/example_msC01.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.8">Example 7.1.8</a>. Let <span class="process-math">\(K\)</span> be the set of <span class="process-math">\(f \in C\bigl([0,1],\R\bigr)\)</span> such that <span class="process-math">\(f\)</span> is equal to a quadratic polynomial, i.e. <span class="process-math">\(f(x) = a+bx+cx^2\text{,}\)</span> and such that <span class="process-math">\(\babs{f(x)} \leq 1\)</span> for all <span class="process-math">\(x \in [0,1]\text{,}\)</span> that is <span class="process-math">\(f \in C(0,1)\text{.}\)</span>  Show that <span class="process-math">\(K\)</span> is compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.11"><a href="#sec_metcompact-5-11" title="Copy heading and permalink for Exercise 7.4.11" aria-label="Copy heading and permalink for Exercise 7.4.11">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_mstotbound"><h4 class="heading"><span class="codenumber">7.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_mstotbound-1-1">
+<em class="emphasis">(Challenging)</em>   Let <span class="process-math">\((X,d)\)</span> be a complete metric space. Show that <span class="process-math">\(K \subset X\)</span> is compact if and only if <span class="process-math">\(K\)</span> is closed and such that for every <span class="process-math">\(\epsilon &gt; 0\)</span> there exists a finite set of points <span class="process-math">\(x_1,x_2,\ldots,x_n\)</span> with <span class="process-math">\(K \subset \bigcup_{j=1}^n B(x_j,\epsilon)\text{.}\)</span> Note: Such a set <span class="process-math">\(K\)</span> is said to be <em class="emphasis">totally bounded</em>, so in a complete metric space a set is compact if and only if it is closed and totally bounded.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_mstotbound-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.12"><a href="#exercise_mstotbound" title="Copy heading and permalink for Exercise 7.4.12" aria-label="Copy heading and permalink for Exercise 7.4.12">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-13"><h4 class="heading"><span class="codenumber">7.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-13-1-1">Take <span class="process-math">\(\N \subset \R\)</span> using the standard metric.  Find an open cover of <span class="process-math">\(\N\)</span> such that the conclusion of the Lebesgue covering lemma does not hold.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.13"><a href="#sec_metcompact-5-13" title="Copy heading and permalink for Exercise 7.4.13" aria-label="Copy heading and permalink for Exercise 7.4.13">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-14"><h4 class="heading"><span class="codenumber">7.4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-14-1-1">Prove the general Bolzano–Weierstrass theorem: Any bounded sequence <span class="process-math">\(\{ x_k \}_{k=1}^\infty\)</span> in <span class="process-math">\(\R^n\)</span> has a convergent subsequence.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.14"><a href="#sec_metcompact-5-14" title="Copy heading and permalink for Exercise 7.4.14" aria-label="Copy heading and permalink for Exercise 7.4.14">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-15"><h4 class="heading"><span class="codenumber">7.4.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-15-1-1">Let <span class="process-math">\(X\)</span> be a metric space and <span class="process-math">\(C \subset \sP(X)\)</span> the set of nonempty compact subsets of <span class="process-math">\(X\text{.}\)</span> Using the Hausdorff metric from <a href="sec_metric.html#exercise_mshausdorffpseudo" class="xref" data-knowl="./knowl/xref/exercise_mshausdorffpseudo.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.1.8">Exercise 7.1.8</a>, show that <span class="process-math">\((C,d_H)\)</span> is a metric space.  That is, show that if <span class="process-math">\(L\)</span> and <span class="process-math">\(K\)</span> are nonempty compact subsets, then <span class="process-math">\(d_H(L,K) = 0\)</span> if and only if <span class="process-math">\(L=K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.15"><a href="#sec_metcompact-5-15" title="Copy heading and permalink for Exercise 7.4.15" aria-label="Copy heading and permalink for Exercise 7.4.15">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_closedcomplete"><h4 class="heading"><span class="codenumber">7.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_closedcomplete-1-1">Prove <a href="sec_metcompact.html#prop_closedcomplete" class="xref" data-knowl="./knowl/xref/prop_closedcomplete.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.6">Proposition 7.4.6</a>.  That is, let <span class="process-math">\((X,d)\)</span> be a complete metric space and <span class="process-math">\(E \subset X\)</span> a closed set. Show that <span class="process-math">\(E\)</span> with the subspace metric is a complete metric space.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_closedcomplete-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.16"><a href="#exercise_closedcomplete" title="Copy heading and permalink for Exercise 7.4.16" aria-label="Copy heading and permalink for Exercise 7.4.16">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-17"><h4 class="heading"><span class="codenumber">7.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-17-1-1">Let <span class="process-math">\((X,d)\)</span> be an incomplete metric space.  Show that there exists a closed and bounded set <span class="process-math">\(E \subset X\)</span> that is not compact.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-17-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.17"><a href="#sec_metcompact-5-17" title="Copy heading and permalink for Exercise 7.4.17" aria-label="Copy heading and permalink for Exercise 7.4.17">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_metcompact-5-18"><h4 class="heading"><span class="codenumber">7.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="sec_metcompact-5-18-1-1">Let <span class="process-math">\((X,d)\)</span> be a metric space and <span class="process-math">\(K \subset X\text{.}\)</span> Prove that <span class="process-math">\(K\)</span> is compact as a subset of <span class="process-math">\((X,d)\)</span> if and only if <span class="process-math">\(K\)</span> is compact as a subset of itself with the subspace metric.<div class="autopermalink" data-description="Paragraph"><a href="#sec_metcompact-5-18-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.18"><a href="#sec_metcompact-5-18" title="Copy heading and permalink for Exercise 7.4.18" aria-label="Copy heading and permalink for Exercise 7.4.18">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_cauchydepndsonmetric"><h4 class="heading"><span class="codenumber">7.4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_cauchydepndsonmetric-1-1">Consider two metrics on <span class="process-math">\(\R\text{.}\)</span> Let <span class="process-math">\(d(x,y) \coloneqq \sabs{x-y}\)</span> be the standard metric, and let <span class="process-math">\(d'(x,y) \coloneqq
+\babs{ \frac{x}{1+\sabs{x}} - \frac{y}{1+\sabs{y}} }\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-alpha ol-marker-3" id="exercise_cauchydepndsonmetric-1-2">
+<li id="exercise_cauchydepndsonmetric-1-2-1">
+<div class="para" id="exercise_cauchydepndsonmetric-1-2-1-1">Show that <span class="process-math">\((\R,d')\)</span> is a metric space (if you have done <a href="sec_metseqs.html#exercise_extendedrealsmetric" class="xref" data-knowl="./knowl/xref/exercise_extendedrealsmetric.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.3.10">Exercise 7.3.10</a>, the computation is the same).<div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.19.a"><a href="#exercise_cauchydepndsonmetric-1-2-1" title="Copy heading and permalink for Item 7.4.19.a" aria-label="Copy heading and permalink for Item 7.4.19.a">🔗</a></div>
+</li>
+<li id="exercise_cauchydepndsonmetric-1-2-2">
+<div class="para" id="exercise_cauchydepndsonmetric-1-2-2-1">Show that the topology is the same, that is, a set is open in <span class="process-math">\((\R,d)\)</span> if and only if it is open in <span class="process-math">\((\R,d')\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.19.b"><a href="#exercise_cauchydepndsonmetric-1-2-2" title="Copy heading and permalink for Item 7.4.19.b" aria-label="Copy heading and permalink for Item 7.4.19.b">🔗</a></div>
+</li>
+<li id="exercise_cauchydepndsonmetric-1-2-3">
+<div class="para" id="exercise_cauchydepndsonmetric-1-2-3-1">Show that a set is compact in <span class="process-math">\((\R,d)\)</span> if and only if it is compact in <span class="process-math">\((\R,d')\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.19.c"><a href="#exercise_cauchydepndsonmetric-1-2-3" title="Copy heading and permalink for Item 7.4.19.c" aria-label="Copy heading and permalink for Item 7.4.19.c">🔗</a></div>
+</li>
+<li id="exercise_cauchydepndsonmetric-1-2-4">
+<div class="para" id="exercise_cauchydepndsonmetric-1-2-4-1">Show that a sequence converges in <span class="process-math">\((\R,d)\)</span> if and only if it converges in <span class="process-math">\((\R,d')\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.19.d"><a href="#exercise_cauchydepndsonmetric-1-2-4" title="Copy heading and permalink for Item 7.4.19.d" aria-label="Copy heading and permalink for Item 7.4.19.d">🔗</a></div>
+</li>
+<li id="exercise_cauchydepndsonmetric-1-2-5">
+<div class="para" id="exercise_cauchydepndsonmetric-1-2-5-1">Find a sequence of real numbers that is Cauchy in <span class="process-math">\((\R,d')\)</span> but not Cauchy in <span class="process-math">\((\R,d)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.19.e"><a href="#exercise_cauchydepndsonmetric-1-2-5" title="Copy heading and permalink for Item 7.4.19.e" aria-label="Copy heading and permalink for Item 7.4.19.e">🔗</a></div>
+</li>
+<li id="exercise_cauchydepndsonmetric-1-2-6">
+<div class="para" id="exercise_cauchydepndsonmetric-1-2-6-1">While <span class="process-math">\((\R,d)\)</span> is complete, show that <span class="process-math">\((\R,d')\)</span> is not complete.<div class="autopermalink" data-description="Paragraph"><a href="#exercise_cauchydepndsonmetric-1-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.4.19.f"><a href="#exercise_cauchydepndsonmetric-1-2-6" title="Copy heading and permalink for Item 7.4.19.f" aria-label="Copy heading and permalink for Item 7.4.19.f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.4.19"><a href="#exercise_cauchydepndsonmetric" title="Copy heading and permalink for Exercise 7.4.19" aria-label="Copy heading and permalink for Exercise 7.4.19">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_relativelycompactseq"><h4 class="heading"><span class="codenumber">7.4.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercise_relativelycompactseq-1-1">Let <span class="process-math">\((X,d)\)</span> be a complete metric space. We say a set <span class="process-math">\(S \subset X\)</span> is <em class="emphasis">relatively compact</em> if the closure <span class="process-math">\(\widebar{S}\)</span> is compact. Prove that <span class="process-math">\(S \subset X\)</span> is relatively compact if and only if given any sequence <span class="process-math">\(\{ x_n \}_{n=1}^\infty\)</span> in <span class="process-math">\(S\text{,}\)</span> there exists a subsequence <span class="process-math">\(\{ x_{n_k} \}_{k=1}^\infty\)</span> that converges (in <span class="process-math">\(X\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#exercise_relativelycompactseq-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.4.20"><a href="#exercise_relativelycompactseq" title="Copy heading and permalink for Exercise 7.4.20" aria-label="Copy heading and permalink for Exercise 7.4.20">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 7.4.3"><a href="#sec_metcompact-5" title="Copy heading and permalink for Exercises 7.4.3" aria-label="Copy heading and permalink for Exercises 7.4.3">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 7.4: Completeness and compactness"><a href="#sec_metcompact" title="Copy heading and permalink for Section 7.4: Completeness and compactness" aria-label="Copy heading and permalink for Section 7.4: Completeness and compactness">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_metseqs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_metcont.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<span class="print-pdf-warning">
+ <em>For a higher quality printout use the PDF versions: <tt>https://www.jirka.org/ra/realanal.pdf</tt>,<tt>https://www.jirka.org/ra/realanal2.pdf</tt></em>
+or <tt>https://jirilebl.github.io/ra/realanal.pdf</tt>,<tt>https://jirilebl.github.io/ra/realanal2.pdf</tt></em>
+</span>
+</body>
+</html>

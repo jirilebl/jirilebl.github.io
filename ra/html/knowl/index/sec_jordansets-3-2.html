@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Given a set <span class="process-math">\(S \subset \R^n\text{,}\)</span> its <em class="emphasis">characteristic function</em> or <em class="emphasis">indicator function</em> <span class="process-math">\(\chi_S \colon \R^n \to \R\)</span> is defined by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mv_prop_integralsmallerset.html ./knowl/xref/mv_zerooutside.html">
+\begin{equation}
+\chi_S(x) \coloneqq
+\begin{cases}
+1 &amp; \text{if } x \in S, \\
+0 &amp; \text{if } x \notin S.
+\end{cases}
+\end{equation}
+</div>
+<div class="para">A bounded set <span class="process-math">\(S\)</span> is <em class="emphasis">Jordan measurable</em><details class="ptx-footnote" aria-live="polite" id="sec_jordansets-3-2-8"><summary class="ptx-footnote__number" title="Footnote 10.5.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="sec_jordansets-3-2-8">Named after the French mathematician <a class="external" href="https://en.wikipedia.org/wiki/Camille_Jordan" target="_blank">Marie Ennemond Camille Jordan</a> (1838–1922).
+</div></details> if for some closed rectangle <span class="process-math">\(R\)</span> such that <span class="process-math">\(S \subset R\text{,}\)</span> the function <span class="process-math">\(\chi_S\)</span> is Riemann integrable, that is, <span class="process-math">\(\chi_S \in \sR(R)\text{.}\)</span> Take two closed rectangles <span class="process-math">\(R\)</span> and <span class="process-math">\(R'\)</span> with <span class="process-math">\(S \subset R\)</span> and <span class="process-math">\(S \subset R'\text{.}\)</span> Then <span class="process-math">\(R \cap R'\)</span> is a closed rectangle also containing <span class="process-math">\(S\text{.}\)</span>  By <a href="sec_rirect.html#mv_prop_integralsmallerset" class="xref" data-knowl="./knowl/xref/mv_prop_integralsmallerset.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 10.1.13">Proposition 10.1.13</a> and <a href="sec_rirect.html#mv_zerooutside" class="xref" data-knowl="./knowl/xref/mv_zerooutside.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 10.1.7">Exercise 10.1.7</a>, <span class="process-math">\(\chi_S \in \sR(R \cap R')\)</span> and so <span class="process-math">\(\chi_S \in \sR(R')\text{.}\)</span>  Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mv_prop_integralsmallerset.html ./knowl/xref/mv_zerooutside.html">
+\begin{equation}
+\int_R \chi_S = \int_{R'} \chi_S = \int_{R \cap R'} \chi_S.
+\end{equation}
+</div>
+<div class="para">We define the <em class="emphasis"><span class="process-math">\(n\)</span>-dimensional volume</em> of the bounded Jordan measurable set <span class="process-math">\(S\)</span> as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mv_prop_integralsmallerset.html ./knowl/xref/mv_zerooutside.html">
+\begin{equation}
+V(S) \coloneqq \int_R \chi_S ,
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(R\)</span> is any closed rectangle containing <span class="process-math">\(S\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_jordansets-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<span class="incontext"><a class="internal" href="sec_jordansets.html#sec_jordansets-3-2">In Context</a></span>
+</body>
+</html>
