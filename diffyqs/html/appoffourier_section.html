@@ -21,60 +21,17 @@
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="extra.css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
@@ -138,9 +95,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_scs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="FS_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="heateq_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
-\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
-\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{}^{#1}\!/\!{}_{#2}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, \nicefrac{\mathrm{#2}}{\mathrm{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, \mathrm{#2}}
 \newcommand{\noalign}[1]{}
 \newcommand{\qed}{\qquad \Box}
 \newcommand{\mybxbg}[1]{\boxed{#1}}
@@ -162,7 +119,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical courses</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
 </ul>
@@ -702,19 +659,24 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="appoffourier_section"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="appoffourier_section">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Applications of Fourier series</span>
 </h2>
-<section class="introduction" id="appoffourier_section-2"><div class="para" id="appoffourier_section-2-1">
+<section class="introduction" id="appoffourier_section-2">
+<div class="para" id="appoffourier_section-2-1">
 <em class="emphasis">Note: 2 lectures, §9.4 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, not in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="appoffourier_section-3"><h3 class="heading hide-type">
+</div></section>
+<section class="subsection" id="appoffourier_section-3">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Periodically forced oscillation</span>
 </h3>
 <div class="para" id="appoffourier_section-3-2">
 <img class="diffyimg diffyfloatright" style="width:143pt; height:63pt; display:block;" src="figures/massfigforce-tex4ht.svg" role="img" alt="A diagram showing a mass labeled m, attached on the left to a spring labeled as k, attached to a wall on the left. An arrow indicating force to the right on the mass is labeled F of t. An arrow below the mass indicating displacement points to the right and is labeled x. The ’floor’ of the diagram is labeled as ’damping c’."><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="appoffourier_section-3-3">
-<div class="para">We return to the forced oscillations.  Consider a mass-spring system as before, where we have a mass <span class="process-math">\(m\)</span> on a spring with spring constant <span class="process-math">\(k\text{,}\)</span> with damping <span class="process-math">\(c\text{,}\)</span> and a force <span class="process-math">\(F(t)\)</span> applied to the mass.  Suppose the forcing function <span class="process-math">\(F(t)\)</span> is <span class="process-math">\(2L\)</span>-periodic for some <span class="process-math">\(L &gt; 0\text{.}\)</span> We saw this problem in <a href="ho_chapter.html" class="internal" title="Chapter 2: Higher-order linear ODEs">Chapter 2</a> with <span class="process-math">\(F(t) = F_0 \cos (\omega t)\text{.}\)</span>  The equation that governs this particular setup is</div>
+<div class="para">We return to forced oscillations.  Consider a mass-spring system as before, where we have a mass <span class="process-math">\(m\)</span> on a spring with spring constant <span class="process-math">\(k\text{,}\)</span> with damping <span class="process-math">\(c\text{,}\)</span> and a force <span class="process-math">\(F(t)\)</span> applied to the mass.  Suppose the forcing function <span class="process-math">\(F(t)\)</span> is <span class="process-math">\(2L\)</span>-periodic for some <span class="process-math">\(L &gt; 0\text{.}\)</span> We saw this problem in <a href="ho_chapter.html" class="internal" title="Chapter 2: Higher-order linear ODEs">Chapter 2</a> with <span class="process-math">\(F(t) = F_0 \cos (\omega t)\text{.}\)</span>  The equation that governs this particular setup is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ho_chapter.html" id="afs_eq">
 \begin{equation}
 mx''(t) + cx'(t) + kx(t) = F(t) .\tag{4.9}
@@ -743,20 +705,24 @@ B \sin (\omega_0 t) ,
 <div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="appoffourier_section-3-6">
-<div class="para">In the spirit of the last section and the idea of undetermined coefficients we first write</div>
+<div class="para">In the spirit of the last section and the idea of undetermined coefficients, we first write</div>
 <div class="displaymath process-math" id="appoffourier_section-3-6-1">
 \begin{equation}
 F(t) = \frac{c_0}{2} + \sum_{n=1}^\infty
-c_n \cos \left( \frac{n \pi}{L} t \right) +
-d_n \sin \left( \frac{n \pi}{L} t \right) .
+\Bigl[
+c_n \cos \Bigl( \frac{n \pi}{L} t \Bigr) +
+d_n \sin \Bigl( \frac{n \pi}{L} t \Bigr)
+\Bigr] .
 \end{equation}
 </div>
 <div class="para">Then we write a proposed steady periodic solution <span class="process-math">\(x\)</span> as</div>
 <div class="displaymath process-math" id="appoffourier_section-3-6-3">
 \begin{equation}
 x(t) = \frac{a_0}{2} + \sum_{n=1}^\infty
-a_n \cos \left( \frac{n \pi}{L} t \right) +
-b_n \sin \left( \frac{n \pi}{L} t \right) ,
+\Bigl[
+a_n \cos \Bigl( \frac{n \pi}{L} t \Bigr) +
+b_n \sin \Bigl( \frac{n \pi}{L} t \Bigr)
+\Bigr],
 \end{equation}
 </div>
 <div class="para">where <span class="process-math">\(a_n\)</span> and <span class="process-math">\(b_n\)</span> are unknowns. We plug <span class="process-math">\(x\)</span> into the differential equation and solve for <span class="process-math">\(a_n\)</span> and <span class="process-math">\(b_n\)</span> in terms of <span class="process-math">\(c_n\)</span> and <span class="process-math">\(d_n\text{.}\)</span>  This process is perhaps best understood by example.</div>
@@ -766,7 +732,8 @@ b_n \sin \left( \frac{n \pi}{L} t \right) ,
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="afs_steadyex-1-1">Suppose that <span class="process-math">\(k=2\)</span> and <span class="process-math">\(m=1\text{.}\)</span> The units are again the mks units (meters-kilograms-seconds). There is a jetpack strapped to the mass, which fires with a force of 1 newton for 1 second and then is off for 1 second, and so on.  We want to find the steady periodic solution.<div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="afs_steadyex-1-2">
+</div> 
+<div class="para logical" id="afs_steadyex-1-2">
 <div class="para">The equation is, therefore,</div>
 <div class="displaymath process-math" id="afs_steadyex-1-2-1">
 \begin{equation}
@@ -787,8 +754,10 @@ F(t) =
 <div class="displaymath process-math" id="afs_steadyex-1-2-4">
 \begin{equation}
 F(t) = \frac{c_0}{2} + \sum_{n=1}^\infty
+\Bigl[
 c_n \cos (n \pi t) +
-d_n \sin (n \pi t) .
+d_n \sin (n \pi t)
+\Bigr] .
 \end{equation}
 </div>
 <div class="para">We compute</div>
@@ -823,13 +792,16 @@ F(t) = \frac{1}{2} + \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="afs_steadyex-1-3">
+</div> 
+<div class="para logical" id="afs_steadyex-1-3">
 <div class="para">We want to try</div>
 <div class="displaymath process-math" id="afs_steadyex-1-3-1">
 \begin{equation}
 x(t) = \frac{a_0}{2} + \sum_{n=1}^\infty
+\Bigl[
 a_n \cos (n \pi t) +
-b_n \sin (n \pi t) .
+b_n \sin (n \pi t)
+\Bigr] .
 \end{equation}
 </div>
 <div class="para">Once we plug <span class="process-math">\(x\)</span> into the differential equation <span class="process-math">\(x''+2x = F(t)\text{,}\)</span> it is clear that <span class="process-math">\(a_n = 0\)</span> for <span class="process-math">\(n \geq 1\)</span> as there are no corresponding terms in the series for <span class="process-math">\(F(t)\text{.}\)</span>  Similarly, <span class="process-math">\(b_n = 0\)</span> for even <span class="process-math">\(n\text{.}\)</span>  Hence we try</div>
@@ -845,12 +817,17 @@ b_n \sin (n \pi t) .
 \begin{equation}
 \begin{split}
 x'' + 2 x &amp; =
+\left(
 \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
-\Bigl[ - b_n n^2 \pi^2 \sin (n \pi t) \Bigr] + 
+- b_n n^2 \pi^2 \sin (n \pi t)
+\right)
++ 
 a_0 +
 2
+\left(
 \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
-\Bigl[ b_n \sin (n \pi t) \Bigr]
+b_n \sin (n \pi t)
+\right)
 \\
 &amp; =
 a_0 +
@@ -871,7 +848,8 @@ b_n =
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="afs_steadyex-1-4">
+</div> 
+<div class="para logical" id="afs_steadyex-1-4">
 <div class="para">The steady periodic solution has the Fourier series</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/afs_steadyexfig.html" id="afs_steadyex-1-4-1">
 \begin{equation}
@@ -883,8 +861,13 @@ x_{sp}(t) = \frac{1}{4} + \sum_{\substack{n=1 \\ n \text{ odd}}}^\infty
 <div class="para">We know this is the steady periodic solution as it contains no terms of the complementary solution and it is periodic with the same period as <span class="process-math">\(F(t)\)</span> itself.  See <a href="appoffourier_section.html#afs_steadyexfig" class="internal" title="Figure 4.14">Figure 4.14</a> for the plot of this solution.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#afs_steadyex-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
-<figure class="figure figure-like" id="afs_steadyexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/afs-steadyex-mbx.svg" role="img" alt="Graph of a periodic function that looks like a sinusoidal path that oscillates several times as t goes from 0 to 10. It starts at 0.25 when t equals 0, goes a bit below 0.2, then goes back up to a bit above 0.3, and so on. It makes 5 oscillations on the interval."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the steady periodic solution <span class="process-math">\(x_{sp}\)</span> of <a href="appoffourier_section.html#afs_steadyex" class="xref" data-knowl="./knowl/xref/afs_steadyex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.5.1">Example 4.5.1</a>.<div class="autopermalink" data-description="Figure 4.14"><a href="#afs_steadyexfig" title="Copy heading and permalink for Figure 4.14" aria-label="Copy heading and permalink for Figure 4.14">🔗</a></div></figcaption></figure><hr class="diffyqshr">
-<div class="autopermalink" data-description="Example 4.5.1"><a href="#afs_steadyex" title="Copy heading and permalink for Example 4.5.1" aria-label="Copy heading and permalink for Example 4.5.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 4.5.1: Periodically forced oscillation"><a href="#appoffourier_section-3" title="Copy heading and permalink for Subsection 4.5.1: Periodically forced oscillation" aria-label="Copy heading and permalink for Subsection 4.5.1: Periodically forced oscillation">🔗</a></div></section><section class="subsection" id="appoffourier_section-4"><h3 class="heading hide-type">
+<figure class="figure figure-like" id="afs_steadyexfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/afs-steadyex-mbx.svg" role="img" alt="Graph of a periodic function that looks like a sinusoidal path that oscillates several times as t goes from 0 to 10. It starts at 0.25 when t equals 0, goes a bit below 0.2, then goes back up to a bit above 0.3, and so on. It makes 5 oscillations on the interval."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of the steady periodic solution <span class="process-math">\(x_{sp}\)</span> of <a href="appoffourier_section.html#afs_steadyex" class="xref" data-knowl="./knowl/xref/afs_steadyex.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.5.1">Example 4.5.1</a>.<div class="autopermalink" data-description="Figure 4.14"><a href="#afs_steadyexfig" title="Copy heading and permalink for Figure 4.14" aria-label="Copy heading and permalink for Figure 4.14">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 4.5.1"><a href="#afs_steadyex" title="Copy heading and permalink for Example 4.5.1" aria-label="Copy heading and permalink for Example 4.5.1">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 4.5.1: Periodically forced oscillation"><a href="#appoffourier_section-3" title="Copy heading and permalink for Subsection 4.5.1: Periodically forced oscillation" aria-label="Copy heading and permalink for Subsection 4.5.1: Periodically forced oscillation">🔗</a></div>
+</section>
+<section class="subsection" id="appoffourier_section-4">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Resonance</span>
 </h3>
 <div class="para logical" id="appoffourier_section-4-2">
@@ -904,12 +887,15 @@ x_c = A \cos (\omega_0 t) + B \sin (\omega_0 t),
 <div class="displaymath process-math" id="appoffourier_section-4-2-11">
 \begin{equation}
 x(t) = \frac{a_0}{2} +
-t \left(
-a_N \cos \left( \frac{N \pi}{L} t \right) +
-b_N \sin \left( \frac{N \pi}{L} t \right) \right) +
+t \Biggl(
+a_N \cos \Bigl( \frac{N \pi}{L} t \Bigr) +
+b_N \sin \Bigl( \frac{N \pi}{L} t \Bigr)
+\Biggr) +
 \sum_{\substack{n=1\\n \neq N}}^\infty
-a_n \cos \left( \frac{n \pi}{L} t \right) +
-b_n \sin \left( \frac{n \pi}{L} t \right) .
+\Bigl[
+a_n \cos \Bigl( \frac{n \pi}{L} t \Bigr) +
+b_n \sin \Bigl( \frac{n \pi}{L} t \Bigr)
+\Bigr].
 \end{equation}
 </div>
 <div class="para">In other words, we multiply the offending term by <span class="process-math">\(t\text{.}\)</span>  From then on, we proceed as before.</div>
@@ -918,7 +904,7 @@ b_n \sin \left( \frac{n \pi}{L} t \right) .
 <div class="para" id="appoffourier_section-4-3">The solution is not a Fourier series (it is not even periodic) since it contains these terms multiplied by <span class="process-math">\(t\text{.}\)</span> The terms <span class="process-math">\(t \left( a_N \cos \left( \frac{N \pi}{L} t \right) +
 b_N \sin \left( \frac{N \pi}{L} t \right) \right)\)</span> eventually dominate and lead to wild oscillations.  As before, this behavior is called <em class="emphasis">pure resonance</em> or just <em class="emphasis">resonance</em>.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="appoffourier_section-4-4">Note that we may hit the resonance frequency with infinitely many terms (overtones) of the forcing function <span class="process-math">\(F\text{.}\)</span> That is, suppose we use the same “shape” for <span class="process-math">\(F\text{,}\)</span> and we change the base frequency (we change the <span class="process-math">\(L\)</span>). Then different terms from the Fourier series of <span class="process-math">\(F\)</span> may interfere with the complementary solution, that is, <span class="process-math">\(\frac{n \pi}{L} = \omega_0\)</span> for some <span class="process-math">\(n\text{,}\)</span> and possibly cause resonance. Theoretically, infinitely many base frequencies could cause resonance, however, we should note that since everything is an approximation to any real life application, only the first few terms of <span class="process-math">\(F\text{,}\)</span> and hence only a few such frequencies, would matter in real life.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="appoffourier_section-4-4">Note that we may hit the resonance frequency with infinitely many terms (overtones) of the forcing function <span class="process-math">\(F\text{.}\)</span> That is, suppose we use the same “shape” for <span class="process-math">\(F\text{,}\)</span> and we change the base frequency (we change the <span class="process-math">\(L\)</span>). Then different terms from the Fourier series of <span class="process-math">\(F\)</span> may interfere with the complementary solution, that is, <span class="process-math">\(\frac{n \pi}{L} = \omega_0\)</span> for some <span class="process-math">\(n\text{,}\)</span> and possibly cause resonance. Theoretically, infinitely many base frequencies could cause resonance. However, we should note that since everything is an approximation to any real life application, only the first few terms of <span class="process-math">\(F\text{,}\)</span> and hence only a few such frequencies, would matter.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="appoffourier_section-4-5"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -950,11 +936,14 @@ F(t) =
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <article class="exercise exercise-like" id="appoffourier_section-4-5-1-2">
+</div> 
+<article class="exercise exercise-like" id="appoffourier_section-4-5-1-2">
 
 
 
-<div class="autopermalink" data-description="Exercise 4.5.1"><a href="#appoffourier_section-4-5-1-2" title="Copy heading and permalink for Exercise 4.5.1" aria-label="Copy heading and permalink for Exercise 4.5.1">🔗</a></div></article> <div class="para logical" id="appoffourier_section-4-5-1-3">
+<div class="autopermalink" data-description="Exercise 4.5.1"><a href="#appoffourier_section-4-5-1-2" title="Copy heading and permalink for Exercise 4.5.1" aria-label="Copy heading and permalink for Exercise 4.5.1">🔗</a></div>
+</article> 
+<div class="para logical" id="appoffourier_section-4-5-1-3">
 <div class="para">As <span class="process-math">\(\sqrt{\frac{k}{m}} = \sqrt{\frac{18\pi^2}{2}} = 3\pi\text{,}\)</span> the solution to <a href="appoffourier_section.html#afs_eq-resonance" class="xref" data-knowl="./knowl/xref/afs_eq-resonance.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.10">(4.10)</a> is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/afs_eq-resonance.html" id="appoffourier_section-4-5-1-3-3">
 \begin{equation}
@@ -964,7 +953,8 @@ x(t) = c_1 \cos  (3\pi t) + c_2 \sin (3\pi t) + x_p (t)
 <div class="para">for some particular solution <span class="process-math">\(x_p\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-5-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="appoffourier_section-4-5-1-4">
+</div> 
+<div class="para logical" id="appoffourier_section-4-5-1-4">
 <div class="para">If we just try an <span class="process-math">\(x_p\)</span> given as a Fourier series with <span class="process-math">\(\sin (n\pi t)\)</span> as usual, the complementary equation, <span class="process-math">\(2x''+18\pi^2x=0\text{,}\)</span> eats our <span class="process-math">\(3^\text{rd}\)</span> harmonic.  That is, the term with <span class="process-math">\(\sin(3 \pi t)\)</span> is already in our complementary solution. Therefore, we pull that term out and multiply it by <span class="process-math">\(t\text{.}\)</span>  We also add a cosine term to get everything right. That is, we try</div>
 <div class="displaymath process-math" id="appoffourier_section-4-5-1-4-7">
 \begin{equation}
@@ -1033,7 +1023,7 @@ x_p''(t) =
 \sin (n \pi t) . 
 \end{equation}
 </div>
-<div class="para">This series has to equal to the series for <span class="process-math">\(F(t)\text{.}\)</span> We equate the coefficients and solve for <span class="process-math">\(a_3\)</span> and <span class="process-math">\(b_n\text{:}\)</span>
+<div class="para">This series must equal the series for <span class="process-math">\(F(t)\text{.}\)</span> We equate the coefficients and solve for <span class="process-math">\(a_3\)</span> and <span class="process-math">\(b_n\text{:}\)</span>
 </div>
 <div class="displaymath process-math" id="appoffourier_section-4-5-1-4-14">
 \begin{equation}
@@ -1060,50 +1050,77 @@ t \, \cos (3 \pi t)
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-5-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.5.2"><a href="#appoffourier_section-4-5" title="Copy heading and permalink for Example 4.5.2" aria-label="Copy heading and permalink for Example 4.5.2">🔗</a></div></article><div class="para" id="appoffourier_section-4-6">When <span class="process-math">\(c &gt; 0\text{,}\)</span> you do not have to worry about pure resonance. There are never any conflicts, and you do not need to multiply any terms by <span class="process-math">\(t\text{.}\)</span>  There is a corresponding concept of practical resonance, and it is very similar to the ideas we already explored in <a href="ho_chapter.html" class="internal" title="Chapter 2: Higher-order linear ODEs">Chapter 2</a>. Basically, what happens in practical resonance is that one of the coefficients in the series for <span class="process-math">\(x_{sp}\)</span> can get very big.  Let us not go into details here.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 4.5.2"><a href="#appoffourier_section-4-5" title="Copy heading and permalink for Example 4.5.2" aria-label="Copy heading and permalink for Example 4.5.2">🔗</a></div>
+</article>
+<div class="para" id="appoffourier_section-4-6">When <span class="process-math">\(c &gt; 0\text{,}\)</span> you do not have to worry about pure resonance. There are never any conflicts, and you do not need to multiply any terms by <span class="process-math">\(t\text{.}\)</span>  There is a corresponding concept of practical resonance, and it is very similar to the ideas we already explored in <a href="ho_chapter.html" class="internal" title="Chapter 2: Higher-order linear ODEs">Chapter 2</a>. Basically, what happens in practical resonance is that one of the coefficients in the series for <span class="process-math">\(x_{sp}\)</span> can get very big.  Let us not go into details here.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 4.5.2: Resonance"><a href="#appoffourier_section-4" title="Copy heading and permalink for Subsection 4.5.2: Resonance" aria-label="Copy heading and permalink for Subsection 4.5.2: Resonance">🔗</a></div></section><section class="exercises" id="appoffourier_section-5"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 4.5.2: Resonance"><a href="#appoffourier_section-4" title="Copy heading and permalink for Subsection 4.5.2: Resonance" aria-label="Copy heading and permalink for Subsection 4.5.2: Resonance">🔗</a></div>
+</section>
+<section class="exercises" id="appoffourier_section-5">
+<h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="appoffourier_section-5-1"><h4 class="heading"><span class="codenumber">4.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-1-1-1">Let <span class="process-math">\(F(t) = \frac{1}{2} + \sum_{n=1}^\infty \frac{1}{n^2} \cos (n \pi t)\text{.}\)</span> Find the steady periodic solution to <span class="process-math">\(x'' + 2 x = F(t)\text{.}\)</span>  Express your solution as a Fourier series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 4.5.2"><a href="#appoffourier_section-5-1" title="Copy heading and permalink for Exercise 4.5.2" aria-label="Copy heading and permalink for Exercise 4.5.2">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-2"><h4 class="heading"><span class="codenumber">4.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 4.5.2"><a href="#appoffourier_section-5-1" title="Copy heading and permalink for Exercise 4.5.2" aria-label="Copy heading and permalink for Exercise 4.5.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-2"><h4 class="heading"><span class="codenumber">4.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-2-1-1">Let <span class="process-math">\(F(t) = \sum_{n=1}^\infty \frac{1}{n^3} \sin (n \pi t)\text{.}\)</span>  Find the steady periodic solution to <span class="process-math">\(x'' + x' + x = F(t)\text{.}\)</span>  Express your solution as a Fourier series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 4.5.3"><a href="#appoffourier_section-5-2" title="Copy heading and permalink for Exercise 4.5.3" aria-label="Copy heading and permalink for Exercise 4.5.3">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-3"><h4 class="heading"><span class="codenumber">4.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 4.5.3"><a href="#appoffourier_section-5-2" title="Copy heading and permalink for Exercise 4.5.3" aria-label="Copy heading and permalink for Exercise 4.5.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-3"><h4 class="heading"><span class="codenumber">4.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-3-1-1">Let <span class="process-math">\(F(t) = \sum_{n=1}^\infty \frac{1}{n^2} \cos (n \pi t)\text{.}\)</span>  Find the steady periodic solution to <span class="process-math">\(x'' + 4 x = F(t)\text{.}\)</span>  Express your solution as a Fourier series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 4.5.4"><a href="#appoffourier_section-5-3" title="Copy heading and permalink for Exercise 4.5.4" aria-label="Copy heading and permalink for Exercise 4.5.4">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-4"><h4 class="heading"><span class="codenumber">4.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 4.5.4"><a href="#appoffourier_section-5-3" title="Copy heading and permalink for Exercise 4.5.4" aria-label="Copy heading and permalink for Exercise 4.5.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-4"><h4 class="heading"><span class="codenumber">4.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-4-1-1">Let <span class="process-math">\(F(t) = t\)</span> for <span class="process-math">\(-1 &lt; t &lt; 1\)</span> and extended periodically. Find the steady periodic solution to <span class="process-math">\(x'' + x = F(t)\text{.}\)</span>  Express your solution as a series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 4.5.5"><a href="#appoffourier_section-5-4" title="Copy heading and permalink for Exercise 4.5.5" aria-label="Copy heading and permalink for Exercise 4.5.5">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-5"><h4 class="heading"><span class="codenumber">4.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 4.5.5"><a href="#appoffourier_section-5-4" title="Copy heading and permalink for Exercise 4.5.5" aria-label="Copy heading and permalink for Exercise 4.5.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-5"><h4 class="heading"><span class="codenumber">4.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-5-1-1">Let <span class="process-math">\(F(t) = t\)</span> for <span class="process-math">\(-1 &lt; t &lt; 1\)</span> and extended periodically. Find the steady periodic solution to <span class="process-math">\(x'' + \pi^2 x = F(t)\text{.}\)</span>  Express your solution as a series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 4.5.6"><a href="#appoffourier_section-5-5" title="Copy heading and permalink for Exercise 4.5.6" aria-label="Copy heading and permalink for Exercise 4.5.6">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-6"><h4 class="heading"><span class="codenumber">4.5.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 4.5.6"><a href="#appoffourier_section-5-5" title="Copy heading and permalink for Exercise 4.5.6" aria-label="Copy heading and permalink for Exercise 4.5.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-6"><h4 class="heading"><span class="codenumber">4.5.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-6-1-1">Let <span class="process-math">\(F(t) = \sin(2\pi t) + 0.1 \cos(10 \pi t)\text{.}\)</span> Find the steady periodic solution to <span class="process-math">\(x'' + \sqrt{2}\, x = F(t)\text{.}\)</span> Express your solution as a Fourier series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="appoffourier_section-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="appoffourier_section-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="appoffourier_section-5-6-2-1">
 <span class="process-math">\(x = \frac{1}{\sqrt{2}-4 \pi^2} \sin(2\pi t) + \frac{0.1}{\sqrt{2}-100 \pi^2} \cos(10 \pi t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 4.5.101.1"><a href="#appoffourier_section-5-6-2" title="Copy heading and permalink for Answer 4.5.101.1" aria-label="Copy heading and permalink for Answer 4.5.101.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 4.5.101"><a href="#appoffourier_section-5-6" title="Copy heading and permalink for Exercise 4.5.101" aria-label="Copy heading and permalink for Exercise 4.5.101">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-7"><h4 class="heading"><span class="codenumber">4.5.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 4.5.101"><a href="#appoffourier_section-5-6" title="Copy heading and permalink for Exercise 4.5.101" aria-label="Copy heading and permalink for Exercise 4.5.101">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-7"><h4 class="heading"><span class="codenumber">4.5.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-7-1-1">Let <span class="process-math">\(F(t) = \sum_{n=1}^\infty e^{-n} \cos(2 n t)\text{.}\)</span> Find the steady periodic solution to <span class="process-math">\(x'' + 3 x = F(t)\text{.}\)</span> Express your solution as a Fourier series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="appoffourier_section-5-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="appoffourier_section-5-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="appoffourier_section-5-7-2-1">
 <span class="process-math">\(x =
 \sum\limits_{n=1}^\infty
 \frac{e^{-n}}{3-{(2n)}^2} \cos(2n t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 4.5.102.1"><a href="#appoffourier_section-5-7-2" title="Copy heading and permalink for Answer 4.5.102.1" aria-label="Copy heading and permalink for Answer 4.5.102.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 4.5.102"><a href="#appoffourier_section-5-7" title="Copy heading and permalink for Exercise 4.5.102" aria-label="Copy heading and permalink for Exercise 4.5.102">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-8"><h4 class="heading"><span class="codenumber">4.5.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 4.5.102"><a href="#appoffourier_section-5-7" title="Copy heading and permalink for Exercise 4.5.102" aria-label="Copy heading and permalink for Exercise 4.5.102">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-8"><h4 class="heading"><span class="codenumber">4.5.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-8-1-1">Let <span class="process-math">\(F(t) = \lvert t \rvert\)</span> for <span class="process-math">\(-1 \leq t \leq 1\)</span> extended periodically. Find the steady periodic solution to <span class="process-math">\(x'' + \sqrt{3}\, x = F(t)\text{.}\)</span> Express your solution as a series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="appoffourier_section-5-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="appoffourier_section-5-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="appoffourier_section-5-8-2-1">
 <span class="process-math">\(x =
 \frac{1}{2\sqrt{3}} + 
@@ -1111,11 +1128,16 @@ t \, \cos (3 \pi t)
 (\sqrt{3}-n^2 \pi^2)} \cos (n \pi t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 4.5.103.1"><a href="#appoffourier_section-5-8-2" title="Copy heading and permalink for Answer 4.5.103.1" aria-label="Copy heading and permalink for Answer 4.5.103.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 4.5.103"><a href="#appoffourier_section-5-8" title="Copy heading and permalink for Exercise 4.5.103" aria-label="Copy heading and permalink for Exercise 4.5.103">🔗</a></div></article><article class="exercise exercise-like" id="appoffourier_section-5-9"><h4 class="heading"><span class="codenumber">4.5.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 4.5.103"><a href="#appoffourier_section-5-8" title="Copy heading and permalink for Exercise 4.5.103" aria-label="Copy heading and permalink for Exercise 4.5.103">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="appoffourier_section-5-9"><h4 class="heading"><span class="codenumber">4.5.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="appoffourier_section-5-9-1-1">Let <span class="process-math">\(F(t) = \lvert t \rvert\)</span> for <span class="process-math">\(-1 \leq t \leq 1\)</span> extended periodically. Find the steady periodic solution to <span class="process-math">\(x'' + \pi^2 x = F(t)\text{.}\)</span> Express your solution as a series.<div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="appoffourier_section-5-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="appoffourier_section-5-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="appoffourier_section-5-9-2-1">
 <span class="process-math">\(x =
 \frac{1}{2\pi^2} -
@@ -1124,8 +1146,13 @@ t \, \cos (3 \pi t)
 (1-n^2)} \cos (n \pi t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#appoffourier_section-5-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 4.5.104.1"><a href="#appoffourier_section-5-9-2" title="Copy heading and permalink for Answer 4.5.104.1" aria-label="Copy heading and permalink for Answer 4.5.104.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 4.5.104"><a href="#appoffourier_section-5-9" title="Copy heading and permalink for Exercise 4.5.104" aria-label="Copy heading and permalink for Exercise 4.5.104">🔗</a></div></article><div class="autopermalink" data-description="Exercises 4.5.3"><a href="#appoffourier_section-5" title="Copy heading and permalink for Exercises 4.5.3" aria-label="Copy heading and permalink for Exercises 4.5.3">🔗</a></div></section><div class="autopermalink" data-description="Section 4.5: Applications of Fourier series"><a href="#appoffourier_section" title="Copy heading and permalink for Section 4.5: Applications of Fourier series" aria-label="Copy heading and permalink for Section 4.5: Applications of Fourier series">🔗</a></div></section></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 4.5.104"><a href="#appoffourier_section-5-9" title="Copy heading and permalink for Exercise 4.5.104" aria-label="Copy heading and permalink for Exercise 4.5.104">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 4.5.3"><a href="#appoffourier_section-5" title="Copy heading and permalink for Exercises 4.5.3" aria-label="Copy heading and permalink for Exercises 4.5.3">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 4.5: Applications of Fourier series"><a href="#appoffourier_section" title="Copy heading and permalink for Section 4.5: Applications of Fourier series" aria-label="Copy heading and permalink for Section 4.5: Applications of Fourier series">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_scs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="heateq_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

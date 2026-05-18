@@ -49,8 +49,10 @@ v_1 \\ v_2
 </div>
 <div class="para">So <span class="process-math">\(v_2 = 0\text{.}\)</span>  All eigenvectors are of the form <span class="process-math">\(\left[ \begin{smallmatrix} v_1 \\ 0 \end{smallmatrix} \right]\text{.}\)</span>  Any two such vectors are linearly dependent, and hence the geometric multiplicity of the eigenvalue is 1.  Therefore, the defect is 1, and we can no longer apply the eigenvalue method directly to a system of ODEs with such a coefficient matrix.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_multeigen-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para">To solve such an ODE, we need a new idea. Roughly, the key observation we will use is that if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> of algebraic multiplicity <span class="process-math">\(m\text{,}\)</span> then it is possible to find certain <span class="process-math">\(m\)</span> linearly independent vectors solving <span class="process-math">\({(A-\lambda I)}^k \vec{v} = \vec{0}\)</span> for various powers <span class="process-math">\(k\text{.}\)</span>  We will call these <em class="emphasis">generalized eigenvectors</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_multeigen-4-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical">
+</div> 
+<div class="para">To solve such an ODE, we need a new idea. Roughly, the key observation we will use is that if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> of algebraic multiplicity <span class="process-math">\(m\text{,}\)</span> then it is possible to find certain <span class="process-math">\(m\)</span> linearly independent vectors solving <span class="process-math">\({(A-\lambda I)}^k \vec{v} = \vec{0}\)</span> for various powers <span class="process-math">\(k\text{.}\)</span>  We will call these <em class="emphasis">generalized eigenvectors</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_multeigen-4-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
 <div class="para">We continue with the example equation <span class="process-math">\({\vec{x}}' = A\vec{x}\)</span> where <span class="process-math">\(A = \left[ \begin{smallmatrix}
 3 &amp; 1 \\ 0 &amp; 3
 \end{smallmatrix} \right]\text{.}\)</span> We found an eigenvalue <span class="process-math">\(\lambda=3\)</span> of (algebraic) multiplicity 2 and defect 1. We found one eigenvector <span class="process-math">\(\vec{v} = \left[ \begin{smallmatrix} 1 \\ 0 \end{smallmatrix} \right]\text{.}\)</span> We have one solution</div>
@@ -61,7 +63,8 @@ v_1 \\ v_2
 </div>
 <div class="para">We are now stuck, we get no other solutions from standard eigenvectors.  But we need two linearly independent solutions to find the general solution of the equation.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_multeigen-4-3-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical">
+</div> 
+<div class="para logical">
 <div class="para">In the spirit of repeated roots of the characteristic equation for a single equation, we try another solution of the form</div>
 <div class="displaymath process-math">
 \begin{equation}
@@ -147,6 +150,7 @@ c_2 e^{3t}
 c_1 3 e^{3t}+c_2 e^{3t} + 3 c_2 te^{3t} = 3 x_1 + x_2\text{.}\)</span>  Good.  Now <span class="process-math">\(x_2' = 3 c_2 e^{3t} = 3x_2\text{.}\)</span>  Good.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_multeigen-4-3-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 3.7.1"><a href="#sec_multeigen-4-3" title="Copy heading and permalink for Example 3.7.1" aria-label="Copy heading and permalink for Example 3.7.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_multeigen.html#sec_multeigen-4-3">in-context</a></span>
+<div class="autopermalink" data-description="Example 3.7.1"><a href="#sec_multeigen-4-3" title="Copy heading and permalink for Example 3.7.1" aria-label="Copy heading and permalink for Example 3.7.1">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_multeigen.html#sec_multeigen-4-3">In Context</a></span>
 </body>
 </html>

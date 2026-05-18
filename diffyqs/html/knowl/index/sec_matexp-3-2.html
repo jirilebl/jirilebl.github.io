@@ -48,23 +48,30 @@ e^{at} = 1 + at
 <div class="para">Recall <span class="process-math">\(k! = 1 \cdot 2 \cdot 3 \cdots k\)</span> is the factorial, and <span class="process-math">\(0! = 1\text{.}\)</span> We differentiate this series term by term</div>
 <div class="displaymath process-math">
 \begin{equation}
-\frac{d}{dt} \left(e^{at} \right) = 
+\begin{split}
+\frac{d}{dt} \left(e^{at} \right)
+&amp;
+= 
 0
 + a
 + a^2 t
 + \frac{a^3t^2}{2}
 + \frac{a^4t^3}{6}
 + \cdots
-= a \left(
+\\
+&amp;
+=
+a \left(
 1
 + a t
 + \frac{{(at)}^2}{2}
 + \frac{{(at)}^3}{6}
 + \cdots \right)
 = a e^{at}.
+\end{split}
 \end{equation}
 </div>
-<div class="para">Maybe we can try the same trick with matrices.  For an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> we define the <em class="emphasis">matrix exponential</em> as</div>
+<div class="para">Maybe we can try the same trick with matrices.  For an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we define the <em class="emphasis">matrix exponential</em> as</div>
 <div class="displaymath process-math">
 \begin{equation}
 \mybxbg{~~
@@ -84,6 +91,6 @@ P e^{tP} .
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_matexp-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<span class="incontext"><a class="internal" href="sec_matexp.html#sec_matexp-3-2">in-context</a></span>
+<span class="incontext"><a class="internal" href="sec_matexp.html#sec_matexp-3-2">In Context</a></span>
 </body>
 </html>

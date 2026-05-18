@@ -21,60 +21,17 @@
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="extra.css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
@@ -138,9 +95,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="matalg_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="linalg_appendix.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="subspaces_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
-\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
-\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{}^{#1}\!/\!{}_{#2}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, \nicefrac{\mathrm{#2}}{\mathrm{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, \mathrm{#2}}
 \newcommand{\noalign}[1]{}
 \newcommand{\qed}{\qquad \Box}
 \newcommand{\mybxbg}[1]{\boxed{#1}}
@@ -162,7 +119,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical courses</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
 </ul>
@@ -702,16 +659,23 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="elim_section"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="elim_section">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elimination</span>
 </h2>
-<section class="introduction" id="elim_section-2"><div class="para" id="elim_section-2-1">
+<section class="introduction" id="elim_section-2">
+<div class="para" id="elim_section-2-1">
 <em class="emphasis">Note: 2–3 lectures</em><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="elim_section-3"><h3 class="heading hide-type">
+</div></section>
+<section class="subsection" id="elim_section-3">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear systems of equations</span>
 </h3>
 <div class="para logical" id="elim_section-3-2">
-<div class="para">One application of matrices is to solve systems of linear equations<details class="ptx-footnote" aria-live="polite" id="elim_section-3-2-1"><summary class="ptx-footnote__number" title="Footnote A.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="elim_section-3-2-1">Although perhaps we have this backwards, quite often we solve a linear system of equations to find out something about matrices, rather than vice versa.</div></details>. Consider the following system of linear equations</div>
+<div class="para">One application of matrices is to solve systems of linear equations<details class="ptx-footnote" aria-live="polite" id="elim_section-3-2-1"><summary class="ptx-footnote__number" title="Footnote A.3.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="elim_section-3-2-1">Although perhaps we have this backwards, quite often we solve a linear system of equations to find out something about matrices, rather than vice versa.
+</div></details>. Consider the following system of linear equations</div>
 <div class="displaymath process-math" id="linalg_elim_eq">
 \begin{equation}
 \begin{aligned}
@@ -739,7 +703,7 @@ A \vec{x} = \vec{b} .
 \begin{bmatrix}
 2 &amp; 2 &amp; 2 \\
 1 &amp; 1 &amp; 3 \\
-1 &amp; 4 &amp; 1 
+1 &amp; 4 &amp; 1
 \end{bmatrix}
 }_{A}
 \underbrace{
@@ -747,7 +711,7 @@ A \vec{x} = \vec{b} .
 x_1 \\
 x_2 \\
 x_3
-\end{bmatrix} 
+\end{bmatrix}
 }_{\vec{x}}
 =
 \underbrace{
@@ -759,13 +723,13 @@ x_3
 }_{\vec{b}} .
 \end{equation}
 </div>
-<div class="para">If we knew the inverse of <span class="process-math">\(A\text{,}\)</span> then we would be done; we would simply solve the equation:</div>
+<div class="para">If we knew the inverse of <span class="process-math">\(A\text{,}\)</span> then we would be done. We would simply solve the equation:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/linalg_elim_eq.html" id="elim_section-3-4-5">
 \begin{equation}
 \vec{x} = A^{-1} A \vec{x} = A^{-1} \vec{b} .
 \end{equation}
 </div>
-<div class="para">Well, but that is part of the problem, we do not know how to compute the inverse for matrices bigger than <span class="process-math">\(2 \times 2\text{.}\)</span> We will see later that to compute the inverse we are really solving <span class="process-math">\(A \vec{x} = \vec{b}\)</span> for several different <span class="process-math">\(\vec{b}\text{.}\)</span>  In other words, we will need to do elimination to find <span class="process-math">\(A^{-1}\text{.}\)</span> In addition, we may wish to solve <span class="process-math">\(A \vec{x} = \vec{b}\)</span> if <span class="process-math">\(A\)</span> is not invertible, or perhaps not even square.</div>
+<div class="para">Well, but that is part of the problem. We do not know how to compute the inverse for matrices bigger than <span class="process-math">\(2 \times 2\text{.}\)</span> We will see later that to compute the inverse, we are really solving <span class="process-math">\(A \vec{x} = \vec{b}\)</span> for several different <span class="process-math">\(\vec{b}\text{.}\)</span>  In other words, we will need to do elimination to find <span class="process-math">\(A^{-1}\text{.}\)</span> In addition, we may wish to solve <span class="process-math">\(A \vec{x} = \vec{b}\)</span> if <span class="process-math">\(A\)</span> is not invertible, or perhaps not even square.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="elim_section-3-5">
@@ -840,7 +804,10 @@ A \vec{x} = \vec{b} ,
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection A.3.1: Linear systems of equations"><a href="#elim_section-3" title="Copy heading and permalink for Subsection A.3.1: Linear systems of equations" aria-label="Copy heading and permalink for Subsection A.3.1: Linear systems of equations">🔗</a></div></section><section class="subsection" id="elim_section-4"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection A.3.1: Linear systems of equations"><a href="#elim_section-3" title="Copy heading and permalink for Subsection A.3.1: Linear systems of equations" aria-label="Copy heading and permalink for Subsection A.3.1: Linear systems of equations">🔗</a></div>
+</section>
+<section class="subsection" id="elim_section-4">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Row echelon form and elementary operations</span>
 </h3>
 <div class="para" id="elim_section-4-2">We apply the three operations above to the matrix.  We call these the <em class="emphasis">elementary operations</em> or <em class="emphasis">elementary row operations</em>. Translating the operations to the matrix setting, the operations become:<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -885,11 +852,13 @@ A \vec{x} = \vec{b} ,
 </ol>
 <div class="para" id="elim_section-4-7">A matrix is in <em class="emphasis">reduced row echelon form</em> if furthermore the following condition is satisfied.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<ol class="lower-roman ol-marker-2" id="elim_section-4-8"><li id="elim_section-4-8-1">
+<ol class="lower-roman ol-marker-2" id="elim_section-4-8">
+<li id="elim_section-4-8-1">
 <div class="para" id="elim_section-4-8-1-1">All the entries above a leading entry are zero.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item i"><a href="#elim_section-4-8-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
-</li></ol>
+</li>
+</ol>
 <div class="para" id="elim_section-4-9">Note that the definition applies to matrices of any size.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="elim_section-4-10"><h4 class="heading">
@@ -954,9 +923,11 @@ A \vec{x} = \vec{b} ,
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example A.3.1"><a href="#elim_section-4-10" title="Copy heading and permalink for Example A.3.1" aria-label="Copy heading and permalink for Example A.3.1">🔗</a></div></article><div class="para" id="elim_section-4-11">The procedure we will describe to find a reduced row echelon form of a matrix is called <em class="emphasis">Gauss–Jordan elimination</em>. The first part of it, which obtains a row echelon form, is called <em class="emphasis">Gaussian elimination</em> or <em class="emphasis">row reduction</em>.  For some problems, a row echelon form is sufficient, and it is a bit less work to only do this first part.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example A.3.1"><a href="#elim_section-4-10" title="Copy heading and permalink for Example A.3.1" aria-label="Copy heading and permalink for Example A.3.1">🔗</a></div>
+</article>
+<div class="para" id="elim_section-4-11">The procedure we will describe to find a reduced row echelon form of a matrix is called <em class="emphasis">Gauss–Jordan elimination</em>. The first part of it, which obtains a row echelon form, is called <em class="emphasis">Gaussian elimination</em> or <em class="emphasis">row reduction</em>.  For some problems, a row echelon form is sufficient, and it is a bit less work to only do this first part.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="elim_section-4-12">To attain the row echelon form we work systematically. We go column by column, starting at the first column.  We find topmost entry in the first column that is not zero, and we call it the <em class="emphasis">pivot</em>.  If there is no nonzero entry we move to the next column.  We swap rows to put the row with the pivot as the first row.  We divide the first row by the pivot to make the pivot entry be a 1.  Now look at all the rows below and subtract the correct multiple of the pivot row so that all the entries below the pivot become zero.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="elim_section-4-12">To attain the row echelon form we work systematically. We go column by column, starting at the first column.  We find the topmost entry in the first column that is not zero, and we call it the <em class="emphasis">pivot</em>.  If there is no nonzero entry we move to the next column.  We swap rows to put the row with the pivot as the first row.  We divide the first row by the pivot to make the pivot entry be a 1.  Now look at all the rows below and subtract the correct multiple of the pivot row so that all the entries below the pivot become zero.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="elim_section-4-13">After this procedure we forget that we had a first row (it is now fixed), and we forget about the column with the pivot and all the preceding zero columns. Below the pivot row, all the entries in these columns are just zero.  Then we focus on the smaller matrix and we repeat the steps above.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1067,7 +1038,7 @@ A \vec{x} = \vec{b} ,
 0 &amp; 1 &amp; 0 &amp; 3 \\
 0 &amp; 0 &amp; \mybxsm{2} &amp; 4
 \end{array}
-\right] 
+\right]
 \qquad \to \qquad
 \left[
 \begin{array}{ccc|c}
@@ -1091,7 +1062,7 @@ A \vec{x} = \vec{b} ,
 \begin{array}{ccc|c}
 1 &amp; 1 &amp; 0 &amp; -1 \\
 0 &amp; 1 &amp; 0 &amp; 3 \\
-0 &amp; 0 &amp; 1 &amp; 2 
+0 &amp; 0 &amp; 1 &amp; 2
 \end{array}
 \right] .
 \end{equation}
@@ -1103,7 +1074,7 @@ A \vec{x} = \vec{b} ,
 \begin{array}{ccc|c}
 1 &amp; 0 &amp; 0 &amp; -4 \\
 0 &amp; 1 &amp; 0 &amp; 3 \\
-0 &amp; 0 &amp; 1 &amp; 2 
+0 &amp; 0 &amp; 1 &amp; 2
 \end{array}
 \right] .
 \end{equation}
@@ -1121,7 +1092,10 @@ x_1 = -4, \qquad x_2 = 3, \qquad x_3 = 2 .
 <div class="para">In other words, we have solved the system.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-4-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection A.3.2: Row echelon form and elementary operations"><a href="#elim_section-4" title="Copy heading and permalink for Subsection A.3.2: Row echelon form and elementary operations" aria-label="Copy heading and permalink for Subsection A.3.2: Row echelon form and elementary operations">🔗</a></div></section><section class="subsection" id="elim_section-5"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection A.3.2: Row echelon form and elementary operations"><a href="#elim_section-4" title="Copy heading and permalink for Subsection A.3.2: Row echelon form and elementary operations" aria-label="Copy heading and permalink for Subsection A.3.2: Row echelon form and elementary operations">🔗</a></div>
+</section>
+<section class="subsection" id="elim_section-5">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Non-unique solutions and inconsistent systems</span>
 </h3>
 <div class="para logical" id="elim_section-5-2">
@@ -1132,12 +1106,12 @@ x_1 = -4, \qquad x_2 = 3, \qquad x_3 = 2 .
 \begin{array}{ccc|c}
 1 &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 0 &amp; 1 &amp; 3 \\
-0 &amp; 0 &amp; 0 &amp; 1 
+0 &amp; 0 &amp; 0 &amp; 1
 \end{array}
 \right] .
 \end{equation}
 </div>
-<div class="para">Then we have an equation <span class="process-math">\(0=1\)</span> coming from the last row.  That is impossible and the equations are what we call <em class="emphasis">inconsistent</em>.  There is no solution to <span class="process-math">\(A \vec{x} = \vec{b}\text{.}\)</span>
+<div class="para">Then we have an equation <span class="process-math">\(0=1\)</span> coming from the last row.  That is impossible, and the equations are what we call <em class="emphasis">inconsistent</em>.  There is no solution to <span class="process-math">\(A \vec{x} = \vec{b}\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1149,7 +1123,7 @@ x_1 = -4, \qquad x_2 = 3, \qquad x_3 = 2 .
 \begin{array}{ccc|c}
 1 &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 0 &amp; 1 &amp; 3 \\
-0 &amp; 0 &amp; 0 &amp; 0 
+0 &amp; 0 &amp; 0 &amp; 0
 \end{array}
 \right] ,
 \end{equation}
@@ -1161,7 +1135,7 @@ x_1 = -4, \qquad x_2 = 3, \qquad x_3 = 2 .
 \begin{array}{ccc|c}
 \mybxsm{1} &amp; 2 &amp; 0 &amp; -5 \\
 0 &amp; 0 &amp; \mybxsm{1} &amp; 3 \\
-0 &amp; 0 &amp; 0 &amp; 0 
+0 &amp; 0 &amp; 0 &amp; 0
 \end{array}
 \right]
 \end{equation}
@@ -1182,7 +1156,7 @@ x_3 = 3 .
 \end{aligned}
 \end{equation}
 </div>
-<div class="para">The variable <span class="process-math">\(x_2\)</span> can be anything you wish and we still get a solution. The <span class="process-math">\(x_2\)</span> is called a <em class="emphasis">free variable</em>. There are infinitely many solutions, one for every choice of <span class="process-math">\(x_2\text{.}\)</span> If we pick <span class="process-math">\(x_2=0\text{,}\)</span> then <span class="process-math">\(x_1 = -5\text{,}\)</span> and <span class="process-math">\(x_3 = 3\)</span> give a solution.  But we also get a solution by picking say <span class="process-math">\(x_2 = 1\text{,}\)</span> in which case <span class="process-math">\(x_1 = -9\)</span> and <span class="process-math">\(x_3 = 3\text{,}\)</span> or by picking <span class="process-math">\(x_2 = -5\)</span> in which case <span class="process-math">\(x_1 = 5\)</span> and <span class="process-math">\(x_3 = 3\text{.}\)</span>
+<div class="para">The variable <span class="process-math">\(x_2\)</span> can be anything you wish, and we still get a solution. The <span class="process-math">\(x_2\)</span> is called a <em class="emphasis">free variable</em>. There are infinitely many solutions, one for every choice of <span class="process-math">\(x_2\text{.}\)</span> If we pick <span class="process-math">\(x_2=0\text{,}\)</span> then <span class="process-math">\(x_1 = -5\text{,}\)</span> and <span class="process-math">\(x_3 = 3\)</span> give a solution.  But we also get a solution by picking say <span class="process-math">\(x_2 = 1\text{,}\)</span> in which case <span class="process-math">\(x_1 = -7\)</span> and <span class="process-math">\(x_3 = 3\text{,}\)</span> or by picking <span class="process-math">\(x_2 = -5\)</span> in which case <span class="process-math">\(x_1 = 5\)</span> and <span class="process-math">\(x_3 = 3\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1210,12 +1184,15 @@ x_3 = 3 .
 A \vec{x} = \vec{0} .
 \end{equation}
 </div>
-<div class="para">There is no need to write an augmented matrix in this case.  As the elementary operations do not do anything to a zero column, it always stays a zero column.  Moreover, <span class="process-math">\(A \vec{x} = \vec{0}\)</span> always has at least one solution, namely <span class="process-math">\(\vec{x} = \vec{0}\text{.}\)</span>  Such a system is always consistent.  It may have other solutions:  If you find any free variables, then you get infinitely many solutions.</div>
+<div class="para">There is no need to write an augmented matrix in this case.  As the elementary operations do not do anything to a zero column, it always stays a zero column.  Moreover, <span class="process-math">\(A \vec{x} = \vec{0}\)</span> always has at least one solution, namely <span class="process-math">\(\vec{x} = \vec{0}\text{.}\)</span>  Such a system is always consistent.  It may have other solutions:  If we find any free variables, then we get infinitely many solutions.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="elim_section-5-8">The set of solutions of <span class="process-math">\(A \vec{x} = \vec{0}\)</span> comes up quite often so people give it a name.  It is called the <em class="emphasis">nullspace</em> or the <em class="emphasis">kernel</em> of <span class="process-math">\(A\text{.}\)</span> One place where the kernel comes up is invertibility of a square matrix <span class="process-math">\(A\text{.}\)</span> If the kernel of <span class="process-math">\(A\)</span> contains a nonzero vector, then it contains infinitely many vectors (there was a free variable).  But then it is impossible to invert <span class="process-math">\(\vec{0}\text{,}\)</span> since infinitely many vectors go to <span class="process-math">\(\vec{0}\text{,}\)</span> so there is no unique vector that <span class="process-math">\(A\)</span> takes to <span class="process-math">\(\vec{0}\text{.}\)</span> So if the kernel is nontrivial, that is, if there are any nonzero vectors in the kernel, in other words, if there are any free variables, or in yet other words, if the row echelon form of <span class="process-math">\(A\)</span> has columns without pivots, then <span class="process-math">\(A\)</span> is not invertible.  We will return to this idea later.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-5-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection A.3.3: Non-unique solutions and inconsistent systems"><a href="#elim_section-5" title="Copy heading and permalink for Subsection A.3.3: Non-unique solutions and inconsistent systems" aria-label="Copy heading and permalink for Subsection A.3.3: Non-unique solutions and inconsistent systems">🔗</a></div></section><section class="subsection" id="elim_section-6"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection A.3.3: Non-unique solutions and inconsistent systems"><a href="#elim_section-5" title="Copy heading and permalink for Subsection A.3.3: Non-unique solutions and inconsistent systems" aria-label="Copy heading and permalink for Subsection A.3.3: Non-unique solutions and inconsistent systems">🔗</a></div>
+</section>
+<section class="subsection" id="elim_section-6">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear independence and rank</span>
 </h3>
 <div class="para" id="elim_section-6-2">If rows of a matrix correspond to equations, it may be good to find out how many equations we really need to find the same set of solutions. Similarly, if we find a number of solutions to a linear equation <span class="process-math">\(A \vec{x} = \vec{0}\text{,}\)</span> we may ask if we found enough so that all other solutions can be formed out of the given set. The concept we want is that of linear independence. That same concept is useful for differential equations, for example in <a href="ho_chapter.html" class="internal" title="Chapter 2: Higher-order linear ODEs">Chapter 2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1224,8 +1201,8 @@ A \vec{x} = \vec{0} .
 <div class="para">Given row or column vectors <span class="process-math">\(\vec{y}_1, \vec{y}_2, \ldots, \vec{y}_n\text{,}\)</span> a <em class="emphasis">linear combination</em> is an expression of the form</div>
 <div class="displaymath process-math" id="elim_section-6-3-3">
 \begin{equation}
-\alpha_1 \vec{y}_1 + 
-\alpha_2 \vec{y}_2 + 
+\alpha_1 \vec{y}_1 +
+\alpha_2 \vec{y}_2 +
 \cdots +
 \alpha_n \vec{y}_n ,
 \end{equation}
@@ -1255,10 +1232,10 @@ A \vec{x}
 <div class="para">The way linear combinations come up in our study of differential equations is similar to the following computation.  Suppose that <span class="process-math">\(\vec{x}_1\text{,}\)</span> <span class="process-math">\(\vec{x}_2\text{,}\)</span> ..., <span class="process-math">\(\vec{x}_n\)</span> are solutions to <span class="process-math">\(A \vec{x}_1 = \vec{0}\text{,}\)</span> <span class="process-math">\(A \vec{x}_2 = \vec{0}\text{,}\)</span> ..., <span class="process-math">\(A \vec{x}_n = \vec{0}\text{.}\)</span> Then the linear combination</div>
 <div class="displaymath process-math" id="elim_section-6-5-7">
 \begin{equation}
-\vec{y} = \alpha_1 \vec{x}_1 + 
-\alpha_2 \vec{x}_2 + 
+\vec{y} = \alpha_1 \vec{x}_1 +
+\alpha_2 \vec{x}_2 +
 \cdots +
-\alpha_n \vec{x}_n 
+\alpha_n \vec{x}_n
 \end{equation}
 </div>
 <div class="para">is a solution to <span class="process-math">\(A \vec{y} = \vec{0}\text{:}\)</span>
@@ -1266,36 +1243,36 @@ A \vec{x}
 <div class="displaymath process-math" id="elim_section-6-5-9">
 \begin{multline*}
 A \vec{y} =
-A (\alpha_1 \vec{x}_1 + 
-\alpha_2 \vec{x}_2 + 
+A (\alpha_1 \vec{x}_1 +
+\alpha_2 \vec{x}_2 +
 \cdots +
 \alpha_n \vec{x}_n )
 =
 \\
 =
-\alpha_1 A \vec{x}_1 + 
-\alpha_2 A \vec{x}_2 + 
+\alpha_1 A \vec{x}_1 +
+\alpha_2 A \vec{x}_2 +
 \cdots +
 \alpha_n A \vec{x}_n
 =
-\alpha_1 \vec{0} + 
-\alpha_2 \vec{0} + 
+\alpha_1 \vec{0} +
+\alpha_2 \vec{0} +
 \cdots +
 \alpha_n \vec{0} = \vec{0} .
 \end{multline*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="elim_section-6-6">So if you have found enough solutions, you have them all.  The question is, when did we find enough of them?<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="elim_section-6-6">So if we find enough solutions, we have all solutions.  The question is, when did we find enough of them?<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="elim_section-6-7">
 <div class="para">We say the vectors <span class="process-math">\(\vec{y}_1\text{,}\)</span> <span class="process-math">\(\vec{y}_2\text{,}\)</span> ..., <span class="process-math">\(\vec{y}_n\)</span> are <em class="emphasis">linearly independent</em> if the only solution to</div>
 <div class="displaymath process-math" id="elim_section-6-7-5">
 \begin{equation}
-\alpha_1 \vec{x}_1 + 
-\alpha_2 \vec{x}_2 + 
+\alpha_1 \vec{x}_1 +
+\alpha_2 \vec{x}_2 +
 \cdots +
-\alpha_n \vec{x}_n 
+\alpha_n \vec{x}_n
 =
 \vec{0}
 \end{equation}
@@ -1323,20 +1300,20 @@ A (\alpha_1 \vec{x}_1 +
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="elim_section-6-9">
-<div class="para">If a set of vectors is linearly dependent, that is, some of the <span class="process-math">\(\alpha_j\)</span>s are nonzero, then we can solve for one vector in terms of the others. Suppose <span class="process-math">\(\alpha_1 \neq 0\text{.}\)</span>  Since <span class="process-math">\(\alpha_1 \vec{x}_1 + 
-\alpha_2 \vec{x}_2 + 
+<div class="para">If a set of vectors is linearly dependent, that is, some of the <span class="process-math">\(\alpha_j\)</span>s are nonzero, then we can solve for one vector in terms of the others. Suppose <span class="process-math">\(\alpha_1 \neq 0\text{.}\)</span>  Since <span class="process-math">\(\alpha_1 \vec{x}_1 +
+\alpha_2 \vec{x}_2 +
 \cdots +
-\alpha_n \vec{x}_n 
+\alpha_n \vec{x}_n
 =
 \vec{0}\text{,}\)</span> then</div>
 <div class="displaymath process-math" id="elim_section-6-9-4">
 \begin{equation}
-\vec{x}_1 
+\vec{x}_1
 =
 \frac{-\alpha_2}{\alpha_1}
-\vec{x}_2 - 
+\vec{x}_2 -
 \frac{-\alpha_3}{\alpha_1}
-\vec{x}_3 + 
+\vec{x}_3 +
 \cdots +
 \frac{-\alpha_n}{\alpha_1}
 \vec{x}_n .
@@ -1416,7 +1393,7 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 1 &amp; 2 &amp; 3
 \end{bmatrix} -2
 \begin{bmatrix}
-4 &amp; 5 &amp; 6 
+4 &amp; 5 &amp; 6
 \end{bmatrix} +
 \begin{bmatrix}
 7 &amp; 8 &amp; 9
@@ -1456,11 +1433,11 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \alpha_1
 \begin{bmatrix}
 1 &amp; 2 &amp; 3
-\end{bmatrix} 
+\end{bmatrix}
 +
 \alpha_2
 \begin{bmatrix}
-0 &amp; 1 &amp; 2 
+0 &amp; 1 &amp; 2
 \end{bmatrix} =
 \begin{bmatrix}
 0 &amp; 0 &amp; 0
@@ -1550,9 +1527,11 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 <div class="para" id="elim_section-6-17-1-1">
 <span class="process-math">\(\operatorname{rank} A = \operatorname{rank} A^T\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-17-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem A.3.1"><a href="#elim_section-6-17" title="Copy heading and permalink for Theorem A.3.1" aria-label="Copy heading and permalink for Theorem A.3.1">🔗</a></div></article><div class="para logical" id="elim_section-6-18">
+<div class="autopermalink" data-description="Theorem A.3.1"><a href="#elim_section-6-17" title="Copy heading and permalink for Theorem A.3.1" aria-label="Copy heading and permalink for Theorem A.3.1">🔗</a></div>
+</article>
+<div class="para logical" id="elim_section-6-18">
 <div class="para">In particular, to find a set of linearly independent columns we need to look at where the pivots were.  If you recall above, when solving <span class="process-math">\(A \vec{x}
-= \vec{0}\)</span> the key was finding the pivots, any non-pivot columns corresponded to free variables.  That means we can solve for the non-pivot columns in terms of the pivot columns.  Let’s see an example.  First we reduce some random matrix:</div>
+= \vec{0}\)</span> the key was finding the pivots. Any non-pivot columns corresponded to free variables.  That means we can solve for the non-pivot columns in terms of the pivot columns.  Let’s see an example.  First we reduce some random matrix:</div>
 <div class="displaymath process-math" id="elim_section-6-18-2">
 \begin{equation}
 \begin{bmatrix}
@@ -1569,13 +1548,13 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 4 \\
 2 &amp; 4 &amp; 5 &amp; 6 \\
 3 &amp; 6 &amp; 7 &amp; 8
-\end{bmatrix} 
+\end{bmatrix}
 \to
 \begin{bmatrix}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 0 &amp; -1 &amp; -2 \\
 3 &amp; 6 &amp; 7 &amp; 8
-\end{bmatrix} 
+\end{bmatrix}
 \to
 \begin{bmatrix}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 4 \\
@@ -1591,19 +1570,19 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 0 &amp; \mybxsm{-1} &amp; -2 \\
 0 &amp; 0 &amp; -2 &amp; -4
-\end{bmatrix} 
+\end{bmatrix}
 \to
 \begin{bmatrix}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 0 &amp; \mybxsm{1} &amp; 2 \\
 0 &amp; 0 &amp; -2 &amp; -4
-\end{bmatrix} 
+\end{bmatrix}
 \to
 \begin{bmatrix}
 \mybxsm{1} &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 0 &amp; \mybxsm{1} &amp; 2 \\
 0 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix} . 
+\end{bmatrix} .
 \end{equation}
 </div>
 <div class="para">The final matrix is the row echelon form of the matrix. Consider the pivots that we marked. The pivot columns are the first and the third column.  All other columns correspond to free variables when solving <span class="process-math">\(A \vec{x} = \vec{0}\text{,}\)</span> so all other columns can be solved in terms of the first and the third column.  In other words</div>
@@ -1621,7 +1600,7 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \begin{bmatrix}
 1 \\
 2 \\
-3 
+3
 \end{bmatrix}
 ,
 \begin{bmatrix}
@@ -1672,7 +1651,7 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \begin{bmatrix}
 1 \\
 2 \\
-3 
+3
 \end{bmatrix}
 ,
 \quad
@@ -1700,12 +1679,12 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \end{bmatrix} .
 \end{equation}
 </div>
-<div class="para">These vectors are not linearly independent as we saw above.  In particular, the span of <span class="process-math">\(\vec{v}_1\)</span> and <span class="process-math">\(\vec{v}_3\)</span> is the same as the span of all four of the vectors.  So <span class="process-math">\(\vec{v}_2\)</span> and <span class="process-math">\(\vec{v}_4\)</span> can both be written as linear combinations of <span class="process-math">\(\vec{v}_1\)</span> and <span class="process-math">\(\vec{v}_3\text{.}\)</span> A common thing that comes up in practice is that one gets a set of vectors whose span is the set of solutions of some problem.  But perhaps we get way too many vectors, we want to simplify.  For example above, all vectors in the span of <span class="process-math">\(\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\)</span> can be written <span class="process-math">\(\alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \alpha_3 \vec{v}_3 + \alpha_4
+<div class="para">These vectors are not linearly independent as we saw above.  In particular, the span of <span class="process-math">\(\vec{v}_1\)</span> and <span class="process-math">\(\vec{v}_3\)</span> is the same as the span of all four of the vectors.  So <span class="process-math">\(\vec{v}_2\)</span> and <span class="process-math">\(\vec{v}_4\)</span> can both be written as linear combinations of <span class="process-math">\(\vec{v}_1\)</span> and <span class="process-math">\(\vec{v}_3\text{.}\)</span> A common thing that comes up in practice is that one gets a set of vectors whose span is the set of solutions of some problem.  But perhaps we get way too many vectors, and we want to simplify.  For example above, all vectors in the span of <span class="process-math">\(\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\)</span> can be written <span class="process-math">\(\alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \alpha_3 \vec{v}_3 + \alpha_4
 \vec{v}_4\)</span> for some numbers <span class="process-math">\(\alpha_1,\alpha_2,\alpha_3,\alpha_4\text{.}\)</span>  But it is also true that every such vector can be written as <span class="process-math">\(a \vec{v}_1 + b \vec{v}_3\)</span> for two numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span>  And one has to admit, that looks much simpler.  Moreover, these numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are unique.  More on that in the next section.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="elim_section-6-21">
-<div class="para">To find this linearly independent set we simply take our vectors and form the matrix <span class="process-math">\([ \vec{v}_1 ~ \vec{v}_2 ~ \vec{v}_3 ~ \vec{v}_4 ]\text{,}\)</span> that is, the matrix</div>
+<div class="para">To find this linearly independent set, we simply take our vectors and form the matrix <span class="process-math">\([ \vec{v}_1 ~ \vec{v}_2 ~ \vec{v}_3 ~ \vec{v}_4 ]\text{,}\)</span> that is, the matrix</div>
 <div class="displaymath process-math" id="elim_section-6-21-2">
 \begin{equation}
 \begin{bmatrix}
@@ -1719,14 +1698,17 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-6-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection A.3.4: Linear independence and rank"><a href="#elim_section-6" title="Copy heading and permalink for Subsection A.3.4: Linear independence and rank" aria-label="Copy heading and permalink for Subsection A.3.4: Linear independence and rank">🔗</a></div></section><section class="subsection" id="elim_section-7"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection A.3.4: Linear independence and rank"><a href="#elim_section-6" title="Copy heading and permalink for Subsection A.3.4: Linear independence and rank" aria-label="Copy heading and permalink for Subsection A.3.4: Linear independence and rank">🔗</a></div>
+</section>
+<section class="subsection" id="elim_section-7">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing the inverse</span>
 </h3>
 <div class="para" id="elim_section-7-2">If the matrix <span class="process-math">\(A\)</span> is square and there exists a unique solution <span class="process-math">\(\vec{x}\)</span> to <span class="process-math">\(A \vec{x} = \vec{b}\)</span> for any <span class="process-math">\(\vec{b}\)</span> (there are no free variables), then <span class="process-math">\(A\)</span> is invertible. This is equivalent to the <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> being of rank <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="elim_section-7-3">In particular, if <span class="process-math">\(A \vec{x} = \vec{b}\)</span> then <span class="process-math">\(\vec{x} = A^{-1} \vec{b}\text{.}\)</span> Now we just need to compute what <span class="process-math">\(A^{-1}\)</span> is.  We can surely do elimination every time we want to find <span class="process-math">\(A^{-1} \vec{b}\text{,}\)</span> but that would be ridiculous.  The mapping <span class="process-math">\(A^{-1}\)</span> is linear and hence given by a matrix, and we have seen that to figure out the matrix we just need to find where <span class="process-math">\(A^{-1}\)</span> takes the standard basis vectors <span class="process-math">\(\vec{e}_1\text{,}\)</span> <span class="process-math">\(\vec{e}_2\text{,}\)</span> ..., <span class="process-math">\(\vec{e}_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="elim_section-7-4">That is, to find the first column of <span class="process-math">\(A^{-1}\text{,}\)</span> we solve <span class="process-math">\(A \vec{x} = \vec{e}_1\text{,}\)</span> because then <span class="process-math">\(A^{-1} \vec{e}_1 = \vec{x}\text{.}\)</span> To find the second column of <span class="process-math">\(A^{-1}\text{,}\)</span> we solve <span class="process-math">\(A \vec{x} = \vec{e}_2\text{.}\)</span>  And so on.  It is really just <span class="process-math">\(n\)</span> eliminations that we need to do.  But it gets even easier. If you think about it, the elimination is the same for everything on the left side of the augmented matrix.  Doing <span class="process-math">\(n\)</span> eliminations separately we would redo most of the computations. Best is to do all at once.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="elim_section-7-4">That is, to find the first column of <span class="process-math">\(A^{-1}\text{,}\)</span> we solve <span class="process-math">\(A \vec{x} = \vec{e}_1\text{,}\)</span> because then <span class="process-math">\(A^{-1} \vec{e}_1 = \vec{x}\text{.}\)</span> To find the second column of <span class="process-math">\(A^{-1}\text{,}\)</span> we solve <span class="process-math">\(A \vec{x} = \vec{e}_2\text{.}\)</span>  And so on.  It is really just <span class="process-math">\(n\)</span> eliminations that we need to do.  But it gets even easier. If you think about it, the elimination is the same for everything on the left side of the augmented matrix.  Doing <span class="process-math">\(n\)</span> eliminations separately, we would redo most of the computations. Best is to do all at once.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="elim_section-7-5">Therefore, to find the inverse of <span class="process-math">\(A\text{,}\)</span> we write an <span class="process-math">\(n
 \times 2n\)</span> augmented matrix <span class="process-math">\([ \,A ~|~ I\, ]\text{,}\)</span> where <span class="process-math">\(I\)</span> is the identity matrix, whose columns are precisely the standard basis vectors. We then perform row reduction until we arrive at the reduced row echelon form.  If <span class="process-math">\(A\)</span> is invertible, then pivots can be found in every column of <span class="process-math">\(A\text{,}\)</span> and so the reduced row echelon form of <span class="process-math">\([ \,A ~|~ I\, ]\)</span> looks like <span class="process-math">\([ \,I ~|~ A^{-1}\, ]\text{.}\)</span> We then just read off the inverse <span class="process-math">\(A^{-1}\text{.}\)</span> If you do not find a pivot in every one of the first <span class="process-math">\(n\)</span> columns of the augmented matrix, then <span class="process-math">\(A\)</span> is not invertible.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-7-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1829,15 +1811,19 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 \end{bmatrix} .
 \end{equation}
 </div>
-<div class="para">Not too terrible, no?  Perhaps harder than inverting a <span class="process-math">\(2 \times 2\)</span> matrix for which we had a simple formula, but not too bad.  Really in practice this is done efficiently by a computer.</div>
+<div class="para">Not too terrible, no?  Perhaps harder than inverting a <span class="process-math">\(2 \times 2\)</span> matrix for which we had a simple formula, but not too bad.  In practice, this is done efficiently by a computer.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-7-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection A.3.5: Computing the inverse"><a href="#elim_section-7" title="Copy heading and permalink for Subsection A.3.5: Computing the inverse" aria-label="Copy heading and permalink for Subsection A.3.5: Computing the inverse">🔗</a></div></section><section class="exercises" id="elim_section-8"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection A.3.5: Computing the inverse"><a href="#elim_section-7" title="Copy heading and permalink for Subsection A.3.5: Computing the inverse" aria-label="Copy heading and permalink for Subsection A.3.5: Computing the inverse">🔗</a></div>
+</section>
+<section class="exercises" id="elim_section-8">
+<h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.3.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="elim_section-8-1"><h4 class="heading"><span class="codenumber">A.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-1-1-1">Compute the reduced row echelon form for the following matrices:<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols4 multicolumn" id="elim_section-8-1-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols4 multicolumn" id="elim_section-8-1-1-2">
 <li id="elim_section-8-1-1-2-1">
 <div class="para" id="elim_section-8-1-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -1915,9 +1901,12 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 <div class="autopermalink" data-description="Item A.3.1.h"><a href="#elim_section-8-1-1-2-8" title="Copy heading and permalink for Item A.3.1.h" aria-label="Copy heading and permalink for Item A.3.1.h">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise A.3.1"><a href="#elim_section-8-1" title="Copy heading and permalink for Exercise A.3.1" aria-label="Copy heading and permalink for Exercise A.3.1">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-2"><h4 class="heading"><span class="codenumber">A.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.1"><a href="#elim_section-8-1" title="Copy heading and permalink for Exercise A.3.1" aria-label="Copy heading and permalink for Exercise A.3.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-2"><h4 class="heading"><span class="codenumber">A.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-2-1-1">Compute the inverse of the given matrices<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="elim_section-8-2-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="elim_section-8-2-1-2">
 <li id="elim_section-8-2-1-2-1">
 <div class="para" id="elim_section-8-2-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -1949,9 +1938,12 @@ $\vec{x}_1, \vec{x}_2 , \ldots , \vec{x}_n$}
 <div class="autopermalink" data-description="Item A.3.2.c"><a href="#elim_section-8-2-1-2-3" title="Copy heading and permalink for Item A.3.2.c" aria-label="Copy heading and permalink for Item A.3.2.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise A.3.2"><a href="#elim_section-8-2" title="Copy heading and permalink for Exercise A.3.2" aria-label="Copy heading and permalink for Exercise A.3.2">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-3"><h4 class="heading"><span class="codenumber">A.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.2"><a href="#elim_section-8-2" title="Copy heading and permalink for Exercise A.3.2" aria-label="Copy heading and permalink for Exercise A.3.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-3"><h4 class="heading"><span class="codenumber">A.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-3-1-1">Solve (find all solutions), or show no solution exists<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-3-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-3-1-2">
 <li id="elim_section-8-3-1-2-1">
 <div class="para" id="elim_section-8-3-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{aligned}
@@ -1992,9 +1984,12 @@ x+2y+3z &amp; = 4 \\
 <div class="autopermalink" data-description="Item A.3.3.d"><a href="#elim_section-8-3-1-2-4" title="Copy heading and permalink for Item A.3.3.d" aria-label="Copy heading and permalink for Item A.3.3.d">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise A.3.3"><a href="#elim_section-8-3" title="Copy heading and permalink for Exercise A.3.3" aria-label="Copy heading and permalink for Exercise A.3.3">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-4"><h4 class="heading"><span class="codenumber">A.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.3"><a href="#elim_section-8-3" title="Copy heading and permalink for Exercise A.3.3" aria-label="Copy heading and permalink for Exercise A.3.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-4"><h4 class="heading"><span class="codenumber">A.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-4-1-1">By computing the inverse, solve the following systems for <span class="process-math">\(\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-4-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-4-1-2">
 <li id="elim_section-8-4-1-2-1">
 <div class="para" id="elim_section-8-4-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -2016,9 +2011,12 @@ x+2y+3z &amp; = 4 \\
 <div class="autopermalink" data-description="Item A.3.4.b"><a href="#elim_section-8-4-1-2-2" title="Copy heading and permalink for Item A.3.4.b" aria-label="Copy heading and permalink for Item A.3.4.b">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise A.3.4"><a href="#elim_section-8-4" title="Copy heading and permalink for Exercise A.3.4" aria-label="Copy heading and permalink for Exercise A.3.4">🔗</a></div></article><article class="exercise exercise-like" id="exercise_rankmatrix"><h4 class="heading"><span class="codenumber">A.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.4"><a href="#elim_section-8-4" title="Copy heading and permalink for Exercise A.3.4" aria-label="Copy heading and permalink for Exercise A.3.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_rankmatrix"><h4 class="heading"><span class="codenumber">A.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="exercise_rankmatrix-1-1">Compute the rank of the given matrices<div class="autopermalink" data-description="Paragraph"><a href="#exercise_rankmatrix-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="exercise_rankmatrix-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="exercise_rankmatrix-1-2">
 <li id="exercise_rankmatrix-1-2-1">
 <div class="para" id="exercise_rankmatrix-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -2050,13 +2048,19 @@ x+2y+3z &amp; = 4 \\
 <div class="autopermalink" data-description="Item A.3.5.c"><a href="#exercise_rankmatrix-1-2-3" title="Copy heading and permalink for Item A.3.5.c" aria-label="Copy heading and permalink for Item A.3.5.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise A.3.5"><a href="#exercise_rankmatrix" title="Copy heading and permalink for Exercise A.3.5" aria-label="Copy heading and permalink for Exercise A.3.5">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-6"><h4 class="heading"><span class="codenumber">A.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.5"><a href="#exercise_rankmatrix" title="Copy heading and permalink for Exercise A.3.5" aria-label="Copy heading and permalink for Exercise A.3.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-6"><h4 class="heading"><span class="codenumber">A.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-6-1-1">For the matrices in <a href="elim_section.html#exercise_rankmatrix" class="xref" data-knowl="./knowl/xref/exercise_rankmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise A.3.5">Exercise A.3.5</a>, find a linearly independent set of row vectors that span the row space (they do not need to be rows of the matrix).<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise A.3.6"><a href="#elim_section-8-6" title="Copy heading and permalink for Exercise A.3.6" aria-label="Copy heading and permalink for Exercise A.3.6">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-7"><h4 class="heading"><span class="codenumber">A.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.6"><a href="#elim_section-8-6" title="Copy heading and permalink for Exercise A.3.6" aria-label="Copy heading and permalink for Exercise A.3.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-7"><h4 class="heading"><span class="codenumber">A.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-7-1-1">For the matrices in <a href="elim_section.html#exercise_rankmatrix" class="xref" data-knowl="./knowl/xref/exercise_rankmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise A.3.5">Exercise A.3.5</a>, find a linearly independent set of columns that span the column space. That is, find the pivot columns of the matrices.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise A.3.7"><a href="#elim_section-8-7" title="Copy heading and permalink for Exercise A.3.7" aria-label="Copy heading and permalink for Exercise A.3.7">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-8"><h4 class="heading"><span class="codenumber">A.3.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.7"><a href="#elim_section-8-7" title="Copy heading and permalink for Exercise A.3.7" aria-label="Copy heading and permalink for Exercise A.3.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-8"><h4 class="heading"><span class="codenumber">A.3.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="elim_section-8-8-1-1">
 <div class="para">Find a linearly independent subset of the following vectors that has the same span.</div>
 <div class="displaymath process-math" id="elim_section-8-8-1-1-1">
@@ -2080,9 +2084,12 @@ x+2y+3z &amp; = 4 \\
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise A.3.8"><a href="#elim_section-8-8" title="Copy heading and permalink for Exercise A.3.8" aria-label="Copy heading and permalink for Exercise A.3.8">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-9"><h4 class="heading"><span class="codenumber">A.3.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise A.3.8"><a href="#elim_section-8-8" title="Copy heading and permalink for Exercise A.3.8" aria-label="Copy heading and permalink for Exercise A.3.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-9"><h4 class="heading"><span class="codenumber">A.3.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-9-1-1">Compute the reduced row echelon form for the following matrices:<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols4 multicolumn" id="elim_section-8-9-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols4 multicolumn" id="elim_section-8-9-1-2">
 <li id="elim_section-8-9-1-2-1">
 <div class="para" id="elim_section-8-9-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -2159,7 +2166,9 @@ x+2y+3z &amp; = 4 \\
 <div class="autopermalink" data-description="Item A.3.101.h"><a href="#elim_section-8-9-1-2-8" title="Copy heading and permalink for Item A.3.101.h" aria-label="Copy heading and permalink for Item A.3.101.h">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="elim_section-8-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-9-2-1">a) <span class="process-math">\(\begin{bmatrix}
 1 &amp; 0 &amp; 1 \\
 0 &amp; 1 &amp; 0
@@ -2190,10 +2199,14 @@ x+2y+3z &amp; = 4 \\
 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.101.1"><a href="#elim_section-8-9-2" title="Copy heading and permalink for Answer A.3.101.1" aria-label="Copy heading and permalink for Answer A.3.101.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.101"><a href="#elim_section-8-9" title="Copy heading and permalink for Exercise A.3.101" aria-label="Copy heading and permalink for Exercise A.3.101">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-10"><h4 class="heading"><span class="codenumber">A.3.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.101"><a href="#elim_section-8-9" title="Copy heading and permalink for Exercise A.3.101" aria-label="Copy heading and permalink for Exercise A.3.101">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-10"><h4 class="heading"><span class="codenumber">A.3.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-10-1-1">Compute the inverse of the given matrices<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="elim_section-8-10-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="elim_section-8-10-1-2">
 <li id="elim_section-8-10-1-2-1">
 <div class="para" id="elim_section-8-10-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -2225,7 +2238,9 @@ x+2y+3z &amp; = 4 \\
 <div class="autopermalink" data-description="Item A.3.102.c"><a href="#elim_section-8-10-1-2-3" title="Copy heading and permalink for Item A.3.102.c" aria-label="Copy heading and permalink for Item A.3.102.c">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="elim_section-8-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-10-2-1">a) <span class="process-math">\(\begin{bmatrix}
 0 &amp; -1 &amp; 0 \\
 1 &amp; 0 &amp; 0 \\
@@ -2241,10 +2256,14 @@ x+2y+3z &amp; = 4 \\
 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.102.1"><a href="#elim_section-8-10-2" title="Copy heading and permalink for Answer A.3.102.1" aria-label="Copy heading and permalink for Answer A.3.102.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.102"><a href="#elim_section-8-10" title="Copy heading and permalink for Exercise A.3.102" aria-label="Copy heading and permalink for Exercise A.3.102">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-11"><h4 class="heading"><span class="codenumber">A.3.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.102"><a href="#elim_section-8-10" title="Copy heading and permalink for Exercise A.3.102" aria-label="Copy heading and permalink for Exercise A.3.102">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-11"><h4 class="heading"><span class="codenumber">A.3.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-11-1-1">Solve (find all solutions), or show no solution exists<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-11-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-11-1-2">
 <li id="elim_section-8-11-1-2-1">
 <div class="para" id="elim_section-8-11-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{aligned}
@@ -2285,14 +2304,20 @@ x_1+4x_2+\phantom{8}x_3 &amp; = 7
 <div class="autopermalink" data-description="Item A.3.103.d"><a href="#elim_section-8-11-1-2-4" title="Copy heading and permalink for Item A.3.103.d" aria-label="Copy heading and permalink for Item A.3.103.d">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="elim_section-8-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-11-2-1">a) <span class="process-math">\(x_1=-2\text{,}\)</span> <span class="process-math">\(x_2 = \nicefrac{7}{3}\)</span>     b) no solution     c) <span class="process-math">\(a = -3\text{,}\)</span> <span class="process-math">\(b=10\text{,}\)</span> <span class="process-math">\(c=-8\)</span>     d) <span class="process-math">\(x_3\)</span> is free, <span class="process-math">\(x_1 = -1+3x_3\text{,}\)</span> <span class="process-math">\(x_2 = 2-x_3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.103.1"><a href="#elim_section-8-11-2" title="Copy heading and permalink for Answer A.3.103.1" aria-label="Copy heading and permalink for Answer A.3.103.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.103"><a href="#elim_section-8-11" title="Copy heading and permalink for Exercise A.3.103" aria-label="Copy heading and permalink for Exercise A.3.103">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-12"><h4 class="heading"><span class="codenumber">A.3.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.103"><a href="#elim_section-8-11" title="Copy heading and permalink for Exercise A.3.103" aria-label="Copy heading and permalink for Exercise A.3.103">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-12"><h4 class="heading"><span class="codenumber">A.3.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-12-1-1">By computing the inverse, solve the following systems for <span class="process-math">\(\vec{x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-12-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols2 multicolumn" id="elim_section-8-12-1-2">
 <li id="elim_section-8-12-1-2-1">
 <div class="para" id="elim_section-8-12-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -2314,14 +2339,20 @@ x_1+4x_2+\phantom{8}x_3 &amp; = 7
 <div class="autopermalink" data-description="Item A.3.104.b"><a href="#elim_section-8-12-1-2-2" title="Copy heading and permalink for Item A.3.104.b" aria-label="Copy heading and permalink for Item A.3.104.b">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="elim_section-8-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-12-2-1">a) <span class="process-math">\(\begin{bmatrix} -1 \\ 3 \end{bmatrix}\)</span>     b) <span class="process-math">\(\begin{bmatrix} -3 \\ 1 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.104.1"><a href="#elim_section-8-12-2" title="Copy heading and permalink for Answer A.3.104.1" aria-label="Copy heading and permalink for Answer A.3.104.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.104"><a href="#elim_section-8-12" title="Copy heading and permalink for Exercise A.3.104" aria-label="Copy heading and permalink for Exercise A.3.104">🔗</a></div></article><article class="exercise exercise-like" id="exercise_rankmatrixans"><h4 class="heading"><span class="codenumber">A.3.105<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.104"><a href="#elim_section-8-12" title="Copy heading and permalink for Exercise A.3.104" aria-label="Copy heading and permalink for Exercise A.3.104">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercise_rankmatrixans"><h4 class="heading"><span class="codenumber">A.3.105<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="exercise_rankmatrixans-1-1">Compute the rank of the given matrices<div class="autopermalink" data-description="Paragraph"><a href="#exercise_rankmatrixans-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="exercise_rankmatrixans-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1 cols3 multicolumn" id="exercise_rankmatrixans-1-2">
 <li id="exercise_rankmatrixans-1-2-1">
 <div class="para" id="exercise_rankmatrixans-1-2-1-1">
 <span class="process-math">\(\displaystyle \begin{bmatrix}
@@ -2353,28 +2384,43 @@ x_1+4x_2+\phantom{8}x_3 &amp; = 7
 <div class="autopermalink" data-description="Item A.3.105.c"><a href="#exercise_rankmatrixans-1-2-3" title="Copy heading and permalink for Item A.3.105.c" aria-label="Copy heading and permalink for Item A.3.105.c">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="exercise_rankmatrixans-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="exercise_rankmatrixans-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="exercise_rankmatrixans-2-1">a) 3     b) 1     c) 2<div class="autopermalink" data-description="Paragraph"><a href="#exercise_rankmatrixans-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.105.1"><a href="#exercise_rankmatrixans-2" title="Copy heading and permalink for Answer A.3.105.1" aria-label="Copy heading and permalink for Answer A.3.105.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.105"><a href="#exercise_rankmatrixans" title="Copy heading and permalink for Exercise A.3.105" aria-label="Copy heading and permalink for Exercise A.3.105">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-14"><h4 class="heading"><span class="codenumber">A.3.106<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.105"><a href="#exercise_rankmatrixans" title="Copy heading and permalink for Exercise A.3.105" aria-label="Copy heading and permalink for Exercise A.3.105">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-14"><h4 class="heading"><span class="codenumber">A.3.106<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-14-1-1">For the matrices in <a href="elim_section.html#exercise_rankmatrixans" class="xref" data-knowl="./knowl/xref/exercise_rankmatrixans.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise A.3.105">Exercise A.3.105</a>, find a linearly independent set of row vectors that span the row space (they do not need to be rows of the matrix).<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="elim_section-8-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-14-2-1">a) <span class="process-math">\(\begin{bmatrix} 1 &amp; 0 &amp; 0\end{bmatrix}\text{,}\)</span> <span class="process-math">\(\begin{bmatrix} 0 &amp; 1 &amp; 0\end{bmatrix}\text{,}\)</span> <span class="process-math">\(\begin{bmatrix} 0 &amp; 0 &amp; 1\end{bmatrix}\)</span>     b) <span class="process-math">\(\begin{bmatrix} 1 &amp; 1 &amp; 1\end{bmatrix}\)</span>     c) <span class="process-math">\(\begin{bmatrix} 1 &amp; 0 &amp; \nicefrac{1}{3}\end{bmatrix}\text{,}\)</span> <span class="process-math">\(\begin{bmatrix} 0 &amp; 1 &amp; \nicefrac{-1}{3}\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.106.1"><a href="#elim_section-8-14-2" title="Copy heading and permalink for Answer A.3.106.1" aria-label="Copy heading and permalink for Answer A.3.106.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.106"><a href="#elim_section-8-14" title="Copy heading and permalink for Exercise A.3.106" aria-label="Copy heading and permalink for Exercise A.3.106">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-15"><h4 class="heading"><span class="codenumber">A.3.107<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.106"><a href="#elim_section-8-14" title="Copy heading and permalink for Exercise A.3.106" aria-label="Copy heading and permalink for Exercise A.3.106">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-15"><h4 class="heading"><span class="codenumber">A.3.107<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="elim_section-8-15-1-1">For the matrices in <a href="elim_section.html#exercise_rankmatrixans" class="xref" data-knowl="./knowl/xref/exercise_rankmatrixans.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise A.3.105">Exercise A.3.105</a>, find a linearly independent set of columns that span the column space. That is, find the pivot columns of the matrices.<div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="elim_section-8-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-15-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-15-2-1">a) <span class="process-math">\(\begin{bmatrix} 7 \\ 7 \\ 7\end{bmatrix}\text{,}\)</span> <span class="process-math">\(\begin{bmatrix} -1 \\ 7 \\ 6\end{bmatrix}\text{,}\)</span> <span class="process-math">\(\begin{bmatrix} 7 \\ 6 \\ 2\end{bmatrix}\)</span>     b) <span class="process-math">\(\begin{bmatrix} 1 \\ 1 \\ 2\end{bmatrix}\)</span>     c) <span class="process-math">\(\begin{bmatrix} 0 \\ 6 \\ 4\end{bmatrix}\text{,}\)</span> <span class="process-math">\(\begin{bmatrix} 3 \\ 3 \\ 7\end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.107.1"><a href="#elim_section-8-15-2" title="Copy heading and permalink for Answer A.3.107.1" aria-label="Copy heading and permalink for Answer A.3.107.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.107"><a href="#elim_section-8-15" title="Copy heading and permalink for Exercise A.3.107" aria-label="Copy heading and permalink for Exercise A.3.107">🔗</a></div></article><article class="exercise exercise-like" id="elim_section-8-16"><h4 class="heading"><span class="codenumber">A.3.108<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.107"><a href="#elim_section-8-15" title="Copy heading and permalink for Exercise A.3.107" aria-label="Copy heading and permalink for Exercise A.3.107">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="elim_section-8-16"><h4 class="heading"><span class="codenumber">A.3.108<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="elim_section-8-16-1-1">
 <div class="para">Find a linearly independent subset of the following vectors that has the same span.</div>
 <div class="displaymath process-math" id="elim_section-8-16-1-1-1">
@@ -2398,19 +2444,26 @@ x_1+4x_2+\phantom{8}x_3 &amp; = 7
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="elim_section-8-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="elim_section-8-16-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="elim_section-8-16-2-1">
 <span class="process-math">\(\begin{bmatrix}
 3 \\ 1 \\ -5
 \end{bmatrix}
-, 
+,
 \begin{bmatrix}
 0 \\ 3 \\ -1
 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#elim_section-8-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer A.3.108.1"><a href="#elim_section-8-16-2" title="Copy heading and permalink for Answer A.3.108.1" aria-label="Copy heading and permalink for Answer A.3.108.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise A.3.108"><a href="#elim_section-8-16" title="Copy heading and permalink for Exercise A.3.108" aria-label="Copy heading and permalink for Exercise A.3.108">🔗</a></div></article><div class="autopermalink" data-description="Exercises A.3.6"><a href="#elim_section-8" title="Copy heading and permalink for Exercises A.3.6" aria-label="Copy heading and permalink for Exercises A.3.6">🔗</a></div></section><div class="autopermalink" data-description="Section A.3: Elimination"><a href="#elim_section" title="Copy heading and permalink for Section A.3: Elimination" aria-label="Copy heading and permalink for Section A.3: Elimination">🔗</a></div></section></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise A.3.108"><a href="#elim_section-8-16" title="Copy heading and permalink for Exercise A.3.108" aria-label="Copy heading and permalink for Exercise A.3.108">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises A.3.6"><a href="#elim_section-8" title="Copy heading and permalink for Exercises A.3.6" aria-label="Copy heading and permalink for Exercises A.3.6">🔗</a></div>
+</section><div class="autopermalink" data-description="Section A.3: Elimination"><a href="#elim_section" title="Copy heading and permalink for Section A.3: Elimination" aria-label="Copy heading and permalink for Section A.3: Elimination">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="matalg_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="subspaces_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

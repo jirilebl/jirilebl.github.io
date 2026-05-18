@@ -30,7 +30,8 @@
 </div>
 <div class="para">and again note that <span class="process-math">\(x=0\)</span> is a singular point.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#frobenius_section-3-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical">
+</div> 
+<div class="para logical">
 <div class="para">Let us try</div>
 <div class="displaymath process-math">
 \begin{equation}
@@ -55,6 +56,8 @@ y'' &amp; = \sum_{k=0}^\infty (k+r)\,(k+r-1)\, a_k x^{k+r-2} .
 \\
 &amp;= 
 4x^2 \, \Biggl( \sum_{k=0}^\infty (k+r)\,(k+r-1) \, a_k x^{k+r-2}  \Biggr)
+\\
+&amp; \phantom{mmm}
 -
 4x^2 \, \Biggl( \sum_{k=0}^\infty (k+r) \, a_k x^{k+r-1}  \Biggr)
 +
@@ -84,7 +87,10 @@ y'' &amp; = \sum_{k=0}^\infty (k+r)\,(k+r-1)\, a_k x^{k+r-2} .
 \Biggl( \sum_{k=1}^\infty 2a_{k-1} x^{k+r} \Biggr)
 \\
 &amp;=
-4r(r-1) \, a_0 x^r  + a_0 x^r + 
+4r(r-1) \, a_0 x^r  + a_0 x^r
+\\
+&amp; \phantom{mmm}
++ 
 \sum_{k=1}^\infty
 \Bigl( 4 (k+r)\,(k+r-1) \, a_k
 -
@@ -95,7 +101,10 @@ a_k
 2a_{k-1} \Bigr) \, x^{k+r} 
 \\
 &amp;=
-\bigl( 4r(r-1) + 1 \bigr) \, a_0 x^r + 
+\bigl( 4r(r-1) + 1 \bigr) \, a_0 x^r
+\\
+&amp; \phantom{mmm}
++ 
 \sum_{k=1}^\infty
 \Bigl( \bigl( 4 (k+r)\,(k+r-1) + 1 \bigr) \, a_k
 -
@@ -113,7 +122,8 @@ a_k
 <div class="para">This equation is called the <em class="emphasis">indicial equation</em>. This particular indicial equation has a double root at <span class="process-math">\(r = \nicefrac{1}{2}\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#frobenius_section-3-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical">
+</div> 
+<div class="para logical">
 <div class="para">OK, so we know what <span class="process-math">\(r\)</span> has to be.  That knowledge we obtained simply by looking at the coefficient of <span class="process-math">\(x^r\text{.}\)</span>  All other coefficients of <span class="process-math">\(x^{k+r}\)</span> also have to be zero so</div>
 <div class="displaymath process-math">
 \begin{equation}
@@ -136,13 +146,13 @@ a_k
 <div class="displaymath process-math">
 \begin{equation}
 a_1 = \frac{1}{1} a_0 = 1 ,
-\qquad
+\quad
 a_2 = \frac{1}{2} a_1 = \frac{1}{2} ,
-\qquad
+\quad
 a_3 = \frac{1}{3} a_2 = \frac{1}{3 \cdot 2} ,
-\qquad
+\quad
 a_4 = \frac{1}{4} a_3 = \frac{1}{4 \cdot 3 \cdot 2} ,
-\qquad \cdots
+\quad \cdots
 \end{equation}
 </div>
 <div class="para">Extrapolating, we notice that</div>
@@ -168,7 +178,8 @@ e^x .
 </div>
 <div class="para">That was lucky!  In general, we will not be able to write the series in terms of elementary functions.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#frobenius_section-3-4-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical">
+</div> 
+<div class="para logical">
 <div class="para">We have one solution, let us call it <span class="process-math">\(y_1 = x^{1/2} e^x\text{.}\)</span> But what about a second solution?  If we want a general solution, we need two linearly independent solutions. Picking <span class="process-math">\(a_0\)</span> to be a different constant only gets us a constant multiple of <span class="process-math">\(y_1\text{,}\)</span> and we do not have any other <span class="process-math">\(r\)</span> to try; we only have one solution to the indicial equation.  Well, there are powers of <span class="process-math">\(x\)</span> floating around and we are taking derivatives, perhaps the logarithm (the antiderivative of <span class="process-math">\(x^{-1}\)</span>) is around as well.  It turns out we want to try for another solution of the form</div>
 <div class="displaymath process-math">
 \begin{equation}
@@ -192,6 +203,7 @@ b_1 = b_0 -1 , \qquad b_2 = \frac{2b_1-1}{4} , \qquad b_3 =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#frobenius_section-3-4-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.3.2"><a href="#frobenius_section-3-4" title="Copy heading and permalink for Example 7.3.2" aria-label="Copy heading and permalink for Example 7.3.2">🔗</a></div></article><span class="incontext"><a class="internal" href="frobenius_section.html#frobenius_section-3-4">in-context</a></span>
+<div class="autopermalink" data-description="Example 7.3.2"><a href="#frobenius_section-3-4" title="Copy heading and permalink for Example 7.3.2" aria-label="Copy heading and permalink for Example 7.3.2">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="frobenius_section.html#frobenius_section-3-4">In Context</a></span>
 </body>
 </html>

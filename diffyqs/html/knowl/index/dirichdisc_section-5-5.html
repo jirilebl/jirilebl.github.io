@@ -29,7 +29,9 @@ u(r,\theta)
 &amp; =
 \frac{a_0}{2} +
 \sum_{n=1}^\infty
+\Bigl[
 a_n r^n \cos(n \theta) + b_n r^n \sin(n \theta)
+\Bigr]
 \\
 &amp; =
 \underbrace{
@@ -39,6 +41,7 @@ a_n r^n \cos(n \theta) + b_n r^n \sin(n \theta)
 }_{\frac{a_0}{2}}
 +
 \sum_{n=1}^\infty
+\Biggl[
 \underbrace{
 \left(
 \frac{1}{\pi} \int_{-\pi}^\pi g(\alpha) \cos (n\alpha) \, d\alpha
@@ -53,6 +56,7 @@ r^n \cos(n \theta) +
 \right)
 }_{b_n}
 r^n \sin(n \theta)
+\Biggr]
 \\
 &amp; =
 \frac{1}{2\pi}
@@ -87,7 +91,7 @@ g(\alpha) \,d\alpha .
 \end{split}
 \end{equation}
 </div>
-<div class="para">OK, so we have what we wanted, the expression in the parentheses is the Poisson kernel, <span class="process-math">\(P(r,\theta,\alpha)\text{.}\)</span>  However, we can do a lot better.  It is still given as a series, and we would really like to have a nice simple expression for it. We must work a little harder.  The trick is to rewrite everything in terms of complex exponentials.  Let us work just on the kernel.</div>
+<div class="para">OK, so we have what we wanted: The expression in the parentheses is the Poisson kernel, <span class="process-math">\(P(r,\theta,\alpha)\text{.}\)</span>  However, we can do a lot better.  It is still given as a series, and we would really like to have a nice simple expression for it. We must work a little harder.  The trick is to rewrite everything in terms of complex exponentials.  Let us work just on the kernel.</div>
 <div class="displaymath process-math">
 \begin{equation}
 \begin{split}
@@ -192,6 +196,6 @@ u(r,\theta) =
 <div class="para">Sometimes the formula for the Poisson kernel is given together with the constant <span class="process-math">\(\frac{1}{2\pi}\text{,}\)</span> in which case we should, of course, not leave it in front of the integral. Sometimes the limits of the integral are given as 0 to <span class="process-math">\(2\pi\text{;}\)</span> everything inside is <span class="process-math">\(2\pi\)</span>-periodic in <span class="process-math">\(\alpha\text{,}\)</span> so this does not change the integral.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#dirichdisc_section-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<span class="incontext"><a class="internal" href="dirichdisc_section.html#dirichdisc_section-5-5">in-context</a></span>
+<span class="incontext"><a class="internal" href="dirichdisc_section.html#dirichdisc_section-5-5">In Context</a></span>
 </body>
 </html>

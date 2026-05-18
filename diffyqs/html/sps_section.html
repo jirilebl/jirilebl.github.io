@@ -21,60 +21,17 @@
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="extra.css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
@@ -138,9 +95,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_appeig.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="SL_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="LT_chapter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
-\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
-\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{}^{#1}\!/\!{}_{#2}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, \nicefrac{\mathrm{#2}}{\mathrm{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, \mathrm{#2}}
 \newcommand{\noalign}[1]{}
 \newcommand{\qed}{\qquad \Box}
 \newcommand{\mybxbg}[1]{\boxed{#1}}
@@ -162,7 +119,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical courses</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
 </ul>
@@ -702,18 +659,24 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sps_section"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sps_section">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Steady periodic solutions</span>
 </h2>
-<section class="introduction" id="sps_section-2"><div class="para" id="sps_section-2-1">
+<section class="introduction" id="sps_section-2">
+<div class="para" id="sps_section-2-1">
 <em class="emphasis">Note: 1–2 lectures, §10.3 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, not in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#sps_section-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="sps_section-3"><h3 class="heading hide-type">
+</div></section>
+<section class="subsection" id="sps_section-3">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Forced vibrating string</span>
 </h3>
 <div class="para" id="sps_section-3-2">Consider a guitar string of length <span class="process-math">\(L\text{.}\)</span>  We studied this setup in <a href="we_section.html" class="internal" title="Section 4.7: One-dimensional wave equation">Section 4.7</a>. Let <span class="process-math">\(x\)</span> be the position on the string, <span class="process-math">\(t\)</span> the time, and <span class="process-math">\(y\)</span> the displacement of the string.  See <a href="sps_section.html#sps_vibstrfig" class="internal" title="Figure 5.3">Figure 5.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="sps_vibstrfig"><img class="diffyimg" style="width:321pt; height:89pt; display:block;" src="figures/sps-vibstr-tex4ht.svg" role="img" alt="Diagram of a string of a guitar (a shaded guitar is in the background), the bridge of the guitar is at x equals 0 on the x-axis and the nut of the guitar is at x equals L. The string is fixed to the x-axis at these two points. The string appears to be plucked in the middle upwards making a wide triangle. The vertical axis is labeled y, and an arrow indicates that y gives the displacement of the string at any particular x, that is, the graph of y is the shape of the string."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vibrating string.<div class="autopermalink" data-description="Figure 5.3"><a href="#sps_vibstrfig" title="Copy heading and permalink for Figure 5.3" aria-label="Copy heading and permalink for Figure 5.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="sps_vibstrfig"><img class="diffyimg" style="width:321pt; height:89pt; display:block;" src="figures/sps-vibstr-tex4ht.svg" role="img" alt="Diagram of a string of a guitar (a shaded guitar is in the background), the bridge of the guitar is at x equals 0 on the x-axis and the nut of the guitar is at x equals L. The string is fixed to the x-axis at these two points. The string appears to be plucked in the middle upwards making a wide triangle. The vertical axis is labeled y, and an arrow indicates that y gives the displacement of the string at any particular x, that is, the graph of y is the shape of the string."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vibrating string.<div class="autopermalink" data-description="Figure 5.3"><a href="#sps_vibstrfig" title="Copy heading and permalink for Figure 5.3" aria-label="Copy heading and permalink for Figure 5.3">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para logical" id="sps_section-3-6">
 <div class="para">The problem is governed by the wave equation</div>
 <div class="displaymath process-math" id="sps_freevib">
@@ -740,7 +703,7 @@ B_n \sin \left( \frac{n\pi a}{L} t \right) \right)
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sps_section-3-7">
-<div class="para">But these are free vibrations.  What if there is an external force acting on the string?  Let us assume, say, air vibrations (noise), for example from a second string.  Or perhaps from a jet engine.  For simplicity, assume nice pure sound and assume the force is uniform at every position on the string: The external force as a function of time <span class="process-math">\(t\)</span> is given as <span class="process-math">\(F_0 \cos (\omega t)\)</span> as force per unit mass, we will call this the forcing function.  Then our wave equation becomes (remember force is mass times acceleration)</div>
+<div class="para">But these are free vibrations.  What if there is an external force acting on the string?  Let us assume, say, air vibrations (noise), for example from a second string.  Or perhaps from a jet engine.  For simplicity, assume a nice pure sound and assume the force is uniform at every position on the string: The external force as a function of time <span class="process-math">\(t\)</span> is given as <span class="process-math">\(F_0 \cos (\omega t)\)</span> as force per unit mass. We will call this the forcing function.  Then our wave equation becomes (remember force is mass times acceleration)</div>
 <div class="displaymath process-math" id="sps_forcedeq">
 \begin{equation}
 y_{tt} = a^2 y_{xx} + F_0 \cos ( \omega t) ,\tag{5.7}
@@ -763,7 +726,7 @@ y(x,0) = 0, \qquad y_t(x,0) = 0.\tag{5.8}
 f(x) = -y_p(x,0), \qquad g(x) = -\frac{\partial y_p}{\partial t} (x,0) .
 \end{equation}
 </div>
-<div class="para">We then find solution <span class="process-math">\(y_c\)</span> of <a href="sps_section.html#sps_freevib" class="xref" data-knowl="./knowl/xref/sps_freevib.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a>.  If we add the two solutions, we find that <span class="process-math">\(y = y_c + y_p\)</span> solves <a href="sps_section.html#sps_forcedeq" class="xref" data-knowl="./knowl/xref/sps_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> with the initial conditions.</div>
+<div class="para">We then find a solution <span class="process-math">\(y_c\)</span> of <a href="sps_section.html#sps_freevib" class="xref" data-knowl="./knowl/xref/sps_freevib.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a>.  If we add the two solutions, we find that <span class="process-math">\(y = y_c + y_p\)</span> solves <a href="sps_section.html#sps_forcedeq" class="xref" data-knowl="./knowl/xref/sps_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> with the initial conditions.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="sps_section-3-9"><h4 class="heading">
@@ -771,7 +734,9 @@ f(x) = -y_p(x,0), \qquad g(x) = -\frac{\partial y_p}{\partial t} (x,0) .
 </h4>
 <div class="para" id="sps_section-3-9-1-1">Check that <span class="process-math">\(y = y_c + y_p\)</span> solves <a href="sps_section.html#sps_forcedeq" class="xref" data-knowl="./knowl/xref/sps_forcedeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> and the side conditions <a href="sps_section.html#sps_forcedinitcond" class="xref" data-knowl="./knowl/xref/sps_forcedinitcond.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.8">(5.8)</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.1"><a href="#sps_section-3-9" title="Copy heading and permalink for Exercise 5.3.1" aria-label="Copy heading and permalink for Exercise 5.3.1">🔗</a></div></article><div class="para logical" id="sps_section-3-10">
+<div class="autopermalink" data-description="Exercise 5.3.1"><a href="#sps_section-3-9" title="Copy heading and permalink for Exercise 5.3.1" aria-label="Copy heading and permalink for Exercise 5.3.1">🔗</a></div>
+</article>
+<div class="para logical" id="sps_section-3-10">
 <div class="para">So the big issue here is to find the particular solution <span class="process-math">\(y_p\text{.}\)</span> We look at the equation and we make an educated guess</div>
 <div class="displaymath process-math" id="sps_section-3-10-2">
 \begin{equation}
@@ -849,18 +814,22 @@ y_p(x,t) =
 </h4>
 <div class="para" id="sps_section-3-11-1-1">Check that <span class="process-math">\(y_p\)</span> works.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.2"><a href="#sps_section-3-11" title="Copy heading and permalink for Exercise 5.3.2" aria-label="Copy heading and permalink for Exercise 5.3.2">🔗</a></div></article><div class="para" id="sps_section-3-12">Now we get to the point that we skipped.  Suppose <span class="process-math">\(\sin ( \frac{\omega L}{a} ) = 0\text{.}\)</span>  What this means is that <span class="process-math">\(\omega\)</span> is equal to one of the natural frequencies of the system, i.e. a multiple of the base frequency <span class="process-math">\(\frac{\pi a}{L}\text{.}\)</span> We notice that if <span class="process-math">\(\omega\)</span> is not equal to a multiple of <span class="process-math">\(\frac{\pi a}{L}\text{,}\)</span> but is very close, then the coefficient <span class="process-math">\(B\)</span> in <a href="sps_section.html#natfreq_Beq" class="xref" data-knowl="./knowl/xref/natfreq_Beq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.9">(5.9)</a> seems to become very large as the denominator goes to zero. But let us not jump to conclusions just yet because the numerator may also go to zero. When <span class="process-math">\(\omega = \frac{n \pi a}{L}\)</span> for <span class="process-math">\(n\)</span> even, then <span class="process-math">\(\cos (\frac{\omega L}{a}) = 1\text{,}\)</span> we could simply take <span class="process-math">\(B=0\)</span> to obtain a nice bounded solution of the same form, <span class="process-math">\(y_p = 
+<div class="autopermalink" data-description="Exercise 5.3.2"><a href="#sps_section-3-11" title="Copy heading and permalink for Exercise 5.3.2" aria-label="Copy heading and permalink for Exercise 5.3.2">🔗</a></div>
+</article>
+<div class="para" id="sps_section-3-12">We get to the point that we skipped.  Suppose <span class="process-math">\(\sin ( \frac{\omega L}{a} ) = 0\text{.}\)</span>  This means that <span class="process-math">\(\omega\)</span> is equal to one of the natural frequencies of the system, i.e. a multiple of the base frequency <span class="process-math">\(\frac{\pi a}{L}\text{.}\)</span> If <span class="process-math">\(\omega\)</span> is not equal to a multiple of <span class="process-math">\(\frac{\pi a}{L}\text{,}\)</span> but is very close, then the coefficient <span class="process-math">\(B\)</span> in <a href="sps_section.html#natfreq_Beq" class="xref" data-knowl="./knowl/xref/natfreq_Beq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.9">(5.9)</a> seems to become very large as the denominator goes to zero. But let us not jump to conclusions just yet because the numerator may also go to zero. When <span class="process-math">\(\omega = \frac{n \pi a}{L}\)</span> for <span class="process-math">\(n\)</span> even, then <span class="process-math">\(\cos (\frac{\omega L}{a}) = 1\text{.}\)</span> We could simply take <span class="process-math">\(B=0\)</span> to obtain a nice bounded solution of the same form, <span class="process-math">\(y_p = 
 \frac{F_0}{\omega^2}
 \bigl(
 \cos\bigl(\frac{\omega}{a} x\bigr) -  1 \bigr)
 \cos(\omega t)\text{,}\)</span> and so no resonance is happening. Resonance occurs only when both <span class="process-math">\(\cos (\frac{\omega L}{a}) = -1\)</span> and <span class="process-math">\(\sin (\frac{\omega L}{a}) = 0\text{,}\)</span> that is, when <span class="process-math">\(\omega = \frac{n \pi a }{L}\)</span> for <em class="emphasis">odd</em> <span class="process-math">\(n\text{.}\)</span> When <span class="process-math">\(n\)</span> is odd, if we take <span class="process-math">\(\omega\)</span> approaching <span class="process-math">\(\frac{n \pi a }{L}\text{,}\)</span> then the numerator in the coefficient <span class="process-math">\(B\)</span> is not going to zero, but the denominator is, so <span class="process-math">\(B\)</span> really does “blow up.” We could again try to explicitly solve for the resonance solution if we wanted to, but it is, in the right sense, the limit of solutions as <span class="process-math">\(\omega\)</span> gets close to a resonance frequency. In real life, pure resonance never occurs anyway.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sps_section-3-13">The calculation of resonance frequencies above explains why a string begins to vibrate if the identical string is plucked close by.  In the absence of friction this vibration would get louder and louder as time goes on. On the other hand, you are unlikely to get large vibration if the forcing frequency is not close to a resonance frequency even if you have a jet engine running close to the string.  That is, the amplitude does not keep increasing unless you tune to just the right frequency.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sps_section-3-13">The calculation of resonance frequencies above explains why a string begins to vibrate if an identical string is plucked close by.  In the absence of friction this vibration would get louder and louder as time goes on. On the other hand, you are unlikely to get large vibration if the forcing frequency is not close to a resonance frequency even if you have a jet engine running close to the string.  That is, the amplitude does not keep increasing unless you tune to just the right frequency.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sps_section-3-14">Similar resonance phenomena occur when you break a wine glass using human voice (yes, this is possible, but not easy<details class="ptx-footnote" aria-live="polite" id="sps_section-3-14-1"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sps_section-3-14-1">
-<em class="emphasis">Mythbusters</em>, episode 31, Discovery Channel, originally aired may 18th 2005.</div></details>) if you happen to hit just the right frequency.  However, a glass has much purer sound, i.e. it is more like a vibraphone, so there are far fewer resonance frequencies to hit.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sps_section-3-14">Similar resonance phenomena occur when you break a wine glass using human voice (yes, this is possible, but not easy<details class="ptx-footnote" aria-live="polite" id="sps_section-3-14-1"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="sps_section-3-14-1">
+<em class="emphasis">Mythbusters</em>, episode 31, Discovery Channel, originally aired May 18th 2005.
+</div></details>) if you happen to hit just the right frequency.  However, a glass has a much purer sound, i.e. it is more like a vibraphone, so there are far fewer resonance frequencies to hit.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sps_section-3-15">When the forcing function is more complicated, you decompose it in terms of the Fourier series and apply the result above.  You may also need to solve the problem above if the forcing function is a sine rather than a cosine, but if you think about it, the solution is almost the same.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sps_section-3-15">When the forcing function is more complicated, you decompose it in terms of its Fourier series and apply the result above.  You may also need to solve the problem above if the forcing function is a sine rather than a cosine, but if you think about it, the solution is almost the same.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="sps_section-3-16"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -881,7 +850,8 @@ y_p(x,t) =
 </div>
 <div class="para">Write <span class="process-math">\(B = \frac{\cos (1) - 1}{\sin (1)}\)</span> for simplicity.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sps_section-3-16-1-2">
+</div> 
+<div class="para logical" id="sps_section-3-16-1-2">
 <div class="para">Plug in <span class="process-math">\(t=0\)</span> into <span class="process-math">\(y_p\)</span> to get</div>
 <div class="displaymath process-math" id="sps_section-3-16-1-2-3">
 \begin{equation}
@@ -894,7 +864,8 @@ B \sin x
 <div class="para">and after differentiating <span class="process-math">\(y_p\)</span> in <span class="process-math">\(t\text{,}\)</span> we see that <span class="process-math">\(g(x) = -\frac{\partial y_p}{\partial t}(x,0) = 0\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sps_section-3-16-1-3">
+</div> 
+<div class="para logical" id="sps_section-3-16-1-3">
 <div class="para">Hence to find <span class="process-math">\(y_c\text{,}\)</span> we need to solve the problem</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sps_forcedeq.html ./knowl/xref/sps_forcedinitcond.html" id="sps_section-3-16-1-3-2">
 \begin{equation}
@@ -921,17 +892,24 @@ y(x,t) =
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sps_section-3-16-1-4">It is not hard to compute specific values for an odd periodic extension of a function and hence <a href="sps_section.html#natfreq_exsol" class="xref" data-knowl="./knowl/xref/natfreq_exsol.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.10">(5.10)</a> is a wonderful solution to the problem. For example, it is very easy to have a computer do it, unlike a series solution. A plot is given in <a href="sps_section.html#natfreq_forcedvibfig" class="internal" title="Figure 5.4">Figure 5.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sps_section-3-16-1-4">It is not hard to compute specific values for an odd periodic extension of a function and hence <a href="sps_section.html#natfreq_exsol" class="xref" data-knowl="./knowl/xref/natfreq_exsol.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.10">(5.10)</a> is a wonderful solution to the problem. For example, it is very easy to have a computer do it, unlike a series solution. A plot is given in <a href="sps_section.html#natfreq_forcedvibfig" class="internal" title="Figure 5.4">Figure 5.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-3-16-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <hr class="diffyqshr">
 <figure class="figure figure-like" id="natfreq_forcedvibfig"><img class="diffyimg" style="width:100%; max-width:7.5in; background-color:white; display:block;" src="figures/natfreq-forcedvib-mbx.svg" role="img" alt="A plot of a surface above the xt-plane where x ranges from 0 to 1 and t ranges from 0 to 5. The function y is zero on 3 sides, that is at t equals 0 and when x equals 0 or x equals 1. Inside its domain as t grows there is a bump going up to a bit above 0.2, then there are two bumps going below the xt-plane, the second one seeming a little more pronounced. Then the function starts going into another bump upwards."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plot of <span class="process-math">\(y(x,t) = \frac{F(x+t) + F(x-t)}{2} + \left( \cos (x) -
-\frac{\cos (1) - 1}{\sin (1)} \sin (x) -1 \right) \cos (t)\text{.}\)</span><div class="autopermalink" data-description="Figure 5.4"><a href="#natfreq_forcedvibfig" title="Copy heading and permalink for Figure 5.4" aria-label="Copy heading and permalink for Figure 5.4">🔗</a></div></figcaption></figure><hr class="diffyqshr">
-<div class="autopermalink" data-description="Example 5.3.1"><a href="#sps_section-3-16" title="Copy heading and permalink for Example 5.3.1" aria-label="Copy heading and permalink for Example 5.3.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.3.1: Forced vibrating string"><a href="#sps_section-3" title="Copy heading and permalink for Subsection 5.3.1: Forced vibrating string" aria-label="Copy heading and permalink for Subsection 5.3.1: Forced vibrating string">🔗</a></div></section><section class="subsection" id="sps_section-4"><h3 class="heading hide-type">
+\frac{\cos (1) - 1}{\sin (1)} \sin (x) -1 \right) \cos (t)\text{.}\)</span><div class="autopermalink" data-description="Figure 5.4"><a href="#natfreq_forcedvibfig" title="Copy heading and permalink for Figure 5.4" aria-label="Copy heading and permalink for Figure 5.4">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 5.3.1"><a href="#sps_section-3-16" title="Copy heading and permalink for Example 5.3.1" aria-label="Copy heading and permalink for Example 5.3.1">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 5.3.1: Forced vibrating string"><a href="#sps_section-3" title="Copy heading and permalink for Subsection 5.3.1: Forced vibrating string" aria-label="Copy heading and permalink for Subsection 5.3.1: Forced vibrating string">🔗</a></div>
+</section>
+<section class="subsection" id="sps_section-4">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Underground temperature oscillations</span>
 </h3>
 <div class="para" id="sps_section-4-2">Let <span class="process-math">\(u(x,t)\)</span> be the temperature at a certain location at depth <span class="process-math">\(x\)</span> underground at time <span class="process-math">\(t\text{.}\)</span>  See <a href="sps_section.html#sps_groundtempfig" class="internal" title="Figure 5.5">Figure 5.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="sps_groundtempfig"><img class="diffyimg" style="width:125pt; height:91pt; display:block;" src="figures/sps-groundtemp-tex4ht.svg" role="img" alt="A diagram of the ground with a person standing on it, and an arrow downward marked with ’depth x’ indicating that x means the depth below ground."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Underground temperature.<div class="autopermalink" data-description="Figure 5.5"><a href="#sps_groundtempfig" title="Copy heading and permalink for Figure 5.5" aria-label="Copy heading and permalink for Figure 5.5">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="sps_groundtempfig"><img class="diffyimg" style="width:125pt; height:91pt; display:block;" src="figures/sps-groundtemp-tex4ht.svg" role="img" alt="A diagram of the ground with a person standing on it, and an arrow downward marked with ’depth x’ indicating that x means the depth below ground."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Underground temperature.<div class="autopermalink" data-description="Figure 5.5"><a href="#sps_groundtempfig" title="Copy heading and permalink for Figure 5.5" aria-label="Copy heading and permalink for Figure 5.5">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para logical" id="sps_section-4-6">
 <div class="para">The temperature <span class="process-math">\(u\)</span> satisfies the heat equation <span class="process-math">\(u_t = ku_{xx}\text{,}\)</span> where <span class="process-math">\(k\)</span> is the diffusivity of the soil. We know the temperature at the surface <span class="process-math">\(u(0,t)\)</span> from weather records.  Let us assume for simplicity that</div>
 <div class="displaymath process-math" id="sps_section-4-6-5">
@@ -939,7 +917,7 @@ y(x,t) =
 u(0,t) = T_0 + A_0 \cos (\omega t) ,
 \end{equation}
 </div>
-<div class="para">where <span class="process-math">\(T_0\)</span> is the yearly mean temperature, and <span class="process-math">\(t=0\)</span> is midsummer (you can put negative sign above to make it midwinter if you wish).  <span class="process-math">\(A_0\)</span> gives the typical variation for the year.  That is, the hottest temperature is <span class="process-math">\(T_0 + A_0\)</span> and the coldest is <span class="process-math">\(T_0 - A_0\text{.}\)</span> For simplicity, we assume that <span class="process-math">\(T_0 = 0\text{.}\)</span> The frequency <span class="process-math">\(\omega\)</span> is picked depending on the units of <span class="process-math">\(t\text{,}\)</span> such that when <span class="process-math">\(t=\unit[1]{year}\text{,}\)</span> then <span class="process-math">\(\omega t = 2 \pi\text{.}\)</span>  For example if <span class="process-math">\(t\)</span> is in years, then <span class="process-math">\(\omega = 2\pi\text{.}\)</span>
+<div class="para">where <span class="process-math">\(T_0\)</span> is the yearly mean temperature, and <span class="process-math">\(t=0\)</span> is midsummer (put a negative sign above to make it midwinter if you wish). The constant <span class="process-math">\(A_0\)</span> gives the typical variation for the year: The hottest temperature is <span class="process-math">\(T_0 + A_0\)</span> and the coldest is <span class="process-math">\(T_0 - A_0\text{.}\)</span> For simplicity, we assume that <span class="process-math">\(T_0 = 0\text{.}\)</span> The frequency <span class="process-math">\(\omega\)</span> is picked depending on the units of <span class="process-math">\(t\text{,}\)</span> such that when <span class="process-math">\(t=\unit[1]{year}\text{,}\)</span> then <span class="process-math">\(\omega t = 2 \pi\text{.}\)</span>  For example, if <span class="process-math">\(t\)</span> is in years, then <span class="process-math">\(\omega = 2\pi\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -965,7 +943,7 @@ u_t = k u_{xx}, \qquad u(0,t) = A_0 \cos ( \omega t) .\tag{5.11}
 h(x,t) = X(x)\, e^{i\omega t} .
 \end{equation}
 </div>
-<div class="para">We look for an <span class="process-math">\(h\)</span> such that <span class="process-math">\(\operatorname{Re} h = u\text{.}\)</span> To find an <span class="process-math">\(h\text{,}\)</span> whose real part satisfies <a href="sps_section.html#sps_ueq" class="xref" data-knowl="./knowl/xref/sps_ueq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.11">(5.11)</a>, we look for an <span class="process-math">\(h\)</span> such that</div>
+<div class="para">We look for an <span class="process-math">\(h\)</span> such that <span class="process-math">\(\operatorname{Re} h = u\text{.}\)</span> To find an <span class="process-math">\(h\)</span> whose real part satisfies <a href="sps_section.html#sps_ueq" class="xref" data-knowl="./knowl/xref/sps_ueq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.11">(5.11)</a>, we look for an <span class="process-math">\(h\)</span> such that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sps_ueq.html" id="sps_heq">
 \begin{equation}
 h_t = k h_{xx}, \qquad h(0,t) = A_0 e^{i\omega t} .\tag{5.12}
@@ -978,7 +956,9 @@ h_t = k h_{xx}, \qquad h(0,t) = A_0 e^{i\omega t} .\tag{5.12}
 </h4>
 <div class="para" id="sps_section-4-9-1-1">Suppose <span class="process-math">\(h\)</span> satisfies <a href="sps_section.html#sps_heq" class="xref" data-knowl="./knowl/xref/sps_heq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.12">(5.12)</a>. Use <a href="sec_ccsol.html#eulersformula" class="xref" data-knowl="./knowl/xref/eulersformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Euler’s formula">Euler’s formula</a> for the complex exponential to check that <span class="process-math">\(u = \operatorname{Re} h\)</span> satisfies <a href="sps_section.html#sps_ueq" class="xref" data-knowl="./knowl/xref/sps_ueq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.11">(5.11)</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.3"><a href="#sps_section-4-9" title="Copy heading and permalink for Exercise 5.3.3" aria-label="Copy heading and permalink for Exercise 5.3.3">🔗</a></div></article><div class="para logical" id="sps_section-4-10">
+<div class="autopermalink" data-description="Exercise 5.3.3"><a href="#sps_section-4-9" title="Copy heading and permalink for Exercise 5.3.3" aria-label="Copy heading and permalink for Exercise 5.3.3">🔗</a></div>
+</article>
+<div class="para logical" id="sps_section-4-10">
 <div class="para">Substitute <span class="process-math">\(h\)</span> into <a href="sps_section.html#sps_heq" class="xref" data-knowl="./knowl/xref/sps_heq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.12">(5.12)</a>.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sps_heq.html ./knowl/xref/eulersformula.html" id="sps_section-4-10-3">
 \begin{equation}
@@ -1015,7 +995,9 @@ X(x) = A e^{-(1+i)\sqrt{\frac{\omega}{2k}} \, x}
 </h4>
 <div class="para" id="sps_section-4-11-1-1">Use <a href="sec_ccsol.html#eulersformula" class="xref" data-knowl="./knowl/xref/eulersformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Euler’s formula">Euler’s formula</a> to show that <span class="process-math">\(e^{(1+i)\sqrt{\frac{\omega}{2k}} \, x}\)</span> is unbounded as <span class="process-math">\(x \to \infty\text{,}\)</span> while <span class="process-math">\(e^{-(1+i)\sqrt{\frac{\omega}{2k}} \, x}\)</span> is bounded as <span class="process-math">\(x \to \infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.4"><a href="#sps_section-4-11" title="Copy heading and permalink for Exercise 5.3.4" aria-label="Copy heading and permalink for Exercise 5.3.4">🔗</a></div></article><div class="para logical" id="sps_section-4-12">
+<div class="autopermalink" data-description="Exercise 5.3.4"><a href="#sps_section-4-11" title="Copy heading and permalink for Exercise 5.3.4" aria-label="Copy heading and permalink for Exercise 5.3.4">🔗</a></div>
+</article>
+<div class="para logical" id="sps_section-4-12">
 <div class="para">Furthermore, <span class="process-math">\(X(0) = A_0\)</span> since <span class="process-math">\(h(0,t) = A_0 e^{i \omega t}\text{.}\)</span> Thus <span class="process-math">\(A=A_0\text{.}\)</span>  This means that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eulersformula.html" id="sps_section-4-12-4">
 \begin{equation}
@@ -1047,32 +1029,45 @@ A_0 e^{-\sqrt{\frac{\omega}{2k}}\, x}
 <div class="para">Yay!</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sps_section-4-13">Notice the phase is different at different depths.  At depth <span class="process-math">\(x\)</span> the phase is delayed by <span class="process-math">\(x \sqrt{\frac{\omega}{2k}}\text{.}\)</span> For example in cgs units (centimeters-grams-seconds) we have <span class="process-math">\(k=0.005\)</span> (typical value for soil), <span class="process-math">\(\omega = \frac{2\pi}{\text{seconds in a year}}
-= \frac{2\pi}{31,557,341} \approx 1.99 \times {10}^{-7}\text{.}\)</span>   Then if we compute where the phase shift <span class="process-math">\(x \sqrt{\frac{\omega}{2k}} = \pi\)</span> we find the depth in centimeters where the seasons are reversed.  That is, we get the depth at which summer is the coldest and winter is the warmest. We get approximately 700 centimeters, which is approximately 23 feet below ground.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sps_section-4-13">Notice the phase is different at different depths.  At depth <span class="process-math">\(x\)</span> the phase is delayed by <span class="process-math">\(x \sqrt{\frac{\omega}{2k}}\text{.}\)</span> For example, in cgs units (centimeters-grams-seconds) we have <span class="process-math">\(k=0.005\)</span> (typical value for soil), <span class="process-math">\(\omega = \frac{2\pi}{\text{seconds in a year}}
+= \frac{2\pi}{31,557,341} \approx 1.99 \times {10}^{-7}\text{.}\)</span>   Then, if we compute where the phase shift <span class="process-math">\(x \sqrt{\frac{\omega}{2k}} = \pi\text{,}\)</span> we find the depth in centimeters where the seasons are reversed.  That is, we get the depth at which summer is the coldest and winter is the warmest. We get approximately 700 centimeters, which is approximately 23 feet below ground.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sps_section-4-14">Be careful not to jump to conclusions.  The temperature swings decay rapidly as you dig deeper.  The amplitude of the temperature swings is <span class="process-math">\(A_0 e^{-\sqrt{\frac{\omega}{2k}} x}\text{.}\)</span>  This function decays <em class="emphasis">very</em> quickly as <span class="process-math">\(x\)</span> (the depth) grows. Let us again take typical parameters as above.  We also assume that our surface temperature swing is <span class="process-math">\(\pm {15}^\circ\)</span> Celsius, that is, <span class="process-math">\(A_0 = 15\text{.}\)</span>  Then the maximum temperature variation at 700 centimeters is only <span class="process-math">\(\pm {0.66}^\circ\)</span> Celsius.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sps_section-4-15">You need not dig very deep to get an effective “refrigerator,” with nearly constant temperature.  That is why wines are kept in a cellar; you need consistent temperature. The temperature differential could also be used for energy.  A home could be heated or cooled by taking advantage of the fact above. Even without Earth’s core you could heat a home in the winter and cool it in the summer.  Earth’s core makes the temperature higher the deeper you dig, although you need to dig somewhat deep to feel a difference. We did not take that into account above.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sps_section-4-15">You need not dig very deep to get an effective “refrigerator,” with nearly constant temperature.  That is why wines are kept in a cellar; you need consistent temperature. The temperature differential could also be used for energy.  A home could be heated or cooled by taking advantage of the fact above. Even without Earth’s core, you could heat a home in the winter and cool it in the summer.  Earth’s core makes the temperature higher the deeper you dig, although you need to dig somewhat deep to feel a difference. We did not take that into account above.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-4-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 5.3.2: Underground temperature oscillations"><a href="#sps_section-4" title="Copy heading and permalink for Subsection 5.3.2: Underground temperature oscillations" aria-label="Copy heading and permalink for Subsection 5.3.2: Underground temperature oscillations">🔗</a></div></section><section class="exercises" id="sps_section-5"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 5.3.2: Underground temperature oscillations"><a href="#sps_section-4" title="Copy heading and permalink for Subsection 5.3.2: Underground temperature oscillations" aria-label="Copy heading and permalink for Subsection 5.3.2: Underground temperature oscillations">🔗</a></div>
+</section>
+<section class="exercises" id="sps_section-5">
+<h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="sps_sinforceexr"><h4 class="heading"><span class="codenumber">5.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sps_sinforceexr-1-1">Suppose that the forcing function for the vibrating string is <span class="process-math">\(F_0 \sin (\omega t)\text{.}\)</span>  Derive the particular solution <span class="process-math">\(y_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sps_sinforceexr-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.5"><a href="#sps_sinforceexr" title="Copy heading and permalink for Exercise 5.3.5" aria-label="Copy heading and permalink for Exercise 5.3.5">🔗</a></div></article><article class="exercise exercise-like" id="sps_section-5-2"><h4 class="heading"><span class="codenumber">5.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 5.3.5"><a href="#sps_sinforceexr" title="Copy heading and permalink for Exercise 5.3.5" aria-label="Copy heading and permalink for Exercise 5.3.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sps_section-5-2"><h4 class="heading"><span class="codenumber">5.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sps_section-5-2-1-1">Take the forced vibrating string. Suppose that <span class="process-math">\(L=1\text{,}\)</span> <span class="process-math">\(a=1\text{.}\)</span>  Suppose that the forcing function is the square wave that is 1 on the interval <span class="process-math">\(0 &lt; t &lt; \pi\)</span> and <span class="process-math">\(-1\)</span> on the interval <span class="process-math">\(-\pi &lt; t &lt; 0\text{.}\)</span> Find the particular solution.  Hint: You may want to use result of <a href="sps_section.html#sps_sinforceexr" class="xref" data-knowl="./knowl/xref/sps_sinforceexr.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.3.5">Exercise 5.3.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.6"><a href="#sps_section-5-2" title="Copy heading and permalink for Exercise 5.3.6" aria-label="Copy heading and permalink for Exercise 5.3.6">🔗</a></div></article><article class="exercise exercise-like" id="sps_section-5-3"><h4 class="heading"><span class="codenumber">5.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 5.3.6"><a href="#sps_section-5-2" title="Copy heading and permalink for Exercise 5.3.6" aria-label="Copy heading and permalink for Exercise 5.3.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sps_section-5-3"><h4 class="heading"><span class="codenumber">5.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sps_section-5-3-1-1">The units are cgs (centimeters-grams-seconds). For <span class="process-math">\(k=0.005\text{,}\)</span> <span class="process-math">\(\omega = 1.991 \times {10}^{-7}\text{,}\)</span> <span class="process-math">\(A_0 = 20\text{.}\)</span> Find the depth at which the temperature variation is half (<span class="process-math">\(\pm 10\)</span> degrees) of what it is on the surface.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.7"><a href="#sps_section-5-3" title="Copy heading and permalink for Exercise 5.3.7" aria-label="Copy heading and permalink for Exercise 5.3.7">🔗</a></div></article><article class="exercise exercise-like" id="sps_section-5-4"><h4 class="heading"><span class="codenumber">5.3.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 5.3.7"><a href="#sps_section-5-3" title="Copy heading and permalink for Exercise 5.3.7" aria-label="Copy heading and permalink for Exercise 5.3.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sps_section-5-4"><h4 class="heading"><span class="codenumber">5.3.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sps_section-5-4-1-1">Derive the solution for underground temperature oscillation without assuming that <span class="process-math">\(T_0 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 5.3.8"><a href="#sps_section-5-4" title="Copy heading and permalink for Exercise 5.3.8" aria-label="Copy heading and permalink for Exercise 5.3.8">🔗</a></div></article><article class="exercise exercise-like" id="sps_section-5-5"><h4 class="heading"><span class="codenumber">5.3.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 5.3.8"><a href="#sps_section-5-4" title="Copy heading and permalink for Exercise 5.3.8" aria-label="Copy heading and permalink for Exercise 5.3.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sps_section-5-5"><h4 class="heading"><span class="codenumber">5.3.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sps_section-5-5-1-1">Take the forced vibrating string. Suppose that <span class="process-math">\(L=1\text{,}\)</span> <span class="process-math">\(a=1\text{.}\)</span>  Suppose that the forcing function is a triangle wave, <span class="process-math">\(\lvert t \rvert -\frac{\pi}{2}\)</span> on <span class="process-math">\(-\pi &lt; t &lt; \pi\)</span> extended periodically. Find the particular solution.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sps_section-5-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="sps_section-5-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="sps_section-5-5-2-1">
 <span class="process-math">\(y_p(x,t) =
 \sum\limits_{\substack{n=1 \\ n \text{ odd}}}^\infty
@@ -1086,16 +1081,26 @@ A_0 e^{-\sqrt{\frac{\omega}{2k}}\, x}
 \cos (n t) .\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 5.3.101.1"><a href="#sps_section-5-5-2" title="Copy heading and permalink for Answer 5.3.101.1" aria-label="Copy heading and permalink for Answer 5.3.101.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 5.3.101"><a href="#sps_section-5-5" title="Copy heading and permalink for Exercise 5.3.101" aria-label="Copy heading and permalink for Exercise 5.3.101">🔗</a></div></article><article class="exercise exercise-like" id="sps_section-5-6"><h4 class="heading"><span class="codenumber">5.3.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 5.3.101"><a href="#sps_section-5-5" title="Copy heading and permalink for Exercise 5.3.101" aria-label="Copy heading and permalink for Exercise 5.3.101">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sps_section-5-6"><h4 class="heading"><span class="codenumber">5.3.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sps_section-5-6-1-1">The units are cgs (centimeters-grams-seconds). For <span class="process-math">\(k=0.01\text{,}\)</span> <span class="process-math">\(\omega = 1.991 \times {10}^{-7}\text{,}\)</span> <span class="process-math">\(A_0 = 25\text{.}\)</span> Find the depth at which the summer is again the hottest point.<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sps_section-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="sps_section-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="sps_section-5-6-2-1">Approximately 1991 centimeters<div class="autopermalink" data-description="Paragraph"><a href="#sps_section-5-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 5.3.102.1"><a href="#sps_section-5-6-2" title="Copy heading and permalink for Answer 5.3.102.1" aria-label="Copy heading and permalink for Answer 5.3.102.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 5.3.102"><a href="#sps_section-5-6" title="Copy heading and permalink for Exercise 5.3.102" aria-label="Copy heading and permalink for Exercise 5.3.102">🔗</a></div></article><div class="autopermalink" data-description="Exercises 5.3.3"><a href="#sps_section-5" title="Copy heading and permalink for Exercises 5.3.3" aria-label="Copy heading and permalink for Exercises 5.3.3">🔗</a></div></section><div class="autopermalink" data-description="Section 5.3: Steady periodic solutions"><a href="#sps_section" title="Copy heading and permalink for Section 5.3: Steady periodic solutions" aria-label="Copy heading and permalink for Section 5.3: Steady periodic solutions">🔗</a></div></section></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 5.3.102"><a href="#sps_section-5-6" title="Copy heading and permalink for Exercise 5.3.102" aria-label="Copy heading and permalink for Exercise 5.3.102">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 5.3.3"><a href="#sps_section-5" title="Copy heading and permalink for Exercises 5.3.3" aria-label="Copy heading and permalink for Exercises 5.3.3">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 5.3: Steady periodic solutions"><a href="#sps_section" title="Copy heading and permalink for Section 5.3: Steady periodic solutions" aria-label="Copy heading and permalink for Section 5.3: Steady periodic solutions">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_appeig.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="LT_chapter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

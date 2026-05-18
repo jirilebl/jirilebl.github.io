@@ -35,6 +35,91 @@ MathJax = {
 
 <main>
 <p>
+<b>May 18th 2026 edition, Version 6.11 (edition 6, 11th update):</b>
+<p>
+
+The main focus of this edition is polish, clarifications, and minor fixes.
+
+<ol>
+<li>In section 1.1, give a "definition" of "closed form" in a footnote.
+<li>In example 1.4.2, split the long list of equations in two
+to make things more readable (and to fit within the screen in
+the web version).  Also, improve some of the nearby wording.
+<li>In the exercises for 1.7, when describing Runge-Kutta and
+the improved Euler, order the equations more logically left-to-right
+then top-to-bottom.  Among other things, this should make it more intuitive
+to read for screen readers.
+<li>In chapter 1, equation 1.6 on page 70 was numbered by mistake so take
+the number out.  Consequently the number of the equation on page 74 is now
+1.6.
+<li>In the pendulum example in section 2.4, reword and very
+slightly simplify the setup and include units.
+<li>In chapters 4 and 5, whenever writing a sum in the \(\sum\) notation
+and it has multiple terms, add brackets around it for clarity.
+<li>In Example 4.4.4 and 4.5.1, use parentheses better to show
+which things are summed when plugging into the equation.
+<li>Simplify the solution in the back for 4.2.102.
+<li>In 4.6 call the constant thermal diffusivity rather than 
+thermal conductivity to be a bit more correct.
+<li>Move the floated images a bit up in 4.10.1 for a slightly better layout,
+<li>A few minor extra explanations in 4.10.
+<li>In Example 5.3.1, note that we are trying to find a solution \(y\)
+to (5.7)
+satisfying the zero boundary conditions (5.8).  Then it was confusing
+as the problem needed to solve for \(y_c\) was simply using \(y\text{,}\)
+but right after that, we write \(y\) for the solution of the entire
+problem.  So use \(w\) for the problem used to solve for \(y_c\) so that
+\(y\) is only used for the entire problem.  In the setup for \(w\)
+we now mark the \(f(x)\) and \(g(x) \text{.}\)  Then when we write
+out the solution we mention again that it is a solution to (5.7)
+subject to (5.8).
+<li>In the discussion after Remark 6.4.2, improve the exposition about
+differentiating under the integral: Emphasize we are
+assuming that the functions are zero for negative \(t\)
+and add more detail to the footnote.
+<li>In section 7.2, use expressions like \(4 \cdot 3 \cdot 2\)
+instead of \((4)(3)(2)\) as it is less busy, more readable, and
+slightly shorter, especially when a longer list is involved.
+<li>In Example 7.2.2, reword the part where the general
+terms for the coefficients are obtained to be more logical,
+explicitly show how the zero coefficients come about,
+and compute up to \(a_9\) to see the pattern more clearly.
+<li>In the beginning of 7.3.2, say again that the
+coefficients are polynomials.
+<li>In item (ii) of the Frobenius method avoid saying it is
+\(x^r\) as it in fact often not that coefficient.
+<li>A little bit of rewording in 7.3.3 to clarify the
+definition of the gamma function and how it is used
+with nonpositive arguments so that the formulas given
+make sense.
+<li>A little bit of rewording in subsection 8.3.1 on the pendulum.
+<li>In Example 8.4.1, mention that \(y=x'\) on the phase diagram as usual
+just to reinforce.
+<li>Reword the discussion after Theorem 8.4.1 to include what happens
+with critical points.
+<li><b>Change Exercise 8.4.102</b> to fix an erratum.
+The given
+trajectory had a typo making it impossible to be
+a trajectory of any system.
+<li>In subsection 8.5.1, also explicitly mention that \(y=x'\)
+as usual.
+<li>Be more precise when invoking Poincare-Bendixson in 8.5.
+<li>Simplify the answer in the back for 8.5.101.
+<li>In the derivation of the formula for the orthogonal projection,
+be more clear with \(\theta\) being acute or obtuse.
+<li>In the example of the mapping in section A.6 reorder the vertices
+of the square so that they go around the square in a counterclockwise
+motion rather than being out of order.
+<li>Make some long equations a bit narrower
+in the web version by splitting some lines.
+<li>Add alt texts to all the figures to make the book fully accessible
+(a version of this work has been online since March).
+<li>A lot of minor improvement to wording or reordering sentences
+for clarity.
+<li>Fix <a href="errata.html">errata</a>.
+</ol>
+
+<p>
 <b>December 11th 2025 edition, Version 6.10 (edition 6, 10th update):</b>
 <p>
 
@@ -93,7 +178,7 @@ exercises.
 <li>Answer in the back to 3.1.104 ordered more naturally and in the more
 standard form.
 <li>In the answer in the back for 3.1.103, use \(u_1,u_2,u_3\) not to
-confuse with \(x .\)
+  confuse with \(x \text{.}\)
 <li>In the discussion introducing the fundamental matrix, mention
 the nonuniqueness of the matrix, we can multiply on the right
 by an invertible constant matrix.
@@ -111,7 +196,7 @@ box the definition of Laplace transform on page 294.
 "Shifting property" as that's a neater way of doing it,
 and good practice of using it.
 <li>When giving the second shifting property on page 302,
-mention that \(a \geq 0 .\)
+  mention that \(a \geq 0 \text{.}\)
 <li>In Exercise 6.2.9, give more precise instructions than just "Show".
 <li>Explicitly give the meaning of the commutativity of convolution.
 <li>Introduce Volterra integral equations in a slightly more intelligent way.
@@ -120,7 +205,7 @@ of the word "convenient" it is not convenient, it is the whole thing.
 <li>In Theorem 7.1.2, explicitly state that \(A\) going to infinity
 means divergent series.
 <li>Reword the paragraph about root/ratio test being more complicated 
-than simply computing the \(A,\) and add a very short inline example,
+  than simply computing the \(A\text{,}\) and add a very short inline example,
 as such series often appear in online homework systems made for other books.
 <li>In Example 8.1.2, add a bit more detail.
 <li>Add a note about the "circles" simple linear system having no limit
@@ -178,7 +263,7 @@ should draw the vector field (it was hopefully implied in the previous
 wording, but be explicit here).
 <li>In 3.7.2, when first solving for the generalized eigenvalue in the
 example, explicitly say that \(\vec{w}\) should solve
-\({(A-3I)}^2 \vec{w} = \vec{0},\) to make the argument clear.
+\({(A-3I)}^2 \vec{w} = \vec{0}\text{,}\) to make the argument clear.
 <li>In the section notes for 3.8, refer to 7.1
 <li>The paragraph above Theorem 3.8.2 was a little confusing about
 where the commutativity comes in, so rewrite it a little.
@@ -263,9 +348,10 @@ where appropriate.
 <li>Expand Example A.4.2 with a couple of new examples and make it into
 an enumerate to make it easier to parse.
 <li>In Exercise A.5.5, part a) mention that it is a basis of
-\({\mathbb{R}}^3.\)
+  \({\mathbb{R}}^3\text{.}\)
 <li>Add a few more useful Laplace transforms to the table in Appendix B.
-<li>In Appendix B, the transform for \(t^p\) is valid for \(p &gt; -1 .\)
+  <li>In Appendix B, the transform for \(t^p\) is valid for \(p &gt; -1
+    \text{.}\)
 <li>Many other small clarifications and improvements.
 <li>Fix <a href="errata.html">errata</a>.
 </ol>
@@ -297,15 +383,18 @@ to "find a linear combination that gives 0." as "works" may be a little confusin
 It is not too important, so we don't want to dwell on it, but it turns out many students here
 have not seen polar coordinates yet (or just don't remember them).  Also add the
 equations for A and B in terms of C and \(\gamma\) as that makes it easier to see.
-<li>In the mass-spring diagram in 2.4 and 2.6, mark the direction of the position \(x.\)
+<li>In the mass-spring diagram in 2.4 and 2.6, mark the direction of the
+  position \(x\text{.}\)
 <li>At the end of 2.5, add more detail to computation with variation of
 parameters.
 <li>At the end of 2.5, add a paragraph recapping of how that procedure (variation of parameters)
-would work in general.  Then also remark that if there is a coefficient in front of the \(y'' ,\)
+would work in general.  Then also remark that if there is a coefficient in
+front of the \(y'' \text{,}\)
 it is necessary to first divide by it.
 <li>Make the caption to Figure 4.17 slightly more descriptive, which as
 side condition gets rid of a horrible page break.
-<li>In Table 6.1, emphasize that for \(u(t-a)\) we must have \(a \geq 0 .\)
+<li>In Table 6.1, emphasize that for \(u(t-a)\) we must have \(a \geq 0
+  \text{.}\)
 <li>Similarly, some of these restrictions on \(a\) were missing in the list
 in Appendix B.
 <li>After Theorem 6.1.1 (linearity of the Laplace transform), demonstrate
@@ -371,7 +460,8 @@ meters since we give the units of all the other variables, also we forgot to
 say that current is measured in amperes.
 <li>On page 105, add an explicit remark about trying a generic polynomial
 even if some of the powers do not really appear on the right hand side.
-<li>On pages 106 and 107, some of the particular solutions were just \(y,\)
+<li>On pages 106 and 107, some of the particular solutions were just
+  \(y\text{,}\)
 but that's not totally consistent with the rest of the section.
 <li>On page 109, the computation of the example for variation parameters,
 rewrite the \(u_1'\) in a different way to make calculus easier
@@ -408,7 +498,7 @@ So just say "continuous" here and then the same formula will work.
 somewhat easier to understand, and not as trivially solved without Laplace
 (still easily though).
 <li>Add short note about how one can compute \(H(s)\) without knowing the
-equations, just knowing \(X(s)\) for a given \(F(s) .\)
+  equations, just knowing \(X(s)\) for a given \(F(s) \text{.}\)
 <li>Add an extremely short subsection 6.2.6 on Laplace transform of
 periodic functions, which seem to pop up in these courses,
 and it makes sense in the same section as where we are looking at
@@ -430,7 +520,7 @@ given pulse function goes to 1.
 <li>On page 314, when writing the convolution with delta, be more consistent.
 <li>On page 316, after Example 6.4.2, write convolutions all in the same order for consistency,
 use \(h\) for the impulse response for consistency and to
-not jump back and forth with \(x\) and \(y ,\)
+not jump back and forth with \(x\) and \(y \text{,}\)
 make the wording clearer about how the computation works in
 general, and finally mention
 that the impulse response is just the
@@ -446,8 +536,8 @@ note for instructors, they were too optimistic.
 I just did them each in 2 lectures and I felt it was about the same pace as
 chapters 1 and 2 where I was hitting my estimates spot on.
 <li>In sections 7.2 and 7.3, name the coefficients
-\(P(x),\) \(Q(x),\) \(R(x)\) since lower case letters are used for
-other things, most confusingly little \(r.\)
+  \(P(x)\text{,}\) \(Q(x)\text{,}\) \(R(x)\) since lower case letters are used for
+  other things, most confusingly little \(r\text{.}\)
 <li>In 7.3, say a little bit more explicitly in the beginning that we're
 just trying to find a solution on one side of the singular point.  Also
 mention the thing about what the singular point does to the initial value
@@ -455,7 +545,7 @@ in the first example.
 <li>In 7.3 when describing the method, mention very quickly what to do
 if \(x_0\) is not zero.
 <li><b>Exercise 8.4.101 part c was changed to fix erratum</b>:
-The system is changed to \(x'=xy^2,y'=x+x^2 ,\) and then the solution
+  The system is changed to \(x'=xy^2,y'=x+x^2 \text{,}\) and then the solution
 in the back (changing \(y\) to \(y^2\) of course) works.
 <li>Fix <a href="errata.html">errata</a>.
 </ol>
@@ -467,7 +557,7 @@ in the back (changing \(y\) to \(y^2\) of course) works.
 
 <ol>
 <li><b>Change Exercise 3.1.106</b> to fix an erratum.  Rate of flow from tank 2 back into tank 1 should
-be \(r-s ,\) otherwise volumes do not stay constant and the problem doesn't quite all make sense.
+  be \(r-s \text{,}\) otherwise volumes do not stay constant and the problem doesn't quite all make sense.
 <li>Add a couple of minor clarifications to the end of Example 1.9.3.
 <li>Slightly tighter spacing in 3.1 leads to a slight change (for the better I
 think) in pagination in the section.
@@ -501,7 +591,7 @@ separate out figures and tables.
 <li>In 1.7, tighten the language when describing first vs. second order
   method, leading to slightly nicer page breaks as a side benefit.
 <li>In Example 1.8.7, in the final solution for \(F(x,y)\) we better put
-  absolute values around \(y .\)  In a sense it is not wrong
+  absolute values around \(y \text{.}\)  In a sense it is not wrong
   but we would require the complex logarithm otherwise. 
 <li>When talking about "linear operator" after Theorem 2.1.1,
   mention that it seems almost as if we are multiplying by it.
@@ -526,7 +616,7 @@ Also note that \(x=-1\) itself is a solution to that.
 the impulse response given is changed to \(t e^{-t} . \)
 <li><b>Change Exercise 6.4.103 to fix erratum</b>, in particular,
 the impulse response given is changed to \(e^t \sin(t) \) and the
-equation whose solution is sought is changed to \(Lx = e^t .\)
+equation whose solution is sought is changed to \(Lx = e^t \text{.}\)
 <li>Add Remark 6.4.2 after Example 6.4.2, which explains what's going on
 with the \(x'(0)=0\) by noting that \(x'\) has a jump at \(t=0\) to produce
 the delta function.
@@ -559,7 +649,7 @@ is well behaved.
 <li>In the process of fixing an erratum from Martin Irungu (a sign error in the
 "proof" of Theorem 6.1.2; the final answer is off by a sign),  implement
 Martin's suggestion to write the whole thing in terms of the positive \(s-c\)
-rather than the negative \(c-s,\) which clearly leads to more typos.
+rather than the negative \(c-s\text{,}\) which clearly leads to more typos.
 <li>For some reason a new version of LaTeX is now making some spacing slightly
 different (being a little bit more generous with space under figures for
 example), so the pagination is slightly different in places.  I went through
@@ -792,7 +882,7 @@ in the equation (it comes out to be the same vector in this example).
 <li>In section 3.7, make the computation for the \(2 \times 2\) system a little bit
 more streamlined and make it clearer as to what should be solved as
 \((A-\lambda I)^2 \vec{v}_2 = \vec{0}\) is always automatically satisfied if
-\((A-\lambda I) \vec{v}_2 = \vec{v}_1.\)  So only mention solving 
+\((A-\lambda I) \vec{v}_2 = \vec{v}_1\text{.}\)  So only mention solving 
 \((A-\lambda I)^2 \vec{v}_2 = \vec{0}\) as a remark afterwards.
 <li>In the whirling string example in 4.1 mention units explicitly, and also
 mention the example of increasing tension on a spinning jumprope.
@@ -810,7 +900,7 @@ possible.  The following changes were made:</i>
 
 <ol>
 <li>In Example 2.4.1, I committed the cardinal sin of taking arctangent of 1
-on a calculator, so now it says \(\pi/4.\)
+  on a calculator, so now it says \(\pi/4\text{.}\)
 Thanks to Erik Boczko for pointing this out.
 <li>Exercise 2.5.7 has a typo leading to a different problem than intended.
 I removed the "What is going on?" seemed to imply that solutions were
@@ -820,8 +910,8 @@ solutions using undetermined coefficients and variation of parameters.
 Thanks to Asif Shakeel for pointing this out.
 <li>A couple of very minor style improvements, and grammar fixes.
 <li><b>Exercise 5.1.102 changed slightly.</b>  There was a typo where the \(-2x\)
-should be \(+2x.\)  The solution in the back is for this correct version of
-the problem.  So I changed the \(-2x\) to \(+2x.\)  I added a footnote that for
+  should be \(+2x\text{.}\)  The solution in the back is for this correct version of
+  the problem.  So I changed the \(-2x\) to \(+2x\text{.}\)  I added a footnote that for
 a challenge the student can try the "wrong" version.
 <li>Fix the <a href="errata.html">errata</a>.
 </ol>
@@ -1025,7 +1115,7 @@ go from 1 to 5 (which actually matches the graph on page 240).
 <li>Fix many grammar mistakes and typos (thanks to Gladys Cruz, Jonathan Gomez, Janelle Louie, Navid Froutan, Grace Victorine)
 <li>On bottom of page 233, when expanding in partial fractions,
 the \(A(s^2-1)+s(Bs+C)\) should be
-\(A(s^2+1)+s(Bs+C).\)  The result is correct.
+\(A(s^2+1)+s(Bs+C)\text{.}\)  The result is correct.
 <li>On page 256, the explicit expression for \(a_5\) was wrong,
 it should be \(a_5 = \frac{a_1}{(5)(4)(3)(2)}\) (thanks Gladys Cruz)
 <li>On page 260, the \(a_2\) expression on the top was missing a
@@ -1049,15 +1139,15 @@ eigenvectors themselves clear.  The lines are there in Figure 3.4.
 <li>After theorem 3.4.1, and in example 3.4.4, give the corresponding
 fundamental matrix solution.
 <li>Page 100, fix computing the determinant of the matrix, it is
-\((2-\lambda)((2-\lambda)^2-1).\)  There was an extra power of 2.
+  \((2-\lambda)((2-\lambda)^2-1)\text{.}\)  There was an extra power of 2.
 <li>In Example 3.4.4, the general solution was missing the arbitrary
-constants \(c_1,\) \(c_2,\) and \(c_3.\)  Furthermore,
-the general solution had the wrong eigenvector for \(\lambda=2.\)
+  constants \(c_1\text{,}\) \(c_2\text{,}\) and \(c_3\text{.}\)  Furthermore,
+  the general solution had the wrong eigenvector for \(\lambda=2\text{.}\)
 <li>On top of page 108 when showing the spiral sink, we meant to take real and
-imaginary parts of \(\vec{v}e^{(-1-2i)t}.\)  The displayed equations were
+  imaginary parts of \(\vec{v}e^{(-1-2i)t}\text{.}\)  The displayed equations were
 correct though.
 <li>On bottom of page 121, when the method was being generalized, the equations
-had 3 in them where there should be \(\lambda.\)
+  had 3 in them where there should be \(\lambda\text{.}\)
 <li>Links to Wikipedia (at least when viewing online) from the short bio footnotes.
 <li>Lots of minor clarifications, grammar fixes, and improvements.
 </ol>
@@ -1091,17 +1181,17 @@ when AB=0 does not imply that A=0 or B=0 for matrices.
 changes were made:</i>
 
 <ol>
-<li>Fix example on page 38 when \(h=1.6.\)
+  <li>Fix example on page 38 when \(h=1.6\text{.}\)
 <li>In exercise 1.4.9 part a) we simply ask for the concentration as a function
 of time (not requiring conversion of time to seconds)
 <li>On top of page 97, \(\vec{x}_p\) was missing the arrow indicating a vector.
 <li>Theorem 3.7.1 had a typo where instead of "then" there was an "and".
 <li>On top of page 120, it said the "number of eigenvalues" was equal to the
-number of free variables in \(A\vec{v} = \lambda \vec{v},\) when of course it is
+  number of free variables in \(A\vec{v} = \lambda \vec{v}\text{,}\) when of course it is
 the "number of eigenvectors".
 <li>When discussing variation of parameters, we say that the equations given
-work for any second order \(Ly=f(x).\) Of course, here we must have L of
-the form \(y''+p(x)y'+q(x)y.\)
+  work for any second order \(Ly=f(x)\text{.}\) Of course, here we must have L of
+  the form \(y''+p(x)y'+q(x)y\text{.}\)
 <li>Define "linear combination" more explicitly.
 <li>Mention Boyce-DiPrima in the introduction and in further reading.
 <li>Improve the cart figure in beginning of chapter 3.
@@ -1188,7 +1278,7 @@ changes were made:</i>
 derivation of the solution for w and z.
 <li>On page 173 the formula near the bottom should have a -4.  That is, \(f(t)\) is
 \(\frac{1}{2} + \sum_{{n=1\\n~\text{odd}}}^\infty
-\frac{-4}{\pi^2 n^2} \, \cos (n \pi t).\)  Thanks to Sean Robinson.
+\frac{-4}{\pi^2 n^2} \, \cos (n \pi t)\text{.}\)  Thanks to Sean Robinson.
 <li>On page 206 
 the formula for \(u_n(x,0)\) should read
 \(u_n(x,0) = X_n(x)Y_n(0) = \sin \left( \frac{n \pi}{w} x \right)\) (note the denominator).
@@ -1226,9 +1316,9 @@ spotting this one.
 was a missing equals sign and x(t) was mistakenly called f(t)
 <li>On page 241, exercises 6.2.3, 6.2.4, and 6.2.5 were trivial as given (x=0
 is the solution).  What I meant was to make the initial conditions arbitrary,
-i.e. \(x(0)=a\) and \(x'(0)=b.\)  Thanks to Sean Raleigh and Jessica Robinson for
+i.e. \(x(0)=a\) and \(x'(0)=b\text{.}\)  Thanks to Sean Raleigh and Jessica Robinson for
 spotting this one.
-<li>On page 242, exercise 6.3.2, change all \(\omega_0\) to \(\omega.\)
+<li>On page 242, exercise 6.3.2, change all \(\omega_0\) to \(\omega\text{.}\)
 Thanks to Sean Raleigh and Jessica Robinson for
 spotting this one.
 <li>Add exercise 6.2.8.
@@ -1267,7 +1357,7 @@ about convergence.
 extension, not the sine terms.
 <li>On page 170 on the top, there was a plus sign missing in the series
 after
-\(\frac{a_0}{2}.\)
+\(\frac{a_0}{2}\text{.}\)
 <li>On page 212 we mistakenly said that eigenvalues are lambdas with no nontrivial solutions (thanks to Sean Raleigh).
 <li>On page 217, the integral that is the inner product of the sine with itself should not have f(t) in it, the one that equals
 \(\frac{\pi}{4}\)
@@ -1299,7 +1389,7 @@ example 2.3.5.
 and make them all upper case.
 <li>IODE Project III has changed (there was always some confusion about what was Project III)
 and now fits more after section 2.3, rather than before 2.6.
-<li>On page 75 on top, there was a typo in the expression for \(u_1',\) the x should be an argument to the cosine.
+<li>On page 75 on top, there was a typo in the expression for \(u_1'\text{,}\) the x should be an argument to the cosine.
 <li>In example 2.6.1, when stating the parameters, it should say m=0.5
 (the example was computed correctly, so no other changes).
 <li>Add exercise 2.4.6.
@@ -1325,7 +1415,7 @@ changes were made:</i>
 
 <ol>
 <li>Fix solution to example 1.3.4. The solution should end up being
-\(\frac{6}{x^2+2C}.\)
+  \(\frac{6}{x^2+2C}\text{.}\)
 Thanks to Leonardo Gomes for noticing.
 <li>Fix the computation of the constants in Example 2.4.1.  Also fix the
 discussion right after the example, and fix Figure 2.2.
@@ -1364,14 +1454,14 @@ keep time in minutes for the example.
 <li> Fix example 1.4.1, there was a missing minus sign in the solution.  Thanks
 to Ian Simon for pointing it out.
 <li> Fix example on page 103.  The expression for \(x_1\) in the middle of
-the page should have \(e^t\cos(t) -i e^t\sin(t).\)  The rest of
+  the page should have \(e^t\cos(t) -i e^t\sin(t)\text{.}\)  The rest of
 the example also needed to have the signs fixed.  Thanks to Sean Raleigh
 for noticing.
 <li> Exercise 1.1.7 had a typo making the solution very hard (without a computer
 algebra system).  The right hand side should be a
 \(\frac{1}{y+1}\)
 not
-\(\frac{1}{y^2+1}.\)
+\(\frac{1}{y^2+1}\text{.}\)
 <li> Exercise 1.3.7 was impossible (typo in the equation) replace with a
 different exercise.
 <li> Add forgotten initial condition to Exercise 0.2.9 (\(x'(0)=0\)).
@@ -1420,7 +1510,7 @@ edits as follows.</i>
 <li> Exercise 2.1.8 was missing a minus sign (thanks to Eliot Brenner for spotting this).  It should look like:
 <br>
 <b>Exercise 2.1.8:</b> Suppose
-\(y_1\) is a solution to \(y''+p(x)y'+q(x)y=0.\)
+\(y_1\) is a solution to \(y''+p(x)y'+q(x)y=0\text{.}\)
 Show that
 <br>
 \(y_2(x)=y_1(x)\int \frac{e^{-\int p(x)dx}}{(y_1(x))^2} dx\)

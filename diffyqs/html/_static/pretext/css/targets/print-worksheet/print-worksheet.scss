@@ -29,13 +29,27 @@
 
 
 // Make sure we are including the root colors using simple black-and-white palette
+// Always use colors from the light mode palette, since the print preview and printed version will be light mode.
+@use "sass:map";
 @use "colors/color-helpers" as colorHelpers;
 @use 'colors/palette-single' as palette with (
   $primary-color: black,
 );
 
-// render the actual colors
-@include colorHelpers.set-root-colors(palette.$colors);
+$light-colors: map.merge(
+  palette.$colors,
+  (
+    "block-head-color": black,
+  )
+);
+
+// Print worksheets should always render with the light palette, even if the page
+// root still carries the site's dark-mode class.
+:root,
+:root.dark-mode {
+  color-scheme: light;
+  @include colorHelpers.scss-to-css($light-colors);
+}
 
 // ---------------------------------------------
 // concrete rules / includes that generate CSS
@@ -97,6 +111,12 @@ section.worksheet, section.handout {
  .onepage > .heading {
   margin-top: 0;
   font-size: 1.3em;
+}
+
+// Headings made out of paragraphs titles
+.onepage h4.heading {
+  font-size: 1.2em;
+  margin-top: 1em;
 }
 
 .onepage .instructions {
@@ -365,6 +385,11 @@ form.papersize-select {
       overflow: hidden;
       page-break-after: always;
       page-break-inside: avoid;
+    }
+
+    // Avoid a blank page at the end if the last page fits on the previous page
+    .onepage:last-of-type {
+      page-break-after: avoid;
     }
 
     .first-page-header, .running-header {

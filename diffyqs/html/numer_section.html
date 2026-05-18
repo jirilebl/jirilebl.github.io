@@ -21,60 +21,17 @@
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="extra.css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
@@ -138,9 +95,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="auteq_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="fo_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="exact_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
-\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
-\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{}^{#1}\!/\!{}_{#2}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, \nicefrac{\mathrm{#2}}{\mathrm{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, \mathrm{#2}}
 \newcommand{\noalign}[1]{}
 \newcommand{\qed}{\qquad \Box}
 \newcommand{\mybxbg}[1]{\boxed{#1}}
@@ -162,7 +119,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical courses</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
 </ul>
@@ -702,7 +659,9 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="numer_section"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="numer_section">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Numerical methods: Euler’s method</span>
 </h2>
 <div class="para" id="numer_section-2">
@@ -720,7 +679,9 @@ y' = f(x,y), \qquad y(x_0) = y_0 .
 <div class="para" id="numer_section-4">If the equation can be solved in closed form, we should do that. But what if we have an equation that cannot be solved in closed form? What if we want to find the value of the solution at some particular <span class="process-math">\(x\text{?}\)</span> Or perhaps we want to produce a graph of the solution to inspect the behavior.  In this section we will learn about the basics of numerical approximation of solutions.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="numer_section-5">
-<div class="para">The simplest method for approximating a solution is <em class="emphasis">Euler’s method<details class="ptx-footnote" aria-live="polite" id="numer_section-5-1-2"><summary class="ptx-footnote__number" title="Footnote 1.7.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="numer_section-5-1-2">Named after the Swiss mathematician <a class="external" href="https://en.wikipedia.org/wiki/Euler" target="_blank">Leonhard Paul Euler</a> (1707–1783).  The correct pronunciation of the name sounds more like “oiler.”</div></details></em>.  It works as follows: Take <span class="process-math">\(x_0\)</span> and <span class="process-math">\(y_0\)</span> and compute the slope <span class="process-math">\(k = f(x_0,y_0)\text{.}\)</span>  The slope is the change in <span class="process-math">\(y\)</span> per unit change in <span class="process-math">\(x\text{.}\)</span>  Follow the line for an interval of length <span class="process-math">\(h\)</span> on the <span class="process-math">\(x\)</span>-axis. We call <span class="process-math">\(h\)</span> the <em class="emphasis">step size</em>. Hence if <span class="process-math">\(y = y_0\)</span> at <span class="process-math">\(x_0\text{,}\)</span> then we say that <span class="process-math">\(y_1\text{,}\)</span> the approximate value of <span class="process-math">\(y\)</span> at <span class="process-math">\(x_1 = x_0 + h\text{,}\)</span> is <span class="process-math">\(y_1 = y_0 + h k\text{.}\)</span> Rinse, repeat!  Let <span class="process-math">\(k = f(x_1,y_1)\text{,}\)</span> and then compute <span class="process-math">\(x_2 = x_1 + h\)</span> and <span class="process-math">\(y_2 = y_1 + h k\text{.}\)</span> Now compute <span class="process-math">\(x_3\)</span> and <span class="process-math">\(y_3\)</span> using <span class="process-math">\(x_2\)</span> and <span class="process-math">\(y_2\text{,}\)</span> etc. Consider the equation <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{,}\)</span> and <span class="process-math">\(h=1\text{.}\)</span> Then <span class="process-math">\(x_0=0\)</span> and <span class="process-math">\(y_0 = 1\text{.}\)</span>  We compute</div>
+<div class="para">The simplest method for approximating a solution is <em class="emphasis">Euler’s method<details class="ptx-footnote" aria-live="polite" id="numer_section-5-1-2"><summary class="ptx-footnote__number" title="Footnote 1.7.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="numer_section-5-1-2">Named after the Swiss mathematician <a class="external" href="https://en.wikipedia.org/wiki/Euler" target="_blank">Leonhard Paul Euler</a> (1707–1783).  The correct pronunciation of the name sounds more like “oiler.”
+</div></details></em>.  It works as follows: Take <span class="process-math">\(x_0\)</span> and <span class="process-math">\(y_0\)</span> and compute the slope <span class="process-math">\(k = f(x_0,y_0)\text{.}\)</span>  The slope is the change in <span class="process-math">\(y\)</span> per unit change in <span class="process-math">\(x\text{.}\)</span>  Follow the line for an interval of length <span class="process-math">\(h\)</span> on the <span class="process-math">\(x\)</span>-axis. We call <span class="process-math">\(h\)</span> the <em class="emphasis">step size</em>. Hence if <span class="process-math">\(y = y_0\)</span> at <span class="process-math">\(x_0\text{,}\)</span> then we say that <span class="process-math">\(y_1\text{,}\)</span> the approximate value of <span class="process-math">\(y\)</span> at <span class="process-math">\(x_1 = x_0 + h\text{,}\)</span> is <span class="process-math">\(y_1 = y_0 + h k\text{.}\)</span> Rinse, repeat!  Let <span class="process-math">\(k = f(x_1,y_1)\text{,}\)</span> and then compute <span class="process-math">\(x_2 = x_1 + h\)</span> and <span class="process-math">\(y_2 = y_1 + h k\text{.}\)</span> Now compute <span class="process-math">\(x_3\)</span> and <span class="process-math">\(y_3\)</span> using <span class="process-math">\(x_2\)</span> and <span class="process-math">\(y_2\text{,}\)</span> etc. Consider the equation <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{,}\)</span> and <span class="process-math">\(h=1\text{.}\)</span> Then <span class="process-math">\(x_0=0\)</span> and <span class="process-math">\(y_0 = 1\text{.}\)</span>  We compute</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/euler-step12_fig.html" id="numer_section-5-29">
 \begin{equation}
 \begin{aligned}
@@ -736,9 +697,10 @@ y' = f(x,y), \qquad y(x_0) = y_0 .
 <div class="autopermalink" data-description="Paragraph"><a href="#numer_section-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="euler-step12_fig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/euler-steps-1-2-mbx.svg" role="img" alt="Two plots plot in the xy-plane of a slope field with slopes y^2 over 3 in the region where x is between minus 1 and 3 and y is between 0 and 3. All the slopes are upwards with the ones further up being steeper. In the left plot, the first step of Euler’s method is shown as a green line starting at (0,1) of slope 1 over 3, which is the slope at (0,1) and going right until x equals 1. In the right plot, a second line is added starting at the end of the first line with slope equal to the slope of the slope field and going further right until x equals 2."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>First two steps of Euler’s method with <span class="process-math">\(h=1\)</span> for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial conditions <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.16"><a href="#euler-step12_fig" title="Copy heading and permalink for Figure 1.16" aria-label="Copy heading and permalink for Figure 1.16">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="euler-step12_fig"><img class="diffyimg" style="width:100%; max-width:9in; background-color:white; display:block;" src="figures/euler-steps-1-2-mbx.svg" role="img" alt="Two plots in the xy-plane of a slope field with slopes y squared over 3 in the region where x is between minus 1 and 3 and y is between 0 and 3. All the slopes are upwards with the ones further up being steeper. In the left plot, the first step of Euler’s method is shown as a green line starting at (0,1) of slope 1 over 3, which is the slope at (0,1) and going right until x equals 1. In the right plot, a second line is added starting at the end of the first line with slope equal to the slope of the slope field and going further right until x equals 2."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>First two steps of Euler’s method with <span class="process-math">\(h=1\)</span> for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial condition <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.16"><a href="#euler-step12_fig" title="Copy heading and permalink for Figure 1.16" aria-label="Copy heading and permalink for Figure 1.16">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para logical" id="numer_section-9">
-<div class="para">We can continue along, for any <span class="process-math">\(i=0,1,2,3,\ldots\text{,}\)</span> we compute</div>
+<div class="para">We can continue along: For any <span class="process-math">\(i=0,1,2,3,\ldots\text{,}\)</span> we compute</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/euler-step12-sol_fig.html" id="numer_section-9-2">
 \begin{equation}
 x_{i+1} = x_i + h , \qquad y_{i+1}  = y_i + h\, f(x_i,y_i) .
@@ -748,7 +710,8 @@ x_{i+1} = x_i + h , \qquad y_{i+1}  = y_i + h\, f(x_i,y_i) .
 <div class="autopermalink" data-description="Paragraph"><a href="#numer_section-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="euler-step12-sol_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/euler-step12-sol-mbx.svg" role="img" alt="A plot in the xy-plane of a slope field with slopes y^2/3 in the region where x is between minus 1 and 3 and y is between 0 and 3. The first two steps are shown the two green line segments as before, but also the solution through (0,1) is drawn in red, which is curved upwards and follows the slope field. We can see that it stays above the green line segments."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two steps of Euler’s method (step size 1) and the exact solution for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial conditions <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.17"><a href="#euler-step12-sol_fig" title="Copy heading and permalink for Figure 1.17" aria-label="Copy heading and permalink for Figure 1.17">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="euler-step12-sol_fig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/euler-step12-sol-mbx.svg" role="img" alt="A plot in the xy-plane of a slope field with slopes y squared over 3 in the region where x is between minus 1 and 3 and y is between 0 and 3. The first two steps are shown the two green line segments as before, but also the solution through (0,1) is drawn in red, which is curved upwards and follows the slope field. We can see that it stays above the green line segments."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two steps of Euler’s method (step size 1) and the exact solution for the equation <span class="process-math">\(y' = \frac{y^2}{3}\)</span> with initial condition <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Figure 1.17"><a href="#euler-step12-sol_fig" title="Copy heading and permalink for Figure 1.17" aria-label="Copy heading and permalink for Figure 1.17">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para logical" id="numer_section-13">
 <div class="para">We continue with the example <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span> We have approximated <span class="process-math">\(y(2)\)</span> with Euler’s method with step size 1. We conclude that <span class="process-math">\(y(2)\)</span> is approximately <span class="process-math">\(y_2\text{,}\)</span> that is, <span class="process-math">\(y(2) \approx 1.926\text{.}\)</span> The real answer is 3. We are off by roughly 1.074. The difference between the actual solution and the approximate solution is called the error.  We usually talk about the size of the error and we do not care much about its sign.</div>
 <div class="displaymath process-math" id="numer_section-13-7">
@@ -765,10 +728,12 @@ x_{i+1} = x_i + h , \qquad y_{i+1}  = y_i + h\, f(x_i,y_i) .
 </h3>
 <div class="para" id="numer_section-14-1-1">Solve the problem <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\)</span> exactly and show that <span class="process-math">\(y(2) = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.7.1"><a href="#numer_section-14" title="Copy heading and permalink for Exercise 1.7.1" aria-label="Copy heading and permalink for Exercise 1.7.1">🔗</a></div></article><div class="para" id="numer_section-15">Let us now halve the step size to <span class="process-math">\(h=0.5\)</span> to, hopefully, improve the approximation. With half the step size, we do twice as many steps. Here, to find <span class="process-math">\(y(2)\text{,}\)</span> we do 4 steps with <span class="process-math">\(h=0.5\)</span> as then <span class="process-math">\(2 = x_4\text{.}\)</span> Computing <span class="process-math">\(y_4\text{,}\)</span> we find <span class="process-math">\(y(2) \approx 2.209\text{.}\)</span>  An error of about 0.791. <a href="numer_section.html#euler-table_table" class="internal" title="Table 1.1: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1">Table 1.1</a> gives the values computed, for a few more halvings.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 1.7.1"><a href="#numer_section-14" title="Copy heading and permalink for Exercise 1.7.1" aria-label="Copy heading and permalink for Exercise 1.7.1">🔗</a></div>
+</article>
+<div class="para" id="numer_section-15">Let us now halve the step size to <span class="process-math">\(h=0.5\)</span> to, hopefully, improve the approximation. With half the step size, we do twice as many steps. Here, to find <span class="process-math">\(y(2)\text{,}\)</span> we do 4 steps with <span class="process-math">\(h=0.5\)</span> as then <span class="process-math">\(2 = x_4\text{.}\)</span> Computing <span class="process-math">\(y_4\text{,}\)</span> we find <span class="process-math">\(y(2) \approx 2.209\text{.}\)</span>  An error of about 0.791. <a href="numer_section.html#euler-table_table" class="internal" title="Table 1.1: Euler’s method approximation of y(2) for y'=\nicefrac{y^2}{3} y(0)=1">Table 1.1</a> gives the values computed, for a few more halvings.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="table table-like" id="euler-table_table"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Euler’s method approximation of <span class="process-math">\(y(2)\)</span> where of <span class="process-math">\(y'=\nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Table 1.1: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1"><a href="#euler-table_table" title="Copy heading and permalink for Table 1.1: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1" aria-label="Copy heading and permalink for Table 1.1: Euler’s method approximation of y(2) where of y'=\nicefrac{y^2}{3} y(0)=1">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="euler-table_table"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Euler’s method approximation of <span class="process-math">\(y(2)\)</span> for <span class="process-math">\(y'=\nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Table 1.1: Euler’s method approximation of y(2) for y'=\nicefrac{y^2}{3} y(0)=1"><a href="#euler-table_table" title="Copy heading and permalink for Table 1.1: Euler’s method approximation of y(2) for y'=\nicefrac{y^2}{3} y(0)=1" aria-label="Copy heading and permalink for Table 1.1: Euler’s method approximation of y(2) for y'=\nicefrac{y^2}{3} y(0)=1">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="r m b1 r0 l0 t3 lines">
 <span class="process-math">\(h\)</span> </td>
@@ -834,8 +799,9 @@ error}}\)</span> </td>
 <td class="r m b1 r0 l0 t0 lines"> 0.50913 </td>
 <td class="r m b1 r0 l0 t0 lines"> 256</td>
 </tr>
-</table></div></figure><hr class="diffyqshr">
-<div class="para" id="numer_section-19">Note that except for the first few times, each time we halve the <span class="process-math">\(h\text{,}\)</span> the error approximately halves. Halving of the error is a general feature of Euler’s method as it is a <em class="emphasis">first-order method</em>. A simple improvement of the Euler method, see the exercises, produces a second-order method. A second-order method reduces the error to approximately one quarter every time we halve the step size.  The order being “second” means the squaring in <span class="process-math">\(\nicefrac{1}{4} = \nicefrac{1}{2} \times \nicefrac{1}{2}
+</table></div>
+</figure><hr class="diffyqshr">
+<div class="para" id="numer_section-19">Note that except for the first few times, each time we halve the <span class="process-math">\(h\text{,}\)</span> the error approximately halves. Halving of the error is a general feature of Euler’s method as it is a <em class="emphasis">first-order method</em>. A simple improvement of the Euler method (see the exercises) produces a second-order method. A second-order method reduces the error to approximately one quarter every time we halve the step size.  The order being “second” means the squaring in <span class="process-math">\(\nicefrac{1}{4} = \nicefrac{1}{2} \times \nicefrac{1}{2}
 = {(\nicefrac{1}{2})}^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="numer_section-20">To get the error to be less than 0.1, we did 64 steps.  To get it below 0.01, we would have to halve another three or four times, doing 512 or 1024 steps. The improved Euler method from the exercises should quarter the error every time we halve the step size, so we would have to do (approximately) half as many “halvings” to get the same error.  This reduction can be a big deal.  With 10 halvings (starting at <span class="process-math">\(h=1\)</span>) we have 1024 steps, whereas with 5 halvings we only have to do 32 steps, assuming that the error was comparable to start with.  A computer may not care about this difference for a problem this simple, but suppose each step would take a second to compute (the function may be substantially more difficult to compute than <span class="process-math">\(\nicefrac{y^2}{3}\)</span>).  Then the difference is 32 seconds versus about 17 minutes. We are not being altogether fair; a second-order method would probably double the time to do each step.  Even so, it is 1 minute versus 17 minutes. Next, suppose that we have to repeat such a calculation for different parameters a thousand times.  You get the idea.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -847,10 +813,12 @@ error}}\)</span> </td>
 </h3>
 <div class="para" id="numer_section-22-1-1">In the table above, suppose you do not know the error.  Take the approximate values of the function in the last two lines, assume that the error halves.  Can you estimate the error in the last line from this information?  Does it (approximately) agree with the table?  Now do it for the first two rows.  Does this agree with the table? Feel free to assume that the real value of <span class="process-math">\(y(2)\)</span> is bigger than any of the approximate values, but you are not allowed to know the real value.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-22-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.7.2"><a href="#numer_section-22" title="Copy heading and permalink for Exercise 1.7.2" aria-label="Copy heading and permalink for Exercise 1.7.2">🔗</a></div></article><div class="para" id="numer_section-23">Let us talk a little bit more about the example <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0) = 1\text{.}\)</span> Suppose that instead of <span class="process-math">\(y(2)\text{,}\)</span> we wish to find <span class="process-math">\(y(3)\text{.}\)</span> <a href="numer_section.html#euler-table2_table" class="internal" title="Table 1.2: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1">Table 1.2</a> lists the results of this effort for successive halvings of <span class="process-math">\(h\text{.}\)</span>  What is going on here?  Well, you should solve the equation exactly and you will notice that the solution does not exist at <span class="process-math">\(x=3\text{.}\)</span>  In fact, the solution goes to infinity when you approach <span class="process-math">\(x=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 1.7.2"><a href="#numer_section-22" title="Copy heading and permalink for Exercise 1.7.2" aria-label="Copy heading and permalink for Exercise 1.7.2">🔗</a></div>
+</article>
+<div class="para" id="numer_section-23">Let us talk a little bit more about the example <span class="process-math">\(y' = \nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0) = 1\text{.}\)</span> Suppose that instead of <span class="process-math">\(y(2)\text{,}\)</span> we wish to find <span class="process-math">\(y(3)\text{.}\)</span> <a href="numer_section.html#euler-table2_table" class="internal" title="Table 1.2: Attempts to use Euler’s to approximate y(3) for y'=\nicefrac{y^2}{3} y(0)=1">Table 1.2</a> lists the results of this effort for successive halvings of <span class="process-math">\(h\text{.}\)</span>  What is going on here?  Well, you should solve the equation exactly and you will notice that the solution does not exist at <span class="process-math">\(x=3\text{.}\)</span>  In fact, the solution goes to infinity when you approach <span class="process-math">\(x=3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="table table-like" id="euler-table2_table"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Attempts to use Euler’s to approximate <span class="process-math">\(y(3)\)</span> where of <span class="process-math">\(y'=\nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Table 1.2: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1"><a href="#euler-table2_table" title="Copy heading and permalink for Table 1.2: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1" aria-label="Copy heading and permalink for Table 1.2: Attempts to use Euler’s to approximate y(3) where of y'=\nicefrac{y^2}{3} y(0)=1">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="euler-table2_table"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Attempts to use Euler’s to approximate <span class="process-math">\(y(3)\)</span> for <span class="process-math">\(y'=\nicefrac{y^2}{3}\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Table 1.2: Attempts to use Euler’s to approximate y(3) for y'=\nicefrac{y^2}{3} y(0)=1"><a href="#euler-table2_table" title="Copy heading and permalink for Table 1.2: Attempts to use Euler’s to approximate y(3) for y'=\nicefrac{y^2}{3} y(0)=1" aria-label="Copy heading and permalink for Table 1.2: Attempts to use Euler’s to approximate y(3) for y'=\nicefrac{y^2}{3} y(0)=1">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="r m b1 r0 l0 t3 lines">
 <span class="process-math">\(h\)</span> </td>
@@ -889,7 +857,8 @@ error}}\)</span> </td>
 <td class="r m b1 r0 l0 t0 lines">0.0078125 </td>
 <td class="r m b1 r0 l0 t0 lines"> 87.75769</td>
 </tr>
-</table></div></figure><hr class="diffyqshr">
+</table></div>
+</figure><hr class="diffyqshr">
 <div class="para" id="numer_section-27">Another case where things go bad is if the solution oscillates wildly near some point. The solution may exist at all points, but even a much better numerical method than Euler would need an insanely small step size to approximate the solution with reasonable precision. And computers might not be able to easily handle such a small step size.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="numer_section-28">In real applications, we would not use a simple method such as Euler’s.  The simplest method one would probably use in a real application is the standard Runge–Kutta method (see exercises).  That is a fourth-order method, meaning that if we halve the step size, the error gets multiplied by <span class="process-math">\(\nicefrac{1}{16}\)</span> (it is fourth-order as <span class="process-math">\(\nicefrac{1}{16} =
@@ -915,17 +884,21 @@ error}}\)</span> </td>
 <div class="autopermalink" data-description="Item"><a href="#numer_section-30-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para" id="numer_section-31">We have seen just the beginnings of the challenges that appear in real applications.  Numerical approximation of solutions to differential equations is an active research area for engineers and mathematicians.  For example, the general purpose method used for the ODE solver in Matlab and Octave (as of this writing) is a method that appeared in the literature only in the 1980s.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="numer_section-31">We have seen just the beginnings of the challenges that appear in real applications.  Numerical approximation of solutions to differential equations is an active research area for engineers and mathematicians.  For example, the general-purpose method used for the ODE solver in Matlab and Octave (as of this writing) is a method that appeared in the literature only in the 1980s.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<section class="exercises" id="numer_section-32"><h3 class="heading hide-type">
+<section class="exercises" id="numer_section-32">
+<h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="numer_section-32-1"><h4 class="heading"><span class="codenumber">1.7.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-1-1-1">Consider <span class="process-math">\(\dfrac{dx}{dt} = {(2t-x)}^2\text{,}\)</span> <span class="process-math">\(x(0)=2\text{.}\)</span>  Use Euler’s method with step size <span class="process-math">\(h=0.5\)</span> to approximate <span class="process-math">\(x(1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.7.3"><a href="#numer_section-32-1" title="Copy heading and permalink for Exercise 1.7.3" aria-label="Copy heading and permalink for Exercise 1.7.3">🔗</a></div></article><article class="exercise exercise-like" id="numer_section-32-2"><h4 class="heading"><span class="codenumber">1.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 1.7.3"><a href="#numer_section-32-1" title="Copy heading and permalink for Exercise 1.7.3" aria-label="Copy heading and permalink for Exercise 1.7.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="numer_section-32-2"><h4 class="heading"><span class="codenumber">1.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-2-1-1">Consider <span class="process-math">\(\dfrac{dx}{dt} = t-x\text{,}\)</span> <span class="process-math">\(x(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="numer_section-32-2-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="numer_section-32-2-1-2">
 <li id="numer_section-32-2-1-2-1">
 <div class="para" id="numer_section-32-2-1-2-1-1">Use Euler’s method with step sizes <span class="process-math">\(h = 1, \nicefrac{1}{2}, \nicefrac{1}{4}, \nicefrac{1}{8}\)</span> to approximate <span class="process-math">\(x(1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -942,26 +915,35 @@ error}}\)</span> </td>
 <div class="autopermalink" data-description="Item 1.7.4.c"><a href="#numer_section-32-2-1-2-3" title="Copy heading and permalink for Item 1.7.4.c" aria-label="Copy heading and permalink for Item 1.7.4.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.7.4"><a href="#numer_section-32-2" title="Copy heading and permalink for Exercise 1.7.4" aria-label="Copy heading and permalink for Exercise 1.7.4">🔗</a></div></article><article class="exercise exercise-like" id="numer_section-32-3"><h4 class="heading"><span class="codenumber">1.7.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 1.7.4"><a href="#numer_section-32-2" title="Copy heading and permalink for Exercise 1.7.4" aria-label="Copy heading and permalink for Exercise 1.7.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="numer_section-32-3"><h4 class="heading"><span class="codenumber">1.7.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-3-1-1">Approximate the value of <span class="process-math">\(e\)</span> by looking at the initial value problem <span class="process-math">\(y'=y\)</span> with <span class="process-math">\(y(0)=1\)</span> and approximating <span class="process-math">\(y(1)\)</span> using Euler’s method with a step size of <span class="process-math">\(0.2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.7.5"><a href="#numer_section-32-3" title="Copy heading and permalink for Exercise 1.7.5" aria-label="Copy heading and permalink for Exercise 1.7.5">🔗</a></div></article><article class="exercise exercise-like" id="numer_section-32-4"><h4 class="heading"><span class="codenumber">1.7.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 1.7.5"><a href="#numer_section-32-3" title="Copy heading and permalink for Exercise 1.7.5" aria-label="Copy heading and permalink for Exercise 1.7.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="numer_section-32-4"><h4 class="heading"><span class="codenumber">1.7.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-4-1-1">Example of numerical instability: Take <span class="process-math">\(y' = -5y\text{,}\)</span> <span class="process-math">\(y(0) = 1\text{.}\)</span>  We know that the solution should decay to zero as <span class="process-math">\(x\)</span> grows. Using Euler’s method, start with <span class="process-math">\(h=1\)</span> and compute <span class="process-math">\(y_1, y_2, y_3, y_4\)</span> to try to approximate <span class="process-math">\(y(4)\text{.}\)</span>  What happened? Now halve the step size.  Keep halving the step size and approximating <span class="process-math">\(y(4)\)</span> until the numbers you are getting start to stabilize (that is, until they start going towards zero). Note: You might want to use a calculator.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.7.6"><a href="#numer_section-32-4" title="Copy heading and permalink for Exercise 1.7.6" aria-label="Copy heading and permalink for Exercise 1.7.6">🔗</a></div></article><div class="para logical" id="numer_section-32-5">
+<div class="autopermalink" data-description="Exercise 1.7.6"><a href="#numer_section-32-4" title="Copy heading and permalink for Exercise 1.7.6" aria-label="Copy heading and permalink for Exercise 1.7.6">🔗</a></div>
+</article>
+<div class="para logical" id="numer_section-32-5">
 <div class="para">The simplest method used in practice is the <em class="emphasis">Runge–Kutta method</em>. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span>  Everything is the same as in Euler’s method, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span> That is, in each step we compute slopes <span class="process-math">\(k_1\text{,}\)</span> <span class="process-math">\(k_2\text{,}\)</span> <span class="process-math">\(k_3\text{,}\)</span> and <span class="process-math">\(k_4\text{,}\)</span> and then we compute the next <span class="process-math">\(x_{i+1}\)</span> and <span class="process-math">\(y_{i+1}\text{:}\)</span>
 </div>
 <div class="displaymath process-math" id="numer_section-32-5-13">
 \begin{equation}
 \begin{aligned}
-&amp; k_1 = f(x_i,y_i) , &amp; &amp; \\
+&amp; k_1 = f(x_i,y_i) ,
+&amp;
 &amp; k_2 = f\bigl(x_i + \nicefrac{h}{2},y_i + k_1 (\nicefrac{h}{2})\bigr) ,
-&amp; &amp; 
-x_{i+1} = x_i + h , \\
+\\
 &amp; k_3 = f\bigl(x_i + \nicefrac{h}{2},y_i + k_2 (\nicefrac{h}{2})\bigr) ,
-&amp; &amp;
-y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
-&amp; k_4 = f(x_i + h,y_i + k_3 h) .
+&amp;
+&amp; k_4 = f(x_i + h,y_i + k_3 h) ,
+\\
+&amp; x_{i+1} = x_i + h ,
+&amp;
+&amp; y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h .
 \end{aligned}
 \end{equation}
 </div>
@@ -969,7 +951,8 @@ y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
 </div>
 <article class="exercise exercise-like" id="numer_section-32-6"><h4 class="heading"><span class="codenumber">1.7.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-6-1-1">Consider <span class="process-math">\(\dfrac{dy}{dx} = yx^2\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="numer_section-32-6-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="numer_section-32-6-1-2">
 <li id="numer_section-32-6-1-2-1">
 <div class="para" id="numer_section-32-6-1-2-1-1">Approximate <span class="process-math">\(y(1)\)</span> using Runge–Kutta (see above) with step sizes <span class="process-math">\(h=1\)</span> and <span class="process-math">\(h=\nicefrac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-6-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -986,17 +969,25 @@ y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
 <div class="autopermalink" data-description="Item 1.7.7.c"><a href="#numer_section-32-6-1-2-3" title="Copy heading and permalink for Item 1.7.7.c" aria-label="Copy heading and permalink for Item 1.7.7.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.7.7"><a href="#numer_section-32-6" title="Copy heading and permalink for Exercise 1.7.7" aria-label="Copy heading and permalink for Exercise 1.7.7">🔗</a></div></article><article class="exercise exercise-like" id="numer_section-32-7"><h4 class="heading"><span class="codenumber">1.7.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 1.7.7"><a href="#numer_section-32-6" title="Copy heading and permalink for Exercise 1.7.7" aria-label="Copy heading and permalink for Exercise 1.7.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="numer_section-32-7"><h4 class="heading"><span class="codenumber">1.7.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-7-1-1">Let <span class="process-math">\(x' = \sin(xt)\text{,}\)</span> and <span class="process-math">\(x(0)=1\text{.}\)</span> Approximate <span class="process-math">\(x(1)\)</span> using Euler’s method with step sizes 1, 0.5, 0.25. Use a calculator and compute up to 4 decimal digits.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="numer_section-32-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="numer_section-32-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="numer_section-32-7-2-1">Approximately: 1.0000, 1.2397, 1.3829<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.7.101.1"><a href="#numer_section-32-7-2" title="Copy heading and permalink for Answer 1.7.101.1" aria-label="Copy heading and permalink for Answer 1.7.101.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 1.7.101"><a href="#numer_section-32-7" title="Copy heading and permalink for Exercise 1.7.101" aria-label="Copy heading and permalink for Exercise 1.7.101">🔗</a></div></article><article class="exercise exercise-like" id="numer_section-32-8"><h4 class="heading"><span class="codenumber">1.7.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1.7.101"><a href="#numer_section-32-7" title="Copy heading and permalink for Exercise 1.7.101" aria-label="Copy heading and permalink for Exercise 1.7.101">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="numer_section-32-8"><h4 class="heading"><span class="codenumber">1.7.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-8-1-1">Let <span class="process-math">\(x' = 2t\text{,}\)</span> and <span class="process-math">\(x(0)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="numer_section-32-8-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="numer_section-32-8-1-2">
 <li id="numer_section-32-8-1-2-1">
 <div class="para" id="numer_section-32-8-1-2-1-1">Approximate <span class="process-math">\(x(4)\)</span> using Euler’s method with step sizes 4, 2, and 1.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-8-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1013,14 +1004,20 @@ y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
 <div class="autopermalink" data-description="Item 1.7.102.c"><a href="#numer_section-32-8-1-2-3" title="Copy heading and permalink for Item 1.7.102.c" aria-label="Copy heading and permalink for Item 1.7.102.c">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="numer_section-32-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="numer_section-32-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="numer_section-32-8-2-1">a) 0, 8, 12     b) <span class="process-math">\(x(4) = 16\text{,}\)</span> so errors are: 16, 8, 4.     c) Factors are 0.5 and 0.5.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.7.102.1"><a href="#numer_section-32-8-2" title="Copy heading and permalink for Answer 1.7.102.1" aria-label="Copy heading and permalink for Answer 1.7.102.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 1.7.102"><a href="#numer_section-32-8" title="Copy heading and permalink for Exercise 1.7.102" aria-label="Copy heading and permalink for Exercise 1.7.102">🔗</a></div></article><article class="exercise exercise-like" id="numer_section-32-9"><h4 class="heading"><span class="codenumber">1.7.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1.7.102"><a href="#numer_section-32-8" title="Copy heading and permalink for Exercise 1.7.102" aria-label="Copy heading and permalink for Exercise 1.7.102">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="numer_section-32-9"><h4 class="heading"><span class="codenumber">1.7.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-9-1-1">Let <span class="process-math">\(x' = x e^{xt+1}\text{,}\)</span> and <span class="process-math">\(x(0)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="numer_section-32-9-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="numer_section-32-9-1-2">
 <li id="numer_section-32-9-1-2-1">
 <div class="para" id="numer_section-32-9-1-2-1-1">Approximate <span class="process-math">\(x(4)\)</span> using Euler’s method with step sizes 4, 2, and 1.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1032,21 +1029,29 @@ y_{i+1} = y_i + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}\,h ,  \\
 <div class="autopermalink" data-description="Item 1.7.103.b"><a href="#numer_section-32-9-1-2-2" title="Copy heading and permalink for Item 1.7.103.b" aria-label="Copy heading and permalink for Item 1.7.103.b">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="numer_section-32-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="numer_section-32-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="numer_section-32-9-2-1">a) 0, 0, 0     b) <span class="process-math">\(x=0\)</span> is a solution so errors are: 0, 0, 0.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.7.103.1"><a href="#numer_section-32-9-2" title="Copy heading and permalink for Answer 1.7.103.1" aria-label="Copy heading and permalink for Answer 1.7.103.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 1.7.103"><a href="#numer_section-32-9" title="Copy heading and permalink for Exercise 1.7.103" aria-label="Copy heading and permalink for Exercise 1.7.103">🔗</a></div></article><div class="para logical" id="numer_section-32-10">
-<div class="para">There is a simple way to improve Euler’s method to make it a second-order method by doing just one extra step. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span> What we do is to pretend we compute the next step as in Euler, that is, we start with <span class="process-math">\((x_i,y_i)\text{,}\)</span> we compute a slope <span class="process-math">\(k_1 = f(x_i,y_i)\text{,}\)</span> and then look at the point <span class="process-math">\((x_i+h,y_i + k_1h)\text{.}\)</span> Instead of letting our new point be <span class="process-math">\((x_i+h,y_i + k_1h)\text{,}\)</span> we compute the slope at that point, call it <span class="process-math">\(k_2\text{,}\)</span> and then take the average of <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\text{,}\)</span> hoping that the average is going to be closer to the actual slope on the interval from <span class="process-math">\(x_i\)</span> to <span class="process-math">\(x_i+h\text{.}\)</span>  And we are correct, if we halve the step, the error should get multiplied by <span class="process-math">\({(\nicefrac{1}{2})}^2 = \nicefrac{1}{4}\text{.}\)</span> To summarize, the setup is the same as for regular Euler, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span> At each step, we compute the new slopes <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\)</span> and then the next <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{:}\)</span>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1.7.103"><a href="#numer_section-32-9" title="Copy heading and permalink for Exercise 1.7.103" aria-label="Copy heading and permalink for Exercise 1.7.103">🔗</a></div>
+</article>
+<div class="para logical" id="numer_section-32-10">
+<div class="para">There is a simple way to improve Euler’s method to make it a second-order method by doing just one extra step. Consider <span class="process-math">\(\frac{dy}{dx}=f(x,y)\text{,}\)</span> <span class="process-math">\(y(x_0) = y_0\text{,}\)</span> and a step size <span class="process-math">\(h\text{.}\)</span> What we do is to pretend we compute the next step as in Euler, that is, we start with <span class="process-math">\((x_i,y_i)\text{,}\)</span> we compute a slope <span class="process-math">\(k_1 = f(x_i,y_i)\text{,}\)</span> and then look at the point <span class="process-math">\((x_i+h,y_i + k_1h)\text{.}\)</span> Instead of letting our new point be <span class="process-math">\((x_i+h,y_i + k_1h)\text{,}\)</span> we compute the slope at that point, call it <span class="process-math">\(k_2\text{,}\)</span> and then take the average of <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\text{,}\)</span> hoping that the average is going to be closer to the actual slope on the interval from <span class="process-math">\(x_i\)</span> to <span class="process-math">\(x_i+h\text{.}\)</span>  And we are correct: If we halve the step, the error should get multiplied by <span class="process-math">\({(\nicefrac{1}{2})}^2 = \nicefrac{1}{4}\text{.}\)</span> To summarize, the setup is the same as for regular Euler, except the computation of <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{.}\)</span> At each step, we compute the new slopes <span class="process-math">\(k_1\)</span> and <span class="process-math">\(k_2\)</span> and then the next <span class="process-math">\(y_{i+1}\)</span> and <span class="process-math">\(x_{i+1}\text{:}\)</span>
 </div>
 <div class="displaymath process-math" id="numer_section-32-10-21">
 \begin{equation}
 \begin{aligned}
-&amp; k_1 = f(x_i,y_i) , &amp; &amp; 
-x_{i+1} = x_i + h , \\
+&amp; k_1 = f(x_i,y_i) ,
+&amp;
 &amp; k_2 = f(x_i + h,y_i + k_1h) ,
-&amp; &amp; y_{i+1} = y_i + \frac{k_1+k_2}{2}\,h .
+\\
+&amp; x_{i+1} = x_i + h ,
+&amp;
+&amp; y_{i+1} = y_i + \frac{k_1+k_2}{2}\,h .
 \end{aligned}
 \end{equation}
 </div>
@@ -1054,7 +1059,8 @@ x_{i+1} = x_i + h , \\
 </div>
 <article class="exercise exercise-like" id="numer_section-32-11"><h4 class="heading"><span class="codenumber">1.7.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="numer_section-32-11-1-1">Consider <span class="process-math">\(\dfrac{dy}{dx} = x+y\text{,}\)</span> <span class="process-math">\(y(0)=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="numer_section-32-11-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="numer_section-32-11-1-2">
 <li id="numer_section-32-11-1-2-1">
 <div class="para" id="numer_section-32-11-1-2-1-1">Approximate <span class="process-math">\(y(1)\)</span> using the improved Euler’s method (see above) with step sizes <span class="process-math">\(h=\nicefrac{1}{4}\)</span> and <span class="process-math">\(h=\nicefrac{1}{8}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-11-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1076,12 +1082,19 @@ x_{i+1} = x_i + h , \\
 <div class="autopermalink" data-description="Item 1.7.104.d"><a href="#numer_section-32-11-1-2-4" title="Copy heading and permalink for Item 1.7.104.d" aria-label="Copy heading and permalink for Item 1.7.104.d">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="numer_section-32-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="numer_section-32-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="numer_section-32-11-2-1">a) Improved Euler: <span class="process-math">\(y(1) \approx 3.3897\)</span> for <span class="process-math">\(h=\nicefrac{1}{4}\text{,}\)</span> <span class="process-math">\(y(1) \approx 3.4237\)</span> for <span class="process-math">\(h=\nicefrac{1}{8}\text{,}\)</span>     b) Standard Euler: <span class="process-math">\(y(1) \approx 2.8828\)</span> for <span class="process-math">\(h=\nicefrac{1}{4}\text{,}\)</span> <span class="process-math">\(y(1) \approx 3.1316\)</span> for <span class="process-math">\(h=\nicefrac{1}{8}\text{,}\)</span>     c) <span class="process-math">\(y = 2e^x-x-1\text{,}\)</span> so <span class="process-math">\(y(1)\)</span> is approximately <span class="process-math">\(3.4366\text{.}\)</span>     d) Approximate errors for improved Euler: <span class="process-math">\(0.046852\)</span> for <span class="process-math">\(h=\nicefrac{1}{4}\)</span> and <span class="process-math">\(0.012881\)</span> for <span class="process-math">\(h=\nicefrac{1}{8}\text{.}\)</span>     For standard Euler: <span class="process-math">\(0.55375\)</span> for <span class="process-math">\(h=\nicefrac{1}{4}\)</span> and <span class="process-math">\(0.30499\)</span> for <span class="process-math">\(h=\nicefrac{1}{8}\text{.}\)</span>     Factor is approximately <span class="process-math">\(0.27\)</span> for improved Euler and <span class="process-math">\(0.55\)</span> for standard Euler.<div class="autopermalink" data-description="Paragraph"><a href="#numer_section-32-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.7.104.1"><a href="#numer_section-32-11-2" title="Copy heading and permalink for Answer 1.7.104.1" aria-label="Copy heading and permalink for Answer 1.7.104.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 1.7.104"><a href="#numer_section-32-11" title="Copy heading and permalink for Exercise 1.7.104" aria-label="Copy heading and permalink for Exercise 1.7.104">🔗</a></div></article><div class="autopermalink" data-description="Exercises 1.7.1"><a href="#numer_section-32" title="Copy heading and permalink for Exercises 1.7.1" aria-label="Copy heading and permalink for Exercises 1.7.1">🔗</a></div></section><div class="autopermalink" data-description="Section 1.7: Numerical methods: Euler’s method"><a href="#numer_section" title="Copy heading and permalink for Section 1.7: Numerical methods: Euler’s method" aria-label="Copy heading and permalink for Section 1.7: Numerical methods: Euler’s method">🔗</a></div></section></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 1.7.104"><a href="#numer_section-32-11" title="Copy heading and permalink for Exercise 1.7.104" aria-label="Copy heading and permalink for Exercise 1.7.104">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 1.7.1"><a href="#numer_section-32" title="Copy heading and permalink for Exercises 1.7.1" aria-label="Copy heading and permalink for Exercises 1.7.1">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 1.7: Numerical methods: Euler’s method"><a href="#numer_section" title="Copy heading and permalink for Section 1.7: Numerical methods: Euler’s method" aria-label="Copy heading and permalink for Section 1.7: Numerical methods: Euler’s method">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="auteq_section.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="exact_section.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

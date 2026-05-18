@@ -21,60 +21,17 @@
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="extra.css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = window.MathJax.chtml || {};
+window.MathJax.chtml.linebreaks = { inline: false };
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Notes on Diffy Qs">
@@ -138,9 +95,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_hol.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ho_chapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_nonhom.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{{}^{#1}}\!/\!{{}_{#2}}}
-\newcommand{\unitfrac}[3][\!\!]{#1 \,\, {{}^{#2}}\!/\!{{}_{#3}}}
-\newcommand{\unit}[2][\!\!]{#1 \,\, #2}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\nicefrac}[2]{{}^{#1}\!/\!{}_{#2}}
+\newcommand{\unitfrac}[3][\!\!]{#1 \,\, \nicefrac{\mathrm{#2}}{\mathrm{#3}}}
+\newcommand{\unit}[2][\!\!]{#1 \,\, \mathrm{#2}}
 \newcommand{\noalign}[1]{}
 \newcommand{\qed}{\qquad \Box}
 \newcommand{\mybxbg}[1]{\boxed{#1}}
@@ -162,7 +119,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="notes_section.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Notes about these notes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-3" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Organization</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical types of courses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-4" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Typical courses</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-5" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Computer resources</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="notes_section.html#notes_section-6" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Acknowledgments</span></a></div></li>
 </ul>
@@ -702,14 +659,19 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_mv"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_mv">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mechanical vibrations</span>
 </h2>
-<section class="introduction" id="sec_mv-2"><div class="para" id="sec_mv-2-1">
+<section class="introduction" id="sec_mv-2">
+<div class="para" id="sec_mv-2-1">
 <em class="emphasis">Note: 2 lectures, §3.4 in <a href="furtherreading_chapter.html#biblio-EP" class="xref" data-knowl="./knowl/xref/biblio-EP.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry EP: Differential Equations and Boundary Value Problems: Computing and Modeling">[EP]</a>, §3.7 in <a href="furtherreading_chapter.html#biblio-BD" class="xref" data-knowl="./knowl/xref/biblio-BD.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry BD: Elementary Differential Equations and Boundary Value Problems">[BD]</a></em><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_mv-2-2">Let us look at some applications of linear second-order constant-coefficient equations.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="sec_mv-3"><h3 class="heading hide-type">
+</div></section>
+<section class="subsection" id="sec_mv-3">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Some examples</span>
 </h3>
 <div class="para" id="sec_mv-3-2">
@@ -753,7 +715,7 @@ mx'' + cx' + kx = F(t) .
 <div class="autopermalink" data-description="Item iv"><a href="#sec_mv-3-5-4" title="Copy heading and permalink for Item iv" aria-label="Copy heading and permalink for Item iv">🔗</a></div>
 </li>
 </ol>
-<div class="para" id="sec_mv-3-6">This system appears in lots of applications even if it does not at first seem like it.  Many real-world scenarios can be simplified to a mass on a spring.  For example, a bungee jump setup is essentially a mass and spring system (you are the mass).  It would be good if someone did the math before you jump off the bridge, right?  Let us give two other examples.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_mv-3-6">This equation appears in lots of applications even if it does not seem like it at first.  Many real-world scenarios can be simplified to a mass on a spring.  For example, a bungee jump is essentially a mass and spring system (you are the mass).  It would be good if someone did the math before you jump off the bridge, right?  Let us give two other examples.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_mv-3-7">
 <img class="diffyimg diffyfloatright" style="width:93pt; height:54pt; display:block;" src="figures/mv-rlc-tex4ht.svg" role="img" alt="A diagram of a circuit. Following the diagram counterclockwise, we start on the left with an electric source labeled E, then a resistor on the bottom labeled R, then an inductor on the right labeled L, then a capacitor on the top labeled C, then we connect back to the electric source."><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -772,33 +734,35 @@ L I''(t) + R I'(t) + \frac{1}{C} I(t) = E'(t) .
 <img class="diffyimg diffyfloatright" style="width:122pt; height:124pt; display:block;" src="figures/mv-pend-deriv-tex4ht.svg" role="img" alt="A diagram of a pendulum. A pendulum is shown fixed at a point at the top moving along a circular arc. The bottom of the pendulum is labeled m, and the angle the pendulum makes with a vertical line is labeled theta. The length of the pendulum is labeled L. There is a force arrow on m along the circular arc away from the center labeled m times L times second derivative of theta, a force arrow in the opposite direction (towards the center) labeled m times g times sin of theta, and an arrow directly downwards from the mass labeled m times g. The latter two arrows form a right triangle with the downward arrow forming the hypotenuse."><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_mv-3-10">
-<div class="para">Our next example behaves like a mass and spring system only approximately. Suppose a mass <span class="process-math">\(m\)</span> hangs on a pendulum of length <span class="process-math">\(L\text{.}\)</span>  We seek an equation for the angle <span class="process-math">\(\theta(t)\)</span> (in radians).  Let <span class="process-math">\(g\)</span> be the acceleration due to gravity. Elementary physics mandates that the equation is</div>
-<div class="displaymath process-math" id="sec_mv-3-10-5">
+<div class="para">Our next example behaves like a mass and spring system only approximately. Suppose a mass of <span class="process-math">\(m\)</span> kilograms hangs on a pendulum of length <span class="process-math">\(L\)</span> meters.  We seek an equation for the angle <span class="process-math">\(\theta(t)\)</span> (in radians).  Let <span class="process-math">\(g\)</span> be the acceleration due to gravity in meters per second squared. Let us derive an equation for <span class="process-math">\(\theta\)</span> using Newton’s second law: Force equals mass times acceleration.  The acceleration is <span class="process-math">\(L \theta''\)</span> and mass is <span class="process-math">\(m\text{.}\)</span>  So <span class="process-math">\(mL\theta''\)</span> has to be equal to the tangential component of the force given by the gravity, which is <span class="process-math">\(m g \sin \theta\)</span> in the opposite direction. So <span class="process-math">\(mL\theta'' = -mg \sin \theta\text{.}\)</span> The <span class="process-math">\(m\)</span> curiously cancels from the equation and we end up with the equation</div>
+<div class="displaymath process-math" id="sec_mv-3-10-13">
 \begin{equation}
 \theta'' + \frac{g}{L} \sin \theta = 0 .
 \end{equation}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_mv-3-11">Let us derive this equation using Newton’s second law: force equals mass times acceleration.  The acceleration is <span class="process-math">\(L \theta''\)</span> and mass is <span class="process-math">\(m\text{.}\)</span>  So <span class="process-math">\(mL\theta''\)</span> has to be equal to the tangential component of the force given by the gravity, which is <span class="process-math">\(m g \sin \theta\)</span> in the opposite direction. So <span class="process-math">\(mL\theta'' = -mg \sin \theta\text{.}\)</span> The <span class="process-math">\(m\)</span> curiously cancels from the equation.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_mv-3-12">Now we make our approximation.  For small <span class="process-math">\(\theta\)</span> we have that approximately <span class="process-math">\(\sin \theta \approx \theta\text{.}\)</span>  This can be seen by looking at the graph. In <a href="sec_mv.html#mv_sinthetafig" class="internal" title="Figure 2.1">Figure 2.1</a>, we can see that for approximately <span class="process-math">\(-0.5 &lt; \theta &lt; 0.5\)</span> (in radians) the graphs of <span class="process-math">\(\sin \theta\)</span> and <span class="process-math">\(\theta\)</span> are almost the same.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_mv-3-11">Now we make our approximation.  For small <span class="process-math">\(\theta\)</span> we have that approximately <span class="process-math">\(\sin \theta \approx \theta\text{.}\)</span>  This can be seen by looking at the graph. In <a href="sec_mv.html#mv_sinthetafig" class="internal" title="Figure 2.1">Figure 2.1</a>, we can see that for approximately <span class="process-math">\(-0.5 &lt; \theta &lt; 0.5\)</span> (in radians) the graphs of <span class="process-math">\(\sin \theta\)</span> and <span class="process-math">\(\theta\)</span> are almost the same.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="mv_sinthetafig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-sintheta-mbx.svg" role="img" alt="A plot of sin of theta and also of just theta, for theta between minus 1 and 1. The plot of theta is simply a straight line from (minus 1,minus 1) to (1,1), while the plot of sin of theta is almost the same but it starts a little bit above the straight line on the left and ends a little bit below on the right."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graphs of <span class="process-math">\(\sin \theta\)</span> and <span class="process-math">\(\theta\)</span> (in radians).<div class="autopermalink" data-description="Figure 2.1"><a href="#mv_sinthetafig" title="Copy heading and permalink for Figure 2.1" aria-label="Copy heading and permalink for Figure 2.1">🔗</a></div></figcaption></figure><hr class="diffyqshr">
-<div class="para logical" id="sec_mv-3-16">
+<figure class="figure figure-like" id="mv_sinthetafig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-sintheta-mbx.svg" role="img" alt="A plot of sin of theta and also of just theta, for theta between minus 1 and 1. The plot of theta is simply a straight line from (minus 1,minus 1) to (1,1), while the plot of sin of theta is almost the same but it starts a little bit above the straight line on the left and ends a little bit below on the right."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graphs of <span class="process-math">\(\sin \theta\)</span> and <span class="process-math">\(\theta\)</span> (in radians).<div class="autopermalink" data-description="Figure 2.1"><a href="#mv_sinthetafig" title="Copy heading and permalink for Figure 2.1" aria-label="Copy heading and permalink for Figure 2.1">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
+<div class="para logical" id="sec_mv-3-15">
 <div class="para">Therefore, when the swings are small, <span class="process-math">\(\theta\)</span> is small, and we can model the behavior by the simpler linear equation</div>
-<div class="displaymath process-math" id="sec_mv-3-16-2">
+<div class="displaymath process-math" id="sec_mv-3-15-2">
 \begin{equation}
 \theta'' + \frac{g}{L} \theta = 0 .
 \end{equation}
 </div>
 <div class="para">The errors from this approximation build up. After a long time, the state of the real-world system might be substantially different from our solution.  Also, we will see that in a mass-spring system, the amplitude is independent of the period. This is not true for a pendulum.  Nevertheless, for reasonably short periods of time and small swings (that is, only small angles <span class="process-math">\(\theta\)</span>), the approximation is reasonably good.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_mv-3-17">In real-world problems it is often necessary to make these types of simplifications.  We must understand both the mathematics and the physics of the situation to see if the simplification is valid in the context of the questions we are trying to answer.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_mv-3-16">In real-world problems it is often necessary to make these types of simplifications.  We must understand both the mathematics and the physics of the situation to see if the simplification is valid in the context of the questions we are trying to answer.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-3-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 2.4.1: Some examples"><a href="#sec_mv-3" title="Copy heading and permalink for Subsection 2.4.1: Some examples" aria-label="Copy heading and permalink for Subsection 2.4.1: Some examples">🔗</a></div></section><section class="subsection" id="sec_mv-4"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 2.4.1: Some examples"><a href="#sec_mv-3" title="Copy heading and permalink for Subsection 2.4.1: Some examples" aria-label="Copy heading and permalink for Subsection 2.4.1: Some examples">🔗</a></div>
+</section>
+<section class="subsection" id="sec_mv-4">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Free undamped motion</span>
 </h3>
 <div class="para logical" id="sec_mv-4-2">
@@ -839,7 +803,9 @@ C \cos ( \omega_0 t - \gamma ) ,
 C \cos ( \omega_0 t - \gamma )\)</span> and verify the equations <span class="process-math">\(C = \sqrt{A^2+B^2}\)</span> and <span class="process-math">\(\tan \gamma = \frac{B}{A}\text{.}\)</span>  Hint: Start with <span class="process-math">\(\cos (\alpha-\beta) = \cos (\alpha) \cos
 (\beta) + \sin (\alpha)\sin (\beta)\)</span> and multiply by <span class="process-math">\(C\text{.}\)</span>  Then what should <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> be?<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 2.4.1"><a href="#sec_mv-4-3" title="Copy heading and permalink for Exercise 2.4.1" aria-label="Copy heading and permalink for Exercise 2.4.1">🔗</a></div></article><div class="para logical" id="sec_mv-4-4">
+<div class="autopermalink" data-description="Exercise 2.4.1"><a href="#sec_mv-4-3" title="Copy heading and permalink for Exercise 2.4.1" aria-label="Copy heading and permalink for Exercise 2.4.1">🔗</a></div>
+</article>
+<div class="para logical" id="sec_mv-4-4">
 <div class="para">While it is easier to use the first form with <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> to solve for the initial conditions, the second form is more natural. The constants <span class="process-math">\(C\)</span> and <span class="process-math">\(\gamma\)</span> have nice physical interpretation. Write the solution as</div>
 <div class="displaymath process-math" id="sec_mv-4-4-5">
 \begin{equation}
@@ -858,7 +824,8 @@ x(t) = C \cos ( \omega_0 t - \gamma ) .
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec_mv-4-7-1-1">Suppose that <span class="process-math">\(m=\unit[2]{kg}\)</span> and <span class="process-math">\(k=\unitfrac[8]{N}{m}\text{.}\)</span> The whole mass and spring setup is sitting on a truck that was traveling at 1 <span class="process-math">\(\nicefrac{\text{m}}{\text{s}}\text{.}\)</span> The truck crashes and hence stops. The mass was held in place 0.5 meters forward from the rest position.  During the crash the mass gets loose.  That is, the mass is now moving forward at 1 <span class="process-math">\(\nicefrac{\text{m}}{\text{s}}\text{,}\)</span> while the other end of the spring is held in place.  The mass therefore starts oscillating. What is the frequency of the resulting oscillation?  What is the amplitude? The units are the mks units (meters-kilograms-seconds).<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-4-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_mv-4-7-1-2">
+</div> 
+<div class="para logical" id="sec_mv-4-7-1-2">
 <div class="para">The setup means that the mass was at half a meter in the positive direction during the crash and relative to the wall the spring is mounted to, the mass was moving forward (in the positive direction) at 1 <span class="process-math">\(\nicefrac{\text{m}}{\text{s}}\text{.}\)</span>  This gives the initial conditions. So the equation with initial conditions is</div>
 <div class="displaymath process-math" id="sec_mv-4-7-1-2-2">
 \begin{equation}
@@ -868,7 +835,8 @@ x(t) = C \cos ( \omega_0 t - \gamma ) .
 <div class="para">We compute <span class="process-math">\(\omega_0 = \sqrt{\nicefrac{k}{m}} = \sqrt{4} = 2\text{.}\)</span> Hence the angular frequency is 2.  The usual frequency in Hertz (cycles per second) is <span class="process-math">\(\nicefrac{2}{2\pi} = \nicefrac{1}{\pi} \approx 0.318\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-4-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_mv-4-7-1-3">
+</div> 
+<div class="para logical" id="sec_mv-4-7-1-3">
 <div class="para">The general solution is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mv_undampedfig.html" id="sec_mv-4-7-1-3-1">
 \begin{equation}
@@ -885,8 +853,10 @@ x(t) = 0.5 \cos (2t) + 0.5 \sin (2t) .
 <div class="para">A plot of <span class="process-math">\(x(t)\)</span> is shown in <a href="sec_mv.html#mv_undampedfig" class="internal" title="Figure 2.2">Figure 2.2</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-4-7-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.4.1"><a href="#sec_mv-4-7" title="Copy heading and permalink for Example 2.4.1" aria-label="Copy heading and permalink for Example 2.4.1">🔗</a></div></article><hr class="diffyqshr">
-<figure class="figure figure-like" id="mv_undampedfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-undamped-mbx.svg" role="img" alt="A graph of the function for t from 0 to 20, which is a sinusoidal curve that goes between roughly minus 0.707 and 0.707, starting at (0,0.5) going upwards, making a little bit more than 3 cycles in the picture."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Simple undamped oscillation.<div class="autopermalink" data-description="Figure 2.2"><a href="#mv_undampedfig" title="Copy heading and permalink for Figure 2.2" aria-label="Copy heading and permalink for Figure 2.2">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<div class="autopermalink" data-description="Example 2.4.1"><a href="#sec_mv-4-7" title="Copy heading and permalink for Example 2.4.1" aria-label="Copy heading and permalink for Example 2.4.1">🔗</a></div>
+</article><hr class="diffyqshr">
+<figure class="figure figure-like" id="mv_undampedfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-undamped-mbx.svg" role="img" alt="A graph of the function for t from 0 to 10, which is a sinusoidal curve that goes between roughly minus 0.707 and 0.707, starting at (0,0.5) going upwards, making a little bit more than 3 cycles in the picture."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Simple undamped oscillation.<div class="autopermalink" data-description="Figure 2.2"><a href="#mv_undampedfig" title="Copy heading and permalink for Figure 2.2" aria-label="Copy heading and permalink for Figure 2.2">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para logical" id="sec_mv-4-11">
 <div class="para">In general, for free undamped motion, a solution of the form</div>
 <div class="displaymath process-math" id="sec_mv-4-11-1">
@@ -894,16 +864,20 @@ x(t) = 0.5 \cos (2t) + 0.5 \sin (2t) .
 x(t) = A \cos (\omega_0 t) + B \sin (\omega_0 t) ,
 \end{equation}
 </div>
-<div class="para">corresponds to the initial conditions <span class="process-math">\(x(0) = A\)</span> and <span class="process-math">\(x'(0) = \omega_0 B\text{.}\)</span> It is easy to find <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> from the initial conditions. The amplitude and the phase shift are computed from <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> In the example, we found the amplitude <span class="process-math">\(C\text{.}\)</span> How about the phase shift <span class="process-math">\(\gamma\text{.}\)</span> We know <span class="process-math">\(\tan \gamma = \nicefrac{B}{A} = 1\text{.}\)</span> The arctangent of <span class="process-math">\(1\)</span> is <span class="process-math">\(\nicefrac{\pi}{4}\)</span> or approximately <span class="process-math">\(0.785\text{.}\)</span> We must check if <span class="process-math">\(\nicefrac{\pi}{4}\)</span> gives the correct quadrant—if the angle from the positive <span class="process-math">\(x\)</span>-axis is in the same quadrant as the point <span class="process-math">\((A,B)\)</span>—if not, we add <span class="process-math">\(\pi\text{.}\)</span> That is because <span class="process-math">\(A = C \cos \gamma\)</span> and <span class="process-math">\(B = C \sin \gamma\text{.}\)</span> Both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are positive, so <span class="process-math">\(\gamma\)</span> must be in the first quadrant.  As <span class="process-math">\(\nicefrac{\pi}{4}\)</span> radians is in the first quadrant, <span class="process-math">\(\gamma = \nicefrac{\pi}{4}\text{.}\)</span>
+<div class="para">corresponds to the initial conditions <span class="process-math">\(x(0) = A\)</span> and <span class="process-math">\(x'(0) = \omega_0 B\text{.}\)</span> It is easy to find <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> from the initial conditions. The amplitude and the phase shift are computed from <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> In the example, we found the amplitude <span class="process-math">\(C\text{.}\)</span> How about the phase shift <span class="process-math">\(\gamma\text{?}\)</span> We know <span class="process-math">\(\tan \gamma = \nicefrac{B}{A} = 1\text{.}\)</span> The arctangent of <span class="process-math">\(1\)</span> is <span class="process-math">\(\nicefrac{\pi}{4}\)</span> or approximately <span class="process-math">\(0.785\text{.}\)</span> We must check if <span class="process-math">\(\nicefrac{\pi}{4}\)</span> gives the correct quadrant—if the angle from the positive <span class="process-math">\(x\)</span>-axis is in the same quadrant as the point <span class="process-math">\((A,B)\)</span>—if not, we add <span class="process-math">\(\pi\text{.}\)</span> That is because <span class="process-math">\(A = C \cos \gamma\)</span> and <span class="process-math">\(B = C \sin \gamma\text{.}\)</span> Both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are positive, so <span class="process-math">\(\gamma\)</span> must be in the first quadrant.  As <span class="process-math">\(\nicefrac{\pi}{4}\)</span> radians is in the first quadrant, <span class="process-math">\(\gamma = \nicefrac{\pi}{4}\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-4-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_mv-4-12">Note: Many calculators and computer software have not only the <code class="code-inline tex2jax_ignore">atan</code> function for arctangent, but also what is sometimes called <code class="code-inline tex2jax_ignore">atan2</code>. This function takes two arguments, <span class="process-math">\(B\)</span> and <span class="process-math">\(A\text{,}\)</span> and returns a <span class="process-math">\(\gamma\)</span> in the correct quadrant for you.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 2.4.2: Free undamped motion"><a href="#sec_mv-4" title="Copy heading and permalink for Subsection 2.4.2: Free undamped motion" aria-label="Copy heading and permalink for Subsection 2.4.2: Free undamped motion">🔗</a></div></section><section class="subsection" id="sec_mv-5"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 2.4.2: Free undamped motion"><a href="#sec_mv-4" title="Copy heading and permalink for Subsection 2.4.2: Free undamped motion" aria-label="Copy heading and permalink for Subsection 2.4.2: Free undamped motion">🔗</a></div>
+</section>
+<section class="subsection" id="sec_mv-5">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Free damped motion</span>
 </h3>
-<section class="introduction" id="sec_mv-5-2"><div class="para logical" id="sec_mv-5-2-1">
+<section class="introduction" id="sec_mv-5-2">
+<div class="para logical" id="sec_mv-5-2-1">
 <div class="para">Let us now focus on damped motion.  We rewrite the equation</div>
 <div class="displaymath process-math" id="sec_mv-5-2-1-2">
 \begin{equation}
@@ -944,7 +918,9 @@ p^2 - \omega_0^2 = {\left( \frac{c}{2m} \right)}^2 - \frac{k}{m}
 <div class="para">The sign of <span class="process-math">\(p^2-\omega_0^2\)</span> is the same as the sign of <span class="process-math">\(c^2 - 4km\text{.}\)</span>  Thus we get real roots if and only if <span class="process-math">\(c^2-4km\)</span> is nonnegative, or in other words if <span class="process-math">\(c^2 \geq 4km\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsubsection" id="sec_mv-5-3"><h4 class="heading hide-type">
+</div></section>
+<section class="subsubsection" id="sec_mv-5-3">
+<h4 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Overdamping</span>
 </h4>
 <div class="para" id="sec_mv-5-3-2">When <span class="process-math">\(c^2 - 4km &gt; 0\text{,}\)</span> the system is <em class="emphasis">overdamped</em>.  In this case, there are two distinct real roots <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\text{.}\)</span> As <span class="process-math">\(\sqrt{p^2 - \omega_0^2}\)</span> is always less than <span class="process-math">\(p\text{,}\)</span> the expression for the roots <span class="process-math">\(-p \pm \sqrt{p^2 - \omega_0^2}\)</span> is negative either way. So both roots are negative.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -960,7 +936,8 @@ x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} .
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="mv_overdampedfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-overdamped-mbx.svg" role="img" alt="A plot of 3 functions for t between 0 and 100. All three graphs start at (0,1) and they all approach the horizontal axis being almost indistinguishable from it by the right side of the picture. The first one starts downwards, crosses the axis and then goes back up and approaches it, the second starts out horizontally but turns downwards and approaches the axis, and the third starts upwards, then turns downwards quickly and approaches the axis."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Overdamped motion for several different initial conditions.<div class="autopermalink" data-description="Figure 2.3"><a href="#mv_overdampedfig" title="Copy heading and permalink for Figure 2.3" aria-label="Copy heading and permalink for Figure 2.3">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="mv_overdampedfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-overdamped-mbx.svg" role="img" alt="A plot of 3 functions for t between 0 and 100. All three graphs start at (0,1) and they all approach the horizontal axis being almost indistinguishable from it by the right side of the picture. The first one starts downwards, crosses the axis and then goes back up and approaches it, the second starts out horizontally but turns downwards and approaches the axis, and the third starts upwards, then turns downwards quickly and approaches the axis."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Overdamped motion for several different initial conditions.<div class="autopermalink" data-description="Figure 2.3"><a href="#mv_overdampedfig" title="Copy heading and permalink for Figure 2.3" aria-label="Copy heading and permalink for Figure 2.3">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para logical" id="sec_mv-5-3-7">
 <div class="para">No oscillation happens.  In fact, the graph crosses the <span class="process-math">\(t\)</span>-axis at most once.  To see why, we try to solve <span class="process-math">\(0 = C_1 e^{r_1 t} + C_2 e^{r_2 t}\text{.}\)</span> Therefore, <span class="process-math">\(C_1 e^{r_1 t} = - C_2 e^{r_2 t}\)</span> and using laws of exponents we obtain</div>
 <div class="displaymath process-math" id="sec_mv-5-3-7-4">
@@ -984,7 +961,11 @@ x(t) = \frac{x_0}{r_1-r_2} \left(r_1 e^{r_2 t} - r_2 e^{r_1 t} \right) .
 <div class="para">It is not hard to see that this satisfies the initial conditions.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-3-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.4.2"><a href="#sec_mv-5-3-8" title="Copy heading and permalink for Example 2.4.2" aria-label="Copy heading and permalink for Example 2.4.2">🔗</a></div></article><div class="autopermalink" data-description="Subsubsection 2.4.3.1: Overdamping"><a href="#sec_mv-5-3" title="Copy heading and permalink for Subsubsection 2.4.3.1: Overdamping" aria-label="Copy heading and permalink for Subsubsection 2.4.3.1: Overdamping">🔗</a></div></section><section class="subsubsection" id="sec_mv-5-4"><h4 class="heading hide-type">
+<div class="autopermalink" data-description="Example 2.4.2"><a href="#sec_mv-5-3-8" title="Copy heading and permalink for Example 2.4.2" aria-label="Copy heading and permalink for Example 2.4.2">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsubsection 2.4.3.1: Overdamping"><a href="#sec_mv-5-3" title="Copy heading and permalink for Subsubsection 2.4.3.1: Overdamping" aria-label="Copy heading and permalink for Subsubsection 2.4.3.1: Overdamping">🔗</a></div>
+</section>
+<section class="subsubsection" id="sec_mv-5-4">
+<h4 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Critical damping</span>
 </h4>
 <div class="para logical" id="sec_mv-5-4-2">
@@ -997,7 +978,10 @@ x(t) = C_1 e^{-pt} + C_2 t e^{-pt} .
 <div class="para">The behavior of a critically damped system is very similar to an overdamped system.  After all, a critically damped system is, in some sense, a limit of overdamped systems.  Since these equations are really only an approximation to the real world, in reality, we are never critically damped; it is a place we can only reach in theory.  We are always a little bit underdamped or a little bit overdamped.  It is better not to dwell on critical damping.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsubsection 2.4.3.2: Critical damping"><a href="#sec_mv-5-4" title="Copy heading and permalink for Subsubsection 2.4.3.2: Critical damping" aria-label="Copy heading and permalink for Subsubsection 2.4.3.2: Critical damping">🔗</a></div></section><section class="subsubsection" id="sec_mv-5-5"><h4 class="heading hide-type">
+<div class="autopermalink" data-description="Subsubsection 2.4.3.2: Critical damping"><a href="#sec_mv-5-4" title="Copy heading and permalink for Subsubsection 2.4.3.2: Critical damping" aria-label="Copy heading and permalink for Subsubsection 2.4.3.2: Critical damping">🔗</a></div>
+</section>
+<section class="subsubsection" id="sec_mv-5-5">
+<h4 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Underdamping</span>
 </h4>
 <div class="para logical" id="sec_mv-5-5-2">
@@ -1031,17 +1015,25 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \gamma ) .
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <hr class="diffyqshr">
-<figure class="figure figure-like" id="mv_underdampedfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-underdamped-mbx.svg" role="img" alt="A plot for t between 0 and 30. Two decaying exponential curves one starting it (0,1) and one starting at (0, minus 1) are shown. A sinusoidal-like curve winds between them, starting at the top curve, going down the bottom curve, then back up and so on."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Underdamped motion with the envelope curves shown.<div class="autopermalink" data-description="Figure 2.4"><a href="#mv_underdampedfig" title="Copy heading and permalink for Figure 2.4" aria-label="Copy heading and permalink for Figure 2.4">🔗</a></div></figcaption></figure><hr class="diffyqshr">
+<figure class="figure figure-like" id="mv_underdampedfig"><img class="diffyimg" style="width:100%; max-width:4.5in; background-color:white; display:block;" src="figures/mv-underdamped-mbx.svg" role="img" alt="A plot for t between 0 and 30. Two decaying exponential curves one starting it (0,1) and one starting at (0, minus 1) are shown. A sinusoidal-like curve winds between them, starting at the top curve, going down the bottom curve, then back up and so on."><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Underdamped motion with the envelope curves shown.<div class="autopermalink" data-description="Figure 2.4"><a href="#mv_underdampedfig" title="Copy heading and permalink for Figure 2.4" aria-label="Copy heading and permalink for Figure 2.4">🔗</a></div></figcaption>
+</figure><hr class="diffyqshr">
 <div class="para" id="sec_mv-5-5-6">The figure also shows the <em class="emphasis">envelope curves</em> <span class="process-math">\(C e^{-pt}\)</span> and <span class="process-math">\(-C e^{-pt}\text{.}\)</span>  The solution is the oscillating line between the two envelope curves. The envelope curves give the maximum amplitude of the oscillation at any given point in time.  For example, if you are bungee jumping, you are really interested in computing the envelope curve so as not to hit the concrete with your head. The phase shift <span class="process-math">\(\gamma\)</span> shifts the oscillation left or right, but within the envelope curves (the envelope curves do not change if <span class="process-math">\(\gamma\)</span> changes).<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_mv-5-5-7">Notice that the angular <em class="emphasis">pseudo-frequency</em><details class="ptx-footnote" aria-live="polite" id="sec_mv-5-5-7-2"><summary class="ptx-footnote__number" title="Footnote 2.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_mv-5-5-7-2">We do not call <span class="process-math">\(\omega_1\)</span> a frequency since the solution is not really a periodic function.</div></details> <span class="process-math">\(\omega_1\)</span> becomes smaller when the damping <span class="process-math">\(c\)</span> (and hence <span class="process-math">\(p\)</span>) becomes larger. This makes sense. First, when we change the damping just a little bit, we do not expect the behavior of the solution to change dramatically. Second, if we keep making <span class="process-math">\(c\)</span> larger, then at some point the solution should start looking like the solution for critical damping or overdamping, where no oscillation happens. As <span class="process-math">\(c\)</span> gets larger and <span class="process-math">\(c^2\)</span> approaches <span class="process-math">\(4km\text{,}\)</span> we find that <span class="process-math">\(\omega_1\)</span> approaches <span class="process-math">\(0\text{.}\)</span> On the other hand, when <span class="process-math">\(c\)</span> gets smaller, <span class="process-math">\(\omega_1\)</span> approaches <span class="process-math">\(\omega_0\)</span> (<span class="process-math">\(\omega_1\)</span> is always smaller than <span class="process-math">\(\omega_0\)</span>), and the solution looks more and more like the steady periodic motion of the undamped case.  The envelope curves become flatter and flatter as <span class="process-math">\(c\)</span> (and hence <span class="process-math">\(p\)</span>) goes to <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_mv-5-5-7">Notice that the angular <em class="emphasis">pseudo-frequency</em><details class="ptx-footnote" aria-live="polite" id="sec_mv-5-5-7-2"><summary class="ptx-footnote__number" title="Footnote 2.4.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="sec_mv-5-5-7-2">We do not call <span class="process-math">\(\omega_1\)</span> a frequency since the solution is not really a periodic function.
+</div></details> <span class="process-math">\(\omega_1\)</span> becomes smaller when the damping <span class="process-math">\(c\)</span> (and hence <span class="process-math">\(p\)</span>) becomes larger. This makes sense. First, when we change the damping just a little bit, we do not expect the behavior of the solution to change dramatically. Second, if we keep making <span class="process-math">\(c\)</span> larger, then at some point the solution should start looking like the solution for critical damping or overdamping, where no oscillation happens. As <span class="process-math">\(c\)</span> gets larger and <span class="process-math">\(c^2\)</span> approaches <span class="process-math">\(4km\text{,}\)</span> we find that <span class="process-math">\(\omega_1\)</span> approaches <span class="process-math">\(0\text{.}\)</span> On the other hand, when <span class="process-math">\(c\)</span> gets smaller, <span class="process-math">\(\omega_1\)</span> approaches <span class="process-math">\(\omega_0\)</span> (<span class="process-math">\(\omega_1\)</span> is always smaller than <span class="process-math">\(\omega_0\)</span>), and the solution looks more and more like the steady periodic motion of the undamped case.  The envelope curves become flatter and flatter as <span class="process-math">\(c\)</span> (and hence <span class="process-math">\(p\)</span>) goes to <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-5-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsubsection 2.4.3.3: Underdamping"><a href="#sec_mv-5-5" title="Copy heading and permalink for Subsubsection 2.4.3.3: Underdamping" aria-label="Copy heading and permalink for Subsubsection 2.4.3.3: Underdamping">🔗</a></div></section><div class="autopermalink" data-description="Subsection 2.4.3: Free damped motion"><a href="#sec_mv-5" title="Copy heading and permalink for Subsection 2.4.3: Free damped motion" aria-label="Copy heading and permalink for Subsection 2.4.3: Free damped motion">🔗</a></div></section><section class="exercises" id="sec_mv-6"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsubsection 2.4.3.3: Underdamping"><a href="#sec_mv-5-5" title="Copy heading and permalink for Subsubsection 2.4.3.3: Underdamping" aria-label="Copy heading and permalink for Subsubsection 2.4.3.3: Underdamping">🔗</a></div>
+</section><div class="autopermalink" data-description="Subsection 2.4.3: Free damped motion"><a href="#sec_mv-5" title="Copy heading and permalink for Subsection 2.4.3: Free damped motion" aria-label="Copy heading and permalink for Subsection 2.4.3: Free damped motion">🔗</a></div>
+</section>
+<section class="exercises" id="sec_mv-6">
+<h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="mv_ex1"><h4 class="heading"><span class="codenumber">2.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="mv_ex1-1-1">Consider a mass and spring system with a mass <span class="process-math">\(m=2\text{,}\)</span> spring constant <span class="process-math">\(k=3\text{,}\)</span> and damping constant <span class="process-math">\(c=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#mv_ex1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="mv_ex1-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="mv_ex1-1-2">
 <li id="mv_ex1-1-2-1">
 <div class="para" id="mv_ex1-1-2-1-1">Set up and find the general solution of the system.<div class="autopermalink" data-description="Paragraph"><a href="#mv_ex1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1058,12 +1050,17 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \gamma ) .
 <div class="autopermalink" data-description="Item 2.4.2.c"><a href="#mv_ex1-1-2-3" title="Copy heading and permalink for Item 2.4.2.c" aria-label="Copy heading and permalink for Item 2.4.2.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 2.4.2"><a href="#mv_ex1" title="Copy heading and permalink for Exercise 2.4.2" aria-label="Copy heading and permalink for Exercise 2.4.2">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-2"><h4 class="heading"><span class="codenumber">2.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 2.4.2"><a href="#mv_ex1" title="Copy heading and permalink for Exercise 2.4.2" aria-label="Copy heading and permalink for Exercise 2.4.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-2"><h4 class="heading"><span class="codenumber">2.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-2-1-1">Do <a href="sec_mv.html#mv_ex1" class="xref" data-knowl="./knowl/xref/mv_ex1.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.4.2">Exercise 2.4.2</a> for <span class="process-math">\(m=3\text{,}\)</span> <span class="process-math">\(k=12\text{,}\)</span> and <span class="process-math">\(c=12\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 2.4.3"><a href="#sec_mv-6-2" title="Copy heading and permalink for Exercise 2.4.3" aria-label="Copy heading and permalink for Exercise 2.4.3">🔗</a></div></article><article class="exercise exercise-like" id="mv_exwt1"><h4 class="heading"><span class="codenumber">2.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 2.4.3"><a href="#sec_mv-6-2" title="Copy heading and permalink for Exercise 2.4.3" aria-label="Copy heading and permalink for Exercise 2.4.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="mv_exwt1"><h4 class="heading"><span class="codenumber">2.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="mv_exwt1-1-1">Using the mks units (meters-kilograms-seconds), suppose you have a spring with spring constant 4 <span class="process-math">\(\nicefrac{\text{N}}{\text{m}}\text{.}\)</span> You want to use it to weigh items.  Assume no friction.  You place the mass on the spring and put it in motion.<div class="autopermalink" data-description="Paragraph"><a href="#mv_exwt1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="mv_exwt1-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="mv_exwt1-1-2">
 <li id="mv_exwt1-1-2-1">
 <div class="para" id="mv_exwt1-1-2-1-1">You count and find that the frequency is 0.8 Hz (cycles per second).  What is the mass?<div class="autopermalink" data-description="Paragraph"><a href="#mv_exwt1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1075,9 +1072,12 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \gamma ) .
 <div class="autopermalink" data-description="Item 2.4.4.b"><a href="#mv_exwt1-1-2-2" title="Copy heading and permalink for Item 2.4.4.b" aria-label="Copy heading and permalink for Item 2.4.4.b">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 2.4.4"><a href="#mv_exwt1" title="Copy heading and permalink for Exercise 2.4.4" aria-label="Copy heading and permalink for Exercise 2.4.4">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-4"><h4 class="heading"><span class="codenumber">2.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 2.4.4"><a href="#mv_exwt1" title="Copy heading and permalink for Exercise 2.4.4" aria-label="Copy heading and permalink for Exercise 2.4.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-4"><h4 class="heading"><span class="codenumber">2.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-4-1-1">Suppose we add possible friction to <a href="sec_mv.html#mv_exwt1" class="xref" data-knowl="./knowl/xref/mv_exwt1.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.4.4">Exercise 2.4.4</a>. Further, suppose you do not know the spring constant, but you have two reference weights 1 kg and 2 kg to calibrate your setup. You put each in motion on your spring and measure the frequency.  For the 1 kg weight you measured 1.1 Hz, for the 2 kg weight you measured 0.8 Hz.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="sec_mv-6-4-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="sec_mv-6-4-1-2">
 <li id="sec_mv-6-4-1-2-1">
 <div class="para" id="sec_mv-6-4-1-2-1-1">Find <span class="process-math">\(k\)</span> (spring constant) and <span class="process-math">\(c\)</span> (damping constant).<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-4-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1094,21 +1094,31 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \gamma ) .
 <div class="autopermalink" data-description="Item 2.4.5.c"><a href="#sec_mv-6-4-1-2-3" title="Copy heading and permalink for Item 2.4.5.c" aria-label="Copy heading and permalink for Item 2.4.5.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 2.4.5"><a href="#sec_mv-6-4" title="Copy heading and permalink for Exercise 2.4.5" aria-label="Copy heading and permalink for Exercise 2.4.5">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-5"><h4 class="heading"><span class="codenumber">2.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 2.4.5"><a href="#sec_mv-6-4" title="Copy heading and permalink for Exercise 2.4.5" aria-label="Copy heading and permalink for Exercise 2.4.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-5"><h4 class="heading"><span class="codenumber">2.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-5-1-1">Suppose you wish to measure the friction a mass of 0.1 kg experiences as it slides along a floor (you wish to find <span class="process-math">\(c\)</span>).  You have a spring with spring constant <span class="process-math">\(k=\unitfrac[5]{N}{m}\text{.}\)</span>  You take the spring, you attach it to the mass and fix it to a wall.  Then you pull on the spring and let the mass go.  You find that the mass oscillates with frequency 1 Hz. What is the friction?<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 2.4.6"><a href="#sec_mv-6-5" title="Copy heading and permalink for Exercise 2.4.6" aria-label="Copy heading and permalink for Exercise 2.4.6">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-6"><h4 class="heading"><span class="codenumber">2.4.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 2.4.6"><a href="#sec_mv-6-5" title="Copy heading and permalink for Exercise 2.4.6" aria-label="Copy heading and permalink for Exercise 2.4.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-6"><h4 class="heading"><span class="codenumber">2.4.101<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-6-1-1">A mass of <span class="process-math">\(2\)</span> kilograms is on a spring with spring constant <span class="process-math">\(k\)</span> newtons per meter with no damping.  Suppose the system is at rest and at time <span class="process-math">\(t=0\)</span> the mass is kicked and starts traveling at 2 meters per second.  How large does <span class="process-math">\(k\)</span> have to be to so that the mass does not go further than 3 meters from the rest position?<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_mv-6-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="sec_mv-6-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="sec_mv-6-6-2-1">
 <span class="process-math">\(k=\unitfrac[\nicefrac{8}{9}]{N}{m}\)</span> (and larger)<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 2.4.101.1"><a href="#sec_mv-6-6-2" title="Copy heading and permalink for Answer 2.4.101.1" aria-label="Copy heading and permalink for Answer 2.4.101.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 2.4.101"><a href="#sec_mv-6-6" title="Copy heading and permalink for Exercise 2.4.101" aria-label="Copy heading and permalink for Exercise 2.4.101">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-7"><h4 class="heading"><span class="codenumber">2.4.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 2.4.101"><a href="#sec_mv-6-6" title="Copy heading and permalink for Exercise 2.4.101" aria-label="Copy heading and permalink for Exercise 2.4.101">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-7"><h4 class="heading"><span class="codenumber">2.4.102<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-7-1-1">Suppose we have an RLC circuit with a resistor of 100 milliohms (0.1 ohms), inductor of inductance of 50 millihenries (0.05 henries), and a capacitor of 5 farads, with constant voltage.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="sec_mv-6-7-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="sec_mv-6-7-1-2">
 <li id="sec_mv-6-7-1-2-1">
 <div class="para" id="sec_mv-6-7-1-2-1-1">Set up the ODE equation for the current <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1125,15 +1135,21 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \gamma ) .
 <div class="autopermalink" data-description="Item 2.4.102.c"><a href="#sec_mv-6-7-1-2-3" title="Copy heading and permalink for Item 2.4.102.c" aria-label="Copy heading and permalink for Item 2.4.102.c">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="sec_mv-6-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="sec_mv-6-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="sec_mv-6-7-2-1">a) <span class="process-math">\(0.05 I'' + 0.1 I' + (\nicefrac{1}{5}) I = 0\)</span>     b) <span class="process-math">\(I = C e^{-t} \cos(\sqrt{3} \, t - \gamma)\)</span>     c) <span class="process-math">\(I = 10 e^{-t} \cos(\sqrt{3} \, t) + \frac{10}{\sqrt{3}} e^{-t}
 \sin(\sqrt{3} \, t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 2.4.102.1"><a href="#sec_mv-6-7-2" title="Copy heading and permalink for Answer 2.4.102.1" aria-label="Copy heading and permalink for Answer 2.4.102.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 2.4.102"><a href="#sec_mv-6-7" title="Copy heading and permalink for Exercise 2.4.102" aria-label="Copy heading and permalink for Exercise 2.4.102">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-8"><h4 class="heading"><span class="codenumber">2.4.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 2.4.102"><a href="#sec_mv-6-7" title="Copy heading and permalink for Exercise 2.4.102" aria-label="Copy heading and permalink for Exercise 2.4.102">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-8"><h4 class="heading"><span class="codenumber">2.4.103<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-8-1-1">A 5000 kg railcar hits a bumper (a spring) at 1 <span class="process-math">\(\nicefrac{\text{m}}{\text{s}}\text{,}\)</span> and the spring compresses by 0.1 m.  Assume no damping.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="sec_mv-6-8-1-2">
+</div> 
+<ol class="lower-alpha ol-marker-1" id="sec_mv-6-8-1-2">
 <li id="sec_mv-6-8-1-2-1">
 <div class="para" id="sec_mv-6-8-1-2-1-1">Find <span class="process-math">\(k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-8-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1155,21 +1171,33 @@ x(t) = C e^{-pt} \cos ( \omega_1 t - \gamma ) .
 <div class="autopermalink" data-description="Item 2.4.103.d"><a href="#sec_mv-6-8-1-2-4" title="Copy heading and permalink for Item 2.4.103.d" aria-label="Copy heading and permalink for Item 2.4.103.d">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details id="sec_mv-6-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="sec_mv-6-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="sec_mv-6-8-2-1">a) <span class="process-math">\(k=\unitfrac[500000]{N}{m}\)</span>     b) <span class="process-math">\(\frac{1}{5\sqrt{2}} \approx \unit[0.141]{m}\)</span>     c) 45000 kg     d) 11250 kg<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 2.4.103.1"><a href="#sec_mv-6-8-2" title="Copy heading and permalink for Answer 2.4.103.1" aria-label="Copy heading and permalink for Answer 2.4.103.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 2.4.103"><a href="#sec_mv-6-8" title="Copy heading and permalink for Exercise 2.4.103" aria-label="Copy heading and permalink for Exercise 2.4.103">🔗</a></div></article><article class="exercise exercise-like" id="sec_mv-6-9"><h4 class="heading"><span class="codenumber">2.4.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 2.4.103"><a href="#sec_mv-6-8" title="Copy heading and permalink for Exercise 2.4.103" aria-label="Copy heading and permalink for Exercise 2.4.103">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec_mv-6-9"><h4 class="heading"><span class="codenumber">2.4.104<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec_mv-6-9-1-1">A mass of <span class="process-math">\(m\)</span> kg is on a spring with <span class="process-math">\(k=\unitfrac[3]{N}{m}\)</span> and <span class="process-math">\(c=\unitfrac[2]{Ns}{m}\text{.}\)</span>  Find the mass <span class="process-math">\(m_0\)</span> for which there is critical damping.  If <span class="process-math">\(m &lt; m_0\text{,}\)</span> does the system oscillate or not, that is, is it underdamped or overdamped?<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="sec_mv-6-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="solutions">
+<details id="sec_mv-6-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
 <div class="para" id="sec_mv-6-9-2-1">
 <span class="process-math">\(m_0 = \unit[\nicefrac{1}{3}]{kg}\text{.}\)</span>  If <span class="process-math">\(m &lt; m_0\text{,}\)</span> then the system is overdamped and will not oscillate.<div class="autopermalink" data-description="Paragraph"><a href="#sec_mv-6-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 2.4.104.1"><a href="#sec_mv-6-9-2" title="Copy heading and permalink for Answer 2.4.104.1" aria-label="Copy heading and permalink for Answer 2.4.104.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Exercise 2.4.104"><a href="#sec_mv-6-9" title="Copy heading and permalink for Exercise 2.4.104" aria-label="Copy heading and permalink for Exercise 2.4.104">🔗</a></div></article><div class="autopermalink" data-description="Exercises 2.4.4"><a href="#sec_mv-6" title="Copy heading and permalink for Exercises 2.4.4" aria-label="Copy heading and permalink for Exercises 2.4.4">🔗</a></div></section><div class="autopermalink" data-description="Section 2.4: Mechanical vibrations"><a href="#sec_mv" title="Copy heading and permalink for Section 2.4: Mechanical vibrations" aria-label="Copy heading and permalink for Section 2.4: Mechanical vibrations">🔗</a></div></section></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercise 2.4.104"><a href="#sec_mv-6-9" title="Copy heading and permalink for Exercise 2.4.104" aria-label="Copy heading and permalink for Exercise 2.4.104">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercises 2.4.4"><a href="#sec_mv-6" title="Copy heading and permalink for Exercises 2.4.4" aria-label="Copy heading and permalink for Exercises 2.4.4">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 2.4: Mechanical vibrations"><a href="#sec_mv" title="Copy heading and permalink for Section 2.4: Mechanical vibrations" aria-label="Copy heading and permalink for Section 2.4: Mechanical vibrations">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_hol.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_nonhom.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
