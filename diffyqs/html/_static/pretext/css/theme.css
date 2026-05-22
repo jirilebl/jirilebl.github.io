@@ -3672,7 +3672,7 @@ section > h3.heading {
   --page-border-color: var(--background-color-white-25);
   --doc-title-color: var(--primary-color);
   --byline-color: var(--background-color-white-50);
-  --banner-background: #23241f;
+  --banner-background: #0d0d0d;
   --navbar-background: var(--background-color-gray-15);
   --footer-background: var(--background-color-black-10);
   --toc-border-color: #555;
@@ -3757,7 +3757,7 @@ section > h3.heading {
   --solution-like-body-background: var(--block-body-background);
   --solution-like-border-color: var(--block-border-color);
   --primary-color: #698aa8;
-  --background-color: #23241f;
+  --background-color: #0d0d0d;
   --background-color-white-1: color-mix(in oklab, var(--background-color), white 1%);
   --background-color-white-2: color-mix(in oklab, var(--background-color), white 2%);
   --background-color-white-3: color-mix(in oklab, var(--background-color), white 3%);
