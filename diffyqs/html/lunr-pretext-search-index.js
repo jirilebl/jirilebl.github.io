@@ -9766,9 +9766,9 @@ var ptx_lunr_docs = [
   "body": " Further Reading  Paul W. Berg and James L. McGregor, Elementary Partial Differential Equations , Holden-Day, San Francisco, CA, 1966.  William E. Boyce, Richard C. DiPrima, and Douglas B. Meade, Elementary Differential Equations and Boundary Value Problems , 12th edition, John Wiley & Sons Inc., New York, NY, 2021.  C.H. Edwards and D.E. Penney, Differential Equations and Boundary Value Problems: Computing and Modeling , 6th edition, Pearson, 2022.  Stanley J. Farlow, An Introduction to Differential Equations and Their Applications , McGraw-Hill, Inc., Princeton, NJ, 1994. (Published also by Dover Publications, 2006.)  E.L. Ince, Ordinary Differential Equations , Dover Publications, Inc., New York, NY, 1956.  Thomas W. Judson, The Ordinary Differential Equations Project , .  William F. Trench, Elementary Differential Equations with Boundary Value Problems , Books and Monographs, Book 9, 2013, .  "
 },
 {
-  "id": "diffyqs-13-4",
+  "id": "diffyqs-15-2",
   "level": "1",
-  "url": "diffyqs-13-4.html",
+  "url": "diffyqs-15-2.html",
   "type": "Index",
   "number": "",
   "title": "Index",
