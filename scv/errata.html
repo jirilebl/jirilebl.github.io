@@ -12,10 +12,6 @@ MathJax = {
   output: {
     font: 'mathjax-pagella'
   },
-  tex: { 
-    inlineMath: [['$', '$'], ['\\(', '\\)']] 
-  }, 
-  processEscapes: true, 
 }; 
 </script> 
 <script id="MathJax-script" async 
@@ -56,7 +52,14 @@ may suffer from recently discovered errata as well.
 <p>
 
 <ol>
-  <li>In the proof of Theorem 2.3.11, the way the \(s\) is chosen is
+  <li>On page 52, in Theorem 2.1.7 (Kontinuitätssatz), there is a missing
+    hypothesis about the boundaries of the discs.  The proof works
+    perfectly (and the underlying idea is the same) if we just assume that
+    the discs converge uniformly, which seems to be the standard way to state it
+    anyway.
+    <li>On page 54, in Definition 2.2.1, when it says \(r &gt; 0\) for points not in \(U,\)
+      it should say for points not in \(\overline{U}.\)
+  <li>On page 76, in the proof of Theorem 2.3.11, the way the \(s\) is chosen is
     not quite correct.  It needs to also be small enough to make all the circles
     for \(|w-is| &lt; s\) are in U as well, so \(s\) may need to be made
     smaller still after we said we "fixed" it.
@@ -502,24 +505,31 @@ Hessian matrix of \(r\)", it should say "let \(M\) be an upper bound on the
 operator norm of the complex Hessian of \(r\) near \(q\)".
 <li>On page 84, in Proposition 3.2.2, it says "near some point we write", that should say "near any point if we write".
 <li>On page 86, in the proof of Proposition 3.2.8 the last statement is not so simple (there is a gap in the proof).
-The vector field indeed annihilates $\Phi(z,\bar{z},w)-\bar{w},$ but to be
+The vector field indeed annihilates \(\Phi(z,\bar{z},w)-\bar{w},\) but to be
 tangent it needs to annihilate a real defining function, such as the real part
-of that, so it also needs to annihilate $\bar{\Phi}(\bar{z},z,\bar{w})-w.$
-<li>In a related typo in Proposition 3.2.8, $\Phi$ is not $O(2)$ really, it is weighted-O(2) with $w$ having weight two.  In particular, it is zero at zero and all the $z$ and $\zeta$ derivatives are zero.
-<li>In Proposition 3.2.11, $f=0$ on a <em>nonempty</em> open subset of $\partial U.$
+of that, so it also needs to annihilate \(\bar{\Phi}(\bar{z},z,\bar{w})-w.\)
+<li>In a related typo in Proposition 3.2.8, \(\Phi\) is not \(O(2)\) really,
+  it is weighted-O(2) with \(w\) having weight two.  In particular, it is
+  zero at zero and all the \(z\) and \(\zeta\) derivatives are zero.
+<li>In Proposition 3.2.11, \(f=0\) on a <em>nonempty</em> open subset of
+  \(\partial U.\)
 <li>In exercise 3.4.7, this should be all one sentence, and the extension (that does not exist) is a "holomorphic" extension of course.  (Thanks to John Treuer)
 <li>On page 104, exercise 4.3.2 the boundary must be connected like in Severi's version of this theorem.
 <li>On page 104, exercise 4.3.3 is not stated quite right and does not quite make sense as stated.  Best to just skip it.
 <li>On page 116 in Exercise 6.1.3, the wording is not quite right.  If the wording becomes more
-precise the problem becomes rather trivial.  The point is that $g$ can be analytically continued
-from $p$ to $U,$ not that the domain of $g$ can be made larger to include $U,$ that is not true.
+precise the problem becomes rather trivial.  The point is that \(g\) can be analytically continued
+from \(p\) to \(U,\) not that the domain of \(g\) can be made larger to
+include \(U,\) that is not true.
 <li>On page 116 in Exercise 6.1.4, in part b, the ideal is an ideal in the ring
-of germs at the origin, and in part c, $p=0.$  Or otherwise
-the $m$ would have to be defined by $(z_1-p_1,\ldots,z_n-p_n).$
-<li>On page 119, in the definition of the function $u$ using the Cauchy formula the $\frac{1}{2\pi i}$ is missing.
-<li>On page 126, in proof of Theorem 6.4.5, it says assume $U'$ and $D$ are small enough so that $X$ has no
-limit points on $U' \times D,$ that should be $U' \times \partial D.$
-<li>In exercise 6.4.4, the inclusion at the end is wrong, you need to prove $I_p\bigl(V(I)\bigr) \supset I.$
+of germs at the origin, and in part c, \(p=0.\)  Or otherwise
+the \(m\) would have to be defined by \((z_1-p_1,\ldots,z_n-p_n).\)
+<li>On page 119, in the definition of the function \(u\) using the Cauchy
+  formula the \(\frac{1}{2\pi i}\) is missing.
+<li>On page 126, in proof of Theorem 6.4.5, it says assume \(U'\) and \(D\) are
+  small enough so that \(X\) has no
+limit points on \(U' \times D,\) that should be \(U' \times \partial D.\)
+<li>In exercise 6.4.4, the inclusion at the end is wrong, you need to prove
+  \(I_p\bigl(V(I)\bigr) \supset I.\)
 (Thanks to John Treuer)
 <li>In beginning of the proof of 6.4.5, "has to a germ" should be "has to exist a germ".
 (Thanks to John Treuer)
@@ -535,13 +545,13 @@ is correct (so it's not really an erratum), but it is not quite
 compatible with most introductory one variable books.
 This was not on purpose.  I will change the definition to be
 the more standard one using the complex derivative in each
-variable, and when using Cauchy-Riemann we will assume $C^1.$
-Very little is lost by the reader just assuming that $f$ is continuously
+variable, and when using Cauchy-Riemann we will assume \(C^1.\)
+Very little is lost by the reader just assuming that \(f\) is continuously
 differentiable in the definition.
 <li>In the footnote on page 82, the polarization identity is only for
-the real one (only the real part).  It should say $4 \langle z,w \rangle =
-{\|z+w\|}^2-{\|z-w\|}^2 +i \bigl( {\|z+iw\|}^2 - {\|z-iw\|}^2 \bigr).$
-What's there is true for real $z$ and $w.$
+the real one (only the real part).  It should say \(4 \langle z,w \rangle =
+{\|z+w\|}^2-{\|z-w\|}^2 +i \bigl( {\|z+iw\|}^2 - {\|z-iw\|}^2 \bigr).\)
+What's there is true for real \(z\) and \(w.\)
 </ol>
 
 <p>
@@ -550,29 +560,29 @@ What's there is true for real $z$ and $w.$
 
 <ol>
 <li>
-Exercise 1.2.11 part b) is only true if $n=2.$  In the next update
-there will be a new part c) which asks to find a counterexample if $n=3.$
+Exercise 1.2.11 part b) is only true if \(n=2.\)  In the next update
+there will be a new part c) which asks to find a counterexample if \(n=3.\)
 (Thanks to Liz Vivas for pointing this out)
 <li>
 Exercise 1.4.1 part b) is wrong:
 There can be a one-real-dimensional curve of such points,
-but there can be no neighborhood of $p.$
-A better way to state the problem is to prove that if $\Delta$ is an anlytic
-disc, prove that $\partial \mathbb{B}_n \cap \Delta$ is nowhere dense in
-$\Delta.$
+but there can be no neighborhood of \(p.\)
+A better way to state the problem is to prove that if \(\Delta\) is an anlytic
+disc, prove that \(\partial \mathbb{B}_n \cap \Delta\) is nowhere dense in
+\(\Delta.\)
 (Thanks to Alekzander Malcom
 for pointing this out a couple of years ago, and I forgot to mark it down,
 and now thanks to Trevor Fancher for finding this issue again.)
 <li>
-Exercise 6.4.21: an analytic disc in ${\mathbb C}^2$ is only a local variety (the word "local" was missing),
-since it is not necessarily closed in ${\mathbb C}^2.$
+Exercise 6.4.21: an analytic disc in \({\mathbb C}^2\) is only a local variety (the word "local" was missing),
+since it is not necessarily closed in \({\mathbb C}^2.\)
 <li>
 Exercise 6.5.1: replace "hypersurface" with "submanifold".
 <li>In the discussion of Segre variety on page 133,
 where it says "(and nowhere else)", that is meant only if
-$\widetilde{r}$ is a defining function in the same sense as $r.$
-<li>In Example, 6.5.3, when setting $\bar{z}=\bar{w}=0$ we forgot
-to actually set $\bar{z}=0.$
+\(\widetilde{r}\) is a defining function in the same sense as \(r.\)
+<li>In Example, 6.5.3, when setting \(\bar{z}=\bar{w}=0\) we forgot
+to actually set \(\bar{z}=0.\)
 </ol>
 
 <p>
@@ -582,31 +592,39 @@ to actually set $\bar{z}=0.$
 Thanks to John Treuer for pointing out the following errata:
 
 <ol>
-<li>On page 45, in the $2 \times 2$ Hessian at the top, the lower right derivative should be $\frac{\partial^2 r}{\partial y^2}.$
+<li>On page 45, in the \(2 \times 2\) Hessian at the top, the lower right
+  derivative should be \(\frac{\partial^2 r}{\partial y^2}.\)
 <li>On page 77, about midway down, the series is written
-$\sum_{\alpha} \frac{1}{\alpha} \cdots$ when it should be
-$\sum_{\alpha} \frac{1}{\alpha !} \cdots.$  This is just the Taylor series
-for $f.$
-<li>On page 80, $f_d$ is the degree $d$ homogeneous part (or $f_j$ is the degree $j$ homogeneous part).
-<li>On page 85, in the proof of Proposition 3.2.6, "If both $M$ and $f$ are real-analytic", the $f$ should be a $\phi,$ since we're trying to prove that $f$ is real analytic.
-<li>On page 87, last line in proof of 3.2.10, "If $X_{q_k} f = 0$ for" should be "Then $X_{q_k} f = 0$ for"
+\(\sum_{\alpha} \frac{1}{\alpha} \cdots\) when it should be
+\(\sum_{\alpha} \frac{1}{\alpha !} \cdots.\)  This is just the Taylor series
+for \(f.\)
+<li>On page 80, \(f_d\) is the degree \(d\) homogeneous part (or \(f_j\) is the
+  degree \(j\) homogeneous part).
+<li>On page 85, in the proof of Proposition 3.2.6, "If both \(M\) and \(f\) are
+  real-analytic", the \(f\) should be a \(\phi,\) since we're trying to prove
+  that \(f\) is real analytic.
+<li>On page 87, last line in proof of 3.2.10, "If \(X_{q_k} f = 0\) for"
+  should be "Then \(X_{q_k} f = 0\) for"
 <li>On page 100, exercise 4.1.3 is wrong (a bonus exercise is to find a counterexample to it as is currently stated using the unit disc as a domain),
 the correct hypothesis is not that
-$\int_{U} \frac{\frac{\partial f}{\partial \bar{z}}(\zeta)}{\zeta-z} \, dA(\zeta) = 0$
-for every $z \in \partial U.$  Also take $U$ to be bounded.
-<li>On page 100, in exercise 4.1.4, the $\varphi$ in the integrals should be $f.$
+\(\int_{U} \frac{\frac{\partial f}{\partial \bar{z}}(\zeta)}{\zeta-z} \,
+dA(\zeta) = 0\)
+for every \(z \in \partial U.\)  Also take \(U\) to be bounded.
+<li>On page 100, in exercise 4.1.4, the \(\varphi\) in the integrals should be
+  \(f.\)
 <li>
-On page 116, in exercise 6.1.4 a), $I$ should be $(f).$
+On page 116, in exercise 6.1.4 a), \(I\) should be \((f).\)
 <li>
 On page 118, right after the statement of the Weierstrass Preparation Theorem,
-"degree $m$ monic polynomial" should be "degree $k$ monic polynomial".
+"degree \(m\) monic polynomial" should be "degree \(k\) monic polynomial".
 <li>
 On page 120 and 121, Propositions 6.2.5, 6.2.6, and Theorem 6.2.7.
-$\mathbb D$ and $D$ are both used.  The theorems work for any disc $D,$
+\(\mathbb D\) and \(D\) are both used.  The theorems work for any disc \(D,\)
 not just the unit disc.
 <li>
-On page 121, in the first line of the proof of Theorem 6.2.7, "Let $U_m$ be the subset of $U$"
-should be "Let $U_m$ be the subset of $U'$".
+On page 121, in the first line of the proof of Theorem 6.2.7, "Let \(U_m\) be
+the subset of \(U\)"
+should be "Let \(U_m\) be the subset of \(U'\)".
 </ol>
 
 Other errata:
@@ -614,12 +632,13 @@ Other errata:
 <ol>
 <li>On page 34, in exercise 1.6.2, the holomorphic function had better be
 defined in a domain (a connected set).
-<li>On page 115, formula (5.2), on the right hand side it should be $\sum_j \varphi_j(z)\overline{\varphi_j(\zeta)}.$
+<li>On page 115, formula (5.2), on the right hand side it should be \(\sum_j
+  \varphi_j(z)\overline{\varphi_j(\zeta)}.\)
 <li>On page 117, in the definition of Weierstrass polynomial, the sum (the
-$\Sigma$) goes to $k-1$ (it was missing the upper limit).
+\(\Sigma\)) goes to \(k-1\) (it was missing the upper limit).
 <li>On page 130, an overzealous spellchecker corrected hypersurfaces to hypocrites.
 <li>On page 135, in the Diederich-Fornaess theorem, there is no need to talk
-about the dimension of $X$ in the statement of the theorem.
+about the dimension of \(X\) in the statement of the theorem.
 </ol>
 
 <p>
@@ -629,21 +648,21 @@ about the dimension of $X$ in the statement of the theorem.
 <ol>
 <li>On page 22, the definition of meromorphic functions is nonstandard.
 The standard definition
-is that $F$ is the quotient of holomorphic functions locally.  That the
-definitions are equivalent for domains in ${\mathbb{C}}^n$ follows
+is that \(F\) is the quotient of holomorphic functions locally.  That the
+definitions are equivalent for domains in \({\mathbb{C}}^n\) follows
 via a deep result of Oka,
 and our definition would be misleading when generalizing to
 complex manifolds.  So the next version will use the standard definition.
 Thanks to
 Debraj Chakrabarti for pointing this out.
 <li>In chapter 5, page 108 at the end of proof of the Bochner-Martinelli
-formula we wrongly assume that $f$ is holomorphic, and while that's an
+formula we wrongly assume that \(f\) is holomorphic, and while that's an
 important case the theorem is stated for smooth functions.  In the last
 estimate therefore we also get terms of the form
-$\frac{\partial f}{\partial \zeta_j}(\zeta)(\bar{\zeta}_j-\bar{z}_j)$
-which can also be bounded by $Mr,$ so the estimate still follows.
+\(\frac{\partial f}{\partial \zeta_j}(\zeta)(\bar{\zeta}_j-\bar{z}_j)\)
+which can also be bounded by \(Mr,\) so the estimate still follows.
 Thanks to Anirban Dawn for pointing it out.
-<li>Exercise 6.4.16, the numbers $\ell_j$ were not needed, assume they are all 1.
+<li>Exercise 6.4.16, the numbers \(\ell_j\) were not needed, assume they are all 1.
 </ol>
 
 <p>
@@ -655,22 +674,26 @@ Thanks to Anirban Dawn for pointing it out.
 On page 8, when it says why we can swap the order of summation, it says it is
 because of uniform convergence, when it should say uniformly absolutely
 convergent.  Similar error is due to cut and paste on page 16.
-<li>In exercise 1.2.4, the $f$ should be holomorphic in a neighborhood 
+<li>In exercise 1.2.4, the \(f\) should be holomorphic in a neighborhood 
 <li>
 In exercise 1.4.2, X and Y should just be assumed locally compact Hausdorff, 
-and for the extension $f(\infty) = \infty.$
+and for the extension \(f(\infty) = \infty.\)
 <li>
-In proof of theorem 1.6.3, 1) the $\varphi$ need only be defined for $\xi = 0.$ 2) The last equality shouldn't include $\det Dh$ since that does not make sense,
-it is $\det D\varphi.$ (also $\varphi$ and $\phi$ were both used by mistake here)
-<li>In Definition 2.1.1, the set $V$ should be assumed nonempty.
-<li>In Definition 2.2.3, replace $T_pM$ with $T_p\partial U.$
-<li>On top of page 44, there is a $\frac{1}{2}$ missing in front of the Hessian
-in the equation that should be $y = \frac{1}{2} x^t H x + E(x).$  Similarly a few lines down.
-<li>Page 49, the computation about 2/3 of the way down, when we plugged in for $w$ in $-\operatorname{Im} w,$ the minus sign disappeared.
+In proof of theorem 1.6.3, 1) the \(\varphi\) need only be defined for \(\xi =
+0.\) 2) The last equality shouldn't include \(\det Dh\) since that does not make sense,
+it is \(\det D\varphi.\) (also \(\varphi\) and \(\phi\) were both used by mistake here)
+<li>In Definition 2.1.1, the set \(V\) should be assumed nonempty.
+<li>In Definition 2.2.3, replace \(T_pM\) with \(T_p\partial U.\)
+<li>On top of page 44, there is a \(\frac{1}{2}\) missing in front of the Hessian
+in the equation that should be \(y = \frac{1}{2} x^t H x + E(x).\)  Similarly a few lines down.
+<li>Page 49, the computation about 2/3 of the way down, when we plugged in
+  for \(w\) in \(-\operatorname{Im} w,\) the minus sign disappeared.
 <li>Page 54, in the proof of Theorem 2.3.10 (tomato can principle).
-In the first displayed equation in the proof, the second $z_1$ is missing a conjugate sign.  In the second displayed equation, the $\lambda$ mysteriously disappeared from the right hand side.
-<li>Page 70, Exercise 2.5.7, clearly the points $p$ should be in $\partial U.$
-<li>In Exercise 4.3.2, $f$ should be defined on $\partial U$ not $U.$
+In the first displayed equation in the proof, the second \(z_1\) is missing a
+conjugate sign.  In the second displayed equation, the \(\lambda\) mysteriously disappeared from the right hand side.
+<li>Page 70, Exercise 2.5.7, clearly the points \(p\) should be in \(\partial
+  U.\)
+<li>In Exercise 4.3.2, \(f\) should be defined on \(\partial U\) not \(U.\)
 </ol>
 
 <p>
@@ -678,9 +701,9 @@ In the first displayed equation in the proof, the second $z_1$ is missing a conj
 <p>
 
 <ol>
-<li>On page 13, the boundary of the bidisk is $\partial {\mathbb{D}}^2 =
+<li>On page 13, the boundary of the bidisk is \(\partial {\mathbb{D}}^2 =
 (\partial {\mathbb{D}} \times \overline{{\mathbb{D}}}) \cup
-(\overline{{\mathbb{D}}} \times \partial {\mathbb{D}}).$  The closures were missing.
+(\overline{{\mathbb{D}}} \times \partial {\mathbb{D}}).\)  The closures were missing.
 <li>Also on page 13, Exercise 1.1.3.  Part b) is not correct as stated.  I will just remove part b) from next version.
 <li>On page 24, in Rothstein's theorem and also in Exercise 1.4.4, the hypothesis of "holomorphic" is missing.
 <li>On page 35, Exercise 2.1.2, it should say every connected component is a domain of holomorphy as the intersection could be disconnected.
@@ -699,10 +722,10 @@ counterexamples.
 <li>Exercise 1.5.1: There is an extra <i>not</i>, that is, "if U is not
 unbounded" should be "if U is unbounded".  The hint hopefully makes it clear
 what was meant.
-<li>Page 45, definition of $T_p^{(1,0)}M,$ the right hand side should have
-intersection with $T_p^{(1,0)} {\mathbb C}^n$ of course, not M.  Same for (0,1) vectors.
+<li>Page 45, definition of \(T_p^{(1,0)}M,\) the right hand side should have
+intersection with \(T_p^{(1,0)} {\mathbb C}^n\) of course, not M.  Same for (0,1) vectors.
 <li>Page 31, at the end of proof of Theorem 1.6.1, Exercise 1.6.3 is used and was forgotten to
-be mentioned, that is the complement of $g^{-1}(0)$ is connected.
+be mentioned, that is the complement of \(g^{-1}(0)\) is connected.
 </ol>
 
 <p>
@@ -713,11 +736,14 @@ These are mostly minor typos.  There were also a bunch of English typos or hard
 to understand sentences that are now fixed.
 
 <ol>
-<li>In Example 2.3.6, for $z_j$ (little $z$) the $j$ runs from $1$ to $n-1,$ not $n.$
-<li>Theorem 2.4.14 as stated only makes sense for proper subsets of ${\mathbb C}^n,$ that is
-the boundary of $U$ better be nonempty.
-<li>In the proof of Theorem 2.4.16, the $j$ should run from 2 to $n-1.$
-<li>In the proof of Proposition 3.1.5, clearly $f$ cannot be defined where $z\zeta = -1,$ not 1.
+<li>In Example 2.3.6, for \(z_j\) (little \(z\)) the \(j\) runs from \(1\) to
+  \(n-1,\) not \(n.\)
+<li>Theorem 2.4.14 as stated only makes sense for proper subsets of
+  \({\mathbb C}^n,\) that is
+the boundary of \(U\) better be nonempty.
+<li>In the proof of Theorem 2.4.16, the \(j\) should run from 2 to \(n-1.\)
+<li>In the proof of Proposition 3.1.5, clearly \(f\) cannot be defined where
+  \(z\zeta = -1,\) not 1.
 </ol>
 
 </main>
