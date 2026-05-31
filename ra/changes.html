@@ -12,11 +12,16 @@
 MathJax = {
   output: {
     font: 'mathjax-pagella'
+  },
+  chtml: {
+    linebreaks: {
+      inline: false
+    }
   }
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js">
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml-nofont.js">
 </script>
 
 </head>
@@ -57,14 +62,14 @@ Numbering has not changed, and essentially no content was added.
 
 <ol>
 <li>Add a little bit more detail about induction starting at
-  a different \(n.\)
-<li>Have Example 0.3.8 start at \(n=0,\) which is more standard
+  a different \(n\text{.}\)
+  <li>Have Example 0.3.8 start at \(n=0\text{,}\) which is more standard
   and demonstrates starting at a different index.
 <li>Improve wording of Exercise 0.3.25.
 <li>In the footnote in Example 1.1.4 about pianos, don't say "implies",
   it "is related to".
 <li>Add a bit more clarity to the proof of Proposition 1.1.11 by mentioning
-  that \(b\) is an arbitrary lower bound for \(A.\)
+  that \(b\) is an arbitrary lower bound for \(A\text{.}\)
 <li>Improve wording of Exercise 1.1.2, that is, use the verb "show" to
   emphasize what is to be proved.  Thanks to Hugo Santarem de Araujo
   for pointing this out.
@@ -78,7 +83,7 @@ Numbering has not changed, and essentially no content was added.
   is a subtle technicality that is easily missed.
 <li>Be a bit more verbose in the proof of (iii) of Proposition 1.3.1.
 <li>In 1.4, add a footnote about bounded intervals and that
-  if we are writing something like \((a,b),\) we always mean a
+  if we are writing something like \((a,b)\text{,}\) we always mean a
   bounded interval unless explicitly specified as possibly infinite.
 <li>In the proof of 1.4.2 (Cantor), define \(b_k\) explicitly to
   make the proof constructive.
@@ -106,19 +111,19 @@ Numbering has not changed, and essentially no content was added.
 <li>Add a sentence about why \(K\) would have to
   be positive in Example 3.4.10.
 <li>In Exercise 3.4.13, emphasize that the hint only
-  applies for positive \(m.\)
+  applies for positive \(m\text{.}\)
 <li>The wording about a limit vs the limit was not
   quite changed completely so fix that in Definition
   3.5.1.
 <li>Improve wording in proof of Lemma 3.5.5 to emphasize
-  that the \(x\) are in the set \(S.\)
+  that the \(x\) are in the set \(S\text{.}\)
 <li>When talking about divergence to infinity, when
   we note that the alternative wording
   "converges to infinity" is sometimes
   used, note that it is slightly incorrect in this
   context.
 <li>In Figure 3.11, mark the point \(f(c)\) with a bold dot to emphasize
-  that it is in \(f(I).\)
+  that it is in \(f(I)\text{.}\)
 <li><b>Fix wording in Exercise 4.1.13</b>, the fact that \(f(x) = x h(x)\)
   for a bounded function \(h\) only applies to part a).
 <li>Reword a bit the geometric intuition for the proof of
@@ -142,8 +147,8 @@ Numbering has not changed, and essentially no content was added.
 <li>In Exercise 4.3.7, we are clearly assuming that \(f\)
   is twice differentiable.
 <li>Fix the definition of Thomae function in Exercise 5.2.11 to
-  explicitly define \(f(0)=1 .\)  That seems the simplest way to fix the issue
-  of \(f(0) .\)
+  explicitly define \(f(0)=1 \text{.}\)  That seems the simplest way to fix the issue
+  of \(f(0) \text{.}\)
 <li>Make the wording in Exercise 5.2.15 more precise to avoid
   misunderstanding about what is being asked.
 <li>In subsection 5.3.3 (change of variables), use \(u\) for the variable
@@ -155,8 +160,8 @@ Numbering has not changed, and essentially no content was added.
   interest rate \(x\) (also call it "interest rate" rather than just
   "interest").
 <li>Improve the wording of Example 6.1.2, by "other \(x\)" we mean points
-  outside of the interval \([-1,1].\)  It is not clear from the wording
-  if we are considering \(f_n\) to have a domain \([-1,1],\)
+  outside of the interval \([-1,1]\text{.}\)  It is not clear from the wording
+  if we are considering \(f_n\) to have a domain \([-1,1]\text{,}\)
   but that is the logical assumption.  So reword the ending and
   talk about \(x^{2n}\) there.
 <li><b>Change Exercise 7.1.11 part c) to fix erratum.</b>  We now require
@@ -194,7 +199,7 @@ Minor update focused on fixing errata and some very minor wording improvements.
 <li>Proposition 2.5.8 is stated as an if and only if to fix an erratum
   (an if and only if was already being proved).
 <li>After the definition of subsequence, in the first example \(
-  \{\frac{1}{3i}\}_{i=1}^\infty ,\) write out the
+  \{\frac{1}{3i}\}_{i=1}^\infty \text{,}\) write out the
   first few terms explicitly.
 <li>In Example 7.3.7, use \([a,b]\) instead of \([0,1]\) for consistency
   with the previous example.
@@ -221,24 +226,24 @@ General changes:
   little wordy since the first thing we do is prove that the limit is 
   unique, I'm starting to feel that this may be contributing to confusion
   about proof writing to students.
-<li>Do not shorten sequences to \(\{ x_n \},\) but always write out
-	\(\{x_n\}_{n=1}^\infty.\)  It seems to me this shorthand is
+  <li>Do not shorten sequences to \(\{ x_n \}\text{,}\) but always write out
+  \(\{x_n\}_{n=1}^\infty\text{.}\)  It seems to me this shorthand is
 	causing more confusion than it is worth, especially with
 	regards to the distinction between set and sequence, and also
 	when working with subsequences.
-<li>Do not shorten sequence limits to \(\lim\, x_n,\) but always write out
-	\(\lim_{n\to\infty} x_n.\)  It seems to me this shorthand is
+	<li>Do not shorten sequence limits to \(\lim\, x_n\text{,}\) but always write out
+  \(\lim_{n\to\infty} x_n\text{.}\)  It seems to me this shorthand is
 	causing more confusion than it is worth, especially
 	when subsequences are introduced.
-<li>Do not shorten series to \(\sum\, x_n,\) but always write out
-	\(\sum_{n=1}^{\infty} x_n.\)  It seems that it is making students
+	<li>Do not shorten series to \(\sum\, x_n\text{,}\) but always write out
+  \(\sum_{n=1}^{\infty} x_n\text{.}\)  It seems that it is making students
 	forget a limit is involved.
-<li>Uniform norm notation is changed to \(\|\cdot\|_K,\)
+	<li>Uniform norm notation is changed to \(\|\cdot\|_K\text{,}\)
   where \(K\) is the set where the supremum is taken.  I've had a number of
   complaints about the \(u\) notation not being very standard.  And this goes
   better with my other books where I use the more standard notation.
 <li>Add parentheses to the notation for "Riemann integrable" for consistency,
-	that is, \(\mathscr{R}([a,b])\) instead of \(\mathscr{R}[a,b] .\)
+  that is, \(\mathscr{R}([a,b])\) instead of \(\mathscr{R}[a,b] \text{.}\)
 <li>Use newpx (Palatino) fonts in the PDF version.  The line length has gotten slightly
   shorter to improve readability.
 <li>7 new exercises.
@@ -263,7 +268,8 @@ Specific larger changes:
   rather than defining two different bounds.
 <li>As per suggestions name 2.1.10 the "Monotone convergence theorem"
   and therefore make it a Theorem rather than a Proposition.
-<li><b>Exercise 2.2.9, add hypothesis that \(x_n\not=x\) for all \(n.\)</b>
+  <li><b>Exercise 2.2.9, add hypothesis that \(x_n\not=x\) for all
+      \(n\text{.}\)</b>
 	It is implied in that the limit makes sense,
 	but it should be stated explicitly.
 <li>Replace Example 2.4.3 with a more useful example, one that isn't Cauchy.
@@ -281,7 +287,7 @@ Specific larger changes:
 <li>Add Figure 3.1 for Example 3.1.6 where limit is different from
   value (renumbers all figures in chapter 3).
 <li>In Corollaries 3.1.9, 3.1.10, 3.1.11, the hypothesis is only needed
-	for all \(x \in S \setminus \{ c \},\) as we do in all the other
+  for all \(x \in S \setminus \{ c \}\text{,}\) as we do in all the other
 	results of this section.  The way it is stated could
 	be confusing, so change them to this hypothesis.  (It is equivalent
 	because one can always replace \(S\) with \(S \setminus \{ c \} \)
@@ -329,7 +335,7 @@ Specific larger changes:
 <li>Move the remark about subspaces not being complete after Proposition
   7.4.5 as it makes more sense that way.
 <li>In Definition 7.4.7, Example 7.4.8, and the proof of Proposition 7.4.9,
-  use \(m\) instead of \(k\) to avoid overusing the letter \(k,\) to make
+  use \(m\) instead of \(k\) to avoid overusing the letter \(k\text{,}\) to make
   it easier to talk about the proof.
 <li>Add a paragraph after Proposition 7.4.9 emphasizing the difference
   between compactness and closedness in the sense that "compact" doesn't
@@ -348,16 +354,16 @@ Smaller changes:
 <ol>
 <li>Many minor rephrasings and rewordings for added clarity.
 <li>In the definition of \(S\) in the proof of Theorem 0.3.6,
-  use \(n,\) to avoid overloading of \(m.\)
+  use \(n\text{,}\) to avoid overloading of \(m\text{.}\)
 <li>Say that \(A\) is a set in Cantor to be a bit more precise.
 <li>Simplify parts (iii) and (iv) of Definition 1.1.2.
 <li>In proof of part (v) of 1.1.8, should just use the definition rather than
   part (ii) of the proposition.
 <li>Improve wording around Proposition 1.2.2, remove some unnecessary words
-	and explicitly state the version with \(|x|,\) which is a common
+  and explicitly state the version with \(|x|\text{,}\) which is a common
 	statement.
 <li>In the proof of 1.2.6, use \(c\) instead of \(b\) for the second
-  inequality to avoid overloading \(b.\)
+  inequality to avoid overloading \(b\text{.}\)
 <li>Improve slightly the wording in the examples after definition of a limit
 	of a sequence.
 <li>After Proposition 2.1.10, make a remark about monotone sequences and
@@ -443,7 +449,7 @@ Smaller changes:
   possibly assigning this type of problem twice.
 <li>In Proof of Proposition 5.1.7, use (in addition to changing \(j\) to
   \(i\)) \(q\) instead of \(p\) since I just realized that this is a
-  terrible name since the partition is \(P.\)  Also changes Figure 5.2.
+  terrible name since the partition is \(P\text{.}\)  Also changes Figure 5.2.
 <li>Before Proposition 5.1.13, refer to Figure 5.1 for intuition of what
   the difference of the upper and lower sums measures.
 <li>Explicitly mention in the beginning of the proof of Lemma 5.2.7
@@ -453,7 +459,7 @@ Smaller changes:
 <li>Improve the wording of Exercise 6.1.10.
 <li>Reorganize the setup in proof of Proposition 7.2.11 a bit.
 <li>Add a small note after Heine-Borel (7.4.14) to emphasize it does not
-  hold in subspaces of \({\mathbb{R}}^n.\)
+  hold in subspaces of \({\mathbb{R}}^n\text{.}\)
 <li>In Exercise 7.5.2, reference the figure with the graph.
 <li>Rewrite Proposition 7.4.9 to emphasize in which direction the
   implication goes.
@@ -484,10 +490,10 @@ slightly in a couple of places.
 <li>In the equation in the introductory paragraph of section 6.2, multiply
   both top and bottom of the fraction by \(k\) as \(\frac{n}{n+k}\) is much
   easier to read (and the point is just as well made) than
-  \(\frac{\frac{n}{k}}{\frac{n}{k} + 1}.\)
+  \(\frac{\frac{n}{k}}{\frac{n}{k} + 1}\text{.}\)
 <li>In the introduction to 6.2, do not mention just two types of exchanges,
   we cover four.
-<li>In Theorem 6.2.2, say explicitly that \(S \subset {\mathbb{R}}.\)  (The
+  <li>In Theorem 6.2.2, say explicitly that \(S \subset {\mathbb{R}}\text{.}\)  (The
   proof works word for word in any metric space, but we haven't covered
   metric spaces yet.)
 <li>Add a footnote to before Theorem 6.2.4 since I always mention this in
@@ -506,9 +512,9 @@ slightly in a couple of places.
   \(\epsilon\) since those are two different numbers, that should clear
   up the proof a little bit.
 <li>Add a note after definition of the interior that alternately it is the
-  union of open sets inside \(A.\)  Also note that the definition
-  says gives that the interior is a subset of \(A,\) but points of
-  boundary may be inside or outside \(A.\)
+  union of open sets inside \(A\text{.}\)  Also note that the definition
+  says gives that the interior is a subset of \(A\text{,}\) but points of
+  boundary may be inside or outside \(A\text{.}\)
 <li>The footnote about Buniakovsky now correctly identifies him as
   Ukrainian (he was born near Vinnytsia in west-central Ukraine).
 <li>Due to some minor edits, the pagination improved slightly by the proof
@@ -525,7 +531,7 @@ slightly in a couple of places.
   estimate is easier.  Avoids unnecessary reference to chapter 6.
 <li>In the beginning of the proof of the fixed point theorem in 7.6, decouple
   the first displayed inequality.  Do one step, then say "do \(n\) more steps"
-  and then write down the inequality with \(k^n.\)
+  and then write down the inequality with \(k^n\text{.}\)
 <li>Fix the <a href="errata.html">errata</a> from the last revision.
 </ol>
 
@@ -565,21 +571,22 @@ Since exercise changes are critical to not miss, they are marked in bold below.
   give the example before the proof.  It is not really part of the "proof" of
   the statement itself.
 <li>In the proof of Example 1.2.3, the second displayed estimate, the \(h\) is
-  given as an equality, so the last \(\leq\) is actually \(=.\)
+  given as an equality, so the last \(\leq\) is actually \(=\text{.}\)
   Also show explicitly that \(s-h &gt; 0\) to fix erratum.
 <li>Improve the wording of proof of 1.4.2, also in the same proof the sets
-  \(A\) and \(B\) were being defined but we only used \(=\) and not \(:=.\)  Also,
-  change \(b_k\) to just be any number in \((a_k,b_{k-1}),\) that is simpler and
+  \(A\) and \(B\) were being defined but we only used \(=\) and not
+  \(:=\text{.}\)  Also,
+  change \(b_k\) to just be any number in \((a_k,b_{k-1})\text{,}\) that is simpler and
   sufficient.
 <li>In Definition 2.1.9, move the "Some authors use the word monotonic." to a
   footnote to simplify the definition.
 <li>After definition 2.1.9 mention \(\{ n \}\) as an example of a monotone
   increasing sequence.
 <li>Simplify the proof of Proposition 2.1.10.  Don't say anything about the
-  \(B,\) we never use the bound, just say the set of values is bounded, that is
+  \(B\text{,}\) we never use the bound, just say the set of values is bounded, that is
   good enough to compute the supremum.
 <li>After Definition 2.1.16, explicitly mention what we mean by a subsequence
-  by writing \(x_{n_1},x_{n_2},x_{n_3},\ldots.\)
+  by writing \(x_{n_1},x_{n_2},x_{n_3},\ldots\text{.}\)
 <li><b>Add Exercise 2.1.23</b>
 <li>In Proposition 2.2.11, recast the proof of unboundedness to not be a
   contradiction proof.  It's the same idea, but it avoids having to explain
@@ -606,9 +613,10 @@ Since exercise changes are critical to not miss, they are marked in bold below.
   Perhaps that will make students not start on the wrong path of starting with
   some \(L\) existing rather than proving that it exists.</b>
 <li>When proving the Thomae function (3.2.12) is continuous at irrational
-  numbers, note that since the limit of \(\{ x_n \}\) is \(c,\) then every
+  numbers, note that since the limit of \(\{ x_n \}\) is \(c\text{,}\) then every
   rational number is in the sequence at most finitely many times.
-<li>At the end of example 3.2.13, mention that \(g\) is in fact continuous on \(B.\)
+<li>At the end of example 3.2.13, mention that \(g\) is in fact continuous on
+  \(B\text{.}\)
 <li>After proof of Lemma 3.3.1, add a short paragraph highlighting the use of
   Bolzano-Weierstrass, to emphasize the technique.  It changes the pagination
   of 3.3 a tiny bit (inadvertently getting less jarring page breaks)
@@ -622,14 +630,14 @@ Since exercise changes are critical to not miss, they are marked in bold below.
 <li><b>In Exercise 4.1.15 (simple L'Hospital's rule) note that the limit of the
   quotient of derivatives must exist, no need to "suppose" it, we're assuming
   here that the derivatives are continuous and the denominator is never
-  zero.  Also assume that \(g(x)\not= 0\) if \(x \not= c.\)  While it can be
-  proved that \(g(x) \not= 0\) in some neighborhood of \(c,\) that was not
+  zero.  Also assume that \(g(x)\not= 0\) if \(x \not= c\text{.}\)  While it can be
+  proved that \(g(x) \not= 0\) in some neighborhood of \(c\text{,}\) that was not
   intended in this simple version.</b>
 <li><b>Added Exercise 4.1.16 to keep this sort of exercise explicitly.  That
-  is, if \(f'(c) > 0,\) then show that \(f(x)\) is negative a bit before \(c\)
-  and positive for a bit after \(c,\) thus zero only at \(x=c.\)</b>
+    is, if \(f'(c) > 0\text{,}\) then show that \(f(x)\) is negative a bit before \(c\)
+    and positive for a bit after \(c\text{,}\) thus zero only at \(x=c\text{.}\)</b>
 <li>Be a little bit more precise in the proof of Lemma 4.2.2 to say that
-  all the \(x\) and the \(y\) are still within \(\delta\) of \(c.\)
+  all the \(x\) and the \(y\) are still within \(\delta\) of \(c\text{.}\)
 <li>In the proof of Proposition 4.2.6 (and also 4.2.7) note explicitly
   that \([x,y] \subset I\) because \(I\) is an interval.
 <li><b>In Exercise 4.2.9, add a note that the student needs to prove that
@@ -637,12 +645,12 @@ Since exercise changes are critical to not miss, they are marked in bold below.
   equality makes any sense at all.</b>
 <li><b>In Exercise 4.3.2, ask about the \(d\)th Taylor polynomial, not the
   \((d+1)\)th, that was a typo.  Though of course the exercise is still true
-  for \(d+1.\)</b>
+  for \(d+1\text{.}\)</b>
 <li>In Definition 5.1.6 and proof of Proposition 5.1.7 use \(\ell\) instead of
   \(m\) since \(m\) is used all over the place for a minimum of the function.
 <li>In proof of 5.3.5, explicitly mention the domain of \(F\) for clarity.
 <li>In Propositions 7.2.6 and 7.2.8 explicitly mention that the sets are
-  subsets of \(X.\)
+  subsets of \(X\text{.}\)
 <li>Throughout get rid of the use of the word "any" where it could be ambiguous.
 <li>Fix a couple of uses of "=" where ":=" is more appropriate.
 <li>Improve the typesetting of some statements.
@@ -704,7 +712,7 @@ Since exercise changes are critical to not miss, they are marked in bold below.
 <ol>
 <li>Remove the note before Exercise 7.2.12.  It is obsolete and could be
 confusing as we have already defined "subspace topology" above.
-<li>Note after Definition 0.3.13 that \(R(f)=f(A).\)
+<li>Note after Definition 0.3.13 that \(R(f)=f(A)\text{.}\)
 <li>Add very small example to composition of functions after Definition
   0.3.18.
 <li>Add a couple of sentences about why existence of a bijection is
@@ -733,7 +741,7 @@ function is bounded is necessary.
 <p>
 
 <ol>
-<li>When introducing power series, explicitly mention \(0^0=1.\)
+  <li>When introducing power series, explicitly mention \(0^0=1\text{.}\)
 <li>Links are now https.
 <li>Fix the <a href="errata.html">errata</a> from the last revision.
 </ol>
@@ -799,9 +807,9 @@ Numbering didn't change.
 <li>Change the look of the figures to match the Volume II and
 to better visually distinguish them from the surrounding text.
 <li>Change the "basic analysis result" to \(x \leq \epsilon\)
-for all \(\epsilon &gt; 0\) implies \(x \leq 0.\)  This better fits the mantra that
+  for all \(\epsilon &gt; 0\) implies \(x \leq 0\text{.}\)  This better fits the mantra that
 in analysis we prove inequalities, and separates out the idea that to show
-\(x=0\) one proves \(x \leq 0\) and \(x \geq 0.\)
+\(x=0\) one proves \(x \leq 0\) and \(x \geq 0\text{.}\)
 <li>Add a short paragraph about naming of Theorem vs Proposition vs Lemma vs
 Corollary to answer a common question.
 <li>Add a subsection on relations, equivalence relations,
@@ -823,7 +831,7 @@ is no point in going into the distinction and it just confuses students.
 <li>Add Exercises 1.1.11, 1.1.12, 1.1.13, 1.1.14.
 <li>Add footnote on impossibility of tuned pianos and rational roots
 <li><b>In Proposition 1.2.2 simplify matters by changing the statement to not
-assume that \(x \geq 0.\)</b>  The original statement is given in the paragraph
+    assume that \(x \geq 0\text{.}\)</b>  The original statement is given in the paragraph
 below as a remark.
 <li>Add figure to proof of the density of \(\mathbb{Q}\) in section 1.2.
 <li>Add Exercise 1.2.14, 1.2.15, 1.2.16, 1.2.17.
@@ -841,7 +849,7 @@ with general usage, define what "unbounded closed" and
 <li>In Exercise 1.4.6, be more explicit about what the intersection of closed
 intervals is, and explicitly mention boundedness.
 That is, say the intersection is
-\(\cap_{\lambda \in I} [a_\lambda,b_\lambda].\)
+\(\cap_{\lambda \in I} [a_\lambda,b_\lambda]\text{.}\)
 <li>Add Exercise 1.4.10.
 <li>In Proposition 1.5.1, add the inequalities for all representations as well,
 since we use these facts later.  Also add the detail of the proof as it is
@@ -876,7 +884,7 @@ definition for bounded sequences.
 <li>Add figure to the example of geometric series with 1/2.
 <li>Make the geometric series into a Proposition as we use it quite a bit.
 Also use geometric series as an example for the divergence if terms do not
-go to 0, that is when \(r \notin (-1,1).\)
+go to 0, that is when \(r \notin (-1,1)\text{.}\)
 <li>Mention the "infinite triangle inequality" in text in 2.5,
 I always do in class.
 These two things renumber the subsequent examples, propositions, etc. in 2.5
@@ -1122,8 +1130,8 @@ monotone functions and continuity in general.
 relative extremum is a critical point and the second illustrating the function
 with a discontinuous derivative.
 <li>Add very short example in 4.2 showing that differentiability is necessary for Rolle's theorem.
-<li>In Rolle's theorem, don't assume \(f(a)=f(b)=0,\) simply assume
-\(f(a)=f(b).\)  I am not sure why I did that originally.
+  <li>In Rolle's theorem, don't assume \(f(a)=f(b)=0\text{,}\) simply assume
+  \(f(a)=f(b)\text{.}\)  I am not sure why I did that originally.
 Since I was at it I also rewrote the proof Rolle's to be a little clearer.
 <li>Add Exercises 4.2.11, 4.2.12.
 <li>Add Exercises 4.3.7, 4.3.8.
@@ -1148,7 +1156,7 @@ to the exercises.
 <li>In Proposition 7.2.14 add nonempty as hypothesis.  Better that than to rely on a technicality of our definition of connected.
 <li>Include the reverse direction in Proposition 7.3.10, and refer to Exercise 7.3.1 in the proof.
 <li>In Propositions 7.3.7 and 7.4.4, stop using superscripts for sequences in
-  \({\mathbb{R}}^n.\)  Seems to confuse students more,
+  \({\mathbb{R}}^n\text{.}\)  Seems to confuse students more,
   so use a double subscript.  Perhaps that works better, they are more used to it.
 <li>Add Example 7.4.12 (discrete metric counterexample),
 and a few add notes on the results throughout 7.4
@@ -1187,7 +1195,7 @@ to, removed those labels.
 <li>Many minor improvements in grammar, style, and exposition.
 <li>Fix the <a href="errata.html">erratum</a> from the last revision, that is,
 Exercise 2.6.11 part c) was unsolvable due to a missing piece of the
-definition of \(a_n.\)
+definition of \(a_n\text{.}\)
 </ol>
 
 <p>
@@ -1216,7 +1224,7 @@ put it in the index.
 <li>In Exercise 5.4.4, in the "Finally" comment, the answer was included
 leaving the reader possibly confused as to what they are to do.
 <li>In chapter 6, there were quite a few places where a sequence of
-functions was simply referred to as \(f_n\) rather than \(\{ f_n \},\)
+  functions was simply referred to as \(f_n\) rather than \(\{ f_n \}\text{,}\)
 so fix that.
 <li>Go on an anti-"that" offensive as it is overused  and just
 contributes to "wordiness" in many places.
@@ -1340,7 +1348,7 @@ This caused some more renumbering in in 7.4.
 <li>Add examples 7.5.3 and 7.5.8, which caused a <b>slight renumbering in 7.5</b> and it move Section 7.6 up a page.
 <li>Make Proposition 7.2.11 into an if and only if and change the
 assumption on the intersection to \(U_1 \cap U_2
-\cap S \not= \emptyset.\)
+\cap S \not= \emptyset\text{.}\)
 <li>Improve exposition in a number of places in chapter 7.
 <li>Use \(\lambda\) instead of \(\iota\) for an index for the arbitrary
 unions and intersections.
@@ -1363,9 +1371,9 @@ The following changes are suggestions from Paul Vojta:
 <ol>
 <li>In Subsection 1.2.3, add the elementary Proposition 1.2.8 (proof left to
 reader) about suprema and existence of x arbitrarily close. This led to <b>renumbering</b> as Definition 1.2.8 became Definition 1.2.9.
-<li>In Exercise 1.2.2: change \(t &gt; 0\) to \(t \geq 0,\) which makes it more natural.
+<li>In Exercise 1.2.2: change \(t &gt; 0\) to \(t \geq 0\text{,}\) which makes it more natural.
 <li>Mark Exercise 2.5.7 as challenging.
-<li>In corollary 3.1.12 (iv) no need to require that \(g(c) \neq 0.\)
+  <li>In corollary 3.1.12 (iv) no need to require that \(g(c) \neq 0\text{.}\)
 <li>In Exercise 4.2.4, require that the sequence converges to c.
 <li>Provide alternative reverse directions of Lemma 3.1.7 and Proposition 3.2.2 (ii) as Exercises 3.1.11 and 3.2.13
 <li>Several improvements in grammar and style, and several minor typos.
@@ -1449,7 +1457,7 @@ Beatrous)
 <ol>
 <li>The proof of Prop 1.2.2 actually proved a stronger result, that is
 we only need to assume that \(0 \leq x \leq \epsilon\) instead
-of \(0 \leq x &lt; \epsilon.\)
+of \(0 \leq x &lt; \epsilon\text{.}\)
 So state it as such (the "weaker" statement has a simpler proof by
 taking \(x=\epsilon\)).
 <li>Add Exercise 6.2.11.
@@ -1480,7 +1488,7 @@ a cluster point of S, not A.
 <ol>
 <li>In Exercise 1.3.4, the functions f and g are of course bounded as
 in Proposition 1.3.7. (Glen Pugh)
-<li>Fix proof of Proposition 2.2.5 part (iii) was off if \(y=0.\) (Glen Pugh)
+<li>Fix proof of Proposition 2.2.5 part (iii) was off if \(y=0\text{.}\) (Glen Pugh)
 <li>Fix the definition of the function defined in the beginning of Example
 6.2.3 to match the graph on Figure 6.3.
 <li>In Example 4.2.10, finish the argument showing that \(f'\)
@@ -1513,7 +1521,7 @@ all.  The pagination has essentially not changed either.
 <ol>
 <li>On bottom of page 11, the counter-example for swapping intersection and union
 didn't work due to a typo.  The set is defined by
-\(\{ k \in \mathbb{N} \mid mk &lt; n \}.\)  Thanks to Glen Pugh.
+\(\{ k \in \mathbb{N} \mid mk &lt; n \}\text{.}\)  Thanks to Glen Pugh.
 <li>Few extra internal hyperlinks.
 <li>Some minor clarifications and grammar fixes.
 </ol>
@@ -1569,10 +1577,11 @@ All the errata fixed were found thanks to Jana Ma&#345;&#237;kov&aacute;.
 <li>p.15, Def. 0.3.18: \(f\) and \(g\) were switched in the definition.
 <li>p.21, Def. 1.1.2: the definition of lower bound was missing
 <li>p.22, Def. 1.1.3: need to assume that \(E\) is nonempty
-<li>p.61, \(y=\frac{b_k - a_k}{2}\) should be \(y=\frac{a_k + b_k}{2}.\)
+  <li>p.61, \(y=\frac{b_k - a_k}{2}\) should be \(y=\frac{a_k +
+    b_k}{2}\text{.}\)
 <li>p.66, \(b:=\liminf x_n\) should be \(b:=\limsup x_n\)"
-<li>p.87, "Fix \(c \in (0,\infty).\)" should be
-  "Fix \(c \in (-\infty , \infty).\)"
+  <li>p.87, "Fix \(c \in (0,\infty)\text{.}\)" should be
+    "Fix \(c \in (-\infty , \infty)\text{.}\)"
 <li>p.87, "x" was missing the lower index "n"
 <li>p.102, Exercise 3.4.5: A and B are assumed to be intervals with nonempty
 intersection for the exercise to be possible.  Add second part to find a counterexample where A and B  are disjoint.
@@ -1607,7 +1616,7 @@ all.  The pagination has essentially not changed either.
 <ol>
 <li> Fixed typo in proof of Proposition 5.2.4 (there were a bit too many alphas around)
 <li> The proof of Picard's theorem does not require us to assume that an
-interval of radius \(2\alpha\) around \(y_0\) is in \(J.\)
+  interval of radius \(2\alpha\) around \(y_0\) is in \(J\text{.}\)
 \([y_0-\alpha,y_0+\alpha]\) suffices.
 <li> Add hint to Exercise 5.2.2.
 <li> Note use of Proposition 5.1.8 in Example 5.1.12 and explicitly allow its

@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Basic Analysis: Introduction to Real Analysis: Errata</title>
-<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
-<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<link rel="stylesheet" type="text/css" href="../basicstyle.css">
+<link rel="stylesheet" type="text/css" href="../bookpages.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="unsafe-url">
 <script>
@@ -13,14 +13,15 @@ MathJax = {
   output: {
     font: 'mathjax-pagella'
   },
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  },
-  processEscapes: true,
+  chtml: {
+    linebreaks: {
+      inline: false
+    }
+  }
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js">
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml-nofont.js">
 </script>
 </head>
 
@@ -39,19 +40,18 @@ MathJax = {
 
 <main>
 <p>
-Every book (no matter how much you paid for it) has errors and typos, especially
-text that is new in a given edition.
-I try to be as transparent as possible about any errors found, and I try to fix them
-as quickly as possible.  Please do let me know if you find any errors or typos, so that
+Every book (no matter how much you paid for it) has errors and typos,
+especially text that is new in a given edition.
+I try to be as transparent as possible about any errors found,
+and I try to fix them as quickly as possible.
+Please do let me know if you find any errors or typos, so that
 they may be fixed.  A free book relies on readers sending in corrections.
 
 <p>
-This page lists errors in the various editions.  Nonmathematical
-typos,
+This page lists errors in the various editions.  Nonmathematical typos,
 misspellings, and grammar or style problems are not listed here.
 Also not listed are things that were correct but simply deserved improvement.
-Of course, older editions
-may suffer from recently discovered errata as well.
+Of course, older editions may suffer from recently discovered errata as well.
 
 <p>
 <b>May 15th 2026 edition, Version 6.3 (edition 6, 3rd update):</b>
@@ -77,58 +77,60 @@ No known errata.
 the example of the subsequence when written out should not start with 1,
 it should say "\(\frac{1}{3},\frac{1}{6},\frac{1}{9},\ldots\)".
 <li>Page 80, Example 2.3.14: The set \(\{ b_n : k \geq n \}\) should be
-\(\{ x_n : k \geq n \} .\)
-<li>Page 82, Exercise 2.3.17: We recall the definitions of \(a_n\) and \(b_n,\)
+  \(\{ x_n : k \geq n \} \text{.}\)
+<li>Page 82, Exercise 2.3.17: We recall the definitions of \(a_n\) and
+  \(b_n\text{,}\)
 but the definition of \(b_n\) has a typo, it should be an infimum not
 a supremum (as is the definition in the body of the section).
 <li>Page 85, in the final in-text example on the bottom of the page it should
   say \(x_{n+1}-x_n=\frac{1}{n+1}\) if we use the standard partial sums
   for the harmonic series as given in Example 2.5.11.
 <li>Page 86, Exercise 2.4.2: The condition should be assumed for all
-  \(n \geq 2\) as it makes no sense for \(n=1.\)
-<li>Page 98, Exercise 2.5.5:  When it says "for each \(i \in \mathbb{N},\)"
-  it should just say "for each \(i,\)" or perhaps
-  "for each \(i=1,2,\ldots,n,\)".
+  \(n \geq 2\) as it makes no sense for \(n=1\text{.}\)
+  <li>Page 98, Exercise 2.5.5:  When it says "for each \(i \in
+    \mathbb{N}\text{,}\)"
+    it should just say "for each \(i\text{,}\)" or perhaps
+    "for each \(i=1,2,\ldots,n\text{,}\)".
 <li>On page 101, in the proof of Proposition 2.6.2, \(s_m\) is not defined correctly, the
-\(k\) should be an \(n,\) that is, it should be
-\(s_m := \sum_{n=1}^m {(-1)}^n x_n.\)
+  \(k\) should be an \(n\text{,}\) that is, it should be
+\(s_m := \sum_{n=1}^m {(-1)}^n x_n\text{.}\)
 <li>On page 103, in Example 2.6.4, the definition of \(N'\) is not given
   right, it should really be the last element we subtract (same sort of
   definition as for \(N\)).  The confusion between the definitions
   also entered some of the arguments, so in the estimate, both partial sums
   should be up to \(N\) and \(N'\) respectively.  In the text following,
-  we should say the sum up to \(N'\) rather than \(N'-1 .\)
+  we should say the sum up to \(N'\) rather than \(N'-1 \text{.}\)
 <li>On page 111, in Exercise 2.6.10 part a) there is a minor technicality,
-  it should say that \(b_n &gt; 0\) for \(n &gt; 1.\)
+  it should say that \(b_n &gt; 0\) for \(n &gt; 1\text{.}\)
 <li>On page 111, in Exercise 2.6.11 part b), it should say the series sums in the sense of
 Cesàro to \(\frac{-1}{2}\)
-not \(\frac{1}{2}.\)
+not \(\frac{1}{2}\text{.}\)
 <li>On page 128, in the hint for Exercise 3.2.16, the equality should be shown for
-  nonzero rational \(x.\)
+  nonzero rational \(x\text{.}\)
 <li>On page 135, in Example 3.3.11, the case \(k=1\) is trivial, but it
-  should be noted as the proof assumes that \(k \geq 2.\)
+  should be noted as the proof assumes that \(k \geq 2\text{.}\)
 <li>On page 148, Exercise 3.5.8 is missing that
-  \(x_n \in S \setminus \{ c \} \) for every \(n.\)
+  \(x_n \in S \setminus \{ c \} \) for every \(n\text{.}\)
 <li>On page 148, in Exercise 3.5.9 the expression should only be used for
-  \(x \not= 0\) and \(g(0)\) should be defined as \(f(0).\)
+  \(x \not= 0\) and \(g(0)\) should be defined as \(f(0)\text{.}\)
 <li>On page 160, in Exercise 4.1.3, the fact that \(f(x) = x h(x)\)
   for a bounded function \(h\) only applies to part a), but the current
   wording is unclear.
 <li>On page 198, in Exercise 5.2.11, we're saying the function should be
-  defined for \([0,1],\) but then the expression we give does not work for 0.
+  defined for \([0,1]\text{,}\) but then the expression we give does not work for 0.
   It does not really matter what \(f(0)\) is.   Letting it equal 1 seems most
   consistent.
 <li>In the reference to Figure 5.5 on page 200, the text says
-that the area of <i>i</i>th rectangle is \(F(x_{i+1})-F(x_{i-2}),\)
+  that the area of <i>i</i>th rectangle is \(F(x_{i+1})-F(x_{i-2})\text{,}\)
 but it should say that is the sum of the areas of the three rectangles
 pictured.
 <li>On page 209, on the bottom of the page the limits should be
-  as \(x \to -\infty\) and \(x \to \infty\) not \(n .\)
+  as \(x \to -\infty\) and \(x \to \infty\) not \(n \text{.}\)
 <li>On page 210, in the proof of the uniqueness,
   the property \(E(x)E(-x)=1\) follows from the computation just done,
   since we are not assuming (iv) we should not use it.
-<li>On page 212, Exercise 5.4.6 part a) should be for \(n \geq 2 .\)
-  While it is possible to interpret the sums as zero for \(n=1 ,\) it is not
+  <li>On page 212, Exercise 5.4.6 part a) should be for \(n \geq 2 \text{.}\)
+    While it is possible to interpret the sums as zero for \(n=1 \text{,}\) it is not
   really relevant.
 <li>On page 264, in Exercise 7.1.11 part c), the condition that \(m \not= n \)
   is missing.  Otherwise it is trivial and not what was intended.
@@ -138,7 +140,7 @@ pictured.
   "totally disconnected" here, it reads as if it were the definition.
   I will just make it say "totally separated" in the next revision.
 <li>On page 279, in the proof of 7.4.2, in the estimate,
-  the \(x\) should be a \(p.\)
+  the \(x\) should be a \(p\text{.}\)
 </ol>
 
 <p>
@@ -148,9 +150,8 @@ pictured.
 <ol>
 <li>In Exercise 1.2.17 part a, in the last equality the \(m\) and
 the \(k\) are swapped.  It should say
-\({(x^{1/q})}^p = {(x^{1/k})}^m.\)
-Thanks to 
-Salven V. DeMartino for noticing.
+\({(x^{1/q})}^p = {(x^{1/k})}^m\text{.}\)
+Thanks to Salven V. DeMartino for noticing.
 <li>In Exercise 2.3.10, in the hint it should really use \(x_m \leq x_n\) for
 the definition of "peak" since we are using \(a_n\) with a specific meaning in
 this section which would be the wrong interpretation of the hint.
@@ -175,7 +176,7 @@ use it later.  Thanks to Adnan Hashem Mohamed for noticing.
 <li>After Definition 0.3.23 when talking about what transitivity does, the letters
 don't map directly to the definition 0.3.21.  While it's not incorrect, it is
 unnecessarily confusing, it should say that \(b \in [a]\) and \(c \in [b]\)
-implies \(c \in [a].\)  Thanks to Sam Merat.
+implies \(c \in [a]\text{.}\)  Thanks to Sam Merat.
 <li>In Exercises 1.3.8 and 1.3.9, the hypothesis that \(D\) is nonempty is
   missing.  Thanks to Harold Boas.
 <li>In Exercise 1.4.9, to explain what a polynomial with integer
@@ -183,38 +184,41 @@ coefficients is, we write "where all \(a_n \in \mathbb{Z}\)", but \(n\)
 was already used for the degree.  Will replace with
 "where \(a_0,a_1,\ldots,a_n \in \mathbb{Z}\)."
 <li>In section 1.5, in proof of Proposition 1.5.3, the remainder \(\frac{r_{n-1}}{10^n q}\)
-should be \(\frac{r_{n-1}}{10^{n-1} q} .\)  There are two places where this
+  should be \(\frac{r_{n-1}}{10^{n-1} q} \text{.}\)  There are two places where this
 appears, once in the text and once in the displayed inequality.  Thanks to Arnold Cross
 for noticing this.
-<li>In Exercise 2.2.9, it is not explicitly stated that \(x_n\not=x\) for all \(n,\)
+<li>In Exercise 2.2.9, it is not explicitly stated that \(x_n\not=x\) for all
+  \(n\text{,}\)
 it should be.
 <li>In the proof of Proposition 2.6.2, the odd sum should be
  \(s_{2n+1} = s_{2n}-x_{2n+1}\) (the sign is wrong),
 and correspondingly that should be used in the estimate below.
 <li>In Example 3.2.8 we say that the range of \(\sin\) is \((-1,1)\) when
-we clearly mean \([-1,1].\)
+  we clearly mean \([-1,1]\text{.}\)
 <li>The labels on the axis in Figure 3.3 are off, they should all be negative.
-<li>In Example 3.3.11, we forget to mention that \(c \in (a,b)\) and then we write \(f(y)=c\) instead of \(f(c)=y.\)  This is
+<li>In Example 3.3.11, we forget to mention that \(c \in (a,b)\) and then we
+  write \(f(y)=c\) instead of \(f(c)=y\text{.}\)  This is
 correctly stated in the corresponding exercise (3.3.4).
 <li>In Exercise 4.3.8, it should say "faster than \(x^2\)" not
   "faster than \(x^3\)".  Thanks to Harold Boas.
 <li>In the proof of Proposition 6.1.10, in the second part, it says
   "... find an \(N\) such that \(|f_n(x)-f(x)|\) ..." where that should say
-  "... find an \(N\) such that for all \(n \geq N,\) we have \(|f_n(x)-f(x)|\) ..."
-<li>In Remark 6.3.7, the \(H\) was defined and used as a function of \(t\) not \(x,\)
+  "... find an \(N\) such that for all \(n \geq N\text{,}\) we have \(|f_n(x)-f(x)|\) ..."
+<li>In Remark 6.3.7, the \(H\) was defined and used as a function of \(t\)
+  not \(x\text{,}\)
 but \(t\) should only be used as a dummy variable under the integral sign.  In
-particular, \(y'=H(t)\) should be \(y' = H(x).\)
+particular, \(y'=H(t)\) should be \(y' = H(x)\text{.}\)
 <li>In the proof of Proposition 7.5.12, it starts with letting
-\(\{y_n\}_{n=1}^\infty\) being a sequence converging to \(y.\)  This sequence
+  \(\{y_n\}_{n=1}^\infty\) being a sequence converging to \(y\text{.}\)  This sequence
 is not needed, the first sentence should just say something like
 "Fix \(y \in [c,d]\)."  That proof was changed in version 5.6 to avoid
 dependence on chapter 6, but I forgot to remove the second part of the
 first sentence.  This applies only to version 5.6, if you have an older
 version that sequence is used, so there is no erratum.
 <li>In the integral equation before Picard's theorem in section 7.6,
-  the integral should start at \(x_0.\)  We assume in the proof
-  that \(x_0 = 0,\) but we haven't done so yet.
-<li>In Exercise 7.6.11, the index in the series is \(n\) not \(j.\)
+  the integral should start at \(x_0\text{.}\)  We assume in the proof
+  that \(x_0 = 0\text{,}\) but we haven't done so yet.
+  <li>In Exercise 7.6.11, the index in the series is \(n\) not \(j\text{.}\)
 </ol>
 
 <p>
@@ -227,7 +231,8 @@ difficult for this level.  (Also, if we allowed the use of
 Cantor-Bernstein-Schröder theorem, it would be unnecessary.) To make matters
 worse, the hint that was added at some point just made things more rather than
 less confusing.  Best to replace the exercise with the alternative from the
-footnote: Construct an injection from \([0,1] \times [0,1]\) to \([0,1],\) to keep
+footnote: Construct an injection from \([0,1] \times [0,1]\) to
+\([0,1]\text{,}\) to keep
 it a more challenging exercise, describe the set of numbers not in the image.
 That is what it will be in the next revision.
 <li>In Exercise 4.3.6, it asks to show that a function is continuous without giving a definition of the value at the point.  Really it should just say
@@ -249,24 +254,24 @@ to avoid a technicality.
 <li>Example 0.3.32 is a bit too informal and just leaves out
 0 and the negatives.
 <li>In the proof of Example 1.2.3, the fact that \(s-h &gt; 0\) is recalled, but it wasn't explicitly shown, though it's not hard by direct computation:
-\(s-h=\frac{s}{2}+\frac{1}{s} &gt; 0.\)
+  \(s-h=\frac{s}{2}+\frac{1}{s} &gt; 0\text{.}\)
 <li>In the proof of Theorem 1.4.2, when the sets \(A\) and \(B\) are defined it
-should use \(:=\) and not simply \(=.\)  Also it doesn't explicitly say that we are
+  should use \(:=\) and not simply \(=\text{.}\)  Also it doesn't explicitly say that we are
 assuming that the already defined \(a_j\) and \(b_j\) are strictly
 increasing/decreasing sequences, even though that's clear from the
 construction.
 <li>In Example 2.1.11, we refer to "the theorem" although it is a proposition
 (Proposition 2.1.10).
 <li>In the proof of Lemma 2.2.12, towards the end, in the parenthesis when it
-gives a bound for \(r^n,\) it should say "for all \(n&gt; M\)" not "for all
+  gives a bound for \(r^n\text{,}\) it should say "for all \(n&gt; M\)" not "for all
 \(n\)".
 <li>The long estimate in the proof of Proposition 2.5.17 only makes sense if
-\(k \geq 2,\) but we're really thinking of \(k\) arbitrarily large.
+  \(k \geq 2\text{,}\) but we're really thinking of \(k\) arbitrarily large.
 <li>In the proof of Proposition 2.6.1, we assume existence of a
-subsequence in the case \(L=\infty,\) although that was not proved for
+  subsequence in the case \(L=\infty\text{,}\) although that was not proved for
 infinite subsequences (it is not at all difficult).  However, one could assume
 that \(\{ x_n \}\) is bounded in this proposition without any loss as
-otherwise the series diverges anyway. 
+otherwise the series diverges anyway.
 <li>In exercise 2.6.10 part a), the Hint should be followed, otherwise the same result was just
 proved in an earlier example.
 <li>Not really an erratum, but something that should be clearer: In Example
@@ -275,8 +280,8 @@ proved in an earlier example.
 when stated as an inequality.  There is a function \(g(x)\) as given that gives an equality
 and that's really the way to prove it.  So next version will change it to an equality.
 <li>Not really an erratum, but in Exercise 4.1.15, there should be another
-hypothesis: \(g(x) \not= 0\) for all \(x \not= c.\)  While it could be proved that
-for some neighborhood we have this from \(g'(c) \not= 0,\) that's not really what
+  hypothesis: \(g(x) \not= 0\) for all \(x \not= c\text{.}\)  While it could be proved that
+  for some neighborhood we have this from \(g'(c) \not= 0\text{,}\) that's not really what
 this problem is about, and every student just forgets to prove it.  This
 problem is supposed to be the "calculus proof" of L'Hospital's.  The real
 L'Hospital's is proved in 4.2.9 once we have the mean value theorem.  Next
@@ -302,17 +307,17 @@ With the basic Peano axioms, we would also need to assume \(n-1\) exists (which 
 in this book, we just assume that \(n-1\) exists, and in that sense the two are equivalent.  In the next edition, there will be a footnote to this effect.
 Thanks to Manuele Santoprete for pointing this out.
 <li>Page 72, Alternate proof of Bolzano-Weierstrass: above the last displayed
-  equation in the proof it says \(y \leq x\) when it is \(x \leq y.\)
-  In the next paragraph this inequality is correct as \(y-x \geq 0.\)
+  equation in the proof it says \(y \leq x\) when it is \(x \leq y\text{.}\)
+  In the next paragraph this inequality is correct as \(y-x \geq 0\text{.}\)
   Thanks to Brandon Tague.
 <li>Page 158, Exercise 4.3.4: The estimate is only to be proved in
-  \([x_0,x_0+\epsilon].\)  It is not true otherwise.
+  \([x_0,x_0+\epsilon]\text{.}\)  It is not true otherwise.
   Thanks to Robert Niemeyer for spotting this.
-<li>Page 244, Exercise 7.2.5: It should be "\(U \cap V = \emptyset,\) and \(U
+  <li>Page 244, Exercise 7.2.5: It should be "\(U \cap V = \emptyset\text{,}\) and \(U
   \cup V = \mathbb{Q}s\)". Thanks to Amanullah Nabavi.
 <li>Page 266, Exercise 7.5.18: The function \(g\) is clearly only
-defined on \((c,d),\)
-that is, it should say \(g \colon (c,d) \to {\mathbb{R}},\)
+  defined on \((c,d)\text{,}\)
+  that is, it should say \(g \colon (c,d) \to {\mathbb{R}}\text{,}\)
 since \(f\) is only defined for \(y\) in that interval.
 </ol>
 
@@ -323,25 +328,32 @@ since \(f\) is only defined for \(y\) in that interval.
 
 <ol>
 <li>Page 125, Example 3.4.3: The last bit of the argument is not quite
-right.  In $|x-y| &lt; xy \epsilon$ let $x=y+\delta/2,$ then
-we get $\delta/2 &lt; (y+\delta/2)y\epsilon.$  Then letting $y \to 0$ gives the result.  Thanks to Scott Armstrong.
-<li>Page 101, Exercise 2.6.5, part d), the $k$ in the denominator was meant
-to be $n.$  Thanks to Paul Sacks.
+  right.  In \(|x-y| &lt; xy \epsilon\) let \(x=y+\delta/2\text{,}\) then
+we get \(\delta/2 &lt; (y+\delta/2)y\epsilon\text{.}\)  Then letting \(y \to 0\) gives the result.  Thanks to Scott Armstrong.
+<li>Page 101, Exercise 2.6.5, part d), the \(k\) in the denominator was meant
+  to be \(n\text{.}\)  Thanks to Paul Sacks.
 <li>Page 202, Exercise 5.5.13: Part d) doesn't make sense, clearly a) is an answer.  Part e) is missing a hypothesis such as differentiable at 0.
 </ol>
 
 The following errata were found by Thomas Mahoney and his students:
 
 <ol>
-<li>Page 13, first paragraph of 0.3.3, we forget the use of $:=.$
-<li>Page 63, in the proof of 2.2.12, we say that "the sequence is not going to be less than $L$" when we mean "the ratio."
+<li>Page 13, first paragraph of 0.3.3, we forget the use of \(:=\text{.}\)
+<li>Page 63, in the proof of 2.2.12, we say that "the sequence is not going
+  to be less than \(L\)" when we mean "the ratio."
 <li>Page 91, Exercise 2.5.15, the displayed math should end with "converges"
-<li>Page 126, proof of Lemma 3.4.5, we forget to say that $x,y \in S.$
-<li>Page 174, proof of Proposition 5.2.4, the summations have $\Delta_i$ instead of $\Delta x_i.$
-<li>Page 188, proof of Proposition 5.4.2 (v), there is a missing equals sign between $E(qL(a))$ and $E(L(a^q)).$
-<li>Page 193, proof of Proposition 5.5.4, an $f$ is missing from integral in the inequality at the bottom of the page.
-<li>Page 208, Example 6.1.8, the last displayed set of inequalities the $N$ should be $n$ (it is of course true for $N,$ but also for all $n \geq N$).
-<li>Page 218, proof of Corollary 6.2.12, the last sum should go from $n=1$ to $k+1.$
+  <li>Page 126, proof of Lemma 3.4.5, we forget to say that \(x,y \in
+    S\text{.}\)
+<li>Page 174, proof of Proposition 5.2.4, the summations have \(\Delta_i\)
+  instead of \(\Delta x_i\text{.}\)
+<li>Page 188, proof of Proposition 5.4.2 (v), there is a missing equals sign
+  between \(E(qL(a))\) and \(E(L(a^q))\text{.}\)
+<li>Page 193, proof of Proposition 5.5.4, an \(f\) is missing from integral in the inequality at the bottom of the page.
+<li>Page 208, Example 6.1.8, the last displayed set of inequalities the \(N\)
+  should be \(n\) (it is of course true for \(N\text{,}\)
+  but also for all \(n \geq N\)).
+<li>Page 218, proof of Corollary 6.2.12, the last sum should go from \(n=1\)
+  to \(k+1\text{.}\)
 </ol>
 
 <p>
@@ -350,40 +362,40 @@ The following errata were found by Thomas Mahoney and his students:
 
 <ol>
 <li>In the proof of Theorem 3.4.4: the domain of the function is referred to
-as $S$ even though the statement says $[a,b].$  Thanks to Arthur Busch.
+  as \(S\) even though the statement says \([a,b]\text{.}\)  Thanks to Arthur Busch.
 </ol>
 
 The following errata were found by Thomas Mahoney and his students:
 
 <ol>
-<li>In the proof of Proposition 2.2.5 (iii): $K$ should also be chosen to be
-bigger than $1,$ so $K := \max \{ |x|,|y|,\frac{\epsilon}{3},1 \}$ so that
-$\frac{\epsilon}{3K} \leq \frac{\epsilon}{3}.$
+<li>In the proof of Proposition 2.2.5 (iii): \(K\) should also be chosen to be
+  bigger than \(1\text{,}\) so \(K := \max \{ |x|,|y|,\frac{\epsilon}{3},1 \}\) so that
+\(\frac{\epsilon}{3K} \leq \frac{\epsilon}{3}\text{.}\)
 <li>Theorem 2.4.5: "By Proposition 2.3.7, there exist subsequences
-$\{x_{n_i}\}$ and $\{x_{m_i}\}$ such that $\lim\,x_{n_i}=a$ and
-$\lim\, x_{m_i}=b$". The correct justification is Theorem 2.3.4.
+\(\{x_{n_i}\}\) and \(\{x_{m_i}\}\) such that \(\lim\,x_{n_i}=a\) and
+\(\lim\, x_{m_i}=b\)". The correct justification is Theorem 2.3.4.
 <li>Last sentence before subsection 2.5.5 (page 85): "Therefore
-$\sum \frac{(-1)^n}{n}$ is a conditionally convergent subsequence"
+\(\sum \frac{(-1)^n}{n}\) is a conditionally convergent subsequence"
 should be "series" instead of "subsequence".
-<li>Definition 3.5.1 needs "$x\in S$" next to the "$x\geq M$" and
-"$x \leq M$" conditions.
-<li>Lemma 3.5.5: "for all sequences $\{x_n\}$" needs "in $S$"
+<li>Definition 3.5.1 needs "\(x\in S\)" next to the "\(x\geq M\)" and
+"\(x \leq M\)" conditions.
+<li>Lemma 3.5.5: "for all sequences \(\{x_n\}\)" needs "in \(S\)"
 <li>Top of page 136 (after proof of Prop 3.6.2): Missing assumption
-that $f$ is increasing.
+that \(f\) is increasing.
 <li>Figure 3.10: The closed and open circles are reversed from what
 the function definitions are (should be open at 0 and closed at
 (0,1) and (1,0), respectively.)
-<li>Exercise 3.6.10. In both parts (a) and (b), the function $f$ should be
-bounded, otherwise $f \colon (0,\infty) \to {\mathbb{R}}$ where $f(x) =
--1/x$ is a counterexample.
+<li>Exercise 3.6.10. In both parts (a) and (b), the function \(f\) should be
+bounded, otherwise \(f \colon (0,\infty) \to {\mathbb{R}}\) where \(f(x) =
+-1/x\) is a counterexample.
 <li>Page 152, proof of Theorem 4.2.11: The step "Rolle's Theorem applies"
 is incorrect.  Lemma 4.2.2 is the correct justification.
-<li>Page 165, last paragraph: $\tilde{x}_{p-1} - \tilde{x}_p$ should
+<li>Page 165, last paragraph: \(\tilde{x}_{p-1} - \tilde{x}_p\) should
 be reversed.
-<li>Page 192, first sentence: $(\infty,b]$ should be $(-\infty,b].$
+<li>Page 192, first sentence: \((\infty,b]\) should be \((-\infty,b]\text{.}\)
 <li>Page 197: sinc(0) should be 1, not 0.
 <li>Page 196, Proposition 5.5.10: "every interval" needs to be
-"every bounded interval $[a,b]$".
+"every bounded interval \([a,b]\)".
 </ol>
 
 <p>
@@ -392,7 +404,7 @@ be reversed.
 
 <ol>
 <li>In Exercise 4.3.11: In the second derivative test (and hence in this
-exercise) it is necessary to assume that $f'(x_0)=0.$
+  exercise) it is necessary to assume that \(f'(x_0)=0\text{.}\)
 </ol>
 
 <p>
@@ -400,58 +412,69 @@ exercise) it is necessary to assume that $f'(x_0)=0.$
 <p>
 
 <ol>
-<li>In Exercise 0.3.5, $A$ should be assumed nonempty.
+<li>In Exercise 0.3.5, \(A\) should be assumed nonempty.
 <li>In Exercise 1.4.3, part of the sentence is missing:
-"if $a &lt; b &lt; c$ and $a,c \in I,$ ..."
+  "if \(a &lt; b &lt; c\) and \(a,c \in I\text{,}\) ..."
 should be
-"if $a &lt; b &lt; c$ and $a,c \in I$ implies $b \in I,$ ...".
+"if \(a &lt; b &lt; c\) and \(a,c \in I\) implies \(b \in I\text{,}\) ...".
 <li>In the proof of Proposition 2.2.5 on page 57, in the multiline
 estimate of the proof of the claim, the third inequality
-needs to be nonstrict as $|y-y_n|$ may be zero.  (Thanks to Harold Boas.)
+needs to be nonstrict as \(|y-y_n|\) may be zero.  (Thanks to Harold Boas.)
 <li>In proof of Theorem 2.3.4, to be perfectly correct, we need to take
-$M \geq 2,$ so we should take $M := \max \{ M_1, M_2, 2 \}.$
+  \(M \geq 2\text{,}\) so we should take \(M := \max \{ M_1, M_2, 2 \}\text{.}\)
 <li>In Example 2.5.9, that is the divergence of harmonic series, in the last displayed
 equation,
-$\displaystyle \sum_{j=1}^k
+\(\displaystyle \sum_{j=1}^k
 \left(
 \sum_{m=2^{k-1}+1}^{2^k} \frac{1}{m}
-\right)$ should be
-$\displaystyle \sum_{j=1}^k
+\right)\) should be
+\(\displaystyle \sum_{j=1}^k
 \left(
 \sum_{m=2^{j-1}+1}^{2^j} \frac{1}{m}
-\right).$
-<li>In the proof of Proposition 2.5.15 the $k-1$ on page 82 becomes $k$ on page 83 by mistake.
-All the sums that go to $k$ on page 83 should only go to $k-1.$  (Thanks to Mark Meilstrup)
-<li>On page 85, top of page it says "...is a number that does not depend on $n.$"  It should say
-"...is a number that does not depend on $k.$"
-<li>In proof of Merten's theorem in 2.6, the estimates should be nonstrict, just in case the series are actually zero.
+\right)\text{.}\)
+<li>In the proof of Proposition 2.5.15 the \(k-1\) on page 82 becomes \(k\) on page 83 by mistake.
+  All the sums that go to \(k\) on page 83 should only go to \(k-1\text{.}\)  (Thanks to Mark Meilstrup)
+<li>On page 85, top of page it says "...is a number that does not depend on
+  \(n\text{.}\)"  It should say
+  "...is a number that does not depend on \(k\text{.}\)"
+<li>In proof of Merten's theorem in 2.6, the estimates should be nonstrict,
+  just in case the series are actually zero.
 <li>In the proof of Proposition 2.6.3, second paragraph,
-the definition of $Q$ should be $Q := \max \sigma(\{ 1,2,\ldots,N \})$ (Thanks to Harold Boas)
-<li>In the proof of Theorem 3.3.2, penultimate line should have $y_n$ instead of $m_n$ (Thanks to Harold Boas)
+  the definition of \(Q\) should be \(Q := \max \sigma(\{ 1,2,\ldots,N \})\)
+  (Thanks to Harold Boas)
+<li>In the proof of Theorem 3.3.2, penultimate line should have \(y_n\)
+  instead of \(m_n\) (Thanks to Harold Boas)
 <li>In the proof of Proposition 3.6.2, second paragraph,
-"there exists $x_M$ such that..." should be
-"there exists $x_M &lt; c$ such that..."
-<li>In the proof of Corollary 3.6.3, at the end of the proof it says $x_1 \in S$ and $x_2 \in S,$ but the $S$ should be $I$ (there is no $S$ in this result).  Thanks to Trevor Fancher.
-<li>In the proof of Lemma 4.4.1 on the last line it should be $g'(y) = \frac{1}{f'(g(y))}$ (that is, $g(y)$ instead of $g(t)$).
-<li>In theorem 4.4.2, $I$ is an open interval, not just an interval (same omission is in the proof).
-<li>In the second line of the proof of Theorem 4.4.2, is says "for all $x_0 \in I$" which should be
-"for all $x \in I$".
-<li>In Exercise 5.4.2, it should say $b \neq 1,$ in part c, also $c \neq 1.$ (thanks to Ru Wang).
-<li>In Proof of Proposition 6.1.10 in the last line, after taking the supremum 
-the inequality is nonstrict, that is, $\|f_n-f\|_u \leq \epsilon.$  The conclusion still follows.
+  "there exists \(x_M\) such that..." should be
+  "there exists \(x_M &lt; c\) such that..."
+<li>In the proof of Corollary 3.6.3, at the end of the proof it says
+  \(x_1 \in S\) and \(x_2 \in S\text{,}\) but the \(S\) should be \(I\)
+  (there is no \(S\) in this result).  Thanks to Trevor Fancher.
+<li>In the proof of Lemma 4.4.1 on the last line it should be \(g'(y) =
+  \frac{1}{f'(g(y))}\) (that is, \(g(y)\) instead of \(g(t)\)).
+<li>In theorem 4.4.2, \(I\) is an open interval, not just an interval
+  (same omission is in the proof).
+<li>In the second line of the proof of Theorem 4.4.2, is says "for all \(x_0
+  \in I\)" which should be
+"for all \(x \in I\)".
+<li>In Exercise 5.4.2, it should say \(b \neq 1\text{,}\) in part c, also \(c \neq
+  1\text{.}\) (thanks to Ru Wang).
+<li>In Proof of Proposition 6.1.10 in the last line, after taking the supremum
+  the inequality is nonstrict, that is, \(\|f_n-f\|_u \leq \epsilon\text{.}\)
+  The conclusion still follows.
 <li>In Exercise 7.1.5, there is a missing hypothesis,
-$\varphi$ also needs to be increasing.
-<li>In Proof of Proposition 7.2.12, the conclusion is "$X$ is disconnected"
-when it should be "$S$ is disconnected".
+  \(\varphi\) also needs to be increasing.
+<li>In Proof of Proposition 7.2.12, the conclusion is "\(X\) is disconnected"
+  when it should be "\(S\) is disconnected".
 <li>Exercise 7.2.12 is phrased as if the implication to be proved
-goes the other way.  But that was already proved in the text where
-the exercise is referred to.  The exercise needs to prove the
-other direction: If $U \subset Y$ is open (in $Y$), then there exists
-an open $V \subset X$ such that $V \cap Y = U.$
-<li>In Exercise 7.5.10 part c), the infimum should be over $d(x,y),$ not
-$(x,y).$ (Thanks to Ru Wang)
+  goes the other way.  But that was already proved in the text where
+  the exercise is referred to.  The exercise needs to prove the
+  other direction: If \(U \subset Y\) is open (in \(Y\)), then there exists
+  an open \(V \subset X\) such that \(V \cap Y = U\text{.}\)
+  <li>In Exercise 7.5.10 part c), the infimum should be over \(d(x,y)\text{,}\) not
+  \((x,y)\text{.}\) (Thanks to Ru Wang)
 <li>In Exercise 7.6.5, the "is a contraction" in the first sentence should just
-be deleted.  (Thanks to Trevor Fancher)
+  be deleted.  (Thanks to Trevor Fancher)
 </ol>
 
 <p>
@@ -464,26 +487,28 @@ Thanks to Jim Brandt.
 <li>On page 23, top of page, it should also say that (A2), (A3), and (A4),
 have been used along with (A5).
 <li>On page 27, end of proof of Theorem 1.2.4 part (ii), there is a typo,
-a &lt; is written when $\leq$ was intended.
+a &lt; is written when \(\leq\) was intended.
 The penultimate sentence of the proof should be
-"If $y \leq 0,$ then note that $0 \leq -y \lt -x$ and
-find a rational $q$ such that $-y \lt q \lt -x.$"
+"If \(y \leq 0\text{,}\) then note that \(0 \leq -y \lt -x\) and
+find a rational \(q\) such that \(-y \lt q \lt -x\text{.}\)"
 <li>On page 34, Exercise 1.3.7 requires arithmetic with extended reals, which
 we explicitly said we'll avoid.  In the next edition, there will be the extra
 assumption of "bounded", which is what was really intended for the exercise.
-<li>On page 35, tangent is 1-1 and onto on $(-\pi/2,\pi/2),$ not $(-\pi,\pi).$
-<li>On page 80, second line from the bottom, it is $r^k$ not $r^n$ all the way
+<li>On page 35, tangent is 1-1 and onto on \((-\pi/2,\pi/2)\text{,}\) not
+  \((-\pi,\pi)\text{.}\)
+<li>On page 80, second line from the bottom, it is \(r^k\) not \(r^n\) all the way
 on the right hand side.
 <li>On page 84, in the proof of the alternating series test it says
-"Similarly, $(x_{2k}-x_{2k-1}) \geq 0$" that should say
-"Similarly, $(x_{2k}-x_{2k+1}) \geq 0$".  Thanks to Trevor Mannella
+"Similarly, \((x_{2k}-x_{2k-1}) \geq 0\)" that should say
+"Similarly, \((x_{2k}-x_{2k+1}) \geq 0\)".  Thanks to Trevor Mannella
 for pointing this out.
-<li>On page 88, a minor typo, $m \geq 2K$ implies $m-K+1 &gt; K,$ not $K+1,$
+<li>On page 88, a minor typo, \(m \geq 2K\) implies \(m-K+1 &gt; K\text{,}\) not
+  \(K+1\text{,}\)
 but that is all that is needed.
 <li>On page 102, Exercise 3.1.9, an extra assumption is necessary, for
-example $g(c_2)=L$ (i.e. continuity of $g$ at $c_2$).  Thanks to Gregory Beauregard for pointing this out!
-<li>Similarly on page 122, Proposition 3.5.8.  If $b \in B,$ then
-we must assume that $g(b) = c.$
+example \(g(c_2)=L\) (i.e. continuity of \(g\) at \(c_2\)).  Thanks to Gregory Beauregard for pointing this out!
+<li>Similarly on page 122, Proposition 3.5.8.  If \(b \in B\text{,}\) then
+  we must assume that \(g(b) = c\text{.}\)
 <li>On page 107, Example 3.2.12, in the proof that the Thomae function is
 continuous on the irrationals we take a sequence of rationals, though we should
 really take an arbitrary sequence.  Still only finitely many of the numbers
@@ -492,57 +517,65 @@ Thanks to Jim Brandt.
 <li>On page 114, Exercise 3.3.6, the degree of the polynomial had better be
 positive.
 <li>On page 122, in end of example 3.5.7, we mean that
-$\frac{x}{2} &gt; N$ not 
-$\frac{x}{2} &gt; M.$
-<li>On page 125, in proof of corollary 3.6.3, $f(x_1) \leq a$ and
-$f(x_2) \geq b,$ that is, the inequalities should be nonstrict.
-<li>On page 125, corollary 3.6.3 should really assume 
-that $f$ is not constant otherwise $f(I)$ is a single point, and we defined
+\(\frac{x}{2} &gt; N\) not
+\(\frac{x}{2} &gt; M\text{.}\)
+<li>On page 125, in proof of corollary 3.6.3, \(f(x_1) \leq a\) and
+  \(f(x_2) \geq b\text{,}\) that is, the inequalities should be nonstrict.
+<li>On page 125, corollary 3.6.3 should really assume
+that \(f\) is not constant otherwise \(f(I)\) is a single point, and we defined
 intervals in such a way as to exclude single points.  (Thanks to
 Andreas Giannopoulos)
 <li>On page 141, In Definition 4.3.1, the first expression for the
-Taylor polynomial mistakenly starts at $k=1$ instead of $k=0.$  The second
+  Taylor polynomial mistakenly starts at \(k=1\) instead of \(k=0\text{.}\)  The second
 expression is correct.
-<li>On page 143, Exercise 4.3.5.  The divisor in the expression is $(x-x_0)^n$
-not $x^n.$  The exercise is still doable but it is only the intended
-thing when $x_0 = 0.$
+<li>On page 143, Exercise 4.3.5.  The divisor in the expression is
+  \((x-x_0)^n\)
+  not \(x^n\text{.}\)  The exercise is still doable but it is only the intended
+  thing when \(x_0 = 0\text{.}\)
 <li>On page 153, in example 5.1.14 there are a couple of typos.  First, when
-$x_j$ is $\frac{jb}{n}$ not $\frac{ib}{n}$ (also similarly a few lines below).
-Second when computing $M_j,$
-the formula should be $\frac{1}{1+x_{j-1}}.$  And finally
-$\Delta x_j$ is pulled out of the sum, but while in some sense OK as $\Delta x_j$
-does not depend on $j,$
-it should only be pulled out after we substitute for it with $\frac{b}{n}.$
+\(x_j\) is \(\frac{jb}{n}\) not \(\frac{ib}{n}\) (also similarly a few lines below).
+Second when computing \(M_j\text{,}\)
+the formula should be \(\frac{1}{1+x_{j-1}}\text{.}\)  And finally
+\(\Delta x_j\) is pulled out of the sum, but while in some sense OK as
+\(\Delta x_j\)
+does not depend on \(j\text{,}\)
+it should only be pulled out after we substitute for it with
+\(\frac{b}{n}\text{.}\)
 <li>On page 155, Exercise 5.1.9 is just an exact duplicate of 5.1.8.
 It will be replaced in the new version by a different exercise.
-<li>On page 164 there the $c_i$ is really in $(x_{i-1},x_i),$ which is
-the conclusion of MVT, and we do need $c_i$ not to be $a$ nor $b.$
+<li>On page 164 there the \(c_i\) is really in \((x_{i-1},x_i)\text{,}\) which is
+  the conclusion of MVT, and we do need \(c_i\) not to be \(a\) nor
+  \(b\text{.}\)
 <li>On page 180, Exercise 5.4.4. The formula for the geometric sum is missing
-a $t^{n+1}$ on the second term on the right hand side, that is, it should be
-$1-t+t^2-\cdots+{(-1)}^n t^n = \frac{1}{1+t} - \frac{{(-1)}^{n+1}t^{n+1}}{1+t}.$
+a \(t^{n+1}\) on the second term on the right hand side, that is, it should be
+\(1-t+t^2-\cdots+{(-1)}^n t^n = \frac{1}{1+t} -
+\frac{{(-1)}^{n+1}t^{n+1}}{1+t}\text{.}\)
 <li>Minor typo on page 184 about middle of the page.  It says
-$\cdots &lt; \epsilon/2 + \epsilon/2 &lt; \epsilon,$ but clearly
-$\cdots &lt; \epsilon/2 + \epsilon/2 = \epsilon.$
-<li>On page 194, Exercise 6.1.9, the $f(0)=0$ should be $f_n(0)=0.$ (Thanks to Chase Meadors)
-<li>On page 200, Exercise 6.2.12, the functions are from $[0,1],$ the domain was missing.
+  \(\cdots &lt; \epsilon/2 + \epsilon/2 &lt; \epsilon\text{,}\) but clearly
+\(\cdots &lt; \epsilon/2 + \epsilon/2 = \epsilon\text{.}\)
+<li>On page 194, Exercise 6.1.9, the \(f(0)=0\) should be \(f_n(0)=0\text{.}\) (Thanks to Chase Meadors)
+  <li>On page 200, Exercise 6.2.12, the functions are from \([0,1]\text{,}\) the domain was missing.
 <li>On page 211, in the proof of the triangle inequality for
-$C([a,b],\mathbb{R})$ the computation starts with $d(f,h)$ when it should start
-with $d(f,g)$ (the definition is unrolled correctly however).
+\(C([a,b],\mathbb{R})\) the computation starts with \(d(f,h)\) when it should start
+with \(d(f,g)\) (the definition is unrolled correctly however).
 <li>Exercise 7.1.5: increasing is not needed, also the function
-is defined on $[0,\infty)$ not $[0,\infty].$
-<li>On page 228, $B(x_2,\delta) \in U_{\lambda_2}$ should be
-$B(x_2,\delta) \subset U_{\lambda_2}.$
+  is defined on \([0,\infty)\) not \([0,\infty]\text{.}\)
+<li>On page 228, \(B(x_2,\delta) \in U_{\lambda_2}\) should be
+  \(B(x_2,\delta) \subset U_{\lambda_2}\text{.}\)
 <li>On page 230, in proof of Proposition 7.5.2, the metrics should be
-$d_X$ and $d_Y$ and not just $d.$
+  \(d_X\) and \(d_Y\) and not just \(d\text{.}\)
 <li>On page 234, in Theorem 7.6.2, we say "f has a fixed point" but it should say "f has a unique fixed point".  We actually
 prove uniqueness, and we use uniqueness later.  (Thanks to Arthur Busch)
-<li>On page 234, bottom of page in the uniqueness proof, the second equality should be an inequality, that is $d(f(x),f(y) \leq k d(x,y).$
-<li>On page 235, just above Picard's theorem, when we say $f'(x_0) = y_0$
-we should say $f(x_0) = y_0.$  (Thanks to Arthur Busch)
-<li>In the proof of Picard we say $f([-h,h]) \subset [x_0 -\alpha,x_0+\alpha]$
-when that should be $f([-h,h]) \subset [y_0 -\alpha,y_0+\alpha].$
+<li>On page 234, bottom of page in the uniqueness proof, the second equality
+  should be an inequality, that is \(d(f(x),f(y) \leq k d(x,y)\text{.}\)
+<li>On page 235, just above Picard's theorem, when we say \(f'(x_0) = y_0\)
+  we should say \(f(x_0) = y_0\text{.}\)  (Thanks to Arthur Busch)
+<li>In the proof of Picard we say \(f([-h,h]) \subset [x_0
+  -\alpha,x_0+\alpha]\)
+  when that should be \(f([-h,h]) \subset [y_0 -\alpha,y_0+\alpha]\text{.}\)
   (Thanks to Arthur Busch)
-<li>On page 236, about middle of the page the estimate $|t|Ld(f,g)$ should be $|x|Ld(f,g).$
+<li>On page 236, about middle of the page the estimate \(|t|Ld(f,g)\) should
+  be \(|x|Ld(f,g)\text{.}\)
 </ol>
 
 <p>
@@ -550,7 +583,7 @@ when that should be $f([-h,h]) \subset [y_0 -\alpha,y_0+\alpha].$
 <p>
 
 <ol>
-<li>In exercise 5.3.6, we need to assume that $F'$ and $G'$ are integrable.  A
+<li>In exercise 5.3.6, we need to assume that \(F'\) and \(G'\) are integrable.  A
 simple fix is to just assume that F and G are <em>continuously</em>
 differentiable.  Thanks to Kristopher Lee and Hannah Lund for pointing this out.
 </ol>
@@ -560,9 +593,10 @@ differentiable.  Thanks to Kristopher Lee and Hannah Lund for pointing this out.
 <p>
 
 <ol>
-<li>In exercise 2.6.11, the definition of $a_n$ is missing something in part c)
-making the series not Cesaro-summable.  You should let $a_n := k$ if
-$n=k^3,$ $a_n := -k$ if $n=k^3+1,$ and $a_n:=0$ otherwise.  The $-k$ part was
+<li>In exercise 2.6.11, the definition of \(a_n\) is missing something in part c)
+making the series not Cesaro-summable.  You should let \(a_n := k\) if
+\(n=k^3\text{,}\) \(a_n := -k\) if \(n=k^3+1\text{,}\) and \(a_n:=0\) otherwise.  The
+\(-k\) part was
 missing.  Thanks to Kristopher Lee and Baoyue Bi for noticing this.
 </ol>
 
@@ -572,7 +606,7 @@ missing.  Thanks to Kristopher Lee and Baoyue Bi for noticing this.
 
 <ol>
 <li>In exercise 7.1.8, the Hausdorff metric is not a metric on bounded sets but
-only a pseudometric.  That is, $d_H(A,B) = 0$ does not mean that $A=B$ (It
+only a pseudometric.  That is, \(d_H(A,B) = 0\) does not mean that \(A=B\) (It
 would work for compact sets, but we don't know those yet in 7.1).
 Thanks
 to Kenji Kozai for spotting this.
@@ -585,14 +619,15 @@ to Kenji Kozai for spotting this.
 <ol>
 <li>In exercise 5.2.16, the second inequality (for lower Darboux integral)
 should be reversed.  It should be
-$\underline{\int_a^b}(f+g) \geq \underline{\int_a^b}f+\underline{\int_a^b}g.$
+\(\underline{\int_a^b}(f+g) \geq
+\underline{\int_a^b}f+\underline{\int_a^b}g\text{.}\)
 (Thanks to Sonmez Sahutoglu)
 <li>On page 172, in the proof of Proposition 5.4.2, when proving
-property (iii) we say "$E(x_0) \lt \epsilon$ for all $x \leq x_0$".  Of course,
-that should be "$E(x) \lt \epsilon$ for all $x \lt x_0$" (the rare appearance
+property (iii) we say "\(E(x_0) \lt \epsilon\) for all \(x \leq x_0\)".  Of course,
+that should be "\(E(x) \lt \epsilon\) for all \(x \lt x_0\)" (the rare appearance
 of two, although minor, typos in one sentence).
 <li>On page 145, in corollary 4.4.3, it says "there exists a unique
-positive number" even though we allow $x \geq 0,$ so we have to allow
+  positive number" even though we allow \(x \geq 0\text{,}\) so we have to allow
 the root to be 0.
 </ol>
 
@@ -609,7 +644,7 @@ It is not difficult to
 see, but it requires a proof.  I will be adding a relevant exercise.  (Thanks
 to Sonmez Sahutoglu)
 <li>Page 150, exercises 6.2.10 and 6.2.11.  The assumption of "continuous"
-on $f_n$ is missing in both of these exercises.  They're not true without it.
+on \(f_n\) is missing in both of these exercises.  They're not true without it.
 (Thanks to Sonmez Sahutoglu)
 <li>Page 174, exercise 7.3.10: part b) is not correct.  The metric given is not
 the right metric for this problem.  The problem will be replaced with a
@@ -626,9 +661,11 @@ different and more comprehensive one.  (Thanks to Sonmez Sahutoglu)
 convergent, or part a) is not true.  (Thanks to Sonmez Sahutoglu)
 <li>On page 73, second equation from the top we say "triangle inequality,"
 but we write an equality.  Of course that should be an inequality.  (Thanks to Yi Zhang)
-<li>On page 76, 6th line from the bottom, an $r^n$ should be $r^k,$ we get
+<li>On page 76, 6th line from the bottom, an \(r^n\) should be \(r^k\text{,}\) we get
 it right in the line just below. (Thanks to Yi Zhang)
-<li>In Theorems 3.3.7 and 3.3.8, c is really in the open interval (a,b), though that's obvious.  It's correct as stated, but stupid.  So change to $c \in (a,b).$  Similarly in the application on page 95.  (Thanks to Yi Zhang)
+<li>In Theorems 3.3.7 and 3.3.8, c is really in the open interval (a,b),
+  though that's obvious.  It's correct as stated, but stupid.  So change to
+  \(c \in (a,b)\text{.}\)  Similarly in the application on page 95.  (Thanks to Yi Zhang)
 <li>In remark 5.1.5, we meant integrals from a to b, not 0 to 1.
 </ol>
 
@@ -653,7 +690,7 @@ No known errata.
 <ol>
 <li>Yikes!  The triangle inequality on page 157 has a typo.  Of course it is
 an inequality, otherwise it would be called the triangle equality.  So it
-should say $d(x,z) \leq d(x,y) + d(y,z).$  Thanks to students from my class.
+should say \(d(x,z) \leq d(x,y) + d(y,z)\text{.}\)  Thanks to students from my class.
 <li>When renaming t to x in section 7.6, in the definition of T(f) on page 185,
 I forgot to change t to x.  It says T(f)(t) when it should say T(f)(x).
 </ol>
@@ -663,7 +700,8 @@ I forgot to change t to x.  It says T(f)(t) when it should say T(f)(x).
 <p>
 
 <ol>
-<li>On page 164 in the definition of an open set.  It should say "... if for every $x \in V,$ there exists ..."  Instead it says for every $x \in X$ which is of course wrong. (Thanks to Steve Hoerning)
+<li>On page 164 in the definition of an open set.  It should say "... if for
+  every \(x \in V\text{,}\) there exists ..."  Instead it says for every \(x \in X\) which is of course wrong. (Thanks to Steve Hoerning)
 <li>Page 183, in the contraction mapping principle, of course X should be
 nonempty.  I don't feel too bad about making this mistake as Rudin does it
 also, even in the third edition.
@@ -671,37 +709,42 @@ also, even in the third edition.
 f(X) that is compact.
 <li>Exercise 7.1.8 works only for nonempty bounded sets.  The definition works
 if you use extended reals, but you won't get a metric space.
-<li>Page 166, in the proof of proposition 7.2.8 in the middle of the estimate there is $-\delta$ when there should be $+\delta.$
+<li>Page 166, in the proof of proposition 7.2.8 in the middle of the estimate
+  there is \(-\delta\) when there should be \(+\delta\text{.}\)
 <li>In the proof of proposition 7.2.13 we actually need the opposite direction
 of Proposition 7.2.11.  So 7.2.11 needs to be made into an if and only if.  The
 other part of the if and only if simply refers to exercise 7.2.12.  To do this
-we also need to change the assumption on the intersection to $U_1 \cap U_2
-\cap S \not= \emptyset.$  Consequently in the proof we show
-that $U_1 \cap S$ and $U_2 \cap S$ have a point in common (which we actually do).
+we also need to change the assumption on the intersection to \(U_1 \cap U_2
+\cap S \not= \emptyset\text{.}\)  Consequently in the proof we show
+that \(U_1 \cap S\) and \(U_2 \cap S\) have a point in common (which we actually do).
 <li>In the proof of proposition
 7.2.13 we are working with [x,y] in the end not with S,
 that's the whole point of defining x and y.
-<li>On page 177 in the middle when defining $n_{j+1}$ it should be in the ball of radius 1/(j+1) not 1/j.  Or alternatively we should start with $n_{j-1}$ defined and define $n_j$ to be in the ball of radius 1/j.
-<li>In proof of proposition 7.3.7, on the last line we say $n \geq N$ when of
-course that is $n \geq M$ (there is no N in the whole proof).
+<li>On page 177 in the middle when defining \(n_{j+1}\) it should be in the
+  ball of radius 1/(j+1) not 1/j.  Or alternatively we should start with
+  \(n_{j-1}\) defined and define \(n_j\) to be in the ball of radius 1/j.
+<li>In proof of proposition 7.3.7, on the last line we say \(n \geq N\) when of
+course that is \(n \geq M\) (there is no N in the whole proof).
 <li>In exercise 7.4.1, A is of course finite subset of X. (Thanks to Jeremy Sutter)
 <li>In the proof of Theorem 7.4.6 (sequentially compact is equivalent to
-compact) we define a sequence starting at $x_0$ and $\lambda_0,$ but then
+  compact) we define a sequence starting at \(x_0\) and \(\lambda_0\text{,}\) but then
 several times we forget it later and write down the elements starting at
-$x_1$ and $\lambda_1.$  Of course we should consistently start with 0
+\(x_1\) and \(\lambda_1\text{.}\)  Of course we should consistently start with 0
 (or even better with 1).
 <li>In exercise 7.6.5, the "best" k is of course the smallest one, not the largest one (there is no largest one of course).
 <li>Definition 1.1.1 on page 14 was not well-stated.  An ordered set is the set
 together with the relation.  (Thanks to Paul Vojta)
-<li>On page 106, in the statement of the chain rule, $c \in I_1$ not
-$c \in I_2.$ (Thanks to Paul Vojta)
+<li>On page 106, in the statement of the chain rule, \(c \in I_1\) not
+  \(c \in I_2\text{.}\) (Thanks to Paul Vojta)
 <li>On page 107, in exercises 4.1.3 and 4.1.8 it was not specified what is n.
 So specify that it is an integer, in which case also specify that x and f(x)
 should not be 0. (Thanks to Paul Vojta)
-<li>On page 112, in the proof of Proposition 4.2.6, we assume that $x &lt; y$
-but then we use that $x - y &gt; 0$ when we should use
-$x - y &lt; 0.$  (Thanks to Paul Vojta)
-<li>On page 134, the second displayed equation is only true when $c &lt; x,$ otherwise the opposite inequalities hold. (Thanks to Paul Vojta)
+<li>On page 112, in the proof of Proposition 4.2.6,
+  we assume that \(x &lt; y\)
+but then we use that \(x - y &gt; 0\) when we should use
+\(x - y &lt; 0\text{.}\)  (Thanks to Paul Vojta)
+<li>On page 134, the second displayed equation is only true when \(c &lt;
+  x\text{,}\) otherwise the opposite inequalities hold. (Thanks to Paul Vojta)
 </ol>
 
 <p>
@@ -712,52 +755,59 @@ $x - y &lt; 0.$  (Thanks to Paul Vojta)
 <li>On page 96, in the proof of Proposition 3.3.10, near the end there is a
 missing absolute value sign, or at least a negative sign.  That is, after
 the
-"or in other words", there should be $-(b_{d-1}M^{d-1}+\cdots+b_1M+b_0) &lt;
-M^d.$  Just above, there should be absolute value signs, as in $| ... | &lt; 1.$
+"or in other words", there should be \(-(b_{d-1}M^{d-1}+\cdots+b_1M+b_0) &lt;
+M^d\text{.}\)  Just above, there should be absolute value signs, as in \(| ... |
+&lt; 1\text{.}\)
 Similarly in the following paragraph the typo was propagated.  So for
-the $K$ it should say $b_{d-1} (-K)^{d-1} + \cdots + b_1 (-K) + b_0 &lt; K^d$
+the \(K\) it should say \(b_{d-1} (-K)^{d-1} + \cdots + b_1 (-K) + b_0 &lt;
+K^d\)
 <li>On page 93, in proof of Theorem 3.3.2.  When we say "there exist convergent
 subsequences
-$\{ x_{n_i} \}$ and $\{ y_{n_i} \}$".  The indices should be different.
-Now it is possible to pick one $n_i$ for both, so it is not really wrong, but there is no need to do this.  Simply change $y_{n_i}$ to
-$y_{m_i}.$
+\(\{ x_{n_i} \}\) and \(\{ y_{n_i} \}\)".  The indices should be different.
+Now it is possible to pick one \(n_i\) for both, so it is not really wrong,
+but there is no need to do this.  Simply change \(y_{n_i}\) to
+\(y_{m_i}\text{.}\)
 <li>Exercise 3.3.7, says image of a closed and bounded interval is a closed and
-bounded interval.  I suppose it is OK, but some would not consider $[c,c] =
-\{c\}$ an interval.  So best to suppose that f is nonconstant.
-<li>On page 94, about 3/4 down.  d is the limit of $\{ b_n \}$ which is decreasing, so it's the infimum, not the supremum (Thanks to Daniel Pimentel-Alarcón).
+bounded interval.  I suppose it is OK, but some would not consider \([c,c] =
+\{c\}\) an interval.  So best to suppose that f is nonconstant.
+<li>On page 94, about 3/4 down.  \(d\) is the limit of \(\{ b_n \}\) which is decreasing, so it's the infimum, not the supremum (Thanks to Daniel Pimentel-Alarcón).
 <li>Page 106, the quotient rule is of course missing a minus sign.  (Thanks to Jeremy Sutter)
-<li>On page 59, line 5, that should be $\{ x_n : n \geq n_k+1 \}.$
+  <li>On page 59, line 5, that should be \(\{ x_n : n \geq n_k+1 \}\text{.}\)
 (Thanks to Eliya Gwetta)
-<li>On page 120, in the proof of 5.1.7, the $\tilde{m}_j$ definition is
+<li>On page 120, in the proof of 5.1.7, the \(\tilde{m}_j\) definition is
 not quite right, a tilde is missing.  It should be
-$\tilde{m}_j := \inf \{ f(x) : \tilde{x}_{j-1} \leq x \leq \tilde{x}_j \}.$
+\(\tilde{m}_j := \inf \{ f(x) : \tilde{x}_{j-1} \leq x \leq \tilde{x}_j
+\}\text{.}\)
 <li>On page 128, in the proof of Lemma 5.2.6, we wish to take
-an $n$ such that $\frac{b-a}{n} &lt; \delta,$ the (b-a) was missing.
+  an \(n\) such that \(\frac{b-a}{n} &lt; \delta\text{,}\) the (b-a) was missing.
 <li>On page 122, when computing the difference of upper and lower integral
-it is $(1+\epsilon)-(1-\epsilon)$ of course.
+it is \((1+\epsilon)-(1-\epsilon)\) of course.
 <li>On page 128, in the definition of "finitely many discontinuities".  Of course we mean that f is continuous at all points of A, and not that the restriction of f to A is continuous.
-<li>On page 143, there were absolute value signs missing in the 
+<li>On page 143, there were absolute value signs missing in the
 estimate towards the end of proof of 6.1.13.  That is
-there should be absolute value signs around $f(x)-f_k(x).$
-<li>On page 145 and 147, it says that $n &gt; \frac{1}{x}$ implies
-$x &lt; \frac{1}{n},$ while that should of course be
-$x &gt; \frac{1}{n},$ which is why $f_n(x)=0.$
-<li>On page 149, Exercise 6.2.3, of course the function f should be Riemann integrable to be able to take the integral.  Similarly for 6.2.8 and 6.2.9 on page 150, the functions $f_n$ should be Riemann integrable.
+there should be absolute value signs around \(f(x)-f_k(x)\text{.}\)
+<li>On page 145 and 147, it says that \(n &gt; \frac{1}{x}\) implies
+  \(x &lt; \frac{1}{n}\text{,}\) while that should of course be
+  \(x &gt; \frac{1}{n}\text{,}\) which is why \(f_n(x)=0\text{.}\)
+<li>On page 149, Exercise 6.2.3, of course the function f should be Riemann
+  integrable to be able to take the integral.  Similarly for 6.2.8 and 6.2.9
+  on page 150, the functions \(f_n\) should be Riemann integrable.
 <li>On page 136, the definition of the erf function is wrong.  A minus sign and
 a square root is missing.  It is simply an example, and not used
 elsewhere in the book.
-<li>On page 75, we mention that $\sum \frac{1}{n^2}$ converges
-to $\frac{\pi^2}{2}$ when in fact it converges to
-$\frac{\pi^2}{6}$ (Thanks to Daniel Pimentel-Alarcón for spotting this).
+<li>On page 75, we mention that \(\sum \frac{1}{n^2}\) converges
+to \(\frac{\pi^2}{2}\) when in fact it converges to
+\(\frac{\pi^2}{6}\) (Thanks to Daniel Pimentel-Alarcón for spotting this).
 <li>In the examples on pages 154 and 155, the h guaranteed by the proof of the
 theorem was
-computed for an older version of the proof.  For exponential, $h=\frac{1}{2}$
-will work and for $y'=y^2,$ $h=1-\frac{\sqrt{3}}{2}$ will work.
+computed for an older version of the proof.  For exponential,
+\(h=\frac{1}{2}\)
+will work and for \(y'=y^2\text{,}\) \(h=1-\frac{\sqrt{3}}{2}\) will work.
 <li>On page 143, the strict inequality in the displayed equation in the middle of the page should of course be a nonstrict inequality as we took a limit.
 <li>In example 5.3.2, the computation has a typo, while the final answer is
 correct.
-<li>In example 5.1.12, at the end of the example, there is $\int_0^1 f$ when
-there should of course be $\int_0^2 f$ (Thanks to Jeremy Sutter).
+<li>In example 5.1.12, at the end of the example, there is \(\int_0^1 f\) when
+there should of course be \(\int_0^2 f\) (Thanks to Jeremy Sutter).
 <li>On page 135, the difference quotient is less than or equal to epsilon, not
 strictly less than.
 <li>In exercise 6.1.3, A is of course a subset of S, not just a subset of the
@@ -773,7 +823,8 @@ does not make any sense (Thanks to students in my class)
 <ol>
 <li>Proposition 1.2.7, page 28:  The set A should be bounded and nonempty,
 it is true without this hypothesis, but
-we just made a big deal about not doing arithmetic with ${\mathbb{R}}^*.$
+we just made a big deal about not doing arithmetic with
+\({\mathbb{R}}^*\text{.}\)
 <li>Proposition 1.2.8, page 29:  A, B must be nonempty sets!
 <li>In the proof on top of page 29, all inequalities should be nonstrict.
 <li>Exercise 2.3.6, page 63: The sequences should be bounded.  The exercise
@@ -781,20 +832,19 @@ works with unbounded, but we have not defined limsup and liminf for unbounded
 sequences.
 <li>Example 2.5.18, page 77 is misleading.  It is not true that the series converges because the terms go to zero, but by the way we proved that the terms go to zero (using the ratio test).  Better replace the justification by the
 actual ratio
-$
-\lim_{n\to\infty} \frac{2^{n+1}/(n+1)!}{2^n/n!} = 
-\lim_{n\to\infty} \frac{2}{n+1} = 0 .
-$
+\(\lim_{n\to\infty} \frac{2^{n+1}/(n+1)!}{2^n/n!} =
+\lim_{n\to\infty} \frac{2}{n+1} = 0 \text{.}\)
 <li>Exercises 1.2.9 and 1.2.10 should say that A and B are nonempty (Found by Paul Vojta)
 <li>Exercise 2.4.3 has a typo.  The rational numbers need to be dense in F.
 Here is a rewritten version that is also a lot more explicit.<br>
 Exercise 2.4.3: Suppose that F is an ordered field that contains the
-rational numbers $\mathbb{Q},$ such that $\mathbb{Q}$ is dense,
-that is: whenever $x,y \in F$ are such that $x &lt; y,$
-then there exists a $q \in \mathbb{Q}$ such that $x &lt; q &lt; y.$
-Say a sequence $\{ x_n \}_{n=1}^\infty$ of rational numbers is Cauchy
-if given any $\epsilon \in \mathbb{Q}$ with $\epsilon &gt; 0,$ there exists
-an M such that for all $n,k \geq M$ we have $|x_n-x_k| &lt; \epsilon.$
+rational numbers \(\mathbb{Q}\text{,}\) such that \(\mathbb{Q}\) is dense,
+that is: whenever \(x,y \in F\) are such that \(x &lt; y\text{,}\)
+then there exists a \(q \in \mathbb{Q}\) such that \(x &lt; q &lt; y\text{.}\)
+Say a sequence \(\{ x_n \}_{n=1}^\infty\) of rational numbers is Cauchy
+if given any \(\epsilon \in \mathbb{Q}\) with \(\epsilon &gt; 0\text{,}\) there exists
+an M such that for all \(n,k \geq M\) we have \(|x_n-x_k| &lt;
+\epsilon\text{.}\)
 Suppose that any Cauchy sequence of rational numbers has a limit in F.
 Prove that F has the least-upper-bound property.
 <li>In exercise 2.5.6 it should say "converges absolutely" in a) it just says
@@ -814,8 +864,8 @@ min and max.
 <p>
 
 <ol>
-<li>On top of page 102, the $=\frac{1}{2}|x-y|$ should of course be
-$\leq\frac{1}{2}|x-y|.$
+<li>On top of page 102, the \(=\frac{1}{2}|x-y|\) should of course be
+  \(\leq\frac{1}{2}|x-y|\text{.}\)
 </ol>
 
 <p>
@@ -824,8 +874,8 @@ $\leq\frac{1}{2}|x-y|.$
 
 <ol>
 <li>Exercise 1.1.7 has a extra subset sign.
-$A \subset \subset \mathbb{N}$ should be
-$A \subset \mathbb{N}.$
+\(A \subset \subset \mathbb{N}\) should be
+\(A \subset \mathbb{N}\text{.}\)
 <li>On page 12, the sentence about induction hypothesis was missing
 the word "in", that is "assumption in" rather than just "assumption".  It is
 "P(n) is true" that is the hypothesis.
@@ -836,9 +886,9 @@ the word "in", that is "assumption in" rather than just "assumption".  It is
 <p>
 
 <ol>
-<li>On page 11, "So let us assume that $x \in A \cap (B \cup C)$"
+<li>On page 11, "So let us assume that \(x \in A \cap (B \cup C)\)"
 should be
-"So let us assume that $x \in A \setminus (B \cup C)$".  Thanks to Dan Stoneham.
+"So let us assume that \(x \in A \setminus (B \cup C)\)".  Thanks to Dan Stoneham.
 <li>On page 80, first line of subsection 3.1.2 c is of course
 a cluster point of S, not A.
 </ol>
@@ -850,8 +900,8 @@ a cluster point of S, not A.
 <ol>
 <li>In exercise 1.3.4, the functions f and g are of course bounded as
 in proposition 1.3.7. (Glen Pugh)
-<li>Proof of proposition 2.2.5 part iii was off if $y=0.$  We should use
-$\frac{\epsilon}{2(|y| + 1)}$ instead of $\frac{\epsilon}{2|y|}.$ (Glen Pugh)
+<li>Proof of proposition 2.2.5 part iii was off if \(y=0\text{.}\)  We should use
+  \(\frac{\epsilon}{2(|y| + 1)}\) instead of \(\frac{\epsilon}{2|y|}\text{.}\) (Glen Pugh)
 <li>The function defined in the beginning of Example 6.2.3,
 was not the one on Figure 6.3 nor the rest of the example
 (though it could also be used to show the same idea).
@@ -867,10 +917,11 @@ seemed.
 The following errata were found by Glen Pugh.
 
 <ol>
-<li>In example 0.3.14, $f^{-1}(\{0\}) = \pi \mathbb{Z}$ not $\mathbb{Z}.$
+<li>In example 0.3.14, \(f^{-1}(\{0\}) = \pi \mathbb{Z}\) not
+  \(\mathbb{Z}\text{.}\)
 <li>In proposition 0.3.16, C and D are of course subsets of A, not B.
 <li>In exercise 0.3.4 part b), the explanatory sentence has a typo,
-it should be that "$f( C \cap D)$ is a proper subset of $f(C) \cap f(D)$"
+it should be that "\(f( C \cap D)\) is a proper subset of \(f(C) \cap f(D)\)"
 </ol>
 
 <p>
@@ -880,9 +931,9 @@ it should be that "$f( C \cap D)$ is a proper subset of $f(C) \cap f(D)$"
 <ol>
 <li>On bottom of page 11, the counter-example for swapping intersection and union
 doesn't work due to a typo.  The set should be defined by
-$\{ k \in \mathbb{N} \mid mk &lt; n \}$
+\(\{ k \in \mathbb{N} \mid mk &lt; n \}\)
 not by
-$\{ k \in \mathbb{N} \mid k &lt; nm \}.$  Thanks to Glen Pugh for spotting this.
+\(\{ k \in \mathbb{N} \mid k &lt; nm \}\text{.}\)  Thanks to Glen Pugh for spotting this.
 </ol>
 
 <p>
@@ -906,17 +957,18 @@ No known errata.
 <b>April 8th 2010 edition:</b>
 <p>
 
-All the below errata were found thanks to 
+All the below errata were found thanks to
 Jana Ma&#345;&#237;kov&aacute;.
 <ul>
 <li>p.13, line 6: the denominator should be \(1-c^{n+1} + (1-c)c^{n+1}\)
 <li>p.15, Def. 0.3.18: f and g were switched in the definition.
 <li>p.21, Def. 1.1.2: the definition of lower bound is missing
 <li>p.22, Def. 1.1.3: need to assume that E is nonempty
-<li>p.61, \(y=\frac{b_k - a_k}{2}\) should be \(y=\frac{a_k + b_k}{2}.\)
+  <li>p.61, \(y=\frac{b_k - a_k}{2}\) should be \(y=\frac{a_k +
+    b_k}{2}\text{.}\)
 <li>p.66, "b:=liminf x<sub>n</sub>" should be "b:=limsup x<sub>n</sub>"
-<li>p.87, line -5: "Fix \(c \in (0,\infty).\)" should be "Fix \(c \in
-(-\infty , \infty).\)"
+  <li>p.87, line -5: "Fix \(c \in (0,\infty)\text{.}\)" should be "Fix \(c \in
+    (-\infty , \infty)\text{.}\)"
 <li>p.87, line -4: "\(x\)" is missing the lower index "\(n\)"
 <li>p.102, Exercise 3.4.5: what is to be proved is false as stated - need
 additional assumptions

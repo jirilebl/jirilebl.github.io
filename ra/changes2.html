@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Basic Analysis II: Introduction to Real Analysis, Volume II: Changes</title>
-<link rel="stylesheet" type="text/css" href="../basicstyle.css"> 
-<link rel="stylesheet" type="text/css" href="../bookpages.css"> 
+<link rel="stylesheet" type="text/css" href="../basicstyle.css">
+<link rel="stylesheet" type="text/css" href="../bookpages.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="unsafe-url">
 <script>
@@ -13,14 +13,15 @@ MathJax = {
   output: {
     font: 'mathjax-pagella'
   },
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  },
-  processEscapes: true,
+  chtml: {
+    linebreaks: {
+      inline: false
+    }
+  }
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg-nofont.js">
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml-nofont.js">
 </script>
 </head>
 
@@ -69,7 +70,7 @@ Numbering has not changed, and essentially no content was added.
   quickly motivate why we would want to do that (work done).
 <li><b>Change Exercise 10.1.6 to fix erratum</b>.
   In particular, \(h\) must be defined
-  in \(S .\)  Avoid the technicality about part of \(R\) being outside \(S\)
+  in \(S \text{.}\)  Avoid the technicality about part of \(R\) being outside \(S\)
   by adding the assumption that \(R \subset S\)
   as that is how the exercise is used (one can always replace \(R\) with
   \(R \cap S\) but let's not make it more complicated).
@@ -77,7 +78,7 @@ Numbering has not changed, and essentially no content was added.
 <li>The name of the section on the Fubini theorem adds the "the".
 <li>Example 10.3.8 claim (iii) and Exercise 10.3.10 part b):
   Change the expression for \(m^*(C_k)\) to the much simpler
-  \(\left(\frac{2}{3}\right)^k .\)
+  \(\left(\frac{2}{3}\right)^k \text{.}\)
 <li>Strengthen the hypothesis in Proposition 10.5.8 to assume \(\varphi\)
   is continuous to fix an erratum.  This avoids the upper or lower Darboux
   integral, and is all we need.
@@ -93,14 +94,15 @@ Numbering has not changed, and essentially no content was added.
 <li>Fix issues with the proof of Theorem 10.7.2 (change of variables).
   <ol>
     <li>In the change of variables going from \(g'(0)=I\) to
-      a \(g'(0)=A,\) we forgot to keep track of the size of \(A^{-1} ,\)
+      a \(g'(0)=A\text{,}\) we forgot to keep track of the size of \(A^{-1}
+      \text{,}\)
       to get the estimate to work out, we need the estimate defining \(W_x\)
       to be \(&lt; \frac{\epsilon}{2M}\) where \(M\) is the bound on
-      norm of \(g'(x)^{-1} .\)
+      norm of \(g'(x)^{-1} \text{.}\)
     <li>Give more details in getting the bound for general \(A\) to ensure we
       get it correct.
     <li>The \(x_j\) was supposed to have been picked specifically to make
-      \(|J_g(x)|\) achieve a minimum at \(x_j .\)
+      \(|J_g(x)|\) achieve a minimum at \(x_j \text{.}\)
     <li>The reason why the Darboux style estimate works was glossed over
       a bit and required the reader to note that \(\delta\) could have been
       picked smaller to make the partition work as a partition for Darboux.
@@ -114,7 +116,7 @@ Numbering has not changed, and essentially no content was added.
   fixed proof of theorem 10.7.2.  In particular, change the
   \(\nicefrac{\epsilon}{2}\) to \(c\) and drop the \(W_x\) name which is not used.
 <li>In Exercise 10.7.4, be more explicit as to the exact bound we want.  Also
-  there is no need to put the prime on the \(\delta.\)
+  there is no need to put the prime on the \(\delta\text{.}\)
 <li>In the proof of Proposition 11.4.2, mark the "unimodular" for the index.
 <li>In Exercise 11.4.11, use \(\arctan\) and \(\arcsin\) for
   consistency.
@@ -131,7 +133,7 @@ Numbering has not changed, and essentially no content was added.
 <li>In the proof of Parseval (11.8.13) reference Exercise 11.7.8,
   not just Stone-Weierstrass.
 <li><b>Exercise 11.8.10 changed to fix an erratum</b>, the \(e^{-1/n}\)
-  changed to \(e^{-n} .\)
+  changed to \(e^{-n} \text{.}\)
 <li>Remove instances of "so-called" as it could be misinterpreted.
 <li>Minor cosmetic adjustments to some figures.
 <li>Remove the extra spacing before the prime on gammas, it looks OK
@@ -202,29 +204,29 @@ General changes:
 <ol>
 <li>In definitions of limits (sequence, continuous limits, in metric spaces,
   etc), don't "cheat" and say "if a limit is unique."  While it feels a
-  little wordy since the first thing we do is prove that the limit is 
+  little wordy since the first thing we do is prove that the limit is
   unique, I'm starting to feel that this may be contributing to confusion
   among students about proof writing.
-<li>Do not shorten sequences to \(\{ x_n \},\) but always write out
-	\(\{x_n\}_{n=1}^\infty.\)  It seems to me this shorthand is
-	causing more confusion than it is worth, especially with
-	regards to the distinction between set and sequence, and also
-	when working with subsequences.
-<li>Do not shorten sequence limits to \(\lim\, x_n,\) but always write out
-	\(\lim_{n\to\infty} x_n.\)  It seems to me this shorthand is
-	causing more confusion than it is worth, especially
-	when subsequences are introduced.
-<li>Do not shorten series to \(\sum\, x_n,\) but always write out
-	\(\sum_{n=1}^{\infty} x_n.\)  It seems that it is making students
-	forget a limit is involved.
-<li>Uniform norm notation is changed to \(\|\cdot\|_K,\)
+<li>Do not shorten sequences to \(\{ x_n \}\text{,}\) but always write out
+  \(\{x_n\}_{n=1}^\infty\text{.}\)  It seems to me this shorthand is
+  causing more confusion than it is worth, especially with
+  regards to the distinction between set and sequence, and also
+  when working with subsequences.
+<li>Do not shorten sequence limits to \(\lim\, x_n\text{,}\) but always write out
+  \(\lim_{n\to\infty} x_n\text{.}\)  It seems to me this shorthand is
+  causing more confusion than it is worth, especially
+  when subsequences are introduced.
+<li>Do not shorten series to \(\sum\, x_n\text{,}\) but always write out
+  \(\sum_{n=1}^{\infty} x_n\text{.}\)  It seems that it is making students
+  forget a limit is involved.
+<li>Uniform norm notation is changed to \(\|\cdot\|_K\text{,}\)
   where \(K\) is the set where the supremum is taken.  I've had a number of
   complaints about the \(u\) notation not being very standard.  And this goes
   better with my other books where I use the more standard notation.
 <li>Add parentheses to the notation for "Riemann integrable" for consistency,
-	that is, \(\mathscr{R}([a,b])\) instead of \(\mathscr{R}[a,b] .\)
-<li>Use newpx (Palatino) fonts in the PDF version.  The line length has gotten slightly
-  shorter to improve readability.
+  that is, \(\mathscr{R}([a,b])\) instead of \(\mathscr{R}[a,b] \text{.}\)
+<li>Use newpx (Palatino) fonts in the PDF version.
+  The line length has gotten slightly shorter to improve readability.
 <li>9 new exercises.
 <li>12 new figures.
 <li>Many small improvements in wording throughout.
@@ -283,11 +285,11 @@ Specific changes:
 <li>Reword Exercise 8.1.18 to be slightly clearer.
 <li>In 8.2 as in 8.1, avoid \(j\) as an index in some places.
 <li>Add a short sentence that the inequality
-	\(\|Ax\| \leq C \|x\|\) proves \(\|A\| \leq C.\)
+  \(\|Ax\| \leq C \|x\|\) proves \(\|A\| \leq C\text{.}\)
 <li>In introducing matrix multiplication use \(z_1,\ldots,z_n\) instead of
 	\(c_1,\ldots,c_n\) as \(c_{i,j}\) is used in the same paragraph for
 	something else.  When doing the bound on the norm a bit later
-	\(c=(c_1,\ldots,c_n)\) as our element in \({\mathbb{R}}^n.\)
+	\(c=(c_1,\ldots,c_n)\) as our element in \({\mathbb{R}}^n\text{.}\)
 <li>In Proposition 8.2.6, just move the "\(GL(X)\) is open" statement into
   part (i), since that what I always say when I write down part (i) anyway,
   that's where that statement belongs.
@@ -310,7 +312,7 @@ Specific changes:
 	used as an integer and to be consistent with the \(A'\) naming.
 	In fact, use \(j\) and \(k\) in the same
 	capacity as in 8.3 for consistency \(k\) for the component of \(f\)
-	and \(j\) for the component of \(x.\)
+	and \(j\) for the component of \(x\text{.}\)
 <li><b>Move Exercise 8.4.10 to section 9.1, where it becomes 9.1.9</b>
 	and add a missing hypothesis.
 <li>Add new Exercise 8.4.10 replacing the one that was moved.
@@ -320,11 +322,11 @@ Specific changes:
 <li>In Exercise 8.5.2 part b, add a note that the differentiability of \(f\)
   needs to be established.
 <li>More consistent use of indices in section 8.6.  Use \(\ell) and \(m\)
-  for components of \(x,\) \(k\) for order and don't use \(j\) at all
+  for components of \(x\text{,}\) \(k\) for order and don't use \(j\) at all
   (the others are easier to read, typeset more nicely)
 <li>In the proof of Proposition 8.6.2, don't use the notation
   \({\mathbb{R}}_{+}^2\) as it wasn't quite right.  Just say the domain of
-  \(g\) is \((0,\epsilon) \times (0,\epsilon) .\)
+  \(g\) is \((0,\epsilon) \times (0,\epsilon) \text{.}\)
 <li>Add Figure 9.2 for Exercise 9.1.6.
 <li>Make the proof of Proposition 10.1.13 more precise and less handwavy.
 <li>In Exercises 10.1.3 and 10.1.4, emphasize that the rectangles are closed.
@@ -334,25 +336,26 @@ Specific changes:
 	figures in chapter 10.
 <li>Add Figure 10.5 to example 10.2.1.
 <li>Clarify the proof of Proposition 10.3.2, among other things, emphasize why
-	\(\ell \geq 1 .\)  Also change the labeling in the proposition and
-	the claim to \(k\) to be more consistent with the labeling in the proof.
+  \(\ell \geq 1 \text{.}\)  Also change the labeling in the proposition and
+  the claim to \(k\) to be more consistent with the labeling in the proof.
 <li>Add Figure 10.7 to the proof of Proposition 10.3.2.
 <li>Add reference to the new Tonelli/Fubini for sums exercise in
-	Proposition 10.3.4, as really that'really the best way
-	to justify the double series.
-<li>Add a note that the example in 10.3.5 is uncountable if \(n \geq 2 .\)
+  Proposition 10.3.4, as really that'really the best way
+  to justify the double series.
+<li>Add a note that the example in 10.3.5 is uncountable
+  if \(n \geq 2 \text{.}\)
 <li>Be a little bit more precise in the end of Example 10.3.6 where we fix
-	the erratum and so we add \(m^*([a,b]) \geq b-a \) as a conclusion
-	of the argument.
+  the erratum and so we add \(m^*([a,b]) \geq b-a \) as a conclusion
+  of the argument.
 <li>Add Figure 10.8 to Example 10.3.6.
 <li>Add a couple of short in-text examples to 10.4 to illustrate the
   definition of oscillation and include a figure with the graph of
   \(\sin(\frac{1}{x})\) which is half of a figure from 3.1.
 <li>Rework the proof of 10.4.3 (Riemann-Lebesgue) a little bit adding some
-	detail.  At one point it says unnecessarily \(M_j-m_j &lt; 2 \epsilon\)
-	instead of \(\epsilon\) so just say \(M_j-m_j &lt; \epsilon.\)
-	Also say a bit more about the estimate of volumes of
-	\(R_{q+1},\ldots,R_p .\)
+  detail.  At one point it says unnecessarily \(M_j-m_j &lt; 2 \epsilon\)
+  instead of \(\epsilon\) so just say \(M_j-m_j &lt; \epsilon\text{.}\)
+  Also say a bit more about the estimate of volumes of
+  \(R_{q+1},\ldots,R_p \text{.}\)
 <li>Add alternate name Lebesgue-Vitali to the theorem.  Not sure which is
   the more correct.  Also add reference to the new Riemann-Lebesgue exercise
   from volume I to note that the naming may be confusing.
@@ -387,7 +390,7 @@ Specific changes:
   (erratum), then perhaps it is not completely clear why 11.2.8 is a
   corollary since we do not assume completeness, so add a note on why.
 <li>In Proposition 11.3.1 say the series converges absolutely when
-	\(\rho=\infty .\)  That's what we prove anyway.
+  \(\rho=\infty \text{.}\)  That's what we prove anyway.
 <li>Move the sentence defining the radius of convergence and the figure up
 	in front of the proof, it might make more sense that way.
 <li>Be more consistent with indices in subsection 11.3.4, replace \(j\) with \(m\) in
@@ -415,7 +418,7 @@ Specific changes:
   transparent, and add a little bit more commentary to the proof.
 <li>Add exercise 11.7.14.
 <li>Make indices in the Fourier series section 11.8 more consistent.
-<li>Move the definition of "symmetric partial sum" earlier to where we say 
+<li>Move the definition of "symmetric partial sum" earlier to where we say
   we will sum the series like that.
 <li>In the Fourier series section, add Example 11.8.3, computing and
   plotting the Fourier series for the Heaviside function and a
@@ -424,7 +427,7 @@ Specific changes:
 <li>In the figures of Fourier series, mark the x axis using multiples of pi.
 <li>In Exercise 11.8.1, use \(k\) instead of \(n\) and add a remark in the
   footnote about what the coefficients are, to emphasize the \(n\)th
-  coefficient is either zero or \(\frac{1}{n} .\)
+  coefficient is either zero or \(\frac{1}{n} \text{.}\)
 <li>Add Exercise 11.8.13 to prove that continuous functions have no "minimum
 	rate of decay" of the coefficients.
 </ol>
@@ -443,7 +446,7 @@ very slightly in a few places.
 
 <ol>
 <li>The word "symmetric" as used for a dot product is in the index.
-<li>Define properly that the span of the empty set is \(\{0\}.\)
+<li>Define properly that the span of the empty set is \(\{0\}\text{.}\)
 <li>In Proposition 8.1.11, add a sentence about \(0\) being in \(Y\)
   before the proposition.
 <li>After Definition 8.1.12 note explicitly that no vector in a linearly
@@ -452,7 +455,7 @@ very slightly in a few places.
   is trivially linearly independent and spans \(\{0\}\).
 <li>Improve the proof of part (ii) of Proposition 8.1.14.  And in the
   beginning mention that \(d=0\) is trivial for all statements.
-<li>When stating that \(L(X,Y)\) is a vector space, explicitly mention that 
+<li>When stating that \(L(X,Y)\) is a vector space, explicitly mention that
   0 is the linear map taking everything to 0.
 <li>In Proof of 8.1.18, flip the \(=0\) to be at the front as that is
   slightly clearer.
@@ -468,7 +471,7 @@ very slightly in a few places.
   say that the \(j\)th column represents the \(A x_j\) vector.
 <li>Reorder the discussion about matrix multiplication on page 24, and
   explicitly note that unless otherwise specified we identify the set of
-  m-by-n matrices and \(L({\mathbb{R}}^n,{\mathbb{R}}^m).\)
+  m-by-n matrices and \(L({\mathbb{R}}^n,{\mathbb{R}}^m)\text{.}\)
 <li>To fix an erratum, Proposition 8.2.7 was changed.  In the discussion
   before hand, show that the euclidean norm of the entries is bounded by
   square root of \(n\) times the operator norm.  Then the proposition
@@ -477,7 +480,7 @@ very slightly in a few places.
   the operators (or matrices).
 <li><b>Exercise 8.2.4, part b).  Give a hint on how one could describe
   \(B(0,1)\) as for example a convex hull and tell the student to think
-  about it in \({\mathbb{R}}^2\) and \({\mathbb{R}}^3.\)</b>  It is still
+  about it in \({\mathbb{R}}^2\) and \({\mathbb{R}}^3\text{.}\)</b>  It is still
   somewhat open to interpretation, but in some sense, this part is meant to
   make the student think, so that's OK.
 <li><b>Exercise 8.2.15:</b> Change the hint, I cannot follow the previous
@@ -486,8 +489,8 @@ very slightly in a few places.
   challenging).  Also emphasize that we
   are working on \({\mathbb{R}}^n\) with the euclidean norm.
 <li>Before Theorem 8.3.7, when giving the intuition, use
-  \({\mathbb{R}}^n,\) \({\mathbb{R}}^m,\) and \({\mathbb{R}}^k\) instead
-  of \(X,\) \(Y,\) and \(Z.\)
+  \({\mathbb{R}}^n\text{,}\) \({\mathbb{R}}^m\text{,}\) and \({\mathbb{R}}^k\) instead
+  of \(X\text{,}\) \(Y\text{,}\) and \(Z\text{.}\)
 <li>Add "tangent vector" to the index and mark it in 8.3.3 when defining
   derivative of a curve.  Also mention it in the caption to Figure 8.5,
   along with mentioning that we are assuming \(\gamma\) is defined up to
@@ -495,21 +498,22 @@ very slightly in a few places.
 <li>After definition of directional derivative, do mention that we could
   have used any path \(\gamma\) as long as it had the right derivative
   at zero.
-<li>In proof of Theorem 8.5.1, mention what \(g\) is in the proof.  Then 
+<li>In proof of Theorem 8.5.1, mention what \(g\) is in the proof.  Then
   during the proof that \(W\) is open, use \(x_1\) for a random point in
   \(C(x_0,r)\) to avoid confusion with the fixed point \(x\) later in the
   paragraph.
 <li>In Example 8.5.4, note that the \(f\) is onto
-  \({\mathbb{R}}^2 \setminus \{ (0,0) \} .\)
+  \({\mathbb{R}}^2 \setminus \{ (0,0) \} \text{.}\)
 <li>In Theorem 8.5.8, write \(A=[A_x~A_y]\) in the statement as \(A\) is used
   towards the end of the proof just as it is used as in the previous
   proposition.
 <li>In proof of Theorem 9.1.1, emphasize
-  that the \(y_1\) may have depended on \(x,\) even though the
+  that the \(y_1\) may have depended on \(x\text{,}\) even though the
   estimate does not.
 <li>Reorder the first two pages of 10.1 a little bit by moving the remarks
   out of the definition.  It flows a bit better now.
-<li>In Definition 10.3.1, explicitly mention that we are allowing \(\infty .\)
+<li>In Definition 10.3.1, explicitly mention that we are allowing \(\infty
+  \text{.}\)
 <li>In proof of Proposition 10.3.2, we explicitly mention that the
   rectangles in question are all of positive volume, and there is no reason
   to consider closed rectangles, so don't mention that.
@@ -526,7 +530,7 @@ very slightly in a few places.
   is used for the set of singularities so this could be confusing.
 <li>In the proof of 10.4.3, the estimate for \(T_x\) works with \(\epsilon\)
   rather than \(2\epsilon\) as the \(T_x\) can be put into a
-  \(\delta\) ball given \(o(f,x,\delta) &lt; \epsilon,\)
+  \(\delta\) ball given \(o(f,x,\delta) &lt; \epsilon\text{,}\)
   so mention all that.  The final estimate on page 110 is adjusted.
 <li>In the same proof mention explicitly that the volume of the second set
   of subrectangles is bounded by the sum of the volumes of \(O_j\)
@@ -580,7 +584,7 @@ very slightly in a few places.
 
 <ol>
 <li>Make line in Figure 9.6 a bit bolder to make it easier to pick out.
-<li>In Proposition 10.3.7, use $\ell$ for the number of balls to make it
+<li>In Proposition 10.3.7, use \(\ell\) for the number of balls to make it
   clear that the number is quite likely different from the number of
   rectangles.
 <li>Fix a couple of uses of "=" where ":=" is more appropriate.
@@ -593,14 +597,14 @@ very slightly in a few places.
 <p>
 
 <ol>
-<li>On page 11, add a short note about the $d+1$ linearly independent
+<li>On page 11, add a short note about the \(d+1\) linearly independent
   vectors from the definition of dimension.
-<li>In Exercise 8.4.7, assume $q$ is not identically zero.  The result is
-  vacuously true even if $q$ is identically zero, but there is no reason to
+<li>In Exercise 8.4.7, assume \(q\) is not identically zero.  The result is
+  vacuously true even if \(q\) is identically zero, but there is no reason to
   make students think about this rather stupid technicality.
 <li>The proof in Example 8.1.25 is hopefully clearer.
-<li>In Definition 8.3.8, remove the definition of the notation $D_j f.$  We
-  never used it later.
+<li>In Definition 8.3.8, remove the definition of the notation
+  \(D_j f\text{.}\)  We never used it later.
 <li>In Definition 9.2.1, change the definition of "simple" for non-closed
   paths.  Typically a path that bites itself back in the middle is not called
   simple, so rule out that case.
@@ -608,18 +612,18 @@ very slightly in a few places.
   functions".
 <li>In proof of Lemma 10.3.9, say how to prove it for open balls.
 <li>Improve Definition 10.6.1 to be (much) simpler (though equivalent): Only
-  take a finite disjoint union of simple closed sets as we are assuming $U$
+  take a finite disjoint union of simple closed sets as we are assuming \(U\)
   is bounded anyway.
 <li>Reorder the proof of Theorem 10.7.2 a little bit to make it more logical.
-<li>On page 148, add a short note that the $e^{z+w}=e^ze^w$ leads to a quick
+<li>On page 148, add a short note that the \(e^{z+w}=e^ze^w\) leads to a quick
   computation of the power series at any point.
-<li>In Corollary 11.3.7, emphasize that that $a$ is any complex number,
+<li>In Corollary 11.3.7, emphasize that that \(a\) is any complex number,
   since just above it was a real number.
 <li>In definition of the exponential on page 147 (the definition of
-  $E(z)$) explicitly say that this means that it is analytic.
+  \(E(z)\)) explicitly say that this means that it is analytic.
 <li>Be more precise in Exercise 11.4.9 to say to derive the power series at the
   origin.
-<li>In Example 11.6.3, emphasize that $f_n$ are continuous.
+<li>In Example 11.6.3, emphasize that \(f_n\) are continuous.
 <li>In 11.8.2, when saying we could develop everything with sines and
   cosines, give the actual form of the series and refer to Euler's formula,
   so that when we later call such series also Fourier series, the reader is
@@ -633,8 +637,10 @@ very slightly in a few places.
 
 <ol>
 <li>Improve the introduction.
-<li>In the statement of inverse function theorem, remove the definition of $q,$ it is not used.
-<li>In proof of second part of 10.4.3 (Riemann-Lebesgue) use $S_{1/k}$ rather than $S_k$ for
+<li>In the statement of inverse function theorem, remove the definition of
+  \(q\text{,}\) it is not used.
+<li>In proof of second part of 10.4.3 (Riemann-Lebesgue) use \(S_{1/k}\)
+  rather than \(S_k\) for
 consistency with the first part of the proof.
 <li>In the path integral chapter, consistently use the words "path integral"
 rather than sometimes "path integral" sometimes "line integral".
@@ -685,20 +691,20 @@ and Fourier series.
 the page count to save some paper.
 <li>Add figure showing vector as an arrow and discussion about this
  for those that do not remember it from vector calculus.
-<li>Add a paragraph about simple algebraic facts such that $0v=v.$
+ <li>Add a paragraph about simple algebraic facts such that \(0v=v\text{.}\)
 <li>Add footnote about linear independence for arbitrary sets in 8.1.
-<li>Add example that span of $t^n$ is ${\mathbb{R}}[t].$
+<li>Add example that span of \(t^n\) is \({\mathbb{R}}[t]\text{.}\)
 <li>Add remark about proving a set is a subspace.
-<li>We use the words "linear operator" for $L(X,Y),$
-and it is for $L(X)$ that we say "linear operator on $X$",
+<li>We use the words "linear operator" for \(L(X,Y)\text{,}\)
+and it is for \(L(X)\) that we say "linear operator on \(X\)",
 so update the definition appropriately.
-<li>Add convexity of $B(x,r)$ as a proposition since we use it so often.
+<li>Add convexity of \(B(x,r)\) as a proposition since we use it so often.
 <li>Add Exercise 8.1.19.
-<li>Proposition 8.2.4 doesn't need $Y$ to be finite dimensional,
+<li>Proposition 8.2.4 doesn't need \(Y\) to be finite dimensional,
   same in the Exercise 8.2.12, so no need to assume it.
 <li>In Proposition 8.2.5, emphasize where the finiteness of dimension is
   needed.
-<li>Use $GL(X)$ as notation for invertible linear operators.
+<li>Use \(GL(X)\) as notation for invertible linear operators.
 <li>Give more detail on why mapping between matrices and linear operators is
 one to one once a basis is fixed.
 <li>Add a commutative diagram to the independence on basis discussion.
@@ -711,19 +717,19 @@ one to one once a basis is fixed.
 <li>Add figure to Exercises 8.3.5 and 8.3.6.
 <li>Add Exercise 8.3.14.
 <li>Add graph to figure in Example 8.4.3 (and adjust the formulas).
-<li>As application of continuous partials imply $C^1.$
+<li>As application of continuous partials imply \(C^1\text{.}\)
 <li>Add Exercises 8.4.7, 8.4.8, 8.4.9, 8.4.10.
 <li>Fix up statement of the inverse function theorem in 8.4.
 <li>Add a couple of figures to proof of the inverse function theorem.
 <li>Add a figure to the implicit function theorem.
 <li>Add a short paragraph about the famous Jacobian conjecture.
 <li>Make the remark at the end of 8.5 into an actual "remark".
-<li>Add observation about solving a bunch of equations not just for $s=0$ for
+<li>Add observation about solving a bunch of equations not just for \(s=0\) for
   the implicit function theorem.
 <li>Add Exercises 8.5.9, 8.5.10, 8.5.11.
 <li>Add figure to 8.6.
 <li>In 8.6 cleanup the argument in the proposition and use only
-positive $s$ and $t$ for simplicity.
+positive \(s\) and \(t\) for simplicity.
 <li>Add Exercises 8.6.5, 8.6.6, 8.6.7.
 <li>Refer to the new Proposition 7.5.12 about the continuity in 9.1.
 <li>Add figure to example in 9.1.
