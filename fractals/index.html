@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Fractal Animations</title>
+<link rel="stylesheet" type="text/css" href="../basicstyle.css">
+<link rel="stylesheet" type="text/css" href="../bookpages.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<div class=thebody>
+
+<header>
+<h1>Fractal Animations</h1>
+</header>
+
+<main>
+<p>
+A few small interactive animations showing how some classic fractals
+are built up step by step.  Each runs right in the browser: pick the
+number of iterations and the speed, then press Start (or step through
+one iteration at a time).
+<ul class=nojustify>
+<li><span class=nojustify>
+<a href="koch.html">Koch Snowflake</a>
+<br>
+Start with an equilateral triangle and repeatedly replace the middle third
+of every edge with two sides of a smaller equilateral triangle pointing
+outward.  Watch the perimeter grow without bound while the enclosed area
+stays finite.
+</span>
+<li><span class=nojustify>
+<a href="str-removal.html">Sierpinski Triangle by Removal</a>
+<br>
+Start with a filled triangle and at each step remove the middle triangle
+(the one formed by joining the midpoints of the sides) from every
+remaining triangle.  What is left in the limit is the Sierpinski triangle.
+</span>
+<li><span class=nojustify>
+<a href="str-chaos.html">Sierpinski Triangle via a Chaos Game</a>
+<br>
+A completely different route to the same fractal: start at a point, then
+repeatedly jump halfway toward a randomly chosen vertex of a triangle and
+mark where you land.  Despite the randomness, the Sierpinski triangle
+emerges.
+</span>
+</ul>
+
+<p>
+<a href="../">Back to the main page</a>
+</main>
+
+</div>
+
+</body>
+</html>

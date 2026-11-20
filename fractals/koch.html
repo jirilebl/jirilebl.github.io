@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koch Snowflake</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f4f5f7;
+    color: #1d1d1f;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-size: 1.2rem; margin: 0 0 4px; }
+  #status { margin: 0 0 10px; color: #444; min-height: 1.4em; }
+
+  .stage {
+    position: relative;
+    width: min(100%, max(300px, calc((100vh - 260px) * 0.9)));
+    aspect-ratio: 9 / 10;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #b9bcc2;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+    margin-top: 14px;
+  }
+  .slider { display: flex; flex-direction: column; gap: 4px; font-size: 0.95rem; }
+  .slider .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; }
+
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button {
+    font: inherit; font-size: 0.95rem;
+    padding: 6px 14px;
+    border: 1px solid #9aa0a8; border-radius: 5px;
+    background: #fff; color: inherit; cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #eef2f8; }
+  button:disabled { opacity: 0.45; cursor: default; }
+  button.primary { background: #1f6feb; border-color: #1f6feb; color: #fff; min-width: 7.5em; }
+  button.primary:hover:not(:disabled) { background: #1a5fd0; }
+  #info { margin-top: 10px; font-variant-numeric: tabular-nums; color: #444; font-size: 0.95rem; line-height: 1.5; }
+
+  @media (max-width: 600px) { .controls { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Koch snowflake</h1>
+  <p id="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="base"></canvas>
+    <canvas id="fx"></canvas>
+  </div>
+
+  <div class="controls">
+    <label class="slider">
+      <span>Number of iterations: <span class="val" id="itersVal"></span></span>
+      <input type="range" id="iters" min="1" max="7" step="1" value="4">
+    </label>
+    <label class="slider">
+      <span>Time per iteration: <span class="val" id="delayVal"></span></span>
+      <input type="range" id="delay" min="0" max="3000" step="100" value="1000">
+    </label>
+  </div>
+
+  <div class="bar">
+    <button id="runBtn" class="primary">Start</button>
+    <button id="stepBtn">Step once</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+  <div id="info"></div>
+</div>
+
+<script>
+(() => {
+  // ---------- settings ----------
+  const BLUE_RGB  = [31, 111, 235];
+  const BLUE      = `rgb(${BLUE_RGB.join(',')})`;
+  const FLASH     = [240, 140, 0];   // colour of the new bumps while they grow
+  const MAX_LEVEL = 7;               // 3·4^7 = 49,152 sides; past this they are far below a pixel
+  const MARGIN    = 18;              // px between the snowflake and the edge of the box
+  const S3        = Math.sqrt(3);
+
+  // ---------- elements ----------
+  const $ = id => document.getElementById(id);
+  const stage = $('stage'), baseCv = $('base'), fxCv = $('fx');
+  const bctx = baseCv.getContext('2d');   // the current snowflake
+  const fctx = fxCv.getContext('2d');     // overlay: the bumps being added
+  const itersIn = $('iters'), delayIn = $('delay');
+  const runBtn = $('runBtn'), stepBtn = $('stepBtn'), resetBtn = $('resetBtn');
+  const statusEl = $('status'), infoEl = $('info');
+
+  // ---------- geometry ----------
+  // Unit coordinates: the starting triangle is inscribed in the unit circle (y points down).
+  // Vertices go clockwise on screen, so the bumps point outward.
+  const START = [[0, -1], [S3 / 2, 0.5], [-S3 / 2, 0.5]];
+  let W = 0, H = 0, R = 0, cx = 0, cy = 0;
+  const X = u => cx + u * R;
+  const Y = v => cy + v * R;
+
+  // Replace every side P→Q by four sides: the middle third becomes two sides of an outward
+  // equilateral triangle. Each bump is stored as [ax, ay, bx, by, mx, my, ox, oy]:
+  // a, b = the third points, m = midpoint of the side, o = vector from m to the bump's tip.
+  function refine(pts) {
+    const next = [], bumps = [];
+    const n = pts.length;
+    for (let i = 0; i < n; i++) {
+      const [px, py] = pts[i], [qx, qy] = pts[(i + 1) % n];
+      const dx = qx - px, dy = qy - py;
+      const ax = px + dx / 3,     ay = py + dy / 3;
+      const bx = px + 2 * dx / 3, by = py + 2 * dy / 3;
+      const mx = px + dx / 2,     my = py + dy / 2;
+      const ox = dy * S3 / 6,     oy = -dx * S3 / 6;
+      next.push([px, py], [ax, ay], [mx + ox, my + oy], [bx, by]);
+      bumps.push([ax, ay, bx, by, mx, my, ox, oy]);
+    }
+    return { next, bumps };
+  }
+
+  // ---------- state ----------
+  let level = 0;          // iterations carried out so far
+  let pts = START;        // vertices of the current snowflake
+  let anim = null;        // { bumps, next, t0, dur } while new bumps are animating
+  let running = false;
+  let acc = 0, lastT = performance.now();
+
+  const iterTarget = () => +itersIn.value;
+  const delayMs = () => +delayIn.value;
+
+  // ---------- drawing ----------
+  function drawBase() {
+    bctx.clearRect(0, 0, W, H);
+    bctx.fillStyle = BLUE;
+    bctx.beginPath();
+    bctx.moveTo(X(pts[0][0]), Y(pts[0][1]));
+    for (let i = 1; i < pts.length; i++) bctx.lineTo(X(pts[i][0]), Y(pts[i][1]));
+    bctx.closePath();
+    bctx.fill();
+  }
+
+  function finishAnim() {
+    if (!anim) return;
+    pts = anim.next;
+    anim = null;
+    drawBase();
+    fctx.clearRect(0, 0, W, H);
+  }
+
+  const easeInOut = t => (t < 0.5 ? 2 * t * t : 1 - 2 * (1 - t) * (1 - t));
+
+  // New bumps: grow outward from the flat middle third (orange), hold, then turn blue.
+  function drawFx(now) {
+    if (!anim) return;
+    const t = (now - anim.t0) / anim.dur;
+    if (t >= 1) { finishAnim(); return; }
+    fctx.clearRect(0, 0, W, H);
+
+    const grow = easeInOut(Math.min(Math.max(t, 0) / 0.45, 1));
+    const [r, g, b] = FLASH;
+    let color = `rgb(${r}, ${g}, ${b})`;
+    let inset = 0;
+    if (t >= 0.6) {
+      const s = easeInOut((t - 0.6) / 0.4);
+      const [br, bg, bb] = BLUE_RGB;
+      color = `rgb(${Math.round(r + (br - r) * s)}, ${Math.round(g + (bg - g) * s)}, ${Math.round(b + (bb - b) * s)})`;
+      inset = 0.1;   // overlap slightly into the shape so no seam shows once both are blue
+    }
+    fctx.fillStyle = color;
+    for (const [ax, ay, bx, by, mx, my, ox, oy] of anim.bumps) {
+      fctx.beginPath();
+      fctx.moveTo(X(ax), Y(ay));
+      fctx.lineTo(X(mx + ox * grow), Y(my + oy * grow));
+      fctx.lineTo(X(bx), Y(by));
+      if (inset) fctx.lineTo(X(mx - ox * inset), Y(my - oy * inset));
+      fctx.fill();
+    }
+  }
+
+  // ---------- one iteration ----------
+  function step(now, dur) {
+    if (level >= MAX_LEVEL) return;
+    finishAnim();                              // complete the previous step if still animating
+    const { next, bumps } = refine(pts);
+    level++;
+    if (dur > 0) {
+      anim = { bumps, next, t0: now, dur };
+      drawFx(now);
+    } else {
+      pts = next;
+      drawBase();
+    }
+  }
+
+  function resetAll() {
+    running = false;
+    anim = null;
+    level = 0;
+    pts = START;
+    fctx.clearRect(0, 0, W, H);
+    drawBase();
+  }
+
+  // ---------- main loop ----------
+  function frame(now) {
+    const dt = now - lastT;
+    lastT = now;
+
+    if (running) {
+      const delay = delayMs(), target = iterTarget();
+      if (level < target) {
+        if (delay === 0) {
+          step(now, 0);                        // "instant": one level per frame
+        } else {
+          acc = Math.min(acc + dt, delay + 100);
+          if (acc >= delay) {
+            acc -= delay;
+            step(now, delay >= 150 ? Math.min(delay * 0.85, 2000) : 0);
+          }
+        }
+      }
+      if (level >= Math.min(target, MAX_LEVEL)) running = false;
+      updateUI();
+    }
+
+    drawFx(now);
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- UI ----------
+  function updateUI() {
+    const target = iterTarget(), d = delayMs();
+    $('itersVal').textContent = target;
+    $('delayVal').textContent = d === 0 ? 'instant' : (d / 1000).toFixed(1) + ' s';
+
+    let msg;
+    if (running && level === 0) {
+      msg = 'Starting…';
+    } else if (running) {
+      const n = 3 * 4 ** (level - 1);
+      msg = `Iteration ${level}: the middle third of each of the ${n.toLocaleString()} sides becomes an outward point.`;
+    } else if (level === 0) {
+      msg = 'An equilateral triangle. Press Start to begin adding bumps.';
+    } else if (level < target) {
+      msg = 'Paused.';
+    } else {
+      msg = `Done: ${level} iteration${level === 1 ? '' : 's'}.` +
+            (level < MAX_LEVEL ? ' Use “Step once” to go one more, or “Start over”.' : '');
+    }
+    statusEl.textContent = msg;
+
+    runBtn.textContent = running ? 'Pause'
+      : level === 0 ? 'Start'
+      : level < target ? 'Resume'
+      : 'Start over';
+    stepBtn.disabled = running || level >= MAX_LEVEL;
+    resetBtn.disabled = level === 0 && !running;
+
+    const sides = 3 * 4 ** level;
+    const perim = (4 / 3) ** level;
+    const area = 1 + 0.6 * (1 - (4 / 9) ** level);
+    infoEl.innerHTML =
+      `Iteration ${level} · ${sides.toLocaleString()} sides · ` +
+      `perimeter = (4/3)<sup>${level}</sup> ≈ ${perim.toFixed(3)} × the triangle’s · ` +
+      `area ≈ ${area.toFixed(4)} × the triangle’s (limit 8/5 = 1.6)`;
+  }
+
+  runBtn.addEventListener('click', () => {
+    if (running) {
+      running = false;
+    } else if (level >= iterTarget()) {        // Start over: show the triangle for one interval first
+      resetAll();
+      acc = 0;
+      running = true;
+    } else {                                   // Start / Resume: first step right away
+      acc = delayMs();
+      running = true;
+    }
+    updateUI();
+  });
+
+  stepBtn.addEventListener('click', () => {
+    if (running) return;
+    step(performance.now(), 1400);
+    updateUI();
+  });
+
+  resetBtn.addEventListener('click', () => { resetAll(); updateUI(); });
+  itersIn.addEventListener('input', updateUI);
+  delayIn.addEventListener('input', updateUI);
+
+  // ---------- sizing (sharp on high-DPI screens) ----------
+  // The finished snowflake spans ±1 vertically and ±√3/2 horizontally in unit coordinates.
+  function resize() {
+    const w = fxCv.clientWidth, h = fxCv.clientHeight;
+    if (!w || !h) return;
+    const dpr = window.devicePixelRatio || 1;
+    W = w; H = h;
+    for (const [cv, ctx] of [[baseCv, bctx], [fxCv, fctx]]) {
+      cv.width = Math.round(w * dpr);
+      cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    R = Math.min((W - 2 * MARGIN) / S3, (H - 2 * MARGIN) / 2);
+    cx = W / 2;
+    cy = H / 2;
+    drawBase();
+    if (anim) drawFx(performance.now());
+  }
+  new ResizeObserver(resize).observe(stage);
+
+  resize();
+  updateUI();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

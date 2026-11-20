@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sierpinski Triangle via a Chaos Game</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f4f5f7;
+    color: #1d1d1f;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-size: 1.2rem; margin: 0 0 4px; }
+  #status { margin: 0 0 10px; color: #444; min-height: 1.4em; }
+
+  .stage {
+    position: relative;
+    width: min(100%, max(320px, calc((100vh - 240px) * 1.5)));
+    aspect-ratio: 3 / 2;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #b9bcc2;
+    border-radius: 6px;
+    cursor: crosshair;
+    overflow: hidden;
+    user-select: none;
+    touch-action: manipulation;
+  }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+    margin-top: 14px;
+  }
+  .slider { display: flex; flex-direction: column; gap: 4px; font-size: 0.95rem; }
+  .slider .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; }
+
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button {
+    font: inherit; font-size: 0.95rem;
+    padding: 6px 14px;
+    border: 1px solid #9aa0a8; border-radius: 5px;
+    background: #fff; color: inherit; cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #eef2f8; }
+  button:disabled { opacity: 0.45; cursor: default; }
+  button.primary { background: #1f6feb; border-color: #1f6feb; color: #fff; min-width: 7.5em; }
+  button.primary:hover:not(:disabled) { background: #1a5fd0; }
+  .check { display: flex; align-items: center; gap: 6px; font-size: 0.95rem; margin-left: 6px; }
+  #count { margin-left: auto; font-variant-numeric: tabular-nums; color: #444; font-size: 0.95rem; }
+
+  @media (max-width: 600px) {
+    .controls { grid-template-columns: 1fr; }
+    #count { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sierpinski Triangle via a Chaos Game</h1>
+  <p id="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="dots"></canvas>
+    <canvas id="fx"></canvas>
+  </div>
+
+  <div class="controls">
+    <label class="slider">
+      <span>Number of iterations: <span class="val" id="itersVal"></span></span>
+      <input type="range" id="iters" min="0" step="1">
+    </label>
+    <label class="slider">
+      <span>Time per iteration: <span class="val" id="delayVal"></span></span>
+      <input type="range" id="delay" min="0" max="2000" step="10" value="500">
+    </label>
+  </div>
+
+  <div class="bar">
+    <button id="runBtn" class="primary">Start</button>
+    <button id="stepBtn">Step once</button>
+    <button id="clearBtn">Clear blue dots</button>
+    <button id="resetBtn">Reset all</button>
+    <label class="check"><input type="checkbox" id="showLines" checked> Show construction</label>
+    <span id="count"></span>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ---------- settings ----------
+  const VERTEX_R = 5;          // radius of the three black points (CSS px)
+  const START_R  = 3;          // radius of the blue starting point
+  const DOT_R    = 1.6;        // radius of each new blue dot
+  const BLUE     = '#1f6feb';
+  const HILITE   = '#f08c00';  // ring around the randomly chosen black point
+  const SLIDE    = 0.35;       // fraction of the animation spent sliding to the new spot
+  const ITER_CHOICES = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60, 75,
+    100, 125, 150, 200, 250, 300, 400, 500, 600, 750, 1000, 1250, 1500, 2000, 2500,
+    3000, 4000, 5000, 6000, 7500, 10000, 12500, 15000, 20000, 25000, 30000, 40000, 50000];
+  const DEFAULT_ITERS = 100;
+
+  // ---------- elements ----------
+  const $ = id => document.getElementById(id);
+  const stage = $('stage'), dotsCv = $('dots'), fxCv = $('fx');
+  const dctx = dotsCv.getContext('2d');   // permanent layer: blue dots
+  const fctx = fxCv.getContext('2d');     // overlay: black points + animations
+  const itersIn = $('iters'), delayIn = $('delay');
+  const runBtn = $('runBtn'), stepBtn = $('stepBtn'), clearBtn = $('clearBtn'), resetBtn = $('resetBtn');
+  const showLines = $('showLines'), statusEl = $('status'), countEl = $('count');
+
+  itersIn.max = ITER_CHOICES.length - 1;
+  itersIn.value = ITER_CHOICES.indexOf(DEFAULT_ITERS);
+
+  // ---------- state ----------
+  // Points are stored as fractions of the box's width/height, so resizing the window is harmless.
+  let W = 0, H = 0;
+  let vertices = [];     // the three black points
+  let start = null;      // the blue starting point
+  let points = [];       // every blue dot produced by the iteration
+  let current = null;    // the most recent blue dot
+  let running = false;
+  let doneThisRun = 0;
+  let acc = 0, lastT = performance.now();
+  let effects = [];      // active animations
+
+  const iterTarget = () => ITER_CHOICES[+itersIn.value];
+  const delayMs = () => +delayIn.value;
+  const ready = () => vertices.length === 3 && start !== null;
+
+  // ---------- drawing helpers ----------
+  const px = p => [p.x * W, p.y * H];
+  const easeOut = t => 1 - (1 - t) * (1 - t);
+  const easeInOut = t => (t < 0.5 ? 2 * t * t : 1 - 2 * (1 - t) * (1 - t));
+
+  function fillDot(ctx, p, r) {
+    const [x, y] = px(p);
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function ring(ctx, p, r, color, width, alpha) {
+    const [x, y] = px(p);
+    ctx.save();
+    ctx.globalAlpha = Math.max(alpha, 0);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = width;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function redrawDots() {
+    dctx.clearRect(0, 0, W, H);
+    dctx.fillStyle = BLUE;
+    dctx.beginPath();
+    for (const p of points) {
+      const [x, y] = px(p);
+      dctx.moveTo(x + DOT_R, y);
+      dctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+    }
+    dctx.fill();
+    if (start) fillDot(dctx, start, START_R);
+  }
+
+  // Put an animated dot onto the permanent layer (once it has "landed").
+  function commit(e) {
+    if (e.from && !e.committed) {
+      e.committed = true;
+      dctx.fillStyle = BLUE;
+      fillDot(dctx, e.at, DOT_R);
+    }
+  }
+
+  function drawFx(now) {
+    fctx.clearRect(0, 0, W, H);
+    const alive = [];
+    for (const e of effects) {
+      const u = (now - e.t0) / e.dur;
+      if (u >= 1) { commit(e); continue; }
+      alive.push(e);
+      const t = Math.max(u, 0);
+
+      if (!e.from) {               // a point just placed by a click: one pulse
+        ring(fctx, e.at, 4 + 16 * easeOut(t), e.color, 2, 1 - t);
+        continue;
+      }
+
+      if (showLines.checked) {     // dashed line from the last blue dot to the chosen black point
+        const [x0, y0] = px(e.from), [x1, y1] = px(e.vertex);
+        fctx.save();
+        fctx.globalAlpha = 0.6 * (1 - t);
+        fctx.strokeStyle = '#888';
+        fctx.lineWidth = 1;
+        fctx.setLineDash([5, 4]);
+        fctx.beginPath();
+        fctx.moveTo(x0, y0);
+        fctx.lineTo(x1, y1);
+        fctx.stroke();
+        fctx.restore();
+        ring(fctx, e.vertex, VERTEX_R + 5, HILITE, 2.5, 1 - t);
+      }
+
+      fctx.fillStyle = BLUE;
+      if (t < SLIDE) {             // the dot slides from the last blue dot to the midpoint
+        const s = easeInOut(t / SLIDE);
+        fillDot(fctx, {
+          x: e.from.x + (e.at.x - e.from.x) * s,
+          y: e.from.y + (e.at.y - e.from.y) * s
+        }, DOT_R + 2);
+      } else {                     // it lands, and a ring pulses outward
+        commit(e);
+        const w = (t - SLIDE) / (1 - SLIDE);
+        ring(fctx, e.at, 3 + 14 * easeOut(w), BLUE, 2, 1 - w);
+        fillDot(fctx, e.at, DOT_R + 2 * (1 - w));
+      }
+    }
+    effects = alive;
+
+    fctx.fillStyle = '#000';       // black points stay on top of everything
+    for (const v of vertices) fillDot(fctx, v, VERTEX_R);
+  }
+
+  // ---------- one iteration ----------
+  function step(now, animDur) {
+    for (const e of effects) commit(e);        // finish any dot still in flight
+
+    const v = vertices[Math.floor(Math.random() * 3)];
+    const from = current;
+    const next = { x: (from.x + v.x) / 2, y: (from.y + v.y) / 2 };
+    points.push(next);
+    current = next;
+
+    if (animDur > 0) {
+      effects.push({ at: next, from, vertex: v, t0: now, dur: animDur });
+    } else {
+      dctx.fillStyle = BLUE;
+      fillDot(dctx, next, DOT_R);
+    }
+  }
+
+  // ---------- main loop ----------
+  function frame(now) {
+    const dt = now - lastT;
+    lastT = now;
+
+    if (running) {
+      const delay = delayMs(), target = iterTarget();
+      if (delay === 0) {                       // "as fast as possible": a batch per frame, no animation
+        const n = Math.min(target - doneThisRun, 250);
+        for (let i = 0; i < n; i++) step(now, 0);
+        doneThisRun += Math.max(n, 0);
+      } else {
+        acc = Math.min(acc + dt, delay + 100); // cap so a hidden tab doesn't cause a burst
+        const animDur = delay >= 40 ? Math.min(Math.max(delay * 0.9, 150), 1200) : 0;
+        while (acc >= delay && doneThisRun < target) {
+          step(now, animDur);
+          doneThisRun++;
+          acc -= delay;
+        }
+      }
+      if (doneThisRun >= target) running = false;
+      updateUI();
+    }
+
+    drawFx(now);
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- UI ----------
+  function updateUI() {
+    const target = iterTarget();
+    const d = delayMs();
+    $('itersVal').textContent = target.toLocaleString();
+    $('delayVal').textContent = d === 0 ? 'as fast as possible' : (d / 1000).toFixed(2) + ' s';
+
+    let msg;
+    if (vertices.length < 3) msg = `Click in the box to place black point ${vertices.length + 1} of 3.`;
+    else if (!start)         msg = 'Click to place the blue starting point.';
+    else if (running)        msg = 'Running: each step picks one of the black points at random and moves halfway toward it.';
+    else if (doneThisRun >= target) msg = `Done. Press “Run again” to add ${target.toLocaleString()} more.`;
+    else                     msg = 'Paused.';
+    statusEl.textContent = msg;
+
+    runBtn.disabled = !ready();
+    runBtn.textContent = running ? 'Pause'
+      : (!ready() || doneThisRun === 0) ? 'Start'
+      : doneThisRun >= target ? 'Run again'
+      : 'Resume';
+    stepBtn.disabled = !ready() || running;
+    clearBtn.disabled = !start;
+    resetBtn.disabled = vertices.length === 0;
+    countEl.textContent = ready()
+      ? `This run: ${doneThisRun.toLocaleString()} / ${target.toLocaleString()} · Total steps: ${points.length.toLocaleString()}`
+      : '';
+  }
+
+  stage.addEventListener('click', ev => {
+    if (ready()) return;                       // setup is finished; ignore clicks
+    const r = fxCv.getBoundingClientRect();
+    const p = { x: (ev.clientX - r.left) / r.width, y: (ev.clientY - r.top) / r.height };
+    const now = performance.now();
+
+    if (vertices.length < 3) {
+      vertices.push(p);
+      effects.push({ at: p, color: '#000', t0: now, dur: 600 });
+    } else {
+      start = current = p;
+      dctx.fillStyle = BLUE;
+      fillDot(dctx, p, START_R);
+      effects.push({ at: p, color: BLUE, t0: now, dur: 600 });
+      doneThisRun = 0;
+      acc = 0;
+      running = true;                          // the iteration starts automatically
+    }
+    updateUI();
+  });
+
+  runBtn.addEventListener('click', () => {
+    if (!ready()) return;
+    if (running) {
+      running = false;
+    } else {
+      if (doneThisRun >= iterTarget()) doneThisRun = 0;   // "Run again" continues from the last dot
+      acc = 0;
+      running = true;
+    }
+    updateUI();
+  });
+
+  stepBtn.addEventListener('click', () => {
+    if (!ready() || running) return;
+    step(performance.now(), 900);
+    updateUI();
+  });
+
+  clearBtn.addEventListener('click', () => {   // keep the black points, choose a new start
+    running = false;
+    start = current = null;
+    points = [];
+    effects = [];
+    doneThisRun = 0;
+    redrawDots();
+    updateUI();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    running = false;
+    vertices = [];
+    start = current = null;
+    points = [];
+    effects = [];
+    doneThisRun = 0;
+    redrawDots();
+    updateUI();
+  });
+
+  itersIn.addEventListener('input', updateUI);
+  delayIn.addEventListener('input', updateUI);
+
+  // ---------- sizing (sharp on high-DPI screens) ----------
+  function resize() {
+    const w = fxCv.clientWidth, h = fxCv.clientHeight;
+    if (!w || !h) return;
+    const dpr = window.devicePixelRatio || 1;
+    W = w; H = h;
+    for (const [cv, ctx] of [[dotsCv, dctx], [fxCv, fctx]]) {
+      cv.width = Math.round(w * dpr);
+      cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    redrawDots();
+  }
+  new ResizeObserver(resize).observe(stage);
+
+  resize();
+  updateUI();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
