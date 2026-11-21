@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sierpinski Triangle by Removal</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f4f5f7;
+    color: #1d1d1f;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-size: 1.2rem; margin: 0 0 4px; }
+  #status { margin: 0 0 10px; color: #444; min-height: 1.4em; }
+
+  .stage {
+    position: relative;
+    width: min(100%, max(320px, calc((100vh - 250px) * 8 / 7)));
+    aspect-ratio: 8 / 7;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #b9bcc2;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+    margin-top: 14px;
+  }
+  .slider { display: flex; flex-direction: column; gap: 4px; font-size: 0.95rem; }
+  .slider .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; }
+
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button {
+    font: inherit; font-size: 0.95rem;
+    padding: 6px 14px;
+    border: 1px solid #9aa0a8; border-radius: 5px;
+    background: #fff; color: inherit; cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #eef2f8; }
+  button:disabled { opacity: 0.45; cursor: default; }
+  button.primary { background: #1f6feb; border-color: #1f6feb; color: #fff; min-width: 7.5em; }
+  button.primary:hover:not(:disabled) { background: #1a5fd0; }
+  #info { margin-top: 10px; font-variant-numeric: tabular-nums; color: #444; font-size: 0.95rem; }
+
+  @media (max-width: 600px) { .controls { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sierpinski triangle by removing middle triangles</h1>
+  <p id="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="base"></canvas>
+    <canvas id="fx"></canvas>
+  </div>
+
+  <div class="controls">
+    <label class="slider">
+      <span>Number of iterations: <span class="val" id="itersVal"></span></span>
+      <input type="range" id="iters" min="1" max="10" step="1" value="6">
+    </label>
+    <label class="slider">
+      <span>Time per iteration: <span class="val" id="delayVal"></span></span>
+      <input type="range" id="delay" min="0" max="3000" step="100" value="1000">
+    </label>
+  </div>
+
+  <div class="bar">
+    <button id="runBtn" class="primary">Start</button>
+    <button id="stepBtn">Step once</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+  <div id="info"></div>
+</div>
+
+<script>
+(() => {
+  // ---------- settings ----------
+  const BLUE      = '#1f6feb';
+  const FLASH     = [240, 140, 0];   // colour the removed triangles flash before turning white
+  const MAX_LEVEL = 10;              // 3^10 = 59,049 triangles; past this they are smaller than a pixel
+  const MARGIN    = 18;              // px between the triangle and the edge of the box
+
+  // ---------- elements ----------
+  const $ = id => document.getElementById(id);
+  const stage = $('stage'), baseCv = $('base'), fxCv = $('fx');
+  const bctx = baseCv.getContext('2d');   // the current blue triangles
+  const fctx = fxCv.getContext('2d');     // overlay: middle triangles being removed
+  const itersIn = $('iters'), delayIn = $('delay');
+  const runBtn = $('runBtn'), stepBtn = $('stepBtn'), resetBtn = $('resetBtn');
+  const statusEl = $('status'), infoEl = $('info');
+
+  // ---------- geometry ----------
+  // Triangles are [ax, ay, bx, by, cx, cy] in "unit" coordinates:
+  // the big triangle is A = (0.5, 0) top, B = (0, 1) bottom-left, C = (1, 1) bottom-right.
+  const FULL = [0.5, 0, 0, 1, 1, 1];
+  let W = 0, H = 0, side = 0, th = 0, ox = 0, oy = 0;   // pixel placement of the big triangle
+  const X = u => ox + u * side;
+  const Y = v => oy + v * th;
+
+  // Split a triangle into its middle (removed) triangle and three corner (kept) triangles.
+  function split(t) {
+    const [ax, ay, bx, by, cx, cy] = t;
+    const abx = (ax + bx) / 2, aby = (ay + by) / 2;
+    const bcx = (bx + cx) / 2, bcy = (by + cy) / 2;
+    const acx = (ax + cx) / 2, acy = (ay + cy) / 2;
+    return {
+      hole: [abx, aby, bcx, bcy, acx, acy],
+      kids: [
+        [ax, ay, abx, aby, acx, acy],
+        [abx, aby, bx, by, bcx, bcy],
+        [acx, acy, bcx, bcy, cx, cy]
+      ]
+    };
+  }
+
+  // One fill per triangle: much faster than one giant path when there are thousands of them.
+  function fillTris(ctx, list) {
+    for (const t of list) {
+      ctx.beginPath();
+      ctx.moveTo(X(t[0]), Y(t[1]));
+      ctx.lineTo(X(t[2]), Y(t[3]));
+      ctx.lineTo(X(t[4]), Y(t[5]));
+      ctx.fill();
+    }
+  }
+
+  // ---------- state ----------
+  let level = 0;          // iterations carried out so far
+  let tris = [FULL];      // blue triangles currently drawn
+  let anim = null;        // { holes, next, t0, dur } while a removal is animating
+  let running = false;
+  let acc = 0, lastT = performance.now();
+
+  const iterTarget = () => +itersIn.value;
+  const delayMs = () => +delayIn.value;
+
+  // ---------- drawing ----------
+  function drawBase() {
+    bctx.clearRect(0, 0, W, H);
+    bctx.fillStyle = BLUE;
+    fillTris(bctx, tris);
+  }
+
+  function finishAnim() {
+    if (!anim) return;
+    tris = anim.next;
+    anim = null;
+    drawBase();
+    fctx.clearRect(0, 0, W, H);
+    fxCv.style.opacity = 1;
+  }
+
+  // The middle triangles are drawn onto the overlay once; each frame just recolours them.
+  function paintHoles() {
+    fctx.clearRect(0, 0, W, H);
+    fctx.fillStyle = '#fff';
+    fillTris(fctx, anim.holes);
+  }
+
+  const easeInOut = t => (t < 0.5 ? 2 * t * t : 1 - 2 * (1 - t) * (1 - t));
+
+  // Removed triangles: fade in orange, hold briefly, then fade to white.
+  function drawFx(now) {
+    if (!anim) return;
+    const t = (now - anim.t0) / anim.dur;
+    if (t >= 1) { finishAnim(); return; }
+
+    const [r, g, b] = FLASH;
+    let color = `rgb(${r}, ${g}, ${b})`, opacity = 1;
+    if (t < 0.25) {
+      opacity = t / 0.25;
+    } else if (t >= 0.5) {
+      const s = easeInOut((t - 0.5) / 0.5);
+      color = `rgb(${Math.round(r + (255 - r) * s)}, ${Math.round(g + (255 - g) * s)}, ${Math.round(b + (255 - b) * s)})`;
+    }
+    fctx.save();
+    fctx.globalCompositeOperation = 'source-in';   // repaint only where the holes are
+    fctx.fillStyle = color;
+    fctx.fillRect(0, 0, W, H);
+    fctx.restore();
+    fxCv.style.opacity = opacity;
+  }
+
+  // ---------- one iteration ----------
+  function step(now, dur) {
+    if (level >= MAX_LEVEL) return;
+    finishAnim();                              // complete the previous removal if still animating
+    const holes = [], next = [];
+    for (const t of tris) {
+      const s = split(t);
+      holes.push(s.hole);
+      next.push(s.kids[0], s.kids[1], s.kids[2]);
+    }
+    level++;
+    if (dur > 0) {
+      anim = { holes, next, t0: now, dur };
+      paintHoles();
+      drawFx(now);
+    } else {
+      tris = next;
+      drawBase();
+    }
+  }
+
+  function resetAll() {
+    running = false;
+    anim = null;
+    level = 0;
+    tris = [FULL];
+    fctx.clearRect(0, 0, W, H);
+    fxCv.style.opacity = 1;
+    drawBase();
+  }
+
+  // ---------- main loop ----------
+  function frame(now) {
+    const dt = now - lastT;
+    lastT = now;
+
+    if (running) {
+      const delay = delayMs(), target = iterTarget();
+      if (level < target) {
+        if (delay === 0) {
+          step(now, 0);                        // "instant": one level per frame
+        } else {
+          acc = Math.min(acc + dt, delay + 100);
+          if (acc >= delay) {
+            acc -= delay;
+            step(now, delay >= 150 ? Math.min(delay * 0.8, 2000) : 0);
+          }
+        }
+      }
+      if (level >= Math.min(target, MAX_LEVEL)) running = false;
+      updateUI();
+    }
+
+    drawFx(now);
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- UI ----------
+  function updateUI() {
+    const target = iterTarget(), d = delayMs();
+    $('itersVal').textContent = target;
+    $('delayVal').textContent = d === 0 ? 'instant' : (d / 1000).toFixed(1) + ' s';
+
+    let msg;
+    if (running && level === 0) {
+      msg = 'Starting…';
+    } else if (running) {
+      const n = 3 ** (level - 1);
+      msg = `Iteration ${level}: removing the middle triangle from each of the ${n.toLocaleString()} blue triangle${n === 1 ? '' : 's'}.`;
+    } else if (level === 0) {
+      msg = 'A filled blue triangle. Press Start to begin removing middle triangles.';
+    } else if (level < target) {
+      msg = 'Paused.';
+    } else {
+      msg = `Done: ${level} iteration${level === 1 ? '' : 's'}.` +
+            (level < MAX_LEVEL ? ' Use “Step once” to go one more, or “Start over”.' : '');
+    }
+    statusEl.textContent = msg;
+
+    runBtn.textContent = running ? 'Pause'
+      : level === 0 ? 'Start'
+      : level < target ? 'Resume'
+      : 'Start over';
+    stepBtn.disabled = running || level >= MAX_LEVEL;
+    resetBtn.disabled = level === 0 && !running;
+
+    const count = 3 ** level;
+    infoEl.innerHTML =
+      `Iteration ${level} · ${count.toLocaleString()} blue triangle${count === 1 ? '' : 's'} · ` +
+      `blue area = (3/4)<sup>${level}</sup> ≈ ${(0.75 ** level).toFixed(4)} of the original`;
+  }
+
+  runBtn.addEventListener('click', () => {
+    if (running) {
+      running = false;
+    } else if (level >= iterTarget()) {        // Start over: show the full triangle for one interval first
+      resetAll();
+      acc = 0;
+      running = true;
+    } else {                                   // Start / Resume: first removal right away
+      acc = delayMs();
+      running = true;
+    }
+    updateUI();
+  });
+
+  stepBtn.addEventListener('click', () => {
+    if (running) return;
+    step(performance.now(), 1200);
+    updateUI();
+  });
+
+  resetBtn.addEventListener('click', () => { resetAll(); updateUI(); });
+  itersIn.addEventListener('input', updateUI);
+  delayIn.addEventListener('input', updateUI);
+
+  // ---------- sizing (sharp on high-DPI screens) ----------
+  function resize() {
+    const w = fxCv.clientWidth, h = fxCv.clientHeight;
+    if (!w || !h) return;
+    const dpr = window.devicePixelRatio || 1;
+    W = w; H = h;
+    for (const [cv, ctx] of [[baseCv, bctx], [fxCv, fctx]]) {
+      cv.width = Math.round(w * dpr);
+      cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    side = Math.min(W - 2 * MARGIN, (H - 2 * MARGIN) / (Math.sqrt(3) / 2));
+    th = side * Math.sqrt(3) / 2;
+    ox = (W - side) / 2;
+    oy = (H - th) / 2;
+    drawBase();
+    if (anim) { paintHoles(); drawFx(performance.now()); }
+  }
+  new ResizeObserver(resize).observe(stage);
+
+  resize();
+  updateUI();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
